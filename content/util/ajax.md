@@ -82,6 +82,7 @@
             }
         });
     }
+    
     mui('body').on('click', '.add', function (e) {
         let thisTr = this.parentNode.parentNode
 
