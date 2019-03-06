@@ -5,8 +5,6 @@
 
 ------
 [nico](./record/nico)  就是这个静态采用的生成方法
-[nico](//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css)
-[nico](//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js)
 
 ## 用于服务器上同步博客内容的一个小脚本
 > 就是自动拉取git的代码然后nico build
@@ -40,4 +38,18 @@ function iconvDecode(str = '') {
     const binaryEncoding = 'binary';
     return iconv.decode(Buffer.from(str, binaryEncoding), encoding);
 }
+```
+
+## 代码高亮
+> [highlightjs](https://highlightjs.org/usage/)
+
+nico自带的代码高亮好像只有html，于是用了highlightjs的。
+要注意的是需要运行highlightBlock来高亮指定的元素中的代码，我将以下代码添加到了nico的templates中。*记得引入[highlightjs](https://highlightjs.org/usage/)*
+```html
+<script>
+  //高亮代码块
+  document.querySelectorAll('pre').forEach(function(value){
+    hljs.highlightBlock(value);
+  })
+</script>
 ```
