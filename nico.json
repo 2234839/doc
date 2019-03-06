@@ -2,8 +2,11 @@
     "source": "content",
     "output": "_site",
     "theme": "_themes/one",
-    "sitename": "崮生的学习笔记",
+    "sitename": "首页",
     "siteurl": "http://www.shenzilong.cn/",
+    "tagline":"崮生写笔记的地方",
+    "hideNico":"true",
+    "github":"https://github.com/2234839",
     "permalink": "{{directory}}/{{filename}}.html",
     "footer": "一些随笔/湘ICP备18021783号-1",
     "writers": [
