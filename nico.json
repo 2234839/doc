@@ -2,14 +2,19 @@
     "source": "content",
     "output": "_site",
     "theme": "_themes/one",
-    "site": {
-        "name": "崮生的学习笔记",
-        "url": "http://www.shenzilong.cn/"
-    },
+    "sitename": "崮生的学习笔记",
+    "siteurl": "http://www.shenzilong.cn/",
     "permalink": "{{directory}}/{{filename}}.html",
+    "footer": "一些随笔",
     "writers": [
         "nico.PostWriter",
+        "nico.PageWriter",
         "nico.FileWriter",
-        "nico.StaticWriter"
+        "nico.StaticWriter",
+        "nico.ArchiveWriter",
+        "nico.YearWriter",
+        "nico.TagWriter",
+        "nico.DirectoryWriter",
+        "nico.FeedWriter"
     ]
 }
