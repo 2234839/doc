@@ -10,7 +10,7 @@
     "permalink": "{{directory}}/{{filename}}.html",
     "footer": "一些随笔  -*-  湘ICP备18021783号-1",
     "navigation": [
-        {"title": "record", "link": "/record/index.html"},
+        {"title": "记录", "link": "/record/index.html"},
         {"title": "工具", "link": "/util/index.html"}
     ],
     "writers": [

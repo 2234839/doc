@@ -70,19 +70,19 @@
             dataType: 'json',
             type: mui('[name=mehod]')[0].value,
             timeout: 10000,
-            success: function (data) {
-                console.log(data);// 请求成功  
-                mui('#res')[0].innerHTML = JSON.stringify(data, null, 4)
-                hljs.highlightBlock(mui('#res')[0]);
-            },
+            success:load,
             error: function (xhr, type, errorThrown) {
-                console.log(errorThrown);// 请求失败  
-                mui('#res')[0].innerHTML = errorThrown
-                hljs.highlightBlock(mui('#res')[0]);
+                load(errorThrown)
             }
         });
+        
+        function load(res){
+            console.log(res);
+            mui('#res')[0].innerHTML = res
+            hljs.highlightBlock(mui('#res')[0]);
+        }
     }
-    
+
     mui('body').on('click', '.add', function (e) {
         let thisTr = this.parentNode.parentNode
 
