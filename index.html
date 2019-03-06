@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet"
+    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+</head>
+<body>
+
+    <pre>
+        <code class="javascript">
+            //执行命令返回Promise
+            function exec(cmd) {
+                return new Promise((resolve, reject) => {
+                    shell.exec(cmd, { encoding: 'binary' }, function (err, stdout, stderr) {
+                        if (err)
+                            reject(iconvDecode(stderr))
+                        resolve(iconvDecode(stdout))
+                    })
+                })
+            }
+        </code>
+    </pre>
+</body>
+</html>

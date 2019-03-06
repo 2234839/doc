@@ -27,6 +27,9 @@
       })();
     </script>
     {%- endif %}
+
+    <link rel="stylesheet" href="{{ static_url('default.min.css') }}">
+    <script src="{{ static_url('highlight.min.js') }}"></script>
   </head>
   <body>
     <div class="header">
@@ -64,3 +67,10 @@
     <script src="{{ static_url('one.js') }}"></script>
   </body>
 </html>
+
+<script>
+  //高亮代码块
+  document.querySelectorAll('pre').forEach(function(value){
+    hljs.highlightBlock(value);
+  })
+</script>
