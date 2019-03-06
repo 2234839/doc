@@ -5,7 +5,7 @@
     "sitename": "崮生的学习笔记",
     "siteurl": "http://www.shenzilong.cn/",
     "permalink": "{{directory}}/{{filename}}.html",
-    "footer": "一些随笔",
+    "footer": "一些随笔/湘ICP备18021783号-1",
     "writers": [
         "nico.PostWriter",
         "nico.PageWriter",
