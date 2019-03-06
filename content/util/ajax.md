@@ -84,14 +84,14 @@
             }
         });
     }
-    mui('body').on('tap', '.add', function (e) {
+    mui('body').on('click', '.add', function (e) {
         let thisTr = this.parentNode.parentNode
 
         let tr = document.createElement('tr')
         tr.innerHTML = thisTr.innerHTML
         mui('#query')[0].appendChild(tr)
     })
-    mui('body').on('tap', '.remove', function (e) {
+    mui('body').on('click', '.remove', function (e) {
         let thisTr = this.parentNode.parentNode
         if (thisTr.classList.contains('only'))
             return;
