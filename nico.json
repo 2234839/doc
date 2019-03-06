@@ -2,8 +2,10 @@
     "source": "content",
     "output": "_site",
     "theme": "_themes/one",
-    "sitename": "崮生的学习笔记",
-    "siteurl": "http://www.shenzilong.cn/",
+    "site": {
+        "name": "崮生的学习笔记",
+        "url": "http://www.shenzilong.cn/"
+    },
     "permalink": "{{directory}}/{{filename}}.html",
     "writers": [
         "nico.PostWriter",
