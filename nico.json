@@ -9,6 +9,9 @@
     "github":"https://github.com/2234839",
     "permalink": "{{directory}}/{{filename}}.html",
     "footer": "一些随笔/湘ICP备18021783号-1",
+    "navigation": [
+        {"title": "record", "link": "/record/index.html"}
+    ],
     "writers": [
         "nico.PostWriter",
         "nico.PageWriter",

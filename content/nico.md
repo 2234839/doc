@@ -2,14 +2,15 @@
 
 - pubdate: 2019-3-6
 
-[nico](./record/nico) 配置不生效
+[nico](./record/nico) 配置不生效 
+
 ------
 [nico语法](https://lab.lepture.com/nico/zh/syntax)  
 
 ## 用于服务器上同步博客内容的一个小脚本
 > 就是自动拉取git的代码然后nico build
 
-```javascript 
+```nodeJS 
 const shell = require("shelljs");
 const iconv = require('iconv-lite');//编码
 
