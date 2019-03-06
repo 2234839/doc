@@ -71,14 +71,12 @@
             type: mui('[name=mehod]')[0].value,
             timeout: 10000,
             success: function (data) {
-                // 请求成功  
-                console.log(data);
+                console.log(data);// 请求成功  
                 mui('#res')[0].innerHTML = JSON.stringify(data, null, 4)
                 hljs.highlightBlock(mui('#res')[0]);
             },
             error: function (xhr, type, errorThrown) {
-                // 请求失败  
-                console.log(errorThrown);
+                console.log(errorThrown);// 请求失败  
                 mui('#res')[0].innerHTML = errorThrown
                 hljs.highlightBlock(mui('#res')[0]);
             }
@@ -97,5 +95,4 @@
             return;
         thisTr.remove()
     })
-
 </script>
