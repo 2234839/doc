@@ -1,10 +1,10 @@
-# 日记
+# nico md构建的静态页面
 
 - pubdate: 2019-3-6
-- zj: 有毒
 
+[nico](./record/nico) 配置不生效
 ------
-[nico](./record/nico)  就是这个静态采用的生成方法
+[nico语法](https://lab.lepture.com/nico/zh/syntax)  
 
 ## 用于服务器上同步博客内容的一个小脚本
 > 就是自动拉取git的代码然后nico build
