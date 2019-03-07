@@ -70,11 +70,11 @@ tags:javascript,ajax
     function send() {
         let url=mui('#protocol')[0].value+ "://" + mui('#url')[0].value
         let data={};
-        if(mui('#proxy')[0].value){
+        if(mui('#proxy')[0].checked){
             data['__proxyUrl__']=url
             url="http://127.0.0.1/blog/proxy"
-        }
             console.log("转发");
+        }
         let parName=mui('.parName')
         let parValue=mui('.parValue')
         for (let i = 0; i < parName.length; i++) {
