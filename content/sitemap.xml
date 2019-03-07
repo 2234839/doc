@@ -9,42 +9,52 @@
 
 <url>
   <loc>http://www.shenzilong.cn/</loc>
-  <lastmod>2019-03-06T14:14:47+00:00</lastmod>
+  <lastmod>2019-03-07T04:18:34+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>http://www.shenzilong.cn/record/</loc>
-  <lastmod>2019-03-06T14:14:47+00:00</lastmod>
+  <lastmod>2019-03-07T04:18:34+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.shenzilong.cn/util/</loc>
-  <lastmod>2019-03-06T14:14:47+00:00</lastmod>
+  <lastmod>2019-03-07T04:18:34+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.shenzilong.cn/%E5%85%B3%E4%BA%8E/</loc>
+  <lastmod>2019-03-07T04:18:34+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.shenzilong.cn/2019/</loc>
-  <lastmod>2019-03-06T14:14:47+00:00</lastmod>
+  <lastmod>2019-03-07T04:18:34+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.shenzilong.cn/markdown.html</loc>
-  <lastmod>2019-03-06T14:14:47+00:00</lastmod>
+  <lastmod>2019-03-07T04:18:34+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.shenzilong.cn/nico.html</loc>
-  <lastmod>2019-03-06T14:14:47+00:00</lastmod>
+  <lastmod>2019-03-07T04:18:34+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.shenzilong.cn/record/nico.html</loc>
-  <lastmod>2019-03-06T14:14:47+00:00</lastmod>
-  <priority>0.64</priority>
+  <lastmod>2019-03-07T04:18:34+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.shenzilong.cn/util/ajax.html</loc>
-  <lastmod>2019-03-06T14:14:46+00:00</lastmod>
+  <lastmod>2019-03-07T04:18:34+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.shenzilong.cn/%E5%85%B3%E4%BA%8E/%E8%81%94%E7%B3%BB%E7%AB%99%E9%95%BF.html</loc>
+  <lastmod>2019-03-07T04:18:34+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 

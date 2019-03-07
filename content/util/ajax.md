@@ -71,7 +71,7 @@
         let data={};
         if(mui('#proxy')[0].checked){
             data['__proxyUrl__']=url
-            url="http://127.0.0.1/blog/proxy"
+            url="http://shenzilong.cn/blog/proxy"
             console.log("转发");
         }
         let parName=mui('.parName')
