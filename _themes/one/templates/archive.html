@@ -22,7 +22,7 @@
     </h2>
     {% if item.meta.description %}
     <div class="item-description" itemprop="description">
-      {{ item.meta.description }}
+      {{ item.meta.description|description }}
     </div>
     {% endif %}
   </div>
