@@ -12,6 +12,7 @@ tags:javascript,ajax
         <th>协议</th>
         <th>url</th>
         <th>Mehod</th>
+        <th title="解决跨域问题">后台转发</th>
         <th>操作</th>
     </tr>
     <tr>
@@ -28,9 +29,13 @@ tags:javascript,ajax
                 <option value="post">post</option>
             </select>
         </td>
-        <td>
-            <a class="button" onclick="send()">发送</a>
+        <td  title="解决跨域问题，这将在data中添加一个 __proxyUrl__ 的参数用来指定要转发到的url">
+           <input type="checkbox" id="proxy">
         </td>
+        <td>
+            <a class="button" onclick="trysend()">发送</a>
+        </td>
+       
     </tr>
 </table>
 
@@ -54,8 +59,22 @@ tags:javascript,ajax
 <pre><code class="json" id='res'></code></pre>
 
 <script>
+    function trysend(){
+        try {
+            send()
+        } catch (error) {
+            mui('#res')[0].innerHTML = error
+            hljs.highlightBlock(mui('#res')[0]);
+        }
+    }
     function send() {
+        let url=mui('#protocol')[0].value+ "://" + mui('#url')[0].value
         let data={};
+        if(mui('#proxy')[0].value){
+            data['__proxyUrl__']=url
+            url="http://127.0.0.1/blog/proxy"
+        }
+            console.log("转发");
         let parName=mui('.parName')
         let parValue=mui('.parValue')
         for (let i = 0; i < parName.length; i++) {
@@ -66,7 +85,7 @@ tags:javascript,ajax
             data[name]=value
         }
         mui.ajax({
-            url:mui('#protocol')[0].value+ "://" + mui('#url')[0].value,
+            url,
             data,
             dataType: 'json',
             type: mui('[name=mehod]')[0].value,
@@ -79,14 +98,14 @@ tags:javascript,ajax
 
         function load(res){
             console.log(res);
+            if(res instanceof Object)
+                res=JSON.stringify(res,null,4)
             mui('#res')[0].innerHTML = res
             hljs.highlightBlock(mui('#res')[0]);
         }
     }
-
     mui('body').on('click', '.add', function (e) {
         let thisTr = this.parentNode.parentNode
-
         let tr = document.createElement('tr')
         tr.innerHTML = thisTr.innerHTML
         mui('#query')[0].appendChild(tr)

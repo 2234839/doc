@@ -65,7 +65,9 @@
       {%- endif %}
     </div>
     {%- if config.github %}
-    <div class="github"><a class="github-link" href="{{config.github}}">代码库-git</a></div>
+    <div class="github">
+      <a class="github-link" href="{{config.github}}" title="存放一些我的代码">代码库-git</a>
+    </div>
     {%- endif %}
     <script src="{{ static_url('one.js') }}"></script>
   </body>
