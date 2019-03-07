@@ -1,6 +1,7 @@
 # ajax
 
 - pubdate: 2019-3-6 19:19
+tags:javascript,ajax
 
 ------
 
@@ -75,7 +76,7 @@
                 load(errorThrown)
             }
         });
-        
+
         function load(res){
             console.log(res);
             mui('#res')[0].innerHTML = res
