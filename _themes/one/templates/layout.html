@@ -78,6 +78,10 @@
     let origin= new RegExp(location.origin);
     href.forEach(v=>{
       if(origin.test(v.href)){//是本站的链接
+        //去除 2019 这样的年份中缀
+        let yearReg=new RegExp(location.origin+'\/\\d\\d\\d\\d(.*)')
+        v.href=location.origin+v.href.match(yearReg)[1]
+        //添加后缀
         v.href+=".html"
       }
     })
