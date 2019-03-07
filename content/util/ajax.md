@@ -1,7 +1,6 @@
 # ajax
 
 - pubdate: 2019-3-6 19:19
-tags:javascript,ajax
 
 ------
 
