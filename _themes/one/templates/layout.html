@@ -30,7 +30,7 @@
       })();
     </script>
     {%- endif %}
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ static_url('favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ static_url('default.min.css') }}">
     <script src="{{ static_url('highlight.min.js') }}"></script>
   </head>
@@ -72,8 +72,19 @@
 </html>
 
 <script>
-  //高亮代码块
-  document.querySelectorAll('pre').forEach(function(value){
-    hljs.highlightBlock(value);
+  window.addEventListener('load',function(){
+    //因为md文档中直接链接到其他文件会导致没有.html 后缀然后访问不到资源，故除此下策
+    let href=Array.from(document.querySelectorAll('p a[href]'))
+    let origin= new RegExp(location.origin);
+    href.forEach(v=>{
+      if(origin.test(v.href)){//是本站的链接
+        v.href+=".html"
+      }
+    })
+
+    //高亮代码块
+    document.querySelectorAll('pre').forEach(function(value){
+      hljs.highlightBlock(value);
+    })
   })
 </script>

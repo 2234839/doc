@@ -2,7 +2,7 @@
 
 - pubdate: 2019-3-6
 
-[nico](./record/nico) 配置不生效 
+[nico](./record/nico) 配置不生效  
 
 ------
 [nico语法](https://lab.lepture.com/nico/zh/syntax)  
