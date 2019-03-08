@@ -2,7 +2,7 @@
 
 - pubdate: 2019-03-07 16:08:35
 
-内容模板元素+shadowRoot
+内容模板元素+shadowRoot，请确保您的浏览器支持 shadowRoot 和 template
 
 -----------
 
