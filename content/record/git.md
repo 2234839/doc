@@ -5,6 +5,3 @@
 -----------
 
 [git 免密码](https://todebug.com/Tips/)
-
-
-[git 免密码](./nico)
