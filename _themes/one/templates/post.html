@@ -7,7 +7,7 @@
   {%- if post.meta.description %}
   <div class="entry-description" itemprop="description">{{post.meta.description}}</div>
   {%- endif %}
-  <div class="entry-content" itemprop="articleBody">{{post.html}}</div>
+  <div class="entry-content" itemprop="articleBody">{{post.html|parseA}}</div>
 
   <div class="entry-meta">
     <time class="updated" datetime="{{post.pubdate|xmldatetime}}" itemprop="dateModified">{{post.pubdate|date('l, M jS, Y')}}</time>
