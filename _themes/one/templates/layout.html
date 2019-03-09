@@ -1,94 +1,105 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-  <head>
-    <meta name="description" content="崮生的学习笔记记录站点，在这里将涉及到有关编程的一些知识。
+
+<head>
+  <meta name="description" content="崮生的学习笔记记录站点，在这里将涉及到有关编程的一些知识。
       其中大部分是关于ECAMAScript的">
-    <meta name="google-site-verification" content="zryWPE68mHndlirad-4TTJ5WwbpROalM2XmIv9VU3Oo"/>
-    <meta name="baidu-site-verification" content="ZtTgMLojrB" />
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <meta name="generator" content="{{system.name}} {{system.version}}">
-    <meta name="theme" content="{{theme.name}} {{theme.version}}">
-    <title>崮生 {% block title%}{% endblock %}</title>
-    {%- if config.touchIcon %}
-    <link rel="apple-touch-icon" href="{{ config.touchIcon }}" />
-    {%- endif %}
-    {%- if config.feedurl %}
-    <link rel="alternate" type="application/rss+xml" href="{{config.feedurl}}" title="{{config.sitename}}" />
-    {%- endif %}
-    <link rel="stylesheet" href="{{static_url('one.css')}}" />
-    {%- block afterstyle %}{% endblock %}
-    {%- if config.google %}
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', '{{config.google}}']);
-      _gaq.push(['_trackPageview']);
-      _gaq.push(['_trackPageLoadTime']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = 'https://ssl.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
-    {%- endif %}
-    <link rel="shortcut icon" href="{{ static_url('favicon.ico') }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{ static_url('default.min.css') }}">
-    <script src="{{ static_url('highlight.min.js') }}"></script>
-  </head>
-  <body>
-    <div class="header">
-      <div class="container">
-        <div class="brand">
-          <a class="home" href="{{content_url('index.html')}}">{{config.sitename}}</a>
-          {%- if config.tagline %}
-          - <span class="tagline">{{ config.tagline }}</span>
-          {%- endif %}
-        </div>
-        {%- if config.navigation %}
-        <div class="menu" role="navigation">
-          {%- for item in config.navigation %}
-          <a href="{{content_url(item.link)}}">{{item.title}}</a>
-          {%- endfor %}
-        </div>
+  <meta name="google-site-verification" content="zryWPE68mHndlirad-4TTJ5WwbpROalM2XmIv9VU3Oo" />
+  <meta name="baidu-site-verification" content="ZtTgMLojrB" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="generator" content="{{system.name}} {{system.version}}">
+  <meta name="theme" content="{{theme.name}} {{theme.version}}">
+  <title>崮生 {% block title%}{% endblock %}</title>
+  {%- if config.touchIcon %}
+  <link rel="apple-touch-icon" href="{{ config.touchIcon }}" />
+  {%- endif %}
+  {%- if config.feedurl %}
+  <link rel="alternate" type="application/rss+xml" href="{{config.feedurl}}" title="{{config.sitename}}" />
+  {%- endif %}
+  <link rel="stylesheet" href="{{static_url('one.css')}}" />
+  {%- block afterstyle %}{% endblock %}
+  {%- if config.google %}
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '{{config.google}}']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = 'https://ssl.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  {%- endif %}
+  <link rel="shortcut icon" href="{{ static_url('favicon.ico') }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{ static_url('default.min.css') }}">
+  <script src="{{ static_url('highlight.min.js') }}"></script>
+</head>
+
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="brand">
+        <a class="home" href="{{content_url('index.html')}}">{{config.sitename}}</a>
+        {%- if config.tagline %}
+        - <span class="tagline">{{ config.tagline }}</span>
         {%- endif %}
       </div>
-    </div>
-    <div class="document yue">
-      {%- block document %}
-      {%- endblock %}
-    </div>
-    <div class="footer">
-      {%- if config.footer %}
-      {{config.footer}}
-      {%- endif %}
-      {%- if not config.hideNico %}
-      <p class="copyright">powered by <a href="{{system.homepage}}">{{system.name}}</a> {{system.version}}</p>
+      {%- if config.navigation %}
+      <div class="menu" role="navigation">
+        {%- for item in config.navigation %}
+        <a href="{{content_url(item.link)}}">{{item.title}}</a>
+        {%- endfor %}
+      </div>
       {%- endif %}
     </div>
-    {%- if config.github %}
-    <div class="github">
-      <a class="github-link" href="{{config.github}}" title="存放一些我的代码">代码库-git</a>
-    </div>
+  </div>
+  <div class="document yue">
+    {%- block document %}
+    {%- endblock %}
+  </div>
+  <div class="footer">
+    {%- if config.footer %}
+    {{config.footer}}
     {%- endif %}
-    <script src="{{ static_url('one.js') }}"></script>
-  </body>
+    {%- if not config.hideNico %}
+    <p class="copyright">powered by <a href="{{system.homepage}}">{{system.name}}</a> {{system.version}}</p>
+    {%- endif %}
+  </div>
+  {%- if config.github %}
+  <div class="github">
+    <a class="github-link" href="{{config.github}}" title="存放一些我的代码">代码库-git</a>
+  </div>
+  {%- endif %}
+  <script src="{{ static_url('one.js') }}"></script>
+</body>
+
 </html>
 
 <script>
-  window.addEventListener('load',function(){
+  window.addEventListener('load', function () {
     //因为md文档中直接链接到其他文件会导致没有.html 后缀然后访问不到资源，故除此下策
-    let href=Array.from(document.querySelectorAll('p a[href]'))
-    let yearReg=new RegExp(location.origin+'\/\\d\\d\\d\\d(.*)')
-    href.forEach(v=>{
+    let href = Array.from(document.querySelectorAll('p a[href]'))
+    let yearReg = new RegExp(location.origin + '\/\\d\\d\\d\\d(.*)')
+    href.forEach(v => {
       //去除 2019 这样的年份中缀
-      if(yearReg.test(v.href))
-          v.href=location.origin+v.href.match(yearReg)[1]
-      }
+      if (yearReg.test(v.href))
+        v.href = location.origin + v.href.match(yearReg)[1]
+    }
     )
 
     //高亮代码块
-    document.querySelectorAll('pre').forEach(function(value){
+    document.querySelectorAll('pre').forEach(function (value) {
       hljs.highlightBlock(value);
     })
+
+      ; (function () {//百度页面自动推送
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
   })
 </script>
