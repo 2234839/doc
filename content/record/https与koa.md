@@ -22,7 +22,7 @@
 这一步也十分简单  
 读取key文件和pem文件构造出指定键名的对象  
 然后用https模块创建server 传入 options 和koa的处理函数
-```nodejs
+```javascript
 const options = {
     key: fs.readFileSync(path.resolve(__dirname,config.sslDir.key)),
     cert: fs.readFileSync(path.resolve(__dirname,config.sslDir.pem))
