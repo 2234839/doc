@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>练习二</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/rxjs@5.4.2/bundles/Rx.min.js"></script>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+const onSubscribe=observer=>{//推送数据的函数 事件监听器
+    let number=1
+    setInterval(() => {//推送数据允许存在时间间隔
+        observer.next(number++)
+    }, 1000);
+}
+const source$=new Rx.Observable(onSubscribe)
+source$.map(x=>x*x).filter(x=>x%2===0).subscribe(item=>console.log(item))
+</script>
