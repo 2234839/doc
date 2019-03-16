@@ -17,8 +17,6 @@ exports.filters = {
   },
   parseA: function(writers, name) {//为a标签加上 html 后缀
     writers= writers.replace(/href="(\.\.\/|\.\/)(.*?)"/g, function(str,p1, p2, offset, s){
-      console.log(str,p1);
-      
       if(p2.includes('.')===false){//没有后缀
         return `href="${p1}${p2}.html"`
       }else{
