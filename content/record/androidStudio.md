@@ -26,3 +26,8 @@ alt+enter ->  获取当前错误的修复提示
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
+
+## Fragment，类似于iframe的使用方式
+
+1. 在layout中新建Activvity->Fragment+ViewModel创建新页面
+2. 在主页面布局中common中就可以使用fragment控件了
