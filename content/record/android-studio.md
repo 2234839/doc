@@ -33,7 +33,8 @@ alt+enter ->  获取当前错误的修复提示
 2. 在主页面布局中common中就可以使用fragment控件了
 
 ## java get请求
-> 一定要注意 127.0.0.1 只能在本机用啊，最好养成用局域网ip的习惯
+> 一定要注意 127.0.0.1 只能在本机用啊，最好养成用局域网ip的习惯  
+
 ```java
 public static String getHtml(String path) throws Exception {
     HttpURLConnection connection = null;
