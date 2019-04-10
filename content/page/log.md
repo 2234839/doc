@@ -59,7 +59,7 @@ return !el.__data[2].endsWith('.js')
             const data = JSON.parse(xhr.response)
             logList = parseLog(data)
         })
-        xhr.open('get', location.origin + '/blog/log?date'+formatDate(date))
+        xhr.open('get', location.origin + '/blog/log?date='+date)
         // xhr.open('get', 'https://shenzilong.cn/blog/log')
         xhr.send()
     }
