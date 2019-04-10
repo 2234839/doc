@@ -8,30 +8,19 @@
 
 `````html
 <a class="button" onclick="filter()">执行下面的过滤规则</a>
-<script>
-function filter(){
-    logList.__filter(el => {
-        return !el.__data[2].includes('/x')
-    }, el => {
-        return !el.__data[2].endsWith('.css')
-    }, el => {
-        return !el.__data[2].endsWith('favicon.ico')
-    }, el => {
-        return !el.__data[2].endsWith('.js')
-    })
-}
-</script>
+<input id="date" type="date">
+<a class="button" onclick="_selectDate()">显示此日期的log</a>
 `````
 
 ```javascript
 logList.__filter(el => {
-    return !el.__data[2].includes('/x')
+return !el.__data[2].includes('/x')
 }, el => {
-    return !el.__data[2].endsWith('.css')
+return !el.__data[2].endsWith('.css')
 }, el => {
-    return !el.__data[2].endsWith('favicon.ico')
+return !el.__data[2].endsWith('favicon.ico')
 }, el => {
-    return !el.__data[2].endsWith('.js')
+return !el.__data[2].endsWith('.js')
 })
 ```
 
@@ -59,16 +48,50 @@ logList.__filter(el => {
 </table>
 
 <script>
-    let logList
-    var xhr = new XMLHttpRequest()
-    xhr.addEventListener('load', function () {
-        const data = JSON.parse(xhr.response)
-        logList = parseLog(data)
-    })
-    // xhr.open('get', location.origin + '/blog/log')
-    xhr.open('get', 'https://shenzilong.cn/blog/log')
-    xhr.send()
 
+    let logList
+    function selectDate({date}){
+        var xhr = new XMLHttpRequest()
+        xhr.addEventListener('load', function () {
+            if(logList && logList.length>0){//移除原有的
+                logList.forEach(el=>el.remove())
+            }
+            const data = JSON.parse(xhr.response)
+            logList = parseLog(data)
+        })
+        xhr.open('get', location.origin + '/blog/log?date'+formatDate(date))
+        // xhr.open('get', 'https://shenzilong.cn/blog/log')
+        xhr.send()
+    }
+    selectDate({date:new Date()})
+    document.querySelector('#date').value = formatDate(new Date())
+
+    function _selectDate(){
+        selectDate({date:document.querySelector('#date').value})
+    }
+    function filter() {
+        logList.__filter(el => {
+            return !el.__data[2].includes('/x')
+        }, el => {
+            return !el.__data[2].endsWith('.css')
+        }, el => {
+            return !el.__data[2].endsWith('favicon.ico')
+        }, el => {
+            return !el.__data[2].endsWith('.js')
+        })
+    }
+
+    function formatDate(date) {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2) month = '0' + month;
+        if (day.length < 2) day = '0' + day;
+
+        return [year, month, day].join('-');
+    }
     function parseLog(str) {
         let logList = str.split('\r\n').reverse()
         const trList = logList.map(v => {
