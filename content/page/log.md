@@ -6,6 +6,23 @@
 
 > 过滤器使用示例
 
+`````html
+<a class="button" onclick="filter()">执行下面的过滤规则</a>
+<script>
+function filter(){
+    logList.__filter(el => {
+        return !el.__data[2].includes('/x')
+    }, el => {
+        return !el.__data[2].endsWith('.css')
+    }, el => {
+        return !el.__data[2].endsWith('favicon.ico')
+    }, el => {
+        return !el.__data[2].endsWith('.js')
+    })
+}
+</script>
+`````
+
 ```javascript
 logList.__filter(el => {
     return !el.__data[2].includes('/x')
@@ -48,7 +65,8 @@ logList.__filter(el => {
         const data = JSON.parse(xhr.response)
         logList = parseLog(data)
     })
-    xhr.open('get', location.origin + '/blog/log')
+    // xhr.open('get', location.origin + '/blog/log')
+    xhr.open('get', 'http://shenzilong.cn/blog/log')
     xhr.send()
 
     function parseLog(str) {

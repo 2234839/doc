@@ -42,10 +42,12 @@ function iconvDecode(str = '') {
 ```
 
 ## 代码高亮
+
 > [highlightjs](https://highlightjs.org/usage/)
 
 nico自带的代码高亮好像只有html，于是用了highlightjs的。
 要注意的是需要运行highlightBlock来高亮指定的元素中的代码，我将以下代码添加到了nico的templates中。*记得引入[highlightjs](https://highlightjs.org/usage/)*
+
 ```html
 <script>
   //高亮代码块
@@ -56,6 +58,7 @@ nico自带的代码高亮好像只有html，于是用了highlightjs的。
 ```
 
 ## 关于一些资源访问不到的问题
+
 > 2019-03-26 00:20:46
 
 因为文件名中含有大写字母，而nico“贴心的”帮你转为小写了
