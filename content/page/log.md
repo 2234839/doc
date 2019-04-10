@@ -66,7 +66,7 @@ logList.__filter(el => {
         logList = parseLog(data)
     })
     // xhr.open('get', location.origin + '/blog/log')
-    xhr.open('get', 'http://shenzilong.cn/blog/log')
+    xhr.open('get', 'https://shenzilong.cn/blog/log')
     xhr.send()
 
     function parseLog(str) {
