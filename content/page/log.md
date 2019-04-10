@@ -4,13 +4,14 @@
 
 <!-- ## 我负责记录，君负责回忆 -->
 
-> 过滤器使用示例
+
 
 `````html
 <a class="button" onclick="filter()">执行下面的过滤规则</a>
 <input id="date" type="date">
 <a class="button" onclick="_selectDate()">显示此日期的log</a>
 `````
+> 过滤器使用示例
 
 ```javascript
 logList.__filter(el => {
