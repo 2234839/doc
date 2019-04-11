@@ -1,4 +1,4 @@
-# storage事件
+# storage事件 + 回调
 
 - pubdate:2019-04-11 17:20:25
 
