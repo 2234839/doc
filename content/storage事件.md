@@ -30,80 +30,80 @@
 ```typescript
 /*------------[Storage]------------*/
 interface onStorageCallback {
-    (value: onStorageValue): void
+	(...args: any[]): void
 }
 /** 存入的值的接口 */
 interface onStorageValue{
-    _callback_function_?:Function|string
-    /** 用于确保每次都触发事件 */
-    _date_now_time_:number
-    [key: number]: any
-    [key: string]: any
+	_callback_function_?:Function|string
+	/** 用于确保每次都触发事件 */
+	_date_now_time_:number
+	[key: number]: any
+	[key: string]: any
 }
 /** 取出的值的接口 */
 interface onStorageValue2 extends onStorageValue{
-    /** 回调函数 */
-    _callback_function_:Function
+	/** 回调函数 */
+	_callback_function_:Function
 }
 interface onStorageEvent{
-    key:string,
-    oldValue:string,
-    newValue: onStorageValue,
-    local: boolean
+	key:string,
+	oldValue:string,
+	newValue: onStorageValue,
+	local: boolean
 }
 let util_onStorage_map = new Map() //存储监听的事件和函数
 /**
  * 监听storage事件
- * @param {String} key      监听的storage key
- * @param {Function} fun    事件处理函数 (e.newValue,e)
+ * @param {String} key	 	要监听的storage key
+ * @param {Function} fun	事件处理函数 (e.newValue,e)
  */
-export function onStorage(key: string, fun: {(value:onStorageValue2):void}) {
-    util_onStorage_map.set(key, fun)
+export function onStorage(key: string, fun: {(...args: any[]):void}) {
+	util_onStorage_map.set(key, fun)
 }
 /**
  * 触发storage事件
  */
 export function triggerStorage(key: string, value:any, callback?: onStorageCallback) {
-    let event:onStorageEvent = {
-        key,
-        oldValue: localStorage.getItem(key),
-        newValue: value,
-        local: false
-    }
-    if (typeof value === "object") {
-        /** 当前时间戳 */
-        value._date_now_time_ = Date.now()// 以便每次都触发
-        if (callback) {//存在回调函数
-            /** 回调函数监听的key */
-            value._callback_function_ = '_callback_' + callback.name + '_' + Date.now()
-            /** 上面那个key触发的事件交给 callback */
-            onStorage(value._callback_function_, callback)
-        }
-        localStorage.setItem(key, JSON.stringify(value))
-    }else
-        localStorage.setItem(key,value)
-    if (util_onStorage_map.has(event.key)) { //此页面也有监听storage的函数，因为下面的监听捕获不到故在此处罚
-        event.local = true //这个事件是自己这个页面触发的
-        handle(event)
-    }
+	let event:onStorageEvent = {
+		key,
+		oldValue: localStorage.getItem(key),
+		newValue: value,
+		local: false
+	}
+	if (typeof value === "object") {
+		/** 当前时间戳 */
+		value._date_now_time_ = Date.now()// 以便每次都触发
+		if (callback) {//存在回调函数
+			/** 回调函数监听的key */
+			value._callback_function_ = '_callback_' + callback.name + '_' + Date.now()
+			/** 上面那个key触发的事件交给 callback */
+			onStorage(value._callback_function_,value=>callback(...value))
+		}
+		localStorage.setItem(key, JSON.stringify(value))
+	}else
+		localStorage.setItem(key,value)
+	if (util_onStorage_map.has(event.key)) { //此页面也有监听storage的函数，因为下面的监听捕获不到故在此处罚
+		event.local = true //这个事件是自己这个页面触发的
+		handle(event)
+	}
 }
 window.addEventListener("storage", handle)
 
 function handle(e: any) {
-    var newValue = e.newValue
-    try {/** 尝试序列化 */
-        newValue = JSON.parse(e.newValue)
-    } catch (e) {
-    }
-    if (typeof newValue === "object" && newValue._callback_function_ !== undefined) {
-        const storageKey = newValue._callback_function_
-        /** 传递过来的回调函数 */
-        newValue._callback_function_ = function (value: any) {
-            triggerStorage(storageKey, value)
-        }
-    }
-    if (util_onStorage_map.has(e.key)) //将新值传给监听该key的函数
-        util_onStorage_map.get(e.key)(newValue, e) //触发监听这个key的函数
+	var newValue = e.newValue
+	try {/** 尝试序列化 */
+		newValue = JSON.parse(e.newValue)
+	} catch (e) {
+	}
+	if (typeof newValue === "object" && newValue._callback_function_ !== undefined) {
+		const storageKey = newValue._callback_function_
+		/** 传递过来的回调函数 */
+		newValue._callback_function_ = function (...value:any) {
+			triggerStorage(storageKey, value)
+		}
+	}
+	if (util_onStorage_map.has(e.key)) //将新值传给监听该key的函数
+		util_onStorage_map.get(e.key)(newValue, e) //触发监听这个key的函数
 }
 /*############[Storage]############*/
 ```
