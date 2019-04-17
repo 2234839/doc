@@ -8,7 +8,7 @@
   <meta name="baidu-site-verification" content="ZtTgMLojrB" />
   <meta charset="utf-8">
   <meta name="theme-color" content="#673ab8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="{{system.name}} {{system.version}}">
   <meta name="theme" content="{{theme.name}} {{theme.version}}">
   <title>崮生 {% block title%}{% endblock %}</title>
@@ -75,15 +75,14 @@
 
 <script>
   window.addEventListener('load', function () {
-    //因为md文档中直接链接到其他文件会导致没有.html 后缀然后访问不到资源，故除此下策
+    //因为md文档中直接链接到其他文件会导致没有.html 后缀然后访问不到资源，故出此下策
     let href = Array.from(document.querySelectorAll('p a[href]'))
     let yearReg = new RegExp(location.origin + '\/\\d\\d\\d\\d(.*)')
     href.forEach(v => {
       //去除 2019 这样的年份中缀
       if (yearReg.test(v.href))
         v.href = location.origin + v.href.match(yearReg)[1]
-    }
-    )
+    })
 
     //高亮代码块
     document.querySelectorAll('pre').forEach(function (value) {

@@ -8,6 +8,7 @@
 alt+enter ->  获取当前错误的修复提示  
 鼠标点击报错的行，最下方状态栏有错误信息可以复制  
 这两个技巧加上百度能解决大部分问题。
+
 # 一些遇到的问题
 
 ## 配置
@@ -23,9 +24,14 @@ alt+enter ->  获取当前错误的修复提示
 >method android.graphics.PorterDuffColorFilter android.support.graphics.drawable.VectorDrawableCompat.updateTintFilter(android.graphics.PorterDuffColorFilter, android.content.res.ColorStateList, android.graphics.PorterDuff$Mode) would have incorrectly overridden the package-private method in android.graphics.drawable.Drawable
 
 需要配置因特网的权限
+
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
+
+### Unexpected error while executing: am start -n "com.example.user.ypologismosmoriwn/com.example.user.ypologismosmoriwn.MainActivity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER Error while Launching activity
+
+因为我将那个apk冻结了，于是启动不了activity
 
 ## Fragment，类似于iframe的使用方式
 
