@@ -62,6 +62,9 @@
     {%- if not config.hideNico %}
     <p class="copyright">powered by <a href="{{system.homepage}}">{{system.name}}</a> {{system.version}}</p>
     {%- endif %}
+    <a href="https://shenzilong.cn/blog/feed">
+      <img style="height: 16px" src="{{ static_url('feed.png') }}" alt="rss订阅">
+    </a>
   </div>
   {%- if config.github %}
   <div class="github">
