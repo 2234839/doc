@@ -45,3 +45,20 @@ function ksort(obj: any) {
     return sortedObj;
 }
 ```
+
+### img转base64
+
+主要利用canvas的[toDataURL](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toDataURL),toDataURL的第二个参数可以调整图片的质量，能够起到压缩图片的功能。
+
+```javascript
+export function getBase64Image(img: HTMLImageElement) {
+    canvas.width = img.width;
+    canvas.height = img.height;
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+    var dataURL = canvas.toDataURL("image/jpeg",0.5);
+    //toDataURL的第二个参数可以调整压缩率
+    // return dataURL
+    return dataURL.replace("data:image/jpeg;base64,", "");
+}
+```
