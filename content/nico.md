@@ -2,15 +2,15 @@
 
 - pubdate: 2019-3-6
 
-[nico](./record/nico) 配置不生效  
+[nico](./record/nico) 配置不生效
 
 ------
-[nico语法](https://lab.lepture.com/nico/zh/syntax)  
+[nico语法](https://lab.lepture.com/nico/zh/syntax)
 
 ## 用于服务器上同步博客内容的一个小脚本
 > 就是自动拉取git的代码然后nico build
 
-```nodeJS 
+```nodeJS
 const shell = require("shelljs");
 const iconv = require('iconv-lite');//编码
 
@@ -33,7 +33,7 @@ function exec(cmd) {
         })
     })
 }
-//转换编码 
+//转换编码
 function iconvDecode(str = '') {
     const encoding = 'gb2312';
     const binaryEncoding = 'binary';
@@ -63,3 +63,12 @@ nico自带的代码高亮好像只有html，于是用了highlightjs的。
 
 因为文件名中含有大写字母，而nico“贴心的”帮你转为小写了
 下划线_也会被转为-
+
+## nico live reload
+全局安装socket.io
+然后
+
+>nico server --watch
+
+
+就可以了
