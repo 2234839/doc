@@ -6,4 +6,8 @@
 
 [git 免密码](https://todebug.com/Tips/)
 
-## git commit 
+## 查看谁更改了my_file中的内容和时间。
+
+git blame
+
+## git commit
