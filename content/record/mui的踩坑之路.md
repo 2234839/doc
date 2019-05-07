@@ -2,6 +2,7 @@
 
 - pubdate:2019-05-07 17:10:15
 
+> 一个自己开发时攒下来的一点工具[muiutil](https://dev.tencent.com/u/sheng_gu/p/muiutil/git)
 -------------
 
 ## 怎么重写mui.back也没用
