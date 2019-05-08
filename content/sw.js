@@ -26,10 +26,8 @@ this.addEventListener('fetch', function (event) {
 
             // 如果 service worker 没有返回，那就得直接请求真实远程服务
             var request = event.request.clone(); // 把原始请求拷过来
-            console.log(request);
 
             return fetch(request).then(function (httpRes) {
-
                 // http请求的返回已被抓到，可以处置了。
 
                 // 请求失败了，直接返回失败的结果就好了。。
