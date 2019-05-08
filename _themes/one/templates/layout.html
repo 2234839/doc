@@ -2,102 +2,115 @@
 <html lang="zh-CN">
 
 <head>
-  <meta name="description" content="崮生的学习笔记记录站点，在这里将涉及到有关编程的一些知识。
+	<meta name="description" content="崮生的学习笔记记录站点，在这里将涉及到有关编程的一些知识。
       其中大部分是关于ECMAScript的">
-  <meta name="google-site-verification" content="zryWPE68mHndlirad-4TTJ5WwbpROalM2XmIv9VU3Oo" />
-  <meta name="baidu-site-verification" content="ZtTgMLojrB" />
-  <meta charset="utf-8">
-  <meta name="theme-color" content="#673ab8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="{{system.name}} {{system.version}}">
-  <meta name="theme" content="{{theme.name}} {{theme.version}}">
-  <title>崮生 {% block title%}{% endblock %}</title>
-  {%- if config.touchIcon %}
-  <link rel="apple-touch-icon" href="{{ config.touchIcon }}" />
-  {%- endif %}
-  {%- if config.feedurl %}
-  <link rel="alternate" type="application/rss+xml" href="{{config.feedurl}}" title="{{config.sitename}}" />
-  {%- endif %}
-  <link rel="stylesheet" href="{{static_url('one.css')}}" />
-  {%- block afterstyle %}{% endblock %}
-  {%- if config.google %}
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '{{config.google}}']);
-    _gaq.push(['_trackPageview']);
-    _gaq.push(['_trackPageLoadTime']);
-  </script>
-  {%- endif %}
-  <link rel="shortcut icon" href="{{ static_url('favicon.ico') }}" type="image/x-icon">
-  <link rel="stylesheet" href="{{ static_url('default.min.css') }}">
-  <script src="{{ static_url('highlight.min.js') }}"></script>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139738006-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'UA-139738006-1');
-  </script>
+	<meta name="google-site-verification" content="zryWPE68mHndlirad-4TTJ5WwbpROalM2XmIv9VU3Oo" />
+	<meta name="baidu-site-verification" content="ZtTgMLojrB" />
+	<meta charset="utf-8">
+	<meta name="theme-color" content="#673ab8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="{{system.name}} {{system.version}}">
+	<meta name="theme" content="{{theme.name}} {{theme.version}}">
+	<title>崮生 {% block title%}{% endblock %}</title>
+	<script>
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', function () {
+				navigator.serviceWorker.register('/sw.js', { scope: '/' })
+					.then(function (registration) {
+						console.log('ServiceWorker registration successful with scope: ', registration.scope);
+					})
+					.catch(function (err) {
+						console.log('ServiceWorker registration failed: ', err);
+					});
+			});
+		}
+	</script>
+	{%- if config.touchIcon %}
+	<link rel="apple-touch-icon" href="{{ config.touchIcon }}" />
+	{%- endif %}
+	{%- if config.feedurl %}
+	<link rel="alternate" type="application/rss+xml" href="{{config.feedurl}}" title="{{config.sitename}}" />
+	{%- endif %}
+	<link rel="stylesheet" href="{{static_url('one.css')}}" />
+	{%- block afterstyle %}{% endblock %}
+	{%- if config.google %}
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', '{{config.google}}']);
+		_gaq.push(['_trackPageview']);
+		_gaq.push(['_trackPageLoadTime']);
+	</script>
+	{%- endif %}
+	<link rel="shortcut icon" href="{{ static_url('favicon.ico') }}" type="image/x-icon">
+	<link rel="stylesheet" href="{{ static_url('default.min.css') }}">
+	<script src="{{ static_url('highlight.min.js') }}"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139738006-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+		gtag('config', 'UA-139738006-1');
+	</script>
 </head>
 
 <body>
-  <div class="header">
-    <div class="container">
-      <div class="brand">
-        <a class="home" href="{{content_url('index.html')}}">{{config.sitename}}</a>
-        {%- if config.tagline %}
-        - <span class="tagline">{{ config.tagline }}</span>
-        {%- endif %}
-      </div>
-      {%- if config.navigation %}
-      <div class="menu" role="navigation">
-        {%- for item in config.navigation %}
-        <a href="{{content_url(item.link)}}">{{item.title}}</a>
-        {%- endfor %}
-      </div>
-      {%- endif %}
-    </div>
-  </div>
-  <div class="document yue">
-    {%- block document %}
-    {%- endblock %}
-  </div>
-  <div class="footer">
-    {%- if config.footer %}
-    {{config.footer}}
-    {%- endif %}
-    {%- if not config.hideNico %}
-    <p class="copyright">powered by <a href="{{system.homepage}}">{{system.name}}</a> {{system.version}}</p>
-    {%- endif %}
-    <a href="https://shenzilong.cn/blog/feed">
-      <img style="height: 16px" src="{{ static_url('feed.png') }}" alt="rss订阅">
-    </a>
-  </div>
-  {%- if config.github %}
-  <div class="github">
-    <a class="github-link" href="{{config.github}}" title="存放一些我的代码">代码库-git</a>
-  </div>
-  {%- endif %}
-  <script src="{{ static_url('one.js') }}"></script>
+	<div class="header">
+		<div class="container">
+			<div class="brand">
+				<a class="home" href="{{content_url('index.html')}}">{{config.sitename}}</a>
+				{%- if config.tagline %}
+				- <span class="tagline">{{ config.tagline }}</span>
+				{%- endif %}
+			</div>
+			{%- if config.navigation %}
+			<div class="menu" role="navigation">
+				{%- for item in config.navigation %}
+				<a href="{{content_url(item.link)}}">{{item.title}}</a>
+				{%- endfor %}
+			</div>
+			{%- endif %}
+		</div>
+	</div>
+	<div class="document yue">
+		{%- block document %}
+		{%- endblock %}
+	</div>
+	<div class="footer">
+		{%- if config.footer %}
+		{{config.footer}}
+		{%- endif %}
+		{%- if not config.hideNico %}
+		<p class="copyright">powered by <a href="{{system.homepage}}">{{system.name}}</a> {{system.version}}</p>
+		{%- endif %}
+		<a href="https://shenzilong.cn/blog/feed">
+			<img style="height: 16px" src="{{ static_url('feed.png') }}" alt="rss订阅">
+		</a>
+	</div>
+	{%- if config.github %}
+	<div class="github">
+		<a class="github-link" href="{{config.github}}" title="存放一些我的代码">代码库-git</a>
+	</div>
+	{%- endif %}
+	<script src="{{ static_url('one.js') }}"></script>
 </body>
 
 </html>
 
 <script>
-  window.addEventListener('load', function () {
-    //因为md文档中直接链接到其他文件会导致没有.html 后缀然后访问不到资源，故出此下策
-    let href = Array.from(document.querySelectorAll('p a[href]'))
-    let yearReg = new RegExp(location.origin + '\/\\d\\d\\d\\d(.*)')
-    href.forEach(v => {
-      //去除 2019 这样的年份中缀
-      if (yearReg.test(v.href))
-        v.href = location.origin + v.href.match(yearReg)[1]
-    })
+	window.addEventListener('load', function () {
+		//因为md文档中直接链接到其他文件会导致没有.html 后缀然后访问不到资源，故出此下策
+		let href = Array.from(document.querySelectorAll('p a[href]'))
+		let yearReg = new RegExp(location.origin + '\/\\d\\d\\d\\d(.*)')
+		href.forEach(v => {
+			//去除 2019 这样的年份中缀
+			if (yearReg.test(v.href))
+				v.href = location.origin + v.href.match(yearReg)[1]
+		})
 
-    //高亮代码块
-    document.querySelectorAll('pre').forEach(function (value) {
-      hljs.highlightBlock(value);
-    })
-  })
+		//高亮代码块
+		document.querySelectorAll('pre').forEach(function (value) {
+			hljs.highlightBlock(value);
+		})
+	})
 </script>
