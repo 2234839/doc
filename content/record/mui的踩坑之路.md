@@ -1,6 +1,7 @@
 # mui的踩坑之路
 
 - pubdate:2019-05-07 17:10:15
+- tags:mui
 
 > 一个自己开发时攒下来的一点工具[muiutil](https://dev.tencent.com/u/sheng_gu/p/muiutil/git)
 -------------

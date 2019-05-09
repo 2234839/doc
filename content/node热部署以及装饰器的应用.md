@@ -1,12 +1,12 @@
 # node热部署以及装饰器的应用
 
 - pubdate: 2019-03-16 17:43:29
-
+- tags : node.js
 
 ------
 
 ## node 热部署基础
-node的热部署主要依赖require来动态的引入模块  
+node的热部署主要依赖require来动态的引入模块
 即通过fs模块来监视文件，如果文件发生变动则重新require该文件
 
 ```javascript
@@ -16,7 +16,7 @@ node的热部署主要依赖require来动态的引入模块
         if (eventType == 'change' && filename.endsWith('.js')) {
             const filePath=path.join(dirName, filename)
             const module = require(filePath)//重新require该模块
-            /** 
+            /**
                 按照自己的需要用该模块替换掉旧的
                 也可以是该模块被require之后自动更新自身
                 registered(filePath,router)//我写了一个方法来更新koa的router绑定的函数
@@ -73,7 +73,7 @@ export function registerMethod(router, url, fun) {
         } catch (error) {
             console.error(`url 可能不符合规范，没有在router上找到该方法 ${url}`);
         }
-        return 
+        return
     }
 }
 ```

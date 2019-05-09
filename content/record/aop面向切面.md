@@ -1,6 +1,7 @@
 # AOP 面向切面编程
 
 - pubdate: 2019-05-05 13:45:24
+- tags:aop,编程范式
 
 Aspect Oriented Program
 -------------

@@ -1,7 +1,7 @@
 # js实现撤销功能
 
 - pubdate: 2019-05-09 21:47:58
-- tags: typescript,撤销
+- tags: typescript,编程范式
 
 -----------
 

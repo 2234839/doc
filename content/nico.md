@@ -1,7 +1,7 @@
 # nico md构建的静态页面
 
 - pubdate: 2019-3-6
-
+- tags : nico
 [nico](./record/nico) 配置不生效
 
 ------

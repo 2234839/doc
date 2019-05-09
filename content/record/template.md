@@ -1,6 +1,7 @@
 # template
 
 - pubdate: 2019-03-07 16:08:35
+- tags : template,shadow,web组件
 
 内容模板元素+shadowRoot，请确保您的浏览器支持 shadowRoot 和 template
 
@@ -21,7 +22,7 @@
 
 <template id="element-tr-template">
     <style>
-        /*  模板里的样式会限制范围在template里 
+        /*  模板里的样式会限制范围在template里
         这是依赖 shadowRoot 实现的
     */
         * {

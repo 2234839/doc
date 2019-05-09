@@ -1,6 +1,7 @@
 # node 使用koa搭建https网站
 
 - pubdate: 2019-03-09 18:17:32
+- tags : 服务器,https,网站建设,koa
 
 -----------
 
@@ -14,13 +15,13 @@
 
 ![ssl证书](./img/ssl证书.png)
 
-然后下载下来。  
+然后下载下来。
 得到了一个key文件和一个pem文件。
 
 ## 创建https服务器
 
-这一步也十分简单  
-读取key文件和pem文件构造出指定键名的对象  
+这一步也十分简单
+读取key文件和pem文件构造出指定键名的对象
 然后用https模块创建server 传入 options 和koa的处理函数
 ```javascript
 const options = {

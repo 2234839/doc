@@ -1,6 +1,7 @@
 # storage事件 + 回调
 
 - pubdate:2019-04-11 17:20:25
+- tags : javascript,工具
 
 跨页面传值通讯
 

@@ -1,6 +1,7 @@
 # markdown学习
 
 - pubdate: 2019-3-6 17:43
+- tags : markdown
 
 [Markdown：语法](https://daringfireball.net/projects/markdown/syntax#philosophy)
 ------

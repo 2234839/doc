@@ -1,6 +1,7 @@
 # 微信扫码
 
 - pubdate: 2019-04-08 10:56:28
+- tags : 微信,javascript,mui
 
 ---------------
 
@@ -53,7 +54,7 @@ $.ajax('http://dfpay.ltoyun.com/wx/sweep/es',{
 	}
 });
 wx.ready(function() {
-    wx.scanQRCode({  
+    wx.scanQRCode({
         needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
         scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
         success: function (res) {

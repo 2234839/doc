@@ -1,6 +1,7 @@
 # 腾讯ocr接口调用
 
 - pubdate: 2019-04-19 16:45:55
+- tags : 工具,ocr
 
 -------
 
@@ -48,7 +49,7 @@ function ksort(obj: any) {
 
 ### img转base64
 
-主要利用canvas的[toDataURL](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toDataURL),toDataURL的第二个参数可以调整图片的质量，能够起到压缩图片的功能。 
+主要利用canvas的[toDataURL](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toDataURL),toDataURL的第二个参数可以调整图片的质量，能够起到压缩图片的功能。
 
 ```javascript
 export function getBase64Image(img: HTMLImageElement) {
