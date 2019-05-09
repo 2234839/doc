@@ -17,7 +17,7 @@
 <script>
     function send() {
         mui.ajax({
-            url: 'http://shenzilong.cn/blog/addRss',
+            url: 'https://shenzilong.cn/blog/addRss',
             data: {
                 title:document.querySelector("#title").value,
                 link:document.querySelector("#link").value,
