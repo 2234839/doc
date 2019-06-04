@@ -108,3 +108,5 @@ export function bindRouter(url:string) {
         /** 实现功能的代码 */
     }
 ```
+
+[装饰器详解](./record/装饰器详解.md)
