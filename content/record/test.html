@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+    // Create WebSocket connection.
+    const socket = new WebSocket('ws://192.168.0.112:8083/websocket');
+
+    // Connection opened
+    socket.addEventListener('open', function (event) {
+        console.log('ok');
+
+        socket.send('Hello Server!');
+    });
+
+    // Listen for messages
+    socket.addEventListener('message', function (event) {
+        console.log('Message from server ', event.data);
+    });
+
+    socket.addEventListener('error', function (event) {
+            console.error('连接错误 ', event.data);
+    });
+</script>
+</body>
+</html>
