@@ -146,7 +146,10 @@
 			if (value.parentElement.previousSibling.classList.contains('highlight') === false)
 				value.setAttribute("contenteditable", "true");
 			if (value.querySelector('code.javascript') !== null && value.parentElement.previousSibling.classList.contains('highlight') === false) {
-				value.appendChild(getRunScript(value))
+				const el= getRunScript(value)
+				value.appendChild(el)
+
+				value.insertBefore(el,value.children[0])
 			}
 		})
 		function getRunScript(target) {
@@ -154,14 +157,21 @@
 			el.classList.add('run-script')
 			el.textContent = '运行'
 			el.setAttribute("contenteditable", "false");
-			el.title = "请严格的输入分号"
-			el.onclick = function () {
-				const code = target.innerText.slice(0, target.innerText.length - el.innerText.length)
-				console.log('run code ==>' + code);
-				eval(code)
-			}
 			return el
 		}
+
+		/** 可以实时运行这些输入的代码 */
+		document.querySelector('body').addEventListener('click', function (e) {
+			const el = e.target
+			if (el.classList.contains("run-script")===false)
+				return;
+				console.log(el.parentElement);
+
+			const target=el.parentElement
+			const code = target.innerText.slice(el.innerText.length)
+			console.log('run code ==>' + code);
+			eval(code)
+		})
 
 		/** 可以实时运行这些输入的代码 */
 		document.querySelector('body').addEventListener('input', function (e) {
