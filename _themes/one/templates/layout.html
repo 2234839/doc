@@ -127,9 +127,13 @@
 		document.querySelectorAll('pre').forEach(function (value) {
 			hljs.highlightBlock(value);
 			/** 输入代码并实时运行 */
-			value.setAttribute("contenteditable", "true");
-			if(value.querySelector('code.javascript')!==null){
-				console.log(value);
+			if(value.parentElement.previousSibling===null){/** 是第一个元素 */
+				return;
+			}
+
+			if(value.parentElement.previousSibling.classList.contains('highlight') === false)
+				value.setAttribute("contenteditable", "true");
+			if(value.querySelector('code.javascript')!==null && value.parentElement.previousSibling.classList.contains('highlight')===false){
 				value.appendChild(getRunScript(value))
 			}
 		})
