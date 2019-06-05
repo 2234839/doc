@@ -43,6 +43,20 @@
 	{%- endif %}
 	<link rel="shortcut icon" href="{{ static_url('favicon.ico') }}" type="image/x-icon">
 	<link rel="stylesheet" href="{{ static_url('default.min.css') }}">
+	<style>
+	.highlight{
+		position: relative ;
+		clear: both;
+	}
+	.run-script{
+		background-color: antiquewhite;
+		position: absolute;
+		padding: 2px 10px;
+		border-radius: 5px;
+		top: 6px;
+    	right: 6px;
+	}
+	</style>
 	<script src="{{ static_url('highlight.min.js') }}"></script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139738006-1"></script>
@@ -76,7 +90,7 @@
 		{%- block document %}
 		{%- endblock %}
 	</div>
-	<div class="footer">
+	<div class="footer" style="clear: both;">
 		{%- if config.footer %}
 		{{config.footer}}
 		{%- endif %}
@@ -112,6 +126,35 @@
 		//高亮代码块
 		document.querySelectorAll('pre').forEach(function (value) {
 			hljs.highlightBlock(value);
+			/** 输入代码并实时运行 */
+			value.setAttribute("contenteditable", "true");
+			if(value.querySelector('code.javascript')!==null){
+				console.log(value);
+				value.appendChild(getRunScript(value))
+			}
+		})
+		function getRunScript(target){
+			const el= document.createElement('div')
+			el.classList.add('run-script')
+			el.textContent='运行'
+			el.setAttribute("contenteditable", "false");
+			el.onclick=function(){
+				console.log('run code ==>'+ target.querySelector('code').textContent);
+				eval(target.querySelector('code').textContent)
+			}
+			return el
+		}
+
+		/** 可以实时运行这些输入的代码 */
+		document.querySelector('body').addEventListener('input',function(e){
+			const el=e.target
+			if(el instanceof HTMLPreElement===false)
+				return;
+			const previousSibling=el.parentElement.previousSibling
+			if(previousSibling.classList.contains('nico-insert-code') || previousSibling instanceof HTMLStyleElement){/** 前面那个节点的内容是由el中的内容生成的 */
+				previousSibling.innerHTML= el.textContent
+				// hljs.highlightBlock(el);
+			}
 		})
 	})
 </script>
