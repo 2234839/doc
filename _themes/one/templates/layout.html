@@ -138,9 +138,11 @@
 			el.classList.add('run-script')
 			el.textContent='运行'
 			el.setAttribute("contenteditable", "false");
+			el.title="请严格的输入分号"
 			el.onclick=function(){
-				console.log('run code ==>'+ target.querySelector('code').textContent);
-				eval(target.querySelector('code').textContent)
+				const code= target.innerText.slice(0, target.innerText.length - el.innerText.length)
+				console.log('run code ==>'+code);
+				eval(code)
 			}
 			return el
 		}

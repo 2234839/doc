@@ -13,6 +13,10 @@
 }
 ````
 
+```javascript
+alert(1)
+```
+
 ````javascript
 console.log(3333)
 ````
