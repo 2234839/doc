@@ -94,8 +94,11 @@
 				{%- for item in config.navigation %}
 				<a href="{{content_url(item.link)}}">{{item.title}}</a>
 				{%- endfor %}
+
+				<div><input  class="_szl_search" placeholder="请输入您想要搜索的" type="text"> </div>
 			</div>
 			{%- endif %}
+
 		</div>
 	</div>
 	<div class="document yue">
@@ -125,6 +128,18 @@
 </html>
 
 <script>
+	document.onkeyup = function (e) {
+		// 兼容FF和IE和Opera
+		var event = e || window.event;
+		var key = event.which || event.keyCode || event.charCode;
+		if (key == 13) {/** 监听回车事件 */
+			/*Do something. 调用一些方法*/
+			if(event.target.classList.contains("_szl_search")){/** 是搜索按钮 */
+				location.href=`https://www.google.com/search?q=${event.target.value} site:shenzilong.cn`
+			}
+		}
+	};
+
 	window.addEventListener('load', function () {
 		//因为md文档中直接链接到其他文件会导致没有.html 后缀然后访问不到资源，故出此下策
 		let href = Array.from(document.querySelectorAll('p a[href]'))
