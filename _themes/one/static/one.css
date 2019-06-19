@@ -299,6 +299,7 @@ html, body {
   font-size: 16px;
   font-family: "Optima", "Avenir", "Helvetica Neue", sans-serif;
   padding: 20px 10px;
+  padding-bottom: 0px;
 }
 .header a {
   color: #323233;
@@ -339,7 +340,8 @@ html, body {
   max-width: 640px;
   *width: 650px;
   margin: 0 auto;
-  padding: 30px 10px;
+  padding: 10px 10px;
+  padding-top: 0px;
 }
 .footer {
   margin: 0 auto;
