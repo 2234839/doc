@@ -15,7 +15,7 @@
 ```
 
 ## nginx 运行指定的配置文件
-nginx -c ~/nginx.conf
+sudo nginx -c ~/nginx.conf
 
 ## kill掉所有的nginx
-pkill nginx
+sudo pkill nginx
