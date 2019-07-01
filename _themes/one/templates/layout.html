@@ -142,7 +142,8 @@
 	require(['vs/editor/editor.main'], function () {
 		document.querySelectorAll('pre').forEach(function (el) {
 			var div = document.createElement('div')
-			div.style.height = el.offsetHeight + 'px'
+			/** 这个高度的算法是因为vs的行高为19而原来的行高为28 */
+			div.style.height = el.offsetHeight/28.36*19 + 'px'
 			el.parentElement.insertBefore(div, el)
 			el.style.display = "none"
 			var editor = monaco.editor.create(div, {
