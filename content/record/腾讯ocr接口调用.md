@@ -18,7 +18,7 @@
 |非转义的字符|字母 数字 - _ . ! ~ * ' ( )|
 |数字符号|#|
 
-```javascript
+```typescript
 function getReqSign(params: any, appkey: string) {
     // 1. 字典升序排序
     params = ksort(params);
@@ -51,7 +51,7 @@ function ksort(obj: any) {
 
 主要利用canvas的[toDataURL](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toDataURL),toDataURL的第二个参数可以调整图片的质量，能够起到压缩图片的功能。
 
-```javascript
+```typescript
 export function getBase64Image(img: HTMLImageElement) {
     canvas.width = img.width;
     canvas.height = img.height;
