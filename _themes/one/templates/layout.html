@@ -164,7 +164,7 @@
 				var editor = monaco.editor.create(div, {
 					value: el.innerText,
 					automaticLayout: true,
-					language: el.getAttribute('language'),
+					language: getLanguage(el),
 					//代码略缩图
 					minimap: {
 						enabled: false
@@ -172,6 +172,11 @@
 				});
 			})
 		});
+		function getLanguage(el){
+			var language=el.getAttribute('language')
+			/** 去除后面的+号 */
+			return language.replace(/\+$/,'')
+		}
 	})
 </script>
 
