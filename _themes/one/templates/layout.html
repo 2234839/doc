@@ -68,6 +68,12 @@
 			border-radius: 0px;
 			outline: 0px;
 		}
+
+		.highlight {
+			border: 1px solid grey;
+			margin-top: 4px;
+			margin-bottom: 4px;
+		}
 	</style>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139738006-1"></script>
@@ -77,6 +83,8 @@
 		gtag('js', new Date());
 		gtag('config', 'UA-139738006-1');
 	</script>
+	<script title="vscode的编辑器的加载" src="/node_modules/monaco-editor/min/vs/loader.js"></script>
+
 </head>
 
 <body>
@@ -95,7 +103,7 @@
 				{%- endfor %}
 
 				<div title="调用google来搜索本站">
-					<input  class="_szl_search" placeholder="请输入您想要搜索的" type="text">
+					<input class="_szl_search" placeholder="请输入您想要搜索的" type="text">
 				</div>
 			</div>
 			{%- endif %}
@@ -127,19 +135,42 @@
 </body>
 
 </html>
-
 <!-- <script src="{{ static_url('highlight.min.js') }}"></script> -->
-<script title="vscode的编辑器的加载" src="/node_modules/monaco-editor/min/vs/loader.js"></script>
-
 <script>
+	/** 高亮代码块 */
+	require.config({ paths: { 'vs': '/node_modules/monaco-editor/min/vs' } });
+	require(['vs/editor/editor.main'], function () {
+		document.querySelectorAll('pre').forEach(function (el) {
+			var div = document.createElement('div')
+			div.style.height = el.offsetHeight + 'px'
+			el.parentElement.insertBefore(div, el)
+			el.style.display = "none"
+			var editor = monaco.editor.create(div, {
+				value: el.innerText,
+				language: getLanguage(el),
+				//代码略缩图
+				minimap: {
+					enabled: false
+				},
+				theme: 'vs',
+				automaticLayout: true,
+				scrollBeyondLastLine: false
+			});
+		})
+	});
+	function getLanguage(el) {
+		var language = el.getAttribute('language')
+		/** 去除后面的+号 */
+		return language.replace(/\+$/, '')
+	}
 	document.onkeyup = function (e) {
 		// 兼容FF和IE和Opera
 		var event = e || window.event;
 		var key = event.which || event.keyCode || event.charCode;
 		if (key == 13) {/** 监听回车事件 */
 			/*Do something. 调用一些方法*/
-			if(event.target.classList.contains("_szl_search")){/** 是搜索按钮 */
-				location.href=`https://www.google.com/search?q=${event.target.value} site:shenzilong.cn`
+			if (event.target.classList.contains("_szl_search")) {/** 是搜索按钮 */
+				location.href = `https://www.google.com/search?q=${event.target.value} site:shenzilong.cn`
 			}
 		}
 	};
@@ -152,45 +183,20 @@
 			if (yearReg.test(v.href))
 				v.href = location.origin + v.href.match(yearReg)[1]
 		})
-
-		/** 高亮代码块 */
-		require.config({ paths: { 'vs': '/node_modules/monaco-editor/min/vs' } });
-		require(['vs/editor/editor.main'], function () {
-			document.querySelectorAll('pre').forEach(function (el) {
-				var div=document.createElement('div')
-				div.style.height='300px'
-				el.parentElement.insertBefore(div,el)
-				el.style.display="none"
-				var editor = monaco.editor.create(div, {
-					value: el.innerText,
-					automaticLayout: true,
-					language: getLanguage(el),
-					//代码略缩图
-					minimap: {
-						enabled: false
-					}
-				});
-			})
-		});
-		function getLanguage(el){
-			var language=el.getAttribute('language')
-			/** 去除后面的+号 */
-			return language.replace(/\+$/,'')
-		}
 	})
 </script>
 
 <script title="百度自动推送">
-	(function () {
-		var bp = document.createElement('script');
-		var curProtocol = window.location.protocol.split(':')[0];
-		if (curProtocol === 'https') {
-			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-		}
-		else {
-			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-		}
-		var s = document.getElementsByTagName("script")[0];
-		s.parentNode.insertBefore(bp, s);
-	})();
+		(function () {
+			var bp = document.createElement('script');
+			var curProtocol = window.location.protocol.split(':')[0];
+			if (curProtocol === 'https') {
+				bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+			}
+			else {
+				bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+			}
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(bp, s);
+		})();
 </script>
