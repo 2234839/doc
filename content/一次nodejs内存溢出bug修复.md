@@ -9,7 +9,7 @@
 
 ### 安卓easy-monitor的时候报错了
 
-```txt
+```error
 Error: Can't find Python executable "python", you can set the PYTHON env variable.
 ```
 这台windows下没有python的环境....

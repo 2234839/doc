@@ -69,7 +69,6 @@
 			outline: 0px;
 		}
 	</style>
-	<script src="{{ static_url('highlight.min.js') }}"></script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139738006-1"></script>
 	<script>
@@ -129,6 +128,9 @@
 
 </html>
 
+<!-- <script src="{{ static_url('highlight.min.js') }}"></script> -->
+<script title="vscode的编辑器的加载" src="/node_modules/monaco-editor/min/vs/loader.js"></script>
+
 <script>
 	document.onkeyup = function (e) {
 		// 兼容FF和IE和Opera
@@ -141,7 +143,6 @@
 			}
 		}
 	};
-
 	window.addEventListener('load', function () {
 		//因为md文档中直接链接到其他文件会导致没有.html 后缀然后访问不到资源，故出此下策
 		let href = Array.from(document.querySelectorAll('p a[href]'))
@@ -152,129 +153,26 @@
 				v.href = location.origin + v.href.match(yearReg)[1]
 		})
 
-		//高亮代码块
-		document.querySelectorAll('pre').forEach(function (value) {
-			hljs.highlightBlock(value);
-			/** 输入代码并实时运行 */
-			if (value.parentElement.previousSibling === null) {/** 是第一个元素 */
-				return;
-			}
-
-			if (value.parentElement.previousSibling.classList.contains('highlight') === false)
-				value.setAttribute("contenteditable", "true");
-			if (value.querySelector('code.javascript') !== null && value.parentElement.previousSibling.classList.contains('highlight') === false) {
-				const el= getRunScript(value)
-				value.appendChild(el)
-
-				value.insertBefore(el,value.children[0])
-			}
-		})
-		function getRunScript(target) {
-			const el = document.createElement('div')
-			el.classList.add('run-script')
-			el.textContent = '运行'
-			el.setAttribute("contenteditable", "false");
-			return el
-		}
-
-		/** 可以实时运行这些输入的代码 */
-		document.querySelector('body').addEventListener('click', function (e) {
-			const el = e.target
-			if (el.classList.contains("run-script")===false)
-				return;
-				console.log(el.parentElement);
-
-			const target=el.parentElement
-			const code = target.innerText.slice(el.innerText.length)
-			console.log('run code ==>' + code);
-			eval(code)
-		})
-
-		/** 可以实时运行这些输入的代码 */
-		document.querySelector('body').addEventListener('input', function (e) {
-			const el = e.target
-			if (el instanceof HTMLPreElement === false)
-				return;
-			const previousSibling = el.parentElement.previousSibling
-			if (previousSibling.classList.contains('nico-insert-code') || previousSibling instanceof HTMLStyleElement) {/** 前面那个节点的内容是由el中的内容生成的 */
-				previousSibling.innerHTML = el.textContent
-
-				// hljs.highlightBlock(el);
-			}
-		})
-
-		/** 失去焦点之后重新渲染代码 */
-		document.querySelector('body').addEventListener('focusout', function (e) {
-			const el = e.target
-			if (el instanceof HTMLPreElement === false)
-				return;
-			hljs.highlightBlock(el);
-		})
-
-		/** table 转变为4个空格 */
-		// document.addEventListener('keydown', function (e) {
-		// 	if (e.keyCode === 9) {
-		// 		const el = e.target
-		// 		const code=el.innerText
-		// 		const CursortPosition= getCursortPosition(el)
-		// 		console.log(el);
-
-		// 		el.innerText=code.slice(0,CursortPosition)+"    "+code.slice(CursortPosition)
-		// 		setCaretPosition(el, 0)
-		// 		e.preventDefault();
-		// 	}
-		// }, false);
-
-		/** 获取当前光标位置 */
-		function getCursortPosition(element) {
-			var caretOffset = 0;
-			var doc = element.ownerDocument || element.document;
-			var win = doc.defaultView || doc.parentWindow;
-			var sel;
-			if (typeof win.getSelection != "undefined") {//谷歌、火狐
-				sel = win.getSelection();
-				if (sel.rangeCount > 0) {//选中的区域
-					var range = win.getSelection().getRangeAt(0);
-					var preCaretRange = range.cloneRange();//克隆一个选中区域
-					preCaretRange.selectNodeContents(element);//设置选中区域的节点内容为当前节点
-					preCaretRange.setEnd(range.endContainer, range.endOffset);  //重置选中区域的结束位置
-					caretOffset = preCaretRange.toString().length;
-				}
-			} else if ((sel = doc.selection) && sel.type != "Control") {//IE
-				var textRange = sel.createRange();
-				var preCaretTextRange = doc.body.createTextRange();
-				preCaretTextRange.moveToElementText(element);
-				preCaretTextRange.setEndPoint("EndToEnd", textRange);
-				caretOffset = preCaretTextRange.text.length;
-			}
-			return caretOffset;
-		}
-
-
+		/** 高亮代码块 */
+		require.config({ paths: { 'vs': '/node_modules/monaco-editor/min/vs' } });
+		require(['vs/editor/editor.main'], function () {
+			document.querySelectorAll('pre').forEach(function (el) {
+				var div=document.createElement('div')
+				div.style.height='300px'
+				el.parentElement.insertBefore(div,el)
+				el.style.display="none"
+				var editor = monaco.editor.create(div, {
+					value: el.innerText,
+					automaticLayout: true,
+					language: el.getAttribute('language'),
+					//代码略缩图
+					minimap: {
+						enabled: false
+					}
+				});
+			})
+		});
 	})
-	/** 设置光标位置 */
-		function setCaretPosition(element, pos) {
-			var range, selection;
-			if (document.createRange)//Firefox, Chrome, Opera, Safari, IE 9+
-			{
-				range = document.createRange();//创建一个选中区域
-				range.selectNodeContents(element);//选中节点的内容
-				if (element.innerHTML.length > 0) {
-					range.setStart(element.children[0], pos); //设置光标起始为指定位置
-				}
-				range.collapse(true);       //设置选中区域为一个点
-				selection = window.getSelection();//获取当前选中区域
-				selection.removeAllRanges();//移出所有的选中范围
-				selection.addRange(range);//添加新建的范围
-			}
-			else if (document.selection)//IE 8 and lower
-			{
-				range = document.body.createTextRange();//Create a range (a range is a like the selection but invisible)
-				range.moveToElementText(element);//Select the entire contents of the element with the range
-				range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
-				range.select();//Select the range (make it the visible selection
-			}
-		}
 </script>
 
 <script title="百度自动推送">

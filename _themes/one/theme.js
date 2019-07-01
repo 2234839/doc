@@ -11,12 +11,15 @@ exports.filters = {
     let path=writers.match(/href=".\/(.*)"/)
     if(path!==null)
       writers=writers.replace(path[1],path[1]+".html")
+
     // console.log(writers);
     // console.log('----------------------');
     return writers
   },
   parseA: function(writers, name) {//为a标签加上 html 后缀
     writers= writers.replace(/href="(\.\.\/|\.\/)(.*?)"/g, function(str,p1, p2, offset, s){
+      // console.log(writers);
+
       if(p2.includes('.')===false){//没有后缀
         return `href="${p1}${p2}.html"`
       }else{
