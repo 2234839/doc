@@ -9,7 +9,7 @@
 node的热部署主要依赖require来动态的引入模块
 即通过fs模块来监视文件，如果文件发生变动则重新require该文件
 
-```javascript
+```typescript
     fs.watch(dirName,{
         recursive:true//监视所有子目录
     }, (eventType: String, filename: String) => {
@@ -28,7 +28,7 @@ node的热部署主要依赖require来动态的引入模块
 ## koa-router热部署
 > 通过对router.routeStack 中的 handler 函数的替换来实现保存代码改动之后立刻重新加载该函数无需重启整个服务
 
-```javascript
+```typescript
 /**
  * 将一个文件显式声明的方法绑定到指定的路由对象上
  * @param path 路由文件路径
@@ -80,7 +80,7 @@ export function registerMethod(router, url, fun) {
 ## 通过装饰器来绑定路径以及减少重复代码
 
 装饰器的代码
-```javascript
+```typescript
 /**
  * 绑定方法到指定的路径上 这个方法依赖全局的 global["router"] 支持多重装饰
  * @param url 绑定的路径 例如 "get /app/login"
@@ -102,7 +102,7 @@ export function bindRouter(url:string) {
 }
 ```
 应用装饰器
-```javascript
+```typescript
     @bindRouter("get /blog/proxy") @bindRouter("post /blog/proxy")
     static async proxy(ctx, next) {
         /** 实现功能的代码 */
