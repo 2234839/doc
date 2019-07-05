@@ -8,6 +8,7 @@
 [压缩包下载](./pannellum-2.4.0.zip)
 
 ## 通过iframe的方式加载
+
 ````html
 <iframe
     width="600" height="400"
