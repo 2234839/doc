@@ -31,9 +31,10 @@
 <div id="panorama"></div>
 
 <script>
+    //https://pannellum.org/images/alma.jpg
 pannellum.viewer('panorama', {
     "type": "equirectangular",
-    "panorama": "https://pannellum.org/images/alma.jpg"
+    "panorama": "/record/展示/全景/09dd76fac68c341b6aafb24dda768d3.jpg"
 });
 </script>
 ````
