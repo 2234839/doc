@@ -8,7 +8,7 @@
     "hideNico":"true",
     "github":"https://dev.tencent.com/u/sheng_gu",
     "permalink": "{{directory}}/{{filename}}.html",
-    "footer": "一些随笔  -*-  湘ICP备18021783号",
+    "footer": "一些随笔  🎨  湘ICP备18021783号",
     "navigation": [
         {"title": "记录", "link": "/record/index.html"},
         {"title": "工具", "link": "/util/index.html"},
