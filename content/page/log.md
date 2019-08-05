@@ -33,9 +33,9 @@ logList.__filter(el => {
 <table>
     <thead>
         <tr>
-            <th>ip</th>
-            <th>time</th>
+            <th>ip & time</th>
             <th>url</th>
+            <th>ua</th>
         </tr>
     </thead>
     <tbody style="font-size: 14px;">
@@ -71,13 +71,13 @@ logList.__filter(el => {
     }
     function filter() {
         logList.__filter(el => {
-            return !el.__data[2].includes('/x')
+            return !el.__data[1].includes('/x')
         }, el => {
-            return !el.__data[2].endsWith('.css')
+            return !el.__data[1].endsWith('.css')
         }, el => {
-            return !el.__data[2].endsWith('favicon.ico')
+            return !el.__data[1].endsWith('favicon.ico')
         }, el => {
-            return !el.__data[2].endsWith('.js')
+            return !el.__data[1].endsWith('.js')
         })
     }
 
