@@ -13,4 +13,4 @@ interface Body{
     /** 携带的内容 */ contont:any
 }
 
-export const a=1
+export const a = 1
