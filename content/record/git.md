@@ -7,7 +7,7 @@
 
 [git 免密码](https://todebug.com/Tips/)
 
-## 查看谁更改了my_file中的内容和时间。
+## 查看谁更改了my_file中的内容和时间
 
 git blame
 
@@ -19,9 +19,9 @@ git blame
 $ ssh-keygen
 ```
 
-
 ## git 配置全局的name和email
 
 git config --global user.name 申子龙@台式
 
 git config --global user.email 2234839456@qq.com
+
