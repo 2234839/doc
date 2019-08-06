@@ -1,6 +1,6 @@
 {
   "name": "doc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "> 一些笔记之类的",
   "main": "index.js",
   "dependencies": {
@@ -10,10 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@git.dev.tencent.com:sheng_gu/doc.git"
-  },
-  "author": "",
+  "repository": "git@git.dev.tencent.com:sheng_gu/doc.git",
+  "author": "申子龙@暗夜精灵 <2234839456@qq.com>",
   "license": "ISC"
 }
