@@ -14,10 +14,10 @@
 	<title>崮生-{% block title%}{% endblock %}</title>
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	<script>
-	(adsbygoogle = window.adsbygoogle || []).push({
-		google_ad_client: "ca-pub-7181140659254262",
-		enable_page_level_ads: true
-	});
+		(adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-7181140659254262",
+			enable_page_level_ads: true
+		});
 	</script>
 	<script>
 		// if ('serviceWorker' in navigator) {
@@ -51,9 +51,10 @@
 	<link rel="shortcut icon" href="{{ static_url('favicon.ico') }}" type="image/x-icon">
 	<link rel="stylesheet" href="{{ static_url('default.min.css') }}">
 	<style>
-		html{
+		html {
 			background: url(/static/bg.jpg);
 		}
+
 		/** 运行按钮的定位 */
 		.highlight {
 			position: relative;
@@ -136,12 +137,8 @@
 		</a>
 		<!-- 底部谷歌广告单元 -->
 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<ins class="adsbygoogle"
-			style="display:block"
-			data-ad-client="ca-pub-7181140659254262"
-			data-ad-slot="9720207698"
-			data-ad-format="auto"
-			data-full-width-responsive="true"></ins>
+		<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7181140659254262"
+			data-ad-slot="9720207698" data-ad-format="auto" data-full-width-responsive="true"></ins>
 		<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 		<!-- 底部谷歌广告单元 -->
 	</div>
@@ -162,7 +159,7 @@
 		document.querySelectorAll('pre').forEach(function (el) {
 			var div = document.createElement('div')
 			/** 这个高度的算法是因为vs的行高为19而原来的行高为28 */
-			div.style.height = el.offsetHeight/27*19 + 'px'
+			div.style.height = el.offsetHeight / 27 * 19 + 'px'
 			div.style.width = '100%'
 			el.parentElement.insertBefore(div, el)
 			el.style.display = "none"
@@ -204,20 +201,28 @@
 			if (yearReg.test(v.href))
 				v.href = location.origin + v.href.match(yearReg)[1]
 		})
-	})
+	});
+	(() => {
+		var title = document.title
+		var i = 0
+		setInterval(function () {
+			i++
+			document.title = title + [..."🌑🌒🌓🌔🌝🌖🌗🌘"][i % 8]
+		}, 400)
+	})()
 </script>
 
 <script title="百度自动推送">
-	(function () {
-		var bp = document.createElement('script');
-		var curProtocol = window.location.protocol.split(':')[0];
-		if (curProtocol === 'https') {
-			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-		}
-		else {
-			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-		}
-		var s = document.getElementsByTagName("script")[0];
-		s.parentNode.insertBefore(bp, s);
-	})();
+		(function () {
+			var bp = document.createElement('script');
+			var curProtocol = window.location.protocol.split(':')[0];
+			if (curProtocol === 'https') {
+				bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+			}
+			else {
+				bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+			}
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(bp, s);
+		})();
 </script>
