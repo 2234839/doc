@@ -14,13 +14,13 @@
 
 ```javascript
 logList.__filter(el => {
-    return !el.__data[2].includes('/x')
+    return !el.__data[1].includes('/x')
 }, el => {
-    return !el.__data[2].endsWith('.css')
+    return !el.__data[1].endsWith('.css')
 }, el => {
-    return !el.__data[2].endsWith('favicon.ico')
+    return !el.__data[1].endsWith('favicon.ico')
 }, el => {
-    return !el.__data[2].endsWith('.js')
+    return !el.__data[1].endsWith('.js')
 })
 ```
 
