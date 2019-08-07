@@ -18,8 +18,8 @@
         timeout: 10000,
         success:parse
     });
+    var database={}
     function parse({body}) {
-        var database={}
         console.log(body);
         body.forEach(el => {
             if(database[el.表名]===undefined)
@@ -28,8 +28,27 @@
             delete el.表名
             database[name].push(el)
         });
-        console.log(database);
-
-
+        console.log(database)
     }
+
+    function generateJSON(tableName) {
+        var template={
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "type": "object",
+            "properties": {
+                "blicenseImg": {
+                    "type": "string",
+                    "description": "营业执照照片地址"
+                }
+            }
+        }
+        database[tableName].forEach(el => {
+            template.properties.[el.列名].description=el.注释
+            template.properties.[el.列名].type=el.类型
+        });
+        return template
+    }
+
+
+}
 `````
