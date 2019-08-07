@@ -43,6 +43,7 @@
             }
         }
         database[tableName].forEach(el => {
+            template.properties[el.列名]={}
             template.properties[el.列名].description=el.注释
             template.properties[el.列名].type=el.类型
         });
