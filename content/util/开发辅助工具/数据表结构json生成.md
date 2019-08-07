@@ -24,6 +24,7 @@
         body.forEach(el => {
             if(database[el.表名]===undefined)
                 database[el.表名]=[]
+            delete el.表名
             database[el.表名].push(el)
         });
         console.log(database);
