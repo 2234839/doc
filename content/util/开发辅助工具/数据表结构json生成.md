@@ -16,6 +16,18 @@
         dataType: 'json',
         type: 'get',
         timeout: 10000,
-        success:console.log
+        success:parse
     });
+    function parse({body}) {
+        var database={}
+        console.log(body);
+        body.forEach(el => {
+            if(database[el.表名]===undefined)
+                database[el.表名]=[]
+            database[el.表名].push(el)
+        });
+        console.log(database);
+
+
+    }
 `````
