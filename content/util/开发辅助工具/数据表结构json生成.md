@@ -45,8 +45,15 @@
         database[tableName].forEach(el => {
             template.properties[el.列名]={}
             template.properties[el.列名].description=el.注释
-            template.properties[el.列名].type=el.类型
+            template.properties[el.列名].type=getType(el.类型)
         });
+
+        function getType(str) {
+            if(["int","tinyint","smallint","mediumint","int","bigint","float","double","real","decimal"].includes(str))
+                return "number"
+            else
+                return "string"
+        }
         return template
     }
 `````
