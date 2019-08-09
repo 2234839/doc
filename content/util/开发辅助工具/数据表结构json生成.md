@@ -9,7 +9,13 @@
 
 ## 荣事达
 
+<div id="btn_list" >
+
+</div>
+<textarea id="content" style="width:600px;height:800px;"></textarea>
+
 `````javascript
+
     mui.ajax({
         url:"https://shenzilong.cn/rsd/get_table_construction",
         data:{},
@@ -19,15 +25,32 @@
         success:parse
     });
     var database={}
+    mui("#btn_list").on('tap','a',function () {
+        const str=JSON.stringify(generateJSON(this.textContent),null,4)
+        console.log(str);
+
+        document.querySelector('#content').value=str
+    })
+
     function parse({body}) {
-        console.log(body);
         body.forEach(el => {
+
             if(database[el.表名]===undefined)
                 database[el.表名]=[]
             const name=el.表名
             delete el.表名
             database[name].push(el)
         });
+
+        for (const key in database) {
+            if (database.hasOwnProperty(key)) {
+                const element = database[key];
+                const btn= document.createElement('a')
+                btn.classList.add("button")
+                btn.textContent=key
+                document.querySelector('#btn_list').appendChild(btn)
+            }
+        }
         console.log(database)
     }
 
@@ -35,12 +58,7 @@
         var template={
             "$schema": "http://json-schema.org/draft-04/schema#",
             "type": "object",
-            "properties": {
-                "blicenseImg": {
-                    "type": "string",
-                    "description": "营业执照照片地址"
-                }
-            }
+            "properties": {}
         }
         database[tableName].forEach(el => {
             template.properties[el.列名]={}

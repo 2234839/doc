@@ -491,7 +491,7 @@ html, body {
 .document a.button {
   display: inline-block;
   padding: 1em;
-  margin: 0;
+  margin: 2px;
   background-color: #222223;
   color: #fcfcfd;
   text-transform: uppercase;
