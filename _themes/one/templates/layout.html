@@ -99,8 +99,7 @@
 		function requireTs(filepath,fun) {
 			var pathname=decodeURIComponent(location.pathname)
 			var fileName= pathname.match(/(.+)(\/.*)/)[2]
-			var current_path="/build-ts/content/"+pathname.replace(fileName,'/')
-			['/build-ts/content/读书笔记/javascript编程精解/项目/机器人']
+			var current_path="/build-ts/content"+pathname.replace(fileName,'/')
 			require(filepath.map(path=>{
 				if(/\.ts$/.test(path)){ /** 如果是ts文件 */
 					path=path.replace(/^\.\//,current_path)
