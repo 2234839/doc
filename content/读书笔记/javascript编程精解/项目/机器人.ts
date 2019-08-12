@@ -154,4 +154,4 @@ for (let i = 0; i < 10000; i++) {
 
 console.log(`万次平均步数${count / 10000}`);
 
-export var a=1
+// export var a=1
