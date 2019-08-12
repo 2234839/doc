@@ -70,9 +70,8 @@
 					path=path.replace(/\.ts$/,'')
 				}
 				return path
-			}),function name(params) {
-				console.warn("回调貌似没起到作用");
-
+			}),function(...arg) {
+				console.warn("回调貌似没起到作用",arg);
 			});
 		}
 	</script>
