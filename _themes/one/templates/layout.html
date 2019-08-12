@@ -60,6 +60,7 @@
 	</script>
 	<script title="vscode的编辑器的加载" src="/node_modules/monaco-editor/min/vs/loader.js"></script>
 	<script title="require ts 的改造">
+		/** 需要模块有一个默认输出回调才能起到效用 export default */
 		function requireTs(filepath,fun) {
 			var pathname=decodeURIComponent(location.pathname)
 			var fileName= pathname.match(/(.+)(\/.*)/)[2]
@@ -70,9 +71,7 @@
 					path=path.replace(/\.ts$/,'')
 				}
 				return path
-			}),function(...arg) {
-				console.warn("回调貌似没起到作用",arg);
-			});
+			}),fun);
 		}
 	</script>
 </head>

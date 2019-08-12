@@ -147,11 +147,8 @@ function goalOrientedRobot({ place, parcels }: { place: string, parcels: parcel[
 }
 runRobot(VillageState.random(), routeRobot, [])
 
-// let count = 0
-// for (let i = 0; i < 10000; i++) {
-//     count += runRobot(VillageState.random(), goalOrientedRobot, [])
-// }
-
-// console.log(`万次平均步数${count / 10000}`);
-
-export default {}
+export default {
+    runRobot,
+    VillageState,
+    goalOrientedRobot
+}
