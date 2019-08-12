@@ -154,28 +154,30 @@
 <!-- <script src="{{ static_url('highlight.min.js') }}"></script> -->
 <script>
 	/** 高亮代码块 */
-	require.config({ paths: { 'vs': '/node_modules/monaco-editor/min/vs' } });
-	require(['vs/editor/editor.main'], function () {
-		document.querySelectorAll('pre').forEach(function (el) {
-			var div = document.createElement('div')
-			/** 这个高度的算法是因为vs的行高为19而原来的行高为28 */
-			div.style.height = el.offsetHeight / 27 * 19 + 'px'
-			div.style.width = '100%'
-			el.parentElement.insertBefore(div, el)
-			el.style.display = "none"
-			var editor = monaco.editor.create(div, {
-				value: el.innerText,
-				language: getLanguage(el),
-				//代码略缩图
-				minimap: {
-					enabled: false
-				},
-				theme: 'vs',
-				automaticLayout: true,
-				scrollBeyondLastLine: false
-			});
-		})
-	});
+	if (document.querySelector('pre') !== null) {
+		require.config({ paths: { 'vs': '/node_modules/monaco-editor/min/vs' } });
+		require(['vs/editor/editor.main'], function () {
+			document.querySelectorAll('pre').forEach(function (el) {
+				var div = document.createElement('div')
+				/** 这个高度的算法是因为vs的行高为19而原来的行高为28 */
+				div.style.height = el.offsetHeight / 27 * 19 + 'px'
+				div.style.width = '100%'
+				el.parentElement.insertBefore(div, el)
+				el.style.display = "none"
+				var editor = monaco.editor.create(div, {
+					value: el.innerText,
+					language: getLanguage(el),
+					//代码略缩图
+					minimap: {
+						enabled: false
+					},
+					theme: 'vs',
+					automaticLayout: true,
+					scrollBeyondLastLine: false
+				});
+			})
+		});
+	}
 	function getLanguage(el) {
 		var language = el.getAttribute('language')
 		/** 去除后面的+号 */
