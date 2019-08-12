@@ -141,13 +141,14 @@
 				div.style.height = el.offsetHeight / 27 * 19 + 'px'
 				div.style.width = '100%'
 				if(getLanguage(el)==="javascript" || getLanguage(el)==="js"){
-					div.innerHTML+=`
-					<div class="tool-bar" style="font-size:60%">
-						<button class="pure-button pure-button-primary button-xsmall">▷</button>
-					</div>
-					`
-				}
 
+				}
+				var tool_bar= document.createElement('div')
+				tool_bar.classList.add("tool-bar")
+				tool_bar.style="font-size:60%"
+				tool_bar.innerHTML=`<button class="pure-button pure-button-primary button-xsmall">▷</button>`
+
+				el.parentElement.insertBefore(div, tool_bar)
 				el.parentElement.insertBefore(div, el)
 				el.style.display = "none"
 				var editor = monaco.editor.create(div, {
