@@ -95,7 +95,20 @@
 		gtag('config', 'UA-139738006-1');
 	</script>
 	<script title="vscode的编辑器的加载" src="/node_modules/monaco-editor/min/vs/loader.js"></script>
-
+	<script title="require ts 的改造">
+		function requireTs(filepath,fun) {
+			var pathname=decodeURIComponent(location.pathname)
+			var fileName= pathname.match(/(.+)(\/.*)/)[2]
+			var current_path="/build-ts/content/"+pathname.replace(fileName,'/')
+			['/build-ts/content/读书笔记/javascript编程精解/项目/机器人']
+			require(filepath.map(path=>{
+				if(/\.ts$/.test(path)){ /** 如果是ts文件 */
+					path=path.replace(/^\.\//,current_path)
+					path=path.replace(/\.ts$/,'')
+				}
+			}),fun);
+		}
+	</script>
 </head>
 
 <body>
