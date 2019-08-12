@@ -119,7 +119,7 @@ function routeRobot(state: VillageState, memory: string[]) {
     return { direction: memory[0], memory: memory.slice(1) }
 }
 
-/** 找到最短的路线，具体算法是从当前点向所有方向推进 当找到目的地的时候返回这条路线 */
+/**  找到最短的路线，具体算法是从当前点向所有方向推进 当找到目的地的时候返回这条路线 */
 function findRoute(graph: any, from: string, to: string): string[] {
     const work: { at: string, route: string[] }[] = [{ at: from, route: [] }]
     for (let i = 0; i < work.length; i++) {
