@@ -134,8 +134,6 @@
 	if (document.querySelector('pre') !== null) {
 		require.config({ paths: { 'vs': '/node_modules/monaco-editor/min/vs' } });
 		require(['vs/editor/editor.main'], function () {
-			console.warn('这里的回调起作用了');
-
 			document.querySelectorAll('pre').forEach(function (el) {
 				var div = document.createElement('div')
 				/** 这个高度的算法是因为vs的行高为19而原来的行高为28 */
