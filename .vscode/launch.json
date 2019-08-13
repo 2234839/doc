@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "ts-node 启动",
             "args": [
-                "${workspaceFolder}/content/读书笔记/javascript编程精解/项目/机器人.ts"
+                "${workspaceFolder}/content/读书笔记/javascript编程精解/项目/egg编程语言/egg.ts"
             ],
             "runtimeArgs": ["--nolazy","-r","ts-node/register"],
             "sourceMaps": true,
