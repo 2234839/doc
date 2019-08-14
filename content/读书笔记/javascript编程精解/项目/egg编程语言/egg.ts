@@ -147,7 +147,11 @@ const topEnv = Object.create(null);
 
 const topScope: any = {
     true: true,
-    false: false
+    false: false,
+    print : (value: any) => {
+        console.log(value);
+        return value;
+    }
 }
 
 /** 通过Function构造简单的+-/*之类的 */
@@ -155,10 +159,6 @@ for (let op of ["+", "-", "*", "/", "==", "<", ">"]) {
     const fun_str=`return a ${op} b;`
     topScope[op] = Function("a, b", fun_str);
 }
-topScope.print = (value: any) => {
-    console.log(value);
-    return value;
-};
 
 
 function run(program:string) {
