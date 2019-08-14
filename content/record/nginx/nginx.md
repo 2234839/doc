@@ -1,11 +1,21 @@
 # nginx 学习
 
-- pubdate:2019-06-27 16:42:17
+- pubdate:2019-08-14 17:15:40
 - tags:nginx
 
 ------------
 
 ## 安装nginx
+
+[centos7安装nginx](https://qizhanming.com/blog/2018/08/06/how-to-install-nginx-on-centos-7)
+
+```bash
+sudo rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+
+sudo yum install nginx
+```
+
+## 配置
 然后进行[配置](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
 
 我的一个配置

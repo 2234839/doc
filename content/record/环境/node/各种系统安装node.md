@@ -1,9 +1,21 @@
 # 各种系统安装node
 
-- pubdate: 2019-03-18 09:49:08
+- pubdate: 2019-08-14 17:10:11
 - tags : node.js
 
 ----------------
+
+## [centos 和 ubuntu](https://segmentfault.com/a/1190000010209661)
+
+centos
+
+运行脚本
+
+```bash
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+```
+
+然后运行它提示你要运行的命令
 
 ## 更新至node最新版
 
