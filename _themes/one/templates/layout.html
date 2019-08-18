@@ -63,13 +63,9 @@
 	<script title="require ts 的改造">
 		/** 需要模块有一个默认输出回调才能起到效用 export default */
 		function requireTs(filepath,fun) {
-			console.log('运行requireTs',filepath,fun);
-
 			var pathname=decodeURIComponent(location.pathname)
 			var fileName= pathname.match(/(.+)(\/.*)/)[2]
 			var current_path="/build-ts/content"+pathname.replace(fileName,'/')
-			console.log(current_path);
-
 			require(filepath.map(path=>{
 				if(/\.ts$/.test(path)){ /** 如果是ts文件 */
 					path=path.replace(/^\.\//,current_path)

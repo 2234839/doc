@@ -7,7 +7,7 @@
 
 照抄着实现了一个简单的lisp语言
 
-```javascript
+````javascript
 requireTs(['./egg.ts'], function ({
     run
 }) {
@@ -30,4 +30,4 @@ requireTs(['./egg.ts'], function ({
     )
     `)
 });
-```
+````
