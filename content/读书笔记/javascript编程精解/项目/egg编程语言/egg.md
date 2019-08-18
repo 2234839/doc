@@ -11,6 +11,8 @@
 requireTs(['./egg.ts'], function ({
     run
 }) {
+    console.log("运行egg");
+
     run(`
     do(
         define(i,1),
