@@ -1,26 +1,13 @@
+import  {evaluate}  from "./specialForms";
+import { expr,type  } from "./interface";
+
 /** ════════════════════════🏳‍🌈 egg 🏳‍🌈════════════════════════
  *  一个简单的语言
  ** ════════════════════════🚧 egg 🚧════════════════════════ */
 
+
 "egg中一切都是表达式"
 
-
-interface expr {
-    type: type
-    value?: Number | string,
-    name?: string
-    /** 操作符 */
-    operator?: expr
-    /** 参数 */
-    args?: any[]
-}
-
-/** 元素类型 */
-enum type {
-    value,
-    word,
-    apply
-}
 
 /** 解析器 */
 function parseExpression(program: string) {
@@ -67,7 +54,6 @@ function parseApply(expr: expr, program: string): { expr: expr, rest: string } {
     return parseApply(expr, program.slice(1));
 }
 
-
 function parse(program: string) {
     let { expr, rest } = parseExpression(program);
     if (skipSpace(rest).length > 0) {
@@ -78,70 +64,6 @@ function parse(program: string) {
 
 
 
-const specialForms = Object.create(null);
-
-function evaluate(expr: expr, scope: any): any {
-    if (expr.type === type.value) { /** 表达式是值就直接返回值 */
-        return expr.value;
-    } else if (expr.type === type.word) { /** 表达式是词 */
-        if (expr.name! in scope) {
-            return scope[expr.name!];
-        } else {
-            throw new ReferenceError(`Undefined binding: ${expr.name}`);
-        }
-    } else if (expr.type == type.apply) { /** apply */
-        let { operator, args } = expr; /** 取出操作符和参数 */
-        if (operator!.type == type.word &&
-            operator!.name! in specialForms) { /** 操作符是内置方法 */
-            return specialForms[operator!.name!](expr.args, scope); /** 执行操作符，将作用域传递过去 */
-        } else { /** 求解运算符 */
-            let op = evaluate(operator!, scope);
-            if (typeof op == "function") { /** 验证是不是函数 */
-                return op(...args!.map(arg => evaluate(arg, scope))); /** 执行运算符 */
-            } else {
-                throw new TypeError("Applying a non-function.");
-            }
-        }
-    }
-}
-
-specialForms.if = (args: any[], scope: any) => {
-    if (args.length != 3) {
-        throw new SyntaxError("Wrong number of args to if");
-    } else if (evaluate(args[0], scope) !== false) {
-        return evaluate(args[1], scope);
-    } else {
-        return evaluate(args[2], scope);
-    }
-};
-
-specialForms.while = (args: any[], scope: {}) => {
-    if (args.length != 2) {
-        throw new SyntaxError("Wrong number of args to while");
-    }
-    while (evaluate(args[0], scope) !== false) {
-        evaluate(args[1], scope);
-    }
-    // Since undefined does not exist in Egg, we return false,
-    // for lack of a meaningful result.
-    return false;
-};
-
-specialForms.do = (args: any[], scope: {}) => {
-    let value = false;
-    for (let arg of args) {
-        value = evaluate(arg, scope);
-    }
-};
-
-specialForms.define = (args: any[], scope: any[]) => {
-    if (args.length != 2 || args[0].type != type.word) {
-        throw new SyntaxError("Incorrect use of define");
-    }
-    let value = evaluate(args[1], scope);
-    scope[args[0].name] = value;
-    return value;
-};
 
 const topEnv = Object.create(null);
 
@@ -161,18 +83,39 @@ for (let op of ["+", "-", "*", "/", "==", "<", ">"]) {
 }
 
 
-function run(program:string) {
+export function run(program:string) {
     return evaluate(parse(program), Object.create(topScope));
 }
 
 
-run(`
-do(define(total, 0),
-   define(count, 1),
-   while(<(count, 11),
-         do(define(total, +(total, count)),
-            define(count, +(count, 1)))),
-   print(total))
-`);
+// run(`
+// do(define(total, 0),
+//    define(count, 1),
+//    while(<(count, 11),
+//          do(define(total, +(total, count)),
+//             define(count, +(count, 1)))),
+//    print(total),
+//    define(a,10),
+//    define(a,+(a,5)),
+//    print(a)
+// )
+// `);
 
-""
+
+// run(`
+// do(
+//     define(i,1),
+//     while(<(i,10),do(
+//         define(j,1),
+//         define(str,""),
+//         while(<(j,+(i,1)),do(
+//             define(s,+(+(+(+(j,"*"),i),"="),*(i,j))),
+//             define(str,+(+(str,s),"\t")),
+//             define(j,+(j,1))
+//         )),
+//         print(str),
+//         define(i,+(i,1))
+//     ))
+// )
+// `)
+
