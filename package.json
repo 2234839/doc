@@ -4,6 +4,7 @@
   "description": "> 一些笔记之类的",
   "main": "index.js",
   "dependencies": {
+    "@types/node": "^12.7.2",
     "monaco-editor": "^0.17.1",
     "typescript": "^3.5.3"
   },

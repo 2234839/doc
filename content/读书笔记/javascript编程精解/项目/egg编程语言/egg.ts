@@ -88,18 +88,18 @@ export function run(program:string) {
 }
 
 
-// run(`
-// do(define(total, 0),
-//    define(count, 1),
-//    while(<(count, 11),
-//          do(define(total, +(total, count)),
-//             define(count, +(count, 1)))),
-//    print(total),
-//    define(a,10),
-//    define(a,+(a,5)),
-//    print(a)
-// )
-// `);
+run(`
+do(define(total, 0),
+   define(count, 1),
+   while(<(count, 11),
+         do(define(total, +(total, count)),
+            define(count, +(count, 1)))),
+   print(total),
+   define(a,10),
+   define(a,+(a,5)),
+   print(a)
+)
+`);
 
 
 // run(`
