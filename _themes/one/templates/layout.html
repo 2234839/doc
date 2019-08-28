@@ -96,7 +96,6 @@
 				<div title="调用google来搜索本站">
 					<script async src="https://cse.google.com/cse.js?cx=002678755313322921676:9sk6ox6pg2f"></script>
 					<div class="gcse-search"></div>
-					<input class="_szl_search" placeholder="请输入您想要搜索的(需要能访问google)" type="text">
 				</div>
 			</div>
 			{%- endif %}
@@ -173,17 +172,6 @@
 		/** 去除后面的+号 */
 		return language.replace(/\+$/, '')
 	}
-	document.onkeyup = function (e) {
-		// 兼容FF和IE和Opera
-		var event = e || window.event;
-		var key = event.which || event.keyCode || event.charCode;
-		if (key == 13) {/** 监听回车事件 */
-			/*Do something. 调用一些方法*/
-			if (event.target.classList.contains("_szl_search")) {/** 是搜索按钮 */
-				location.href = `https://www.google.com/search?q=${event.target.value} site:shenzilong.cn`
-			}
-		}
-	};
 	window.addEventListener('load', function () {
 		//因为md文档中直接链接到其他文件会导致没有.html 后缀然后访问不到资源，故出此下策
 		let href = Array.from(document.querySelectorAll('p a[href]'))
