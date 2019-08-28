@@ -32,7 +32,8 @@
 		// 	});
 		// }
 	</script>
-	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css"
+		integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
 	{%- if config.touchIcon %}
 	<link rel="apple-touch-icon" href="{{ config.touchIcon }}" />
 	{%- endif %}
@@ -62,17 +63,17 @@
 	<script title="vscode的编辑器的加载" src="/node_modules/monaco-editor/min/vs/loader.js"></script>
 	<script title="require ts 的改造">
 		/** 需要模块有一个默认输出回调才能起到效用 export default */
-		function requireTs(filepath,fun) {
-			var pathname=decodeURIComponent(location.pathname)
-			var fileName= pathname.match(/(.+)(\/.*)/)[2]
-			var current_path="/build-ts/content"+pathname.replace(fileName,'/')
-			require(filepath.map(path=>{
-				if(/\.ts$/.test(path)){ /** 如果是ts文件 */
-					path=path.replace(/^\.\//,current_path)
-					path=path.replace(/\.ts$/,'')
+		function requireTs(filepath, fun) {
+			var pathname = decodeURIComponent(location.pathname)
+			var fileName = pathname.match(/(.+)(\/.*)/)[2]
+			var current_path = "/build-ts/content" + pathname.replace(fileName, '/')
+			require(filepath.map(path => {
+				if (/\.ts$/.test(path)) { /** 如果是ts文件 */
+					path = path.replace(/^\.\//, current_path)
+					path = path.replace(/\.ts$/, '')
 				}
 				return path
-			}),fun);
+			}), fun);
 		}
 	</script>
 </head>
@@ -140,13 +141,13 @@
 				/** 这个高度的算法是因为vs的行高为19而原来的行高为28 */
 				div.style.height = el.offsetHeight / 27 * 19 + 'px'
 				div.style.width = '100%'
-				if(getLanguage(el)==="javascript" || getLanguage(el)==="js"){
+				if (getLanguage(el) === "javascript" || getLanguage(el) === "js") {
 
 				}
-				var tool_bar= document.createElement('div')
+				var tool_bar = document.createElement('div')
 				tool_bar.classList.add("tool-bar")
-				tool_bar.style="font-size:60%"
-				tool_bar.innerHTML=`<button class="pure-button pure-button-primary button-xsmall">▷</button>`
+				tool_bar.style = "font-size:60%"
+				tool_bar.innerHTML = `<button class="pure-button pure-button-primary button-xsmall">▷</button>`
 
 				// el.parentElement.insertBefore(div, tool_bar)
 				el.parentElement.insertBefore(div, el)
@@ -214,4 +215,12 @@
 			var s = document.getElementsByTagName("script")[0];
 			s.parentNode.insertBefore(bp, s);
 		})();
+	//百度统计
+	var _hmt = _hmt || [];
+	(function () {
+		var hm = document.createElement("script");
+		hm.src = "https://hm.baidu.com/hm.js?65b233cad1f8e842306698cecb350624";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
 </script>
