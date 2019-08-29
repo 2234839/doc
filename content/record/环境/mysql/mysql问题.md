@@ -5,6 +5,13 @@
 
 ------
 
+## centos7 启动mysql服务
+
+```bash
+systemctl start mysql
+
+```
+
 ## mysql高版本导致的密钥问题
 
 ```bash
