@@ -53,9 +53,18 @@ http {
             location / {
                 proxy_pass http://127.0.0.1:8000;#代理
                 proxy_connect_timeout 1;#加上这个减少超时
+                proxy_set_header Host $server_name;  #传递给服务器用户访问真实地址
+                proxy_set_header x-forwarded-for $remote_addr; #真实来源的ip
                 proxy_send_timeout 30;
                 proxy_read_timeout 60;
             }
+        }
+        server {#80跳转https 通过301重定向实现的
+            listen 80;
+            server_name www.shenzilong.cn;
+            index index.html index.php index.htm;
+
+            return      301 https://$server_name$request_uri; #//这是nginx最新支持的写法
         }
     }
 
