@@ -1,6 +1,7 @@
 # Pannellum 全景插件
 
 - pubdate:2019-07-01 17:15:48
+- tags:index
 
 --------
 
