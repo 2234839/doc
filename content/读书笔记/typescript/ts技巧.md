@@ -9,6 +9,10 @@
 ## [https://www.typescriptlang.org/docs/handbook/utility-types.html](typescript 内置的一些实用类型)
 
 ```typescript
+function fun(params:number) {
+    return ""
+}
+
 // 获取函数返回值的类型
 type returnType=ReturnType<typeof fun>
 
