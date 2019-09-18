@@ -6,7 +6,7 @@
 
 ---------
 
-## [https://www.typescriptlang.org/docs/handbook/utility-types.html](typescript 内置的一些实用类型)
+## [typescript 内置的一些实用类型](https://www.typescriptlang.org/docs/handbook/utility-types.html)
 
 ```typescript
 function fun(params:number) {
