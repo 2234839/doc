@@ -12,6 +12,9 @@
 function fun(params:number) {
     return ""
 }
+// 获取函数参数的元组类型
+type Parameters<T extends (...args: any[]) => any> = T extends (...args: infer P) => any ? P : never;
+type P = Parameters<typeof fun>; // -> [number]
 
 // 获取函数返回值的类型
 type returnType=ReturnType<typeof fun>
