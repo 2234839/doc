@@ -29,3 +29,9 @@
 : 跳转到行数，也可以Ctrl+G直接进入
 @ 跳转到symbol（搜索变量或者函数），也可以Ctrl+Shift+O直接进入
 @:根据分类跳转symbol，查找属性或函数，也可以Ctrl+Shift+O后输入:进入
+
+## 插件
+
+1 .[change case](https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case)
+    这个插件可以执行各种命名规则
+    我配置了这两个快捷键 ![快捷键配置](./快捷键配置.png)
