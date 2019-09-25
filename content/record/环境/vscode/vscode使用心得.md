@@ -32,6 +32,9 @@
 
 ## 插件
 
-1 .[change case](https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case)
+1. [change case](https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case)
     这个插件可以执行各种命名规则
     我配置了这两个快捷键 ![快捷键配置](./快捷键配置.png)
+
+2. [alt+d跳转](https://marketplace.visualstudio.com/items?itemName=jack89ita.open-file-from-path)
+    vscode 在一些文件中 ctrl+click 并不能跳转一些路径，通过这个插件可以使用alt+d跳转
