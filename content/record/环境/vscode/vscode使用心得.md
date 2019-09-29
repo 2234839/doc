@@ -44,6 +44,8 @@
 HTML CSS Support 干扰智能提示
 ![演示](./css-tips.png)
 
+TabNine 导致完全没有其他的智能提示 我写了一个插件来勉强解决这个问题 [suggest-plus](https://marketplace.visualstudio.com/items?itemName=llej.suggest-plus)
+
 ## 一些问题
 
 [在一些文件中tab没有按照设定的宽度展示的问题](https://segmentfault.com/q/1010000008771415)
