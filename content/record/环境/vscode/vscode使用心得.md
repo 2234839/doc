@@ -39,6 +39,11 @@
 2. [alt+d跳转](https://marketplace.visualstudio.com/items?itemName=jack89ita.open-file-from-path)
     vscode 在一些文件中 ctrl+click 并不能跳转一些路径，通过这个插件可以使用alt+d跳转
 
+### 有问题的插件
+
+HTML CSS Support 干扰智能提示
+![演示](./css-tips.png)
+
 ## 一些问题
 
 [在一些文件中tab没有按照设定的宽度展示的问题](https://segmentfault.com/q/1010000008771415)
