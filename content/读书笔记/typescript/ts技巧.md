@@ -8,6 +8,9 @@
 [typescript中文手册](./typescript中文手册.md)
 ---------
 
+[我写的一个工具模块其中关于类型方面的](https://dev.tencent.com/u/sheng_gu/p/js_util/git/tree/master/ts-type)
+这里面的应该会比下面的内容要新
+
 ## [typescript 内置的一些实用类型](https://www.typescriptlang.org/docs/handbook/utility-types.html)
 
 ```typescript
