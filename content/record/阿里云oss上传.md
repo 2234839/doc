@@ -98,7 +98,7 @@ declare class OSS {
     put(fileName: string, bolb: Blob):ossRes
 }
 
-/** 阿里云上传接口返回的res */
+/** 阿里云上传接口返回的响应 */
 interface ossRes {
     name: string
     res: {

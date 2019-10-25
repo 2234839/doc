@@ -8,55 +8,23 @@
 [typescript中文手册](./typescript中文手册.md)
 ---------
 
+[我写的一个工具模块其中关于类型方面的](https://dev.tencent.com/u/sheng_gu/p/js_util/git/tree/master/ts-type)
+    [我觉得写的还可以的一个方法](https://dev.tencent.com/u/sheng_gu/p/js_util/git/blob/master/adap/cb-promise.ts)
+
 ## [typescript 内置的一些实用类型](https://www.typescriptlang.org/docs/handbook/utility-types.html)
 
-```typescript
-function fun(params:number) {
-    return ""
-}
 
+## 关于怎么使用ts类型系统
 
-// 获取函数返回值的类型
-type returnType=ReturnType<typeof fun>
+ts类型系统并非简简单单的 name:type 它真正的强大在于类型推断，要能够让它的类型推断完全发挥作用就需要掌握泛型
 
-interface I_test{
-    a:number,
-    b:string,
-    c:any,
-    d:{
-        a:number
-    }
-}
-
-//复用类型 使用 Pick 来选择 需要的类型
-type I_test_select_d=Pick<I_test,"d">
-
-//复用类型 使用 Omit 来剔除 不需要的类型
-type I_test_remove_a=Omit<I_test,'a'>
-
-```
-
-## 一些其它实用的类型
-
-```typescript
-// 获取函数参数的元组类型
-type Parameters<T extends (...args: any[]) => any> = T extends (...args: infer P) => any ? P : never;
-type P = Parameters<typeof fun>; // -> [number]
-
-/** 解开promise包装的类型 */
-export type unPromise<T>=T extends Promise<infer R> ? R :T
-```
-
-## 使用typeof获取数组中元素的类型
-
-有时候接收到的数组是别人传过来的，要定义一个数组元素的类型就可以用这个
+下面是加减
 
 ```typescript
 
-const list=<{a:123}>[]
+// 获取一个值（变量 函数 。。。）的类型
+type window_type=typeof window
+// 这样我们就获取到 window 的类型了，其实 window 的类型你能够在vscode中通过悬停提示看到也是应为typescript的开发人员编写了windw 的类型
 
-
-const temp=list[0]
-const el=typeof temp[0]
 
 ```
