@@ -139,8 +139,10 @@
 					scrollBeyondLastLine: false
 				});
 				/** 这个高度的算法是因为vs的行高为19而原来的行高为28 */
+				let lines=el.offsetHeight / 27
+				if (lines > 20) lines = 20;
 				div.style = `
-					height:${ el.offsetHeight / 27 * 19 + 'px'};
+					height:${ lines * 19 + 'px'};
 					width: 100%;
 					margin-bottom: 10px;
 				`
