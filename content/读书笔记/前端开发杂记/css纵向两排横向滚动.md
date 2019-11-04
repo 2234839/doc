@@ -10,6 +10,7 @@
 后来灵机一闪使用flex布局主轴改成纵向就搞定了
 
 ```scss
+.div{
     display: flex;
 
     @media screen and(max-width:$mobile) {
@@ -18,4 +19,5 @@
         flex-wrap: wrap;
         flex-direction: column;
     }
+}
 ```

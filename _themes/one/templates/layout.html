@@ -127,20 +127,6 @@
 		require(['vs/editor/editor.main'], function () {
 			document.querySelectorAll('pre').forEach(function (el) {
 				var div = document.createElement('div')
-				/** 这个高度的算法是因为vs的行高为19而原来的行高为28 */
-				div.style.height = el.offsetHeight / 27 * 19 + 'px'
-				div.style.width = '100%'
-				if (getLanguage(el) === "javascript" || getLanguage(el) === "js") {
-
-				}
-				var tool_bar = document.createElement('div')
-				tool_bar.classList.add("tool-bar")
-				tool_bar.style = "font-size:60%"
-				tool_bar.innerHTML = `<button class="pure-button pure-button-primary button-xsmall">▷</button>`
-
-				// el.parentElement.insertBefore(div, tool_bar)
-				el.parentElement.insertBefore(div, el)
-				el.style.display = "none"
 				var editor = monaco.editor.create(div, {
 					value: el.innerText,
 					language: getLanguage(el),
@@ -151,6 +137,46 @@
 					theme: 'vs',
 					automaticLayout: true,
 					scrollBeyondLastLine: false
+				});
+				/** 这个高度的算法是因为vs的行高为19而原来的行高为28 */
+				div.style = `
+					height:${ el.offsetHeight / 27 * 19 + 'px'};
+					width: 100%;
+					margin-bottom: 10px;
+				`
+				if (getLanguage(el) === "javascript" || getLanguage(el) === "js") {
+					var tool_bar = document.createElement('div')
+					tool_bar.classList.add(".tool_bar")
+					tool_bar.classList.add("tool-bar")
+					tool_bar.style = `font-size:60%;position: relative;`
+					tool_bar.innerHTML = `<button class="run pure-button pure-button-primary button-xsmall" style="
+						position: absolute;
+						z-index: 1;
+						right: 8px;
+						top: -32px;
+					">▷</button>`
+					div.appendChild(tool_bar)
+
+					tool_bar.querySelector(".run").addEventListener('click', () => {
+						eval(editor.getValue())
+					})
+				}
+
+				el.parentElement.insertBefore(div, el)
+				const code_el = div.parentElement.previousElementSibling
+				if (div.querySelector(".tool_bar") && code_el.tagName !== "SCRIPT") {
+					/** 这些是不可执行的代码 */
+					div.querySelector(".tool_bar").style.display = "none"
+				}
+				el.style.display = "none" /** 隐藏原来的那些代码块 */
+				editor.onDidChangeModelContent((e) => {
+					if (code_el.classList.contains("nico-insert-code") || code_el.tagName === "STYLE") {
+						code_el.innerHTML = editor.getValue()
+					}
+					const lines = editor.getModel().getLinesContent().length
+					if (lines > 20) lines = 20;
+					div.style.height = lines * 19 + 'px'
+
 				});
 			})
 		});
