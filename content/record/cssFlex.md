@@ -2,6 +2,7 @@
 - pubdate: 2019-06-05 14:45:32
 - tags: css,index
 
+感谢flex 祝愿ie早日重新做人
 ---------
 
 [css 弹性盒子](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout)
