@@ -5,5 +5,8 @@
 
 ---------
 
-## overflow flex导致左侧有些元素不显示
-https://segmentfault.com/q/1010000013475438
+## [overflow flex导致左侧有些元素不显示](https://segmentfault.com/q/1010000013475438)
+
+## 吸附效果 ios中无法监听滚动事件
+
+[position: sticky](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position) ; 可以通过这个属性来设置吸附。
