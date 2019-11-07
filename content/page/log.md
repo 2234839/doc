@@ -93,7 +93,7 @@ logList.__filter(el => {
         return [year, month, day].join('-');
     }
     function parseLog(str) {
-        let logList = str.split('\r\n').reverse()
+        let logList = str.split('[log]').reverse()
         const trList = logList.map(v => {
             let tdList = v.split('\t|')
             const template = document.querySelector('.template').cloneNode(true)
