@@ -38,7 +38,7 @@ logList.__filter(el => {
             <th>ua</th>
         </tr>
     </thead>
-    <tbody style="font-size: 14px;">
+    <tbody id="tbody" style="font-size: 14px;">
         <tr class="template">
             <td>${tdList[0]}</td>
             <td>${tdList[1]}</td>
@@ -102,7 +102,7 @@ logList.__filter(el => {
             template.querySelector('td:nth-child(1)').innerText = tdList[0]
             template.querySelector('td:nth-child(2)').innerText = tdList[1]
             template.querySelector('td:nth-child(3)').innerText = tdList[2]
-            document.querySelector('tbody').appendChild(template)
+            document.querySelector('#tbody').appendChild(template)
             return template
         })
         trList.__filter = function filter(...testList) {
