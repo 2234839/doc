@@ -12,4 +12,4 @@
 ### 配合postman
 
 ![复制请求信息](./img/copy-request.png)
-![复制请求到postman](./img/copy-request.png)
+![复制请求到postman](./img/request-import.png)
