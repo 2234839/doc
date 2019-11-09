@@ -13,13 +13,13 @@
 	<meta name="generator" content="{{system.name}} {{system.version}}">
 	<meta name="theme" content="{{theme.name}} {{theme.version}}">
 	<title>崮生-{% block title%}{% endblock %}</title>
-	<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	<script>
 		(adsbygoogle = window.adsbygoogle || []).push({
 			google_ad_client: "ca-pub-7181140659254262",
 			enable_page_level_ads: true
 		});
-	</script> -->
+	</script>
 	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css"
 		integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
 	{%- if config.touchIcon %}
@@ -31,12 +31,12 @@
 	<link rel="stylesheet" href="{{static_url('one.css')}}" />
 	{%- block afterstyle %}{% endblock %}
 	{%- if config.google %}
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', '{{config.google}}']);
 		_gaq.push(['_trackPageview']);
 		_gaq.push(['_trackPageLoadTime']);
-	</script>
+	</script> -->
 	{%- endif %}
 	<link rel="shortcut icon" href="{{ static_url('favicon.ico') }}" type="image/x-icon">
 	<link rel="stylesheet" href="{{ static_url('default.min.css') }}">
