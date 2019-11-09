@@ -21,9 +21,9 @@ ssh-keygen
 
 ## git 配置全局的name和email
 
-git config --global user.name 申子龙@台式
+git config --global user.name 崮生@台式
 
-git config --global user.email 2234839456@qq.com
+git config --global user.email admin@shenzilong.cn.com
 
 ## git使用自己的服务器
 
