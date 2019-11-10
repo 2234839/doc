@@ -5,7 +5,8 @@
 
 看过几次但都不够仔细，所以今天打算仔细读读。这里也只会记录我没映像或者理解错的
 
-[ts技巧](./ts技巧.md)
+[ts技巧](./ts技巧)
+
 ------
 
 [原文地址](https://typescript.bootcss.com/interfaces.html)

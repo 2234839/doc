@@ -4,9 +4,9 @@
 - update:2019-09-18 09:27:08
 - tags:typescript,技巧
 
-[深入理解 TypeScript](./深入了解Typescript.md)
+[深入理解 TypeScript](./深入了解Typescript)
 
-[typescript中文手册](./typescript中文手册.md)
+[typescript中文手册](./typescript中文手册)
 
 ---------
 

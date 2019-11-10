@@ -109,4 +109,4 @@ export function bindRouter(url:string) {
     }
 ```
 
-[装饰器详解](./record/装饰器详解.md)
+[装饰器详解](./record/装饰器详解)
