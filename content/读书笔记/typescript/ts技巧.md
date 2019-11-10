@@ -26,3 +26,7 @@ ts类型系统并非简简单单的 name:type 它真正的强大在于类型推�
 type window_type=typeof window
 // 这样我们就获取到 window 的类型了，其实 window 的类型你能够在vscode中通过悬停提示看到也是应为typescript的开发人员编写了windw 的类型
 ```
+
+## 实战技巧
+
+1. [为vuex提供代码提示](./typescript-vuex.md)
