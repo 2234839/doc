@@ -31,12 +31,12 @@
 	<link rel="stylesheet" href="{{static_url('one.css')}}" />
 	{%- block afterstyle %}{% endblock %}
 	{%- if config.google %}
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', '{{config.google}}']);
 		_gaq.push(['_trackPageview']);
 		_gaq.push(['_trackPageLoadTime']);
-	</script>
+	</script> -->
 	{%- endif %}
 	<link rel="shortcut icon" href="{{ static_url('favicon.ico') }}" type="image/x-icon">
 	<link rel="stylesheet" href="{{ static_url('default.min.css') }}">
@@ -202,9 +202,9 @@
 		var title = document.title
 		var i = 0
 		setInterval(function () {
-			i++
-			document.title = title + [..."🌑🌒🌓🌔🌝🌖🌗🌘"][i % 8]
-		}, 400)
+			i=(i+1) % 8
+			document.title = title + [..."🌑🌒🌓🌔🌝🌖🌗🌘"][i]
+		}, 360)
 	})()
 </script>
 

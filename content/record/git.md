@@ -16,14 +16,14 @@ git blame
 ## [生成公钥](https://git-scm.com/book/zh/v1/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5)
 
 ```bash
-$ ssh-keygen
+ssh-keygen
 ```
 
 ## git 配置全局的name和email
 
-git config --global user.name 申子龙@台式
+git config --global user.name 崮生@台式
 
-git config --global user.email 2234839456@qq.com
+git config --global user.email admin@shenzilong.cn.com
 
 ## git使用自己的服务器
 
@@ -46,3 +46,5 @@ git clone ssh://root@shenzilong/root/test
 这里有一个小坑就是你提交代码的时候他会报错，这是因为服务上代码正在master分支，你在提交到master就不可以。所以可以在服务器上新建一个serve分支然后切换过去，再提交就没问题了。
 
 服务器端要更新代码就合并一下master分支即可
+
+## [git 推送到多个分支](https://segmentfault.com/a/1190000011294144)

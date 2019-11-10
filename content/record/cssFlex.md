@@ -7,6 +7,8 @@
 
 [css 弹性盒子](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout)
 
+[一个flex布局查看效果的网站](http://www.csstutorial.org/flex-both.html)
+
 ````html
 <div class="flex">
     <div> 1</div>

@@ -12,17 +12,45 @@
 
 > 过滤器使用示例
 
-```javascript
-logList.__filter(el => {
+````javascript
+var filter_list=[el => {
     return !el.__data[1].includes('/x')
-}, el => {
+},
+/** 静态资源过滤 */
+ el => {
     return !el.__data[1].endsWith('.css')
 }, el => {
     return !el.__data[1].endsWith('favicon.ico')
 }, el => {
     return !el.__data[1].endsWith('.js')
-})
-```
+}, el => {
+    return !el.__data[1].endsWith('.map')
+}, el => {
+    return !el.__data[1].includes('shenzilong.cn/node_modules/')
+},
+/** 自身请求过滤 */
+ el => {
+    return !el.__data[1].includes('shenzilong.cn/blog/log')
+}, el => {
+    return !el.__data[1].includes('shenzilong.cn/util/error/')
+},
+/** 想注入的 */
+...['FxCodeShell.jsp',
+].map(str=>(el)=>!el.__data[1].includes(str))
+
+/** 过滤爬虫 */
+...['robot','bot.html',
+    /** 挺多人骂的一个 */ "YisouSpider",
+'baidu.com','google.com','bing.com','sogou.com','mj12bot.com',
+"opensiteexplorer.org",'yandex.com'
+].map(str=>(el)=>!el.__data[2].includes(str))]
+
+
+
+
+
+// logList.__filter(...filter_list)
+````
 
 `````html
 <style>
@@ -56,29 +84,21 @@ logList.__filter(el => {
             if(logList && logList.length>0){//移除原有的
                 logList.forEach(el=>el.remove())
             }
-            const data = JSON.parse(xhr.response)
+            const data = decodeURIComponent(JSON.parse(xhr.response))
             logList = parseLog(data)
+            logList.__filter(...filter_list)
         })
         xhr.open('get', location.origin + '/blog/log?date='+date)
         // xhr.open('get', 'https://shenzilong.cn/blog/log')
         xhr.send()
     }
-    selectDate({date:new Date()})
     document.querySelector('#date').value = formatDate(new Date())
 
     function _selectDate(){
         selectDate({date:document.querySelector('#date').value})
     }
     function filter() {
-        logList.__filter(el => {
-            return !el.__data[1].includes('/x')
-        }, el => {
-            return !el.__data[1].endsWith('.css')
-        }, el => {
-            return !el.__data[1].endsWith('favicon.ico')
-        }, el => {
-            return !el.__data[1].endsWith('.js')
-        })
+        logList.__filter(...filter_list)
     }
 
     function formatDate(date) {
@@ -86,10 +106,8 @@ logList.__filter(el => {
             month = '' + (d.getMonth() + 1),
             day = '' + d.getDate(),
             year = d.getFullYear();
-
         if (month.length < 2) month = '0' + month;
         if (day.length < 2) day = '0' + day;
-
         return [year, month, day].join('-');
     }
     function parseLog(str) {
@@ -115,10 +133,22 @@ logList.__filter(el => {
             });
             /** 测试el是否通过了所有测试 */
             function test(el) {
+                if(!(el.__data[0] && el.__data[1] && el.__data[2])){
+                    console.warn("有问题的数据",el,el.__data);
+
+                    return true
+                }
                 for (let i = 0; i < testList.length; i++) {
                     const fun = testList[i];
-                    if (fun(el) === false)
-                        return false
+                    try {
+                        if (fun(el) === false)
+                            return false
+                    } catch (error) {
+                        console.error(error);
+                        /** 这条数据有问题，故显示出来 */
+                        return true
+                    }
+
                 }
                 return true
             }
