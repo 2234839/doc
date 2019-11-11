@@ -15,14 +15,14 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const _state = {
-    userInfo: { packet_token: "" }
+    token: ""
 }
 
 const store_options = {
     state: _state,
     mutations: {
-        set_userinfo(state: typeof _state, userinfo: typeof _state.userInfo) {
-            state.userInfo = userinfo
+        set_token(state: typeof _state, token: typeof _state.token) {
+            state.token = token
         },
     },
     actions: {}
