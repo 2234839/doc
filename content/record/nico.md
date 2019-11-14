@@ -1,7 +1,8 @@
 # 使用nico
 
-- pubdate: 2019-3-6
+- pubdate: 2019-03-06 20:35:28
 - tags : nico
+
 ------
 
 安装之类的都很容易，按照[官方文档](http://lab.lepture.com/nico/) 来就行了
@@ -26,10 +27,11 @@
 这时，在主题中必须使用 {{post.meta.topic}} 才能获得该信息
 
 ## 2019-03-16 17:37:50
+
 今天又遇到一个问题 编译之后staitc 目录不存在
 还有一些奇奇怪怪的问题，原因是我在content 下安装了node模块。。。。
 删掉就好了
 
-
 ## 扩展nico让他在pre标签上有language属性
+
 修改了nico的一些代码用来支持这个功能 [nico](https://github.com/2234839/nico/commit/4c74b69f174b47556f748d345d77972b5e6c3184)

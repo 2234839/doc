@@ -8,6 +8,7 @@
 [nico语法](https://lab.lepture.com/nico/zh/syntax)
 
 ## 用于服务器上同步博客内容的一个小脚本
+
 > 就是自动拉取git的代码然后nico build
 
 ```nodeJS

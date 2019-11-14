@@ -16,6 +16,7 @@ sudo yum install nginx
 ```
 
 ## 配置
+
 然后进行[配置](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
 
 我的一个配置
@@ -74,10 +75,13 @@ events {# 工作的连接数
 ```
 
 ## nginx 运行指定的配置文件
+
 sudo nginx -c ~/nginx.conf
 
 ## kill掉所有的nginx
+
 sudo pkill nginx
 
 ## nginx 403
+
 这是因为用户权限的问题，要在配置文件开头配置用户组。
