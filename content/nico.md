@@ -11,7 +11,7 @@
 
 > 就是自动拉取git的代码然后nico build
 
-```nodeJS
+```javascript
 const shell = require("shelljs");
 const iconv = require('iconv-lite');//编码
 

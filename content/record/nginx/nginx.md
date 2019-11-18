@@ -21,7 +21,7 @@ sudo yum install nginx
 
 我的一个配置
 
-```properties
+```bash
 user    root    root;#配置用户组
 http {
         include       mime.types;#设置类型，不设置css会出问题
