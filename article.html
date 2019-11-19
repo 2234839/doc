@@ -14,7 +14,7 @@
     <script>
       /** 高亮代码块 */
       const code = document.querySelectorAll("code[run]");
-      if (code === null) return;
+      if (code === null) throw "未找到code块";
       require.config({ paths: { vs: "/node_modules/monaco-editor/min/vs" } });
       require(["vs/editor/editor.main"], function() {
         code.forEach(function(el) {
