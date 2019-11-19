@@ -11,5 +11,30 @@
   <body>
     ${file.html}
     <footer>${res.footer_template}</footer>
+    <script>
+      /** 高亮代码块 */
+      const code = document.querySelectorAll("code[run]");
+      if (code === null) return;
+      require.config({ paths: { vs: "/node_modules/monaco-editor/min/vs" } });
+      require(["vs/editor/editor.main"], function() {
+        code.forEach(function(el) {
+          var editor = monaco.editor.create(el, {
+            value: el.innerText,
+            language: getLanguage(el),
+
+            minimap: {
+              //代码略缩图
+              enabled: false,
+            },
+            theme: "vs",
+            automaticLayout: true,
+            scrollBeyondLastLine: false,
+          });
+        });
+      });
+      function getLinesContent(el) {
+        return el.className.match(/lang-(.*)\b/)[1];
+      }
+    </script>
   </body>
 </html>
