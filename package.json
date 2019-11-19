@@ -11,5 +11,8 @@
     "url": "git@git.dev.tencent.com:sheng_gu/doc.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "monaco-editor": "^0.18.1"
+  }
 }
