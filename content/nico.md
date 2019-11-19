@@ -42,14 +42,14 @@ function iconvDecode(str = "") {
 }
 ```
 
-## 代码高亮
+## 代码高亮{.test}
 
 > [highlightjs](https://highlightjs.org/usage/)
 
 nico 自带的代码高亮好像只有 html，于是用了 highlightjs 的。
 要注意的是需要运行 highlightBlock 来高亮指定的元素中的代码，我将以下代码添加到了 nico 的 templates 中。_记得引入[highlightjs](https://highlightjs.org/usage/)_
 
-```html
+```html{run}
 <script>
   //高亮代码块
   document.querySelectorAll("pre").forEach(function(value) {
