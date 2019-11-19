@@ -9,7 +9,7 @@
 
 先引入 loader 用来加载模块
 
-```html
+```html{run}
 <script src="/node_modules/monaco-editor/min/vs/loader.js"></script>
 ```
 
