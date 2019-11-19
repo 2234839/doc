@@ -18,7 +18,7 @@
       require.config({ paths: { vs: "/node_modules/monaco-editor/min/vs" } });
       require(["vs/editor/editor.main"], function() {
         code.forEach(function(el) {
-          var editor = monaco.editor.create(el, {
+          var editor = monaco.editor.create(el.parentElement, {
             value: el.innerText,
             language: getLanguage(el),
 
