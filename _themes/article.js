@@ -25,17 +25,52 @@ require(["vs/editor/editor.main"], function() {
 
     editor.onDidChangeModelContent((e) => {
       editoAdapHeight(editor, div);
+      if ("run" in el.attributes)
+        runCode({
+          code: editor.getValue(),
+          lang: getLanguage(el),
+          el: el.parentElement,
+        });
     });
-    /** 根据内容来计算高度 */
-    function editoAdapHeight(editor, div) {
-      let lines = editor.getModel().getLinesContent().length;
-      //   if (lines > 20) lines = 20;
-      div.style.height = lines * 19 + "px";
-    }
   });
 });
+/**
+ * 获取代码块的所使用的语言
+ * @param {HTMLElement} el
+ */
 function getLanguage(el) {
-  console.log(el, el.className);
-
   return el.className.match(/lang-(.*)\b/)[1];
+}
+/**
+ * 根据内容来计算高度
+ * @param {HTMLElement} editor
+ * @param {HTMLElement} div
+ */
+function editoAdapHeight(editor, div) {
+  let lines = editor.getModel().getLinesContent().length;
+  div.style.height = lines * 20 + "px";
+}
+
+/**
+ * 执行代码
+ * @param {Object} par - 参数对象
+ * @param {string} par.code - 要执行的代码
+ * @param {string} par.lang - 代码所属的语言
+ * @param {HTMLElement} par.el - 代码要插入的元素
+ */
+function runCode({ code, lang, el }) {
+  const lang_label = {
+    javascript: "script",
+    html: "div",
+  };
+  if (el.querySelector(".run-code") === null) {
+    const code_el = document.createElement("div");
+    el.appendChild(code_el);
+    code_el.classList.add("run-code");
+  }
+  const code_el = el.querySelector(".run-code");
+  if (lang === "html") {
+    return (code_el.innerHTML = code);
+  }
+  console.log("elment", code_el, el);
 }
