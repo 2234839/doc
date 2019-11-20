@@ -65,7 +65,7 @@ function runCode({ code, lang, el }) {
   };
   if (el.querySelector(".run-code") === null) {
     const code_el = document.createElement("div");
-    el.appendChild(code_el);
+    el.insertBefore(code_el,el.firstChild);
     code_el.classList.add("run-code");
   }
   const code_el = el.querySelector(".run-code");
