@@ -15,8 +15,7 @@ require(["vs/editor/editor.main"], function() {
       value: el.innerText,
       language: getLanguage(el),
       minimap: {
-        //代码略缩图
-        enabled: false,
+        enabled: false, //代码略缩图
       },
       theme: "vs",
       automaticLayout: true,
@@ -24,13 +23,13 @@ require(["vs/editor/editor.main"], function() {
     });
     editoAdapHeight(editor, div);
 
-    /** 修改内容后自动计算高度 */
     editor.onDidChangeModelContent((e) => {
       editoAdapHeight(editor, div);
     });
+    /** 根据内容来计算高度 */
     function editoAdapHeight(editor, div) {
       let lines = editor.getModel().getLinesContent().length;
-      if (lines > 20) lines = 20;
+      //   if (lines > 20) lines = 20;
       div.style.height = lines * 19 + "px";
     }
   });
