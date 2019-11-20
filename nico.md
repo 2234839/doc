@@ -12,7 +12,7 @@
 
 > 就是自动拉取 git 的代码然后 nico build
 
-```javascript
+```typescript
 const shell = require("shelljs");
 const iconv = require("iconv-lite"); //编码
 

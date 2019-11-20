@@ -7,3 +7,14 @@
 />
 <link rel="stylesheet" href="/theme.css" />
 <script src="/theme.js"></script>
+<script>
+  /** 标签栏的动画 */
+  (() => {
+    var title = document.title;
+    var i = 0;
+    setInterval(function() {
+      i = (i + 1) % 8;
+      document.title = title + [..."🌑🌒🌓🌔🌝🌖🌗🌘"][i];
+    }, 360);
+  })();
+</script>
