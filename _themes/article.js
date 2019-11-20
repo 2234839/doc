@@ -11,6 +11,14 @@ require(["vs/editor/editor.main"], function() {
        margin-bottom: 10px;
      `;
     el.style.display = "none";
+    if ("run" in el.attributes) {//立即执行代码
+      runCode({
+        code: el.innerText,
+        lang: getLanguage(el),
+        el: el.parentElement,
+      });
+    }
+
     var editor = monaco.editor.create(div, {
       value: el.innerText,
       language: getLanguage(el),
@@ -65,12 +73,14 @@ function runCode({ code, lang, el }) {
   };
   if (el.querySelector(".run-code") === null) {
     const code_el = document.createElement("div");
-    el.insertBefore(code_el,el.firstChild);
+    el.insertBefore(code_el, el.firstChild);
     code_el.classList.add("run-code");
   }
   const code_el = el.querySelector(".run-code");
   if (lang === "html") {
     return (code_el.innerHTML = code);
   }
-  console.log("elment", code_el, el);
+  if (lang === "css") {
+    code_el.innerHTML = `<style>${code}</style>`;
+  }
 }
