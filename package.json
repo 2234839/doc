@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "monaco-editor": "^0.18.1"
+    "monaco-editor": "^0.18.1",
+    "tailwindcss": "^1.1.3"
   }
 }

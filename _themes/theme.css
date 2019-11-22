@@ -1,0 +1,13 @@
+/* @tailwind base; */
+
+@tailwind components;
+@tailwind utilities;
+body {
+    background-color: #f5f5d5;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/*
+编译样式的方法
+npx tailwind build .\_themes\theme.css -o .\_themes\style.css */

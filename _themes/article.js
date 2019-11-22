@@ -2,6 +2,7 @@
 const code = document.querySelectorAll(`[class*="lang"]`);
 if (code === null) throw "未找到code块";
 require.config({ paths: { vs: "/node_modules/monaco-editor/min/vs" } });
+// "vs/editor/editor.main"
 require(["vs/editor/editor.main"], function() {
   code.forEach(function(el) {
     const div = document.createElement("div");
@@ -11,7 +12,8 @@ require(["vs/editor/editor.main"], function() {
        margin-bottom: 10px;
      `;
     el.style.display = "none";
-    if ("run" in el.attributes) {//立即执行代码
+    if ("run" in el.attributes) {
+      //立即执行代码
       runCode({
         code: el.innerText,
         lang: getLanguage(el),
@@ -56,7 +58,7 @@ function getLanguage(el) {
  */
 function editoAdapHeight(editor, div) {
   let lines = editor.getModel().getLinesContent().length;
-  div.style.height = lines * 20 + "px";
+  div.style.height = lines * 19.2 + "px";
 }
 
 /**
@@ -71,14 +73,25 @@ function runCode({ code, lang, el }) {
     javascript: "script",
     html: "div",
   };
+  /** 在这个页面是否是第一次执行 */
+  let init = false;
   if (el.querySelector(".run-code") === null) {
+    //第一次执行,生成存放代码的地方
+    init = true;
     const code_el = document.createElement("div");
     el.insertBefore(code_el, el.firstChild);
     code_el.classList.add("run-code");
   }
   const code_el = el.querySelector(".run-code");
+  //针对不同语言进行不同的执行方法
   if (lang === "html") {
-    return (code_el.innerHTML = code);
+    code_el.innerHTML = code;
+    if (!init) return;
+    setTimeout(() => {
+      //使用settimeout让它报错也不要影响编辑器的存在
+      code_el.querySelectorAll("script").forEach((el) => eval(el.innerHTML));
+    }, 0);
+    return;
   }
   if (lang === "css") {
     code_el.innerHTML = `<style>${code}</style>`;
