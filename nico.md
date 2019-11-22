@@ -12,7 +12,7 @@
 
 > 就是自动拉取 git 的代码然后 nico build
 
-```javascript
+```typescript
 const shell = require("shelljs");
 const iconv = require("iconv-lite"); //编码
 
@@ -56,6 +56,13 @@ nico 自带的代码高亮好像只有 html，于是用了 highlightjs 的。
     hljs.highlightBlock(value);
   });
 </script>
+<div class="a">2222</div>
+```
+
+```css{run}
+.a {
+  color: red;
+}
 ```
 
 ## 关于一些资源访问不到的问题

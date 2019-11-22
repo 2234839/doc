@@ -5,5 +5,16 @@
   name="description"
   content="崮生的学习笔记记录站点，在这里将涉及到有关编程的一些知识这其中大部分是关于ECMAScript的"
 />
-<link rel="stylesheet" href="/theme.css" />
-<script src="/theme.js"></script>
+<link rel="stylesheet" href="/_themes/style.css" />
+<script src="/_themes/theme.js"></script>
+<script>
+  /** 标签栏的动画 */
+  (() => {
+    var title = document.title;
+    var i = 0;
+    setInterval(function() {
+      i = (i + 1) % 12;
+      document.title = title + [..."🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛"][i];
+    }, 360);
+  })();
+</script>
