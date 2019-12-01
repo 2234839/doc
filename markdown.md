@@ -3,12 +3,14 @@
 - pubdate: 2019-3-6 17:43
 - tags : markdown
 
+---
+
 ## [Markdown：语法](https://daringfireball.net/projects/markdown/syntax#philosophy)
 
-```html
+```html{run}
 <table>
   <tr>
-    <td>markdown中也是可以使用html标签的</td>
+    <td>markdown中也是可以使用html标签的.</td>
   </tr>
 </table>
 ```
