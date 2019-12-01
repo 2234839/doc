@@ -83,13 +83,32 @@ function runCode({ code, lang, el }) {
     code_el.classList.add("run-code");
   }
   const code_el = el.querySelector(".run-code");
+  el.draggable = "true";
   //针对不同语言进行不同的执行方法
   if (lang === "html") {
     code_el.innerHTML = code;
     if (!init) return;
     setTimeout(() => {
-      //使用settimeout让它报错也不要影响编辑器的存在
-      code_el.querySelectorAll("script").forEach((el) => eval(el.innerHTML));
+      //使用setTimeout让它报错也不要影响编辑器的存在
+      const script_list = Array.from(code_el.querySelectorAll("script"));
+      /** 计数script加载几个了 */
+      let load_count = 0;
+      /** 动态引入 */
+      const src_script = script_list.filter((el) => el.src);
+      src_script.map((el) => {
+        let script = document.createElement("script");
+        script.onload = () => {
+          load_count++;
+          if (load_count === src_script.length) {
+            console.log(load_count, src_script);
+
+            /** 带src属性的加载完后再执行script标签内容 */
+            script_list.forEach((el) => eval(el.innerHTML));
+          }
+        };
+        script.src = el.src;
+        code_el.appendChild(script);
+      });
     }, 0);
     return;
   }

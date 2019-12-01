@@ -50,19 +50,23 @@ nico 自带的代码高亮好像只有 html，于是用了 highlightjs 的。
 要注意的是需要运行 highlightBlock 来高亮指定的元素中的代码，我将以下代码添加到了 nico 的 templates 中。_记得引入[highlightjs](https://highlightjs.org/usage/)_
 
 ```html{run}
+<link
+  rel="stylesheet"
+  href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/default.min.css"
+/>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+<pre class="example">
+    document.querySelectorAll("pre").forEach(function(value) {
+      hljs.highlightBlock(value);
+    });
+</pre>
 <script>
   //高亮代码块
-  document.querySelectorAll("pre").forEach(function(value) {
+  document.querySelectorAll("pre.example").forEach(function(value) {
     hljs.highlightBlock(value);
+    console.log(value);
   });
 </script>
-<div class="a">2222</div>
-```
-
-```css{run}
-.a {
-  color: red;
-}
 ```
 
 ## 关于一些资源访问不到的问题
