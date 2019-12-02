@@ -83,7 +83,6 @@ function runCode({ code, lang, el }) {
     code_el.classList.add("run-code");
   }
   const code_el = el.querySelector(".run-code");
-  el.draggable = "true";
   //针对不同语言进行不同的执行方法
   if (lang === "html") {
     code_el.innerHTML = code;
@@ -100,8 +99,6 @@ function runCode({ code, lang, el }) {
         script.onload = () => {
           load_count++;
           if (load_count === src_script.length) {
-            console.log(load_count, src_script);
-
             /** 带src属性的加载完后再执行script标签内容 */
             script_list.forEach((el) => eval(el.innerHTML));
           }
