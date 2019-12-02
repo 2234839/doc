@@ -113,6 +113,6 @@ function runCode({ code, lang, el }) {
     code_el.innerHTML = `<style>${code}</style>`;
   }
   if (lang === "javascript") {
-    eval(code_el.innerHTML);
+    eval(code);
   }
 }
