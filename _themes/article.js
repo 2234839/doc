@@ -11,7 +11,6 @@ require(["vs/editor/editor.main"], function() {
        width: 100%;
        margin-bottom: 10px;
      `;
-    el.style.display = "none";
     if ("run" in el.attributes) {
       //立即执行代码
       runCode({
@@ -20,6 +19,7 @@ require(["vs/editor/editor.main"], function() {
         el: el.parentElement,
       });
     }
+    if (el.classList.contains("hidden")) return;
 
     var editor = monaco.editor.create(div, {
       value: el.innerText,
