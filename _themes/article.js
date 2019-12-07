@@ -1,26 +1,32 @@
 /** 高亮代码块 */
-const code = document.querySelectorAll(`[class*="lang"]`);
+let code = document.querySelectorAll(`[class*="lang"]`);
 if (code === null) throw "未找到code块";
+code = Array.from(code);
 require.config({ paths: { vs: "/node_modules/monaco-editor/min/vs" } });
-// "vs/editor/editor.main"
-require(["vs/editor/editor.main"], function() {
-  code.forEach(function(el) {
-    const div = document.createElement("div");
-    el.parentElement.appendChild(div);
-    div.style = `
-       width: 100%;
-       margin-bottom: 10px;
-     `;
-    if ("run" in el.attributes) {
-      //立即执行代码
-      runCode({
-        code: el.innerText,
-        lang: getLanguage(el),
-        el: el.parentElement,
-      });
-    }
-    if (el.classList.contains("hidden")) return;
 
+const div_list = code.map(function(el) {
+  const div = document.createElement("div");
+  el.parentElement.appendChild(div);
+  div.style = `
+     width: 100%;
+     margin-bottom: 10px;
+   `;
+  if ("run" in el.attributes) {
+    //立即执行代码
+    runCode({
+      code: el.innerText,
+      lang: getLanguage(el),
+      el: el.parentElement,
+    });
+  }
+  return div;
+});
+require(["vs/editor/editor.main"], function() {
+  div_list.map((div) => {
+    const el = div.parentElement.querySelector(`[class*="lang"]`);
+    /** 隐藏起来的元素不需要编辑 */
+    if (el.classList.contains("hidden")) return;
+    el.style.display = "none";
     var editor = monaco.editor.create(div, {
       value: el.innerText,
       language: getLanguage(el),
@@ -31,10 +37,10 @@ require(["vs/editor/editor.main"], function() {
       automaticLayout: true,
       scrollBeyondLastLine: false,
     });
-    editoAdapHeight(editor, div);
+    editorAdapaHeight(editor, div);
 
     editor.onDidChangeModelContent((e) => {
-      editoAdapHeight(editor, div);
+      editorAdapaHeight(editor, div);
       if ("run" in el.attributes)
         runCode({
           code: editor.getValue(),
@@ -56,7 +62,7 @@ function getLanguage(el) {
  * @param {HTMLElement} editor
  * @param {HTMLElement} div
  */
-function editoAdapHeight(editor, div) {
+function editorAdapaHeight(editor, div) {
   let lines = editor.getModel().getLinesContent().length;
   div.style.height = lines * 19.2 + "px";
 }
@@ -69,10 +75,6 @@ function editoAdapHeight(editor, div) {
  * @param {HTMLElement} par.el - 代码要插入的元素
  */
 function runCode({ code, lang, el }) {
-  const lang_label = {
-    javascript: "script",
-    html: "div",
-  };
   /** 在这个页面是否是第一次执行 */
   let init = false;
   if (el.querySelector(".run-code") === null) {
