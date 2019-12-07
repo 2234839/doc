@@ -6,17 +6,43 @@
 ---
 
 ```html{run .hidden}
-<div>
-  id
-  <input />
-</div>
-<div>
-  目标链接
-  <input />
-</div>
-<div>
-  密钥
-  <input />
-</div>
-<button>提交</button>
+<form>
+  <div>
+    id
+    <input name="id" />
+  </div>
+  <div>
+    目标链接
+    <input name="target" />
+  </div>
+  <div>
+    密钥
+    <input name="pwd" />
+  </div>
+  <div id="submit" class="bg-gray-700 text-gray-200 w-60 p-5 mx-20 text-center">提交</div>
+</form>
+
+<script>
+  var requestOptions = {
+    method: "GET",
+    redirect: "follow",
+  };
+  console.log("函数执行");
+  document.getElementById("submit").addEventListener("click", function() {
+    fetch(
+      `http://api.shenzilong.cn/data-link/add_qr_link?target=${document.forms[0].target.value}&qr_no=${document.forms[0].id.value}&pwd=${document.forms[0].pwd.value}`,
+      requestOptions,
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        console.log(result);
+        if (result.includes("write")) {
+          alert("设置成功");
+        } else {
+          alert(result);
+        }
+      })
+      .catch((error) => console.log("error", error));
+  });
+</script>
 ```

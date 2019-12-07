@@ -94,6 +94,10 @@ function runCode({ code, lang, el }) {
       let load_count = 0;
       /** 动态引入 */
       const src_script = script_list.filter((el) => el.src);
+      const no_src_script = script_list.filter((el) => !el.src);
+      if (src_script.length === 0) {
+        no_src_script.forEach((el) => eval(el.innerHTML));
+      }
       src_script.map((el) => {
         let script = document.createElement("script");
         script.onload = () => {
