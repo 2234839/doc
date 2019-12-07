@@ -27,7 +27,6 @@
     method: "GET",
     redirect: "follow",
   };
-  console.log("函数执行");
   document.getElementById("submit").addEventListener("click", function() {
     fetch(
       `https://api.shenzilong.cn/data-link/add_qr_link?target=${document.forms[0].target.value}&qr_no=${document.forms[0].id.value}&pwd=${document.forms[0].pwd.value}`,
@@ -35,7 +34,6 @@
     )
       .then((response) => response.text())
       .then((result) => {
-        console.log(result);
         if (result.includes("write")) {
           alert("设置成功");
         } else {

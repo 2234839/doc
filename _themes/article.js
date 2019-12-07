@@ -38,7 +38,6 @@ require(["vs/editor/editor.main"], function() {
       scrollBeyondLastLine: false,
     });
     editorAdapaHeight(editor, div);
-
     editor.onDidChangeModelContent((e) => {
       editorAdapaHeight(editor, div);
       if ("run" in el.attributes)
