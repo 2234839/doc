@@ -697,6 +697,11 @@ img {
           align-items: center;
 }
 
+.justify-center {
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
 .flex-auto {
   -webkit-box-flex: 1;
           flex: 1 1 auto;
@@ -912,4 +917,21 @@ body {
   background-color: #f5f5d5;
   max-width: 600px;
   margin: 0 auto;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 1.875rem
+}
+
+a {
+  color: #3182ce
+}
+
+a:visited {
+  color: #e53e3e
+}
+
+a:hover {
+  color: #2a4365
 }

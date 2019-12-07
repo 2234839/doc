@@ -8,3 +8,19 @@ body {
     max-width: 600px;
     margin: 0 auto;
 }
+
+h1 {
+    @apply .font-bold .text-3xl
+}
+
+a {
+    @apply .text-blue-600
+}
+
+a:visited {
+    @apply .text-red-600
+}
+
+a:hover {
+    @apply .text-blue-900
+}
