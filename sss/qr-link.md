@@ -30,7 +30,7 @@
   console.log("函数执行");
   document.getElementById("submit").addEventListener("click", function() {
     fetch(
-      `http://api.shenzilong.cn/data-link/add_qr_link?target=${document.forms[0].target.value}&qr_no=${document.forms[0].id.value}&pwd=${document.forms[0].pwd.value}`,
+      `https://api.shenzilong.cn/data-link/add_qr_link?target=${document.forms[0].target.value}&qr_no=${document.forms[0].id.value}&pwd=${document.forms[0].pwd.value}`,
       requestOptions,
     )
       .then((response) => response.text())
