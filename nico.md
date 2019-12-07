@@ -15,7 +15,7 @@
 
 ```typescript
 const shell = require("shelljs");
-const iconv = require("iconv-lite"); //编码
+const iconv = require("iconv-lite"); // 编码
 
 export async function gitPull(url: string) {
   try {
