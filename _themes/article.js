@@ -1,11 +1,12 @@
-var config = {
+/** 配置mermaid */
+mermaid.initialize({
   startOnLoad: true,
   flowchart: {
     useMaxWidth: false,
     htmlLabels: true,
   },
-};
-mermaid.initialize(config);
+  theme: "forest",
+});
 const mermaidAPI = mermaid.mermaidAPI;
 
 /** 高亮代码块 */
@@ -142,13 +143,9 @@ function runCode({ code, lang, el }) {
     code_el.id = id;
     console.log(code_el);
     code_el.style.display = "";
-    var insertSvg = function(svgCode, bindFunctions) {
-      code_el.innerHTML = svgCode;
-    };
-
     var graphDefinition = code;
     /** svg源码 */
-    var graph = mermaidAPI.render(id, graphDefinition, insertSvg);
+    code_el.innerHTML = mermaidAPI.render(id, graphDefinition);
     el.insertBefore(code_el, el.firstElementChild);
   }
 }

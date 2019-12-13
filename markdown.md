@@ -31,10 +31,14 @@
 * Red * Green * Blue
 ```
 
+[怎么使用代码画图](https://github.com/mermaid-js/mermaid)
+
 ```mermaid{run}
-graph TD
-A[Hard] -->|Text| B(Round)
-B --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
+stateDiagram
+[*] --> Still
+Still --> [*]
+Still --> Moving
+Moving --> Still
+Moving --> Crash
+Crash --> [*]
 ```
