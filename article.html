@@ -3,10 +3,6 @@
   <head>
     <title>${article.title} - 崮生</title>
     ${res.header_template}
-    <script
-      des="monaco-editor携带的loader"
-      src="/node_modules/monaco-editor/min/vs/loader.js"
-    ></script>
   </head>
   <body class="px-1">
     <header>
@@ -14,6 +10,11 @@
     </header>
     ${article.html}
     <footer>${res.footer_template}</footer>
+    <script src="/node_modules/mermaid/dist/mermaid.min.js"></script>
+    <script
+      des="monaco-editor携带的loader"
+      src="/node_modules/monaco-editor/min/vs/loader.js"
+    ></script>
     <script src="/_themes/article.js"></script>
   </body>
 </html>

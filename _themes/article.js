@@ -1,8 +1,21 @@
+var config = {
+  startOnLoad: true,
+  flowchart: {
+    useMaxWidth: false,
+    htmlLabels: true,
+  },
+};
+mermaid.initialize(config);
+const mermaidAPI = mermaid.mermaidAPI;
+
 /** 高亮代码块 */
 let code = document.querySelectorAll(`[class*="lang"]`);
 if (code === null) throw "未找到code块";
 code = Array.from(code);
-require.config({ paths: { vs: "/node_modules/monaco-editor/min/vs" } });
+require.config({
+  paths: { vs: "/node_modules/monaco-editor/min/vs" },
+});
+// delete define.amd
 
 const div_list = code.map(function(el) {
   const div = document.createElement("div");
@@ -21,7 +34,8 @@ const div_list = code.map(function(el) {
   }
   return div;
 });
-require(["vs/editor/editor.main"], function() {
+
+require(["vs/editor/editor.main"], function(monaco) {
   div_list.map((div) => {
     const el = div.parentElement.querySelector(`[class*="lang"]`);
     /** 隐藏起来的元素不需要编辑 */
@@ -74,6 +88,8 @@ function editorAdapaHeight(editor, div) {
  * @param {HTMLElement} par.el - 代码要插入的元素
  */
 function runCode({ code, lang, el }) {
+  console.log(lang, el);
+
   /** 在这个页面是否是第一次执行 */
   let init = false;
   if (el.querySelector(".run-code") === null) {
@@ -119,5 +135,20 @@ function runCode({ code, lang, el }) {
   }
   if (lang === "javascript") {
     eval(code);
+  }
+
+  if (lang === "mermaid") {
+    const id = `graphDiv${Date.now()}`;
+    code_el.id = id;
+    console.log(code_el);
+    code_el.style.display = "";
+    var insertSvg = function(svgCode, bindFunctions) {
+      code_el.innerHTML = svgCode;
+    };
+
+    var graphDefinition = code;
+    /** svg源码 */
+    var graph = mermaidAPI.render(id, graphDefinition, insertSvg);
+    el.insertBefore(code_el, el.firstElementChild);
   }
 }

@@ -31,17 +31,10 @@
 * Red * Green * Blue
 ```
 
-```flow
-s=start:开始
-e=end:结束
-o=operation:操作项
-
-s-o-e
-```
-
-```sequence
-Andrew->China: Says Hello
-Note right of China: China thinks\nabout it
-China-->Andrew: How are you?
-Andrew->>China: I am good thanks!
+```mermaid{run}
+graph TD
+A[Hard] -->|Text| B(Round)
+B --> C{Decision}
+C -->|One| D[Result 1]
+C -->|Two| E[Result 2]
 ```
