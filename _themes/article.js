@@ -2,7 +2,7 @@
 mermaid.initialize({
   startOnLoad: true,
   flowchart: {
-    useMaxWidth: false,
+    useMaxWidth: true,
     htmlLabels: true,
   },
   theme: "forest",
