@@ -38,3 +38,9 @@
   }
 </script>
 ```
+
+## 一些制作 rss 源的方法
+
+[知乎 v2ex](https://rss.lilydjwg.me/)
+
+[新浪微博](https://rssfeed.today/weibo/)
