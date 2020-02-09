@@ -3,11 +3,11 @@
 - pubdate:2019-08-14 17:15:40
 - tags:nginx
 
-------------
+---
 
-## 安装nginx
+## 安装 nginx
 
-[centos7安装nginx](https://qizhanming.com/blog/2018/08/06/how-to-install-nginx-on-centos-7)
+[centos7 安装 nginx](https://qizhanming.com/blog/2018/08/06/how-to-install-nginx-on-centos-7)
 
 ```bash
 sudo rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
@@ -78,7 +78,7 @@ events {# 工作的连接数
 
 sudo nginx -c ~/nginx.conf
 
-## kill掉所有的nginx
+## kill 掉所有的 nginx
 
 sudo pkill nginx
 
