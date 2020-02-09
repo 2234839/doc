@@ -10,8 +10,22 @@ body {
     margin-top: 8px;
 }
 
+/** 标题样式 */
+
+h1, h2, h3, h4, h5, h6 {
+    @apply .font-bold mt-1
+}
+
 h1 {
-    @apply .font-bold .text-3xl
+    @apply .text-3xl mt-3
+}
+
+h2 {
+    @apply .text-2xl mt-2
+}
+
+h3 {
+    @apply .text-xl
 }
 
 a {
@@ -24,4 +38,29 @@ a:visited {
 
 a:hover {
     @apply .text-blue-900
+}
+
+/** p标签开头缩进 */
+
+body>p {
+    @apply mt-1;
+    text-indent: 2em;
+}
+
+/** 引用块的样式 */
+
+blockquote {
+    @apply p-1;
+    background: #eee;
+    border-left: 2px solid red;
+}
+
+/** 列表样式 */
+
+ol {
+    list-style: decimal;
+}
+
+ul {
+    list-style: square;
 }

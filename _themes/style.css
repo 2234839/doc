@@ -11410,9 +11410,25 @@ body {
   margin-top: 8px;
 }
 
-h1 {
+/** 标题样式 */
+
+h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
-  font-size: 1.875rem
+  margin-top: 0.25rem
+}
+
+h1 {
+  font-size: 1.875rem;
+  margin-top: 0.75rem
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 0.5rem
+}
+
+h3 {
+  font-size: 1.25rem
 }
 
 a {
@@ -11425,6 +11441,31 @@ a:visited {
 
 a:hover {
   color: #2a4365
+}
+
+/** p标签开头缩进 */
+
+body>p {
+  margin-top: 0.25rem;
+  text-indent: 2em;
+}
+
+/** 引用块的样式 */
+
+blockquote {
+  padding: 0.25rem;
+  background: #eee;
+  border-left: 2px solid red;
+}
+
+/** 列表样式 */
+
+ol {
+  list-style: decimal;
+}
+
+ul {
+  list-style: square;
 }
 
 @media (min-width: 640px) {
