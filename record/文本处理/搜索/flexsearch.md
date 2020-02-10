@@ -12,8 +12,7 @@
 <script>
   require.config({
     paths: {
-      flexsearch:
-        "https://cdn.jsdelivr.net/gh/nextapps-de/flexsearch@master/dist/flexsearch.min.js",
+      flexsearch: "https://cdn.jsdelivr.net/gh/nextapps-de/flexsearch@master/dist/flexsearch.min.js",
     },
   });
   require(["flexsearch"], function(FlexSearch) {

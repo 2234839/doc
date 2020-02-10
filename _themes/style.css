@@ -11454,7 +11454,7 @@ body>p {
 
 blockquote {
   padding: 0.25rem;
-  background: #eee;
+  background: rgba(187, 187, 187, 0.493);
   border-left: 2px solid red;
 }
 

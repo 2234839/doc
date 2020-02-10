@@ -51,7 +51,7 @@ body>p {
 
 blockquote {
     @apply p-1;
-    background: #eee;
+    background: rgba(187, 187, 187, 0.493);
     border-left: 2px solid red;
 }
 
