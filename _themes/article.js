@@ -149,3 +149,31 @@ function runCode({ code, lang, el }) {
     el.insertBefore(code_el, el.firstElementChild);
   }
 }
+
+/** 导航 */
+(function() {
+  "use strict";
+  const menu = document.querySelectorAll("h1,h2,h3,h4,h5,h6,h7,h8");
+  const container = document.querySelector("崮生_userjs_导航") || document.createElement("崮生_userjs_导航");
+  container.innerHTML = "";
+  container.style = `
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 2rem;
+  top: 2rem
+  `;
+  document.body.appendChild(container);
+
+  menu.forEach((h) => {
+    const level = Number(h.tagName.replace("H", ""));
+    const { textContent: title, id } = h;
+
+    const item = document.createElement("a");
+    /** 反复横跳是因为中文id在href中是跳不过去的 */
+    item.href = "#" + encodeURIComponent(decodeURIComponent(id));
+    item.style.marginLeft = level + "rem";
+    item.textContent = title;
+    container.appendChild(item);
+  });
+})();
