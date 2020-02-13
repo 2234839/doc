@@ -36,6 +36,7 @@
       },
     });
   }
+  window.send = send;
 </script>
 ```
 
