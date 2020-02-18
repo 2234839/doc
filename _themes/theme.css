@@ -61,5 +61,5 @@ ul {
 /** 正文段落的间隔 */
 
 body>p {
-    @apply mt-2;
+    @apply mt-3;
 }
