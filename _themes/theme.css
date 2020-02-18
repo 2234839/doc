@@ -13,7 +13,7 @@ body {
 /** 标题样式 */
 
 h1, h2, h3, h4, h5, h6 {
-    @apply .font-bold mx-2
+    @apply .font-bold my-2
 }
 
 h1 {
