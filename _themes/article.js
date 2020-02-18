@@ -179,3 +179,10 @@ function runCode({ code, lang, el }) {
     container.appendChild(item);
   });
 })();
+
+/** md 链接的跳转 */ (function() {
+  const a = document.querySelectorAll("a[md_to_html]");
+  a.forEach((a) => {
+    a.href = a.href.replace(/\.md$/, ".html");
+  });
+})();
