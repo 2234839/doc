@@ -770,6 +770,10 @@ video {
   margin-right: 5rem;
 }
 
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -1002,13 +1006,6 @@ a:visited {
 
 a:hover {
   color: #2a4365
-}
-
-/** p标签开头缩进 */
-
-body>p {
-  margin-top: 0.25rem;
-  text-indent: 2em;
 }
 
 /** 引用块的样式 */

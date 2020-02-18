@@ -40,13 +40,6 @@ a:hover {
     @apply .text-blue-900
 }
 
-/** p标签开头缩进 */
-
-body>p {
-    @apply mt-1;
-    text-indent: 2em;
-}
-
 /** 引用块的样式 */
 
 blockquote {
