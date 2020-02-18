@@ -770,10 +770,6 @@ video {
   margin-right: 5rem;
 }
 
-.mt-1 {
-  margin-top: 0.25rem;
-}
-
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -1024,4 +1020,10 @@ ol {
 
 ul {
   list-style: square;
+}
+
+/** 正文段落的间隔 */
+
+body>p {
+  margin-top: 0.25rem;
 }
