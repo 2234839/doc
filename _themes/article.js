@@ -186,3 +186,16 @@ function runCode({ code, lang, el }) {
     a.href = a.href.replace(/\.md$/, ".html");
   });
 })();
+/** gitalk */ (function() {
+  var gitalk = new Gitalk({
+    clientID: "effa7a3abb2f215d80b2",
+    clientSecret: "28963609ab8bdf92405560fb0a82c98912feb0db",
+    repo: "https://github.com/2234839/doc/commits/master",
+    owner: "2234839",
+    admin: ["2234839"],
+    id: location.pathname, // Ensure uniqueness and length less than 50
+    distractionFreeMode: false, // Facebook-like distraction free mode
+  });
+
+  gitalk.render("gitalk-container");
+})();
