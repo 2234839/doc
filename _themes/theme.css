@@ -52,8 +52,8 @@ blockquote {
 
 ol {
     list-style: decimal;
+    margin-left: 1rem;
 }
-
 ul {
     list-style: square;
 }
