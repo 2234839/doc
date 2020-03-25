@@ -2,6 +2,9 @@
 
 ```bash
 
+# 整合命令
+./_themes/style.ps1
+
 # 编译样式的方法 tailwind
 npx tailwind build ./_themes/theme.css -o ./_themes/style.css
 
