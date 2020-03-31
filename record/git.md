@@ -48,3 +48,10 @@ git clone ssh://root@shenzilong/root/test
 服务器端要更新代码就合并一下master分支即可
 
 ## [git 推送到多个分支](https://segmentfault.com/a/1190000011294144)
+
+
+## github 学习教程
+
+1. 分配 Assignees 💚
+2. 开启 github pages 💚
+2. 关闭 issue 💚
