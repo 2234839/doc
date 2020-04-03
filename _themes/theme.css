@@ -54,6 +54,7 @@ ol {
     list-style: decimal;
     margin-left: 1rem;
 }
+
 ul {
     list-style: square;
 }
@@ -65,13 +66,14 @@ body>p {
 }
 
 /** 哀悼 */
-html,
-body {
-	filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
-	-webkit-filter: grayscale(100%);
-	-moz-filter: grayscale(100%);
-	-ms-filter: grayscale(100%);
-	-o-filter: grayscale(100%);
-	filter: grayscale(100%);
-	filter: gray;
+
+html, body {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    transition: filter 2.5s;
+    filter: gray;
 }

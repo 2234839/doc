@@ -1032,14 +1032,17 @@ body>p {
 
 /** 哀悼 */
 
-html,
-body {
+html, body {
   filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
   -webkit-filter: grayscale(100%);
   -moz-filter: grayscale(100%);
   -ms-filter: grayscale(100%);
   -o-filter: grayscale(100%);
   filter: grayscale(100%);
+  -webkit-transition: -webkit-filter 2.5s;
+  transition: -webkit-filter 2.5s;
+  transition: filter 2.5s;
+  transition: filter 2.5s, -webkit-filter 2.5s;
   -webkit-filter: gray;
           filter: gray;
 }
