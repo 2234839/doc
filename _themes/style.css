@@ -1029,3 +1029,17 @@ ul {
 body>p {
   margin-top: 0.75rem;
 }
+
+/** 哀悼 */
+
+html,
+body {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-filter: gray;
+          filter: gray;
+}
