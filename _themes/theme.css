@@ -66,8 +66,7 @@ body>p {
 }
 
 /** 哀悼 */
-
-html, body {
+/* html, body {
     filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
@@ -76,4 +75,4 @@ html, body {
     filter: grayscale(100%);
     transition: filter 2.5s;
     filter: gray;
-}
+} */
