@@ -18,3 +18,9 @@ const plugins = ["@babel/plugin-proposal-optional-chaining"];
 就是在 plugins 中加上@babel/plugin-proposal-optional-chaining 就好了，但是有些玄学问题，昨天搞了半天这个语法都不能用各种报错，今天啥也没改重新开机就能用了。。。。
 
 也就是说这样配置是没问题的，还报错就重启试试？
+
+## 坑
+
+### vuex \$store 无效
+
+![vuex动态响应](./img/vuex动态响应.png)
