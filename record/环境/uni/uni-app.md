@@ -24,3 +24,7 @@ const plugins = ["@babel/plugin-proposal-optional-chaining"];
 ### vuex \$store 无效
 
 ![vuex动态响应](./img/vuex动态响应.png)
+
+### img 标签表现不一致
+
+之前用可以直接用 img 当时表现比 image 要更好可以自适应大小，结果最近用不了了.. 心态爆炸
