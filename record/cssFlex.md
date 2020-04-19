@@ -3,7 +3,7 @@
 - pubdate: 2019-06-05 14:45:32
 - tags: css,index
 
-感谢 flex 祝愿 ie 早日重新做人
+感谢 flex
 
 ---
 
