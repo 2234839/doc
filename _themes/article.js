@@ -1,13 +1,48 @@
 /** 配置mermaid */
-mermaid.initialize({
-  startOnLoad: true,
-  flowchart: {
-    useMaxWidth: true,
-    htmlLabels: true,
-  },
-  theme: "forest",
-});
-const mermaidAPI = mermaid.mermaidAPI;
+// mermaid.initialize({
+//   startOnLoad: true,
+//   flowchart: {
+//     useMaxWidth: true,
+//     htmlLabels: true,
+//   },
+//   theme: "forest",
+// });
+// const mermaidAPI = mermaid.mermaidAPI;
+const title = [...document.querySelector("title").textContent];
+/** 去除最后的时间 */
+title.pop();
+/** 评论模块的加载 */
+(() => {
+  const b3_comments = document.getElementById("b3_comments");
+  const utterances_comments = document.querySelector(".utterances");
+
+  // var xhr = new XMLHttpRequest();
+  // xhr.withCredentials = true;
+
+  // xhr.addEventListener("readystatechange", function () {
+  //   if (this.readyState === 4) {
+  //     console.log('res',this.responseText);
+  //   }
+  // });
+
+  // xhr.open("GET", "https://hacpai.com/apis/vcomment?aid=dfasdfa&p=1&un=llej&_=1587817390488");
+  // xhr.send();
+  const vcomment = new Vcomment({
+    id: "b3_comments",
+    postId: title,
+    url: "https://hacpai.com",
+    userName: "llej",
+    currentPage: 1,
+    vditor: {
+      hljsEnable: false,
+      hljsStyle: "github",
+    },
+    error() {
+      $("#b3_comments").remove();
+    },
+  });
+  vcomment.render();
+})();
 
 /** 高亮代码块 */
 let code = document.querySelectorAll(`[class*="lang"]`);
@@ -18,7 +53,7 @@ require.config({
 });
 // delete define.amd
 
-const div_list = code.map(function(el) {
+const div_list = code.map(function (el) {
   const div = document.createElement("div");
   el.parentElement.appendChild(div);
   div.style = `
@@ -36,7 +71,7 @@ const div_list = code.map(function(el) {
   return div;
 });
 
-require(["vs/editor/editor.main"], function(monaco) {
+require(["vs/editor/editor.main"], function (monaco) {
   div_list.map((div) => {
     const el = div.parentElement.querySelector(`[class*="lang"]`);
     /** 隐藏起来的元素不需要编辑 */
@@ -151,7 +186,7 @@ function runCode({ code, lang, el }) {
 }
 
 /** 导航 */
-(function() {
+(function () {
   "use strict";
   const menu = document.querySelectorAll("h1,h2,h3,h4,h5,h6,h7,h8");
   const container = document.querySelector("#崮生_userjs_导航") || document.createElement("details");
@@ -180,9 +215,18 @@ function runCode({ code, lang, el }) {
   });
 })();
 
-/** md 链接的跳转 */ (function() {
+/** md 链接的跳转 */ (function () {
   const a = document.querySelectorAll("a[md_to_html]");
   a.forEach((a) => {
     a.href = a.href.replace(/\.md$/, ".html");
   });
 })();
+
+/** 公用方法 */
+
+function time33(str) {
+  for (var i = 0, len = str.length, hash = 5381; i < len; ++i) {
+    hash += (hash << 5) + str.charAt(i).charCodeAt();
+  }
+  return hash & 0x7fffffff;
+}

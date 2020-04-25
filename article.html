@@ -10,6 +10,9 @@
       text-indent: 2em;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/vcmt/dist/index.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vditor@3.1.5/dist/index.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vditor@latest/dist/index.classic.css" />
 </head>
 
 <body class="px-1">
@@ -18,16 +21,16 @@
   </header>
   ${article.html}
 
-  <div id="gitalk-container"></div>
+  <div id="b3_comments"></div>
   <script src="https://utteranc.es/client.js" repo="2234839/doc" issue-term="title" theme="github-light"
-    crossorigin="anonymous" async>
-    </script>
-
+    crossorigin="anonymous" async></script>
   <footer>${res.footer_template}</footer>
-  <script src="/node_modules/mermaid/dist/mermaid.min.js"></script>
-  <script des="monaco-editor携带的loader" src="/node_modules/monaco-editor/min/vs/loader.js"></script>
 
   <script src="/_themes/article.js"></script>
+  <!-- <script src="/node_modules/mermaid/dist/mermaid.min.js"></script> -->
+  <script des="monaco-editor携带的loader" src="/node_modules/monaco-editor/min/vs/loader.js"></script>
+
+
 </body>
 
 </html>
