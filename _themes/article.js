@@ -8,37 +8,45 @@
 //   theme: "forest",
 // });
 // const mermaidAPI = mermaid.mermaidAPI;
-const title = [...document.querySelector("title").textContent];
+const _title = [...document.querySelector("title").textContent];
 /** 去除最后的时间 */
-title.pop();
+_title.pop();
+const title = _title.join("");
 /** 评论模块的加载 */
 (() => {
   const b3_comments = document.getElementById("b3_comments");
   const utterances_comments = document.querySelector(".utterances");
+  ah.proxy({
+    //请求发起前进入
+    //请求成功后进入
+    onResponse: (response, handler) => {
+      handler.next(response);
 
-  // var xhr = new XMLHttpRequest();
-  // xhr.withCredentials = true;
-
-  // xhr.addEventListener("readystatechange", function () {
-  //   if (this.readyState === 4) {
-  //     console.log('res',this.responseText);
-  //   }
-  // });
-
-  // xhr.open("GET", "https://hacpai.com/apis/vcomment?aid=dfasdfa&p=1&un=llej&_=1587817390488");
-  // xhr.send();
+      if (response.config.url.includes("https://hacpai.com/apis/vcomment")) {
+        const res = JSON.parse(response.response);
+        if (res.code === 1) {
+          /** 加载该id的评论失败,转为加载 utteranc 评论系统  */
+          const s = document.createElement("script");
+          b3_comments.parentElement.insertBefore(s, b3_comments);
+          b3_comments.remove();
+          s.setAttribute("repo", "2234839/doc");
+          s.setAttribute("issue-term", "title");
+          s.setAttribute("theme", "github-light");
+          s.setAttribute("crossorigin", "anonymous");
+          s.setAttribute("src", "https://utteranc.es/client.js");
+        }
+      }
+    },
+  });
   const vcomment = new Vcomment({
     id: "b3_comments",
-    postId: title,
+    postId: "llej_" + time33(title),
     url: "https://hacpai.com",
     userName: "llej",
     currentPage: 1,
     vditor: {
       hljsEnable: false,
       hljsStyle: "github",
-    },
-    error() {
-      $("#b3_comments").remove();
     },
   });
   vcomment.render();
