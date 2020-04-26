@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <title>4 月 - 崮生</title>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<meta name="description" content="崮生的学习笔记记录站点，在这里将涉及到有关编程的一些知识这其中大部分是关于ECMAScript的" />
+<link rel="stylesheet" href="/_themes/style.min.css" />
+<script src="/_themes/theme.js"></script>
+<script>
+  /** 标签栏的动画 */
+  (() => {
+    var title = document.title;
+    var i = 0;
+    setInterval(function () {
+      i = (i + 1) % 12;
+      document.title = title + [ ..."🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛" ][ i ];
+    }, 360);
+  })();
+</script>
+<script async des="谷歌统计" src="https://www.googletagmanager.com/gtag/js?id=UA-139738006-1"></script>
+<script des="谷歌统计">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "UA-139738006-1");
+</script>
+  <style>
+    /** p标签开头缩进 */
+    body>p {
+      text-indent: 2em;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/vcmt/dist/index.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vditor@3.1.5/dist/index.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vditor@latest/dist/index.classic.css" />
+</head>
+
+<body class="px-1">
+  <header>
+    <a href="/">去首页</a>
+  </header>
+  <h1 id="4-%E6%9C%88">4 月</h1>
+<ul>
+<li>pubdate:2020-04-08 15:27:33</li>
+<li>tags:总结,日记</li>
+</ul>
+<hr />
+<h2 id="2020-4-1">2020-4-1</h2>
+<ol>
+<li>
+<p>昨天那个配置项的实现过于复杂了，今天将她优化了一下</p>
+<ol>
+<li>definition.ts 定义了类型和一个查找元素的方法</li>
+</ol>
+</li>
+</ol>
+<pre><code class="lang-typescript">export enum value_type {
+  &quot;string&quot;,
+  &quot;img&quot;,
+  /** 嵌套 config_group 这个难度高一点，可以以后实现 */
+  &quot;config_group&quot;,
+}
+
+type Config_base = { title: string; description: string };
+
+export type Config_item =
+  | (Config_base &amp; {
+      type: value_type.string;
+      value: string;
+    })
+  | (Config_base &amp; {
+      type: value_type.config_group;
+      value: Config_item[];
+    });
+
+/** 根据路径查找元素 */
+export function find_item(path: string, json: Config_item[] | Config_item): Config_item | undefined | Error {
+  const path_list = path.split(&quot; &quot;);
+  const cur_selector = path_list.shift();
+  if (!cur_selector) {
+    return undefined;
+  }
+
+  if (Array.isArray(json)) {
+    if (cur_selector.startsWith(&quot;#&quot;)) {
+      // 根据 title 查询
+      const title = cur_selector.replace(&quot;#&quot;, &quot;&quot;);
+
+      const cur = json.find((el) =&gt; el.title === title);
+      if (path_list.length === 0) {
+        return cur;
+      } else {
+        return find_item(path_list.join(&quot; &quot;), cur!);
+      }
+    } else {
+      return undefined;
+    }
+  } else {
+    if (/** 嵌套类型 */ [value_type.config_group].includes(json.type)) {
+      if ((json.type = value_type.config_group)) {
+        return find_item([cur_selector, ...path_list].join(&quot; &quot;), json.value);
+      } else {
+        return new Error(&quot;新的嵌套类型要写新的处理方法&quot;);
+      }
+    } else if (json.type === value_type.string) {
+      if (path_list.length === 0) {
+        return json;
+      } else {
+        return new Error(&quot;路径错误&quot;);
+      }
+    } else {
+      // 有新的类型和逻辑应当在这里实现
+      return undefined;
+    }
+  }
+}
+</code></pre>
+<ol start="2">
+<li>config_item.vue 配置项的组件</li>
+</ol>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div class=&quot;c-item&quot;&gt;
+    &lt;div :class=&quot;{ 'c-title': config_item.type == value_type.config_group }&quot;&gt;{{ config_item.title }}&lt;/div&gt;
+    &lt;div class=&quot;c-des&quot;&gt;{{ config_item.description }}&lt;/div&gt;
+
+    &lt;div&gt;
+      &lt;div v-if=&quot;config_item.type == value_type.config_group&quot;&gt;
+        &lt;configItem v-model=&quot;item.value&quot; :config_item=&quot;item&quot; v-for=&quot;(item, index) in config_item.value&quot; :key=&quot;index&quot; /&gt;
+      &lt;/div&gt;
+      &lt;input v-model=&quot;config_item.value&quot; v-else-if=&quot;config_item.type == value_type.string&quot; type=&quot;text&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script lang=&quot;ts&quot;&gt;
+import Vue from &quot;vue&quot;;
+
+import { Config_item, value_type } from &quot;../definition&quot;;
+export default Vue.extend({
+  name: &quot;configItem&quot;,
+  props: {
+    config_item: {
+      type: Object as () =&gt; Config_item,
+    },
+    value: [Object, String, Number, Array],
+  },
+  model: {
+    prop: &quot;value&quot;,
+    event: &quot;value&quot;,
+  },
+  data() {
+    return {
+      value_type,
+    };
+  },
+});
+&lt;/script&gt;
+&lt;style scope&gt;
+.c-item {
+  margin-top: 0.258rem;
+  margin-left: 1rem;
+}
+.c-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.c-des {
+  color: gray;
+}
+&lt;/style&gt;
+</code></pre>
+<p>3.发现 typescript Playground 出 v3 版了 <s><a href="https://www.typescriptlang.org/v2/en/play">Playground V3</a></s> <a href="https://www.typescriptlang.org/play">Playground V3 前面那个测试版地址过期了</a> 里面还有许多帮助理解的例子</p>
+<h2 id="2020-4-6">2020-4-6</h2>
+<ol>
+<li>使用负 margin 来实现列表间距相等 例如 <code>item:not(:first-child){margin-top:-35px}</code></li>
+<li>发现了 <a href="https://github.com/weiqinl/You-Dont-Know-JS-CN/blob/master/up%20&amp;%20going/README.md#you-dont-know-js-up--going">you-dont-know-js</a> 这本书，打算读完</li>
+</ol>
+<h2 id="2020-4-7">2020-4-7</h2>
+<ol>
+<li>es2015 中规定了变量和方法可以从句法位置推断匿名函数的名称，所以以前认为的匿名函数现在可能推断出名字</li>
+</ol>
+<h2 id="2020-4-8">2020-4-8</h2>
+<ol>
+<li>
+<p>npm 从 git 安装包，<code>npm i git+ssh://git@git.bool.link:bool_dev_team/component-type.git</code></p>
+</li>
+<li>
+<p>vetur 自定义组件的类型声明 <a href="https://vuejs.github.io/vetur/framework.html#custom-tags-attributes">官方文档的只言片语</a> 可参见 <a href="https://github.com/ElementUI/element-helper-json">ElementUI 这里的例子</a> ,这个必须作为包被安装才能生效，在当前项目中写是享受不到这个提示的</p>
+</li>
+<li>
+<p>向前兼容和向后兼容「其实当初应该翻译成”回溯兼容“(backward compatibility)和”前瞻兼容“(forward compatibility)就不会出现理解问题了。」</p>
+</li>
+</ol>
+<h2 id="2020-4-9">2020-4-9</h2>
+<ol>
+<li>发现了 <a href="http://momentjs.cn/docs/">moment.js</a></li>
+</ol>
+<h2 id="2020-4-10">2020-4-10</h2>
+<ol>
+<li>今天使用 <a href="http://momentjs.cn/docs/">moment.js</a> 处理了很多逻辑，这个库处理时间很好用。</li>
+<li>想到一个点子：复制浏览器的 har 到网页，网页解析数据
+<ol>
+<li>生成比较好的展现格式可以复制给后端使用</li>
+<li>可以对比 har 高亮差异数据</li>
+</ol>
+</li>
+</ol>
+<h2 id="2020-4-11">2020-4-11</h2>
+<ol>
+<li>了解 rog2 游戏手机 和黑鲨游戏 手机</li>
+<li>uni-app 的 url 传参貌似还是支持挺长的字符串的，但究竟适配性如何没有详细了解，使用的时候还是要节约一些空间</li>
+</ol>
+<h2 id="2020-4-15">2020-4-15</h2>
+<pre><code class="lang-typescript">const list = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+</code></pre>
+<ol>
+<li>uni-app 微信小程序 v-for 如果嵌套的话变量名不能重复，里层的无法覆盖外层同名变量，两个 index 生效的只有第一层的 index ,这会导致奇怪的事情 例如 数据是如上 的 list 然后给每个生成的元素一个点击事件打印自身，无论如何打印的值也只有 1 5 9 这就是因为 index 一直采用的是第一层循环的</li>
+</ol>
+<h2 id="2020-4-17">2020-4-17</h2>
+<pre><code class="lang-css">/* 罪魁祸首 */
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type=&quot;button&quot;],
+[type=&quot;reset&quot;],
+[type=&quot;submit&quot;] {
+  -webkit-appearance: button;
+}
+/** 解决方案 */
+button,
+[type=&quot;button&quot;],
+[type=&quot;reset&quot;],
+[type=&quot;submit&quot;] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+</code></pre>
+<ol>
+<li>tailwind.css 对于小程序按钮样式的影响，前两天发现小程序按钮的默认样式一直去不掉，今天才发现是因为 tailwind.css 导致的。 他有一段上面那样的 css 采用了系统自定义的按钮样式导致你怎么覆盖 button::after 都没有用</li>
+</ol>
+<h2 id="2020-4-19">2020-4-19</h2>
+<ol>
+<li>写了一个让百度系的一些图标变灰的 <a href="https://greasyfork.org/zh-CN/scripts/401355-%E7%A5%AD%E5%A5%A0%E7%99%BE%E5%BA%A6">脚本</a></li>
+<li>word-break: break-all; 这个 css 属性可以正确截断长文本（单词）</li>
+</ol>
+<h2 id="2020-4-21">2020-4-21</h2>
+<ol>
+<li>最近 vscode 总是报错 <code>Couldn't download IntelliCode model. Please check your network connectivity or firewall settings.</code> 我去网上查了查一开始以为是因为网络问题，后来打开 vscode 的输出仔细看了看是因为 vscode 没有权限打开一个 model.json 的文件。所以使用管理员打开 vscode 就 ok 了</li>
+<li>css <a href="https://codepen.io/2234839/pen/GRpjegG">元素靠底</a> 主要靠父元素设置 <code>display:flex;flex-direction:column;</code> 需要置底的元素再设置 <code>margin-top:auto</code></li>
+<li>发现了一个 <a href="https://color.adobe.com/zh/create">调色神器</a></li>
+</ol>
+<h2 id="2020-4-22">2020-4-22</h2>
+<ol>
+<li>昨天发现界面上的圆不够圆，当时猜测是渲染方式的问题，今天<a href="https://codepen.io/2234839/pen/LYpbrZY">从小到大画了一些圆</a> 发现偶数大小的圆最容易出现这种情况，奇数圆则好很多</li>
+</ol>
+<h2 id="2020-4-24">2020-4-24</h2>
+<ol>
+<li>以前从网上找过激活码用来激活 office 前一段时间买了个正版的，但生效的还是之前的 2016 专业版 当时想着能用也就没管，但今天用不了了，最后使用 office 疑难解答 成功的切换到了 2019 的正版。</li>
+</ol>
+<h2 id="2020-4-25">2020-4-25</h2>
+<ol>
+<li>今天发现了 <a href="https://hacpai.com/">黑客派</a> 这个社区，并且尝试了推送文章到那里。</li>
+</ol>
+<h2 id="2020-4-26">2020-4-26</h2>
+<p>111</p>
+
+
+  <div id="b3_comments"></div>
+  <script des="用于拦截xhr" src="https://unpkg.com/ajax-hook@2.0.2/dist/ajaxhook.min.js"></script>
+  <!-- <script src="/node_modules/mermaid/dist/mermaid.min.js"></script> -->
+  <script des="monaco-editor携带的loader" src="/node_modules/monaco-editor/min/vs/loader.js"></script>
+  <script des="需要在 loader.js 之下" src="/_themes/article.js"></script>
+  <footer><footer class="mt-4">
+  <article class="text-center  py-2" title="友链">
+    <a href="https://www.zhouguiqiang.com">神仙散棒槌</a>
+    <a href="https://www.lihua6.cn">小付同学</a>
+  </article>
+  <article class="flex justify-center py-2" title="感谢这些伟大的技术支撑本站">
+    <a href="http://vanilla-js.com/"><img src="/_themes/vanilla-js.png" alt="" /></a>
+    <a href="https://tailwindcss.com/"><svg class="h-5 w-auto" viewBox="0 0 273 64" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M32 16C24.8 16 20.3 19.6 18.5 26.8C21.2 23.2 24.35 21.85 27.95 22.75C30.004 23.2635 31.4721 24.7536 33.0971 26.4031C35.7443 29.0901 38.8081 32.2 45.5 32.2C52.7 32.2 57.2 28.6 59 21.4C56.3 25 53.15 26.35 49.55 25.45C47.496 24.9365 46.0279 23.4464 44.4029 21.7969C41.7557 19.1099 38.6919 16 32 16ZM18.5 32.2C11.3 32.2 6.8 35.8 5 43C7.7 39.4 10.85 38.05 14.45 38.95C16.504 39.4635 17.9721 40.9536 19.5971 42.6031C22.2443 45.2901 25.3081 48.4 32 48.4C39.2 48.4 43.7 44.8 45.5 37.6C42.8 41.2 39.65 42.55 36.05 41.65C33.996 41.1365 32.5279 39.6464 30.9029 37.9969C28.2557 35.3099 25.1919 32.2 18.5 32.2Z"
+          fill="url(#paint0_linear)"></path>
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M85.996 29.652H81.284V38.772C81.284 41.204 82.88 41.166 85.996 41.014V44.7C79.688 45.46 77.18 43.712 77.18 38.772V29.652H73.684V25.7H77.18V20.596L81.284 19.38V25.7H85.996V29.652ZM103.958 25.7H108.062V44.7H103.958V41.964C102.514 43.978 100.272 45.194 97.308 45.194C92.14 45.194 87.846 40.824 87.846 35.2C87.846 29.538 92.14 25.206 97.308 25.206C100.272 25.206 102.514 26.422 103.958 28.398V25.7ZM97.954 41.28C101.374 41.28 103.958 38.734 103.958 35.2C103.958 31.666 101.374 29.12 97.954 29.12C94.534 29.12 91.95 31.666 91.95 35.2C91.95 38.734 94.534 41.28 97.954 41.28ZM114.902 22.85C113.458 22.85 112.28 21.634 112.28 20.228C112.28 18.784 113.458 17.606 114.902 17.606C116.346 17.606 117.524 18.784 117.524 20.228C117.524 21.634 116.346 22.85 114.902 22.85ZM112.85 44.7V25.7H116.954V44.7H112.85ZM121.704 44.7V16.96H125.808V44.7H121.704ZM152.446 25.7H156.778L150.812 44.7H146.784L142.832 31.894L138.842 44.7H134.814L128.848 25.7H133.18L136.866 38.81L140.856 25.7H144.77L148.722 38.81L152.446 25.7ZM161.87 22.85C160.426 22.85 159.248 21.634 159.248 20.228C159.248 18.784 160.426 17.606 161.87 17.606C163.314 17.606 164.492 18.784 164.492 20.228C164.492 21.634 163.314 22.85 161.87 22.85ZM159.818 44.7V25.7H163.922V44.7H159.818ZM178.666 25.206C182.922 25.206 185.962 28.094 185.962 33.034V44.7H181.858V33.452C181.858 30.564 180.186 29.044 177.602 29.044C174.904 29.044 172.776 30.64 172.776 34.516V44.7H168.672V25.7H172.776V28.132C174.03 26.156 176.082 25.206 178.666 25.206ZM205.418 18.1H209.522V44.7H205.418V41.964C203.974 43.978 201.732 45.194 198.768 45.194C193.6 45.194 189.306 40.824 189.306 35.2C189.306 29.538 193.6 25.206 198.768 25.206C201.732 25.206 203.974 26.422 205.418 28.398V18.1ZM199.414 41.28C202.834 41.28 205.418 38.734 205.418 35.2C205.418 31.666 202.834 29.12 199.414 29.12C195.994 29.12 193.41 31.666 193.41 35.2C193.41 38.734 195.994 41.28 199.414 41.28ZM223.278 45.194C217.54 45.194 213.246 40.824 213.246 35.2C213.246 29.538 217.54 25.206 223.278 25.206C227.002 25.206 230.232 27.144 231.752 30.108L228.218 32.16C227.382 30.374 225.52 29.234 223.24 29.234C219.896 29.234 217.35 31.78 217.35 35.2C217.35 38.62 219.896 41.166 223.24 41.166C225.52 41.166 227.382 39.988 228.294 38.24L231.828 40.254C230.232 43.256 227.002 45.194 223.278 45.194ZM238.592 30.944C238.592 34.402 248.814 32.312 248.814 39.342C248.814 43.142 245.508 45.194 241.404 45.194C237.604 45.194 234.868 43.484 233.652 40.748L237.186 38.696C237.794 40.406 239.314 41.432 241.404 41.432C243.228 41.432 244.634 40.824 244.634 39.304C244.634 35.922 234.412 37.822 234.412 31.02C234.412 27.448 237.49 25.206 241.366 25.206C244.482 25.206 247.066 26.65 248.396 29.158L244.938 31.096C244.254 29.614 242.924 28.93 241.366 28.93C239.884 28.93 238.592 29.576 238.592 30.944ZM256.11 30.944C256.11 34.402 266.332 32.312 266.332 39.342C266.332 43.142 263.026 45.194 258.922 45.194C255.122 45.194 252.386 43.484 251.17 40.748L254.704 38.696C255.312 40.406 256.832 41.432 258.922 41.432C260.746 41.432 262.152 40.824 262.152 39.304C262.152 35.922 251.93 37.822 251.93 31.02C251.93 27.448 255.008 25.206 258.884 25.206C262 25.206 264.584 26.65 265.914 29.158L262.456 31.096C261.772 29.614 260.442 28.93 258.884 28.93C257.402 28.93 256.11 29.576 256.11 30.944Z"
+          fill="#2D3748"></path>
+        <defs>
+          <linearGradient id="paint0_linear" x1="3.5" y1="16" x2="59" y2="48" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#2298BD"></stop>
+            <stop offset="1" stop-color="#0ED7B5"></stop>
+          </linearGradient>
+        </defs>
+      </svg></a>
+    <a href="https://microsoft.github.io/monaco-editor/">monaco-editor</a>
+  </article>
+  <footer class="flex justify-center">
+    <span>崮生 • 一些随笔 🎨</span>
+    <a href="https://shenzilong.cn/blog/feed">
+      rss订阅
+      <img class="inline-block" style="height: 16px" src="/static/feed.png" alt="rss订阅" />
+    </a>
+    <a href="http://www.beian.miit.gov.cn">湘ICP备18021783号</a>
+  </footer>
+</footer></footer>
+</body>
+
+</html>
