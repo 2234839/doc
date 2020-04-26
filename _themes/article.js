@@ -40,7 +40,8 @@ const title = _title.join("");
   });
   const vcomment = new Vcomment({
     id: "b3_comments",
-    postId: "llej_" + time33(title),
+    /** 接头暗号就是页面路径的 hash */
+    postId: "llej_" + time33(decodeURIComponent(location.pathname).replace(/html$/, "md")),
     url: "https://hacpai.com",
     userName: "llej",
     currentPage: 1,
@@ -234,7 +235,7 @@ function runCode({ code, lang, el }) {
 
 function time33(str) {
   for (var i = 0, len = str.length, hash = 5381; i < len; ++i) {
-    hash += (hash << 5) + str.charAt(i).charCodeAt();
+    hash += (hash << 5) + str.charCodeAt(i);
   }
   return hash & 0x7fffffff;
 }
