@@ -946,6 +946,10 @@ video {
   visibility: hidden;
 }
 
+.break-all {
+  word-break: break-all;
+}
+
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1042,3 +1046,8 @@ body>p {
     transition: filter 2.5s;
     filter: gray;
 } */
+
+iframe {
+  width: 100%;
+  height: 375px;
+}

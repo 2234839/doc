@@ -66,6 +66,7 @@ body>p {
 }
 
 /** 哀悼 */
+
 /* html, body {
     filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
     -webkit-filter: grayscale(100%);
@@ -76,3 +77,8 @@ body>p {
     transition: filter 2.5s;
     filter: gray;
 } */
+
+iframe {
+    width: 100%;
+    height: 375px;
+}
