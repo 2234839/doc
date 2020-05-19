@@ -136,7 +136,10 @@ function runCode({ code, lang, el }) {
   console.log(lang, el);
   /** 在这个页面是否是第一次执行 */
   let init = false;
-  if (el.previousSibling.classList.contains("run-code")) {
+  if (
+    /** 上一个节点可能是文本节点 */ el.previousSibling.classList &&
+    el.previousSibling.classList.contains("run-code")
+  ) {
     //第一次执行,生成存放代码的地方
     init = true;
     const code_el = document.createElement("div");
