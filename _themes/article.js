@@ -136,11 +136,13 @@ function runCode({ code, lang, el }) {
   console.log(lang, el);
   /** 在这个页面是否是第一次执行 */
   let init = false;
-  let code_el
+  let code_el;
   if (
     /** 上一个节点可能是文本节点 */ el.previousSibling.classList &&
     el.previousSibling.classList.contains("run-code")
   ) {
+    code_el = el.previousSibling;
+  } else {
     //第一次执行,生成存放代码的地方
     init = true;
     code_el = document.createElement("div");
@@ -151,29 +153,32 @@ function runCode({ code, lang, el }) {
   if (lang === "html") {
     code_el.innerHTML = code;
     if (!init) return;
-    setTimeout(/** 使用setTimeout让它报错也不要影响编辑器的存在  */() => {
-      const script_list = Array.from(code_el.querySelectorAll("script"));
-      /** 计数script加载几个了 */
-      let load_count = 0;
-      /** 动态引入 */
-      const src_script = script_list.filter((el) => el.src);
-      const no_src_script = script_list.filter((el) => !el.src);
-      if (src_script.length === 0) {
-        no_src_script.forEach((el) => eval(el.innerHTML));
-      }
-      src_script.map((el) => {
-        let script = document.createElement("script");
-        script.onload = () => {
-          load_count++;
-          if (load_count === src_script.length) {
-            /** 带src属性的加载完后再执行script标签内容 */
-            script_list.forEach((el) => eval(el.innerHTML));
-          }
-        };
-        script.src = el.src;
-        code_el.appendChild(script);
-      });
-    }, 0);
+    setTimeout(
+      /** 使用setTimeout让它报错也不要影响编辑器的存在  */ () => {
+        const script_list = Array.from(code_el.querySelectorAll("script"));
+        /** 计数script加载几个了 */
+        let load_count = 0;
+        /** 动态引入 */
+        const src_script = script_list.filter((el) => el.src);
+        const no_src_script = script_list.filter((el) => !el.src);
+        if (src_script.length === 0) {
+          no_src_script.forEach((el) => eval(el.innerHTML));
+        }
+        src_script.map((el) => {
+          let script = document.createElement("script");
+          script.onload = () => {
+            load_count++;
+            if (load_count === src_script.length) {
+              /** 带src属性的加载完后再执行script标签内容 */
+              script_list.forEach((el) => eval(el.innerHTML));
+            }
+          };
+          script.src = el.src;
+          code_el.appendChild(script);
+        });
+      },
+      0,
+    );
     return;
   }
   if (lang === "css") {
