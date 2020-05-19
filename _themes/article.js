@@ -1,3 +1,4 @@
+//@ts-nocheck
 /** 配置mermaid */
 // mermaid.initialize({
 //   startOnLoad: true,
@@ -12,10 +13,9 @@ const _title = [...document.querySelector("title").textContent];
 /** 去除最后的时间 */
 _title.pop();
 const title = _title.join("");
-/** 评论模块的加载 */
-(() => {
+
+/** 评论模块的加载 */ (() => {
   const b3_comments = document.getElementById("b3_comments");
-  const utterances_comments = document.querySelector(".utterances");
   ah.proxy({
     //请求发起前进入
     //请求成功后进入
@@ -134,14 +134,13 @@ function editorAdapaHeight(editor, div) {
  */
 function runCode({ code, lang, el }) {
   console.log(lang, el);
-
   /** 在这个页面是否是第一次执行 */
   let init = false;
-  if (el.querySelector(".run-code") === null) {
+  if (el.previousSibling.classList.contains("run-code")) {
     //第一次执行,生成存放代码的地方
     init = true;
     const code_el = document.createElement("div");
-    el.insertBefore(code_el, el.firstChild);
+    el.parentElement.insertBefore(code_el, el);
     code_el.classList.add("run-code");
   }
   const code_el = el.querySelector(".run-code");

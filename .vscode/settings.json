@@ -21,5 +21,6 @@
         "statusBar.border": "#eb5424",
         "tab.activeBorder": "#ef7853",
         "titleBar.border": "#eb5424"
-    }
+    },
+    "deno.enable": false
 }
