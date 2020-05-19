@@ -9,7 +9,7 @@
 
 * 自定义元素是行内元素？
 
-````html
+````html{run}
 <element-tr>
     <div slot="foot">dddddd</div>
 </element-tr>
@@ -60,7 +60,7 @@
 
 ## 实现一个 switch 控件
 
-````html
+````html{run}
 <my-switch id="switch"></my-switch>
 <template id="my-switch">
     <style>
