@@ -136,23 +136,22 @@ function runCode({ code, lang, el }) {
   console.log(lang, el);
   /** 在这个页面是否是第一次执行 */
   let init = false;
+  let code_el
   if (
     /** 上一个节点可能是文本节点 */ el.previousSibling.classList &&
     el.previousSibling.classList.contains("run-code")
   ) {
     //第一次执行,生成存放代码的地方
     init = true;
-    const code_el = document.createElement("div");
+    code_el = document.createElement("div");
     el.parentElement.insertBefore(code_el, el);
     code_el.classList.add("run-code");
   }
-  const code_el = el.querySelector(".run-code");
   //针对不同语言进行不同的执行方法
   if (lang === "html") {
     code_el.innerHTML = code;
     if (!init) return;
-    setTimeout(() => {
-      //使用setTimeout让它报错也不要影响编辑器的存在
+    setTimeout(/** 使用setTimeout让它报错也不要影响编辑器的存在  */() => {
       const script_list = Array.from(code_el.querySelectorAll("script"));
       /** 计数script加载几个了 */
       let load_count = 0;
