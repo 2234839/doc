@@ -7,6 +7,8 @@
 //   },
 //   theme: "forest",
 // });
+console.log("测试更新");
+
 /** 高亮代码块 */
 let code_el = document.querySelectorAll(`[class*="lang"]`);
 if (code_el === null) throw "未找到code块";
