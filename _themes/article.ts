@@ -35,7 +35,8 @@ const show_editor = div_list.filter(([el, div]) => {
 if (show_editor.length) {
   console.log("开始加载代码", show_editor);
   //@ts-ignore
-  require.config({ paths: { vs: "/node_modules/monaco-editor/min/vs" } });
+  // require.config({ paths: { vs: "/node_modules/monaco-editor/min/vs" } });
+  require.config({ paths: { vs: /** cdn 地址 */ "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.19.2/min/vs" } });
   //@ts-ignore
   require(["vs/editor/editor.main"], (
     monaco: typeof import("d:/code/doc/node_modules/monaco-editor/esm/vs/editor/editor.api"),
