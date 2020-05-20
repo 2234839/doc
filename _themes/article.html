@@ -10,9 +10,6 @@
       text-indent: 2em;
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/vcmt/dist/index.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vditor@3.1.5/dist/index.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vditor@latest/dist/index.classic.css" />
 </head>
 
 <body class="px-1">
@@ -21,11 +18,13 @@
   </header>
   ${article.html}
 
-  <div id="b3_comments"></div>
-  <script des="用于拦截xhr" src="https://unpkg.com/ajax-hook@2.0.2/dist/ajaxhook.min.js"></script>
   <!-- <script src="/node_modules/mermaid/dist/mermaid.min.js"></script> -->
   <script des="monaco-editor携带的loader" src="/node_modules/monaco-editor/min/vs/loader.js"></script>
-  <script des="需要在 loader.js 之下" src="/_themes/article.js"></script>
+  <script>
+    require([ "/_themes/dist/article.js" ], function (article) {
+      console.log("加载 article.js 成功！");
+    });
+  </script>
   <footer>${res.footer_template}</footer>
 </body>
 

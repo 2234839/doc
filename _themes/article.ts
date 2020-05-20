@@ -1,4 +1,3 @@
-//@ts-nocheck
 /** 配置mermaid */
 // mermaid.initialize({
 //   startOnLoad: true,
@@ -8,112 +7,69 @@
 //   },
 //   theme: "forest",
 // });
-// const mermaidAPI = mermaid.mermaidAPI;
-const _title = [...document.querySelector("title").textContent];
-/** 去除最后的时间 */
-_title.pop();
-const title = _title.join("");
-
-/** 评论模块的加载 */ (() => {
-  const b3_comments = document.getElementById("b3_comments");
-  ah.proxy({
-    //请求发起前进入
-    //请求成功后进入
-    onResponse: (response, handler) => {
-      handler.next(response);
-
-      if (response.config.url.includes("https://hacpai.com/apis/vcomment")) {
-        const res = JSON.parse(response.response);
-        if (res.code === 1) {
-          /** 加载该id的评论失败,转为加载 utteranc 评论系统  */
-          const s = document.createElement("script");
-          b3_comments.parentElement.insertBefore(s, b3_comments);
-          b3_comments.remove();
-          s.setAttribute("repo", "2234839/doc");
-          s.setAttribute("issue-term", "title");
-          s.setAttribute("theme", "github-light");
-          s.setAttribute("crossorigin", "anonymous");
-          s.setAttribute("src", "https://utteranc.es/client.js");
-        }
-      }
-    },
-  });
-  const vcomment = new Vcomment({
-    id: "b3_comments",
-    /** 接头暗号就是页面路径的 hash */
-    postId: "llej_" + time33(decodeURIComponent(location.pathname).replace(/html$/, "md")),
-    url: "https://hacpai.com",
-    userName: "llej",
-    currentPage: 1,
-    vditor: {
-      hljsEnable: false,
-      hljsStyle: "github",
-    },
-  });
-  vcomment.render();
-})();
-
 /** 高亮代码块 */
-let code = document.querySelectorAll(`[class*="lang"]`);
-if (code === null) throw "未找到code块";
-code = Array.from(code);
-require.config({
-  paths: { vs: "/node_modules/monaco-editor/min/vs" },
-});
-// delete define.amd
-
+let code_el = document.querySelectorAll(`[class*="lang"]`);
+if (code_el === null) throw "未找到code块";
+const code = Array.from(code_el);
 const div_list = code.map(function (el) {
   const div = document.createElement("div");
-  el.parentElement.appendChild(div);
-  div.style = `
-     width: 100%;
-     margin-bottom: 10px;
-   `;
+  el.parentElement!.appendChild(div);
+  div.style.cssText = `width: 100%;margin-bottom: 10px;`;
   if ("run" in el.attributes) {
     //立即执行代码
     runCode({
-      code: el.innerText,
-      lang: getLanguage(el),
-      el: el.parentElement,
+      code: el.textContent!,
+      lang: getLanguage(el as HTMLElement),
+      el: el.parentElement!,
     });
   }
-  return div;
+  return ([el, div] as unknown) as [HTMLElement, HTMLElement];
 });
+const show_editor = div_list.filter(([el, div]) => {
+  /** 隐藏起来的元素不需要编辑 */
+  if (el.classList.contains("hidden")) {
+    return false;
+  }
+  return true;
+});
+if (show_editor.length) {
+  console.log("开始加载代码", show_editor);
+  //@ts-ignore
+  require.config({ paths: { vs: "/node_modules/monaco-editor/min/vs" } });
+  //@ts-ignore
+  require(["vs/editor/editor.main"], (
+    monaco: typeof import("d:/code/doc/node_modules/monaco-editor/esm/vs/editor/editor.api"),
+  ) => {
+    show_editor.forEach(([el, div]) => {
+      el.style.display = "none";
+      var editor = monaco.editor.create(div, {
+        value: el.innerText,
+        language: getLanguage(el),
+        minimap: {
+          enabled: false, //代码略缩图
+        },
+        theme: "vs",
+        automaticLayout: true,
+        scrollBeyondLastLine: false,
+      });
 
-require(["vs/editor/editor.main"], function (monaco) {
-  div_list.map((div) => {
-    const el = div.parentElement.querySelector(`[class*="lang"]`);
-    /** 隐藏起来的元素不需要编辑 */
-    if (el.classList.contains("hidden")) return;
-    el.style.display = "none";
-    var editor = monaco.editor.create(div, {
-      value: el.innerText,
-      language: getLanguage(el),
-      minimap: {
-        enabled: false, //代码略缩图
-      },
-      theme: "vs",
-      automaticLayout: true,
-      scrollBeyondLastLine: false,
-    });
-    editorAdapaHeight(editor, div);
-    editor.onDidChangeModelContent((e) => {
       editorAdapaHeight(editor, div);
-      if ("run" in el.attributes)
-        runCode({
-          code: editor.getValue(),
-          lang: getLanguage(el),
-          el: el.parentElement,
-        });
+      editor.onDidChangeModelContent((e) => {
+        editorAdapaHeight(editor, div);
+        if ("run" in el.attributes)
+          runCode({
+            code: editor.getValue(),
+            lang: getLanguage(el),
+            el: el.parentElement!,
+          });
+      });
     });
   });
-});
-/**
- * 获取代码块的所使用的语言
- * @param {HTMLElement} el
- */
-function getLanguage(el) {
-  return el.className.match(/lang-(.*)\b/)[1];
+}
+
+/** 获取代码块的所使用的语言 */
+function getLanguage(el: HTMLElement) {
+  return (el.className.match(/lang-(.*)\b/) || [])[1];
 }
 /**
  * 根据内容来计算高度
@@ -125,28 +81,19 @@ function editorAdapaHeight(editor, div) {
   div.style.height = lines * 19.2 + "px";
 }
 
-/**
- * 执行代码
- * @param {Object} par - 参数对象
- * @param {string} par.code - 要执行的代码
- * @param {string} par.lang - 代码所属的语言
- * @param {HTMLElement} par.el - 代码要插入的元素
- */
-function runCode({ code, lang, el }) {
+function runCode({ code, lang, el }: { code: string; lang: string; el: HTMLElement }) {
   console.log(lang, el);
   /** 在这个页面是否是第一次执行 */
   let init = false;
-  let code_el;
-  if (
-    /** 上一个节点可能是文本节点 */ el.previousSibling.classList &&
-    el.previousSibling.classList.contains("run-code")
-  ) {
-    code_el = el.previousSibling;
+  let code_el: HTMLElement;
+  const pre = el.previousElementSibling! as HTMLElement;
+  if (pre.classList.contains("run-code")) {
+    code_el = pre;
   } else {
     //第一次执行,生成存放代码的地方
     init = true;
     code_el = document.createElement("div");
-    el.parentElement.insertBefore(code_el, el);
+    el.parentElement!.insertBefore(code_el, el);
     code_el.classList.add("run-code");
   }
   //针对不同语言进行不同的执行方法
@@ -189,6 +136,7 @@ function runCode({ code, lang, el }) {
   }
 
   if (lang === "mermaid") {
+    const mermaidAPI = mermaid.mermaidAPI;
     const id = `graphDiv${Date.now()}`;
     code_el.id = id;
     console.log(code_el);
