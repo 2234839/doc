@@ -737,6 +737,12 @@ video {
   flex-shrink: 1;
 }
 
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .font-semibold {
   font-weight: 600;
 }
@@ -788,6 +794,14 @@ video {
 
 .opacity-75 {
   opacity: 0.75;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .p-2 {
@@ -868,6 +882,10 @@ video {
 
 .bottom-0 {
   bottom: 0;
+}
+
+.left-0 {
+  left: 0;
 }
 
 .resize {
@@ -970,6 +988,7 @@ video {
 
 body {
   background-color: #f5f5d5;
+  max-width: 600px;
   margin: 0 auto;
   margin-top: 8px;
 }
