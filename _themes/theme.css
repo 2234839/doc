@@ -64,21 +64,11 @@ ul {
         list-style: square;
 }
 
-/** 正文段落的间隔 */
+/* 正文段落的间隔 */
 
 body>p {
         @apply mt-3;
 }
-
-/** 哀悼 */
-
-/* html, body {
-    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-    transition: filter 2.5s;
-    filter: gray;
-} */
 
 iframe {
         width: 100%;
@@ -96,13 +86,7 @@ iframe {
         animation: bounce-in-top 3s infinite both;
 }
 
-/**
- * ----------------------------------------
- * animation bounce-in-top
- * ----------------------------------------
- */
-
-@-webkit-keyframes bounce-in-top {
+@keyframes bounce-in-top {
         0% {
                 transform: translateY(-100px);
                 animation-timing-function: ease-in;
