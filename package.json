@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:script": "rollup -c",
-    "build:style": "tailwind build ./_themes/theme.css -o ./_themes/style.css && purgecss --css ./_themes/style.css --content **/**/*.md **/**/*.html **/*.md **/*.html   --out ./_themes/ && uglifycss ./_themes/style.css --output ./_themes/style.min.css",
+    "build:style_tailwind": "tailwind build ./_themes/theme.css -o ./_themes/style.css",
+    "build:style_purgecss": "purgecss --css ./_themes/style.css --content **/**/*.md **/**/*.html **/*.md **/*.html  --out ./_themes/",
+    "build:style_uglifycss": "uglifycss ./_themes/style.css --output ./_themes/style.min.css",
+    "build:style": "npm run build:style_tailwind && npm run build:style_purgecss && npm run build:style_uglifycss",
     "build": "npm run build:script && npm run build:style"
   },
   "repository": {
@@ -17,12 +20,12 @@
   "license": "ISC",
   "dependencies": {
     "ajax-hook": "^2.0.3",
-    "mermaid": "^8.4.3",
+    "mermaid": "^8.5.1",
     "monaco-editor": "^0.18.1",
     "purgecss": "^1.4.2",
     "rollup-plugin-sourcemaps": "^0.6.2",
     "rollup-plugin-typescript": "^1.0.1",
-    "tailwindcss": "^1.1.4",
+    "tailwindcss": "^1.4.6",
     "typescript": "^3.9.3",
     "uglify-tool": "^0.1.2",
     "uglifycss": "0.0.29",
