@@ -5,8 +5,6 @@
 @tailwind utilities;
 body {
     background-color: #f5f5d5;
-    margin: 0 auto;
-    margin-top: 8px;
 }
 
 /** 标题样式 */

@@ -776,6 +776,11 @@ video {
   margin-right: 5rem;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -790,6 +795,10 @@ video {
 
 .mb-5 {
   margin-bottom: 1.25rem;
+}
+
+.min-h-screen {
+  min-height: 100vh;
 }
 
 .opacity-75 {
@@ -988,8 +997,6 @@ video {
 
 body {
   background-color: #f5f5d5;
-  margin: 0 auto;
-  margin-top: 8px;
 }
 
 /** 标题样式 */
