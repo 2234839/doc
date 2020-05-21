@@ -123,17 +123,15 @@ iframe {
         }
 }
 
+.font-令东齐伋复刻体 {
+        font-family: QIJIC;
+}
+
 /** 字体 */
 
 @font-face {
         font-family: "QIJIC";
-        src: url("//webfont.shenzilong.cn/asset/font/1590055097145/令东齐伋复刻体.eot");
-        /* IE9 */
-        src: url("//webfont.shenzilong.cn/asset/font/1590055097145/令东齐伋复刻体.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-        url("//webfont.shenzilong.cn/asset/font/1590055097145/令东齐伋复刻体.woff") format("woff"), /* chrome, firefox */
-        url("//webfont.shenzilong.cn/asset/font/1590055097145/令东齐伋复刻体.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-        url("//webfont.shenzilong.cn/asset/font/1590055097145/令东齐伋复刻体.svg#QIJIC") format("svg");
-        /* iOS 4.1- */
+        src: url("//webfont.shenzilong.cn/generate_fonts_dynamically.ttf?temp=true&font=令东齐伋复刻体&text=崮生 • 一些随笔)") format("truetype");
         font-style: normal;
         font-weight: normal;
 }
