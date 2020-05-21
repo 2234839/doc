@@ -8,20 +8,25 @@
 </head>
 
 <body>
-  <header class="bg-gray-800 text-white p-2 mb-5 flex items-center">
-    <img src="/favicon.ico" class="h-12 mr-2" />
-    <div>
-      <div><a href="/关于/申子龙.html">崮生</a></div>
-      <div>七星贯断嫦娥死，三生同听一楼钟</div>
-    </div>
-  </header>
-  <div>
-    <input placeholder="回车搜索" type="text" id="search">
-    <div id="search_res_list" class="flex flex-col" title="搜索结果" type="search">
-    </div>
+  <div
+    style="width: 100%;height: 100vh;background-image: url('https://shenzilong.cn/util/redirect_to_bing_daily_picture_address&quot');background-size: 100% 100%;">
   </div>
-  ${menu.html}
-  <footer>${res.footer_template}</footer>
+  <div style="max-width: 600px;min-height:100vh">
+    <header class="bg-gray-800 text-white p-2 mb-5 flex items-center">
+      <img src="/favicon.ico" class="h-12 mr-2" />
+      <div>
+        <div><a href="/关于/申子龙.html">崮生</a></div>
+        <div>七星贯断嫦娥死，三生同听一楼钟</div>
+      </div>
+    </header>
+    <div>
+      <input placeholder="回车搜索" type="text" id="search">
+      <div id="search_res_list" class="flex flex-col" title="搜索结果" type="search">
+      </div>
+    </div>
+    ${menu.html}
+    <footer>${res.footer_template}</footer>
+  </div>
   <script src="/_themes/menu.js"></script>
 </body>
 
