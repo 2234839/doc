@@ -37,10 +37,10 @@
 const header = document.querySelector(".llej-header");
 const 向下图标 = document.querySelector(".llej-向下图标");
 向下图标.addEventListener("click", () => {
-  document.documentElement.scrollTop = header.offsetTop - 15;
+  document.documentElement.scrollTop = header.offsetTop;
 });
 if (localStorage.getItem("曾经访问过")) {
-  document.documentElement.scrollTop = header.offsetTop - 15;
+  document.documentElement.scrollTop = header.offsetTop;
 } else {
   localStorage.setItem("曾经访问过", "true");
 }
