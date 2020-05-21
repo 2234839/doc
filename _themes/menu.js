@@ -34,10 +34,10 @@
   }
 })();
 
-const header = document.querySelector(".llej-header");
+const 负一屏 = document.querySelector(".llej-负一屏");
 const 向下图标 = document.querySelector(".llej-向下图标");
 向下图标.addEventListener("click", () => {
-  document.documentElement.scrollTop = header.offsetTop;
+  document.documentElement.scrollTop = 负一屏.offsetHeight;
 });
 const old_time = Number(localStorage.getItem("上次访问时间"));
 const cur_time = Date.now();
@@ -46,5 +46,5 @@ localStorage.setItem("上次访问时间", cur_time);
 if (cur_time - old_time < 24 * 60 * 60 * 1000) {
   console.log(111);
 
-  document.documentElement.scrollTop = header.offsetTop;
+  document.documentElement.scrollTop = 负一屏.offsetHeight;
 }
