@@ -1,2 +1,4 @@
 /node_modules
 /_themes/dist
+/_themes/style.css
+/_themes/style.min.css
