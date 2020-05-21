@@ -36,7 +36,9 @@ if (show_editor.length) {
   console.log("开始加载代码", show_editor);
   //@ts-ignore
   // require.config({ paths: { vs: "/node_modules/monaco-editor/min/vs" } });
-  require.config({ paths: { vs: /** cdn 地址 */ "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.19.2/min/vs" } });
+  require.config({
+    paths: { vs: /** cdn 地址 */ "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.19.2/min/vs" },
+  });
   //@ts-ignore
   require(["vs/editor/editor.main"], (
     monaco: typeof import("d:/code/doc/node_modules/monaco-editor/esm/vs/editor/editor.api"),
@@ -153,16 +155,17 @@ function runCode({ code, lang, el }: { code: string; lang: string; el: HTMLEleme
 (function () {
   "use strict";
   const menu = document.querySelectorAll("h1,h2,h3,h4,h5,h6,h7,h8");
-  const container = document.querySelector("#崮生_userjs_导航") || document.createElement("details");
-  if (document.querySelector("html").offsetWidth >= 1200) container.setAttribute("open", "");
+  const container: HTMLElement = document.querySelector("#崮生_userjs_导航") || document.createElement("details");
+  if (document.querySelector("html")!.offsetWidth >= 1200) container.setAttribute("open", "");
   container.id = "#崮生_userjs_导航";
   container.innerHTML = `<summary>目录</summary>`;
-  container.style = `
+  container.style.cssText = `
     display: flex;
     flex-direction: column;
     position: fixed;
     right: 1rem;
-    top: 1rem
+    top: 1rem;
+    max-width:30%;
   `;
   document.body.appendChild(container);
 
