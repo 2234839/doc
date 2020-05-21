@@ -1,11 +1,10 @@
 // 读取package.json
-import pkg from "./package.json";
-import typescript_r from "rollup-plugin-typescript";
-import sourceMaps from "rollup-plugin-sourcemaps";
-import typescript from "typescript";
-import resolve from "rollup-plugin-node-resolve";
-import postcss from "rollup-plugin-postcss";
-import uglify from "rollup-plugin-uglify";
+import resolve from "rollup-plugin-node-resolve"
+import postcss from "rollup-plugin-postcss"
+import sourceMaps from "rollup-plugin-sourcemaps"
+import typescript_r from "rollup-plugin-typescript"
+import typescript from "typescript"
+import pkg from "./package.json"
 // 代码头
 const banner = `/*!
 * 崮生博客脚本 v${pkg.version}

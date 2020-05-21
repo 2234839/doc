@@ -1,3 +1,4 @@
+///@ts-nocheck
 /** 搜索功能 */
 (() => {
   const input = document.getElementById("search");
@@ -22,7 +23,7 @@
 
   function search(str, cb) {
     var xhr = new XMLHttpRequest();
-    xhr.addEventListener("readystatechange", function() {
+    xhr.addEventListener("readystatechange", function () {
       if (this.readyState === 4) {
         cb(JSON.parse(this.responseText));
       }
@@ -32,3 +33,10 @@
     xhr.send();
   }
 })();
+
+if (localStorage.getItem("曾经访问过")) {
+  const header = document.querySelector(".llej-header");
+  document.documentElement.scrollTop = header.offsetTop - 15;
+} else {
+  localStorage.setItem("曾经访问过", "true");
+}
