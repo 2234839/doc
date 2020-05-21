@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:script": "rollup -c",
     "build:style_tailwind": "tailwind build ./_themes/theme.css -o ./_themes/style.css",
-    "build:style_purgecss": "purgecss --css ./_themes/style.css --content **/**/*.md **/**/*.html **/*.md **/*.html  --out ./_themes/",
+    "build:style_purgecss": "purgecss --css ./_themes/style.css --content **/**/*.md **/**/*.html **/*.md **/*.html *.md *.html  --out ./_themes/",
     "build:style_uglifycss": "uglifycss ./_themes/style.css --output ./_themes/style.min.css",
     "build:style": "npm run build:style_tailwind && npm run build:style_purgecss && npm run build:style_uglifycss",
     "build": "npm run build:script && npm run build:style"
