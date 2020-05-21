@@ -39,8 +39,10 @@ const 向下图标 = document.querySelector(".llej-向下图标");
 向下图标.addEventListener("click", () => {
   document.documentElement.scrollTop = header.offsetTop;
 });
-if (localStorage.getItem("曾经访问过")) {
+const old_time = Number(localStorage.getItem("上次访问时间"));
+const cur_time = Date.now();
+localStorage.setItem("上次访问时间", cur_time);
+
+if (cur_time - old_time < 24 * 60 * 60 * 1000) {
   document.documentElement.scrollTop = header.offsetTop;
-} else {
-  localStorage.setItem("曾经访问过", "true");
 }
