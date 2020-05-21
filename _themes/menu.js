@@ -44,5 +44,7 @@ const cur_time = Date.now();
 localStorage.setItem("上次访问时间", cur_time);
 
 if (cur_time - old_time < 24 * 60 * 60 * 1000) {
+  console.log(111);
+
   document.documentElement.scrollTop = header.offsetTop;
 }
