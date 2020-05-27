@@ -4,7 +4,8 @@ import compression from "compression";
 import * as sapper from "@sapper/server";
 import path from "path";
 import fs from "fs";
-const { PORT, NODE_ENV } = process.env;
+const { /** PORT,*/ NODE_ENV } = process.env;
+const PORT=9939
 const dev = NODE_ENV === "development";
 const server_path = __dirname;
 const root_path = path.resolve(__dirname, "../../../");
