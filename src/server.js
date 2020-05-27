@@ -10,7 +10,8 @@ const server_path = __dirname;
 const root_path = path.resolve(__dirname, "../../../");
 const client_path = path.resolve(server_path, "../client");
 console.log({ root_path, __dirname, client_path });
-function sendFile(filePath, res) {// 这里到时候再完善
+function sendFile(filePath, res) {
+  // 这里到时候再完善
   if (filePath.endsWith(".js")) {
     res.setHeader("content-type", "application/javascript; charset=utf-8");
   }
@@ -19,11 +20,13 @@ function sendFile(filePath, res) {// 这里到时候再完善
 
 polka() // You can also use Express
   .use(function file_server(req, res, next) {
-    console.log(req.url)
+    console.log(req.url);
     const file_path = path.resolve(root_path, "./" + req.url);
     if (req.method === "GET") {
-      fs.exists(file_path, (r) => {
-        if (r) {
+      fs.stat(file_path, (err, r) => {
+        if (err) {
+          next();
+        } else if (r.isFile()) {
           sendFile(file_path, res);
         } else {
           if (/\/client\//.test(req.url)) {
