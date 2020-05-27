@@ -19,6 +19,7 @@ function sendFile(filePath, res) {// 这里到时候再完善
 
 polka() // You can also use Express
   .use(function file_server(req, res, next) {
+    console.log(req.url)
     const file_path = path.resolve(root_path, "./" + req.url);
     if (req.method === "GET") {
       fs.exists(file_path, (r) => {
