@@ -1,6 +1,8 @@
 // import { try_pathToMd } from "../lib/md-parser";
 
 export async function preload(this: context, page: page, session: any) {
+  return this.error(404, "Not found");
+
   const res = await this.fetch(`https://shenzilong.cn${page.path.replace(/\.html/, ".json")}`);
   console.log("请求地址", page.path, res.ok);
   // try_pathToMd(page.path);
