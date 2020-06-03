@@ -131,7 +131,7 @@ iframe {
 
 @font-face {
         font-family: "QIJIC";
-        src: url("//webfont.shenzilong.cn/generate_fonts_dynamically.ttf?temp=true&font=令东齐伋复刻体&text=崮生 • 一些随笔)") format("truetype");
+        src: url("//webfont.shenzilong.cn/generate_fonts_dynamically.ttf?font=令东齐伋复刻体&text=崮生 • 一些随笔)") format("truetype");
         font-style: normal;
         font-weight: normal;
 }
