@@ -7,3 +7,5 @@ yarn-error.log
 
 /_themes/style.css
 /_themes/style.min.css
+
+/static/theme.css

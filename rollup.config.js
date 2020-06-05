@@ -7,6 +7,7 @@ import { terser } from "rollup-plugin-terser";
 import config from "sapper/config/rollup.js";
 import pkg from "./package.json";
 import ts from "rollup-plugin-typescript2";
+import postcss from "rollup-plugin-postcss";
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
@@ -64,7 +65,6 @@ export default {
           module: true,
         }),
     ],
-
     preserveEntrySignatures: false,
     onwarn,
   },
@@ -74,7 +74,6 @@ export default {
     output: config.server.output(),
     plugins: [
       ts(),
-
       replace({
         "process.browser": false,
         "process.env.NODE_ENV": JSON.stringify(mode),

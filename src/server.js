@@ -4,8 +4,8 @@ import compression from "compression";
 import * as sapper from "@sapper/server";
 import path from "path";
 import fs from "fs";
-const { /** PORT,*/ NODE_ENV } = process.env;
-const PORT=9939
+const { PORT, NODE_ENV } = process.env;
+// const PORT=9939
 const dev = NODE_ENV === "development";
 const server_path = __dirname;
 const root_path = path.resolve(__dirname, "../../../");
@@ -21,25 +21,17 @@ function sendFile(filePath, res) {
 
 polka() // You can also use Express
   .use(function file_server(req, res, next) {
-    console.log('[server.js]',req.url);
-
     const file_path = path.resolve(root_path, "./" + req.url);
+    console.log("[server.js]", req.url, "\t\t", file_path);
     if (req.method === "GET") {
-      fs.stat(file_path, (err, r) => {
-        if (err) {
-          next();
-        } else if (r.isFile()) {
-          sendFile(file_path, res);
-        } else {
-          if (/\/client\//.test(req.url)) {
-            const fileName = req.url.replace(/.*\/client\//, "");
-            const client_file_path = path.resolve(client_path, "./" + fileName);
-            sendFile(client_file_path, res);
-          } else {
-            next(); // move on
-          }
-        }
-      });
+      if (/\/client\//.test(req.url)) {
+        const fileName = req.url.replace(/.*\/client\//, "");
+        const client_file_path = path.resolve(client_path, "./" + fileName);
+        console.log("[client_file_path]", client_file_path);
+        sendFile(client_file_path, res);
+      } else {
+        next(); // move on
+      }
     } else {
       next(); // move on
     }

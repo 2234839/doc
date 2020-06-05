@@ -11,9 +11,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.llej-body, body {
-        background-color: #f5f5d5;
-}
+
 
 /** 标题样式 */
 

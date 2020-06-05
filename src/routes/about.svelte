@@ -1,7 +1,7 @@
 <svelte:head>
-	<title>About</title>
+	<title>崮生</title>
 </svelte:head>
 
-<h1>About this site</h1>
+<h1>崮生</h1>
 
-<p>This is the 'about' page. There's not much here.</p>
+<p>永远前进.</p>
