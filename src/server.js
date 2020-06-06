@@ -1,11 +1,12 @@
 import sirv from "sirv";
 import polka from "polka";
+import express from "express";
 import compression from "compression";
 import * as sapper from "@sapper/server";
 import path from "path";
 import fs from "fs";
 const { PORT, NODE_ENV } = process.env;
-import "./tailwind.css"
+import "./tailwind.css";
 // const PORT=9939
 const dev = NODE_ENV === "development";
 const server_path = __dirname;
@@ -21,14 +22,19 @@ function sendFile(filePath, res) {
 }
 
 polka() // You can also use Express
+  .use(function logger(req, res, next) {
+    console.log(`~> [${new Date().toLocaleString()}] ${req.method} on ${req.url}`);
+    next(); // move on
+  })
+  .use(express.static(root_path))
   .use(function file_server(req, res, next) {
     const file_path = path.resolve(root_path, "./" + req.url);
-    console.log("[server.js]", req.url, "\t\t", file_path);
+    // console.log("[server.js]", req.url, "\t\t", file_path);
     if (req.method === "GET") {
       if (/\/client\//.test(req.url)) {
         const fileName = req.url.replace(/.*\/client\//, "");
         const client_file_path = path.resolve(client_path, "./" + fileName);
-        console.log("[client_file_path]", client_file_path);
+        // console.log("[client_file_path]", client_file_path);
         sendFile(client_file_path, res);
       } else {
         next(); // move on

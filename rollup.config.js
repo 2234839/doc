@@ -128,7 +128,9 @@ export default {
       commonjs(),
       postcss({
         plugins: postcssPlugins(!dev),
-        extract: path.resolve(__dirname, "./static/global.css"),
+
+        /** 这里本来是 path.resolve(__dirname, "./static/global.css") 但一直报错 https://github.com/egoist/rollup-plugin-postcss/issues/250 */
+        extract: "static/../../../../static/global.css",
       }),
     ],
     external: Object.keys(pkg.dependencies).concat(

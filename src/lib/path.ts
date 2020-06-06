@@ -8,18 +8,27 @@ export async function preload(this: context, page: page, session: any) {
     return this.error(404, "Not found");
     // return this.redirect(302, page.host);
   }
-  const res = await this.fetch(`https://shenzilong.cn${page.path.replace(/\.html/, ".json")}?requester=sapper`);
-  console.log("请求地址", page.path, res.ok, res.status);
-  // return this.error(404, "Not found");
-  // try_pathToMd(page.path);
-  if (!res.ok) {
-    /** 报错 404 */
+  if (page.path.endsWith(".html")) {
+    const res = await this.fetch(`/article.json?path=${page.path.replace(/\.html/, ".md")}?requester=sapper`);
+    console.log("[file res.ok]", res.ok);
+    if (!res.ok) {
+      /** 报错 404 */
+      return this.error(404, "Not found");
+    }
+    const article = await res.json();
+    return { time: Date.now(), page, article: article, title: " article.title" };
+  } else if (page.path.endsWith("/")) {
+    const menu = (
+      await this.fetch("/menu.json?path=" + page.path).then((r) => {
+        return r.json();
+      })
+    )
+    return { time: Date.now(), page, menu: menu, title: `这里是菜单呀` };
+  } else {
     return this.error(404, "Not found");
   }
-
-  const article = await res.json();
-  console.log("[article.raw_html.length]", article.raw_html.length);
-  return { time: Date.now(), page, html: article.raw_html, title: article.title };
+  // return this.error(404, "Not found");
+  // try_pathToMd(page.path);
 }
 
 type context = {
