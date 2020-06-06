@@ -2,7 +2,6 @@
 
 export async function preload(this: context, page: page, session: any) {
   console.log("[请求地址]", page.path, page.query.requester);
-
   if (page.query.requester === "sapper") {
     /** 自己发的请求，404掉让nginx去访问其他服务器，不然下面会一直递归请求 */
     console.log("[404]", page);

@@ -1,5 +1,6 @@
 <script context="module" lang="ts">
-  import { preload as p1 } from "./path.ts";
+  //@ts-ignore
+  import { preload as p1 } from "../lib/path.ts";
   export const preload = p1;
 </script>
 
@@ -10,6 +11,7 @@
 
   onMount(async () => {
     console.log("开始加载 article");
+    //@ts-ignore
     import("../../_themes/article.ts").then((r) => {
       console.log(r);
       r.run();
