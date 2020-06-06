@@ -31,13 +31,13 @@ const postcssPlugins = (purgecss = false) => {
       require("@fullhuman/postcss-purgecss")({
         content: ["./**/*.svelte", "./src/template.html"],
         extractors: [
-          {
-            extractor: PurgeSvelte,
-
-            // Specify the file extensions to include when scanning for
-            // class names.
-            extensions: ["svelte", "html"],
-          },
+          // 使用这个无法通过编译，报错  Cannot call a class as a function
+          // {
+          //   extractor: PurgeSvelte,
+          //   // Specify the file extensions to include when scanning for
+          //   // class names.
+          //   extensions: ["svelte"],
+          // },
         ],
         // Whitelist selectors to stop Purgecss from removing them from your CSS.
         whitelist: [],

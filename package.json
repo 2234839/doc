@@ -4,9 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "npx sapper dev",
-    "watch:tailwind": "postcss ./src/theme.css -o ./static/theme.css -w",
-    "build:tailwind": "npx postcss ./src/theme.css -o ./static/theme.css",
-    "build": "npm run build:tailwind && sapper build --legacy",
+    "build": "sapper build --legacy",
     "export": "sapper export",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
@@ -73,5 +71,8 @@
         "webpack": "^4.7.0"
       }
     }
-  }
+  },
+  "browserslist": [
+    "last 3 version"
+  ]
 }

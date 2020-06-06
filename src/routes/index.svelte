@@ -40,12 +40,11 @@
 
 <h1>天行健，君子以自强不息!</h1>
 
-<figure>
+<figure class="flex justify-center">
   <img
     class="llej-bigImg"
     alt="必应今日美图"
     src="//shenzilong.cn/util/redirect_to_bing_daily_picture_address" />
-  <figcaption>必应今日美图!</figcaption>
 </figure>
 
 <p>

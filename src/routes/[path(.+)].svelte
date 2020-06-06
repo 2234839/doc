@@ -20,7 +20,6 @@
     });
   }
 
-  console.log(222222, menu);
 </script>
 
 <svelte:head>
