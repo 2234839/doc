@@ -32,13 +32,20 @@
       font-size: 4em;
     }
   }
+  @font-face {
+    font-family: "QIJIC";
+    src: url("//webfont.shenzilong.cn/generate_fonts_dynamically.ttf?font=令东齐伋复刻体&text=天行健，君子以自强不息!)")
+      format("truetype");
+    font-style: normal;
+    font-weight: normal;
+  }
 </style>
 
 <svelte:head>
   <title>崮生 一些随笔</title>
 </svelte:head>
 
-<h1>天行健，君子以自强不息!</h1>
+<h1 style="font-family: QIJIC">天行健，君子以自强不息!</h1>
 
 <figure class="flex justify-center">
   <img
