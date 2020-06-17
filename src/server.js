@@ -34,7 +34,6 @@ polka() // You can also use Express
       if (/\/client\//.test(req.url)) {
         const fileName = req.url.replace(/.*\/client\//, "");
         const client_file_path = path.resolve(client_path, "./" + fileName);
-        // console.log("[client_file_path]", client_file_path);
         sendFile(client_file_path, res);
       } else {
         next(); // move on
