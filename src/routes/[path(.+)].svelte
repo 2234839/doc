@@ -1,5 +1,4 @@
-<script context="module" lang="ts">
-  //@ts-ignore
+<script context="module">
   import { preload as p1 } from "../lib/path.ts";
   export const preload = p1;
 </script>

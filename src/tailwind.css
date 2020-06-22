@@ -1,75 +1,95 @@
 /* @tailwind base; */
 
 .icon {
-        width: 1em;
-        height: 1em;
-        vertical-align: -0.15em;
-        fill: currentColor;
-        overflow: hidden;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 /** 标题样式 */
 
-h1, h2, h3, h4, h5, h6 {
-        @apply .font-bold my-2
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply .font-bold my-2;
 }
 
 h1 {
-        @apply .text-3xl mt-3
+  @apply .text-3xl mt-3;
 }
 
 h2 {
-        @apply .text-2xl mt-2
+  @apply .text-2xl mt-2;
 }
 
 h3 {
-        @apply .text-xl
+  @apply .text-xl;
 }
 
 a {
-        @apply .text-blue-600
+  @apply .text-blue-600;
 }
 
 a:visited {
-        @apply .text-red-600
+  @apply .text-red-600;
 }
 
 a:hover {
-        @apply .text-blue-900
+  @apply .text-blue-900;
 }
 
 /** 引用块的样式 */
 
 blockquote {
-        @apply p-1;
-        background: rgba(187, 187, 187, 0.493);
-        border-left: 2px solid red;
+  @apply p-1;
+  background: rgba(187, 187, 187, 0.493);
+  border-left: 2px solid red;
 }
 
 /** 列表样式 */
 
 ol {
-        list-style: decimal;
-        margin-left: 1rem;
+  list-style: decimal;
+  margin-left: 1rem;
 }
 
 ul {
-        list-style: square;
+  list-style: square;
 }
 
 /* 正文段落的间隔 */
 
-body>p {
-        @apply mt-3;
+body > p {
+  @apply mt-3;
 }
 
 iframe {
-        width: 100%;
-        height: 375px;
+  width: 100%;
+  height: 375px;
 }
 
+.btn {
+  --offset_base: 4px;
+  --offset: 4px;
+  box-shadow: var(--offset) var(--offset) 0 #888;
+  transition: 0.3s all;
+  transform: translateX(calc(var(--offset_base) - var(--offset))) translateY(calc(var(--offset_base) - var(--offset)));
+  padding: 4px 8px;
+  background: rgb(243, 243, 243);
+  border-radius: 4px;
+}
+.btn:hover {
+  --offset: 3px;
+}
+.btn:active {
+  --offset: 0;
+}

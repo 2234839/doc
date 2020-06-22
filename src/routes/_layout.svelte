@@ -6,10 +6,10 @@
   export let segment;
 
   function beforeunload_handler(e) {
-    console.log(e);
+    // console.log(e);
   }
   function handleKeydown(e) {
-    console.log(e);
+    // console.log(e);
   }
 
   onMount(() => {
