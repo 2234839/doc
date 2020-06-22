@@ -40,7 +40,7 @@
 
 <main class="llej-body">
   <Nav {segment} />
-  <main class="p-10">
+  <main class="p-10 md:p-3">
     <slot />
   </main>
   <Footer />
