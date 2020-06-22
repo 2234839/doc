@@ -28,3 +28,14 @@
     </li>
   {/each}
 </ul>
+
+<h2>管理</h2>
+<ul>
+
+  <li>
+    <a rel="prefetch" href="/blog/edit">编辑</a>
+  </li>
+  <li>
+    <a rel="prefetch" href="/blog/login">登录</a>
+  </li>
+</ul>

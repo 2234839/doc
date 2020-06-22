@@ -72,7 +72,6 @@ export async function md_parser_article(md_str: string): Promise<article> {
     title: title[0],
     meta,
     html: raw_html,
-    raw_html,
     md: md_str,
   };
 }

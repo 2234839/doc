@@ -8,9 +8,9 @@ import config from "sapper/config/rollup.js";
 import pkg from "./package.json";
 import getPreprocessor from "svelte-preprocess";
 import postcss from "rollup-plugin-postcss";
-import PurgeSvelte from "purgecss-from-svelte";
-import path from "path";
-import ts from "rollup-plugin-typescript2";
+// import PurgeSvelte from "purgecss-from-svelte";
+// import path from "path";
+import typescript from "rollup-plugin-typescript2";
 
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
@@ -53,7 +53,12 @@ const preprocess = getPreprocessor({
     },
   },
 });
-
+const ts = function () {
+  return typescript({
+    tsconfigOverride: { compilerOptions: { module: "ESNext" } },
+    tsconfig: "./tsconfig.json",
+  });
+};
 export default {
   client: {
     input: config.client.input(),
@@ -78,7 +83,7 @@ export default {
 
       legacy &&
         babel({
-          extensions: [".js", ".mjs", ".html", ".svelte"],
+          extensions: [".ts", ".js", ".mjs", ".html", ".svelte"],
           runtimeHelpers: true,
           exclude: ["node_modules/@babel/**"],
           presets: [

@@ -1,3 +1,14 @@
+<script context="module">
+  export async function preload(page, session) {
+    const { user } = session;
+    return { user };
+  }
+</script>
+
+<script>
+  export let user;
+</script>
+
 <style>
   h1,
   figure,
@@ -48,12 +59,12 @@
 <h1 style="font-family: QIJIC">天行健，君子以自强不息!</h1>
 
 <figure class="flex justify-center">
-  <img
-    class="llej-bigImg"
-    alt="必应今日美图"
-    src="//shenzilong.cn/util/redirect_to_bing_daily_picture_address" />
+  <img class="llej-bigImg" alt="必应今日美图" src="//shenzilong.cn/util/redirect_to_bing_daily_picture_address" />
 </figure>
 
 <p>
+  {#if user && user.role === 'admin'}
+    <strong>欢迎尊者归来，愿不忘初心、</strong>
+  {/if}
   <strong>永远前进.</strong>
 </p>
