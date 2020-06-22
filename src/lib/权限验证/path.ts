@@ -8,13 +8,15 @@ export function pathCheck(req: any, res: any, next: any) {
   }
 }
 
-const 权限表 = [{ match: /\/article\/update/, role: "admin" }] as { match: RegExp; role: string }[];
+const 权限表 = [{ match: /^\/article\/update/, role: "admin" }] as { match: RegExp; role: string }[];
 
-function adminCheck(path: string, role: string): boolean {
+function adminCheck(role: string, path: string): boolean {
   const item = 权限表.find((el) => {
     return el.match.test(path);
   });
   if (item) {
+    // console.log(`${path}`, item);
+
     return item.role === role;
   } else {
     return true;
