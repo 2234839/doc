@@ -1,11 +1,11 @@
 //@ts-ignore
 import MarkdownIt from "markdown-it";
 //@ts-ignore
-// import markdown_it_anchor from "markdown-it-anchor";
+import markdown_it_anchor from "markdown-it-anchor";
 //@ts-ignore
 // import markdown_it_table_of_contents from "markdown-it-table-of-contents";
 //@ts-ignore
-// import markdown_it_attrs from "markdown-it-attrs";
+import markdown_it_attrs from "markdown-it-attrs";
 import { promises as fs } from "fs";
 import { resolve } from "path";
 var md = MarkdownIt({
@@ -33,14 +33,14 @@ var md = MarkdownIt({
   //   },
 });
 
-// md.use(markdown_it_anchor); //为标题添加id
+md.use(markdown_it_anchor); //为标题添加id
 // md.use(markdown_it_table_of_contents); //[[toc]] 生成目录
-// md.use(markdown_it_attrs, {
-//   // {.class} 允许通过这种形式添加样式
-//   leftDelimiter: "{",
-//   rightDelimiter: "}",
-//   allowedAttributes: [], // empty array = all attributes are allowed
-// });
+md.use(markdown_it_attrs, {
+  // {.class} 允许通过这种形式添加样式
+  leftDelimiter: "{",
+  rightDelimiter: "}",
+  allowedAttributes: [], // empty array = all attributes are allowed
+});
 /** 图片渲染 */
 const a_default_render = md.renderer.rules.a;
 //@ts-ignore
