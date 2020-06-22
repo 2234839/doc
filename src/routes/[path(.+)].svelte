@@ -9,17 +9,22 @@
   export let article;
   export let title;
   export let menu;
-
   if (article) {
     onMount(async () => {
-      console.log("开始加载 article");
       import("../../_themes/article.ts").then((r) => {
-        console.log(r);
-        r.run();
+        let old = undefined;
+        setInterval(
+          /** 监听内容变化了，应为此页面为所有文档的模板，所以切换文章不会重新执行这儿的 script 故需要自己监听 */ () => {
+            if (old !== article) {
+              r.run(article);
+              old = article;
+            }
+          },
+          25,
+        );
       });
     });
   }
-
 </script>
 
 <svelte:head>

@@ -16,7 +16,7 @@ export async function preload(this: context, page: page, session: any) {
       return this.error(404, "Not found");
     }
     const article = await res.json();
-    return { time: Date.now(), page, article: article, title: " article.title" };
+    return { time: Date.now(), page, article: article, title: article.title };
   } else if (page.path.endsWith("/")) {
     const menu = (
       await this.fetch("/menu.json?path=" + page.path).then((r) => {
