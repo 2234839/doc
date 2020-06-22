@@ -10,3 +10,6 @@ yarn-error.log
 
 /static/theme.css
 /static/global.css
+
+/.vscode/settings.json
+/package-lock.json
