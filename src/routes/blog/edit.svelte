@@ -76,7 +76,7 @@
   <!-- <textarea bind:value={article.md} name="" id="" cols="30" rows="10" /> -->
   <div class="llej-editor" />
 </div>
-<div>
+<!-- <div>
   <h2>预览</h2>
   {@html article.html}
-</div>
+</div> -->
