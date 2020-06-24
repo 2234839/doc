@@ -54,4 +54,4 @@ git clone ssh://root@shenzilong/root/test
 
 1. 分配 Assignees 💚
 2. 开启 github pages 💚
-2. 关闭 issue 💚
+3. 关闭 issue 💚
