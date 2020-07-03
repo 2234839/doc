@@ -84,10 +84,13 @@
     url(&quot;https://shenzilong.cn/util/redirect_to_bing_daily_picture_address&quot;);
     ">
     <div
-      class="font-QIJIC"
-      style="margin-top: 40vh;color: #fff;font-size: 6vw;background:
+      class="font-QIJIC text-white"
+      style="margin-top: 40vh;font-size: 6vw;background:
       #7b7a7a36;display: inline-table;outline: 0.3rem solid #ffffffb0;padding:
-      1vh 6vw;">
+      1vh 6vw;backdrop-filter: blur(8px);
+      margin-top: 40vh;
+      color: rgb(255, 255, 255);
+      ">
       崮生 • 一些随笔
     </div>
     <svg
