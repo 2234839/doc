@@ -20,6 +20,15 @@
 	<!-- This contains the contents of the <svelte:head> component, if
 	     the current page has one -->
 	%sapper.head%
+	<script async des="谷歌统计" src="https://www.googletagmanager.com/gtag/js?id=UA-139738006-1"></script>
+	<script des="谷歌统计">
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+		gtag("config", "UA-139738006-1");
+	</script>
 </head>
 
 <body>
