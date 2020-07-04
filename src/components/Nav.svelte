@@ -56,7 +56,7 @@
       </a>
     </li>
     <li>
-      <a aria-current={segment === 'about' ? 'page' : undefined} href="/about">
+      <a aria-current={segment === 'about' ? 'page' : undefined} href="/关于/申子龙.html">
         关于崮生
       </a>
     </li>
