@@ -1,7 +1,13 @@
 <script context="module">
+  const toDay = new Date();
+
   export function preload({ params, query }) {
     return {
       posts: [
+        {
+          path: `/record/每日总结/${toDay.getFullYear()}/${toDay.getMonth() + 1}月.html`,
+          title: `这个月的每日总结（${toDay.getFullYear()}-${toDay.getMonth() + 1}）`,
+        },
         { path: "/record/每日总结/2020/", title: "每日总结-2020" },
         { path: "/record/", title: "全部文档" },
       ],
