@@ -7,6 +7,8 @@
 //   },
 //   theme: "forest",
 // });
+/** 用于存储 editorKey 相关的东西，挂载在code le上 */
+const editorKey = "EDITOR_KEY";
 
 export function run() {
   /** 动态生成的元素没有被svelte清除掉，所以这里主动将遗留下来的元素清掉 */
@@ -18,6 +20,15 @@ export function run() {
   const div_list = code.map(function (el) {
     const div = document.createElement("div");
     el.parentElement!.appendChild(div);
+    let resolve_cb;
+    (el as any)[editorKey] = {
+      editor: null,
+      getEditor: new Promise((resolve) => {
+        resolve_cb = resolve;
+      }),
+      resolve_cb: null,
+    };
+    (el as any)[editorKey]["resolve_cb"] = resolve_cb;
     div.style.cssText = `width: 100%;margin-bottom: 10px;`;
     if ("run" in el.attributes) {
       //立即执行代码
@@ -60,16 +71,19 @@ export function run() {
           automaticLayout: true,
           scrollBeyondLastLine: false,
         });
+        (el as any)[editorKey].resolve_cb({ editor, monaco });
+        console.log("附加方法的el", el);
 
         editorAdapaHeight(editor, div);
         editor.onDidChangeModelContent((e: any) => {
           editorAdapaHeight(editor, div);
-          if ("run" in el.attributes)
+          if ("run" in el.attributes) {
             runCode({
               code: editor.getValue(),
               lang: getLanguage(el),
               el: el.parentElement!,
             });
+          }
         });
       });
     });
@@ -143,7 +157,6 @@ export function run() {
     if (lang === "javascript") {
       window["eval"](code);
     }
-
     if (lang === "mermaid") {
       //@ts-ignore
       const mermaidAPI = mermaid.mermaidAPI;
@@ -155,6 +168,19 @@ export function run() {
       /** svg源码 */
       code_el.innerHTML = mermaidAPI.render(id, graphDefinition);
       el.insertBefore(code_el, el.firstElementChild);
+    }
+    if (lang === "typescript") {
+      const code_el = el.firstElementChild as any;
+      code_el[editorKey].getEditor.then(({ monaco, editor }: any) => {
+        monaco.languages.typescript.getTypeScriptWorker().then((work: any) => {
+          work(editor.getModel().uri)
+            .then((client: any) => client.getEmitOutput(editor.getModel().uri.toString()))
+            .then((r: any) => {
+              r.outputFiles.map((el: any) => eval(el.text));
+            });
+        });
+      });
+      console.log(pre, el, code_el);
     }
   }
 

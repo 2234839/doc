@@ -51,7 +51,7 @@ a:hover {
 
 blockquote {
   @apply p-1;
-  background: rgba(187, 187, 187, 0.493);
+  background: rgba(248, 229, 229, 0.493);
   border-left: 2px solid red;
 }
 
