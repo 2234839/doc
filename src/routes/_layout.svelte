@@ -13,11 +13,10 @@
   }
 
   onMount(() => {
-    fetch("https://at.alicdn.com/t/font_1833190_e91wiqw5v3v.js").then(
-      async (r) => {
-        eval(await r.text());
-      }
-    );
+    /** 加载阿里的字体工具 */
+    fetch("https://at.alicdn.com/t/font_1833190_e91wiqw5v3v.js").then(async (r) => {
+      eval(await r.text());
+    });
   });
 </script>
 
@@ -33,9 +32,7 @@
   }
 </style>
 
-<svelte:window
-  on:beforeunload={beforeunload_handler}
-  on:keydown={handleKeydown} />
+<svelte:window on:beforeunload={beforeunload_handler} on:keydown={handleKeydown} />
 <NegativeOneScreen />
 
 <main class="llej-body flex flex-col">

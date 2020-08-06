@@ -1,6 +1,6 @@
 <script>
   export let segment;
-  $: console.log("[segment]", segment);
+  // $: console.log("[segment]", segment);
 </script>
 
 <style>
