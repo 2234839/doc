@@ -1,6 +1,5 @@
 import { promises as fsPromise } from "fs";
 import { root_path } from "../../lib/env";
-import { md_parser_article } from "../../lib/md-parser";
 
 /** post 接口做预览之用 */
 export async function post(req: any, res: any) {

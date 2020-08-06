@@ -29,8 +29,8 @@
   }
 
   .llej-bigImg {
-    width: 100%;
-    max-width: 800px;
+    width: 70%;
+    max-width: 600px;
     margin: 0 0 1em 0;
   }
 

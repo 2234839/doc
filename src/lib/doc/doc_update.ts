@@ -1,3 +1,1 @@
-function test(params:number) {
-
-}
+export function test(params: number) {}
