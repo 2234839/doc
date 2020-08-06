@@ -38,7 +38,7 @@
   on:keydown={handleKeydown} />
 <NegativeOneScreen />
 
-<main class="llej-body">
+<main class="llej-body flex flex-col">
   <Nav {segment} />
   <main class="p-10 md:p-6">
     <slot />

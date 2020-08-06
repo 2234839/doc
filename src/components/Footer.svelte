@@ -22,11 +22,14 @@
     flex-wrap: wrap;
   }
   .row > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 1px 6px;
   }
 </style>
 
-<footer class="mt-4">
+<footer class="mt-auto mb-0">
   <article class="row" title="很棒的朋友">
     {#each 友链 as item}
       <a href={item.path} class="ml-2">{item.title}</a>
@@ -38,6 +41,9 @@
     </a>
     <a href="https://tailwindcss.com/">
       {@html tailwind_svg}
+    </a>
+    <a href="https://svelte.dev/">
+      <img class="h-4" src="https://svelte.dev/svelte-logo-horizontal.svg" alt="" />
     </a>
     <a href="https://microsoft.github.io/monaco-editor/">monaco-editor</a>
   </article>
