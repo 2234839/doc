@@ -3,9 +3,8 @@
   import { goto, stores } from "@sapper/app";
   const { page } = stores();
   let show = false;
-  let 负一屏 = null;
+  let negativeScreen;
   onMount(() => {
-    负一屏 = document.querySelector(".llej-负一屏");
     page.subscribe(({ path, params, query }) => {
       const old_time = Number(localStorage.getItem("上次访问时间"));
       const cur_time = Date.now();
@@ -17,8 +16,13 @@
       }
     });
   });
-  function toDown() {
-    document.documentElement.scrollTop = 负一屏.offsetHeight;
+  function showBody() {
+    document.querySelector(".llej-body").scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
+    //  = negativeScreen.offsetHeight;
   }
 </script>
 
@@ -78,26 +82,19 @@
 
 {#if show}
   <div
-    class="llej-负一屏 h-screen w-full bg-center bg-cover relative flex
-    justify-center sticky top-0"
-    style=" background-image:
-    url(&quot;https://shenzilong.cn/util/redirect_to_bing_daily_picture_address&quot;);
-    ">
+    bind:this={negativeScreen}
+    class="llej-负一屏 h-screen w-full bg-center bg-cover relative flex justify-center sticky top-0"
+    style=" background-image: url(&quot;https://shenzilong.cn/util/redirect_to_bing_daily_picture_address&quot;); ">
     <div
       class="font-QIJIC text-white"
-      style="margin-top: 40vh;font-size: 6vw;background:
-      #7b7a7a36;display: inline-table;outline: 0.3rem solid #ffffffb0;padding:
-      1vh 6vw;backdrop-filter: blur(8px);
-      margin-top: 40vh;
-      color: rgb(255, 255, 255);
-      ">
+      style="margin-top: 40vh;font-size: 6vw;background: #7b7a7a36;display: inline-table;outline: 0.3rem solid
+      #ffffffb0;padding: 1vh 6vw;backdrop-filter: blur(8px); margin-top: 40vh; color: rgb(255, 255, 255); ">
       崮生 • 一些随笔
     </div>
     <svg
-      on:click={toDown}
+      on:click={showBody}
       class="llej-向下图标 llej_animation-bounce-in-top icon absolute"
-      style="margin-top: 70vh;filter: brightness(100);width: 20vw;height:
-      20vw;max-width: 6rem;"
+      style="margin-top: 70vh;filter: brightness(100);width: 20vw;height: 20vw;max-width: 6rem;"
       aria-hidden="true">
       <use xlink:href="#icon-xiangxia" />
     </svg>

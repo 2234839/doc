@@ -49,7 +49,7 @@
   </article>
   <footer class="row" title="杂七杂八的东西">
     <span>崮生 • 一些随笔 🎨</span>
-    <span>copyright © 2018 - {new Date().getFullYear()}</span>
+    <span>copyright © 2018.11.6 - {new Date().getFullYear()}</span>
     <a href="https://shenzilong.cn/blog/feed">
       rss订阅
       <img class="inline-block" style="height: 16px" src="/static/feed.png" alt="rss订阅" />
