@@ -1,6 +1,11 @@
 <script context="module">
   export function preload({ params, query }) {
-    return { posts: [{ path: "/record/", title: "文档" }] };
+    return {
+      posts: [
+        { path: "/record/每日总结/2020/", title: "每日总结-2020" },
+        { path: "/record/", title: "全部文档" },
+      ],
+    };
   }
 </script>
 
