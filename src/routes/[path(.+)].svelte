@@ -9,8 +9,10 @@
   export let title;
   export let menu;
   onDestroy(() => {
-    /** 动态生成的元素没有被svelte清除掉，所以这里主动将遗留下来的元素清掉 */
-    document.querySelectorAll(".run-code").forEach((el) => el.remove());
+    if (typeof document !== "undefined") {
+      /** 动态生成的元素没有被svelte清除掉，所以这里主动将遗留下来的元素清掉 */
+      document.querySelectorAll(".run-code").forEach((el) => el.remove());
+    }
   });
 
   onMount(async () => {
