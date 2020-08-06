@@ -1,6 +1,19 @@
 <script>
   export let segment;
-  // $: console.log("[segment]", segment);
+  $: decodeSegment = typeof segment === "string" ? decodeURIComponent(segment) : segment;
+  const routerList = ["page", "关于", "blog"];
+  $: tag = (() => {
+    if (decodeSegment === undefined) {
+      return undefined;
+    } else {
+      if (routerList.includes(decodeSegment)) {
+        return decodeSegment;
+      } else {
+        return "blog";
+      }
+    }
+  })();
+  // $: console.log("[segment, tag]", segment, tag);
 </script>
 
 <style>
@@ -52,15 +65,13 @@
 <nav>
   <ul>
     <li>
-      <a aria-current={segment === undefined ? 'page' : undefined} href="/">主页</a>
+      <a aria-current={tag === undefined ? 'page' : undefined} href="/">主页</a>
     </li>
     <li>
-      <a aria-current={decodeURIComponent(segment) === '关于' ? 'page' : undefined} href="/关于/申子龙.html">
-        关于崮生
-      </a>
+      <a aria-current={decodeURIComponent(tag) === '关于' ? 'page' : undefined} href="/关于/申子龙.html">关于崮生</a>
     </li>
     <li>
-      <a rel="prefetch" aria-current={segment === 'blog' ? 'page' : undefined} href="/blog">博客</a>
+      <a rel="prefetch" aria-current={tag === 'blog' ? 'page' : undefined} href="/blog">博客</a>
     </li>
   </ul>
 </nav>
