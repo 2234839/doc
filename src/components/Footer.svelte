@@ -14,13 +14,25 @@
   ];
 </script>
 
+<style>
+  .row {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+  .row > * {
+    margin: 1px 6px;
+  }
+</style>
+
 <footer class="mt-4">
-  <article class="text-center py-2" title="友链">
+  <article class="row" title="很棒的朋友">
     {#each 友链 as item}
       <a href={item.path} class="ml-2">{item.title}</a>
     {/each}
   </article>
-  <article class="flex justify-center py-2" title="感谢这些伟大的技术支撑本站">
+  <article class="row" title="感谢这些伟大的技术支撑本站">
     <a href="http://vanilla-js.com/">
       <img src="/_themes/vanilla-js.png" alt="" />
     </a>
@@ -29,16 +41,12 @@
     </a>
     <a href="https://microsoft.github.io/monaco-editor/">monaco-editor</a>
   </article>
-  <footer class="flex justify-center">
+  <footer class="row" title="杂七杂八的东西">
     <span>崮生 • 一些随笔 🎨</span>
     <span>copyright © 2018 - {new Date().getFullYear()}</span>
     <a href="https://shenzilong.cn/blog/feed">
       rss订阅
-      <img
-        class="inline-block"
-        style="height: 16px"
-        src="/static/feed.png"
-        alt="rss订阅" />
+      <img class="inline-block" style="height: 16px" src="/static/feed.png" alt="rss订阅" />
     </a>
     <a href="http://www.beian.miit.gov.cn">湘ICP备18021783号</a>
   </footer>
