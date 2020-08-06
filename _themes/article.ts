@@ -9,6 +9,8 @@
 // });
 
 export function run() {
+  /** 动态生成的元素没有被svelte清除掉，所以这里主动将遗留下来的元素清掉 */
+  document.querySelectorAll(".run-code").forEach((el) => el.remove());
   /** 高亮代码块 */
   let code_el = document.querySelectorAll(`[class*="lang"]`);
   if (code_el === null) throw "未找到code块";
@@ -155,7 +157,6 @@ export function run() {
       el.insertBefore(code_el, el.firstElementChild);
     }
   }
-
 
   /** md 链接的跳转 */ (function () {
     const a = document.querySelectorAll("a[md_to_html]");
