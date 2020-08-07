@@ -1,52 +1,48 @@
 <script context="module">
   const toDay = new Date();
-
   export function preload({ params, query }) {
     return {
-      posts: [
+      menu: [
         {
-          path: `/record/每日总结/${toDay.getFullYear()}/${toDay.getMonth() + 1}月.html`,
-          title: `这个月的每日总结（${toDay.getFullYear()}-${toDay.getMonth() + 1}）`,
+          title: "博文",
+          list: [
+            {
+              path: `/record/每日总结/${toDay.getFullYear()}/${toDay.getMonth() + 1}月.html`,
+              title: `这个月的每日总结（${toDay.getFullYear()}-${toDay.getMonth() + 1}）`,
+            },
+            { path: "/record/每日总结/2020/", title: "每日总结-2020" },
+            { path: "/record/", title: "全部文档" },
+          ],
         },
-        { path: "/record/每日总结/2020/", title: "每日总结-2020" },
-        { path: "/record/", title: "全部文档" },
+        {
+          title: "管理",
+          list: [
+            { path: "/blog/login", title: "登录" },
+            { path: "/blog/edit", title: "编辑" },
+            { path: "/page/rss.html", title: "rss推送" },
+          ],
+        },
       ],
     };
   }
 </script>
 
 <script>
-  export let posts;
+  export let menu;
 </script>
-
-<style>
-  ul {
-    margin: 0 0 1em 0;
-    line-height: 1.5;
-  }
-</style>
 
 <svelte:head>
   <title>Blog</title>
 </svelte:head>
 
-<h1>博文</h1>
+{#each menu as menuItem}
+  <h2>{menuItem.title}</h2>
 
-<ul>
-  {#each posts as post}
-    <li>
-      <a rel="prefetch" href={post.path}>{post.title}</a>
-    </li>
-  {/each}
-</ul>
-
-<h2>管理</h2>
-<ul>
-
-  <li>
-    <a rel="prefetch" href="/blog/edit">编辑</a>
-  </li>
-  <li>
-    <a rel="prefetch" href="/blog/login">登录</a>
-  </li>
-</ul>
+  <ul>
+    {#each menuItem.list as item}
+      <li>
+        <a rel="prefetch" href={item.path}>{item.title}</a>
+      </li>
+    {/each}
+  </ul>
+{/each}

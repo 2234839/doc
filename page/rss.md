@@ -11,7 +11,7 @@
 <br />
 密钥 <input id="rssPassword" type="text" />
 <br />
-<a class="bg-gray-800 p-3 text-gray-100" onclick="send()">推送</a>
+<a class="btn" onclick="send()">推送</a>
 <script src="/static/mui.min.js"></script>
 <script>
   function send() {

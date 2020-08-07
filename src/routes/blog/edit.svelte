@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import { showMessageForAWhile_actions } from "../../data/actions/showMessage.ts";
   import "codemirror/lib/codemirror.css"; // Editor's Dependency Style
   import "@toast-ui/editor/dist/toastui-editor.css"; // Editor's Style
   let pagePath = "/record/git.html";
@@ -31,19 +32,6 @@
       article = a;
     });
   }
-  function preview() {
-    const md = editor.getMarkdown();
-    fetch(`/article.json?path=${pagePath.replace(/\.html/, ".md")}?requester=sapper`, {
-      method: "POST",
-      body: JSON.stringify({ isPreview: true, md }),
-      headers: {
-        "content-type": "application/json",
-      },
-    }).then(async (r) => {
-      const a = await r.json();
-      article = { ...a, md };
-    });
-  }
   function update() {
     const md = editor.getMarkdown();
     fetch(`/article/update?path=${pagePath.replace(/\.html/, ".md")}?requester=sapper`, {
@@ -53,8 +41,12 @@
         "content-type": "application/json",
       },
     }).then(async (r) => {
-      const a = await r.json();
-      console.log("r", a);
+      const res = await r.json();
+      if (res.code === -1) {
+        showMessageForAWhile_actions({ content: res.msg, status: "fail" });
+      } else {
+        showMessageForAWhile_actions({ content: res.msg, status: "ok" });
+      }
     });
   }
 </script>
@@ -70,13 +62,7 @@
 </svelte:head>
 <input type="text" placeholder="页面地址" bind:value={pagePath} />
 <button class="btn" on:click={() => getArticle()}>获取</button>
-<button class="btn" on:click={() => preview()}>预览</button>
 <button class="btn" on:click={() => update()}>更新</button>
 <div class="pt-3">
-  <!-- <textarea bind:value={article.md} name="" id="" cols="30" rows="10" /> -->
   <div class="llej-editor" />
 </div>
-<!-- <div>
-  <h2>预览</h2>
-  {@html article.html}
-</div> -->

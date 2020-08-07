@@ -8,7 +8,6 @@
 
     {
       title: "小付同学",
-      // https://www.lihua6.cn
       path: "http://129.204.61.122",
     },
   ];
@@ -29,7 +28,7 @@
   }
 </style>
 
-<footer class="mt-auto mb-0">
+<footer class="mt-auto mb-0 text-xs">
   <article class="row" title="很棒的朋友">
     {#each 友链 as item}
       <a href={item.path} class="ml-2">{item.title}</a>
@@ -52,7 +51,7 @@
     <span>copyright © 2018.11.6 - {new Date().getFullYear()}</span>
     <a href="https://shenzilong.cn/blog/feed">
       rss订阅
-      <img class="inline-block" style="height: 16px" src="/static/feed.png" alt="rss订阅" />
+      <img class="ml-1 h-3" src="/static/feed.png" alt="rss订阅" />
     </a>
     <a href="http://www.beian.miit.gov.cn">湘ICP备18021783号</a>
   </footer>

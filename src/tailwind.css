@@ -76,6 +76,9 @@ iframe {
   width: 100%;
   height: 375px;
 }
+input {
+  @apply border;
+}
 
 .btn {
   --offset_base: 4px;
