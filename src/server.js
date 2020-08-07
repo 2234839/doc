@@ -37,10 +37,6 @@ polka() // You can also use Express
     ExpressSession({
       secret: "keyboard cat",
       saveUninitialized: true,
-      // cookie: { secure: true },
-      store: new FileStore({
-        path: "./src/data/sessions",
-      }),
     }),
   )
   .use(bodyParser.json())
@@ -50,6 +46,7 @@ polka() // You can also use Express
   .use(function file_server(req, res, next) {
     const file_path = path.resolve(root_path, "./" + req.url);
     // console.log("[server.js]", req.url, "\t\t", file_path);
+    /** 处理特定路径的问题 */
     if (req.method === "GET") {
       if (/\/client\//.test(req.url)) {
         const fileName = req.url.replace(/.*\/client\//, "");

@@ -80,7 +80,7 @@ iframe {
 .btn {
   --offset_base: 4px;
   --offset: 4px;
-  box-shadow: var(--offset) var(--offset) 0 #888;
+  box-shadow: 0 var(--offset) var(--offset) -1px #0000001a, 0 var(--offset) var(--offset) -1px #0000000f;
   transition: 0.3s all;
   transform: translateX(calc(var(--offset_base) - var(--offset))) translateY(calc(var(--offset_base) - var(--offset)));
   padding: 4px 8px;
