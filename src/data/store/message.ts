@@ -41,4 +41,3 @@ export function showMessageForAWhile(options: { content: string; status: "ok" | 
   const dot = { c: dot_c_map[options.status] };
   new Message(options.content, "", dot).autoHide();
 }
-new Message("测试数据", "color:red", { c: "red" }).show();
