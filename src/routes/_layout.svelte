@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import Nav from "../components/Nav.svelte";
   import Footer from "../components/Footer.svelte";
+  import StyleSheet from "../components/StyleSheet.svelte";
   import NegativeOneScreen from "../components/负一屏.svelte";
   import G_Message from "../components/Message/g-message.svelte";
   import { messageList } from "../data/store/store.ts";
@@ -19,8 +20,7 @@
     /** 加载阿里的字体工具 */
     fetch("https://at.alicdn.com/t/font_1833190_kk81z9186w.js").then(async (r) => {
       const code = await r.text();
-      console.log("[      code]", code);
-      eval(code);
+      window.eval(code);
     });
   });
 </script>
@@ -37,6 +37,7 @@
   }
 </style>
 
+<StyleSheet />
 <svelte:window on:beforeunload={beforeunload_handler} on:keydown={handleKeydown} />
 <NegativeOneScreen />
 <G_Message

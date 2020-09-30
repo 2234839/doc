@@ -1,12 +1,11 @@
 // import { try_pathToMd } from "../lib/md-parser";
 
 export async function preload(this: context, page: page, session: any) {
-  console.log("[请求地址]", page.path, page.query.requester);
+  console.log("[请求地址]", page);
   if (page.query.requester === "sapper") {
-    /** 自己发的请求，404掉让nginx去访问其他服务器，不然下面会一直递归请求 */
+    /** 自己发的请求，404掉让nginx去访问其他服务，不然下面会一直递归请求 */
     console.log("[404]", page);
     return this.error(404, "Not found");
-    // return this.redirect(302, page.host);
   }
   if (page.path.endsWith(".html")) {
     const res = await this.fetch(`/article.json?path=${page.path.replace(/\.html/, ".md")}?requester=sapper`);
@@ -24,11 +23,10 @@ export async function preload(this: context, page: page, session: any) {
       })
     )
     return { time: Date.now(), page, menu: menu, title: `这里是菜单呀` };
-  } else {
+  }
+  else {
     return this.error(404, "Not found");
   }
-  // return this.error(404, "Not found");
-  // try_pathToMd(page.path);
 }
 
 type context = {

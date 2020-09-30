@@ -1,8 +1,8 @@
 <script>
   import { onMount } from "svelte";
   import { showMessageForAWhile_actions } from "../../data/actions/showMessage.ts";
-  import "codemirror/lib/codemirror.css"; // Editor's Dependency Style
-  import "@toast-ui/editor/dist/toastui-editor.css"; // Editor's Style
+  // import "codemirror/lib/codemirror.css"; // Editor's Dependency Style
+  // import "@toast-ui/editor/dist/toastui-editor.css"; // Editor's Style
   let pagePath = "/record/git.html";
   let article = {};
   let editor = undefined;

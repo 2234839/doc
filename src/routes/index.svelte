@@ -1,12 +1,12 @@
 <script context="module">
   export async function preload(page, session) {
-    const { user } = session;
-    return { user };
+    // const { user } = session;
+    return { user: {} };
   }
 </script>
 
-<script>
-  import { copy } from "../lib/dom操作/复制.ts";
+<script lang="ts">
+  import { copy } from "../lib/dom操作/复制";
   export let user;
 </script>
 
@@ -64,8 +64,6 @@
 </figure>
 
 <p>
-  {#if user && user.role === 'admin'}
-    <strong>欢迎尊者归来，愿不忘初心、</strong>
-  {/if}
+  {#if user && user.role === 'admin'}<strong>欢迎尊者归来，愿不忘初心、</strong>{/if}
   <strong>永远前进.</strong>
 </p>

@@ -1,13 +1,9 @@
-//@ts-ignore
+
 import MarkdownIt from "markdown-it";
-//@ts-ignore
 import markdown_it_anchor from "markdown-it-anchor";
-//@ts-ignore
-// import markdown_it_table_of_contents from "markdown-it-table-of-contents";
-//@ts-ignore
 import markdown_it_attrs from "markdown-it-attrs";
-import { promises as fs } from "fs";
 import { resolve } from "path";
+
 var md = MarkdownIt({
   html: true, //允许md中的html
   xhtmlOut: true, // 使用 / 关闭单标签

@@ -176,7 +176,7 @@ export function run() {
           work(editor.getModel().uri)
             .then((client: any) => client.getEmitOutput(editor.getModel().uri.toString()))
             .then((r: any) => {
-              r.outputFiles.map((el: any) => eval(el.text));
+              r.outputFiles.map((el: any) => window.eval(el.text));
             });
         });
       });

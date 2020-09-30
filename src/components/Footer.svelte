@@ -30,28 +30,22 @@
 
 <footer class="mt-auto mb-0 text-xs">
   <article class="row" title="很棒的朋友">
-    {#each 友链 as item}
-      <a href={item.path} class="ml-2">{item.title}</a>
-    {/each}
+    {#each 友链 as item}<a href={item.path} class="ml-2">{item.title}</a>{/each}
   </article>
   <article class="row" title="感谢这些伟大的技术支撑本站">
-    <a href="http://vanilla-js.com/">
-      <img src="/_themes/vanilla-js.png" alt="" />
-    </a>
+    <a href="http://vanilla-js.com/"> <img src="/static/_themes/vanilla-js.png" alt="香草js" /> </a>
     <a href="https://tailwindcss.com/">
       {@html tailwind_svg}
     </a>
-    <a href="https://svelte.dev/">
-      <img class="h-4" src="https://svelte.dev/svelte-logo-horizontal.svg" alt="" />
-    </a>
+    <a href="https://svelte.dev/"> <img class="h-4" src="https://svelte.dev/svelte-logo-horizontal.svg" alt="" /> </a>
     <a href="https://microsoft.github.io/monaco-editor/">monaco-editor</a>
   </article>
-  <footer class="row" title="杂七杂八的东西">
+
+  <footer class="row">
     <span>崮生 • 一些随笔 🎨</span>
-    <span>copyright © 2018.11.6 - {new Date().getFullYear()}</span>
+    <span>copyright © 2018.11.6 - {new Date().getFullYear()}.{new Date().getMonth() + 1}</span>
     <a href="https://shenzilong.cn/blog/feed">
-      rss订阅
-      <img class="ml-1 h-3" src="/static/feed.png" alt="rss订阅" />
+      <img class="ml-1 h-3" src="/static/_themes/feed.png" alt="rss订阅" title="rss订阅" />
     </a>
     <a href="http://www.beian.miit.gov.cn">湘ICP备18021783号</a>
   </footer>

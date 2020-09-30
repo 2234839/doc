@@ -4,14 +4,3 @@
 yarn-error.log
 /cypress/screenshots/
 /__sapper__/
-
-/_themes/style.css
-/_themes/style.min.css
-
-/static/theme.css
-/static/global.css
-
-/.vscode/settings.json
-/package-lock.json
-
-/src/data/sessions/*

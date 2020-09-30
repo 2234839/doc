@@ -1,8 +1,8 @@
 import { promises as fsPromise } from "fs";
-import { root_path } from "../../lib/env";
+import { doc_path } from "../../lib/env";
 export function get(req: any, res: any) {
   fsPromise
-    .readdir(root_path + req.query.path)
+    .readdir(doc_path + req.query.path)
     .then((r) => {
       res.writeHead(200, {
         "Content-Type": "application/json",
@@ -24,7 +24,6 @@ export function get(req: any, res: any) {
           }
         })
         .filter((el) => el);
-      console.log("[menu]", menu);
       res.end(JSON.stringify(menu));
     })
     .catch(() => {
