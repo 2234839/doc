@@ -32,7 +32,6 @@
     margin: 0 auto;
     box-sizing: border-box;
     z-index: 10;
-    width: 100vw;
     height: 100vh;
   }
 </style>
