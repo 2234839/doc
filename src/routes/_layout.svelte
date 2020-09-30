@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import Nav from "../components/Nav.svelte";
   import Footer from "../components/Footer.svelte";
-  import StyleSheet from "../components/StyleSheet.svelte";
+  import StyleSheet from "../components/style_sheet.svelte";
   import NegativeOneScreen from "../components/负一屏.svelte";
   import G_Message from "../components/Message/g-message.svelte";
   import { messageList } from "../data/store/store.ts";
