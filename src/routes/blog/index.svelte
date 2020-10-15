@@ -11,7 +11,9 @@
               title: `这个月的每日总结（${toDay.getFullYear()}-${toDay.getMonth() + 1}）`,
             },
             { path: "/record/每日总结/2020/", title: "每日总结-2020" },
-            { path: "/record/", title: "全部文档" },
+            { path: "/record/", title: "记录" },
+            { path: "/杂记/", title: "杂记" },
+            { path: "/文集/", title: "文集" },
           ],
         },
         {
