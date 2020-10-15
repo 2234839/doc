@@ -1,7 +1,9 @@
 import * as sapper from "@sapper/app";
+import { updateStore } from "./data/store/store";
 
 const target = document.querySelector("#sapper");
-console.log("[target]",document, target);
+updateStore();
+
 sapper.start({
   target,
 });

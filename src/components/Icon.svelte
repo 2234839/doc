@@ -1,6 +1,6 @@
-<script>
-  export let style;
-  export let name;
+<script lang="ts">
+  export let style:string;
+  export let name:string;
 </script>
 
 <svg on:click class="icon" aria-hidden="false" {style}>

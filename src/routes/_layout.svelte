@@ -1,11 +1,12 @@
-<script>
-  import { onMount } from "svelte";
+<script lang="ts">
+  import { onMount, beforeUpdate } from "svelte";
   import Nav from "../components/Nav.svelte";
   import Footer from "../components/Footer.svelte";
   import StyleSheet from "../components/style_sheet.svelte";
   import NegativeOneScreen from "../components/负一屏.svelte";
   import G_Message from "../components/Message/g-message.svelte";
-  import { messageList } from "../data/store/store.ts";
+  import { messageList } from "../data/store/store";
+  import { newLog } from "../lib/log/ali_log";
 
   export let segment;
 
@@ -22,6 +23,13 @@
       const code = await r.text();
       window.eval(code);
     });
+  });
+  let href = "";
+  beforeUpdate(() => {
+    if (href !== location.href) {
+      newLog().push("lable", "落地页").logger();
+      href = location.href;
+    }
   });
 </script>
 

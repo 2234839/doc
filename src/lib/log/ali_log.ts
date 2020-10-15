@@ -1,3 +1,6 @@
+import { store } from "../../data/store/store";
+import { read } from "../svelte/store";
+
 export function GenerateAliLogTracker(window, host: string, project: string, logStore: string) {
   return new AliLogTracker(host, project, logStore);
 }
@@ -19,6 +22,7 @@ class AliLogTracker {
     this.params_ = new Array();
     this.httpRequest_ = createHttpRequest();
     this.push("href", decodeURIComponent(location.href));
+    this.push("uuid", read(store).uuid);
   }
   push(key, value) {
     if (!key || !value) {

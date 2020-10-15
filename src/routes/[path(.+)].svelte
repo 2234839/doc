@@ -5,7 +5,6 @@
 
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
-  import { newLog } from "../lib/log/ali_log";
   export let article;
   export let title;
   export let menu: any[];
@@ -18,7 +17,6 @@
   });
 
   onMount(async () => {
-    newLog().push("lable", "落地页").logger();
     import("../lib/article").then((r) => {
       let old = undefined;
       setInterval(

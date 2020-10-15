@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
   import { fly } from "svelte/transition";
   import { flip } from "svelte/animate";
   import { createEventDispatcher } from "svelte";
   import Icon from "../Icon.svelte";
 
   const dispatch = createEventDispatcher();
-  export let messageList;
+  export let messageList: any[];
 </script>
 
 <style>
