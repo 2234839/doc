@@ -4,7 +4,7 @@ import compression from "compression";
 import * as sapper from "@sapper/server";
 import serveStatic from "serve-static";
 import fs from "fs";
-import { client_path, root_path } from "./lib/env";
+import { client_path, doc_path, root_path } from "./lib/env";
 import path from "path";
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === "development";
@@ -43,6 +43,7 @@ polka()
     }
   })
   .use(serveStatic(root_path))
+  .use(serveStatic(doc_path))
   .use(compression({ threshold: 0 }), sirv("static", { dev }), sapper.middleware())
   .listen(PORT, (err) => {
     if (err) console.log("error", err);
