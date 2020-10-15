@@ -47,6 +47,7 @@
     <a href="https://shenzilong.cn/blog/feed">
       <img class="ml-1 h-3" src="/static/_themes/feed.png" alt="rss订阅" title="rss订阅" />
     </a>
-    <a href="http://www.beian.miit.gov.cn">湘ICP备18021783号</a>
+    <a href="https://beian.miit.gov.cn">湘ICP备18021783号</a>
+    <a href="https://github.com/2234839/doc">GIT HUB</a>
   </footer>
 </footer>
