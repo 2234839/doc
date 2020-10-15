@@ -5,9 +5,11 @@
 
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
+  import { newLog } from "../lib/log/ali_log";
   export let article;
   export let title;
   export let menu: any[];
+
   onDestroy(() => {
     if (typeof document !== "undefined") {
       /** 动态生成的元素没有被svelte清除掉，所以这里主动将遗留下来的元素清掉 */
@@ -16,10 +18,11 @@
   });
 
   onMount(async () => {
+    newLog().push("lable", "落地页").logger();
     import("../lib/article").then((r) => {
       let old = undefined;
       setInterval(
-        /** 监听内容变化了，应为此页面为所有文档的模板，所以切换文章不会重新执行这儿的 script 故需要自己监听 */ () => {
+        /** 监听内容变化了，因为此页面为所有文档的模板，所以切换文章不会重新执行这儿的 script 故需要自己监听 */ () => {
           if (old !== article) {
             r.run();
             old = article;
