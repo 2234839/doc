@@ -6,6 +6,7 @@ import serveStatic from "serve-static";
 import fs from "fs";
 import { client_path, doc_path, root_path } from "./lib/env";
 import path from "path";
+import { 最近更新, 递归 } from "./lib/资源检索/最近更新";
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === "development";
 function sendFile(filePath, res) {
@@ -48,3 +49,8 @@ polka()
   .listen(PORT, (err) => {
     if (err) console.log("error", err);
   });
+
+async function main() {
+  console.log("[list]", 最近更新);
+}
+main();
