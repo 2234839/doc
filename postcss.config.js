@@ -8,10 +8,9 @@ module.exports = {
     require("autoprefixer")(),
     !dev &&
       require("@fullhuman/postcss-purgecss")({
-        content: ["./src/**/*.svelte"],
+        content: ["./src/**/*.svelte", "./doc/**/*.md"],
         defaultExtractor: (content) =>
-          [...content.matchAll(/(?:class:)*([\w\d-/:%.]+)/gm)].map(([_match, group, ..._rest]) => group),
-        defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+          [...content.matchAll(/(?:class:)*([\w\d-/:%]+)/gm)].map(([_match, group, ..._rest]) => group),
       }),
     !dev && require("cssnano")({ preset: "default" }),
   ],
