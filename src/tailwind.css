@@ -95,3 +95,17 @@ input {
   --offset: 0;
 }
 
+/** 美化代码片段样式 */
+pre {
+  /** 一般代码块中的编辑器 */
+  --b-c:#e1e4e8;
+  position: relative;
+  margin: .2rem .5rem;
+  border: 1px solid var(--b-c);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.g-code_snippet{
+  padding: .1rem 2rem;
+  border-bottom: 1px solid var(--b-c);
+}

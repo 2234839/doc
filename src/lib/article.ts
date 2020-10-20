@@ -117,17 +117,13 @@ export function run() {
     console.log(lang, el);
     /** 在这个页面是否是第一次执行 */
     let init = false;
-    let code_el: HTMLElement;
-    const pre = el.previousElementSibling! as HTMLElement;
-    if (pre.classList.contains("run-code")) {
-      code_el = pre;
-    } else {
-      //第一次执行,生成存放代码的地方
-      init = true;
+    let code_el: HTMLElement=el.querySelector('.run-code');
+    if (!code_el) {
       code_el = document.createElement("div");
       el.parentElement!.insertBefore(code_el, el);
       code_el.classList.add("run-code");
     }
+    console.log('[code_el]',code_el)
     //针对不同语言进行不同的执行方法
     if (lang === "html") {
       code_el.innerHTML = code;
