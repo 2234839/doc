@@ -109,3 +109,9 @@ pre {
   padding: .1rem 2rem;
   border-bottom: 1px solid var(--b-c);
 }
+
+.g-flex-cc{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

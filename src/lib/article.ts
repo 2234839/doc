@@ -17,19 +17,33 @@ export function run() {
   let code_el = document.querySelectorAll(`[class*="lang"]`);
   if (code_el === null) throw "未找到code块";
   const code = Array.from(code_el);
-  const div_list = code.map(function (el) {
+  const div_list: [/** 放代码的div */ HTMLElement, /** 放编辑器的div */ HTMLElement][] = code.map(function (el) {
     const editorDiv = document.createElement("div");
     editorDiv.classList.add("g-editor_div");
+
     const fileName = el.getAttribute("file-name");
     if (fileName) {
       const 头部标题 = document.createElement("div");
-      头部标题.classList.add("g-code_snippet","flex","items-center")
-      const 文件icon=`<svg class="octicon octicon-code-square" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.75 1.5a.25.25 0 00-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V1.75a.25.25 0 00-.25-.25H1.75zM0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0114.25 16H1.75A1.75 1.75 0 010 14.25V1.75zm9.22 3.72a.75.75 0 000 1.06L10.69 8 9.22 9.47a.75.75 0 101.06 1.06l2-2a.75.75 0 000-1.06l-2-2a.75.75 0 00-1.06 0zM6.78 6.53a.75.75 0 00-1.06-1.06l-2 2a.75.75 0 000 1.06l2 2a.75.75 0 101.06-1.06L5.31 8l1.47-1.47z"></path></svg>`
+      头部标题.classList.add("g-code_snippet", "flex", "items-center");
+      const 文件icon = `<svg class="octicon octicon-code-square" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.75 1.5a.25.25 0 00-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V1.75a.25.25 0 00-.25-.25H1.75zM0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0114.25 16H1.75A1.75 1.75 0 010 14.25V1.75zm9.22 3.72a.75.75 0 000 1.06L10.69 8 9.22 9.47a.75.75 0 101.06 1.06l2-2a.75.75 0 000-1.06l-2-2a.75.75 0 00-1.06 0zM6.78 6.53a.75.75 0 00-1.06-1.06l-2 2a.75.75 0 000 1.06l2 2a.75.75 0 101.06-1.06L5.31 8l1.47-1.47z"></path></svg>`;
       头部标题.innerHTML = `${文件icon}  ${fileName}`;
       el.parentElement!.appendChild(头部标题);
     }
-
     el.parentElement!.appendChild(editorDiv);
+
+    const loadingDiv = document.createElement("div");
+    loadingDiv.classList.add("code-loading_div","g-flex-cc");
+    loadingDiv.style.cssText = `
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+    `;
+    loadingDiv.innerHTML=`<div class="loading"></div>`
+    el.parentElement!.appendChild(loadingDiv);
+
     let resolve_cb;
     (el as any)[editorKey] = {
       editor: null,
@@ -70,6 +84,7 @@ export function run() {
       monaco: typeof import("../node_modules/monaco-editor/esm/vs/editor/editor.api"),
     ) => {
       show_editor.forEach(([el, div]) => {
+        console.log("[[el, div]]", [el, div]);
         el.style.display = "none";
         var editor = monaco.editor.create(div, {
           value: el.innerText,
@@ -82,9 +97,14 @@ export function run() {
           scrollBeyondLastLine: false,
         });
         (el as any)[editorKey].resolve_cb({ editor, monaco });
-        console.log("附加方法的el", el);
 
         editorAdapaHeight(editor, div);
+        const loading_div = el.parentElement.querySelector(".code-loading_div");
+        if (loading_div) {
+          loading_div.remove();
+        }
+        console.log("渲染完成");
+
         editor.onDidChangeModelContent((e: any) => {
           editorAdapaHeight(editor, div);
           if ("run" in el.attributes) {
@@ -117,13 +137,13 @@ export function run() {
     console.log(lang, el);
     /** 在这个页面是否是第一次执行 */
     let init = false;
-    let code_el: HTMLElement=el.querySelector('.run-code');
-    if (!code_el) {
+    let code_el = el.previousElementSibling as HTMLElement;
+    if (!code_el.classList.contains("run-code")) {
       code_el = document.createElement("div");
       el.parentElement!.insertBefore(code_el, el);
       code_el.classList.add("run-code");
     }
-    console.log('[code_el]',code_el)
+    console.log("[code_el]", code_el);
     //针对不同语言进行不同的执行方法
     if (lang === "html") {
       code_el.innerHTML = code;
@@ -167,7 +187,6 @@ export function run() {
       const mermaidAPI = mermaid.mermaidAPI;
       const id = `graphDiv${Date.now()}`;
       code_el.id = id;
-      console.log(code_el);
       code_el.style.display = "";
       var graphDefinition = code;
       /** svg源码 */
@@ -185,7 +204,6 @@ export function run() {
             });
         });
       });
-      console.log(pre, el, code_el);
     }
   }
 
