@@ -18,8 +18,18 @@ export function run() {
   if (code_el === null) throw "未找到code块";
   const code = Array.from(code_el);
   const div_list = code.map(function (el) {
-    const div = document.createElement("div");
-    el.parentElement!.appendChild(div);
+    const editorDiv = document.createElement("div");
+    editorDiv.classList.add("g-editor_div");
+    const fileName = el.getAttribute("file-name");
+    if (fileName) {
+      const 头部标题 = document.createElement("div");
+      头部标题.classList.add("g-code_snippet","flex","items-center")
+      const 文件icon=`<svg class="octicon octicon-code-square" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.75 1.5a.25.25 0 00-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V1.75a.25.25 0 00-.25-.25H1.75zM0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0114.25 16H1.75A1.75 1.75 0 010 14.25V1.75zm9.22 3.72a.75.75 0 000 1.06L10.69 8 9.22 9.47a.75.75 0 101.06 1.06l2-2a.75.75 0 000-1.06l-2-2a.75.75 0 00-1.06 0zM6.78 6.53a.75.75 0 00-1.06-1.06l-2 2a.75.75 0 000 1.06l2 2a.75.75 0 101.06-1.06L5.31 8l1.47-1.47z"></path></svg>`
+      头部标题.innerHTML = `${文件icon}  ${fileName}`;
+      el.parentElement!.appendChild(头部标题);
+    }
+
+    el.parentElement!.appendChild(editorDiv);
     let resolve_cb;
     (el as any)[editorKey] = {
       editor: null,
@@ -29,7 +39,7 @@ export function run() {
       resolve_cb: null,
     };
     (el as any)[editorKey]["resolve_cb"] = resolve_cb;
-    div.style.cssText = `width: 100%;margin-bottom: 10px;`;
+    // div.style.cssText = `width: 100%;margin-bottom: 10px;`;
     if ("run" in el.attributes) {
       //立即执行代码
       runCode({
@@ -38,7 +48,7 @@ export function run() {
         el: el.parentElement!,
       });
     }
-    return ([el, div] as unknown) as [HTMLElement, HTMLElement];
+    return ([el, editorDiv] as unknown) as [HTMLElement, HTMLElement];
   });
   const show_editor = div_list.filter(([el, div]) => {
     /** 隐藏起来的元素不需要编辑 */
@@ -100,7 +110,7 @@ export function run() {
    */
   function editorAdapaHeight(editor: any, div: any) {
     let lines = editor.getModel().getLinesContent().length;
-    div.style.height = lines * 19.2 + "px";
+    div.style.height = lines * 19.4 + "px";
   }
 
   function runCode({ code, lang, el }: { code: string; lang: string; el: HTMLElement }) {
@@ -139,7 +149,6 @@ export function run() {
               load_count++;
               if (load_count === src_script.length) {
                 /** 带src属性的加载完后再执行script标签内容 */
-
                 script_list.forEach((el) => window["eval"](el.innerHTML));
               }
             };

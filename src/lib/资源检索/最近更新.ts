@@ -28,7 +28,7 @@ async function test() {
   const md_file = (await 递归(doc_path))
     .filter((el) => el.fullSrc.endsWith(".md"))
     .sort((a, b) => b.mtimeMs - a.mtimeMs);
-  console.log("[md_file]", md_file.slice(0, 10));
+  // console.log("[md_file]", md_file.slice(0, 10));
 }
 test();
 // {
