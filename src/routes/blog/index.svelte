@@ -14,6 +14,7 @@
             { path: "/record/", title: "记录" },
             { path: "/杂记/", title: "杂记" },
             { path: "/文集/", title: "文集" },
+            { path: "/工具/代码片段.html", title: "代码片段" },
           ],
         },
         {
