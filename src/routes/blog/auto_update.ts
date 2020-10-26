@@ -15,3 +15,5 @@ export async function get(req: any, res: any) {
     }
   });
 }
+
+export const post = get;
