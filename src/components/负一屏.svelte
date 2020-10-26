@@ -1,14 +1,19 @@
-<script>
+<script lang="ts">
+  import { stores } from "@sapper/app";
   import { onMount } from "svelte";
-  import { goto, stores } from "@sapper/app";
+
   const { page } = stores();
   let show = false;
   let negativeScreen;
   onMount(() => {
     page.subscribe(({ path, params, query }) => {
+      if (path !== "/") {
+        /** 其他页面首次进来就不弹负一屏了 */
+        return;
+      }
       const old_time = Number(localStorage.getItem("上次访问时间"));
       const cur_time = Date.now();
-      localStorage.setItem("上次访问时间", cur_time);
+      localStorage.setItem("上次访问时间", cur_time.toString());
       if (cur_time - old_time < 24 * 60 * 60 * 1000) {
         show = false;
       } else {
@@ -22,7 +27,6 @@
       block: "end",
       inline: "nearest",
     });
-    //  = negativeScreen.offsetHeight;
   }
 </script>
 
@@ -84,7 +88,7 @@
   <div
     bind:this={negativeScreen}
     class="llej-负一屏 h-screen w-full bg-center bg-cover relative flex justify-center sticky top-0"
-    style=" background-image: url(&quot;https://shenzilong.cn/util/redirect_to_bing_daily_picture_address&quot;); ">
+    style="background-image: url('https://shenzilong.cn/util/redirect_to_bing_daily_picture_address'); ">
     <div
       class="font-QIJIC text-white"
       style="margin-top: 40vh;font-size: 6vw;background: #7b7a7a36;display: inline-table;outline: 0.3rem solid
