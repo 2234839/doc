@@ -1,7 +1,7 @@
 import { Res } from "../../../lib/api/res";
 
 export async function post(req: any, res: any) {
-  if (req.body.username === "崮生" && req.body.password === "llej987456321") {
+  if (req.body.username === "崮生" && false) {
     req.session.user = {
       role: "admin",
     };

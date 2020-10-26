@@ -1,6 +1,5 @@
 <script context="module">
   export async function preload(page, session) {
-    // const { user } = session;
     return { user: {} };
   }
 </script>
