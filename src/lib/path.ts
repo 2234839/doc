@@ -22,7 +22,8 @@ export async function preload(this: context, page: page, session: any) {
         return r.json();
       })
     )
-    return { time: Date.now(), page, menu: menu, title: `这里是菜单呀` };
+    const title= page.path.split(/[\/\\]/).filter(el=>el).reverse().join('<')
+    return { time: Date.now(), page, menu: menu, title};
   }
   else {
     return this.error(404, "Not found");
