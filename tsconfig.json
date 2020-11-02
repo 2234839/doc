@@ -6,12 +6,13 @@
 			"ES2017",
 			"WebWorker"
 		],
+		"strict": true,
+
 		// "module": "UMD", /* Specify moduleC code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
 		"target": "ES2017"
 	},
 	"include": [
 		"src/**/*",
-		"src/node_modules/**/*"
 	],
 	"exclude": [
 		"node_modules/*",

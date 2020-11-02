@@ -99,7 +99,7 @@ export function run() {
         (el as any)[editorKey].resolve_cb({ editor, monaco });
 
         editorAdapaHeight(editor, div);
-        const loading_div = el.parentElement.querySelector(".code-loading_div");
+        const loading_div = el.parentElement!.querySelector(".code-loading_div");
         if (loading_div) {
           loading_div.remove();
         }

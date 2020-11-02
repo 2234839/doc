@@ -1,6 +1,8 @@
-
+//@ts-ignore
 import MarkdownIt from "markdown-it";
+//@ts-ignore
 import markdown_it_anchor from "markdown-it-anchor";
+//@ts-ignore
 import markdown_it_attrs from "markdown-it-attrs";
 import { resolve } from "path";
 

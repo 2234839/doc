@@ -1,3 +1,4 @@
+//@ts-ignore
 import * as sapper from "@sapper/app";
 import { updateStore } from "./data/store/store";
 

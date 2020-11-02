@@ -1,4 +1,6 @@
+//@ts-ignore
 import { timestamp, files, shell, routes } from '@sapper/service-worker';
+
 
 type Clientable = { clients: Clients };
 
@@ -53,6 +55,7 @@ self.addEventListener('fetch', <EventType extends FetchEvent>(event: EventType) 
 
 	// always serve static files and bundler-generated assets from cache
 	if (url.host === self.location.host && cached.has(url.pathname)) {
+		//@ts-ignore
 		event.respondWith(caches.match(event.request));
 		return;
 	}

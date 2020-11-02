@@ -1,15 +1,16 @@
+//@ts-ignore
+import * as sapper from "@sapper/server";
 import sirv from "sirv";
 import polka from "polka";
 import compression from "compression";
-import * as sapper from "@sapper/server";
 import serveStatic from "serve-static";
 import fs from "fs";
 import { client_path, doc_path, root_path } from "./lib/env";
 import path from "path";
-import { 最近更新, 递归 } from "./lib/资源检索/最近更新";
+import { 最近更新, 获取项目下所有文件 } from "./lib/资源检索/最近更新";
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === "development";
-function sendFile(filePath, res) {
+function sendFile(filePath:string, res:any) {
   // 这里到时候再完善
   if (filePath.endsWith(".js")) {
     res.setHeader("content-type", "application/javascript; charset=utf-8");
@@ -46,7 +47,7 @@ polka()
   .use(serveStatic(root_path))
   .use(serveStatic(doc_path))
   .use(compression({ threshold: 0 }), sirv("static", { dev }), sapper.middleware())
-  .listen(PORT, (err) => {
+  .listen(PORT, (err:Error) => {
     if (err) console.log("error", err);
   });
 

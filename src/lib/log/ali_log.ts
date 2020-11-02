@@ -1,7 +1,7 @@
 import { store } from "../../data/store/store";
 import { read } from "../svelte/store";
 
-export function GenerateAliLogTracker(window, host: string, project: string, logStore: string) {
+export function GenerateAliLogTracker(host: string, project: string, logStore: string) {
   return new AliLogTracker(host, project, logStore);
 }
 function createHttpRequest() {
@@ -24,7 +24,7 @@ class AliLogTracker {
     this.push("href", decodeURIComponent(location.href));
     this.push("uuid", read(store).uuid);
   }
-  push(key, value) {
+  push(key: string, value: any) {
     if (!key || !value) {
       return;
     }
@@ -55,4 +55,4 @@ class AliLogTracker {
     }
   }
 }
-export const newLog = () => GenerateAliLogTracker(window, "cn-hangzhou.log.aliyuncs.com", "llej", "llej_doc");
+export const newLog = () => GenerateAliLogTracker("cn-hangzhou.log.aliyuncs.com", "llej", "llej_doc");
