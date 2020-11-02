@@ -4,11 +4,12 @@
 
   const { page } = stores();
   let show = false;
-  let negativeScreen;
   onMount(() => {
     page.subscribe(({ path, params, query }) => {
+      console.log("[path]", path,show);
       if (path !== "/") {
         /** 其他页面首次进来就不弹负一屏了 */
+        show = false;
         return;
       }
       const old_time = Number(localStorage.getItem("上次访问时间"));
@@ -86,7 +87,6 @@
 
 {#if show}
   <div
-    bind:this={negativeScreen}
     class="llej-负一屏 h-screen w-full bg-center bg-cover relative flex justify-center sticky top-0"
     style="background-image: url('https://shenzilong.cn/util/redirect_to_bing_daily_picture_address'); ">
     <div
