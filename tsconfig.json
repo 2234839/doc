@@ -4,12 +4,13 @@
 		"lib": [
 			"DOM",
 			"ES2017",
-			"WebWorker"
+			"WebWorker",
+			"ESNext"
 		],
 		"strict": true,
-
+		"noImplicitAny": true,
 		// "module": "UMD", /* Specify moduleC code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
-		"target": "ES2017"
+		"target": "ESNext"
 	},
 	"include": [
 		"src/**/*",
