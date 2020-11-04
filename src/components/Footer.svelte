@@ -1,5 +1,5 @@
-<script>
-  import { tailwind_svg } from "./res/tailwind.svg.ts";
+<script lang="ts">
+  import { tailwind_svg } from "./res/tailwind.svg";
   const 友链 = [
     {
       title: "神仙散棒槌",
@@ -9,6 +9,10 @@
     {
       title: "小付同学",
       path: "http://129.204.61.122",
+    },
+    {
+      title: "IT源点",
+      path: "https://www.daxueyiwu.com",
     },
   ];
 </script>
@@ -30,7 +34,7 @@
 
 <footer class="mt-auto mb-0 text-xs">
   <article class="row" title="很棒的朋友">
-    {#each 友链 as item}<a href={item.path} class="ml-2">{item.title}</a>{/each}
+    {#each 友链 as item}<a href={item.path} class="ml-2" target="_blank">{item.title}</a>{/each}
   </article>
   <article class="row" title="感谢这些伟大的技术支撑本站">
     <a href="http://vanilla-js.com/"> <img src="/static/_themes/vanilla-js.png" alt="香草js" /> </a>
