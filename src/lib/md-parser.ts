@@ -5,6 +5,7 @@ import markdown_it_anchor from "markdown-it-anchor";
 //@ts-ignore
 import markdown_it_attrs from "markdown-it-attrs";
 import { resolve } from "path";
+import { lute } from "./md解析/lute";
 
 var md = MarkdownIt({
   html: true, //允许md中的html
@@ -65,7 +66,8 @@ export async function md_parser_article(md_str: string): Promise<article> {
       if (value === null) throw "没有找到匹配的值";
       meta[key[0]] = value[0].split(",");
     });
-  const raw_html = md.render(md_str);
+  // const raw_html = md.render(md_str);
+  const raw_html = lute.MarkdownStr("", md_str);
   return {
     title: title[0],
     meta,
