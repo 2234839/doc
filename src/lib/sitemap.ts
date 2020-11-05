@@ -5,7 +5,7 @@ import { 获取文档资源 } from "./资源检索/最近更新";
 export const siteMap = generateSiteMap();
 
 export async function generateSiteMap() {
-  const r = (await 获取文档资源()).md_file.map((el) => ({ ...el, 相对路径: el.fullSrc.replace(doc_path, "") }));
+  const r = (await 获取文档资源()).md_file.map((el) => ({ ...el, 相对路径: el.virtual_path.replace(doc_path, "") }));
   const menu = (await 获取文档资源()).allFile
     .filter((el) => el.isDirectory)
     .map((el) => ({ ...el, 相对路径: el.fullSrc.replace(doc_path, "") }));
