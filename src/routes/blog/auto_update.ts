@@ -1,5 +1,6 @@
 import { exec } from "child_process";
 import { root_path } from "../../lib/env";
+import { 获取文档资源 } from "../../lib/资源检索/最近更新";
 /** post 接口做预览之用 */
 export async function get(req: any, res: any) {
   res.writeHead(200, {
@@ -12,6 +13,8 @@ export async function get(req: any, res: any) {
       console.log("[更新代码博客失败]", e);
     } else {
       console.log("[更新成功]");
+      /** 去触发一次更新 */
+      获取文档资源(true);
     }
   });
 }

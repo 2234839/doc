@@ -56,12 +56,17 @@ async function main() {
 export let 文档资源 = main();
 
 /** 会触发更新资源的流程 */
-export function 获取文档资源() {
-  if (Date.now() - oldTime > 24 * 60 * 60 * 1000) {
+export async function 获取文档资源(强制刷新 = false) {
+  if (强制刷新) {
+    文档资源 = main();
     oldTime = Date.now();
-    setTimeout(() => {
-      文档资源 = main();
-    }, 100);
+  } else {
+    if (Date.now() - oldTime > 24 * 60 * 60 * 1000) {
+      oldTime = Date.now();
+      setTimeout(() => {
+        文档资源 = main();
+      }, 100);
+    }
   }
   return 文档资源;
 }
