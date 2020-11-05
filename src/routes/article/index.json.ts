@@ -11,7 +11,7 @@ export async function get(req: any, res: any) {
 
   /** 找对应的文档资源 */
   const doc = docs.md_file.find((el) => el.virtual_path === filePath);
-  // console.log("[filePath]", doc);
+  console.log("[filePath]", doc);
 
   if (doc) {
     fsPromise
