@@ -6,6 +6,7 @@ export namespace Res {
     res.end(JSON.stringify({ code: 1, msg, data }));
   }
   export function failure(res: any, msg: string, data?: unknown) {
+    console.error(msg);
     res.writeHead(200, {
       "Content-Type": "application/json",
     });

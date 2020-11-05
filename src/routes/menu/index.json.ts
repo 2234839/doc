@@ -1,35 +1,40 @@
-import { promises as fsPromise } from "fs";
+import { resolve } from "path";
 import { doc_path } from "../../lib/env";
-export function get(req: any, res: any) {
-  fsPromise
-    .readdir(doc_path + req.query.path)
-    .then((r) => {
-      res.writeHead(200, {
-        "Content-Type": "application/json",
-      });
-      const menu = r
-        .map((s) => {
-          if (s.endsWith(".md")) {
-            return {
-              path: "./" + s.replace(/\.md$/, ".html"),
-              title: s,
-            };
-          } else if (!s.includes(".")) {
-            return {
-              path: "./" + s + "/",
-              title: s,
-            };
-          } else {
-            return undefined;
-          }
-        })
-        .filter((el) => el);
-      res.end(JSON.stringify(menu));
-    })
-    .catch(() => {
-      res.writeHead(500, {
-        "Content-Type": "application/json",
-      });
-      res.end("未知错误");
-    });
+import { 去除思源笔记id的路径 } from "../../lib/md解析/lute";
+import { 获取文档资源 } from "../../lib/资源检索/最近更新";
+export async function get(req: any, res: any) {
+  const docs = await 获取文档资源();
+  const menuPath = resolve(doc_path + req.query.path);
+  console.log("[menuPath]", menuPath);
+  const result = [
+    ...[...docs.menu, ...docs.md_file]
+      .filter((el) => el.fullSrc.startsWith(menuPath))
+      .filter((el) => {
+        const restPath = el.fullSrc.slice(menuPath.length + 1);
+        if (restPath) {
+          /** 只比 menuPath 多一个层级的 */
+          return !restPath.includes("\\");
+        } else {
+          return false;
+        }
+      })
+      .map((el) => {
+        if (el.isDirectory) {
+          return {
+            path: "./" + el.basename + "/",
+            title: el.basename,
+          };
+        } else {
+          const p = 去除思源笔记id的路径(el.basename);
+          return {
+            path: "./" + p.replace(/\.md$/, ".html"),
+            title: p,
+          };
+        }
+      }),
+  ];
+  res.writeHead(200, {
+    "Content-Type": "application/json",
+  });
+  res.end(JSON.stringify(result));
 }

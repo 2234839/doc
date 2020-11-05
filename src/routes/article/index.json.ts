@@ -1,22 +1,34 @@
 import { promises as fsPromise } from "fs";
+import { resolve } from "path";
 import { Res } from "../../lib/api/res";
 import { doc_path } from "../../lib/env";
 import { md_parser_article } from "../../lib/md-parser";
-export function get(req: any, res: any) {
-  // console.log("请求到达", req.query.path);
+import { 获取文档资源 } from "../../lib/资源检索/最近更新";
+export async function get(req: any, res: any) {
   const path = req.query.path as string;
-  const filePath = doc_path + path.replace(/\?.*$/, "");
-  fsPromise
-    .readFile(filePath)
-    .then(async (r) => {
-      res.writeHead(200, {
-        "Content-Type": "application/json",
+  const filePath = resolve(doc_path + path.replace(/\?.*$/, ""));
+  const docs = await 获取文档资源();
+
+  /** 找对应的文档资源 */
+  const doc = docs.md_file.find((el) => el.virtual_path === filePath);
+  // console.log("[filePath]", doc);
+
+  if (doc) {
+    fsPromise
+      .readFile(doc.fullSrc)
+      .then(async (r) => {
+        const result = JSON.stringify(await md_parser_article(r.toString()));
+        res.writeHead(200, {
+          "Content-Type": "application/json",
+        });
+        res.end(result);
+      })
+      .catch((e) => {
+        Res.failure(res, "打开文件失败");
       });
-      res.end(JSON.stringify(await md_parser_article(r.toString())));
-    })
-    .catch((e) => {
-      Res.failure(res, "打开文件失败");
-    });
+  } else {
+    Res.failure(res, "没有找到对应的文件");
+  }
 }
 
 /** post 接口做预览之用 */

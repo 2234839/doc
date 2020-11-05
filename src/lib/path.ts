@@ -8,6 +8,7 @@ export async function preload(this: context, page: page, session: any) {
     return this.error(404, "Not found");
   }
   if (page.path.endsWith(".html")) {
+    console.log(`/article.json?path=${page.path.replace(/\.html/, ".md")}?requester=sapper`)
     const res = await this.fetch(`/article.json?path=${page.path.replace(/\.html/, ".md")}?requester=sapper`);
     console.log("[file res.ok]", res.ok);
     if (!res.ok) {

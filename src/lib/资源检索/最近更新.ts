@@ -1,25 +1,26 @@
 import * as fs from "fs/promises";
 import * as Path from "path";
 import { doc_path } from "../env";
+import { 去除思源笔记id的路径 } from "../md解析/lute";
 
 let oldTime = Date.now();
 
 export async function 获取项目下所有文件(src: string) {
   // 读取目录中的所有文件/目录
   const paths = await fs.readdir(src);
-  const files = [] as { fullSrc: string; mtimeMs: number; isDirectory: boolean }[];
+  const files = [] as { fullSrc: string; mtimeMs: number; isDirectory: boolean; basename: string }[];
   for (const path of paths) {
     //拼合路径
     const fullSrc = Path.resolve(src + "/" + path);
     //判断文件状态
     const st = await fs.stat(fullSrc);
     // 判断是否为文件
-    if (st.isFile()) {
-      files.push({ fullSrc, mtimeMs: st.mtimeMs, isDirectory: false });
-    }
+    const isDirectory = st.isDirectory();
+    const docObj = { fullSrc, mtimeMs: st.mtimeMs, isDirectory, basename: Path.basename(fullSrc) };
+    files.push(docObj);
+
     // 如果是目录则递归调用自身
-    else if (st.isDirectory()) {
-      files.push({ fullSrc, mtimeMs: st.mtimeMs, isDirectory: true });
+    if (isDirectory && ![".git", "node_modules"].includes(docObj.basename)) {
       files.push(...(await 获取项目下所有文件(fullSrc)));
     }
   }
@@ -32,12 +33,26 @@ async function main() {
   const allFile = await 获取项目下所有文件(doc_path);
   const md_file = allFile
     .filter((el) => !el.isDirectory && el.fullSrc.endsWith(".md"))
+    .map((el) => {
+      const r = {
+        ...el,
+        /** 虚拟路径，因为思源模式的笔记会在文件名后面加上 id,而这个值会去除掉那些id */
+        get virtual_path() {
+          return 去除思源笔记id的路径(el.fullSrc);
+        },
+      };
+      return r;
+    })
     .sort((a, b) => b.mtimeMs - a.mtimeMs);
+
+  const menu = allFile.filter((el) => el.isDirectory);
   return {
     allFile,
     md_file,
+    menu,
   };
 }
+
 export let 文档资源 = main();
 
 /** 会触发更新资源的流程 */
