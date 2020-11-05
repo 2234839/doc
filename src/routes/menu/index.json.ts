@@ -1,4 +1,4 @@
-import { resolve } from "path";
+import { resolve, sep } from "path";
 import { doc_path } from "../../lib/env";
 import { 去除思源笔记id的路径 } from "../../lib/md解析/lute";
 import { 获取文档资源 } from "../../lib/资源检索/最近更新";
@@ -11,9 +11,10 @@ export async function get(req: any, res: any) {
       .filter((el) => el.fullSrc.startsWith(menuPath))
       .filter((el) => {
         const restPath = el.fullSrc.slice(menuPath.length + 1);
+        // console.log("[el.fullSrc]", el.fullSrc);
         if (restPath) {
           /** 只比 menuPath 多一个层级的 */
-          return !restPath.includes("\\");
+          return !restPath.includes(sep);
         } else {
           return false;
         }
