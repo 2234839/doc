@@ -23,7 +23,7 @@ export async function get(req: any, res: any) {
         if (el.isDirectory) {
           return {
             path: "./" + el.basename + "/",
-            title: el.basename,
+            title: "./" + el.basename + "/",
           };
         } else {
           const p = 去除思源笔记id的路径(el.basename);
