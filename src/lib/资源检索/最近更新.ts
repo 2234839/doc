@@ -5,10 +5,12 @@ import { 去除思源笔记id的路径 } from "../md解析/lute";
 
 let oldTime = Date.now();
 
+/** 文档的具体文件信息节点 */
+type docFileNode = { fullSrc: string; mtimeMs: number; /** 是目录节点 */ isDirectory: boolean; basename: string };
 export async function 获取项目下所有文件(src: string) {
   // 读取目录中的所有文件/目录
   const paths = await fs.readdir(src);
-  const files = [] as { fullSrc: string; mtimeMs: number; isDirectory: boolean; basename: string }[];
+  const files = [] as docFileNode[];
   for (const path of paths) {
     //拼合路径
     const fullSrc = Path.resolve(src + "/" + path);
@@ -53,6 +55,16 @@ async function main() {
   };
 }
 
+export function ToWebSitePath(d: docFileNode) {
+  if (d.isDirectory) {
+    return (d.fullSrc.replace(doc_path, "") + "/").replace(/** 网络路径通常使用 / */ /[\\\/]/g, "/");
+  } else {
+    return (去除思源笔记id的路径(d.fullSrc).replace(doc_path, "").slice(/** 去除 .md  */ 0, -3) + ".html").replace(
+      /** 网络路径通常使用 / */ /[\\\/]/g,
+      "/",
+    );
+  }
+}
 export let 文档资源 = main();
 
 /** 会触发更新资源的流程 */

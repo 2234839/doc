@@ -1,12 +1,14 @@
-<script context="module">
-  export async function preload(page, session) {
+<script context="module" lang="ts">
+  export async function preload(page: any, session: any) {
     return { user: {} };
   }
 </script>
 
 <script lang="ts">
   import { copy } from "../lib/dom操作/复制";
-  export let user;
+  import { API } from "../lib/api/fetch";
+  let RCarticle = API.获取最近更新();
+  export let user: any;
 </script>
 
 <style>
@@ -69,3 +71,14 @@
   <strong>永远前进.</strong>
   <strong>致良知.</strong>
 </p>
+
+{#await RCarticle then articleList}
+  <h2 class="mt-8">最近更新：</h2>
+  <div class="flex flex-wrap">
+    {#each articleList as article}
+      <div class="w-full lg:w-1/5 md:w-1/4 sm:w-1/2"><a href={article.webPath}>{article.name}</a></div>
+    {/each}
+  </div>
+{:catch e}
+  <b>获取最新文章失败，抱歉</b>
+{/await}
