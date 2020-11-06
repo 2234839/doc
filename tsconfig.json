@@ -9,7 +9,7 @@
 		],
 		"strict": true,
 		"noImplicitAny": true,
-		// "module": "UMD", /* Specify moduleC code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
+		"module": "ESNext", /* Specify moduleC code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
 		"target": "ESNext"
 	},
 	"include": [
