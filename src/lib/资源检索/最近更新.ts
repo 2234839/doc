@@ -22,7 +22,7 @@ export async function 获取项目下所有文件(src: string) {
     files.push(docObj);
 
     // 如果是目录则递归调用自身
-    if (isDirectory && ![".git", "node_modules"].includes(docObj.basename)) {
+    if (isDirectory && ![".git", "node_modules", "assets"].includes(docObj.basename)) {
       files.push(...(await 获取项目下所有文件(fullSrc)));
     }
   }
