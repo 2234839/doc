@@ -6,12 +6,12 @@ module.exports = {
     require("postcss-url")(),
     require("tailwindcss")("./tailwind.config.js"),
     require("autoprefixer")(),
-    !dev &&
-      require("@fullhuman/postcss-purgecss")({
-        content: ["./src/**/*.svelte", "./doc/**/*.md"],
-        defaultExtractor: (content) =>
-          [...content.matchAll(/(?:class:)*([\w\d-/:%]+)/gm)].map(([_match, group, ..._rest]) => group),
-      }),
+    // !dev &&
+    //   require("@fullhuman/postcss-purgecss")({
+    //     content: ["./src/**/*.svelte", "./doc/**/*.md"],
+    //     defaultExtractor: (content) =>
+    //       [...content.matchAll(/(?:class:)*([\w\d-/:%]+)/gm)].map(([_match, group, ..._rest]) => group),
+    //   }),
     !dev && require("cssnano")({ preset: "default" }),
   ],
 };
