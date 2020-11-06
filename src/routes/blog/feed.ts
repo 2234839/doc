@@ -1,3 +1,4 @@
+import { siteBaseUrl } from "../../data/app.config";
 import { API } from "../../lib/api/fetch";
 
 /** post 接口做预览之用 */
@@ -13,7 +14,7 @@ export async function get(req: any, res: any) {
           return `
                 <item>
                 <title>${el.name}</title>
-                <link>${el.webPath}</link>
+                <link>${siteBaseUrl}${el.webPath}</link>
                 <description>${/** TODO 这里应该要替换为真正的描述 */ el.name}</description>
             </item>
             `;
