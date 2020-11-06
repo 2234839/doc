@@ -27,6 +27,8 @@ lute.SetJSRenderers({
   },
 });
 lute.SetKramdownIAL(true);
+/** 标题的链接 a 标签渲染 */
+lute.SetHeadingAnchor(true);
 lute.SetKramdownIALIDRenderName("data-block-id");
 
 // http://192.168.11.2/bool_dev_team/npp_beta/issues/63

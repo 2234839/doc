@@ -18,7 +18,11 @@ h3,
 h4,
 h5,
 h6 {
-  @apply .font-bold my-2;
+  @apply .font-bold my-2 flex items-center;
+}
+/** 标题内的链接 */
+.vditor-anchor {
+  @apply px-2;
 }
 
 h1 {
@@ -98,20 +102,24 @@ input {
 /** 美化代码片段样式 */
 pre {
   /** 一般代码块中的编辑器 */
-  --b-c:#e1e4e8;
+  --b-c: #e1e4e8;
   position: relative;
-  margin: .2rem .5rem;
+  margin: 0.2rem 0.5rem;
   border: 1px solid var(--b-c);
   border-radius: 5px;
   overflow: hidden;
 }
 
-.g-code_snippet{
-  padding: .1rem 2rem;
+.llej-body > main > p {
+  margin-bottom: 2rem;
+}
+
+.g-code_snippet {
+  padding: 0.1rem 2rem;
   border-bottom: 1px solid var(--b-c);
 }
 
-.g-flex-cc{
+.g-flex-cc {
   display: flex;
   justify-content: center;
   align-items: center;
