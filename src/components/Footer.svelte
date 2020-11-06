@@ -48,9 +48,7 @@
   <footer class="row">
     <span>崮生 • 一些随笔 🎨</span>
     <span>copyright © 2018.11.6 - {new Date().getFullYear()}.{new Date().getMonth() + 1}</span>
-    <a href="https://shenzilong.cn/blog/feed">
-      <img class="ml-1 h-3" src="/static/_themes/feed.png" alt="rss订阅" title="rss订阅" />
-    </a>
+    <a href="/blog/feed"> <img class="ml-1 h-3" src="/static/_themes/feed.png" alt="rss订阅" title="rss订阅" /> </a>
     <a href="https://beian.miit.gov.cn">湘ICP备18021783号</a>
     <a href="https://github.com/2234839/doc">GIT HUB</a>
   </footer>
