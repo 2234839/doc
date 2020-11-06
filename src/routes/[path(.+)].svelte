@@ -9,6 +9,8 @@
   export let title: string;
   export let menu: any[];
   import { run } from "../lib/article";
+  declare const MathJax: any;
+
   onDestroy(() => {
     if (typeof document !== "undefined") {
       /** 动态生成的元素没有被svelte清除掉，所以这里主动将遗留下来的元素清掉 */
@@ -39,6 +41,10 @@
       document.querySelectorAll("div.vditor-math").forEach((el) => {
         el.textContent = "$$\n" + el.textContent + "\n$$";
       });
+      /** 重新触发渲染 */
+      if (typeof MathJax !== "undefined") {
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+      }
     }
   });
 </script>
