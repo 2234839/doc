@@ -5,8 +5,8 @@
 
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
-  export let article;
-  export let title;
+  export let article: any;
+  export let title: string;
   export let menu: any[];
   import { run } from "../lib/article";
   onDestroy(() => {
@@ -17,7 +17,7 @@
   });
 
   onMount(async () => {
-    let old = undefined;
+    let old = undefined as any;
     render();
 
     setInterval(
@@ -31,6 +31,14 @@
     function render() {
       run();
       old = article;
+
+      /** 对公式块的内容进行重写，让他能够被 mathjax 所匹配到 */
+      document.querySelectorAll("span.vditor-math").forEach((el) => {
+        el.textContent = "$" + el.textContent + "$";
+      });
+      document.querySelectorAll("div.vditor-math").forEach((el) => {
+        el.textContent = "$$\n" + el.textContent + "\n$$";
+      });
     }
   });
 </script>
