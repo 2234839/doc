@@ -56,7 +56,9 @@
   <title>崮生 一些随笔</title>
 </svelte:head>
 
-<h1 on:click={() => copy('天行健，君子以自强不息!')} style="font-family: QIJIC">天行健，君子以自强不息!</h1>
+<h1 on:click={() => copy('天行健，君子以自强不息!')} class="justify-center" style="font-family: QIJIC">
+  天行健，君子以自强不息!
+</h1>
 
 <figure class="flex justify-center">
   <img class="llej-bigImg" alt="必应今日美图" src="//shenzilong.cn/util/redirect_to_bing_daily_picture_address" />
@@ -65,4 +67,5 @@
 <p>
   {#if user && user.role === 'admin'}<strong>欢迎尊者归来，愿不忘初心、</strong>{/if}
   <strong>永远前进.</strong>
+  <strong>致良知.</strong>
 </p>
