@@ -121,7 +121,7 @@ export function run() {
 
   /** 获取代码块的所使用的语言 */
   function getLanguage(el: HTMLElement) {
-    return (el.className.match(/lang-(.*)\b/) || [])[1];
+    return (el.className.match(/language-(.*)\b/) || [])[1];
   }
   /**
    * 根据内容来计算高度
