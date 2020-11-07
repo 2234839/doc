@@ -8,14 +8,8 @@
   import { messageList } from "../data/store/store";
   import { newLog } from "../lib/log/ali_log";
 
-  export let segment;
+  export let segment:any;
 
-  function beforeunload_handler(e) {
-    // console.log(e);
-  }
-  function handleKeydown(e) {
-    // console.log(e);
-  }
 
   onMount(() => {
     /** 加载阿里的字体工具 */
@@ -45,7 +39,7 @@
 </style>
 
 <StyleSheet />
-<svelte:window on:beforeunload={beforeunload_handler} on:keydown={handleKeydown} />
+
 <NegativeOneScreen />
 <G_Message
   bind:messageList={$messageList}

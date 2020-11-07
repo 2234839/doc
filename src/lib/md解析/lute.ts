@@ -26,9 +26,17 @@ lute.SetJSRenderers({
     HTML2Md: html2MdRenderer,
   },
 });
+
+/** 对引用块进行渲染 */
+lute.SetBlockRef(true)
+/** 渲染 id （渲染为空） */
 lute.SetKramdownIAL(true);
 /** 标题的链接 a 标签渲染 */
 lute.SetHeadingAnchor(true);
+/** 开启术语修正的话会默认在中西文之间插入空格。 */
+lute.SetFixTermTypo(true);
+
+/** 设置块id 的形式 */
 lute.SetKramdownIALIDRenderName("data-block-id");
 
 // http://192.168.11.2/bool_dev_team/npp_beta/issues/63

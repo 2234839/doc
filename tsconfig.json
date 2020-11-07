@@ -9,6 +9,7 @@
 		],
 		"strict": true,
 		"noImplicitAny": true,
+		"noImplicitThis": true,
 		"module": "ESNext", /* Specify moduleC code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
 		"target": "ES2015"
 	},

@@ -26,7 +26,7 @@ class AliLogTracker {
   }
   push(key: string, value: any) {
     if (!key || !value) {
-      return;
+      return this;
     }
     this.params_.push(key);
     this.params_.push(value);
