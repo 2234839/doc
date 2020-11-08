@@ -34,14 +34,16 @@
     });
     //@ts-ignore
     page.subscribe(({ path, params, query }) => {
-      if (old !== article.html) {
+      if (old !== article?.html) {
         render();
-        old = article.html;
+        if (article?.html) {
+          old = article?.html;
+        }
       }
     });
 
     function render() {
-      console.log('触发 render');
+      console.log("触发 render");
 
       run();
       const p = qs.parse(location.href);
