@@ -117,7 +117,17 @@ code {
   background-color: rgba(27, 31, 35, 0.05);
   border-radius: 6px;
 }
-
+table {
+  border-collapse: collapse;
+}
+th {
+  background-color: rgb(216, 216, 216);
+}
+th,
+td {
+  border: 1px solid #333;
+  padding: 0 3px;
+}
 .llej-body > main > p {
   margin-bottom: 2rem;
 }
