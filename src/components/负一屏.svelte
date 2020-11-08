@@ -6,7 +6,7 @@
   let show = false;
   onMount(() => {
     page.subscribe(({ path, params, query }) => {
-      console.log("[path]", path,show);
+      // console.log("[path]", path, show);
       if (path !== "/") {
         /** 其他页面首次进来就不弹负一屏了 */
         show = false;
@@ -23,7 +23,7 @@
     });
   });
   function showBody() {
-    document.querySelector(".llej-body").scrollIntoView({
+    document.querySelector(".llej-body")?.scrollIntoView({
       behavior: "smooth",
       block: "end",
       inline: "nearest",

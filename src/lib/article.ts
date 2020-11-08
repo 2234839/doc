@@ -72,7 +72,7 @@ export function run() {
     return true;
   });
   if (show_editor.length) {
-    console.log("开始加载代码", show_editor);
+    // console.log("开始加载代码", show_editor);
     //@ts-ignore
     // require.config({ paths: { vs: "/node_modules/monaco-editor/min/vs" } });
     require.config({
@@ -84,7 +84,7 @@ export function run() {
       monaco: typeof import("../node_modules/monaco-editor/esm/vs/editor/editor.api"),
     ) => {
       show_editor.forEach(([el, div]) => {
-        console.log("[[el, div]]", [el, div]);
+        // console.log("[[el, div]]", [el, div]);
         el.style.display = "none";
         var editor = monaco.editor.create(div, {
           value: el.innerText,
@@ -103,7 +103,6 @@ export function run() {
         if (loading_div) {
           loading_div.remove();
         }
-        console.log("渲染完成");
 
         editor.onDidChangeModelContent((e: any) => {
           editorAdapaHeight(editor, div);

@@ -22,13 +22,11 @@ let html2MdRenderer = {
     return ["", Lute.WalkContinue];
   },
   renderBlockRefText(node: any) {
-    const src=blockIDToWebPath(已准备好的文档资源, BlockRefID)
-    if(src){
-
+    const src = blockIDToWebPath(已准备好的文档资源, BlockRefID);
+    if (src) {
       return [`<a href="${src}">${node.TokensStr()}</a>`, Lute.WalkStop];
-    }else{
+    } else {
       return [`[[ ${node.TokensStr()} ]]`, Lute.WalkStop];
-
     }
   },
 };
@@ -66,5 +64,15 @@ export function 获取思源笔记id的路径(path: string) {
 }
 
 export function blockIDToWebPath(resource: unPromise<typeof 文档资源> | null, blockId: string) {
-  return resource?.md_file?.find((el) => el.fileID === blockId)?.webPath;
+  const mathStr = `{: id="${blockId}"}`;
+  const doc = resource?.md_file?.find((el) => el.fileID === blockId || el.mdStr.includes(mathStr));
+  if (doc) {
+    if (doc.mdStr.includes(mathStr)) {
+      return `${doc?.webPath}?&blockId=${blockId}`;
+    } else {
+      return doc?.webPath;
+    }
+  } else {
+    return null;
+  }
 }
