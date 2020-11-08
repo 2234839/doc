@@ -29,6 +29,26 @@ let html2MdRenderer = {
       return [`[[ ${node.TokensStr()} ]]`, Lute.WalkStop];
     }
   },
+  renderBlockEmbed(node: any) {
+    const id = node.TokensStr().slice(3, 25);
+    return [
+      `<div title="尚未开发完成，完成后应该直接渲染对应部分的数据">
+    <a href="${blockIDToWebPath(已准备好的文档资源, id)}">块引用-> ${node.TokensStr()}</a>
+  </div>`,
+      Lute.WalkStop,
+    ];
+    const mdStr = blockIDToCode(已准备好的文档资源, id);
+    if (mdStr) {
+      return [
+        `<div>
+      <a href="${blockIDToWebPath(已准备好的文档资源, id)}">下面的内容引用自 ${node.TokensStr()}</a>
+      ${lute.MarkdownStr("", mdStr)}</div>`,
+        Lute.WalkStop,
+      ];
+    } else {
+      return [`[[${id}]]`, Lute.WalkStop];
+    }
+  },
 };
 lute.SetJSRenderers({
   renderers: {
@@ -71,6 +91,27 @@ export function blockIDToWebPath(resource: unPromise<typeof 文档资源> | null
       return `${doc?.webPath}?&blockId=${blockId}`;
     } else {
       return doc?.webPath;
+    }
+  } else {
+    return null;
+  }
+}
+
+/** 获取该块 id 所在的源码 */
+export function blockIDToCode(resource: unPromise<typeof 文档资源> | null, blockId: string) {
+  const mathStr = `{: id="${blockId}"}`;
+  const doc = resource?.md_file?.find((el) => el.mdStr.includes(mathStr));
+  /** 应该要想办法处理嵌入内容的相对路径 */
+  if (doc) {
+    if (doc.mdStr.includes(mathStr)) {
+      const restCode = doc.mdStr.split(mathStr)[0];
+      // {: id="20201107140928-52vsngq"}
+      const chunk = restCode.split(/^{: id="\d{14}-.{7}"}/gm).filter((el) => el != "\n");
+      console.log("[chunk]", chunk);
+      return chunk[chunk.length - 1];
+    } else {
+      /** 嵌入了整个页面 */
+      return doc.mdStr;
     }
   } else {
     return null;
