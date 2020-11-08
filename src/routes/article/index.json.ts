@@ -1,4 +1,3 @@
-import { promises as fsPromise } from "fs";
 import { resolve } from "path";
 import { Res } from "../../lib/api/res";
 import { doc_path } from "../../lib/env";
@@ -11,21 +10,13 @@ export async function get(req: any, res: any) {
 
   /** 找对应的文档资源 */
   const doc = docs.md_file.find((el) => el.virtual_path === filePath);
-  console.log("[filePath]", doc);
 
   if (doc) {
-    fsPromise
-      .readFile(doc.fullSrc)
-      .then(async (r) => {
-        const result = JSON.stringify(await md_parser_article(r.toString()));
-        res.writeHead(200, {
-          "Content-Type": "application/json",
-        });
-        res.end(result);
-      })
-      .catch((e) => {
-        Res.failure(res, "打开文件失败");
-      });
+    const result = JSON.stringify(await md_parser_article(doc.mdStr));
+    res.writeHead(200, {
+      "Content-Type": "application/json",
+    });
+    res.end(result);
   } else {
     Res.failure(res, "没有找到对应的文件");
   }

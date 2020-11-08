@@ -12,7 +12,6 @@ export namespace AJAX {
 }
 type apis = typeof apis;
 type method = keyof apis;
-declare type unPromise<T> = T extends Promise<infer R> ? R : T;
 
 /** ═════════🏳‍🌈 超轻量级的远程调用，完备的类型提示！ 🏳‍🌈═════════  */
 

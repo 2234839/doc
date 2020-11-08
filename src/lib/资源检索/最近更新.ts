@@ -1,7 +1,7 @@
 import * as fs from "fs/promises";
 import * as Path from "path";
 import { doc_path } from "../env";
-import { 去除思源笔记id的路径 } from "../md解析/lute";
+import { 去除思源笔记id的路径, 获取思源笔记id的路径 } from "../md解析/lute";
 
 let oldTime = Date.now();
 
@@ -33,29 +33,42 @@ export const 最近更新 = [];
 
 async function main() {
   const allFile = await 获取项目下所有文件(doc_path);
-  const md_file = allFile
-    .filter((el) => !el.isDirectory && el.fullSrc.endsWith(".md"))
-    .map((el) => {
-      const r = {
-        ...el,
-        /** 虚拟路径，因为思源模式的笔记会在文件名后面加上 id,而这个值会去除掉那些id */
-        get virtual_path() {
-          return 去除思源笔记id的路径(el.fullSrc);
-        },
-      };
-      return r;
-    })
-    .sort((a, b) => b.mtimeMs - a.mtimeMs);
+  const md_file = (
+    await Promise.all(
+      allFile
+        .filter((el) => !el.isDirectory && el.fullSrc.endsWith(".md"))
+        .map(async (el) => {
+          const mdStr = await fs.readFile(el.fullSrc, { encoding: "utf8" });
+          const r = {
+            ...el,
+            /** 虚拟路径，因为思源模式的笔记会在文件名后面加上 id,而这个值会去除掉那些id */
+            virtual_path: 去除思源笔记id的路径(el.fullSrc),
+            fileID: 获取思源笔记id的路径(el.fullSrc),
+            /** 文本源码 */
+            mdStr,
+            webPath: ToWebPath(el),
+          };
+          return r;
+        }),
+    )
+  ).sort((a, b) => b.mtimeMs - a.mtimeMs);
 
   const menu = allFile.filter((el) => el.isDirectory);
-  return {
+  const r = {
     allFile,
     md_file,
     menu,
   };
+  console.log(
+    `刷新资源完毕， 共有 ${md_file.length} 篇文`,
+    已准备好的文档资源 ? `原有 ${已准备好的文档资源.md_file.length} 篇` : "",
+  );
+  已准备好的文档资源 = r;
+  return r;
 }
 
-export function ToWebSitePath(d: docFileNode) {
+/** 注意没有带上web前缀 */
+export function ToWebPath(d: docFileNode) {
   if (d.isDirectory) {
     return (d.fullSrc.replace(doc_path, "") + "/").replace(/** 网络路径通常使用 / */ /[\\\/]/g, "/");
   } else {
@@ -66,6 +79,8 @@ export function ToWebSitePath(d: docFileNode) {
   }
 }
 export let 文档资源 = main();
+/** 没有准备好的时候是 null */
+export let 已准备好的文档资源 = null as null | unPromise<typeof 文档资源>;
 
 /** 会触发更新资源的流程 */
 export async function 获取文档资源(强制刷新 = false) {

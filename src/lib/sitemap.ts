@@ -1,5 +1,5 @@
 import { siteBaseUrl } from "../data/app.config";
-import { ToWebSitePath, 获取文档资源 } from "./资源检索/最近更新";
+import { ToWebPath, 获取文档资源 } from "./资源检索/最近更新";
 
 export const siteMap = generateSiteMap();
 
@@ -13,7 +13,7 @@ export async function generateSiteMap() {
       .map((el) => {
         return `
             <url>
-                <loc>${siteBaseUrl}${ToWebSitePath(el)}</loc>
+                <loc>${siteBaseUrl}${ToWebPath(el)}</loc>
                 <lastmod>${new Date(el.mtimeMs).toISOString()}</lastmod>
             </url>
         `;
