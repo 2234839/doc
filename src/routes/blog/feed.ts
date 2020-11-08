@@ -18,9 +18,9 @@ export async function get(req: any, res: any) {
   <title>${el.isDirectory ? el.basename : 去除思源笔记id的路径(el.basename)}</title>
   <link>${siteBaseUrl}${el.webPath}</link>
   <description> 崮生 </description>
-  <content:encoded>
+  <content:encoded xml:base="${siteBaseUrl}${el.webPath}">
     <![CDATA[
-      ${lute.MarkdownStr("", el.mdStr)}
+      ${lute.MarkdownStr("", el.mdStr) }
     ]]>
   </content:encoded>
 </item>
