@@ -86,3 +86,11 @@
 {:else if article}
   {@html article.html}
 {/if}
+
+<blockquote class="mt-4 text-sm">
+  <p>
+    by 崮生 from <a href="https://shenzilong.cn">崮生 • 一些随笔 🎨</a>
+    <br /> 本文欢迎分享与聚合，全文转载未经授权（ <a
+      href="https://shenzilong.cn/关于/申子龙.html#我的联系方式">联系我</a>）不许可。
+  </p>
+</blockquote>
