@@ -31,8 +31,15 @@ export const API = new Proxy(
       return (...arg: any) => RC(p, arg);
     },
   },
-) as apis;
+) as apisPromiseify;
 
+
+/** apis 中包含的方法可能不是返回 promise 的，但 RC 调用后的一定是返回 promsie */
+type apisPromiseify = {
+  readonly [K in keyof apis]: (
+    ...arg: Parameters<apis[K]>
+  ) => Promise<unPromise<ReturnType<apis[K]>>>;
+};
 export function 直接调用(ctx: any, method: string, arg: any[]) {
   if (!Object.hasOwnProperty.call(ctx, method)) {
     console.error("没有找到对应的方法");
