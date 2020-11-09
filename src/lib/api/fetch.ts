@@ -23,7 +23,6 @@ export function RC<K extends method>(method: K, data: Parameters<apis[K]>): Prom
     return import("./apis").then((r: any) => 直接调用(r, method, data));
   }
 }
-
 /** 包装了一次的 RC 方便调整到函数定义  */
 export const API = new Proxy(
   {},
