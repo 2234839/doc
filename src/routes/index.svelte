@@ -1,13 +1,20 @@
 <script context="module" lang="ts">
+  import { API } from "../lib/api/fetch";
+
   export async function preload(page: any, session: any) {
-    return { user: {} };
+    return { user: {}, articleList: await API.获取最近更新() };
   }
 </script>
 
 <script lang="ts">
   import { copy } from "../lib/dom操作/复制";
-  import { API } from "../lib/api/fetch";
-  let RCarticle = API.获取最近更新();
+  export let articleList: {
+    webPath: string;
+    name: string;
+  }[];
+  // API.最新动态_rss().then((r) => {
+  //   console.log("[r]", r);
+  // });
   export let user: any;
 </script>
 
@@ -72,13 +79,9 @@
   <strong>致良知.</strong>
 </p>
 
-{#await RCarticle then articleList}
-  <h2 class="mt-8">最近更新：</h2>
-  <div class="flex flex-wrap">
-    {#each articleList as article}
-      <div class="w-full lg:w-1/5 md:w-1/4 sm:w-1/2"><a href={article.webPath}>{article.name}</a></div>
-    {/each}
-  </div>
-{:catch e}
-  <b>获取最新文章失败，抱歉</b>
-{/await}
+<h2 class="mt-8">最近更新：</h2>
+<div class="flex flex-wrap">
+  {#each articleList as article}
+    <div class="w-full lg:w-1/5 md:w-1/4 sm:w-1/2"><a href={article.webPath}>{article.name}</a></div>
+  {/each}
+</div>
