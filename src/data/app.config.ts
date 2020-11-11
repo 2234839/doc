@@ -7,11 +7,13 @@ export const RssHub = [
     title: "崮生的哔哩哔哩动态",
     webUrl: "这里要放动态页面地址",
     isEncode: false,
-  },
-  {
+    icon:'https://www.bilibili.com/favicon.ico'
+},
+{
     RssUrl: "https://rss.lilydjwg.me/zhihu/chen-yin-72-96",
     title: "崮生的知乎动态",
     webUrl: "这里要放动态页面地址",
     isEncode: true,
+    icon:'https://www.zhihu.com/favicon.ico'
   },
 ];

@@ -90,8 +90,11 @@
   <h2 class="mt-8">崮生在其他地方的踪迹：</h2>
   <div class="">
     {#each rssList as rss}
-      <div class="mb-3 rounded-lg border py-2">
-        <a class="px-2" href={rss.content.webUrl}>{rss.content.title}</a>
+      <div class="mb-3 rounded-lg border pb-2 pt-1">
+        <h4 class="px-2 border my-0 py-1 mb-1" style="border-style:none none solid none">
+          <img class="h-5 w-5 mr-3" src={rss.平台.icon} alt="信息来源站 icon" />
+          <a href={rss.content.webUrl}>{rss.content.title}</a>
+        </h4>
         <div class="overflow-y-auto px-2" style="max-height:10rem">
           <div>
             {@html rss.content.des}
