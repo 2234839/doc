@@ -12,9 +12,7 @@
     webPath: string;
     name: string;
   }[];
-  // API.最新动态_rss().then((r) => {
-  //   console.log("[r]", r);
-  // });
+  const RCrss = API.最新动态_rss();
   export let user: any;
 </script>
 
@@ -85,3 +83,23 @@
     <div class="w-full lg:w-1/5 md:w-1/4 sm:w-1/2"><a href={article.webPath}>{article.name}</a></div>
   {/each}
 </div>
+
+{#await RCrss}
+  <b class="text-blue-700">正在追踪崮生的踪迹...</b>
+{:then rssList}
+  <h2 class="mt-8">崮生在其他地方的踪迹：</h2>
+  <div class="">
+    {#each rssList as rss}
+      <div class="mb-3 rounded-lg border py-2">
+        <a class="px-2" href={rss.content.webUrl}>{rss.content.title}</a>
+        <div class="overflow-y-auto px-2" style="max-height:10rem">
+          <div>
+            {@html rss.content.des}
+          </div>
+        </div>
+      </div>
+    {/each}
+  </div>
+{:catch e}
+  <b>追踪崮生的踪迹失败...</b>
+{/await}
