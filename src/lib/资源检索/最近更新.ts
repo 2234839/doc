@@ -1,7 +1,7 @@
 import * as fs from "fs/promises";
 import * as Path from "path";
 import { doc_path } from "../env";
-import { 去除思源笔记id的路径, 获取思源笔记id的路径 } from "../md解析/lute";
+import { 去除思源笔记id的路径, 获取思源笔记id的路径 } from "../md解析/lute.util";
 
 let oldTime = Date.now();
 

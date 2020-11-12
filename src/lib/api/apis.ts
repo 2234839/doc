@@ -1,4 +1,4 @@
-import { 去除思源笔记id的路径 } from "../md解析/lute";
+import { 去除思源笔记id的路径 } from "../md解析/lute.util";
 import { ToWebPath, 获取文档资源 } from "../资源检索/最近更新";
 
 export async function 获取最近更新() {

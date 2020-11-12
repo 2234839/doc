@@ -15,9 +15,6 @@ interface RSS_data {
     pubDate: Date;
   };
 }
-
-let data = [] as RSS_data[];
-
 const fun_cache = new Fun_Cache(5 * 60 * 1000);
 
 export function 最新动态_rss() {

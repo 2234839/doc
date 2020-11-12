@@ -32,6 +32,7 @@
     "postcss-load-config": "^2.1.0",
     "postcss-url": "^8.0.0",
     "qs": "^6.9.4",
+    "rollup-plugin-async": "^1.2.0",
     "rollup-plugin-postcss": "^3.1.8",
     "serve-static": "^1.14.1",
     "sirv": "^1.0.0",

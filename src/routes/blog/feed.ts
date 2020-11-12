@@ -1,5 +1,6 @@
 import { siteBaseUrl } from "../../data/app.config";
-import { lute, 去除思源笔记id的路径 } from "../../lib/md解析/lute";
+import { lute } from "../../lib/md解析/lute";
+import { 去除思源笔记id的路径 } from "../../lib/md解析/lute.util";
 import { 获取文档资源 } from "../../lib/资源检索/最近更新";
 
 /** post 接口做预览之用 */

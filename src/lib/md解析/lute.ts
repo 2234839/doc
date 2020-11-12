@@ -68,21 +68,6 @@ lute.SetFixTermTypo(true);
 /** 设置块id 的形式 */
 lute.SetKramdownIALIDRenderName("data-block-id");
 
-// http://192.168.11.2/bool_dev_team/npp_beta/issues/63
-// https://github.com/2234839/wxtool/issues/1
-
-export function 去除思源笔记id的路径(path: string) {
-  if (path.endsWith(".sy.md")) {
-    return path.slice(0, -29) + ".md";
-  } else {
-    return path;
-  }
-}
-
-export function 获取思源笔记id的路径(path: string) {
-  return path.slice(-28, -6);
-}
-
 export function blockIDToWebPath(resource: unPromise<typeof 文档资源> | null, blockId: string) {
   const mathStr = `{: id="${blockId}"}`;
   const doc = resource?.md_file?.find((el) => el.fileID === blockId || el.mdStr.includes(mathStr));
