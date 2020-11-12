@@ -1,19 +1,14 @@
-<script>
-  export let segment;
-  $: decodeSegment = typeof segment === "string" ? decodeURIComponent(segment) : segment;
-  const routerList = ["page", "关于", "blog"];
-  $: tag = (() => {
-    if (decodeSegment === undefined) {
-      return undefined;
-    } else {
-      if (routerList.includes(decodeSegment)) {
-        return decodeSegment;
-      } else {
-        return "blog";
-      }
-    }
-  })();
-  // $: console.log("[segment, tag]", segment, tag);
+<script lang="ts">
+  export let segment: string;
+  $: decodeSegment = decodeURIComponent(segment || "");
+  // $: console.log("[segment] 2", decodeSegment);
+  const routerList = [
+    { title: "主页", link: "/" },
+    { title: "关于崮生", link: "/关于/申子龙.html" },
+    { title: "博客", link: "/blog" },
+  ];
+
+  $: 一级选中 = routerList.find((el) => el.link.split("/")[1] === decodeSegment) || routerList[2];
 </script>
 
 <style>
@@ -64,14 +59,8 @@
 
 <nav>
   <ul>
-    <li>
-      <a aria-current={tag === undefined ? 'page' : undefined} href="/">主页</a>
-    </li>
-    <li>
-      <a aria-current={decodeURIComponent(tag) === '关于' ? 'page' : undefined} href="/关于/申子龙.html">关于崮生</a>
-    </li>
-    <li>
-      <a rel="prefetch" aria-current={tag === 'blog' ? 'page' : undefined} href="/blog">博客</a>
-    </li>
+    {#each routerList as router}
+      <li><a aria-current={一级选中 === router || undefined} rel="prefetch" href={router.link}>{router.title}</a></li>
+    {/each}
   </ul>
 </nav>

@@ -10,7 +10,6 @@
 
   export let segment:any;
 
-
   onMount(() => {
     /** 加载阿里的字体工具 */
     fetch("https://at.alicdn.com/t/font_1833190_kk81z9186w.js").then(async (r) => {
