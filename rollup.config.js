@@ -14,10 +14,19 @@ const mode = process.env.NODE_ENV;
 const dev = mode === "development";
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
-const onwarn = (warning, onwarn) =>
-  (warning.code === "MISSING_EXPORT" && /'preload'/.test(warning.message)) ||
-  (warning.code === "CIRCULAR_DEPENDENCY" && /[/\\]@sapper[/\\]/.test(warning.message)) ||
-  onwarn(warning);
+/** 警告处理报告机制 */
+const onwarn = (warning, onwarn) => {
+  if ([ 'UNRESOLVED_IMPORT', 'THIS_IS_UNDEFINED' ].includes(warning.code)) {
+    return;
+  }
+  else {
+    // console.log('[warning]', warning);
+
+    (warning.code === "MISSING_EXPORT" && /'preload'/.test(warning.message)) ||
+      (warning.code === "CIRCULAR_DEPENDENCY" && /[/\\]@sapper[/\\]/.test(warning.message)) ||
+      onwarn(warning);
+  }
+};
 
 const preprocess = getPreprocessor({
   postcss: true,
@@ -39,38 +48,38 @@ export default {
       }),
       resolve({
         browser: true,
-        dedupe: ["svelte"],
+        dedupe: [ "svelte" ],
       }),
       commonjs(),
       typescript({ sourceMap: dev }),
       legacy &&
-        babel({
-          extensions: [".mjs", ".js", ".html", ".svelte"],
-          babelHelpers: "runtime",
-          exclude: ["node_modules/@babel/**"],
-          presets: [
-            [
-              "@babel/preset-env",
-              {
-                targets: "> 0.25%, not dead",
-              },
-            ],
+      babel({
+        extensions: [ ".mjs", ".js", ".html", ".svelte" ],
+        babelHelpers: "runtime",
+        exclude: [ "node_modules/@babel/**" ],
+        presets: [
+          [
+            "@babel/preset-env",
+            {
+              targets: "> 0.25%, not dead",
+            },
           ],
-          plugins: [
-            "@babel/plugin-syntax-dynamic-import",
-            [
-              "@babel/plugin-transform-runtime",
-              {
-                useESModules: true,
-              },
-            ],
+        ],
+        plugins: [
+          "@babel/plugin-syntax-dynamic-import",
+          [
+            "@babel/plugin-transform-runtime",
+            {
+              useESModules: true,
+            },
           ],
-        }),
+        ],
+      }),
 
       !dev &&
-        terser({
-          module: true,
-        }),
+      terser({
+        module: true,
+      }),
     ],
 
     preserveEntrySignatures: false,
@@ -92,7 +101,7 @@ export default {
         preprocess,
       }),
       resolve({
-        dedupe: ["svelte"],
+        dedupe: [ "svelte" ],
       }),
       commonjs(),
       typescript({ sourceMap: dev }),
