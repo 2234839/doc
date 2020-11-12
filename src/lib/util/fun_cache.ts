@@ -5,7 +5,11 @@ export class Fun_Cache {
     const r = this.cache.get(f);
     if (this.cache.has(f) && r) {
       if (Date.now() - r.t > this.缓存过期时间) {
-        this.cache.set(f, { t: Date.now(), r });
+        r.t = Date.now();
+        setTimeout(async () => {
+          await r.r;
+          this.cache.set(f, { t: Date.now(), r });
+        }, 0);
       }
       return r.r;
     } else {
