@@ -26,7 +26,18 @@ export function 最新动态_rss() {
 
 /** 获取所有指定的rss数据,输出的 des 是安全html */
 async function 最近动态() {
-  const allRss = (await Promise.all(RssHub.map((el) => rssFetch(el))))
+  const allRss = (
+    await Promise.all(
+      RssHub.map(async (el) => {
+        try {
+          return rssFetch(el);
+        } catch (error) {
+          console.warn("rss 获取失败", el, error);
+          return [];
+        }
+      }),
+    )
+  )
     .reduce((a, b) => [...a, ...b], [])
     .sort((a, b) => {
       return b.content.pubDate.getTime() - a.content.pubDate.getTime();
