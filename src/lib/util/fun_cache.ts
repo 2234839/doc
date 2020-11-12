@@ -1,5 +1,5 @@
 export class Fun_Cache {
-  cache = new WeakMap<any, { t: number; r: any }>();
+  cache = new Map<any, { t: number; r: any }>();
   constructor(private 缓存过期时间: number) {}
   run<T extends () => any>(f: T): ReturnType<T> {
     const r = this.cache.get(f);
@@ -7,6 +7,8 @@ export class Fun_Cache {
       if (Date.now() - r.t > this.缓存过期时间) {
         r.t = Date.now();
         setTimeout(async () => {
+          console.log("更新 rss 数据");
+
           await r.r;
           this.cache.set(f, { t: Date.now(), r });
         }, 0);
