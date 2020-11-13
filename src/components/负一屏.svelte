@@ -81,6 +81,7 @@
     src: url("//webfont.shenzilong.cn/generate_fonts_dynamically.ttf?font=令东齐伋复刻体&text=崮生•一些随笔)")
       format("truetype");
     font-style: normal;
+    font-display: swap;
     font-weight: normal;
   }
 </style>
