@@ -129,12 +129,33 @@ td {
   padding: 0 3px;
 }
 .llej-body > main > p {
-  margin-bottom: 2rem;
+  margin-bottom: 1.6rem;
+}
+.llej-body > main a{
+  border: 1px solid red;
 }
 
 .g-code_snippet {
   padding: 0.1rem 2rem;
   border-bottom: 1px solid var(--b-c);
+}
+
+/** 超链接的分割标识 */
+.llej-body > main a {
+  margin-right: 0.6rem;
+  position: relative;
+}
+
+.llej-body > main a::after {
+  content: "¸";
+  font-size:40%;
+  bottom:10%;
+  position: absolute;
+
+}
+
+.llej-body > main .vditor-anchor::after{
+  content: "";
 }
 
 .g-flex-cc {
