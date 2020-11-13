@@ -10,7 +10,17 @@
 /** 用于存储 editorKey 相关的东西，挂载在code le上 */
 const editorKey = "EDITOR_KEY";
 
+let timeoutId = null as null | number;
 export function run() {
+  if (timeoutId !== null) {
+    return;
+  } else if (typeof require === "undefined") {
+    timeoutId = (setTimeout(run, 10) as any) as number;
+  } else {
+    timeoutId = null;
+    console.log('[require]',require)
+  }
+
   /** 动态生成的元素没有被svelte清除掉，所以这里主动将遗留下来的元素清掉 */
   document.querySelectorAll(".run-code").forEach((el) => el.remove());
   /** 高亮代码块 */
@@ -32,7 +42,7 @@ export function run() {
     el.parentElement!.appendChild(editorDiv);
 
     const loadingDiv = document.createElement("div");
-    loadingDiv.classList.add("code-loading_div","g-flex-cc");
+    loadingDiv.classList.add("code-loading_div", "g-flex-cc");
     loadingDiv.style.cssText = `
       position: absolute;
       top: 0;
@@ -41,7 +51,7 @@ export function run() {
       height: 100%;
       background: #fff;
     `;
-    loadingDiv.innerHTML=`<div class="loading"></div>`
+    loadingDiv.innerHTML = `<div class="loading"></div>`;
     el.parentElement!.appendChild(loadingDiv);
 
     let resolve_cb;

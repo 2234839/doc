@@ -11,9 +11,6 @@
 
 	<link rel="manifest" href="manifest.json" crossorigin="use-credentials">
 	<link rel="icon" type="image/png" href="/favicon.png">
-	<script des="monaco-editor携带的loader"
-		src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.19.2/min/vs/loader.js"></script>
-
 
 	<!-- Sapper generates a <style> tag containing critical CSS
 	     for the current page. CSS for the rest of the app is
@@ -42,6 +39,8 @@
 	     and anything else it needs to hydrate the app and
 	     initialise the router -->
 %sapper.scripts%
+<script des="monaco-editor携带的loader"
+	src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.19.2/min/vs/loader.js"></script>
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 	</script>
