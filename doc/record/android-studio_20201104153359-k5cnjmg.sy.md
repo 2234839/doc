@@ -15,13 +15,13 @@ alt+enter ->  获取当前错误的修复提示
 
 ## 配置
 
-| 要实现的   | 配置项 | 配置值     |
-| -------------- | --------- | ------------- |
-| editText多行 | inputType | textMultiLine |
+| 要实现的    | 配置项 | 配置值     |
+| --------------- | --------- | ------------- |
+| editText 多行 | inputType | textMultiLine |
 
 ## 异常
 
-### 开启udp服务的时候报错
+### 开启 udp 服务的时候报错
 
 > method android.graphics.PorterDuffColorFilter android.support.graphics.drawable.VectorDrawableCompat.updateTintFilter(android.graphics.PorterDuffColorFilter, android.content.res.ColorStateList, android.graphics.PorterDuff$Mode) would have incorrectly overridden the package-private method in android.graphics.drawable.Drawable
 
@@ -33,16 +33,16 @@ alt+enter ->  获取当前错误的修复提示
 
 ### Unexpected error while executing: am start -n "com.example.user.ypologismosmoriwn/com.example.user.ypologismosmoriwn.MainActivity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER Error while Launching activity
 
-因为我将那个apk冻结了，于是启动不了activity
+因为我将那个 apk 冻结了，于是启动不了 activity
 
-## Fragment，类似于iframe的使用方式
+## Fragment，类似于 iframe 的使用方式
 
-1. 在layout中新建Activvity->Fragment+ViewModel创建新页面
-2. 在主页面布局中common中就可以使用fragment控件了
+1. 在 layout 中新建 Activvity->Fragment+ViewModel 创建新页面
+2. 在主页面布局中 common 中就可以使用 fragment 控件了
 
-## java get请求
+## java get 请求
 
-> 一定要注意 127.0.0.1 只能在本机用啊，最好养成用局域网ip的习惯
+> 一定要注意 127.0.0.1 只能在本机用啊，最好养成用局域网 ip 的习惯
 
 ```java
 public static String getHtml(String path) throws Exception {

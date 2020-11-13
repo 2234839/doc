@@ -1,7 +1,7 @@
 # vscode 编辑器 monaco-editor 使用
 
 - pubdate:2019-06-28 16:25:11
-- tags:工具,vscode
+- tags:工具，vscode
 
 ---
 

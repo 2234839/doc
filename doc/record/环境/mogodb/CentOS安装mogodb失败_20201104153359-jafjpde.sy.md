@@ -1,7 +1,7 @@
-# centOS安装mogodb失败
+# centOS 安装 mogodb 失败
 
 - pubdate:2019-07-04 10:51:28
-- tags:环境,mogodb
+- tags:环境，mogodb
 
 ---
 
@@ -17,7 +17,7 @@ l: [Errno 14] HTTP Error 404 - Not Found
 Trying other mirror.
 ```
 
-## 解决方案1 - 失败了，又报了密钥错误，看方案2吧
+## 解决方案 1 - 失败了，又报了密钥错误，看方案 2 吧
 
 [方案来源](https://unix.stackexchange.com/questions/217083/yum-error-while-installing-mongodb-on-centos)
 
@@ -34,8 +34,8 @@ enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc
 ```
 
-## 解决方案2
+## 解决方案 2
 
-[方案来源](https://unix.stackexchange.com/questions/217083/yum-error-while-installing-mongodb-on-centos)Hasan Tayyar BESIK的回答
+[方案来源](https://unix.stackexchange.com/questions/217083/yum-error-while-installing-mongodb-on-centos) Hasan Tayyar BESIK 的回答
 
 我照着做就好了
