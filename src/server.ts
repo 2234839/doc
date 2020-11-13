@@ -1,19 +1,19 @@
 //@ts-ignore
 import * as sapper from "@sapper/server";
-import sirv from "sirv";
-import polka from "polka";
 import compression from "compression";
-import serveStatic from "serve-static";
 import fs from "fs";
-import { client_path, doc_path, root_path } from "./lib/env";
 import path from "path";
-import { 最近更新, 获取项目下所有文件 } from "./lib/资源检索/最近更新";
+import polka from "polka";
+import serveStatic from "serve-static";
+import sirv from "sirv";
+import { client_path, doc_path, root_path } from "./lib/env";
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === "development";
-function sendFile(filePath:string, res:any) {
+function sendFile(filePath: string, res: any) {
   // 这里到时候再完善
   if (filePath.endsWith(".js")) {
     res.setHeader("content-type", "application/javascript; charset=utf-8");
+    res.setHeader("Cache-Control", "public, max-age=86400");
   }
   fs.createReadStream(filePath).pipe(res);
 }
@@ -47,11 +47,6 @@ polka()
   .use(serveStatic(root_path))
   .use(serveStatic(doc_path))
   .use(compression({ threshold: 0 }), sirv("static", { dev }), sapper.middleware())
-  .listen(PORT, (err:Error) => {
+  .listen(PORT, (err: Error) => {
     if (err) console.log("error", err);
   });
-
-async function main() {
-  console.log("[list]", 最近更新);
-}
-main();
