@@ -8,7 +8,7 @@
   import { messageList } from "../data/store/store";
   import { newLog } from "../lib/log/ali_log";
 
-  export let segment:any;
+  export let segment: any;
 
   onMount(() => {
     /** 加载阿里的字体工具 */
@@ -47,7 +47,7 @@
   }} />
 <main class="llej-body flex flex-col">
   <Nav {segment} />
-  <main class="p-10 md:p-6">
+  <main class="p-10 md:p-6 md:pt-0">
     <slot />
   </main>
   <Footer />

@@ -14,6 +14,17 @@
   export let article: any;
   export let title: string;
   export let menu: any[];
+
+  let breadcrumbNavigation = [] as string[];
+  function 生成面包屑url(index: number) {
+    return (
+      breadcrumbNavigation
+        .slice(0, index + 1)
+        .map((el) => el)
+        .join("/") + (index !== breadcrumbNavigation.length - 1 ? "/" : "")
+    );
+  }
+
   onDestroy(() => {
     if (typeof document !== "undefined") {
       /** 动态生成的元素没有被svelte清除掉，所以这里主动将遗留下来的元素清掉 */
@@ -34,6 +45,7 @@
     });
     //@ts-ignore
     page.subscribe(({ path, params, query }) => {
+      breadcrumbNavigation = decodeURIComponent(path).split("/");
       if (old !== article?.html) {
         render();
         if (article?.html) {
@@ -73,9 +85,24 @@
   }
 </script>
 
+<style>
+  .c-bread {
+  }
+</style>
+
 <svelte:head>
   <title>{title} - 崮生</title>
 </svelte:head>
+{#if breadcrumbNavigation.length > 1}
+  <nav class="flex text-sm mt-1" title="当前页的父目录">
+    {#each breadcrumbNavigation as nav, index}
+      <a
+        class="c-bread bg-red-100 px-1 rounded-sm"
+        style="margin-right:0px"
+        href={生成面包屑url(index)}>{nav}{#if index < breadcrumbNavigation.length - 1}/{/if}</a>
+    {/each}
+  </nav>
+{/if}
 
 {#if menu}
   <ul>
