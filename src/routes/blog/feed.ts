@@ -14,7 +14,6 @@ export async function get(req: any, res: any) {
       ${(await 获取文档资源()).md_file
         .slice(0, 20)
         .map((el) => {
-          console.log("[el.fileID]", el.fileID);
           return `
 <item>
   <title>${el.isDirectory ? el.basename : 去除思源笔记id的路径(el.basename)}</title>
