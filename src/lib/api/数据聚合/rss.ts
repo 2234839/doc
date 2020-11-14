@@ -17,8 +17,8 @@ interface RSS_data {
 }
 const fun_cache = new Fun_Cache(5 * 60 * 1000);
 
-export function 最新动态_rss() {
-  return fun_cache.run(最近动态);
+export async function 最新动态_rss() {
+  return await fun_cache.run(最近动态);
 }
 
 /** 获取所有指定的rss数据,输出的 des 是安全html */
