@@ -18,7 +18,6 @@ export function run() {
     timeoutId = (setTimeout(run, 10) as any) as number;
   } else {
     timeoutId = null;
-    console.log('[require]',require)
   }
 
   /** 动态生成的元素没有被svelte清除掉，所以这里主动将遗留下来的元素清掉 */

@@ -20,7 +20,7 @@
   let href = "";
   beforeUpdate(() => {
     if (href !== location.href) {
-      newLog().push("lable", "落地页").logger();
+      newLog().push("label", "落地页").logger();
       href = location.href;
     }
   });

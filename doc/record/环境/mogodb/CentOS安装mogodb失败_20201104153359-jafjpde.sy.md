@@ -1,4 +1,4 @@
-# centOS 安装 mogodb 失败
+# CentOS 安装 mogodb 失败
 
 - pubdate:2019-07-04 10:51:28
 - tags:环境，mogodb

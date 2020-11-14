@@ -40,7 +40,7 @@ alt+enter ->  获取当前错误的修复提示
 1. 在 layout 中新建 Activvity->Fragment+ViewModel 创建新页面
 2. 在主页面布局中 common 中就可以使用 fragment 控件了
 
-## java get 请求
+## Java get 请求
 
 > 一定要注意 127.0.0.1 只能在本机用啊，最好养成用局域网 ip 的习惯
 

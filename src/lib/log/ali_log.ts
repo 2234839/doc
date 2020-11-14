@@ -16,13 +16,13 @@ function createHttpRequest() {
 class AliLogTracker {
   private uri_: string;
   private params_: any[];
-  private httpRequest_: XMLHttpRequest;
   constructor(private host: string, private project: string, private logStore: string) {
     this.uri_ = "https://" + project + "." + host + "/logstores/" + logStore + "/track?APIVersion=0.6.0";
     this.params_ = new Array();
-    this.httpRequest_ = createHttpRequest();
-    this.push("href", decodeURIComponent(location.href));
-    this.push("uuid", read(store).uuid);
+    if (typeof window !== "undefined") {
+      this.push("href", decodeURIComponent(location.href));
+      this.push("uuid", read(store).uuid);
+    }
   }
   push(key: string, value: any) {
     if (!key || !value) {
@@ -33,6 +33,7 @@ class AliLogTracker {
     return this;
   }
 
+  /** 发送请求 */
   logger() {
     var url = this.uri_;
     var k = 0;
@@ -45,14 +46,22 @@ class AliLogTracker {
       ++k;
     }
     try {
-      this.httpRequest_.open("GET", url, true);
-      this.httpRequest_.send(null);
+      ajax_get(url);
     } catch (ex) {
-      if (window && window.console && typeof window.console.log === "function") {
-        console.log("Failed to log to ali log service because of this exception:\n" + ex);
-        console.log("Failed log data:", url);
-      }
+      console.log("Failed to log to ali log service because of this exception:\n" + ex);
+      console.log("Failed log data:", url);
     }
   }
 }
 export const newLog = () => GenerateAliLogTracker("cn-hangzhou.log.aliyuncs.com", "llej", "llej_doc");
+
+function ajax_get(url: string) {
+  if (typeof window === "undefined") {
+    var https = require("follow-redirects").https;
+    https.get(url);
+  } else {
+    const xhr = createHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.send(null);
+  }
+}

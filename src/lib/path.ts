@@ -1,5 +1,7 @@
 // import { try_pathToMd } from "../lib/md-parser";
 
+import { newLog } from "./log/ali_log";
+
 export async function preload(this: context, page: page, session: any) {
   console.log("[请求地址]", page);
   if (page.query.requester === "sapper") {

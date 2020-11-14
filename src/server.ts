@@ -7,6 +7,7 @@ import polka from "polka";
 import serveStatic from "serve-static";
 import sirv from "sirv";
 import { client_path, doc_path, root_path } from "./lib/env";
+import { newLog } from "./lib/log/ali_log";
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === "development";
 function sendFile(filePath: string, res: any) {
@@ -20,6 +21,9 @@ function sendFile(filePath: string, res: any) {
 
 polka()
   .use(function file_server(req, res, next) {
+    setTimeout(() => {
+      newLog().push("href", decodeURIComponent(req.url)).push("label", "preload").logger();
+    }, 0);
     const file_path = path.resolve(root_path, "./" + req.url);
     if (req.method === "GET") {
       fs.stat(file_path, function (err, stat) {
