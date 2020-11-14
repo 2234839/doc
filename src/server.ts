@@ -22,7 +22,7 @@ function sendFile(filePath: string, res: any) {
 polka()
   .use(function file_server(req, res, next) {
     setTimeout(() => {
-      newLog().push("href", decodeURIComponent(req.url)).push("label", "req").logger();
+      newLog().push("ip", req.ip).push("href", decodeURIComponent(req.url)).push("label", "req").logger();
     }, 0);
     const file_path = path.resolve(root_path, "./" + req.url);
     if (req.method === "GET") {
