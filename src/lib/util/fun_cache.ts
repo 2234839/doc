@@ -7,9 +7,8 @@ export class Fun_Cache {
       if (Date.now() - r.t > this.缓存过期时间) {
         r.t = Date.now();
         setTimeout(async () => {
-          await r.r;
-          this.cache.set(f, { t: Date.now(), r });
-        }, 0);
+          this.cache.set(f, { t: Date.now(), r: await f() });
+        });
       }
       return await r.r;
     } else {
