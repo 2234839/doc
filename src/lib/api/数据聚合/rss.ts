@@ -27,7 +27,7 @@ async function 最近动态() {
     await Promise.all(
       RssHub.map(async (el) => {
         try {
-          return rssFetch(el);
+          return await rssFetch(el);
         } catch (error) {
           console.warn("rss 获取失败", el, error);
           return [];
