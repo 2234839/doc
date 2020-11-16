@@ -1,7 +1,3 @@
-// import { try_pathToMd } from "../lib/md-parser";
-
-import { newLog } from "./log/ali_log";
-
 export async function preload(this: context, page: page, session: any) {
   console.log("[请求地址]", page);
   if (page.query.requester === "sapper") {
@@ -20,7 +16,7 @@ export async function preload(this: context, page: page, session: any) {
 
     const article = await res.json();
     if (article.code === -1) {
-      return this.error(404, "Not found");
+      return this.error(200, "Not found");
     }
     return { time: Date.now(), page, article: article, title: article.title };
   } else if (page.path.endsWith("/")) {

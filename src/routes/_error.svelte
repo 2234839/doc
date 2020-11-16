@@ -6,6 +6,10 @@
   import { stores } from "@sapper/app";
   export let status: number;
   export let error: any;
+  if (error.message === "Not found") {
+    /** 补丁，因为服务端对非200的请求会去请求另外一个服务所以path.ts 中将 404 以 200 的状态码传递了过来，所以这里再转回去 */
+    status = 404;
+  }
   const { page } = stores();
   const dev = process.env.NODE_ENV === "development";
 
