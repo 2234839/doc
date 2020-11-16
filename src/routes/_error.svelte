@@ -40,7 +40,7 @@
   <title>{status}</title>
 </svelte:head>
 
-<h1>{status}</h1>
+<h1 class="text-red-800">{status}</h1>
 
 <p>{error.message}</p>
 
