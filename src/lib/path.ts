@@ -15,9 +15,13 @@ export async function preload(this: context, page: page, session: any) {
     // console.log("[file res.ok]", res.ok);
     if (!res.ok) {
       /** 报错 404 */
+      return this.error(404, "请求失败");
+    }
+
+    const article = await res.json();
+    if (article.code === -1) {
       return this.error(404, "Not found");
     }
-    const article = await res.json();
     return { time: Date.now(), page, article: article, title: article.title };
   } else if (page.path.endsWith("/")) {
     const menu = await this.fetch("/menu.json?path=" + page.path).then((r) => {

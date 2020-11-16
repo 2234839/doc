@@ -14,3 +14,4 @@ export async function test(a: 1, b: number) {
 }
 
 export * from "./数据聚合/rss";
+export { find404Near } from "./其他辅助/404页面导流";
