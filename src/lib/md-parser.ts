@@ -3,12 +3,9 @@ import { lute } from "./md解析/lute";
 
 /** 解析文章md */
 export async function md_parser_article(md_str: string): Promise<article> {
-  const title = md_str.match(/(?<=^# ).*/);
-  if (title === null) throw "没有找到匹配的标题";
+  const title = md_str.match(/(?<=^# ).*/) || ["无题"];
 
-  const header = md_str.match(/(?<=^# .*?\n).*?(?=^---)/ms);
-  if (header === null) throw "没有找到匹配的头部信息";
-
+  const header = md_str.match(/(?<=^# .*?\n).*?(?=^---)/ms) || [""];
   const meta: { [name: string]: string[] } = {};
   header[0]
     .split("\n")
