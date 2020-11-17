@@ -21,7 +21,6 @@ export function minDistance<T>(l1: T[], l2: T[], equal?: (i1: number, i2: number
       } else {
         // 进行最小值分析
         let cost = 0;
-        // if (!equal(s1[i - 1], s2[j - 1])) {
         if (!equal(i - 1, j - 1)) {
           // 相同为0，不同置1
           cost = 1;
