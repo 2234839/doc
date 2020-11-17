@@ -1,5 +1,4 @@
 import { 去除思源笔记id的路径 } from "../../md解析/lute.util";
-import { sampleSize } from "../../纯算法/array";
 import { minDistance } from "../../纯算法/编辑距离";
 import { 获取文档资源 } from "../../资源检索/最近更新";
 
