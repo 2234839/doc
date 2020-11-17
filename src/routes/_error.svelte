@@ -14,7 +14,6 @@
   const dev = process.env.NODE_ENV === "development";
 
   const mayAddress = API.find404Near(decodeURIComponent($page.path));
-  mayAddress.then(console.log);
 </script>
 
 <style>

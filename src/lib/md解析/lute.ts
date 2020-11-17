@@ -63,7 +63,7 @@ lute.SetKramdownIAL(true);
 /** 标题的链接 a 标签渲染 */
 lute.SetHeadingAnchor(true);
 /** 开启术语修正的话会默认在中西文之间插入空格。这个会导致链接有一些问题 */
-// lute.SetFixTermTypo(true);
+lute.SetFixTermTypo(false);
 
 /** 设置块id 的形式 */
 lute.SetKramdownIALIDRenderName("data-block-id");
