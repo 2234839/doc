@@ -17,14 +17,14 @@
             { path: "/工具/代码片段.html", title: "代码片段" },
           ],
         },
-        {
-          title: "管理",
-          list: [
-            { path: "/blog/login", title: "登录" },
-            { path: "/blog/edit", title: "编辑" },
-            { path: "/page/rss.html", title: "rss推送" },
-          ],
-        },
+        // {
+        //   title: "管理",
+        //   list: [
+        //     { path: "/blog/login", title: "登录" },
+        //     { path: "/blog/edit", title: "编辑" },
+        //     { path: "/page/rss.html", title: "rss推送" },
+        //   ],
+        // },
       ],
     };
   }
@@ -43,9 +43,7 @@
 
   <ul>
     {#each menuItem.list as item}
-      <li>
-        <a rel="prefetch" href={item.path}>{item.title}</a>
-      </li>
+      <li><a rel="prefetch" href={item.path}>{item.title}</a></li>
     {/each}
   </ul>
 {/each}
