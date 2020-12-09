@@ -23,5 +23,7 @@
     },
     "cSpell.words": [
         "onwarn"
-    ]
+    ],
+    "editor.snippetSuggestions": "bottom",
+    "editor.suggest.snippetsPreventQuickSuggestions": false
 }
