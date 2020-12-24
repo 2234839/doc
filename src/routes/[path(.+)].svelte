@@ -14,7 +14,7 @@
   export let article: any;
   export let title: string;
   export let menu: any[];
-  // $:console.log(article)
+
   let breadcrumbNavigation = [] as string[];
   function 生成面包屑url(index: number) {
     return (
