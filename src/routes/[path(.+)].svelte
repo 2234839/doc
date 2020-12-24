@@ -57,7 +57,7 @@
     function render() {
       console.log("触发 render");
 
-      run();
+      // run();
       const p = qs.parse(location.href);
 
       if (p.blockId) {
@@ -75,7 +75,7 @@
       });
       /** 重新触发渲染 */
       if (typeof MathJax !== "undefined") {
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        // MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
       }
     }
   });

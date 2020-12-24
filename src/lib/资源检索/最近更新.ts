@@ -1,32 +1,56 @@
 import * as fs from "fs/promises";
 import * as Path from "path";
 import { doc_path } from "../env";
+import type { article } from "../md-parser";
 import { 去除思源笔记id的路径, 获取思源笔记id的路径 } from "../md解析/lute.util";
 
 let oldTime = Date.now();
-
+interface docObj {
+  fullSrc: string;
+  mtimeMs: number;
+  isDirectory: boolean;
+  basename: string;
+  getViewInfo: () => Promise<article>;
+}
 /** 文档的具体文件信息节点 */
 type docFileNode = { fullSrc: string; mtimeMs: number; /** 是目录节点 */ isDirectory: boolean; basename: string };
 export async function 获取项目下所有文件(src: string) {
   // 读取目录中的所有文件/目录
   const paths = await fs.readdir(src);
-  const files = [] as docFileNode[];
-  for (const path of paths) {
-    //拼合路径
-    const fullSrc = Path.resolve(src + "/" + path);
-    //判断文件状态
-    const st = await fs.stat(fullSrc);
-    // 判断是否为文件
-    const isDirectory = st.isDirectory();
-    const docObj = { fullSrc, mtimeMs: st.mtimeMs, isDirectory, basename: Path.basename(fullSrc) };
-    files.push(docObj);
+  const r: docObj[] = (
+    await Promise.all(
+      paths.map(async (path) => {
+        //拼合路径
+        const fullSrc = Path.resolve(src + "/" + path);
+        //判断文件状态
+        const st = await fs.stat(fullSrc);
+        // 判断是否为文件
+        const isDirectory = st.isDirectory();
+        const docObj = {
+          fullSrc,
+          mtimeMs: st.mtimeMs,
+          isDirectory,
+          basename: Path.basename(fullSrc),
+          async getViewInfo() {
+            return {
+              title: "测试中",
+              meta: [],
+              html: fullSrc,
+              md: "<您无权限查阅>",
+            };
+          },
+        };
 
-    // 如果是目录则递归调用自身
-    if (isDirectory && ![".git", "node_modules", "assets"].includes(docObj.basename)) {
-      files.push(...(await 获取项目下所有文件(fullSrc)));
-    }
-  }
-  return files;
+        // 如果是目录则递归调用自身
+        if (isDirectory && ![".git", "node_modules", "assets"].includes(docObj.basename)) {
+          return [docObj, ...(await 获取项目下所有文件(fullSrc))];
+        } else {
+          return [docObj];
+        }
+      }),
+    )
+  ).flat(1);
+  return r;
 }
 
 export const 最近更新 = [];

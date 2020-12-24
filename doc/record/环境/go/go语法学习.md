@@ -1,0 +1,64 @@
+# go 语法学习
+{: id="20201110231020-zdgkdst"}
+
+---
+
+我打算先从这开始了解 go 的语法 [30 分钟上手 GO 语言--基础语法](https://studygolang.com/topics/548)
+
+## 基本语法
+
+`package main` package 声明一个包，程序运行入口是包 `main`
+
+`import "fmt"`
+
+### 基本类型
+
+```go
+bool
+string
+int  int8  int16  int32  int64
+uint uint8 uint16 uint32 uint64 uintptr
+byte // uint8 的别名
+rune // int32 的别名// 代表一个Unicode码
+float32 float64
+complex64 complex128
+```
+
+变量在**定义时没有明确的初始化时会赋值为零值**。数值类型为 `0`，布尔类型为 `false`，字符串为 `""`。
+
+### 类型转换
+
+Go 的在不同类型之间的项目赋值时需要显式转换。表达式 T(v) 将值 v 转换为类型 `T`。比如：
+
+```go
+var i int = 42
+var f float64 = float64(i)
+var u uint = uint(f)
+// ------ 下面是等价的简洁写法
+i := 42           // int
+f := 3.142        // float64
+g := 0.867 + 0.5i // complex128
+```
+
+### 指针
+
+```go
+var p *int
+i := 42
+p = &i
+fmt.Println(*p) // 通过指针 p 读取 i
+*p = 21         // 通过指针 p 设置 i
+```
+
+## 怎么运行
+
+```
+go run main.go
+```
+
+### 怎么导入依赖
+
+`go mod init` 这
+
+
+{: id="20201110231008-4kvyoy9" type="doc"}

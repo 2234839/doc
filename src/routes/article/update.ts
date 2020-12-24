@@ -8,26 +8,4 @@ export async function post(req: any, res: any) {
   const filePath = root_path + path.replace(/\?.*$/, "");
   /** 还没想好权限校验怎么做，所以这里先不走 */
   return "";
-  fsPromise
-    .readFile(filePath)
-    .then(async (r) => {
-      res.writeHead(200, {
-        "Content-Type": "application/json",
-      });
-      fsPromise
-        .writeFile(filePath, req.body.md)
-        .then((r) => {
-          res.end(JSON.stringify({ code: 1, msg: "更新成功", r }));
-        })
-        .catch((e) => {
-          res.end(JSON.stringify({ code: -1, msg: "更新失败", e }));
-        });
-    })
-    .catch((e) => {
-      console.log("打开文件失败", filePath);
-      res.writeHead(404, {
-        "Content-Type": "application/json",
-      });
-      res.end(JSON.stringify({ code: -1, msg: "打开文件失败" }));
-    });
 }

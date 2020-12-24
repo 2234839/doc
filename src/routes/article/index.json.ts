@@ -12,7 +12,7 @@ export async function get(req: any, res: any) {
   const doc = docs.md_file.find((el) => el.virtual_path === filePath);
 
   if (doc) {
-    const result = JSON.stringify(await md_parser_article(doc.mdStr));
+    const result = JSON.stringify(await doc.getViewInfo());
     res.writeHead(200, {
       "Content-Type": "application/json",
     });

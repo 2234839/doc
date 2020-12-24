@@ -27,12 +27,6 @@ export async function md_parser_article(md_str: string): Promise<article> {
   };
 }
 
-export function try_pathToMd(path: string) {
-  md_parser_article(resolve(__dirname, path)).then((r) => {
-    console.log("解析成功", r);
-  });
-}
-
 export type article = {
   title: string;
   meta: any;
