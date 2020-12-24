@@ -4,3 +4,7 @@
 yarn-error.log
 /cypress/screenshots/
 /__sapper__/
+
+docHTML
+
+# D:/code/md2website/windows_md2website.exe "D:/code/doc/doc" "./docHTML/" "D:/code/md2website/src/views/"

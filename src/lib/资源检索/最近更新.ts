@@ -1,6 +1,6 @@
 import * as fs from "fs/promises";
 import * as Path from "path";
-import { doc_path } from "../env";
+import { doc_html_path, doc_path } from "../env";
 import type { article } from "../md-parser";
 import { 去除思源笔记id的路径, 获取思源笔记id的路径 } from "../md解析/lute.util";
 
@@ -32,10 +32,20 @@ export async function 获取项目下所有文件(src: string) {
           isDirectory,
           basename: Path.basename(fullSrc),
           async getViewInfo() {
+            const targetPath = fullSrc.replace(doc_path, doc_html_path).slice(0, -2) + "html";
+
+            const rawHtml = (await fs.readFile(targetPath)).toString();
+            const titleRes = rawHtml.match(/<title>([\s\S]*)<\/title>/);
+            const title = titleRes === null ? "无题" : titleRes[1];
+
+            /** 去除原始文件开头的一些脚本引入 */
+            // const html = rawHtml.replace(/[\s\S]*?<\/head>/, "")
+            const html = rawHtml
+
             return {
-              title: "测试中",
+              title,
               meta: [],
-              html: fullSrc,
+              html: html,
               md: "<您无权限查阅>",
             };
           },

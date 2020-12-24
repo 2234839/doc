@@ -6,4 +6,8 @@
     margin: 0;
     padding: 0;
   }
+
+  .markdown-body {
+    padding: 0px !important;
+  }
 </style>

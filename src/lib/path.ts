@@ -10,6 +10,7 @@ export async function preload(this: context, page: page, session: any) {
     const res = await this.fetch(`/article.json?path=${page.path.replace(/\.html/, ".md")}?requester=sapper`);
     // console.log("[file res.ok]", res.ok);
     if (!res.ok) {
+      console.log("404", page.path);
       /** 报错 404 */
       return this.error(404, "请求失败");
     }
@@ -30,6 +31,7 @@ export async function preload(this: context, page: page, session: any) {
       .join("<");
     return { time: Date.now(), page, menu: menu, title };
   } else {
+    console.log("404", page.path);
     return this.error(404, "Not found");
   }
 }

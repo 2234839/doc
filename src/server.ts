@@ -2,11 +2,11 @@
 import * as sapper from "@sapper/server";
 import compression from "compression";
 import fs from "fs";
-import path from "path";
+import path, { resolve } from "path";
 import polka from "polka";
 import serveStatic from "serve-static";
 import sirv from "sirv";
-import { client_path, doc_path, root_path } from "./lib/env";
+import { client_path, doc_html_path, doc_path, root_path } from "./lib/env";
 import { newLog } from "./lib/log/ali_log";
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === "development";
@@ -50,6 +50,7 @@ polka()
   })
   .use(serveStatic(root_path))
   .use(serveStatic(doc_path))
+  .use("/assets", serveStatic(resolve(doc_html_path, "./assets")))
   .use(compression({ threshold: 0 }), sirv("static", { dev }), sapper.middleware())
   .listen(PORT, (err: Error) => {
     if (err) console.log("error", err);
