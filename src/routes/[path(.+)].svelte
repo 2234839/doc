@@ -129,6 +129,6 @@
     <br />
     <a href={$page.path}>本文</a>欢迎分享与聚合，全文转载未经授权（ <a
       class="c-block-ref"
-      href="//%e5%85%b3%e4%ba%8e/%e7%94%b3%e5%ad%90%e9%be%99.html#20201228124011-yky6n68">联系我</a>）不许可。
+      href="//shenzilong.cn/%e5%85%b3%e4%ba%8e/%e7%94%b3%e5%ad%90%e9%be%99.html#20201228124011-yky6n68">联系我</a>）不许可。
   </p>
 </blockquote>
