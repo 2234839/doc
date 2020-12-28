@@ -35,14 +35,21 @@
   });
 
   onMount(async () => {
-    // console.log("触发 [path(.+)] onMount");
+    console.log("触发 [path(.+)] onMount");
     console.log(document.body.classList);
     let old = null as any;
     on(document.body, "click", "a", (e, el) => {
-      /** 在当前页面反复点击指向同页面的 a 标签的时候 */
-      const p = qs.parse(el.getAttribute("href") || "");
-      if (p.blockId) {
-        scrollIntoSelector(`[data-block-id="${p.blockId}"]`);
+      const a = el as HTMLAnchorElement;
+      const path = a.href.split("#")[0].toLowerCase();
+      const path2 = location.href.split("#")[0].toLowerCase();
+      console.log(path, path2, path === path2);
+      if (
+        /** 当前页面的链接不跳转 */
+        path === path2 &&
+        /** 单纯的 hash 跳转是允许的 */
+        !(a.getAttribute("href") || "").startsWith("#")
+      ) {
+        e.preventDefault();
       }
     });
     //@ts-ignore

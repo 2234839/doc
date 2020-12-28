@@ -39,8 +39,8 @@ export async function 获取项目下所有文件(src: string) {
             const title = titleRes === null ? "无题" : titleRes[1];
 
             /** 去除原始文件开头的一些脚本引入 */
-            // const html = rawHtml.replace(/[\s\S]*?<\/head>/, "")
-            const html = rawHtml
+            const html = rawHtml.replace(/[\s\S]*?<\/head>/, "")
+            // const html = rawHtml
 
             return {
               title,
