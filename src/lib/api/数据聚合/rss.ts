@@ -29,7 +29,7 @@ async function 最近动态() {
         try {
           return await rssFetch(el);
         } catch (error) {
-          console.warn("rss 获取失败", el, error);
+          // console.warn("rss 获取失败", el, error);
           return [];
         }
       }),

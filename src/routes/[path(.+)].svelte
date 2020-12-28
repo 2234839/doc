@@ -1,14 +1,16 @@
 <script context="module" lang="ts">
   import { preload as p1 } from "../lib/path";
   export const preload = p1;
-  declare const MathJax: any;
+  declare var md2website: any;
 </script>
 
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
-  import { stores } from "@sapper/app";
+  import { stores, goto } from "@sapper/app";
   import { on } from "../lib/dom操作/event_listener";
-  import { run } from "../lib/article";
+  //@ts-ignore
+  // import { run } from "../lib/article";
+
   import qs from "qs";
   const { page } = stores();
   export let article: any;
@@ -38,7 +40,12 @@
     console.log("触发 [path(.+)] onMount");
     console.log(document.body.classList);
     let old = null as any;
-    on(document.body, "click", "a", (e, el) => {
+
+    on(document.body, "click", "a", aSupper);
+    md2website.gotoClick = (e: Event) => {
+      aSupper(e, e.target! as HTMLElement);
+    };
+    function aSupper(e: Event, el: HTMLElement) {
       const a = el as HTMLAnchorElement;
       const path = a.href.split("#")[0].toLowerCase();
       const path2 = location.href.split("#")[0].toLowerCase();
@@ -50,8 +57,11 @@
         !(a.getAttribute("href") || "").startsWith("#")
       ) {
         e.preventDefault();
+      } else {
+        console.log("[a.href]", a.href);
+        goto(a.href);
       }
-    });
+    }
     //@ts-ignore
     page.subscribe(({ path, params, query }) => {
       breadcrumbNavigation = decodeURIComponent(path).split("/");
@@ -82,10 +92,6 @@
       document.querySelectorAll("div.vditor-math").forEach((el) => {
         el.textContent = "$$\n" + el.textContent + "\n$$";
       });
-      /** 重新触发渲染 */
-      if (typeof MathJax !== "undefined") {
-        // MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-      }
     }
   });
   function scrollIntoSelector(selector: string) {
