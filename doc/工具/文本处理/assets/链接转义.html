@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>链接转义</title>
+</head>
+
+<body style="background-color: #fff;display: flex;">
+	<textarea id="text"></textarea>
+	out:<div id="out" title="点击复制"></div>
+	<script>
+		const text = document.getElementById("text")
+		const out = document.getElementById("out")
+		text.addEventListener("input", e => {
+			out.textContent = text.value.replaceAll(' ', '%20')
+		})
+		out.addEventListener("click", e => {
+			copy(out.textContent)
+		})
+
+
+		const copy = (str) => {
+			// 第一种
+			navigator.clipboard.writeText(str);
+		};
+	</script>
+</body>
+
+</html>
