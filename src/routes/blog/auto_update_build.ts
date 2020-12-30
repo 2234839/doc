@@ -14,7 +14,7 @@ export async function get(req: IncomingMessage, res: any) {
     res.writeHead(200, {
       "Content-Type": "application/json",
     });
-    if ((payload.ref as string).startsWith("refs/tags/v")) {
+    if ((payload.ref as string).startsWith("refs/heads/gh-pages")) {
       res.end(JSON.stringify({ code: 200 }));
       /** 更新代码，刷新博客内容 */
       exec(
