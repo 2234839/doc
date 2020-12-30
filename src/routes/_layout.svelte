@@ -51,7 +51,7 @@
   }} />
 <main class="llej-body flex flex-col">
   <Nav {segment} />
-  <main class="p-10 md:p-6 md:pt-0">
+  <main class="pt-3 px-3">
     <slot />
   </main>
   <Footer />
