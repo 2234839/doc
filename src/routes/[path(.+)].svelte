@@ -58,11 +58,11 @@
         /** 单纯的 hash 跳转是允许的 */
         !(a.getAttribute("href") || "").startsWith("#")
       ) {
-        e.preventDefault();
       } else {
         console.log("[a.href]", a.href);
         goto(a.href);
       }
+      e.preventDefault();
     }
     //@ts-ignore
     page.subscribe(({ path, params, query }) => {
