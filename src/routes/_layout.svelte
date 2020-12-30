@@ -7,21 +7,25 @@
   import G_Message from "../components/Message/g-message.svelte";
   import { messageList } from "../data/store/store";
   import { newLog } from "../lib/log/ali_log";
+  import { API } from "../lib/api/fetch";
 
   export let segment: any;
 
   onMount(() => {
     /** 加载阿里的字体工具 */
-    fetch("https://at.alicdn.com/t/font_1833190_kk81z9186w.js").then(async (r) => {
-      const code = await r.text();
-      window.eval(code);
-    });
+    fetch("https://at.alicdn.com/t/font_1833190_kk81z9186w.js").then(
+      async (r) => {
+        const code = await r.text();
+        window.eval(code);
+      }
+    );
   });
   let href = "";
   beforeUpdate(() => {
     if (href !== location.href) {
       newLog().push("label", "落地页").logger();
       href = location.href;
+      API.踩一踩(decodeURIComponent(location.pathname), true);
     }
   });
 </script>

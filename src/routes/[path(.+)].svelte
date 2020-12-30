@@ -1,5 +1,6 @@
 <script context="module" lang="ts">
   import { preload as p1 } from "../lib/path";
+  import type { API } from "../lib/api/fetch";
   export const preload = p1;
   declare var md2website: any;
 </script>
@@ -15,6 +16,7 @@
   const { page } = stores();
   export let article: any;
   export let title: string;
+  export let 访问记录: typeof API.get访问记录.res;
   export let menu: any[];
 
   let breadcrumbNavigation = [] as string[];
@@ -108,16 +110,23 @@
 <svelte:head>
   <title>{title} - 崮生</title>
 </svelte:head>
-{#if breadcrumbNavigation.length > 1}
-  <nav class="flex text-sm mt-1" title="当前页的父目录">
-    {#each breadcrumbNavigation as nav, index}
-      <a
-        class="c-bread bg-red-100 px-1 rounded-sm"
-        style="margin-right:0px"
-        href={生成面包屑url(index)}>{nav}{#if index < breadcrumbNavigation.length - 1}/{/if}</a>
-    {/each}
-  </nav>
-{/if}
+<div class="flex justify-between">
+  {#if breadcrumbNavigation.length > 1}
+    <nav class="flex text-sm mt-1" title="当前页的父目录">
+      {#each breadcrumbNavigation as nav, index}
+        <a
+          class="c-bread bg-red-100 px-1 rounded-sm"
+          style="margin-right:0px"
+          href={生成面包屑url(index)}>{nav}{#if index < breadcrumbNavigation.length - 1}/{/if}</a>
+      {/each}
+    </nav>
+  {/if}
+
+  <div class="flex text-sm text-red-400">
+    <div title="浏览器运行时js上报次数">b {访问记录.browser_js_count}</div>,
+    <div title="本文被博客程序读取的次数">r {访问记录.readCount}</div>
+  </div>
+</div>
 
 {#if menu}
   <ul>
