@@ -139,7 +139,7 @@
 
 {#if menu}
   <ul>
-    [result] {#each menu as post}
+    {#each menu as post}
       <li><a rel="prefetch" href={post.path}>{post.title}</a></li>
     {/each}
   </ul>
