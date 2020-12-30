@@ -18,8 +18,8 @@
   export let title: string;
   export let 访问记录: typeof API.get访问记录.res;
   export let menu: any[];
-
-  let breadcrumbNavigation = [] as string[];
+  $: breadcrumbNavigation = decodeURIComponent($page.path).split("/");
+  // let breadcrumbNavigation = [] as string[];
   function 生成面包屑url(index: number) {
     return (
       breadcrumbNavigation
@@ -71,7 +71,6 @@
     }
     //@ts-ignore
     page.subscribe(({ path, params, query }) => {
-      breadcrumbNavigation = decodeURIComponent(path).split("/");
       if (old !== article?.html) {
         render();
         if (article?.html) {
