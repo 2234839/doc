@@ -12,4 +12,4 @@ docHTML
 # ../app/md2website/linux_md2website "/root/doc/doc" "./docHTML" "/root/app/md2website/views/"
 
 
-state
+/state
