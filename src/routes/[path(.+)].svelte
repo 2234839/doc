@@ -1,6 +1,5 @@
 <script context="module" lang="ts">
   import { preload as p1 } from "../lib/path";
-  import type { API } from "../lib/api/fetch";
   export const preload = p1;
   declare var md2website: any;
 </script>
@@ -9,9 +8,10 @@
   import { onMount, onDestroy } from "svelte";
   import { stores, goto } from "@sapper/app";
   import { on } from "../lib/dom操作/event_listener";
+  import { API } from "../lib/api/fetch";
+
   //@ts-ignore
   // import { run } from "../lib/article";
-
   import qs from "qs";
   const { page } = stores();
   export let article: any;
@@ -27,6 +27,11 @@
         .map((el) => el)
         .join("/") + (index !== breadcrumbNavigation.length - 1 ? "/" : "")
     );
+  }
+  let praise = Promise.resolve(访问记录.praise);
+
+  function giveALike() {
+    praise = API.点赞($page.path);
   }
 
   onDestroy(() => {
@@ -124,13 +129,18 @@
 
   <div class="flex text-sm text-red-400">
     <div title="浏览器运行时js上报次数">b {访问记录.browser_js_count}</div>,
-    <div title="本文被博客程序读取的次数">r {访问记录.readCount}</div>
+    <div title="本文被博客程序读取的次数">r {访问记录.readCount}</div>,
+    {#await praise}
+      <div>❤ 正在询问中</div>
+    {:then n}
+      <div title="喜欢数，点击 +1" on:click={giveALike}>❤ {n}</div>
+    {/await}
   </div>
 </div>
 
 {#if menu}
   <ul>
-    {#each menu as post}
+    [result] {#each menu as post}
       <li><a rel="prefetch" href={post.path}>{post.title}</a></li>
     {/each}
   </ul>

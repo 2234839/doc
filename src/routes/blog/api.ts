@@ -15,7 +15,7 @@ export async function post(req: IncomingMessage, res: any) {
     res.writeHead(200, {
       "Content-Type": "application/json",
     });
-    console.log("[result]", result);
+    // console.log("[result]", result);
     res.end(JSON.stringify(result === undefined ? { message: "该远程函数无返回值" } : result));
   });
 }
