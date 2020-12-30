@@ -19,8 +19,10 @@ export async function get(req: any, res: any) {
   <title>${el.isDirectory ? el.basename : 去除思源笔记id的路径(el.basename)}</title>
   <link>${siteBaseUrl}${el.webPath}</link>
   ${
-    el?.fileID?
-    `<published>${new Date(Number(el.fileID.split("-")[0])).toISOString()}</published>`:''
+    ''
+    // TODO : 现在没有 id 了，这里的发布日期应该换个方式处理
+    // el?.fileID?
+    // `<published>${new Date(Number(el.fileID.split("-")[0])).toISOString()}</published>`:''
   }
 
   <updated>${new Date(el.mtimeMs).toISOString()}</updated>
