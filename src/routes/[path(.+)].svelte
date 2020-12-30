@@ -114,7 +114,7 @@
 <svelte:head>
   <title>{title} - 崮生</title>
 </svelte:head>
-<div class="flex justify-between">
+<div class="flex justify-between mb-4">
   {#if breadcrumbNavigation.length > 1}
     <nav class="flex text-sm mt-1" title="当前页的父目录">
       {#each breadcrumbNavigation as nav, index}
