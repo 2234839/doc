@@ -1,11 +1,13 @@
 import { resolve } from "path";
 import { Res } from "../../lib/api/res";
-import { doc_path } from "../../lib/env";
+import { doc_html_path, doc_path } from "../../lib/env";
 import { md_parser_article } from "../../lib/md-parser";
 import { 获取文档资源 } from "../../lib/资源检索/最近更新";
 export async function get(req: any, res: any) {
   const path = req.query.path as string;
   const filePath = resolve(doc_path + path.replace(/\?.*$/, ""));
+  // const outFilePath = resolve(doc_html_path + path.replace(/\?.*$/, ""));
+
   const docs = await 获取文档资源();
 
   /** 找对应的文档资源 */
@@ -18,6 +20,7 @@ export async function get(req: any, res: any) {
     });
     res.end(result);
   } else {
+    // console.log('[outFilePath]',outFilePath)
     Res.failure(res, "没有找到对应的文件");
   }
 }
