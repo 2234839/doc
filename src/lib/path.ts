@@ -1,3 +1,4 @@
+import { isReactive } from "vue";
 import { API } from "./api/fetch";
 
 export async function preload(this: context, page: page, session: any) {
@@ -7,6 +8,7 @@ export async function preload(this: context, page: page, session: any) {
     API.踩一踩(path);
   });
   const 访问记录 = await API.get访问记录(path);
+
   if (page.query.requester === "sapper") {
     /** 自己发的请求，404掉让nginx去访问其他服务，不然下面会一直递归请求 */
     console.log("[404]", page);
@@ -35,7 +37,7 @@ export async function preload(this: context, page: page, session: any) {
       .filter((el) => el)
       .reverse()
       .join("<");
-    return { time: Date.now(), page, menu: menu, title, 访问记录 };
+    return { time: Date.now(), page, menu, title, 访问记录 };
   } else {
     console.log("404", path);
     return this.error(404, "Not found");

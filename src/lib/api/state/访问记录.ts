@@ -1,5 +1,5 @@
 import { join } from "path";
-import { reactive } from "vue";
+import { reactive, toRaw } from "vue";
 import { root_path } from "../../env";
 import { stateASyncFile } from "../../state/state";
 
@@ -33,7 +33,9 @@ export function 点赞(path: string) {
   return log.praise;
 }
 
-export const get访问记录 = getLog;
+export const get访问记录 = (path: string) => {
+  return JSON.parse(JSON.stringify(getLog(path)));
+};
 
 function getLog(path: string) {
   path = decodeURIComponent(path);
