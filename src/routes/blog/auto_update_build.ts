@@ -1,7 +1,5 @@
 import { exec } from "child_process";
-import { log } from "console";
 import type { IncomingMessage } from "http";
-import type { Http2ServerRequest } from "http2";
 import { root_path } from "../../lib/env";
 /** post 接口做预览之用 ldsfoiu9071384ohjfaiou149814 */
 export async function get(req: IncomingMessage, res: any) {
@@ -44,7 +42,7 @@ export async function get(req: IncomingMessage, res: any) {
         },
       );
     } else {
-      console.log("[payload]", payload);
+      console.log("[payload]", { ref: payload.ref, head_commit: payload.head_commit });
 
       return res.end(JSON.stringify({ code: 200 }));
     }
