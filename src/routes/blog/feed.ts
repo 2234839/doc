@@ -1,6 +1,4 @@
 import { siteBaseUrl } from "../../data/app.config";
-import { lute } from "../../lib/md解析/lute";
-import { 去除思源笔记id的路径 } from "../../lib/md解析/lute.util";
 import { 获取文档资源 } from "../../lib/资源检索/最近更新";
 
 /** post 接口做预览之用 */
@@ -11,15 +9,15 @@ export async function get(req: any, res: any) {
     <title>崮生的笔记</title>
     <link>https://shenzilong.cn</link>
     <description>崮生的笔记</description>
-      ${(await 获取文档资源()).md_file
-        .slice(0, 20)
-        .map((el) => {
-          return `
+      ${(
+        await Promise.all(
+          (await 获取文档资源()).md_file.slice(0, 20).map(async (el) => {
+            return `
 <item>
-  <title>${el.isDirectory ? el.basename : 去除思源笔记id的路径(el.basename)}</title>
+  <title>${el.basename}</title>
   <link>${siteBaseUrl}${el.webPath}</link>
   ${
-    ''
+    ""
     // TODO : 现在没有 id 了，这里的发布日期应该换个方式处理
     // el?.fileID?
     // `<published>${new Date(Number(el.fileID.split("-")[0])).toISOString()}</published>`:''
@@ -29,13 +27,14 @@ export async function get(req: any, res: any) {
   <description> 崮生 </description>
   <content:encoded xml:base="${siteBaseUrl}${el.webPath}">
     <![CDATA[
-      ${lute.MarkdownStr("", el.mdStr)}
+      ${(await el.getViewInfo()).html}
     ]]>
   </content:encoded>
 </item>
             `;
-        })
-        .join("")}
+          }),
+        )
+      ).join("")}
 
         </channel>
     </rss>`;

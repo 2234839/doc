@@ -1,7 +1,6 @@
 import { resolve } from "path";
 import { Res } from "../../lib/api/res";
-import { doc_html_path, doc_path } from "../../lib/env";
-import { md_parser_article } from "../../lib/md-parser";
+import { doc_path } from "../../lib/env";
 import { 获取文档资源 } from "../../lib/资源检索/最近更新";
 export async function get(req: any, res: any) {
   const path = req.query.path as string;
@@ -26,15 +25,15 @@ export async function get(req: any, res: any) {
 }
 
 /** post 接口做预览之用 */
-export async function post(req: any, res: any) {
-  // console.log("请求到达", req.query.path);
-  const path = req.query.path as string;
-  const filePath = doc_path + path.replace(/\?.*$/, "");
-  if (!req.body.isPreview) {
-    return get(req, res);
-  }
-  res.writeHead(200, {
-    "Content-Type": "application/json",
-  });
-  res.end(JSON.stringify(await md_parser_article(req.body.md)));
-}
+// export async function post(req: any, res: any) {
+//   // console.log("请求到达", req.query.path);
+//   const path = req.query.path as string;
+//   const filePath = doc_path + path.replace(/\?.*$/, "");
+//   if (!req.body.isPreview) {
+//     return get(req, res);
+//   }
+//   res.writeHead(200, {
+//     "Content-Type": "application/json",
+//   });
+//   res.end(JSON.stringify(await md_parser_article(req.body.md)));
+// }

@@ -1,4 +1,3 @@
-import { 去除思源笔记id的路径 } from "../../md解析/lute.util";
 import { minDistance } from "../../纯算法/编辑距离";
 import { 获取文档资源 } from "../../资源检索/最近更新";
 
@@ -11,5 +10,5 @@ export async function find404Near(url: string, /** 返回几条 */ n = 5) {
       return a.编辑距离 - b.编辑距离;
     })
     .slice(0, n)
-    .map((el) => ({ webPath: el.webPath, name: 去除思源笔记id的路径(el.basename) }));
+    .map((el) => ({ webPath: el.webPath, name: el.basename }));
 }

@@ -1,10 +1,16 @@
 import * as fs from "fs/promises";
 import * as Path from "path";
 import { doc_html_path, doc_path } from "../env";
-import type { article } from "../md-parser";
-import { 去除思源笔记id的路径, 获取思源笔记id的路径 } from "../md解析/lute.util";
 
 let oldTime = Date.now();
+type article = {
+  title: string;
+  meta: any;
+  html?: string;
+  raw_html?: string;
+  /** markdown 源码 */
+  md: string;
+};
 interface docObj {
   fullSrc: string;
   mtimeMs: number;
@@ -39,7 +45,7 @@ export async function 获取项目下所有文件(src: string) {
             const title = titleRes === null ? "无题" : titleRes[1];
 
             /** 去除原始文件开头的一些脚本引入 */
-            const html = rawHtml.replace(/[\s\S]*?<\/head>/, "")
+            const html = rawHtml.replace(/[\s\S]*?<\/head>/, "");
             // const html = rawHtml
 
             return {
@@ -76,8 +82,9 @@ async function main() {
           const r = {
             ...el,
             /** 虚拟路径，因为思源模式的笔记会在文件名后面加上 id,而这个值会去除掉那些id */
-            virtual_path: 去除思源笔记id的路径(el.fullSrc),
-            fileID: 获取思源笔记id的路径(el.fullSrc),
+            virtual_path: el.fullSrc,
+            // TODO: 待修正 为正确的id
+            fileID: el.fullSrc,
             /** 文本源码 */
             mdStr,
             webPath: ToWebPath(el),
@@ -106,7 +113,7 @@ export function ToWebPath(d: docFileNode) {
   if (d.isDirectory) {
     return (d.fullSrc.replace(doc_path, "") + "/").replace(/** 网络路径通常使用 / */ /[\\\/]/g, "/");
   } else {
-    return (去除思源笔记id的路径(d.fullSrc).replace(doc_path, "").slice(/** 去除 .md  */ 0, -3) + ".html").replace(
+    return (d.fullSrc.replace(doc_path, "").slice(/** 去除 .md  */ 0, -3) + ".html").replace(
       /** 网络路径通常使用 / */ /[\\\/]/g,
       "/",
     );
