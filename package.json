@@ -11,7 +11,8 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
-    "validate": "svelte-check --ignore src/node_modules/@sapper"
+    "validate": "svelte-check --ignore src/node_modules/@sapper",
+    "buildDoc":"D:/code/md2website/windows_md2website.exe \"D:/code/doc/doc\" \"./docHTML/\" \"D:/code/md2website/src/views/\""
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^2.3.0",
