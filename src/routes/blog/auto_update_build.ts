@@ -18,7 +18,7 @@ export async function get(req: IncomingMessage, res: any) {
       exec(
         "cd /root/doc/__sapper__ && " +
           "rm -rf /root/doc/__sapper__/doc && " +
-          "git clone -b gh-pages git@github.com:2234839/doc.git && " +
+          "git clone -b gh-pages --depth=1 git@github.com:2234839/doc.git && " +
           "\\cp -rf ./doc/build/ ./ && " +
           "pm2 reload blog",
         { cwd: root_path },
