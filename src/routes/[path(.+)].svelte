@@ -52,7 +52,7 @@
 
     setTimeout(async () => {
       while (1) {
-        if (md2website) {
+        if (typeof md2website !== "undefined") {
           md2website.gotoClick = (e: Event) => {
             aSupper(e, e.target! as HTMLElement);
           };
