@@ -4,7 +4,7 @@ export function on<K extends keyof DocumentEventMap>(
   selector: string,
   cb: (evt: Event, el: HTMLElement) => void,
 ) {
-  target.addEventListener(eventName, (e: any) => {
+  const handle = (e: any) => {
     let t = e.target as HTMLElement;
     // e.preventDefault()
     // console.log('[e]',e,t)
@@ -15,5 +15,9 @@ export function on<K extends keyof DocumentEventMap>(
       }
       t = t.parentElement;
     }
-  });
+  };
+  target.addEventListener(eventName, handle);
+  return function destroy() {
+    target.removeEventListener(eventName, handle);
+  };
 }

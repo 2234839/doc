@@ -1,8 +1,6 @@
-import { isReactive } from "vue";
 import { API } from "./api/fetch";
 
 export async function preload(this: context, page: page, session: any) {
-  console.log("[请求地址]", page);
   const path = decodeURIComponent(page.path);
   setTimeout(() => {
     API.踩一踩(path);

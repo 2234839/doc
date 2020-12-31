@@ -5,7 +5,6 @@ import { 获取文档资源 } from "../../lib/资源检索/最近更新";
 export async function get(req: any, res: any) {
   const path = req.query.path as string;
   const filePath = resolve(doc_path + path.replace(/\?.*$/, ""));
-  // const outFilePath = resolve(doc_html_path + path.replace(/\?.*$/, ""));
 
   const docs = await 获取文档资源();
 

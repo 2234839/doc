@@ -9,9 +9,6 @@
   import { stores, goto } from "@sapper/app";
   import { on } from "../lib/dom操作/event_listener";
   import { API } from "../lib/api/fetch";
-
-  //@ts-ignore
-  // import { run } from "../lib/article";
   import qs from "qs";
   const { page } = stores();
   export let article: any;
@@ -19,7 +16,7 @@
   export let 访问记录: typeof API.get访问记录.res;
   export let menu: any[];
   $: breadcrumbNavigation = decodeURIComponent($page.path).split("/");
-  // let breadcrumbNavigation = [] as string[];
+
   function 生成面包屑url(index: number) {
     return (
       breadcrumbNavigation
@@ -34,6 +31,8 @@
     praise = API.点赞($page.path);
   }
 
+  /** 需要在销毁前调用的函数 */
+  let destroyCallBack = [] as Function[];
   onDestroy(() => {
     if (typeof document !== "undefined") {
       /** 动态生成的元素没有被svelte清除掉，所以这里主动将遗留下来的元素清掉 */
@@ -41,6 +40,7 @@
         .querySelectorAll(".run-code,.g-editor_div")
         .forEach((el) => el.remove());
     }
+    destroyCallBack.forEach((el) => el());
   });
 
   onMount(async () => {
@@ -48,7 +48,8 @@
     console.log(document.body.classList);
     let old = null as any;
 
-    on(document.body, "click", "a", aSupper);
+    destroyCallBack.push(on(document.body, "click", "a", aSupper));
+
     setTimeout(async () => {
       while (1) {
         if (md2website) {
@@ -62,25 +63,7 @@
       }
     });
 
-    function aSupper(e: Event, el: HTMLElement) {
-      const a = el as HTMLAnchorElement;
-      const path = a.href.split("#")[0].toLowerCase();
-      const path2 = location.href.split("#")[0].toLowerCase();
-      console.log(path, path2, path === path2);
-      if (
-        /** 当前页面的链接不跳转 */
-        path === path2 &&
-        /** 单纯的 hash 跳转是允许的 */
-        !(a.getAttribute("href") || "").startsWith("#")
-      ) {
-      } else {
-        console.log("[a.href]", a.href);
-        goto(a.href);
-      }
-      e.preventDefault();
-    }
-    //@ts-ignore
-    page.subscribe(({ path, params, query }) => {
+    page.subscribe(() => {
       if (old !== article?.html) {
         render();
         if (article?.html) {
@@ -113,6 +96,23 @@
   function scrollIntoSelector(selector: string) {
     /** 滚动到该块 */
     document.querySelector(selector)?.scrollIntoView(true);
+  }
+
+  function aSupper(e: Event, el: HTMLElement) {
+    const a = el as HTMLAnchorElement;
+    const path = a.href.split("#")[0].toLowerCase();
+    const path2 = location.href.split("#")[0].toLowerCase();
+    console.log("[path]", decodeURIComponent(path));
+    if (
+      /** 当前页面的链接不跳转 */
+      path === path2 &&
+      /** 单纯的 hash 跳转是允许的 */
+      !(a.getAttribute("href") || "").startsWith("#")
+    ) {
+    } else {
+      goto(a.href);
+    }
+    e.preventDefault();
   }
 </script>
 
