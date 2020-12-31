@@ -49,9 +49,19 @@
     let old = null as any;
 
     on(document.body, "click", "a", aSupper);
-    md2website.gotoClick = (e: Event) => {
-      aSupper(e, e.target! as HTMLElement);
-    };
+    setTimeout(async () => {
+      while (1) {
+        if (md2website) {
+          md2website.gotoClick = (e: Event) => {
+            aSupper(e, e.target! as HTMLElement);
+          };
+          break;
+        } else {
+          await new Promise((s) => setTimeout(s, 10));
+        }
+      }
+    });
+
     function aSupper(e: Event, el: HTMLElement) {
       const a = el as HTMLAnchorElement;
       const path = a.href.split("#")[0].toLowerCase();
