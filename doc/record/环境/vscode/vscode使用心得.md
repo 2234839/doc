@@ -47,18 +47,20 @@
 ### 我正在使用的
 {: id="20210104101403-iu3fcdh"}
 
-1. {: id="20210104101034-jcdoyyx"}~~[change case](https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case)~~ [驼峰翻译助手](https://marketplace.visualstudio.com/items?itemName=svenzhao.var-translation)
+1. {: id="20210104101034-jcdoyyx"}⭐❤ ~~[change case](https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case)~~ [驼峰翻译助手](https://marketplace.visualstudio.com/items?itemName=svenzhao.var-translation)
    {: id="20210104101742-8b8apcm"}
 
    这个插件可以执行各种命名规则
    ~~我配置了这两个快捷键 ![快捷键配置](./快捷键配置.png)~~ 我现在使用驼峰翻译助手的默认快捷键
    {: id="20210104101742-7ilpxel"}
-2. {: id="20210104101034-l35xnwl"}[alt+d 跳转](https://marketplace.visualstudio.com/items?itemName=jack89ita.open-file-from-path)
+2. {: id="20210104101034-l35xnwl"}⭐❤[alt+d 跳转](https://marketplace.visualstudio.com/items?itemName=jack89ita.open-file-from-path)
    vscode 有一些路径不可以通过 ctrl+click 跳转，安装这个插件可以使用快捷键跳转这些路径
    {: id="20210104101742-6a02dfq"}
-3. {: id="20210104101108-oeq0c76"}[Parameter Hints](https://marketplace.visualstudio.com/items?itemName=DominicVonk.parameter-hints)
+3. {: id="20210104101108-oeq0c76"}❤[Parameter Hints](https://marketplace.visualstudio.com/items?itemName=DominicVonk.parameter-hints)
    ts 、js 的参数类型与名称提示 ![image.png](assets/20210104101254-1p86jun-image.png)
    {: id="20210104101742-4a1bb8u"}
+4. {: id="20210104105254-7e6p4j5"}⭐❤[CSS Navigation](https://marketplace.visualstudio.com/items?itemName=pucelle.vscode-css-navigation) 从 类名、id 跳转到对应的 css 定义
+   {: id="20210104105254-0tnc2dn"}
 {: id="20210104101034-mzz071d"}
 
 ### 有问题的插件
