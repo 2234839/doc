@@ -102,17 +102,28 @@
     const a = el as HTMLAnchorElement;
     const path = a.href.split("#")[0].toLowerCase();
     const path2 = location.href.split("#")[0].toLowerCase();
-    console.log("[path]", decodeURIComponent(path));
+    console.log(
+      "[path]",
+      path === path2,
+      a.getAttribute("href") || "",
+      decodeURIComponent(path)
+    );
     if (
       /** 当前页面的链接不跳转 */
-      path === path2 &&
-      /** 单纯的 hash 跳转是允许的 */
-      !(a.getAttribute("href") || "").startsWith("#")
+      path === path2
     ) {
+      if (
+        /** 单纯的 hash 跳转是允许的 */
+        (a.getAttribute("href") || "").startsWith("#")
+      ) {
+        // 浏览器本身应当已经实现通过 hash 跳转对应 id 的元素
+      } else {
+        e.preventDefault();
+      }
     } else {
       goto(a.href);
+      e.preventDefault();
     }
-    e.preventDefault();
   }
 </script>
 
