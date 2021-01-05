@@ -31,7 +31,7 @@
     $: tabelView = cover(tabel, coverCode);
     $: exportUrl = 导出(tabelView);
 
-
+    tabel.map((tr, tr_i) => [`[${tr[0]}](${tr[1]})`,tr[2]])
 
     function cover(t: table, code: string) {
         if (typeof window == "undefined") {
