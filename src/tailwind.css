@@ -78,7 +78,8 @@ iframe {
   width: 100%;
   height: 375px;
 }
-input {
+input,
+textarea {
   @apply border;
 }
 
@@ -145,13 +146,12 @@ td {
 
 .llej-body > main a::after {
   content: "¸";
-  font-size:40%;
-  bottom:10%;
+  font-size: 40%;
+  bottom: 10%;
   position: absolute;
-
 }
 
-.llej-body > main .vditor-anchor::after{
+.llej-body > main .vditor-anchor::after {
   content: "";
 }
 
