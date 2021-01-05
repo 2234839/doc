@@ -87,7 +87,7 @@
 | [`:paused`](https://developer.mozilla.org/en-US/docs/Web/CSS/:paused)   | ((20210105133946-r1vnroj "🧪")) 匹配处于暂停状态元素 |
 {: id="20210105145650-ksbctxz"}
 
-## [输入伪类](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#The_input_pseudo-classes "Permalink to The input pseudo-classes")
+### [输入伪类](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#The_input_pseudo-classes "Permalink to The input pseudo-classes")
 {: id="20210105150239-yaj2wgu"}
 
 > 这些伪类与表单元素相关，并启用基于 HTML 属性以及字段在交互之前和之后的状态选择元素。
@@ -144,7 +144,7 @@
 | [`:not()`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:not)                           | 匹配不符合一组选择器的元素，又称反选伪类                                                                                                                                                                                                                                                                                                                            |
 {: id="20210105160711-doy96zt"}
 
-## 打印伪类
+### 打印伪类
 {: id="20210105160400-ejla1l1"}
 
 > 这些伪类用来控制打印文档时候的样式
@@ -179,7 +179,7 @@
     {: id="20210105144353-2zelhy7"}
 
 
-{: id="20210105162655-bpr5ds7"}
+{: id="20210105164753-vzdm28b"}
 
 
 {: id="20210105091835-cdjfps5" type="doc"}
