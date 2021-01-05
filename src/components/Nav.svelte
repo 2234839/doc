@@ -6,6 +6,7 @@
     { title: "主页", link: "/" },
     { title: "关于崮生", link: "/关于/申子龙.html" },
     { title: "博客", link: "/blog" },
+    { title: "在线工具", link: "/工具/在线工具.html" },
   ];
 
   $: 一级选中 = routerList.find((el) => el.link.split("/")[1] === decodeSegment) || routerList[2];
