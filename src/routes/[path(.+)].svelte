@@ -92,15 +92,6 @@
         el.textContent = "$$\n" + el.textContent + "\n$$";
       });
     }
-
-    //@ts-expect-error 谷歌底部广告需要
-    if (typeof adsbygoogle === "undefined") {
-      //@ts-expect-error
-      window.adsbygoogle = [];
-    }
-    console.log("[广告单元]",document.querySelector("ins"));
-    //@ts-expect-error
-    window.adsbygoogle.push({});
   });
   function scrollIntoSelector(selector: string) {
     /** 滚动到该块 */
@@ -134,12 +125,10 @@
       e.preventDefault();
     }
   }
+  const adHTML = `<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+<${"/"}script>`;
 </script>
-
-<style>
-  .c-bread {
-  }
-</style>
 
 <svelte:head>
   <title>{title} - 崮生</title>
@@ -195,3 +184,4 @@
   data-ad-slot="9720207698"
   data-ad-format="auto"
   data-full-width-responsive="true" />
+{@html adHTML}
