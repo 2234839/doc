@@ -74,7 +74,7 @@
 
     function render() {
       console.log("触发 render");
-
+      adHTML+=""
       // run();
       const p = qs.parse(location.href);
 
@@ -125,7 +125,15 @@
       e.preventDefault();
     }
   }
-  const adHTML = `<script>
+  let adHTML = `
+  <!-- 谷歌 底部横幅广告  -->
+  <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-7181140659254262"
+      data-ad-slot="4668486093"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+  <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 <${"/"}script>`;
 </script>
@@ -176,11 +184,4 @@
   </p>
 </blockquote>
 
-<!-- 谷歌 底部横幅广告  -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-7181140659254262"
-     data-ad-slot="4668486093"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
 {@html adHTML}
