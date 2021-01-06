@@ -170,7 +170,7 @@
 
 <blockquote class="mt-4 text-sm">
   <p>
-    by 崮生 from <a href="https://shenzilong.cn">崮生 • 一些随笔 🎨</a>
+    by 崮生 from <a href="https://shenzilong.cn">崮生 • 一些随笔 🎨</a>,欢迎 <a href="https://afdian.net/@llej0" title="真的是非常感谢 ヾ(≧▽≦*)o">赞助本文</a>
     <br />
     <a href={$page.path}>本文</a>欢迎分享与聚合，全文转载未经授权（ <a
       class="c-block-ref"
