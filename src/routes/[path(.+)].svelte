@@ -92,6 +92,15 @@
         el.textContent = "$$\n" + el.textContent + "\n$$";
       });
     }
+
+    //@ts-expect-error 谷歌底部广告需要
+    if (typeof adsbygoogle === "undefined") {
+      //@ts-expect-error
+      window.adsbygoogle = [];
+    } else {
+      //@ts-expect-error
+      window.adsbygoogle.push({});
+    }
   });
   function scrollIntoSelector(selector: string) {
     /** 滚动到该块 */
@@ -177,3 +186,12 @@
       href="//shenzilong.cn/%e5%85%b3%e4%ba%8e/%e7%94%b3%e5%ad%90%e9%be%99.html#20201228124011-yky6n68">联系我</a>）不许可。
   </p>
 </blockquote>
+
+<!-- 谷歌 底部广告单元 -->
+<ins
+  class="adsbygoogle"
+  style="display:block"
+  data-ad-client="ca-pub-7181140659254262"
+  data-ad-slot="9720207698"
+  data-ad-format="auto"
+  data-full-width-responsive="true" />
