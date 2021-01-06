@@ -97,10 +97,10 @@
     if (typeof adsbygoogle === "undefined") {
       //@ts-expect-error
       window.adsbygoogle = [];
-    } else {
-      //@ts-expect-error
-      window.adsbygoogle.push({});
     }
+    console.log("[广告单元]",document.querySelector("ins"));
+    //@ts-expect-error
+    window.adsbygoogle.push({});
   });
   function scrollIntoSelector(selector: string) {
     /** 滚动到该块 */
