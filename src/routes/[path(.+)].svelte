@@ -176,12 +176,11 @@
   </p>
 </blockquote>
 
-<!-- 谷歌 底部广告单元 -->
-<ins
-  class="adsbygoogle"
-  style="display:block"
-  data-ad-client="ca-pub-7181140659254262"
-  data-ad-slot="9720207698"
-  data-ad-format="auto"
-  data-full-width-responsive="true" />
+<!-- 谷歌 底部横幅广告  -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7181140659254262"
+     data-ad-slot="4668486093"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
 {@html adHTML}
