@@ -97,7 +97,7 @@
     /** 滚动到该块 */
     document.querySelector(selector)?.scrollIntoView(true);
   }
-
+  log
   function aSupper(e: Event, el: HTMLElement) {
     const a = el as HTMLAnchorElement;
     const path = a.href.split("#")[0].toLowerCase();
