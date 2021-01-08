@@ -5,7 +5,7 @@
 我第一时间想到的就是 `import`,
 {: id="20210106142531-qqra541"}
 
-刚上手实现了一遍，挺简单的。 [体验地址](https://2234839.github.io/reactive-table-demo/)![image.png](assets/20210106142656-zqcgr3y-image.png)
+刚上手实现了一遍，挺简单的。 [体验地址](https://2234839.github.io/vue-demo/)![image.png](assets/20210106142656-zqcgr3y-image.png)
 {: id="20210106142549-p3kt4be"}
 
 只注意红框内就好了，懒得新建项目了，在之前的测试项目上实现的
