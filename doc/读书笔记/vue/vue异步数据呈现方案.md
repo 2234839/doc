@@ -124,7 +124,7 @@ export default defineComponent({
 
 {: id="20210108211114-qnvbopo"}
 
-文章分享到的地方：[知乎](https://zhuanlan.zhihu.com/p/342926723) 
+文章分享到的地方：[知乎](https://zhuanlan.zhihu.com/p/342926723)  [思否](https://segmentfault.com/a/1190000038900780)
 {: id="20210108211114-qmqmu2e"}
 
 {: id="20210108211135-cinwe5f"}
