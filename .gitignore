@@ -7,7 +7,7 @@ yarn-error.log
 
 docHTML
 
-# D:/code/md2website/windows_md2website.exe "D:/code/doc/doc" "./docHTML/" "D:/code/md2website/src/views/"
+# D:/code/md2website/windows_md2website.exe "D:/code/doc/doc" "./docHTML/" "D:/code/md2website/src/views/" "C:/Users/llej/AppData/Local/Temp/siyuan/siyuan.db"
 # // linux 编译指令
 # ../app/md2website/linux_md2website "/root/doc/doc" "./docHTML" "/root/app/md2website/views/"
 
