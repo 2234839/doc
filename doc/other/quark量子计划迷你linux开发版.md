@@ -15,7 +15,7 @@
 [seeedstudio 提供的教程](https://wiki.seeedstudio.com/cn/Quantum-Mini-Linux-Development-Kit/#_11)
 {: id="20210115104312-8mgs58s"}
 
-[[同好写的文档]quark-n的一些使用技巧](https://github.com/coolflyreg/quark-n)
+[[同好写的文档] quark-n 的一些使用技巧](https://github.com/coolflyreg/quark-n)
 {: id="20210115104330-m48tnyx"}
 
 {: id="20210115104421-41j79w4"}
