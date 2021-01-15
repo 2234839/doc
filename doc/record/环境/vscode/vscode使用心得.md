@@ -61,7 +61,7 @@
    {: id="20210104101742-4a1bb8u"}
 4. {: id="20210104105254-7e6p4j5"}⭐❤[CSS Navigation](https://marketplace.visualstudio.com/items?itemName=pucelle.vscode-css-navigation) 从 类名、id 跳转到对应的 css 定义
    {: id="20210104105254-0tnc2dn"}
-5. {: id="20210113161842-a09102t"}⭐❤ [vue 3](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) 模板类型提示插件（爽！）。 还有一个[小问题](https://github.com/johnsoncodehk/volar/issues/43)
+5. {: id="20210113161842-a09102t"}⭐❤ [vue 3](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) 模板 ts 类型提示插件（爽！）。 还有一个[小问题](https://github.com/johnsoncodehk/volar/issues/43)
    {: id="20210113161842-lq61fhv"}
 {: id="20210104101034-mzz071d"}
 
