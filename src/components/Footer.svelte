@@ -5,11 +5,6 @@
       title: "神仙散棒槌",
       path: "https://www.zhouguiqiang.com",
     },
-
-    {
-      title: "小付同学",
-      path: "http://129.204.61.122",
-    },
     {
       title: "IT源点",
       path: "https://www.daxueyiwu.com",
