@@ -86,9 +86,11 @@ textarea {
 .btn {
   --offset_base: 4px;
   --offset: 4px;
-  box-shadow: 0 var(--offset) var(--offset) -1px #0000001a, 0 var(--offset) var(--offset) -1px #0000000f;
+  box-shadow: 0 var(--offset) var(--offset) -1px #0000001a,
+    0 var(--offset) var(--offset) -1px #0000000f;
   transition: 0.3s all;
-  transform: translateX(calc(var(--offset_base) - var(--offset))) translateY(calc(var(--offset_base) - var(--offset)));
+  transform: translateX(calc(var(--offset_base) - var(--offset)))
+    translateY(calc(var(--offset_base) - var(--offset)));
   padding: 4px 8px;
   background: rgb(243, 243, 243);
   border-radius: 4px;
@@ -159,4 +161,17 @@ td {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/** 无序列表的装饰从点变成线 */
+li {
+  list-style: none;
+  position: relative;
+}
+li:before {
+  content: "";
+  border-left: 1px solid #685b5b;
+  position: absolute;
+  height: 100%;
+  margin-left: -8px;
 }
