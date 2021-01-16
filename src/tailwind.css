@@ -164,11 +164,11 @@ td {
 }
 
 /** 无序列表的装饰从点变成线 */
-li {
+.markdown-body li {
   list-style: none;
   position: relative;
 }
-li:before {
+.markdown-body li:before {
   content: "";
   border-left: 1px solid #685b5b;
   position: absolute;
