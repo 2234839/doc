@@ -1,25 +1,36 @@
 # tailwindcss
+{: id="20210116104540-jc2asud"}
 
-- pubdate:2019-11-22 11:08:21
-- tags:css,tailwindcss
+- {: id="20210116104540-4at6eio"}pubdate:2019-11-22 11:08:21
+- {: id="20210116104540-lsnd1y5"}tags:css,tailwindcss
+{: id="20210116104540-yz5mu0s"}
 
 ---
 
 [tailwindcss 官网](https://tailwindcss.com/)
+{: id="20210116104540-rxcjz2f"}
 
 ## 为什么用 tailwindcss
+{: id="20210116104540-amxp902"}
 
 一开始是在[现代 Web 开发的现状与未来（JSDC 2019 演讲全文）](https://zhuanlan.zhihu.com/p/88616149)这里看到的(这篇文感觉讲的相当好)，然后就去了解了一下
+{: id="20210116104540-512wwel"}
 
 一开始的时候觉得这都什么鬼，感觉写的很丑陋。 但写了一阵子之后... 真香了，其实使用这个还是相当于手写样式，但就减少了很多的重复
+{: id="20210116104540-mdrfqo9"}
 
 之前我写样式都是，HTML 中一堆 .content .header .card .body .footer .left .right 之类的，然后 scss 文件中也是这些各种嵌套，即便使用了 mixin 但还是感觉很多冗余，有些东西感觉提取一个 mixin 没必要，但确实又由两三个地方有点重复
+{: id="20210116104540-switwve"}
 
 这就让人感觉有点不爽。
+{: id="20210116104540-4jftyyn"}
 
 ## 怎么用 tailwindcss
+{: id="20210116104540-1umie93"}
 
 > 演习场 ↓ 展示官网的一些例子，你也可以手动改一下试试效果
+> {: id="20210116104540-v673dhu"}
+{: id="20210116104540-0o70p2w"}
 
 ```html{run}
 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
@@ -63,16 +74,23 @@
   </div>
 </div>
 ```
+{: id="20210116104540-kholmax"}
 
 可以看到这里完全没有直接的写 CSS，但稍微了解一下类名，很容易的就可以了解它的意思。
+{: id="20210116104540-kau7kf3"}
 
 ### 那么到底怎么用
+{: id="20210116104540-f410k48"}
 
 首先进入 [tailwindcss 官网](https://tailwindcss.com/components) 然后看最顶上的搜索框，你要改变什么样式就直接搜，例如 border 这类的
+{: id="20210116104540-o10n108"}
 
 其次(搜索一个之后)看右边，这里可以跳到响应和伪类可以看着加一些 hover 之类的效果，其次就是 Customizing 了，定制，靠这个定制可以覆盖它原有的样式，添加新的样式
+{: id="20210116104540-p97wa1s"}
 
 > 这是我写的一个定制的例子
+> {: id="20210116104540-eef9iih"}
+{: id="20210116104540-ebz3k62"}
 
 ```javascript
 module.exports = {
@@ -130,6 +148,15 @@ module.exports = {
   },
 };
 ```
+{: id="20210116104540-3oq25eh"}
+
+## uni app 使用 tailwind css 的 demo
+{: id="20210116104815-8v05em4"}
+
+((20210116105014-wbho2my "{{.text}}"))
+{: id="20210116104846-gzec2re"}
+
+{: id="20210116112447-uwc287h"}
 
 
 {: id="20201104153359-jkol7s4" type="doc"}
