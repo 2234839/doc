@@ -5,18 +5,16 @@
 
 {: id="20210118150831-86khe6l"}
 
+联合类型/或 ： `type a = string | number`
 {: id="20210118150831-o9gzcaz"}
 
-联合类型/或 ： `type a = string | number`
-{: id="20210118110626-sdgrddl"}
-
-获取值的类型 ： `type a = typeof 一个能返回值的表达式`
+获取值的类型 ： `type a = typeof 标识符`
 {: id="20210118111833-afs3uvp"}
 
 表示值的类型不会变化 ： `let a = [1, 2] as const`
 {: id="20210118112014-n207ycp"}
 
-获取类型的 key（索引的类型） : `type k = keyof {a:1,b:2}` => `k === "a" | "b"`
+获取索引的类型 : `type k = keyof {a:1,b:2}` => `k === "a" | "b"`
 {: id="20210118111929-v9itsf8"}
 
 [映射类型](https://www.typescriptlang.org/docs/handbook/advanced-types.html#mapped-types)  ：如下操作中 k2 就是 k 的映射类型。这里 k2 与 k 是一样的，但 k2 的定义我们有操作空间可以进行改造
