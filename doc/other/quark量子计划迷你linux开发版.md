@@ -54,6 +54,11 @@
 [稚晖君 github 超迷你模块化卡片电脑计划](https://github.com/peng-zhihui/Project-Quantum)
 {: id="20210116134718-i9n4rcr"}
 
+{: id="20210116174911-uabj9mr"}
+
+[设置 ubuntu  系统为中文](https://game.cangyoudao.cn/archives/752)
+{: id="20210116174911-qy6udav"}
+
 {: id="20210116165451-6mzd4vf"}
 
 
