@@ -28,8 +28,10 @@
 ![image.png](assets/20210120154929-x3giu2s-image.png)
 {: id="20210120143702-htst9km"}
 
-- {: id="20210120155741-provey6"}引入 tailwindcss 并在 微信开发者工具中正常跑起来的改动 [`b3c7085`](https://github.com/2234839/uni_app-demo/commit/b3c70853540b90e896e0135bc829040413511e8e)
-- {: id="20210120202109-8jfxzry"}[🦄refactor(tailwind): 更好的配置文件](https://github.com/2234839/uni_app-demo/commit/e7c51502be6a9f5394cf8c83cd9a9bed4925411c)
+- {: id="20210120155741-provey6"}相关 commit 记录
+  - {: id="20210120202255-stsczst"}引入 tailwindcss 并在 微信开发者工具中正常跑起来的改动 [`b3c7085`](https://github.com/2234839/uni_app-demo/commit/b3c70853540b90e896e0135bc829040413511e8e)
+  - {: id="20210120202109-8jfxzry"}[🦄refactor(tailwind): 更好的配置文件](https://github.com/2234839/uni_app-demo/commit/e7c51502be6a9f5394cf8c83cd9a9bed4925411c)
+  {: id="20210120202303-65ya0fp"}
 {: id="20210120154930-d8l6wqa"}
 
 {: id="20210120155838-y0vb5lp"}
