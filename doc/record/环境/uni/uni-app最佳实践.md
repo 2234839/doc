@@ -12,7 +12,7 @@
 
 - {: id="20210120195129-c3dvtb9"}幸运的是 tailwindcss 支持自定义 [`separator`](https://tailwindcss.com/docs/configuration#separator)
 - {: id="20210120195135-57ob4le"}但是在类名中包含 `.` 的又需要 `\.` 这样的形式去声明类名而且貌似没有办法自定义这个， 所以在这种情况下我复制了 `'tailwindcss/defaultConfig'` 中的配置将 `\` 全部改成了 `_`
-- {: id="20210120201315-5n4a7qs"}![image.png](assets/20210120201316-3b7spc3-image.png)这种语法 wxss 也不支持.... 这里不是 css 类名修改可以避免的，就只能去`corePlugins`禁用相关的插件
+- {: id="20210120201315-5n4a7qs"}![image.png](assets/20210120201316-3b7spc3-image.png)这种语法 wxss 也不支持.... 这里不是 css 类名修改可以避免的，就只能去[`corePlugins`](https://tailwindcss.com/docs/configuration#core-plugins)禁用相关的插件
   - {: id="20210120201649-uhb7y2o"}禁用了 `space` `divideWidth` `divideStyle` `divideOpacity`
   {: id="20210120201649-ce03ndq"}
 - {: id="20210120201713-360l9av"}本 demo 对 tailwind 进行了如上定制，所以在使用的时候需要注意这些点
