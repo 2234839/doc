@@ -1,6 +1,7 @@
 # 崮生的 uni-app 最佳实践
 {: id="20210120134520-aeplf1b"}
 
+[代码仓库](https://github.com/2234839/uni_app-demo)
 {: id="20210120134603-09bte2u"}
 
 ## ((20201104153359-jkol7s4 "{{.text}}"))
@@ -18,6 +19,7 @@
 ![image.png](assets/20210120154929-x3giu2s-image.png)
 {: id="20210120143702-htst9km"}
 
+- {: id="20210120155741-provey6"}引入 tailwindcss 并在 微信开发者工具中正常跑起来的改动 [`b3c7085`](https://github.com/2234839/uni_app-demo/commit/b3c70853540b90e896e0135bc829040413511e8e)
 {: id="20210120154930-d8l6wqa"}
 
 
