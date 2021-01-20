@@ -15,6 +15,7 @@
 - {: id="20210120201315-5n4a7qs"}![image.png](assets/20210120201316-3b7spc3-image.png)这种语法 wxss 也不支持.... 这里不是 css 类名修改可以避免的，就只能去[`corePlugins`](https://tailwindcss.com/docs/configuration#core-plugins)禁用相关的插件
   - {: id="20210120201649-uhb7y2o"}禁用了 `space` `divideWidth` `divideStyle` `divideOpacity`
   {: id="20210120201649-ce03ndq"}
+- {: id="20210120204139-0h1179f"}css 的类名是允许以数字开头的，但需要进行转义，而 `screens` 配置中有一个 `2xl` 这个 key 会在类名的最前面出现，于是 tailwind 转义为 `\32xl` 这里就又有了 `\` 所以这里也需要((20210120204412-5n4ys5v "改一下"))
 - {: id="20210120201713-360l9av"}本 demo 对 tailwind 进行了如上定制，所以在使用的时候需要注意这些点
   - {: id="20210120201917-92s9e1o"}建议使用这里 ((20210120201815-mhusgkv "{{.text}}")) 链接中的插件
   {: id="20210120201917-fjtzvap"}
@@ -23,10 +24,10 @@
 ### 效果
 {: id="20210120195121-s5hu63g"}
 
-![image.png](assets/20210120154929-x3giu2s-image.png)
+![image.png](assets/20210120204630-yi6igah-image.png)
 {: id="20210120143702-htst9km"}
 
-![image.png](assets/20210120203334-kwg37es-image.png)
+![image.png](assets/20210120203334-kwg37es-image.png)![image.png](assets/20210120204601-t4zngw0-image.png "hover 后的效果")
 {: id="20210120203333-niq29xf"}
 
 ### 相关 commit 记录
@@ -34,6 +35,7 @@
 
 - {: id="20210120202255-stsczst"}引入 tailwindcss 并在 微信开发者工具中正常跑起来的改动 [`b3c7085`](https://github.com/2234839/uni_app-demo/commit/b3c70853540b90e896e0135bc829040413511e8e)
 - {: id="20210120202109-8jfxzry"}[🦄refactor(tailwind): 更好的配置文件](https://github.com/2234839/uni_app-demo/commit/e7c51502be6a9f5394cf8c83cd9a9bed4925411c)
+- {: id="20210120204412-5n4ys5v"}[🐞fix(tailwind): 加回响应式配置](https://github.com/2234839/uni_app-demo/commit/1374c2f11ba9c47e5da5124332a08a14c95705fd)
 {: id="20210120202303-65ya0fp"}
 
 
