@@ -63,6 +63,8 @@
    {: id="20210104105254-0tnc2dn"}
 5. {: id="20210113161842-a09102t"}⭐❤ [vue 3](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) 模板 ts 类型提示插件（爽！）。 还有一个[小问题](https://github.com/johnsoncodehk/volar/issues/43)
    {: id="20210113161842-lq61fhv"}
+6. {: id="20210120201815-mhusgkv"}⭐❤ [tailwindcss](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) 类名提示
+   {: id="20210120201815-nvhf00v"}
 {: id="20210104101034-mzz071d"}
 
 ### 有问题的插件
@@ -113,6 +115,8 @@ TabNine 导致完全没有其他的智能提示 ~~我写了一个插件来勉强
 
 [在一些文件中 tab 没有按照设定的宽度展示的问题](https://segmentfault.com/q/1010000008771415)
 {: id="20210104101034-2tdg6gr"}
+
+{: id="20210120201812-6yb05fh"}
 
 
 {: id="20201104153359-55kblxd" type="doc"}
