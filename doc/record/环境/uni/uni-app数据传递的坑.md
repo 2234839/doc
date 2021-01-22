@@ -1,7 +1,6 @@
-#uniapp/坑#
 {: id="20210122232307-esbdcse"}
 
-## [为什么没有使用的computed属性也会被调用getter方法呢?](https://www.zhihu.com/question/440696975/answer/1692446028)
+## [为什么没有使用的computed属性也会被调用getter方法呢?](https://www.zhihu.com/question/440696975/answer/1692446028) #uniapp/坑#
 {: id="20210122232322-nvudi39"}
 
 {: id="20210122232328-z2zsalt"}
