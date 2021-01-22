@@ -65,6 +65,8 @@
    {: id="20210113161842-lq61fhv"}
 6. {: id="20210120201815-mhusgkv"}⭐❤ [tailwindcss](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) 类名提示
    {: id="20210120201815-nvhf00v"}
+7. {: id="20210122161020-yikgm24"}[DeepCode](https://marketplace.visualstudio.com/items?itemName=DeepCode.deepcode) 使用深度学习来寻找代码中的 bug
+   {: id="20210122161020-9p1eeo7"}
 {: id="20210104101034-mzz071d"}
 
 ### 有问题的插件
@@ -116,9 +118,9 @@ TabNine 导致完全没有其他的智能提示 ~~我写了一个插件来勉强
 [在一些文件中 tab 没有按照设定的宽度展示的问题](https://segmentfault.com/q/1010000008771415)
 {: id="20210104101034-2tdg6gr"}
 
-{: id="20210120211034-dti9b1u"}
+{: id="20210122161010-wglpw9i"}
 
-{: id="20210120211034-hzwqvrr"}
+{: id="20210122161010-wgj8w5f"}
 
 
 {: id="20201104153359-55kblxd" type="doc"}

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import SearchBtn from "./global-search/search-btn.svelte"
   export let segment: string;
   $: decodeSegment = decodeURIComponent(segment || "");
   // $: console.log("[segment] 2", decodeSegment);
@@ -63,5 +64,6 @@
     {#each routerList as router}
       <li><a aria-current={一级选中 === router || undefined} rel="prefetch" href={router.link}>{router.title}</a></li>
     {/each}
+    <SearchBtn />
   </ul>
 </nav>
