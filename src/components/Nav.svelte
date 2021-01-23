@@ -64,6 +64,6 @@
     {#each routerList as router}
       <li><a aria-current={一级选中 === router || undefined} rel="prefetch" href={router.link}>{router.title}</a></li>
     {/each}
-    <SearchBtn />
+    <!-- <SearchBtn /> -->
   </ul>
 </nav>
