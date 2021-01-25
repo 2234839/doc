@@ -21,7 +21,7 @@
   {: id="20210115103828-1jjtfck"}
 {: id="20210115103810-p651z39"}
 
-{: id="20210119170312-pol1t3c"}
+{: id="20210125181727-j9tzykg"}
 
 ## 系统烧录
 {: id="20210116154846-dsm0hhl"}
@@ -55,16 +55,19 @@
 [稚晖君 github 超迷你模块化卡片电脑计划](https://github.com/peng-zhihui/Project-Quantum)
 {: id="20210116134718-i9n4rcr"}
 
-{: id="20210119170312-bftmouj"}
-
 [设置 ubuntu  系统为中文](https://game.cangyoudao.cn/archives/752)
 {: id="20210116174911-qy6udav"}
 
-{: id="20210119170312-np7y7qh"}
+{: id="20210125181727-qs1w2vj"}
 
-{: id="20210119170312-m7h0pe8"}
+## 推广
+{: id="20210125181727-wouxubr"}
 
-{: id="20210119170312-zl3ww2k"}
+- {: id="20210125181836-hnj59c9"}[商品淘宝链接](https://s.click.taobao.com/ngYamru)
+- {: id="20210125181849-vfo684n"}[优惠券](https://s.click.taobao.com/kF4grru)
+{: id="20210125181741-nvc3kdl"}
+
+{: id="20210125181727-dooey2t"}
 
 
 {: id="20210115103808-12zcrqu" type="doc"}
