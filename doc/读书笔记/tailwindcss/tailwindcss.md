@@ -1,8 +1,10 @@
 # tailwindcss
-{: id="20210116104540-jc2asud"}
+{: id="20210116104540-jc2asud" name="tailwind" alias="tailwind.css"}
 
 - {: id="20210116104540-4at6eio"}pubdate:2019-11-22 11:08:21
+  {: id="20210204110422-3qacw1t"}
 - {: id="20210116104540-lsnd1y5"}tags:css,tailwindcss
+  {: id="20210204110422-3krk6z0"}
 {: id="20210116104540-yz5mu0s"}
 
 ---
@@ -153,13 +155,14 @@ module.exports = {
 !((20210120134813-p1riay6 "uniapp"))
 {: id="20210116104846-gzec2re"}
 
-{: id="20210120162042-t3qtnd1"}
+((20210120134541-yvifakc "uniapp 中关于 {{.text}} 的应用"))
+{: id="20210204110422-04aw4s1"}
 
-{: id="20210120162042-ebekjhs"}
+{: id="20210204110422-vkp7pi0"}
 
-{: id="20210120162042-nbhb7sg"}
+{: id="20210204110422-wqn4rlj"}
 
-{: id="20210120162042-tfrxklt"}
+{: id="20210204110422-lz3mqs1"}
 
 
 {: id="20201104153359-jkol7s4" type="doc"}
