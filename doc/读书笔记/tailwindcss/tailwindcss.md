@@ -1,4 +1,4 @@
-# tailwindcss
+# tailwindCSS
 {: id="20210116104540-jc2asud" name="tailwind" alias="tailwind.css"}
 
 - {: id="20210116104540-4at6eio"}pubdate:2019-11-22 11:08:21
