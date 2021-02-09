@@ -8,7 +8,7 @@
 ~~[md2website github 地址](https://github.com/2234839/md2website)~~
 {: id="20201225091218-pxbqz6v"}
 
-[oceanpress github 地址](https://github.com/siyuan-note/oceanpress) 移动到 `siyuan-note` 了([https://github.com/siyuan-note/siyuan/issues/34](https://github.com/siyuan-note/siyuan/issues/34%E2%80%B8)) , 并且改名 ((20201121142503-ivwtfzg "{{.text}}"))
+[oceanpress github 地址](https://github.com/siyuan-note/oceanpress) 移动到 `siyuan-note` 了( ((20201121142546-la6gl1c "相关 issues")) ) , 并且改名 ((20201121142503-ivwtfzg "{{.text}}"))
 {: id="20210209131336-bbbgkcm"}
 
 !((20201121144434-73nq0u1 "感概"))
