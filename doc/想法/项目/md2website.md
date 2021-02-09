@@ -1,12 +1,15 @@
-# md2website
+# OceanPress
 {: id="20201121142503-ivwtfzg"}
 
 > 将 Markdown 文件转换为 HTML 以形成一个静态站点的目录，专为思源笔记实现了许多特有渲染效果
 > {: id="20201225091218-gs9jpcj"}
 {: id="20201225091218-4kfyvv9"}
 
-~~[md2website github 地址](https://github.com/2234839/md2website)~~ [oceanpress github 地址](https://github.com/siyuan-note/oceanpress) 移动到`siyuan-note`了
+~~[md2website github 地址](https://github.com/2234839/md2website)~~
 {: id="20201225091218-pxbqz6v"}
+
+[oceanpress github 地址](https://github.com/siyuan-note/oceanpress) 移动到 `siyuan-note` 了([https://github.com/siyuan-note/siyuan/issues/34](https://github.com/siyuan-note/siyuan/issues/34%E2%80%B8)) , 并且改名 ((20201121142503-ivwtfzg "{{.text}}"))
+{: id="20210209131336-bbbgkcm"}
 
 !((20201121144434-73nq0u1 "感概"))
 {: id="20201121142428-58rb3zg"}
