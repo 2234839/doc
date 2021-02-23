@@ -1,8 +1,6 @@
 # TypeScript 游乐场
 {: id="20201113141125-tilrnur" name="typescript playground"}
 
----
-
 [TypeScript 游乐场 地址](https://www.typescriptlang.org/zh/play?#code/Q) 可以在这里很方便的尝试 ts 的代码以及分享给其他人
 {: id="20201226142014-weh8fbr"}
 
