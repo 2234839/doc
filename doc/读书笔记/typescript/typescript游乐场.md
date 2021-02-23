@@ -1,15 +1,15 @@
 # TypeScript 游乐场
-{: id="20201113141125-tilrnur"}
+{: id="20201113141125-tilrnur" name="typescript playground"}
 
 ---
 
-[TypeScript 游乐场 地址](https://www.typescriptlang.org/zh/play?#code/PTAEiJrQ5+MU3NAYlUAqBPADgUwMoGMBOBLFAF1EA47QBTlAudUBh-gKBFEE34wejNAAOUCo5QTb9ADeUAXjQbPlAaP6BMxSqAwJUDVcoBiVQGbagAzlEqTLgLFAIW6BFf0CbXoCAGGnTCAKg0D3yoFO5E4CDNQNBygSDlAs56BO00Dw+oH95QBSugYO1AWP-79oUAFpQdkBYOUAseUAWD0B5dUBvuUBVeUAcOUB-SNU5BXRsfCJQVUAGdXtdegCgtkBleUAYrLSlTOJAW+jAVZtANz1AODlAaojALrkJXPzfIvZXQDi5QGlbQFXo4MAYFUqMlVABQEXowHxzQHylQF+A1UBMm0BG710aLAB7ADsAZ2IAQ32AUQAPE4BbFAAbNAA1E-wTgCNH0ABeUAAiAASaHu912oAA6rscPcACZ-HYHQ67R4AOlBAHMABRnK63B7PV54D6PACUenopkAnQ6Ab8VAFBy9lUoEAOASALk9ANHygFwCUCANCNmYAG00A36kcqgmQBhcoBjyMAL2aALE1AM6K-RqgAAo1SAQ-lAPYG2nh9G5gFAAwAESoATNIYgGy5QAXNoApxIagBQ5QAA+oBpzTcVEALqZscgUVSANDlADKugF+EwB6Ov0uLo-EA) 可以在这里很方便的尝试 ts 的代码以及分享给其他人
+[TypeScript 游乐场 地址](https://www.typescriptlang.org/zh/play?#code/Q) 可以在这里很方便的尝试 ts 的代码以及分享给其他人
 {: id="20201226142014-weh8fbr"}
 
 [TypeScript 游乐场配置为运行 js 地址](https://www.typescriptlang.org/zh/play?noImplicitAny=false&module=0&useJavaScript=true#code/Q)
 {: id="20201226142014-ubgti78"}
 
-{: id="20201226181238-zya6jnp"}
+{: id="20210223095338-r9y2len"}
 
 
 {: id="20201113141123-61qhktl" type="doc"}
