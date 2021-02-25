@@ -1173,6 +1173,14 @@
         {
           "name": "测试页面_普通表单.md",
           "path": "/other/测试页面_普通表单.md"
+        },
+        {
+          "name": "双向链接.md",
+          "path": "/other/双向链接.md"
+        },
+        {
+          "name": "再提醒.md",
+          "path": "/other/再提醒.md"
         }
       ]
     },
