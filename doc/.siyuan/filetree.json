@@ -1181,6 +1181,10 @@
         {
           "name": "再提醒.md",
           "path": "/other/再提醒.md"
+        },
+        {
+          "name": "IOC.md",
+          "path": "/other/IOC.md"
         }
       ]
     },
