@@ -1,5 +1,5 @@
-## Pinbox 简介
-{: id="20201210142814-k9d6npc"}
+## [Pinbox](https://withpinbox.com/) 简介
+{: id="20201210142814-k9d6npc" updated="20210309154334"}
 
 [Pinbox_faq](https://withpinbox.com/faq)
 {: id="20201210142836-bines99"}
