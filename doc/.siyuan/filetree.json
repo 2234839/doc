@@ -1193,6 +1193,10 @@
         {
           "name": "promise reolve 两次后才结束（伪）.md",
           "path": "/other/promise reolve 两次后才结束（伪）.md"
+        },
+        {
+          "name": "vscode调试定位node.js项目死循环代码.md",
+          "path": "/other/vscode调试定位node.js项目死循环代码.md"
         }
       ]
     },
