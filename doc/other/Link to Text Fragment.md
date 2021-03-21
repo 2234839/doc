@@ -1,6 +1,9 @@
 > 跳转到指定网页的文本片段
 > {: id="20210321143057-ehuhzwh" updated="20210321143111"}
-{: id="20210321143054-jm3iuzp" updated="20210321143057"}
+>
+> [link-to-text-fragment github repo](https://github.com/GoogleChromeLabs/link-to-text-fragment)
+> {: id="20210321153635-yd5mtfm" updated="20210321153652"}
+{: id="20210321143054-jm3iuzp" updated="20210321153652"}
 
 ## 扩展安装
 {: id="20210321142411-a20zh7r" updated="20210321142446"}
