@@ -29,40 +29,40 @@ firefox : [https://addons.mozilla.org/zh-CN/firefox/addon/link-to-text-fragment/
 {: id="20210321145420-4difuxp"}
 
 ## 关于使用 ((20210321142309-wn4sd7t "{{.text}}"))  维持双链导出后的链接功能的设想
-{: id="20210321144243-bwrm25x" updated="20210321145430"}
+{: id="20210321144243-bwrm25x" updated="20210321145430" fold="1"}
 
 这是 chrome 80 版本以后支持的一个跳转到指定网页文本的功能
-{: id="20210321145454-s380c9k"}
+{: id="20210321145454-s380c9k" parent-fold="1"}
 
 ### 适用场景
-{: id="20210321145454-6gnvcsd" updated="20210321145500"}
+{: id="20210321145454-6gnvcsd" updated="20210321145500" parent-fold="1"}
 
 单页内的双链跳转
-{: id="20210321145454-ho74e0a"}
+{: id="20210321145454-ho74e0a" parent-fold="1"}
 
 ### 痛点
-{: id="20210321145454-aocnuxe" updated="20210321145503"}
+{: id="20210321145454-aocnuxe" updated="20210321145503" parent-fold="1"}
 
 我刚尝试了一下 ((20201104155455-awawq0n "{{.text}}")) 与 wolai 在导出 markdown 后双链引用都只剩下了文字，这显然不太合理，
-{: id="20210321145454-4xqd5cn" updated="20210321145513"}
+{: id="20210321145454-4xqd5cn" updated="20210321145513" parent-fold="1"}
 
 在这种情况下 如果支持 Link to Text Fragment 的链接，虽然跨页面还是不行（需要多页面建议像我这样自建一个网站,可以利用 ((20201121142503-ivwtfzg "{{.text}}"))  ），但至少在单页的文档下链接体验会有一个提升。
-{: id="20210321145454-lro0wh3" updated="20210321145638"}
+{: id="20210321145454-lro0wh3" updated="20210321145638" parent-fold="1"}
 
 ### 示例
-{: id="20210321145454-5sspvti" updated="20210321145731"}
+{: id="20210321145454-5sspvti" updated="20210321145731" parent-fold="1"}
 
 ```
 <a target="_blank" rel="noopener" href="#:~:text=%E7%97%9B%E7%82%B9,-%E6%88%91%E5%88%9A%E5%B0%9D%E8%AF%95%E4%BA%86%E4%B8%80%E4%B8%8B">痛点</a> 
 ```
-{: id="20210321150817-b8evm11" updated="20210321151856"}
+{: id="20210321150817-b8evm11" updated="20210321151856" parent-fold="1"}
 
 <a target="_blank" rel="noopener" href="#:~:text=%E7%97%9B%E7%82%B9,-%E6%88%91%E5%88%9A%E5%B0%9D%E8%AF%95%E4%BA%86%E4%B8%80%E4%B8%8B">痛点</a>
 
-{: id="20210321151553-9mrp54r"}
+{: id="20210321151553-9mrp54r" parent-fold="1"}
 
 在支持 ((20210321142309-wn4sd7t "{{.text}}")) 的浏览器下点击上面的链接会打开一个新标签跳转到 ((20210321145454-aocnuxe "{{.text}}"))
-{: id="20210321151553-ducclbr" updated="20210321151655"}
+{: id="20210321151553-ducclbr" updated="20210321151655" parent-fold="1"}
 
 ## 缺陷
 {: id="20210321151554-t7srfu5" updated="20210321151702"}
