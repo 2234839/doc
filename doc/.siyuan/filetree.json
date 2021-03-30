@@ -1260,6 +1260,10 @@
         {
           "name": "关于下一代设计软件的思考.md",
           "path": "/other/关于下一代设计软件的思考.md"
+        },
+        {
+          "name": "electron icp 封装（基于vue computed）.md",
+          "path": "/other/electron icp 封装（基于vue computed）.md"
         }
       ]
     },
