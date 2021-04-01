@@ -115,6 +115,10 @@
                 {
                   "name": "3月.md",
                   "path": "/record/每日总结/2021/3月.md"
+                },
+                {
+                  "name": "4月.md",
+                  "path": "/record/每日总结/2021/4月.md"
                 }
               ]
             },
@@ -1264,6 +1268,10 @@
         {
           "name": "electron icp 封装（基于vue computed）.md",
           "path": "/other/electron icp 封装（基于vue computed）.md"
+        },
+        {
+          "name": "各语言网页版在线 Playground.md",
+          "path": "/other/各语言网页版在线 Playground.md"
         }
       ]
     },
