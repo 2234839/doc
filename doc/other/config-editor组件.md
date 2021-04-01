@@ -27,8 +27,8 @@
 ## 项目相关( 开发中 )
 {: id="20210401174640-y4l8nty" updated="20210401174735"}
 
-[github repo](https://github.com/2234839/vue-demo/tree/master/src/components/config-editor)   [尝试地址]([崮生 vue-demo (2234839.github.io)](https://2234839.github.io/vue-demo/?template_name=Y29uZmlnLWVkaXRvcg%3D%3D))
-{: id="20210401174655-79v956s" updated="20210401174728"}
+[github repo](https://github.com/2234839/vue-demo/tree/master/src/components/config-editor)   在线尝试地址：[崮生 vue_demo-config_editor (2234839.github.io)](https://2234839.github.io/vue-demo/?template_name=Y29uZmlnLWVkaXRvcg%3D%3D)
+{: id="20210401174655-79v956s" updated="20210401175019"}
 
 {: id="20210401171808-x2huun8"}
 
