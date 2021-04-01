@@ -8,7 +8,13 @@
   {: id="20210401083614-ueikkyg" updated="20210401083620"}
 {: id="20210401083408-5vu0wjl" updated="20210401083614"}
 
-{: id="20210401083425-3iur48q"}
+{: id="20210401171851-bmvnhg5"}
+
+- {: id="20210401171852-bkoltxt"}Monaco Editor :  [Monaco Editor Playground (microsoft.github.io)](https://microsoft.github.io/monaco-editor/playground.html)
+  {: id="20210401171852-69wc9zx" updated="20210401171916"}
+{: id="20210401083425-3iur48q" updated="20210401171853"}
+
+{: id="20210401171854-5s047qr"}
 
 
 {: id="20210401083345-h0z90rh" type="doc"}
