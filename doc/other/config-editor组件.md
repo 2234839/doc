@@ -22,6 +22,8 @@
    1. {: id="20210401174542-zza26um"}两种方式都有值的**类型校验与提醒**{: style="color: var(--b3-font-color12); background-color: var(--b3-font-background4);"}以及描述
       {: id="20210401174542-ses0xng" updated="20210401174819"}
    {: id="20210401174813-sxnwgq4"}
+4. {: id="20210401175121-mts8qnl"}有公共的配置以及个体的配置
+   {: id="20210401175120-2qzkxh9" updated="20210401175146"}
 {: id="20210401171955-u9glgjf" updated="20210401172003"}
 
 ## 项目相关( 开发中 )
