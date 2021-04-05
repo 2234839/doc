@@ -74,8 +74,8 @@
    {: id="20210113161842-lq61fhv"}
 6. {: id="20210120201815-mhusgkv"}⭐❤ [tailwindcss](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) 类名提示
    {: id="20210120201815-nvhf00v"}
-7. {: id="20210122161020-yikgm24"}[DeepCode](https://marketplace.visualstudio.com/items?itemName=DeepCode.deepcode) 使用深度学习来寻找代码中的 bug
-   {: id="20210122161020-9p1eeo7"}
+7. {: id="20210122161020-yikgm24"}~~[DeepCode](https://marketplace.visualstudio.com/items?itemName=DeepCode.deepcode) 使用深度学习来寻找代码中的 bug~~
+   {: id="20210122161020-9p1eeo7" updated="20210405084932"}
 {: id="20210104101034-mzz071d"}
 
 ### 有问题的插件
