@@ -6,8 +6,6 @@ import polka from "polka";
 import serveStatic from "sirv";
 import { client_path, doc_html_path, doc_path, root_path } from "./lib/env";
 import { newLog } from "./lib/log/ali_log";
-//@ts-ignore
-import { timestamp, files, shell, routes } from "@sapper/service-worker";
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === "development";
 polka()
