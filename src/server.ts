@@ -1,6 +1,7 @@
 //@ts-ignore
 import * as sapper from "@sapper/server";
 import compression from "compression";
+import type { NextFunction } from "express-serve-static-core";
 import fs from "fs";
 import path, { resolve } from "path";
 import polka from "polka";
@@ -18,11 +19,14 @@ function sendFile(filePath: string, res: any) {
   }
   fs.createReadStream(filePath).pipe(res);
 }
-
 polka()
   .use(function file_server(req, res, next) {
     setTimeout(() => {
-      newLog().push("ip", req.ip).push("href", decodeURIComponent(req.url)).push("label", "req").logger();
+      newLog()
+        .push("ip", req.socket.remoteAddress)
+        .push("href", decodeURIComponent(req.url))
+        .push("label", "req")
+        .logger();
     }, 0);
     const file_path = path.resolve(root_path, "./" + req.url);
     if (req.method === "GET") {
@@ -48,10 +52,36 @@ polka()
       next(); // move on
     }
   })
-  .use(serveStatic(root_path))
-  .use(serveStatic(doc_path))
-  .use("/assets", serveStatic(resolve(doc_html_path, "./assets")))
-  .use(compression({ threshold: 0 }), sirv("static", { dev }), sapper.middleware())
-  .listen(PORT, (err: Error) => {
-    if (err) console.log("error", err);
+  .use(
+    (() => {
+      const s = serveStatic(root_path);
+      return (req: any, res: any, next: NextFunction) => {
+        return s(req, res, next);
+      };
+    })(),
+  )
+  .use(
+    (() => {
+      const s = serveStatic(doc_path);
+      return (req: any, res: any, next: NextFunction) => {
+        return s(req, res, next);
+      };
+    })(),
+  )
+  .use(
+    "/assets",
+    (() => {
+      const s = serveStatic(resolve(doc_html_path, "./assets"));
+      return (req: any, res: any, next: NextFunction) => {
+        return s(req, res, next);
+      };
+    })(),
+  )
+  .use(
+    compression({ threshold: 0 }) as any,
+    sirv("static", { dev }),
+    sapper.middleware(),
+  )
+  .listen(PORT, async () => {
+    console.log("[PORT]", PORT);
   });

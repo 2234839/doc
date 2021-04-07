@@ -7,17 +7,13 @@ export async function preload(this: context, page: page, session: any) {
   });
   const 访问记录 = await API.get访问记录(path);
 
-  if (page.query.requester === "sapper") {
-    /** 自己发的请求，404掉让nginx去访问其他服务，不然下面会一直递归请求 */
-    console.log("[404]", page);
-    return this.error(404, "Not found");
-  }
   if (path.endsWith(".html")) {
-    const res = await this.fetch(`/article.json?path=${path.replace(/\.html/, ".md")}?requester=sapper`);
+    const res = await this.fetch(
+      `/article.json?path=${path.replace(/\.html/, ".md")}`,
+    );
 
     if (!res.ok) {
-      console.log("404", path);
-      /** 报错 404 */
+      console.log("404 -", path);
       return this.error(404, "请求失败");
     }
 
@@ -25,7 +21,13 @@ export async function preload(this: context, page: page, session: any) {
     if (article.code === -1) {
       return this.error(200, "Not found");
     }
-    return { time: Date.now(), page, article: article, title: article.title, 访问记录 };
+    return {
+      time: Date.now(),
+      page,
+      article: article,
+      title: article.title,
+      访问记录,
+    };
   } else if (path.endsWith("/")) {
     const menu = await this.fetch("/menu.json?path=" + path).then((r) => {
       return r.json();
