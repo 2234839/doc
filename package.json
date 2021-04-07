@@ -17,7 +17,7 @@
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^2.3.0",
     "@polka/send-type": "^0.5.2",
-    "ansi_up": "^4.0.4",
+    "ansi_up": "^5.0.0",
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
     "compression": "^1.7.1",
