@@ -1,26 +1,18 @@
 //@ts-ignore
 import * as sapper from "@sapper/server";
 import compression from "compression";
-import type { NextFunction } from "express-serve-static-core";
-import fs from "fs";
-import path, { resolve } from "path";
+import { resolve } from "path";
 import polka from "polka";
-import serveStatic from "serve-static";
-import sirv from "sirv";
+import serveStatic from "sirv";
 import { client_path, doc_html_path, doc_path, root_path } from "./lib/env";
 import { newLog } from "./lib/log/ali_log";
+//@ts-ignore
+import { timestamp, files, shell, routes } from "@sapper/service-worker";
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === "development";
-function sendFile(filePath: string, res: any) {
-  // 这里到时候再完善
-  if (filePath.endsWith(".js")) {
-    res.setHeader("content-type", "application/javascript; charset=utf-8");
-    res.setHeader("Cache-Control", "public, max-age=86400");
-  }
-  fs.createReadStream(filePath).pipe(res);
-}
 polka()
   .use(function file_server(req, res, next) {
+    next();
     setTimeout(() => {
       newLog()
         .push("ip", req.socket.remoteAddress)
@@ -28,58 +20,31 @@ polka()
         .push("label", "req")
         .logger();
     }, 0);
-    const file_path = path.resolve(root_path, "./" + req.url);
-    if (req.method === "GET") {
-      fs.stat(file_path, function (err, stat) {
-        if (err) {
-          if (/\/client\//.test(req.url)) {
-            const fileName = req.url.replace(/.*\/client\//, "");
-            const client_file_path = path.resolve(client_path, "./" + fileName);
-            sendFile(client_file_path, res);
-          } else {
-            next(); // move on
-          }
-          return;
-        }
-        if (stat.isFile()) {
-          sendFile(file_path, res);
-        }
-        if (stat.isDirectory()) {
-          next();
-        }
-      });
-    } else {
-      next(); // move on
-    }
+    // console.log("[req.url]", req.url);
   })
   .use(
-    (() => {
-      const s = serveStatic(root_path);
-      return (req: any, res: any, next: NextFunction) => {
-        return s(req, res, next);
-      };
-    })(),
+    /.*?\/?client\//,
+    // function file_server(req, res, next) {
+    //   console.log("[req.url 1]", req.url);
+    //   next();
+    // },
+    serveStatic(resolve(client_path), {
+      onNoMatch: (req, res) => {
+        console.log("client not match [req.url]", req.url);
+      },
+      dev: true,
+      brotli: true,
+    }),
   )
-  .use(
-    (() => {
-      const s = serveStatic(doc_path);
-      return (req: any, res: any, next: NextFunction) => {
-        return s(req, res, next);
-      };
-    })(),
-  )
-  .use(
-    "/assets",
-    (() => {
-      const s = serveStatic(resolve(doc_html_path, "./assets"));
-      return (req: any, res: any, next: NextFunction) => {
-        return s(req, res, next);
-      };
-    })(),
-  )
+  .use(serveStatic(root_path), serveStatic(doc_path))
+  .use("/assets", serveStatic(resolve(doc_html_path, "./assets")))
   .use(
     compression({ threshold: 0 }) as any,
-    sirv("static", { dev }),
+    serveStatic("static", { dev }),
+    function file_server(req, res, next) {
+      next();
+      console.log("[req.url 2]", req.url);
+    },
     sapper.middleware(),
   )
   .listen(PORT, async () => {

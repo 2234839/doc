@@ -39,7 +39,7 @@ export async function preload(this: context, page: page, session: any) {
       .join("<");
     return { time: Date.now(), page, menu, title, 访问记录 };
   } else {
-    console.log("404", path);
+    console.log("404 2", path);
     return this.error(404, "Not found");
   }
 }

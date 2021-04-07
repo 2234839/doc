@@ -22,7 +22,8 @@
         "titleBar.inactiveForeground": "#e7e7e799"
     },
     "cSpell.words": [
-        "onwarn"
+        "onwarn",
+        "sirv"
     ],
     "editor.snippetSuggestions": "bottom",
     "editor.suggest.snippetsPreventQuickSuggestions": false,

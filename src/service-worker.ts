@@ -49,11 +49,11 @@ self.addEventListener(
 self.addEventListener(
   "fetch",
   <EventType extends FetchEvent>(event: EventType) => {
-    console.log("[cached]", cached);
     if (event.request.method !== "GET" || event.request.headers.has("range"))
       return;
 
     const url = new URL(event.request.url);
+    console.log("[url]", url);
 
     // don't try to handle e.g. data: URIs
     if (!url.protocol.startsWith("http")) return;
