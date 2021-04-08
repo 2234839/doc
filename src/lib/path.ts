@@ -8,19 +8,24 @@ export async function preload(this: context, page: page, session: any) {
   const 访问记录 = await API.get访问记录(path);
 
   if (path.endsWith(".html")) {
-    const res = await this.fetch(
-      `/article.json?path=${path.replace(/\.html/, ".md")}`,
-    );
+    const htmlPath = path.replace(/\.html/, ".md");
+    const res = await API.getArticleByPath(htmlPath);
 
-    if (!res.ok) {
-      console.log("404 -", path);
-      return this.error(404, "请求失败");
+    if (res.code === -1) {
+      console.log("[path1]", path);
+      /**
+       * 对于在 routes 正则匹配范围内的文件（但 routes 没有提供服务）进行请求，
+       * 如果直接进入 server.ts 中则可以正常被静态服务匹配中返回文件
+       * 但如果在浏览器端就会再次陷入 preload 的逻辑判断，导致死循环
+       * 所以这里使用 `return (location.href = path);` 来打破浏览器的行为
+       */
+      if ("location" in globalThis) {
+        return (location.href = path);
+      } else {
+        return this.error(200, "Not found");
+      }
     }
-
-    const article = await res.json();
-    if (article.code === -1) {
-      return this.error(200, "Not found");
-    }
+    const article = res.result;
     return {
       time: Date.now(),
       page,

@@ -39,10 +39,10 @@ polka()
   .use(
     compression({ threshold: 0 }) as any,
     serveStatic("static", { dev }),
-    function file_server(req, res, next) {
-      next();
-      console.log("[req.url 2]", req.url);
-    },
+    // function file_server(req, res, next) {
+    //   next();
+    //   console.log("[req.url 2]", req.url);
+    // },
     sapper.middleware(),
   )
   .listen(PORT, async () => {
