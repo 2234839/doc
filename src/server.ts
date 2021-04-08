@@ -32,22 +32,16 @@ console.log = (...args: unknown[]) => {
 };
 polka()
   .use(
-    function file_server(req, res, next) {
-      next();
-      setTimeout(() => {
-        newLog()
-          .push("ip", req.socket.remoteAddress)
-          .push("href", decodeURIComponent(req.url))
-          .push("label", "req")
-          .logger();
-      }, 0);
-    },
     async function file_server(req, res, next) {
       const id = requestId++;
+      const ip =
+        req.headers["X-Real-IP"] ??
+        req.headers["X-Forwarded-For"] ??
+        req.socket.remoteAddress;
       let reqZone = Zone.root.fork({
         name: "reqZone",
         properties: {
-          ip: req.socket.remoteAddress,
+          ip,
           start: new Date(),
           id,
           msg: [],
@@ -77,6 +71,16 @@ polka()
         );
       });
       // reqZone.run(next);
+    },
+    function file_server(req, res, next) {
+      next();
+      setTimeout(() => {
+        newLog()
+          .push("ip", req.socket.remoteAddress)
+          .push("href", decodeURIComponent(req.url))
+          .push("label", "req")
+          .logger();
+      }, 0);
     },
   )
   .use(
