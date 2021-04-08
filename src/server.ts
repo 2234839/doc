@@ -6,20 +6,79 @@ import polka from "polka";
 import serveStatic from "sirv";
 import { client_path, doc_html_path, doc_path, root_path } from "./lib/env";
 import { newLog } from "./lib/log/ali_log";
+import "zone.js";
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === "development";
+let log = console.log;
+
+interface reqZone {
+  ip: string;
+  start: Date;
+  id: number;
+  msg: [number, unknown[]][];
+  url: string;
+}
+function curZoneGet<K extends keyof reqZone>(k: K, zone?: Zone): reqZone[K] {
+  return (zone ?? Zone.current).get(k);
+}
+let requestId = 0;
+
+console.log = (...args: unknown[]) => {
+  if (Zone.current.name === "reqZone") {
+    curZoneGet("msg").push([Date.now(), args]);
+  } else {
+    log(...args);
+  }
+};
 polka()
-  .use(function file_server(req, res, next) {
-    next();
-    setTimeout(() => {
-      newLog()
-        .push("ip", req.socket.remoteAddress)
-        .push("href", decodeURIComponent(req.url))
-        .push("label", "req")
-        .logger();
-    }, 0);
-    // console.log("[req.url]", req.url);
-  })
+  .use(
+    function file_server(req, res, next) {
+      next();
+      setTimeout(() => {
+        newLog()
+          .push("ip", req.socket.remoteAddress)
+          .push("href", decodeURIComponent(req.url))
+          .push("label", "req")
+          .logger();
+      }, 0);
+    },
+    async function file_server(req, res, next) {
+      const id = requestId++;
+      let reqZone = Zone.root.fork({
+        name: "reqZone",
+        properties: {
+          ip: req.socket.remoteAddress,
+          start: new Date(),
+          id,
+          msg: [],
+          url: req.url,
+        } as reqZone,
+      });
+      reqZone.run(next);
+      res.on("close", function () {
+        const ip = curZoneGet("ip", reqZone);
+        const start = curZoneGet("start", reqZone);
+        const id = curZoneGet("id", reqZone);
+        const startS = start.getTime();
+
+        log(
+          `start: ${id} , ${ip} , ${start.toLocaleString()} : ${curZoneGet(
+            "url",
+            reqZone,
+          )}`,
+        );
+        curZoneGet("msg", reqZone).forEach(([t, args]) => {
+          log("  ", t - startS + "ms\t", ...args);
+        });
+        log(
+          `end  : ${new Date().toLocaleString()} 总耗时${
+            Date.now() - startS
+          }ms\n`,
+        );
+      });
+      // reqZone.run(next);
+    },
+  )
   .use(
     /.*?\/?client\//,
     // function file_server(req, res, next) {
@@ -39,10 +98,6 @@ polka()
   .use(
     compression({ threshold: 0 }) as any,
     serveStatic("static", { dev }),
-    // function file_server(req, res, next) {
-    //   next();
-    //   console.log("[req.url 2]", req.url);
-    // },
     sapper.middleware(),
   )
   .listen(PORT, async () => {
