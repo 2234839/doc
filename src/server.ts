@@ -73,7 +73,7 @@ polka()
         log(
           `end  : ${new Date().toLocaleString()} 总耗时${
             Date.now() - startS
-          }ms\n`,
+          }ms\n--------`,
         );
       });
       // reqZone.run(next);
@@ -89,7 +89,7 @@ polka()
       onNoMatch: (req, res) => {
         console.log("client not match [req.url]", req.url);
       },
-      dev: true,
+      dev,
       brotli: true,
     }),
   )
