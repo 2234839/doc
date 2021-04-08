@@ -27,7 +27,15 @@
   {: id="20210209130028-vljry5d"}
 {: id="20201123184156-ypy520c"}
 
-{: id="20210209130028-x9x8ywu"}
+- {: id="20210408173455-ktu5tzn"}((20201121142503-ivwtfzg "{{.text}}"))  新增  [底部反链显示](https://github.com/siyuan-note/oceanpress/issues/8)
+  {: id="20210408173455-cbdlrix" updated="20210408173628"}
+
+  - {: id="20210408173542-ahu9z8v"}![image.png](assets/image-20210408173544-08xe8hl.png "演示截图"){: parent-style="display: block; text-align: center; white-space: initial;"}
+    {: id="20210408173542-4asra9r" updated="20210408173601"}
+  {: id="20210408173542-tinqdc1"}
+{: id="20210209130028-x9x8ywu" updated="20210408173533"}
+
+{: id="20210408173534-g2iwtr5"}
 
 
 {: id="20201121142422-1gk6qv5" type="doc"}
