@@ -25,7 +25,7 @@
     "fast-xml-parser": "^3.19.0",
     "fs-extra": "^9.1.0",
     "html-escaper": "^3.0.3",
-    "isbot-fast": "^1.2.0",
+    "isbot": "^3.0.26",
     "markdown-it": "^11.0.1",
     "markdown-it-anchor": "^6.0.1",
     "markdown-it-attrs": "^3.0.3",

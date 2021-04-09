@@ -1,7 +1,6 @@
 import type { Middleware, Polka, Request } from "polka";
 import "zone.js";
-//@ts-ignore
-import IsBot from "isbot-fast";
+import IsBot from "isbot";
 let log = console.log;
 interface reqZone {
   ip: string;
@@ -38,8 +37,9 @@ export const ReqZoneMiddleware: Middleware<Request> = function (
       req.headers["x-forwarded-for"] ??
       req.socket.remoteAddress,
   ).split(",")[0];
-  const ua = req.headers["user-agent"] || "";
-  const isBot = IsBot(ua) as boolean;
+
+  const ua = req.headers["user-agent"] ?? "";
+  const isBot = IsBot(ua);
   const reqZone = Zone.root.fork({
     name: "reqZone",
     properties: {
