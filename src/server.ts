@@ -27,11 +27,7 @@ polka()
     }, 0);
   })
   .use(
-    /.*?\/?client\//,
-    // function file_server(req, res, next) {
-    //   console.log("[req.url 1]", req.url);
-    //   next();
-    // },
+    /.*?\/?client/,
     serveStatic(resolve(client_path), {
       onNoMatch: (req, res) => {
         console.log("client not match [req.url]", req.url);
