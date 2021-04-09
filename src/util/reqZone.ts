@@ -1,6 +1,7 @@
 import type { Middleware, Polka, Request } from "polka";
 import "zone.js";
-
+//@ts-ignore
+import IsBot from "isbot-fast";
 let log = console.log;
 interface reqZone {
   ip: string;
@@ -8,10 +9,13 @@ interface reqZone {
   id: number;
   msg: [number, unknown[]][];
   url: string;
+  ua: string;
+  isBot: boolean;
 }
 function curZoneGet<K extends keyof reqZone>(k: K, zone?: Zone): reqZone[K] {
   return (zone ?? Zone.current).get(k);
 }
+
 let requestId = 0;
 
 console.log = (...args: unknown[]) => {
@@ -34,6 +38,8 @@ export const ReqZoneMiddleware: Middleware<Request> = function (
       req.headers["x-forwarded-for"] ??
       req.socket.remoteAddress,
   ).split(",")[0];
+  const ua = req.headers["user-agent"] || "";
+  const isBot = IsBot(ua) as boolean;
   const reqZone = Zone.root.fork({
     name: "reqZone",
     properties: {
@@ -42,24 +48,29 @@ export const ReqZoneMiddleware: Middleware<Request> = function (
       id,
       msg: [],
       url: req.url,
+      ua,
+      isBot,
     } as reqZone,
   });
   reqZone.run(next);
 
+  const curZone: typeof curZoneGet = (k, zone = reqZone) => curZoneGet(k, zone);
   res.once("close", function () {
-    const ip = curZoneGet("ip", reqZone);
-    const start = curZoneGet("start", reqZone);
-    const id = curZoneGet("id", reqZone);
+    const ip = curZone("ip");
+    const start = curZone("start");
+    const id = curZone("id");
+    const ua = curZone("ua");
+    const isBot = curZone("isBot");
     const startS = start.getTime();
 
-    log(
-      `start: ${id} , ${ip} , ${start.toLocaleString()} : ${curZoneGet(
-        "url",
-        reqZone,
-      )}`,
-    );
-    curZoneGet("msg", reqZone).forEach(([t, args], index, arr) => {
-      log("  ", t - startS + "ms\t", ...args);
+    const prefix = "  ";
+
+    log(`start: ${id} , ${ip} , ${start.toLocaleString()} : ${curZone("url")}`);
+    if (isBot) {
+      log(`${prefix} isBot: ${ua}`);
+    }
+    curZone("msg").forEach(([t, args]) => {
+      log(prefix, t - startS + "ms\t", ...args);
     });
     log(
       `end  : ${new Date().toLocaleString()} 总耗时${
