@@ -6,4 +6,7 @@ export const doc_path = path.resolve(root_path, "./doc");
 export const doc_html_path = path.resolve(root_path, "./docHTML");
 export const client_path = path.resolve(server_path, "../client");
 
+const { NODE_ENV } = process.env;
+export const isDEV = NODE_ENV === "development";
+
 console.log({ root_path, doc_path, client_path });

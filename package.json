@@ -20,7 +20,6 @@
     "ansi_up": "^5.0.0",
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
-    "compression": "^1.7.1",
     "cross-env": "^7.0.3",
     "cssnano": "^4.1.11",
     "fast-xml-parser": "^3.19.0",
