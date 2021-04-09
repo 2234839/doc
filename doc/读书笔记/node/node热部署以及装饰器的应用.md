@@ -1,14 +1,21 @@
 # node 热部署以及装饰器的应用
+{: id="20210409165030-ktn5bpo"}
 
-- pubdate: 2019-03-16 17:43:29
-- tags : node.js,index
+- {: id="20210409165030-riuzp0d"}pubdate: 2019-03-16 17:43:29
+  {: id="20210409165030-6508mjk"}
+- {: id="20210409165030-3gcdvco"}tags : node.js,index
+  {: id="20210409165030-d9mlps3"}
+{: id="20210409165030-u9fmtda"}
 
 ---
+{: id="20210409165030-v3ak87r"}
 
 ## node 热部署基础
+{: id="20210409165030-ettv6mp"}
 
 node 的热部署主要依赖 require 来动态的引入模块
 即通过 fs 模块来监视文件，如果文件发生变动则重新 require 该文件
+{: id="20210409165030-bfbmp3f"}
 
 ```typescript
 fs.watch(
@@ -29,10 +36,14 @@ fs.watch(
   },
 );
 ```
+{: id="20210409165030-ofn0f9x"}
 
 ## koa-router 热部署
+{: id="20210409165030-4nrmz3b"}
 
 > 通过对 router.routeStack 中的 handler 函数的替换来实现保存代码改动之后立刻重新加载该函数无需重启整个服务
+> {: id="20210409165030-m5b5cc4"}
+{: id="20210409165030-dkwfp70"}
 
 ```typescript
 /**
@@ -85,10 +96,13 @@ export function registerMethod(router, url, fun) {
   }
 }
 ```
+{: id="20210409165030-s7gorew"}
 
 ## 通过装饰器来绑定路径以及减少重复代码
+{: id="20210409165030-aedtzep"}
 
 装饰器的代码
+{: id="20210409165030-nepcjko"}
 
 ```typescript
 /**
@@ -110,8 +124,10 @@ export function bindRouter(url: string) {
   };
 }
 ```
+{: id="20210409165030-ha29vf3"}
 
 应用装饰器
+{: id="20210409165030-wtpn2qc"}
 
 ```typescript
     @bindRouter("get /blog/proxy") @bindRouter("post /blog/proxy")
@@ -119,8 +135,12 @@ export function bindRouter(url: string) {
         /** 实现功能的代码 */
     }
 ```
+{: id="20210409165030-kn1ud9m"}
 
-[装饰器详解](./record/装饰器详解)
+((20201104153359-3hiw1pt "{{.text}}"))
+{: id="20210409165030-icuszt2" updated="20210409165041"}
+
+{: id="20210409165044-burzr16"}
 
 
 {: id="20201104153359-eraeclx" type="doc"}

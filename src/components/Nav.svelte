@@ -26,7 +26,7 @@
       </li>
     {/each}
     <!-- <SearchBtn /> -->
-    <li style="padding: 1em 0.5em;float:right">
+    <li style="float:right">
       <!-- Start of Site Search 360 Search Box -->
       <section role="search" data-ss360="true">
         <input type="search" id="searchBox" placeholder="Search…" />
