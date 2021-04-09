@@ -38,9 +38,8 @@ polka()
       },
       dev,
     }),
-    serveStatic(root_path),
-    serveStatic(doc_path),
   )
+  .use(serveStatic(root_path), serveStatic(doc_path))
   .use("/assets", serveStatic(resolve(doc_html_path, "./assets")))
   .use(serveStatic("static", { dev }), ReqZoneMiddleware, sapper.middleware())
   .listen(PORT);
