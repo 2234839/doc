@@ -29,12 +29,11 @@ export const ReqZoneMiddleware: Middleware<Request> = function (
   next,
 ) {
   const id = requestId++;
-  const ip =
-    req.headers["X-Real-IP"] ??
-    req.headers["x-real-ip"] ??
+  const ip = String(
     req.headers["X-Forwarded-For"] ??
-    req.headers["x-forwarded-for"] ??
-    req.socket.remoteAddress;
+      req.headers["x-forwarded-for"] ??
+      req.socket.remoteAddress,
+  ).split(",")[0];
   const reqZone = Zone.root.fork({
     name: "reqZone",
     properties: {
@@ -59,7 +58,7 @@ export const ReqZoneMiddleware: Middleware<Request> = function (
         reqZone,
       )}`,
     );
-    curZoneGet("msg", reqZone).forEach(([t, args]) => {
+    curZoneGet("msg", reqZone).forEach(([t, args], index, arr) => {
       log("  ", t - startS + "ms\t", ...args);
     });
     log(
