@@ -1,63 +1,98 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="theme-color" content="#333" />
+    <meta name="author" content="崮生" />
+    <meta
+      name="description"
+      content="这里有崮生提供的一些信息，你可以在这里了解一些web前端及其他技术"
+    />
+    <!-- %sapper.base% -->
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<meta name="theme-color" content="#333">
-	<meta name="author" content="崮生">
-	<meta name="description" content="这里有崮生提供的一些信息，你可以在这里了解一些web前端及其他技术">
-	<!-- %sapper.base% -->
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials" />
+    <link rel="icon" type="image/png" href="/favicon.ico" />
 
-	<link rel="manifest" href="manifest.json" crossorigin="use-credentials">
-	<link rel="icon" type="image/png" href="/favicon.ico">
-
-	<!-- Sapper generates a <style> tag containing critical CSS
+    <!-- Sapper generates a <style> tag containing critical CSS
 	     for the current page. CSS for the rest of the app is
 	     lazily loaded when it precaches secondary pages -->
-	%sapper.styles%
+    %sapper.styles%
 
-	<!-- This contains the contents of the <svelte:head> component, if
+    <!-- This contains the contents of the <svelte:head> component, if
 	     the current page has one -->
-	%sapper.head%
-	<script async des="谷歌统计" src="https://www.googletagmanager.com/gtag/js?id=UA-139738006-1"></script>
-	<script des="谷歌统计">
-		window.dataLayer = window.dataLayer || [];
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag("js", new Date());
-		gtag("config", "UA-139738006-1");
-	</script>
-	<script des="百度统计">
-		var _hmt = _hmt || [];
-		(function() {
-		var hm = document.createElement("script");
-		hm.src = "https://hm.baidu.com/hm.js?65b233cad1f8e842306698cecb350624";
-		var s = document.getElementsByTagName("script")[0];
-		s.parentNode.insertBefore(hm, s);
-		})();
-	</script>
-</head>
+    %sapper.head%
+    <script
+      async
+      des="谷歌统计"
+      src="https://www.googletagmanager.com/gtag/js?id=UA-139738006-1"
+    ></script>
+    <script des="谷歌统计">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-139738006-1");
+    </script>
+    <script des="百度统计">
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?65b233cad1f8e842306698cecb350624";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  </head>
 
-<body>
-	<script des="谷歌广告" data-ad-client="ca-pub-7181140659254262" async
-		src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<div id="sapper">%sapper.html%</div>
-
-</body>
-<!-- Sapper creates a <script> tag containing `src/client.js`
+  <body>
+    <script
+      des="谷歌广告"
+      data-ad-client="ca-pub-7181140659254262"
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <div id="sapper">%sapper.html%</div>
+    <!-- Start of Site Search 360 Scripts -->
+    <script type="text/javascript">
+      var ss360Config = {
+        siteId: "shenzilong.cn",
+        searchBox: {
+          selector: "#searchBox",
+        },
+      };
+    </script>
+    <script
+      src="https://cdn.sitesearch360.com/v13/sitesearch360-v13.min.js"
+      async
+    ></script>
+    <!-- End of Site Search 360 Scripts -->
+  </body>
+  <!-- Sapper creates a <script> tag containing `src/client.js`
 	     and anything else it needs to hydrate the app and
 	     initialise the router -->
-%sapper.scripts%
-<!-- <script defer des="monaco-editor携带的loader"
+  %sapper.scripts%
+  <!-- <script defer des="monaco-editor携带的loader"
 	src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.19.2/min/vs/loader.js"></script> -->
 
-<link rel="stylesheet" href="/assets/github-markdown-css.css">
+  <link rel="stylesheet" href="/assets/github-markdown-css.css" />
 
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/vditor/dist/index.css"
+  />
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vditor/dist/index.css" />
-
-<script src="/assets/font-end-lib/all_components.js"></script>
-<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="3fd4e4ce-c629-4918-9484-2a137064f395";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+  <script src="/assets/font-end-lib/all_components.js"></script>
+  <script type="text/javascript">
+    window.$crisp = [];
+    window.CRISP_WEBSITE_ID = "3fd4e4ce-c629-4918-9484-2a137064f395";
+    (function () {
+      d = document;
+      s = d.createElement("script");
+      s.src = "https://client.crisp.chat/l.js";
+      s.async = 1;
+      d.getElementsByTagName("head")[0].appendChild(s);
+    })();
+  </script>
 </html>

@@ -1,5 +1,4 @@
 <script lang="ts">
-  import SearchBtn from "./global-search/search-btn.svelte"
   export let segment: string;
   $: decodeSegment = decodeURIComponent(segment || "");
   // $: console.log("[segment] 2", decodeSegment);
@@ -10,8 +9,33 @@
     { title: "在线工具", link: "/工具/在线工具.html" },
   ];
 
-  $: 一级选中 = routerList.find((el) => el.link.split("/")[1] === decodeSegment) || routerList[2];
+  $: 一级选中 =
+    routerList.find((el) => el.link.split("/")[1] === decodeSegment) ||
+    routerList[2];
 </script>
+
+<nav>
+  <ul>
+    {#each routerList as router}
+      <li>
+        <a
+          aria-current={一级选中 === router || undefined}
+          rel="prefetch"
+          href={router.link}>{router.title}</a
+        >
+      </li>
+    {/each}
+    <!-- <SearchBtn /> -->
+    <li style="padding: 1em 0.5em;float:right">
+      <!-- Start of Site Search 360 Search Box -->
+      <section role="search" data-ss360="true">
+        <input type="search" id="searchBox" placeholder="Search…" />
+        <button id="searchButton" />
+      </section>
+      <!-- End of Site Search 360 Search Box -->
+    </li>
+  </ul>
+</nav>
 
 <style>
   nav {
@@ -58,12 +82,3 @@
     display: block;
   }
 </style>
-
-<nav>
-  <ul>
-    {#each routerList as router}
-      <li><a aria-current={一级选中 === router || undefined} rel="prefetch" href={router.link}>{router.title}</a></li>
-    {/each}
-    <!-- <SearchBtn /> -->
-  </ul>
-</nav>
