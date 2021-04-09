@@ -11,15 +11,22 @@ interface reqZone {
   ua: string;
   isBot: boolean;
 }
-function curZoneGet<K extends keyof reqZone>(k: K, zone?: Zone): reqZone[K] {
+/** 使用的时候要确保在 reqZone 内，可以使用 isReqZone() */
+export function reqZoneGet<K extends keyof reqZone>(
+  k: K,
+  zone?: Zone,
+): reqZone[K] {
   return (zone ?? Zone.current).get(k);
 }
-
+/** 判断当前执行代码是否在 reqZone 内 */
+export function isReqZone() {
+  return Zone.current.name === "reqZone";
+}
 let requestId = 0;
 
 console.log = (...args: unknown[]) => {
-  if (Zone.current.name === "reqZone") {
-    curZoneGet("msg").push([Date.now(), args]);
+  if (isReqZone()) {
+    reqZoneGet("msg").push([Date.now(), args]);
   } else {
     log(...args);
   }
@@ -54,7 +61,7 @@ export const ReqZoneMiddleware: Middleware<Request> = function (
   });
   reqZone.run(next);
 
-  const curZone: typeof curZoneGet = (k, zone = reqZone) => curZoneGet(k, zone);
+  const curZone: typeof reqZoneGet = (k, zone = reqZone) => reqZoneGet(k, zone);
   res.once("close", function () {
     const ip = curZone("ip");
     const start = curZone("start");

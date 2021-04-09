@@ -1,5 +1,6 @@
 import { join } from "path";
 import { reactive, toRaw } from "vue";
+import { isReqZone, reqZoneGet } from "../../../util/reqZone";
 import { root_path } from "../../env";
 import { stateASyncFile } from "../../state/state";
 
@@ -14,6 +15,10 @@ class 访问记录 {
   browser_js_count = 0;
   /** 赞 */
   praise = 0;
+
+  botCount = {} as {
+    [key: string]: number | undefined;
+  };
 }
 
 stateASyncFile(table, { filePath: join(root_path, "state/访问记录.json") });
@@ -22,6 +27,21 @@ stateASyncFile(table, { filePath: join(root_path, "state/访问记录.json") });
 export function 踩一踩(path: string, browser = false) {
   const log = getLog(path);
   log.readCount += 1;
+
+  /**
+   * 爬虫机器人就不统计浏览器上报的了，不然 ssr 一次，浏览器一次，计数两次太多了
+   */
+  if (!browser && isReqZone() && reqZoneGet("isBot")) {
+    const ua = reqZoneGet("ua");
+
+    // 确保初始化
+    if (log.botCount[ua] === undefined) {
+      log.botCount[ua] = 0;
+    }
+    // 上面已经初始化了，所以这里使用 ! 断言
+    log.botCount[ua]! += 1;
+  }
+
   if (browser) {
     log.browser_js_count += 1;
   }
