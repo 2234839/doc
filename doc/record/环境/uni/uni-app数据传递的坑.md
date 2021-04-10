@@ -1,9 +1,10 @@
-{: id="20210122232307-esbdcse"}
+((20210325155155-2wk7rxv "{{.text}}"))  [为什么没有使用的computed属性也会被调用getter方法呢? - 崮生的回答 - 知乎](https://www.zhihu.com/question/440696975/answer/1692446028)
+{: id="20210122232809-myke87v" updated="20210410154144"}
+
+{: id="20210410154203-9aj00ce" updated="20210410154203"}
 
 ## [为什么没有使用的computed属性也会被调用getter方法呢?](https://www.zhihu.com/question/440696975/answer/1692446028) #uniapp/坑#
 {: id="20210122232322-nvudi39"}
-
-{: id="20210122232328-z2zsalt"}
 
 因为你使用的是 uniapp , 而 uniapp 内部会读取计算属性然后交给微信的，这里就实际上使用了该计算属性。
 {: id="20210122232321-oe2sfsc"}
@@ -19,12 +20,6 @@
 
 ---
 {: id="20210122232809-tlz6qph"}
-
-## ((20210325155155-2wk7rxv "{{.text}}")) 
-{: id="20210122232809-myke87v" updated="20210410114750"}
-
-[为什么没有使用的computed属性也会被调用getter方法呢? - 崮生的回答 - 知乎](https://www.zhihu.com/question/440696975/answer/1692446028)
-{: id="20210122232902-i61klmj" updated="20210410114800"}
 
 {: id="20210410114751-ut07tix"}
 
