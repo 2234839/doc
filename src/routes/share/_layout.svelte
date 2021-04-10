@@ -11,8 +11,9 @@
     position: fixed;
     top: 0px;
     left: 0px;
-    height: 100vh;
-    width: 100vh;
+    height: 100%;
+    width: 100%;
     background-color: aliceblue;
+    z-index: 9999;
   }
 </style>

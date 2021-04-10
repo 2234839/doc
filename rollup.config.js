@@ -7,7 +7,7 @@ import { terser } from "rollup-plugin-terser";
 import getPreprocessor from "svelte-preprocess";
 import typescript from "@rollup/plugin-typescript";
 import config from "sapper/config/rollup.js";
-
+import json from '@rollup/plugin-json';
 import pkg from "./package.json";
 
 const mode = process.env.NODE_ENV;
@@ -36,6 +36,7 @@ export default {
     input: config.client.input().replace(/.js$/, ".ts"),
     output: config.client.output(),
     plugins: [
+      json(),
       replace({
         preventAssignment: true,
         "process.browser": true,

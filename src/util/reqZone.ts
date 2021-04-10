@@ -9,6 +9,7 @@ interface reqZone {
   msg: [number, unknown[]][];
   url: string;
   ua: string;
+  referrer: string;
   isBot: boolean;
 }
 /** 使用的时候要确保在 reqZone 内，可以使用 isReqZone() */
@@ -31,7 +32,7 @@ console.log = (...args: unknown[]) => {
     log(...args);
   }
 };
-
+export const zoneReqMap = new WeakMap<Request, Zone>();
 /** 重写了 log 函数，通过 zone 来将 next 运行期间打印的 log 收集到一起直到请求结束后统一 log */
 export const ReqZoneMiddleware: Middleware<Request> = function (
   req,
@@ -46,6 +47,7 @@ export const ReqZoneMiddleware: Middleware<Request> = function (
   ).split(",")[0];
 
   const ua = req.headers["user-agent"] ?? "";
+  const referrer = req.headers["referer"] ?? "";
   const isBot = IsBot(ua);
   const reqZone = Zone.root.fork({
     name: "reqZone",
@@ -57,8 +59,10 @@ export const ReqZoneMiddleware: Middleware<Request> = function (
       url: req.url,
       ua,
       isBot,
+      referrer,
     } as reqZone,
   });
+  zoneReqMap.set(req, reqZone);
   reqZone.run(next);
 
   const curZone: typeof reqZoneGet = (k, zone = reqZone) => reqZoneGet(k, zone);
@@ -68,6 +72,7 @@ export const ReqZoneMiddleware: Middleware<Request> = function (
     const id = curZone("id");
     const ua = curZone("ua");
     const isBot = curZone("isBot");
+    const referrer = curZone("referrer");
     const startS = start.getTime();
 
     const prefix = "  ";
@@ -75,6 +80,9 @@ export const ReqZoneMiddleware: Middleware<Request> = function (
     log(`start: ${id} , ${ip} , ${start.toLocaleString()} : ${curZone("url")}`);
     if (isBot) {
       log(`${prefix} isBot: ${ua}`);
+    }
+    if (referrer) {
+      log(`${prefix} referrer: ${referrer}`);
     }
     curZone("msg").forEach(([t, args]) => {
       log(prefix, t - startS + "ms\t", ...args);

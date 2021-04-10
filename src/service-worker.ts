@@ -53,7 +53,6 @@ self.addEventListener(
       return;
 
     const url = new URL(event.request.url);
-    console.log("[url]", url);
 
     // don't try to handle e.g. data: URIs
     if (!url.protocol.startsWith("http")) return;

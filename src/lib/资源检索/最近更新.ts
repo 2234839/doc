@@ -1,5 +1,6 @@
 import * as fs from "fs/promises";
 import * as Path from "path";
+import cheerio from "cheerio";
 import { doc_html_path, doc_path } from "../env";
 
 let oldTime = Date.now();
@@ -19,7 +20,12 @@ interface docObj {
   getViewInfo: () => Promise<article>;
 }
 /** 文档的具体文件信息节点 */
-type docFileNode = { fullSrc: string; mtimeMs: number; /** 是目录节点 */ isDirectory: boolean; basename: string };
+type docFileNode = {
+  fullSrc: string;
+  mtimeMs: number;
+  /** 是目录节点 */ isDirectory: boolean;
+  basename: string;
+};
 export async function 获取项目下所有文件(src: string) {
   // 读取目录中的所有文件/目录
   const paths = await fs.readdir(src);
@@ -38,27 +44,32 @@ export async function 获取项目下所有文件(src: string) {
           isDirectory,
           basename: Path.basename(fullSrc),
           async getViewInfo() {
-            const targetPath = fullSrc.replace(doc_path, doc_html_path).slice(0, -2) + "html";
-
+            const targetPath =
+              fullSrc.replace(doc_path, doc_html_path).slice(0, -2) + "html";
             const rawHtml = (await fs.readFile(targetPath)).toString();
             const titleRes = rawHtml.match(/<title>([\s\S]*)<\/title>/);
             const title = titleRes === null ? "无题" : titleRes[1];
 
             /** 去除原始文件开头的一些脚本引入 */
             const html = rawHtml.replace(/[\s\S]*?<\/head>/, "");
+            // console.log("[rawHtml]", rawHtml.length, html.length);
             // const html = rawHtml
 
             return {
               title,
               meta: [],
               html: html,
+              // raw_html: rawHtml,
               md: "<您无权限查阅>",
             };
           },
         };
 
         // 如果是目录则递归调用自身
-        if (isDirectory && ![".git", "node_modules", "assets"].includes(docObj.basename)) {
+        if (
+          isDirectory &&
+          ![".git", "node_modules", "assets"].includes(docObj.basename)
+        ) {
           return [docObj, ...(await 获取项目下所有文件(fullSrc))];
         } else {
           return [docObj];
@@ -79,17 +90,25 @@ async function main() {
         .filter((el) => !el.isDirectory && el.fullSrc.endsWith(".md"))
         .map(async (el) => {
           const mdStr = await fs.readFile(el.fullSrc, { encoding: "utf8" });
-          const r = {
+          const root = cheerio.load((await el.getViewInfo()).html || "");
+
+          const docRoot = root("main[data-block-type=doc]");
+
+          return {
             ...el,
             /** 虚拟路径，因为思源模式的笔记会在文件名后面加上 id,而这个值会去除掉那些id */
             virtual_path: el.fullSrc,
             // TODO: 待修正 为正确的id
-            fileID: el.fullSrc,
+            fileID: docRoot.data()["blockId"],
             /** 文本源码 */
             mdStr,
             webPath: ToWebPath(el),
+            docData: docRoot.data() as {
+              blockId?: "20210325155155-2wk7rxv";
+              blockUpdated?: 20210325155208;
+              blockType?: "doc";
+            },
           };
-          return r;
         }),
     )
   ).sort((a, b) => b.mtimeMs - a.mtimeMs);
@@ -111,12 +130,14 @@ async function main() {
 /** 注意没有带上web前缀 */
 export function ToWebPath(d: docFileNode) {
   if (d.isDirectory) {
-    return (d.fullSrc.replace(doc_path, "") + "/").replace(/** 网络路径通常使用 / */ /[\\\/]/g, "/");
-  } else {
-    return (d.fullSrc.replace(doc_path, "").slice(/** 去除 .md  */ 0, -3) + ".html").replace(
+    return (d.fullSrc.replace(doc_path, "") + "/").replace(
       /** 网络路径通常使用 / */ /[\\\/]/g,
       "/",
     );
+  } else {
+    return (
+      d.fullSrc.replace(doc_path, "").slice(/** 去除 .md  */ 0, -3) + ".html"
+    ).replace(/** 网络路径通常使用 / */ /[\\\/]/g, "/");
   }
 }
 export let 文档资源 = main();
