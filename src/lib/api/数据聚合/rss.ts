@@ -43,16 +43,27 @@ async function 最近动态() {
 }
 
 async function rssFetch(平台: typeof RssHub[number]): Promise<RSS_data[]> {
-  const r = await Axios.get(平台.RssUrl);
+  const r = await Axios.get(平台.RssUrl).catch((e) => {
+    console.log("请求错误", e);
+
+    throw { a: 2, e };
+  });
 
   const json = parse(r.data);
-  return json.rss.channel.item.map((el: { title: string; description: string; pubDate: string; link: string }) => ({
-    平台,
-    content: {
-      title: el.title,
-      webUrl: el.link,
-      des: 平台.isEncode ? unescape(el.description) : el.description,
-      pubDate: new Date(el.pubDate),
-    },
-  }));
+  return json.rss.channel.item.map(
+    (el: {
+      title: string;
+      description: string;
+      pubDate: string;
+      link: string;
+    }) => ({
+      平台,
+      content: {
+        title: el.title,
+        webUrl: el.link,
+        des: 平台.isEncode ? unescape(el.description) : el.description,
+        pubDate: new Date(el.pubDate),
+      },
+    }),
+  );
 }
