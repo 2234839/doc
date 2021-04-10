@@ -47,7 +47,14 @@ export const ReqZoneMiddleware: Middleware<Request> = function (
   ).split(",")[0];
 
   const ua = req.headers["user-agent"] ?? "";
-  const referrer = req.headers["referer"] ?? "";
+  const referrer = (() => {
+    const s = req.headers["referer"] ?? "";
+    try {
+      return decodeURIComponent(s);
+    } catch (error) {
+      return s;
+    }
+  })();
   const isBot = IsBot(ua);
   const reqZone = Zone.root.fork({
     name: "reqZone",
