@@ -179,5 +179,16 @@ API.currentTime2(true).then((r) => console.log("服务器当前时间本地化",
 ![image.png](assets/20201109171018-un3fain-image.png)
 {: id="20201121144434-jcq53xy"}
 
+## ((20210325155155-2wk7rxv "{{.text}}"))
+{: id="20210410114147-c1tluk3" updated="20210410114446"}
+
+[一个简简单单的 TypeScript RPC 解决方案 - 崮生的文章 - 知乎](https://zhuanlan.zhihu.com/p/281083041)
+{: id="20210410114510-5mogoml" updated="20210410114605"}
+
+[在 TypeScript 处理后端API返回的响应数据这一块，你或者所在团队都做了哪些比较好的实践呢？ - 崮生的回答 - 知乎](https://www.zhihu.com/question/345364393/answer/1827394867)
+{: id="20210410114527-d7xjure" updated="20210410114611"}
+
+{: id="20210410114552-ae38v0j"}
+
 
 {: id="20201121144434-sbev4ga" type="doc"}
