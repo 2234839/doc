@@ -1288,6 +1288,10 @@
         {
           "name": "zone.js.md",
           "path": "/other/zone.js.md"
+        },
+        {
+          "name": "ts_return_error.md",
+          "path": "/other/ts_return_error.md"
         }
       ]
     },
