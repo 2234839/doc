@@ -4,8 +4,8 @@
 github repo：[ts_return_error](https://github.com/2234839/ts_return_error)
 {: id="20210410202705-8278n5z" updated="20210410203634"}
 
-## 你知道这些方法会 throw error 吗？
-{: id="20210410202627-380a8qz"}
+## 你知道 js 中这些方法会 throw error 吗？
+{: id="20210410202627-380a8qz" updated="20210410204254"}
 
 ```typescript
 
@@ -39,8 +39,15 @@ console.log(_.decodeURIComponent("77{}")); // out:77{}
 ```
 {: id="20210410203850-jr0q4dy" updated="20210410203853"}
 
+## 亟需解决的问题
+{: id="20210410204040-im323qw" updated="20210410204051"}
+
+- {: id="20210410204120-lixhr28"}现在相关类型是我手动填写的，而且还只写了两个，要想办法让他自动生成才好
+  {: id="20210410204120-8mxlhib"}
+{: id="20210410204051-2hk0rz5" updated="20210410204120"}
+
 ## 扩展阅读
-{: id="20210410203136-8ttyf3x" updated="20210410203750"}
+{: id="20210410203136-8ttyf3x" updated="20210410204040"}
 
 笔者提的关于先使用 @throws 提供一些提醒的建议 [Expect to use @throws in lib/*.d.ts to mark which methods may throw err · Issue #43528 · microsoft/TypeScript (github.com)](https://github.com/microsoft/TypeScript/issues/43528)
 {: id="20210410203403-dbbbfw0" updated="20210410203537"}
