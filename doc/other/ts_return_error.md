@@ -49,16 +49,23 @@ console.log(_.decodeURIComponent("77{}")); // out:77{}
 ## 扩展阅读
 {: id="20210410203136-8ttyf3x" updated="20210410204040"}
 
-笔者提的关于先使用 @throws 提供一些提醒的建议 [Expect to use @throws in lib/*.d.ts to mark which methods may throw err · Issue #43528 · microsoft/TypeScript (github.com)](https://github.com/microsoft/TypeScript/issues/43528)
-{: id="20210410203403-dbbbfw0" updated="20210410203537"}
+- {: id="20210414101928-fc94rjo"}笔者提的关于先使用 @throws 提供一些提醒的建议 [Expect to use @throws in lib/*.d.ts to mark which methods may throw err · Issue #43528 · microsoft/TypeScript (github.com)](https://github.com/microsoft/TypeScript/issues/43528)
+  {: id="20210414101928-699l5hi"}
+{: id="20210410203403-dbbbfw0" updated="20210414101928"}
 
-社区关于抛出错误类型的讨论 [Suggestion: `throws` clause and typed catch clause · Issue #13219 · microsoft/TypeScript (github.com)](https://github.com/microsoft/TypeScript/issues/13219)
-{: id="20210410203417-xy36ynt" updated="20210410203608"}
+- {: id="20210414101930-z3nqfrw"}社区关于抛出错误类型的讨论 [Suggestion: `throws` clause and typed catch clause · Issue #13219 · microsoft/TypeScript (github.com)](https://github.com/microsoft/TypeScript/issues/13219)
+  {: id="20210414101930-rbiqgf8"}
+{: id="20210410203417-xy36ynt" updated="20210414101930"}
 
-((20210303210010-949bprt "{{.text}}"))
-{: id="20210410203444-642rqn1" updated="20210410203645"}
+- {: id="20210414101935-nekn45b"}((20210303210010-949bprt "{{.text}}"))
+  {: id="20210414101935-t2x3czw"}
+{: id="20210410203444-642rqn1" updated="20210414101935"}
 
-{: id="20210410203646-kgd2fe5"}
+- {: id="20210414101939-1bz4jhs"}((20210411105659-pcgjcao "{{.text}}"))
+  {: id="20210414101939-6s8908f"}
+{: id="20210410203646-kgd2fe5" updated="20210414101939"}
+
+{: id="20210414101923-q0gtaba"}
 
 
 {: id="20210410202607-9aupc9h" type="doc"}
