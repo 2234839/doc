@@ -166,7 +166,10 @@ API.currentTime2(true).then((r) => console.log("服务器当前时间本地化",
 {: id="20201121144434-65amyu0"}
 
 ## 0x04 安全性问题
-{: id="20210415103149-r8j4car" updated="20210415103203"}
+{: id="20210415103149-r8j4car" updated="20210415104847"}
+
+从 github 查看此次修改： [e4e674c](https://github.com/2234839/typescript_RPC_demo/commit/e4e674cdcd16791fbaaf525b7c99c9084d550946)
+{: id="20210415104855-4099tkm" updated="20210415104928"}
 
 知友提出了下面这个问题
 {: id="20210415103705-dca2gwe" updated="20210415103719"}
