@@ -10,7 +10,6 @@
   },
   "devDependencies": {
     "@sveltejs/kit": "next",
-    "postcss": "^8.2.12",
     "prettier": "~2.2.1",
     "prettier-plugin-svelte": "^2.2.0",
     "svelte": "^3.29.0",
