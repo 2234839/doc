@@ -33,6 +33,6 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v2
         with:
           target_branch: gh-pages
-          build_dir: __sapper__
+          build_dir: .svelte
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
