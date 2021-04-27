@@ -1,0 +1,1 @@
+import{S as s,i as a,s as r,e as t,t as e,c as o,a as c,g as n,d,f,D as u,F as i}from"../chunks/vendor-07ad4faf.js";function l(s){let a,r;return{c(){a=t("div"),r=e("这里处理错误")},l(s){a=o(s,"DIV",{});var t=c(a);r=n(t,"这里处理错误"),t.forEach(d)},m(s,t){f(s,a,t),u(a,r)},p:i,i:i,o:i,d(s){s&&d(a)}}}export default class extends s{constructor(s){super(),a(this,s,null,l,r,{})}}
