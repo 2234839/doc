@@ -11,7 +11,7 @@ export const get: defaultHandle = async function get() {
 		} else {
 			console.log('[拉取博客代码成功]');
 			exec(
-				`../app/md2website/linux_md2website "/root/doc/doc" "./docHTML" "/root/app/md2website/views/" "/root/app/md2website/siyuan.db"`,
+				`/root/app/md2website/linux_md2website "/root/app/doc/doc" "./docHTML" "/root/app/md2website/views/" "/root/app/md2website/siyuan.db"`,
 				{ cwd: root_path },
 				(e, stdout) => {
 					if (e) {
