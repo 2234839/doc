@@ -1,5 +1,5 @@
 const preprocess = require('svelte-preprocess');
-
+const WindiCSS = require('vite-plugin-windicss').default;
 /** @type {import('@sveltejs/kit').Config} */
 module.exports = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
@@ -18,7 +18,10 @@ module.exports = {
 				rollupOptions: {
 					external: [ 'async_hooks', "fs", "promises", "path" ]
 				}
-			}
+			},
+			plugins: [
+				WindiCSS(),
+			],
 		}
 	},
 

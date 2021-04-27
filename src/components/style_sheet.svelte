@@ -1,6 +1,7 @@
 <script>
 	// tailwind.css ！！
 	// import '../tailwind.css';
+	import 'virtual:windi.css'
 </script>
 
 <style global>
