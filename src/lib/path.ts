@@ -1,64 +1,66 @@
-import { API } from "./api/fetch";
+import { API } from './api/fetch';
+import type { Load } from '@sveltejs/kit';
+// 利用 error 页面的兜底功能来完成将 doc文档 映射到对应的 url
+export const preload: Load = async function ({ page, fetch, session, context }) {
+	const path = decodeURIComponent(page.path);
+	if (import.meta.env.SSR) {
+		API.踩一踩(path, undefined);
+	}
+	if (path.endsWith('.html')) {
+		const htmlPath = path.replace(/\.html/, '.md');
+		const res = await API.getArticleByPath(htmlPath);
+		if (res.code === -1) {
+			/**
+			 * 对于在 routes 正则匹配范围内的文件（但 routes 没有提供服务）进行请求，
+			 * 如果直接进入 server.ts 中则可以正常被静态服务匹配中返回文件
+			 * 但如果在浏览器端就会陷入 [...path].svelte  load 的逻辑判断，导致死循环
+			 */
+			if (import.meta.env.SSR) {
+				return {
+					status: 404,
+					error: new Error('not Found')
+				};
+			} else {
+				// 默认为备份页面 TODO 他也有可能不是，所以这里的逻辑还需要思考一下，怎么更周密
+				return {
+					status: 302,
+					redirect: '/share/backups?path=' + path
+				};
+			}
+		}
+		const article = res.result;
 
-export async function preload(this: context, page: page, session: any) {
-  const path = decodeURIComponent(page.path);
-  setTimeout(() => {
-    API.踩一踩(path);
-  });
-  const 访问记录 = await API.get访问记录(path);
-
-  if (path.endsWith(".html")) {
-    const htmlPath = path.replace(/\.html/, ".md");
-    const res = await API.getArticleByPath(htmlPath);
-
-    if (res.code === -1) {
-      console.log("[path1]", path);
-      /**
-       * 对于在 routes 正则匹配范围内的文件（但 routes 没有提供服务）进行请求，
-       * 如果直接进入 server.ts 中则可以正常被静态服务匹配中返回文件
-       * 但如果在浏览器端就会再次陷入 preload 的逻辑判断，导致死循环
-       * 所以这里使用 `return (location.href = path);` 来打破浏览器的行为
-       */
-      if ("location" in globalThis) {
-        return (location.href = path);
-      } else {
-        return this.error(200, "Not found");
-      }
-    }
-    const article = res.result;
-    return {
-      time: Date.now(),
-      page,
-      article: article,
-      title: article.title,
-      访问记录,
-    };
-  } else if (path.endsWith("/")) {
-    const menu = await this.fetch("/menu.json?path=" + path).then((r) => {
-      return r.json();
-    });
-    const title = decodeURIComponent(path)
-      .split(/[\/\\]/)
-      .filter((el) => el)
-      .reverse()
-      .join("<");
-    return { time: Date.now(), page, menu, title, 访问记录 };
-  } else {
-    console.log("404 2", path);
-    return this.error(404, "Not found");
-  }
-}
-
-type context = {
-  fetch: typeof fetch;
-  error: (arg0: number, arg1: string) => any;
-  redirect: (arg0: number, arg1: string) => any;
-};
-type page = {
-  host: /** "localhost:3000"  */ string;
-  path: /** "/正则.md" */ string;
-  query: /** {} */ any;
-  params: /**  {
-    path: "正则.md";
-  } */ any;
+		return {
+			status: 200,
+			props: {
+				time: Date.now(),
+				page,
+				article: article,
+				title: article.title
+			}
+		};
+	} else if (path.endsWith('/') || path.split('/').pop().includes('.') === false) {
+		const menu = await fetch('/menu.json?path=' + path).then((r) => {
+			return r.json();
+		});
+		const title = decodeURIComponent(path)
+			.split(/[\/\\]/)
+			.filter((el) => el)
+			.reverse()
+			.join('<');
+		return {
+			status: 200,
+			props: {
+				time: Date.now(),
+				page,
+				menu,
+				title
+			}
+		};
+	} else {
+		return {
+			status: 404,
+			error: new Error('not Found')
+		};
+	}
 };

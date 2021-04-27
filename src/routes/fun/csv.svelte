@@ -5,7 +5,6 @@
     let tabel = [[]] as table;
     let 导出 = (t: table) => "";
     onMount(async () => {
-        //@ts-expect-error 没有类型文件
         const Papa = await import("papaparse");
 
         fileReader = new FileReader();

@@ -1,103 +1,94 @@
-import type { Middleware, Polka, Request } from "polka";
-import "zone.js";
-import IsBot from "isbot";
-let log = console.log;
+import { isBot as IsBot } from '$lib/isbot';
+import { AsyncLocalStorage } from 'async_hooks';
+import type { defaultHandle } from 'src/hooks';
+
+export let rawLog = console.log;
+
 interface reqZone {
-  ip: string;
-  start: Date;
-  id: number;
-  msg: [number, unknown[]][];
-  url: string;
-  ua: string;
-  referrer: string;
-  isBot: boolean;
+	ip: string;
+	start: Date;
+	id: number;
+	msg: [number, unknown[]][];
+	url: string;
+	ua: string;
+	referrer: string;
+	isBot: boolean;
 }
-/** 使用的时候要确保在 reqZone 内，可以使用 isReqZone() */
-export function reqZoneGet<K extends keyof reqZone>(
-  k: K,
-  zone?: Zone,
-): reqZone[K] {
-  return (zone ?? Zone.current).get(k);
+const reqZone = new AsyncLocalStorage<reqZone>();
+
+/** 使用的时候要确保在 reqZone 内，可以使用 isReqZone() 来确保 */
+export function reqZoneGet<K extends keyof reqZone>(k: K) {
+	return reqZone.getStore()[k];
 }
 /** 判断当前执行代码是否在 reqZone 内 */
 export function isReqZone() {
-  return Zone.current.name === "reqZone";
+	const id = reqZone.getStore();
+	return id !== undefined;
 }
 let requestId = 0;
 
 console.log = (...args: unknown[]) => {
-  if (isReqZone()) {
-    reqZoneGet("msg").push([Date.now(), args]);
-  } else {
-    log(...args);
-  }
+	if (isReqZone()) {
+		reqZoneGet('msg').push([Date.now(), args]);
+	} else {
+		rawLog(...args);
+	}
 };
-export const zoneReqMap = new WeakMap<Request, Zone>();
 /** 重写了 log 函数，通过 zone 来将 next 运行期间打印的 log 收集到一起直到请求结束后统一 log */
-export const ReqZoneMiddleware: Middleware<Request> = function (
-  req,
-  res,
-  next,
-) {
-  const id = requestId++;
-  const ip = String(
-    req.headers["X-Forwarded-For"] ??
-      req.headers["x-forwarded-for"] ??
-      req.socket.remoteAddress,
-  ).split(",")[0];
 
-  const ua = req.headers["user-agent"] ?? "";
-  const referrer = (() => {
-    const s = req.headers["referer"] ?? "";
-    try {
-      return decodeURIComponent(s);
-    } catch (error) {
-      return s;
-    }
-  })();
-  const isBot = IsBot(ua);
-  const reqZone = Zone.root.fork({
-    name: "reqZone",
-    properties: {
-      ip,
-      start: new Date(),
-      id,
-      msg: [],
-      url: req.url,
-      ua,
-      isBot,
-      referrer,
-    } as reqZone,
-  });
-  zoneReqMap.set(req, reqZone);
-  reqZone.run(next);
+export const ReqZoneMiddleware = function (arg: Parameters<defaultHandle>[0], next) {
+	const { request: req } = arg;
 
-  const curZone: typeof reqZoneGet = (k, zone = reqZone) => reqZoneGet(k, zone);
-  res.once("close", function () {
-    const ip = curZone("ip");
-    const start = curZone("start");
-    const id = curZone("id");
-    const ua = curZone("ua");
-    const isBot = curZone("isBot");
-    const referrer = curZone("referrer");
-    const startS = start.getTime();
+	const id = requestId++;
+	const ip = String(
+		req.headers['X-Forwarded-For'] ?? req.headers['x-forwarded-for'] ?? req.host
+	).split(',')[0];
 
-    const prefix = "  ";
+	const ua = req.headers['user-agent'] ?? '';
+	const referrer = (() => {
+		const s = req.headers['referer'] ?? '';
+		try {
+			return decodeURIComponent(s);
+		} catch (error) {
+			return s;
+		}
+	})();
+	const isBot = IsBot(ua);
+	const params = {
+		ip,
+		start: new Date(),
+		id,
+		msg: [],
+		url: decodeURIComponent(req.path),
+		ua,
+		isBot,
+		referrer
+	};
 
-    log(`start: ${id} , ${ip} , ${start.toLocaleString()} : ${curZone("url")}`);
-    if (isBot) {
-      log(`${prefix} isBot: ${ua}`);
-    }
-    if (referrer) {
-      log(`${prefix} referrer: ${referrer}`);
-    }
-    curZone("msg").forEach(([t, args]) => {
-      log(prefix, t - startS + "ms\t", ...args);
-    });
-    log(
-      `end  : ${new Date().toLocaleString()} 总耗时${
-        Date.now() - startS
-      }ms\n--------`,
-    );
-  });
+	const r = reqZone.run(params, next, arg) as Promise<any>;
+	const curZoneStore = params;
+	r.finally(() => {
+		const { ip, start, id, ua, isBot, referrer, url } = curZoneStore;
+		if (['css', 'js', 'map', 'png'].includes(url.split('.').pop())) {
+			return;
+		}
+		const startS = start.getTime();
+		const prefix = '  ';
+		rawLog(`${req.context.userid}:${ip}, ${url}`);
+		if (isBot) {
+			rawLog(`${prefix} isBot: ${ua}`);
+		}
+		if (referrer) {
+			rawLog(`${prefix} referrer: ${referrer}`);
+		}
+		curZoneStore['msg'].forEach(([t, args]) => {
+			rawLog(prefix, t - startS + 'ms\t', ...args);
+		});
+		rawLog(
+			`end  : ${start.toLocaleString()}-${new Date().toLocaleString()} 总耗时${
+				Date.now() - startS
+			}ms\n--------`
+		);
+	});
+	return r;
 };

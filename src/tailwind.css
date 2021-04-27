@@ -1,9 +1,9 @@
 .icon {
-  width: 1em;
-  height: 1em;
-  vertical-align: -0.15em;
-  fill: currentColor;
-  overflow: hidden;
+	width: 1em;
+	height: 1em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
 }
 
 @tailwind base;
@@ -18,160 +18,160 @@ h3,
 h4,
 h5,
 h6 {
-  @apply .font-bold my-2 flex items-center;
+	@apply font-bold my-2 flex items-center;
 }
 /** 标题内的链接 */
 .vditor-anchor {
-  @apply px-2;
+	@apply px-2;
 }
 
 h1 {
-  @apply .text-3xl mt-3;
+	@apply text-3xl mt-3;
 }
 
 h2 {
-  @apply .text-2xl mt-2;
+	@apply text-2xl mt-2;
 }
 
 h3 {
-  @apply .text-xl;
+	@apply text-xl;
 }
 
 a {
-  @apply .text-blue-600;
+	@apply text-blue-600;
 }
 
 a:visited {
-  @apply .text-red-600;
+	@apply text-red-600;
 }
 
 a:hover {
-  @apply .text-blue-900;
+	@apply text-blue-900;
 }
 
 /** 引用块的样式 */
 
 blockquote {
-  @apply p-1;
-  background: rgba(248, 229, 229, 0.493);
-  border-left: 2px solid red;
+	@apply p-1;
+	background: rgba(248, 229, 229, 0.493);
+	border-left: 2px solid red;
 }
 
 /** 列表样式 */
 
 ol {
-  list-style: decimal;
-  margin-left: 1rem;
+	list-style: decimal;
+	margin-left: 1rem;
 }
 
 ul {
-  list-style: square;
+	list-style: square;
 }
 
 /* 正文段落的间隔 */
 
 body > p {
-  @apply mt-3;
+	@apply mt-3;
 }
 
 iframe {
-  width: 100%;
-  height: 375px;
+	width: 100%;
+	height: 375px;
 }
 input,
 textarea {
-  @apply border;
+	@apply border;
 }
 
 .btn {
-  --offset_base: 4px;
-  --offset: 4px;
-  box-shadow: 0 var(--offset) var(--offset) -1px #0000001a,
-    0 var(--offset) var(--offset) -1px #0000000f;
-  transition: 0.3s all;
-  transform: translateX(calc(var(--offset_base) - var(--offset)))
-    translateY(calc(var(--offset_base) - var(--offset)));
-  padding: 4px 8px;
-  background: rgb(243, 243, 243);
-  border-radius: 4px;
+	--offset_base: 4px;
+	--offset: 4px;
+	box-shadow: 0 var(--offset) var(--offset) -1px #0000001a,
+		0 var(--offset) var(--offset) -1px #0000000f;
+	transition: 0.3s all;
+	transform: translateX(calc(var(--offset_base) - var(--offset)))
+		translateY(calc(var(--offset_base) - var(--offset)));
+	padding: 4px 8px;
+	background: rgb(243, 243, 243);
+	border-radius: 4px;
 }
 .btn:hover {
-  --offset: 3px;
+	--offset: 3px;
 }
 .btn:active {
-  --offset: 0;
+	--offset: 0;
 }
 
 /** 美化代码片段样式 */
 pre {
-  /** 一般代码块中的编辑器 */
-  --b-c: #e1e4e8;
-  position: relative;
-  margin: 0.2rem 0.5rem;
-  border: 1px solid var(--b-c);
-  border-radius: 5px;
-  overflow: hidden;
+	/** 一般代码块中的编辑器 */
+	--b-c: #e1e4e8;
+	position: relative;
+	margin: 0.2rem 0.5rem;
+	border: 1px solid var(--b-c);
+	border-radius: 5px;
+	overflow: hidden;
 }
 
 code {
-  padding: 0.2em 0.4em;
-  margin: 0;
-  font-size: 85%;
-  background-color: rgba(27, 31, 35, 0.05);
-  border-radius: 6px;
+	padding: 0.2em 0.4em;
+	margin: 0;
+	font-size: 85%;
+	background-color: rgba(27, 31, 35, 0.05);
+	border-radius: 6px;
 }
 table {
-  border-collapse: collapse;
+	border-collapse: collapse;
 }
 th {
-  background-color: rgb(216, 216, 216);
+	background-color: rgb(216, 216, 216);
 }
 th,
 td {
-  border: 1px solid #333;
-  padding: 0 3px;
+	border: 1px solid #333;
+	padding: 0 3px;
 }
 .llej-body > main > p {
-  margin-bottom: 1.6rem;
+	margin-bottom: 1.6rem;
 }
 
 .g-code_snippet {
-  padding: 0.1rem 2rem;
-  border-bottom: 1px solid var(--b-c);
+	padding: 0.1rem 2rem;
+	border-bottom: 1px solid var(--b-c);
 }
 
 /** 超链接的分割标识 */
 .llej-body > main a {
-  margin-right: 0.6rem;
-  position: relative;
+	margin-right: 0.6rem;
+	position: relative;
 }
 
 .llej-body > main a::after {
-  content: "¸";
-  font-size: 40%;
-  bottom: 10%;
-  position: absolute;
+	content: '¸';
+	font-size: 40%;
+	bottom: 10%;
+	position: absolute;
 }
 
 .llej-body > main .vditor-anchor::after {
-  content: "";
+	content: '';
 }
 
 .g-flex-cc {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /** 无序列表的装饰从点变成线 */
 .markdown-body li {
-  list-style: none;
-  position: relative;
+	list-style: none;
+	position: relative;
 }
 .markdown-body li:before {
-  content: "";
-  border-left: 1px solid #685b5b;
-  position: absolute;
-  height: 100%;
-  margin-left: -8px;
+	content: '';
+	border-left: 1px solid #685b5b;
+	position: absolute;
+	height: 100%;
+	margin-left: -8px;
 }

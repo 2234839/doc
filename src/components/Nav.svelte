@@ -1,6 +1,7 @@
 <script lang="ts">
-  export let segment: string;
-  $: decodeSegment = decodeURIComponent(segment || "");
+  import { page } from "$app/stores";
+  export const segment = "";
+  $: decodeSegment =decodeURIComponent($page.path.split("/")[1] || '') ;
   // $: console.log("[segment] 2", decodeSegment);
   const routerList = [
     { title: "主页", link: "/" },
@@ -10,7 +11,7 @@
   ];
 
   $: 一级选中 =
-    routerList.find((el) => el.link.split("/")[1] === decodeSegment) ||
+    routerList.find(({link}) => link.split("/")[1] === decodeSegment) ||
     routerList[2];
 </script>
 
