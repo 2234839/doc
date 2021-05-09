@@ -6,7 +6,6 @@
 	import NegativeOneScreen from '../components/负一屏.svelte';
 	import G_Message from '../components/Message/g-message.svelte';
 	import { messageList } from '../data/store/store';
-	import { newLog } from '../lib/log/ali_log';
 	import { API } from '../lib/api/fetch';
 
 	onMount(() => {
@@ -19,7 +18,6 @@
 	let href = '';
 	beforeUpdate(() => {
 		if (href !== location.href) {
-			newLog().push('label', '落地页').logger();
 			href = location.href;
 			API.踩一踩(decodeURIComponent(location.pathname), true);
 		}
@@ -36,7 +34,7 @@
 	}}
 />
 <main class="llej-body flex flex-col">
-	<Nav/>
+	<Nav />
 	<main class="pt-3 px-3">
 		<slot />
 	</main>

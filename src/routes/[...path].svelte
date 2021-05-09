@@ -115,9 +115,12 @@
 				e.preventDefault();
 			}
 		} else {
-			// TODO kit fix
-			goto(a.href);
-			e.preventDefault();
+			if (a.href.startsWith(location.origin)) {
+				goto(a.href);
+				e.preventDefault();
+			} else {
+				// 非同源链接就直接采用浏览器默认行为吧，或许也可以在这里加上新开标签打开的功能
+			}
 		}
 	}
 	let adHTML = `
