@@ -74,7 +74,7 @@ export const ReqZoneMiddleware = function (arg: Parameters<defaultHandle>[0], ne
 		}
 		const startS = start.getTime();
 		const prefix = '  ';
-		rawLog(`${req.context.userid}:${ip}, ${url}`);
+		rawLog(`${req.locals.userid}:${ip}, ${url}`);
 		if (isBot) {
 			rawLog(`${prefix} isBot: ${ua}`);
 		}

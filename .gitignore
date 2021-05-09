@@ -4,7 +4,7 @@
 yarn-error.log
 /cypress/screenshots/
 /__sapper__/
-/.svelte
+/.svelte-kit
 /build
 /functions
 

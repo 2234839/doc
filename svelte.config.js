@@ -1,7 +1,7 @@
-const preprocess = require('svelte-preprocess');
-const WindiCSS = require('vite-plugin-windicss').default;
+import preprocess from "svelte-preprocess";
+import WindiCSS from "vite-plugin-windicss";
 /** @type {import('@sveltejs/kit').Config} */
-module.exports = {
+const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
 	preprocess: preprocess(),
@@ -20,9 +20,10 @@ module.exports = {
 				}
 			},
 			plugins: [
-				WindiCSS(),
+				WindiCSS.default(),
 			],
 		}
 	},
 
 };
+export default config;
