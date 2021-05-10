@@ -4,7 +4,6 @@
 
 	let show = false;
 	page.subscribe(({ path, params, query }) => {
-		// console.log('[path]', path, show);
 		if (path !== '/') {
 			/** 其他页面首次进来就不弹负一屏了 */
 			show = false;
@@ -22,7 +21,7 @@
 		}
 	});
 	function showBody() {
-		document.querySelector('.llej-body')?.scrollIntoView({
+		document.querySelector('.llej-body')!.scrollIntoView({
 			behavior: 'smooth',
 			block: 'end',
 			inline: 'nearest'
@@ -36,16 +35,16 @@
 		style="background-image: url('https://shenzilong.cn/util/redirect_to_bing_daily_picture_address'); "
 	>
 		<div
-			class="font-QIJIC text-white"
+			class="font-QIJIC text-white h-30"
 			style="margin-top: 40vh;font-size: 6vw;background: #7b7a7a36;display: inline-table;outline: 0.3rem solid
-      #ffffffb0;padding: 1vh 6vw;backdrop-filter: blur(8px); margin-top: 40vh; color: rgb(255, 255, 255); "
+      #ffffffb0;padding: 1vh 6vw;backdrop-filter: blur(8px);color: rgb(255, 255, 255); "
 		>
 			崮生 • 一些随笔
 		</div>
 		<svg
 			on:click={showBody}
-			class="llej-向下图标 llej_animation-bounce-in-top icon absolute"
-			style="margin-top: 70vh;filter: brightness(100);width: 20vw;height: 20vw;max-width: 6rem;"
+			class="llej-向下图标 animate-bounce icon absolute"
+			style="margin-top: 70vh;filter: brightness(100);width: 30vw;height: 20vw;max-width: 6rem;"
 			aria-hidden="true"
 		>
 			<use xlink:href="#icon-xiangxia" />

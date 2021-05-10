@@ -175,3 +175,7 @@ td {
 	height: 100%;
 	margin-left: -8px;
 }
+html,
+body {
+	scroll-behavior: smooth;
+}
