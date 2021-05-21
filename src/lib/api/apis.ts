@@ -1,4 +1,4 @@
-import { ToWebPath, 获取文档资源 } from '../资源检索/最近更新';
+import { getName, ToWebPath, 获取文档资源 } from '../资源检索/最近更新';
 
 /** 执行多个接口调用 */
 export async function batchCall(...arg: [string, unknown[]][]) {
@@ -9,7 +9,7 @@ export async function 获取最近更新() {
 	return (await 获取文档资源()).md_file.slice(0, 20).map((el) => {
 		return {
 			webPath: ToWebPath(el),
-			name: el.isDirectory ? el.basename : el.basename
+			name: getName(el)
 		};
 	});
 }

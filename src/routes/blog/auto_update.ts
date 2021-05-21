@@ -4,6 +4,10 @@ import { root_path } from '../../lib/env';
 import { 获取文档资源 } from '../../lib/资源检索/最近更新';
 
 export const get: defaultHandle = async function get() {
+	return {
+		status: 200,
+		body: { code: 200 }
+	};
 	/** 更新代码，刷新博客内容 */
 	exec('git pull', { cwd: root_path }, (e, stdout) => {
 		if (e) {
@@ -36,10 +40,6 @@ export const get: defaultHandle = async function get() {
 			);
 		}
 	});
-	return {
-		status: 200,
-		body: { code: 200 }
-	};
 };
 
 export const post = get;

@@ -1,26 +1,26 @@
-import { resolve } from "path";
-import { Res } from "../../lib/api/res";
-import { doc_path } from "../../lib/env";
-import { 获取文档资源 } from "../../lib/资源检索/最近更新";
+import { resolve } from 'path';
+import { Res } from '$lib/api/res';
+import { doc_html_path } from '$lib/env';
+import { 获取文档资源 } from '$lib/资源检索/最近更新';
 export async function get(req: any, res: any) {
-  const path = req.query.path as string;
-  const filePath = resolve(doc_path + path.replace(/\?.*$/, ""));
+	const path = req.query.path as string;
+	const filePath = resolve(doc_html_path + path.replace(/\?.*$/, ''));
 
-  const docs = await 获取文档资源();
+	const docs = await 获取文档资源();
 
-  /** 找对应的文档资源 */
-  const doc = docs.md_file.find((el) => el.virtual_path === filePath);
+	/** 找对应的文档资源 */
+	const doc = docs.md_file.find((el) => el.virtual_path === filePath);
 
-  if (doc) {
-    const result = JSON.stringify(await doc.getViewInfo());
-    res.writeHead(200, {
-      "Content-Type": "application/json",
-    });
-    res.end(result);
-  } else {
-    // console.log('[outFilePath]',outFilePath)
-    Res.failure(res, "没有找到对应的文件");
-  }
+	if (doc) {
+		const result = JSON.stringify(await doc.getViewInfo());
+		res.writeHead(200, {
+			'Content-Type': 'application/json'
+		});
+		res.end(result);
+	} else {
+		// console.log('[outFilePath]',outFilePath)
+		Res.failure(res, '没有找到对应的文件');
+	}
 }
 
 /** post 接口做预览之用 */

@@ -1,11 +1,11 @@
+import { doc_html_path, root_path } from '$lib/env';
 import { v4 as uuid } from '@lukeed/uuid';
 import type { Handle } from '@sveltejs/kit';
 import cookie from 'cookie';
-import { ReqZoneMiddleware } from './util/reqZone';
 import { promises as fs } from 'fs';
-import * as path from 'path';
-import { doc_html_path, doc_path, root_path } from '$lib/env';
 import mime from 'mime';
+import * as path from 'path';
+import { ReqZoneMiddleware } from './util/reqZone';
 
 type Context = {
 	is_new: boolean;
@@ -41,7 +41,7 @@ const staticServe: defaultHandle = async ({ request, render }) => {
 	for (const promise of [
 		assetsAdapter('/assets/', doc_html_path, webPath),
 		assetsAdapter('', root_path, webPath),
-		assetsAdapter('', doc_path, webPath)
+		// assetsAdapter('', doc_path, webPath)
 	]) {
 		const r = await promise;
 		if (r !== undefined) {

@@ -7,8 +7,7 @@ export const preload: Load = async function ({ page, fetch, session, context }) 
 		API.踩一踩(path, undefined);
 	}
 	if (path.endsWith('.html')) {
-		const htmlPath = path.replace(/\.html/, '.md');
-		const res = await API.getArticleByPath(htmlPath);
+		const res = await API.getArticleByPath(path);
 		if (res.code === -1) {
 			/**
 			 * 对于在 routes 正则匹配范围内的文件（但 routes 没有提供服务）进行请求，
