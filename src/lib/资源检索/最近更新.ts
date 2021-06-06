@@ -6,28 +6,38 @@ import { doc_html_path } from '../env';
 let oldTime = Date.now();
 type article = {
 	title: string;
-	meta: any;
 	html?: string;
 	raw_html?: string;
 };
-interface docObj {
+class DocObj {
 	fullSrc: string;
-	mtimeMs: number;
 	isDirectory: boolean;
-	basename: string;
-	getViewInfo: () => Promise<article>;
-}
-/** 文档的具体文件信息节点 */
-type docFileNode = {
-	fullSrc: string;
 	mtimeMs: number;
-	/** 是目录节点 */ isDirectory: boolean;
 	basename: string;
-};
+	public async getViewInfo(): Promise<article> {
+		const targetPath = this.fullSrc;
+		const rawHtml = (
+			await fs.readFile(targetPath).catch((e) => {
+				console.log('[targetPath] 读取失败', targetPath);
+				return '<程序内部错误，读取资源文件失败>';
+			})
+		).toString();
+		const titleRes = rawHtml.match(/<title>([\s\S]*)<\/title>/);
+		const title = titleRes === null ? '无题' : titleRes[1];
+
+		/** 去除原始文件开头的一些脚本引入 */
+		const html = rawHtml.replace(/[\s\S]*?<\/head>/, '');
+		return {
+			title,
+			html: html
+		};
+	}
+}
+
 export async function 获取项目下所有文件(src: string) {
 	// 读取目录中的所有文件/目录
 	const paths = await fs.readdir(src);
-	const r: docObj[] = (
+	const r: DocObj[] = (
 		await Promise.all(
 			paths.map(async (path) => {
 				//拼合路径
@@ -36,32 +46,11 @@ export async function 获取项目下所有文件(src: string) {
 				const st = await fs.stat(fullSrc);
 				// 判断是否为文件
 				const isDirectory = st.isDirectory();
-				const docObj = {
-					fullSrc,
-					mtimeMs: st.mtimeMs,
-					isDirectory,
-					basename: Path.basename(fullSrc),
-					async getViewInfo() {
-						const targetPath = fullSrc;
-						const rawHtml = (
-							await fs.readFile(targetPath).catch((e) => {
-								console.log('[targetPath] 读取失败', targetPath);
-								return '<程序内部错误，读取资源文件失败>';
-							})
-						).toString();
-						const titleRes = rawHtml.match(/<title>([\s\S]*)<\/title>/);
-						const title = titleRes === null ? '无题' : titleRes[1];
-
-						/** 去除原始文件开头的一些脚本引入 */
-						const html = rawHtml.replace(/[\s\S]*?<\/head>/, '');
-
-						return {
-							title,
-							meta: [],
-							html: html
-						};
-					}
-				};
+				const docObj = new DocObj();
+				docObj.basename = Path.basename(fullSrc);
+				docObj.mtimeMs = st.mtimeMs;
+				docObj.fullSrc = fullSrc;
+				docObj.isDirectory = isDirectory;
 
 				// 如果是目录则递归调用自身
 				if (isDirectory && !['.git', 'node_modules', 'assets'].includes(docObj.basename)) {
@@ -93,8 +82,9 @@ async function main() {
 						updated: number;
 					};
 
-					return {
+					const r = {
 						...el,
+						docObj: el,
 						/** 虚拟路径，因为思源模式的笔记会在文件名后面加上 id,而这个值会去除掉那些id */
 						virtual_path: el.fullSrc,
 						// TODO: 待修正 为正确的id
@@ -103,6 +93,7 @@ async function main() {
 						webPath: ToWebPath(el),
 						docData: data
 					};
+					return r;
 				})
 		)
 	)
@@ -124,17 +115,22 @@ async function main() {
 }
 
 /** 注意没有带上web前缀 */
-export function ToWebPath(d: docFileNode) {
+export function ToWebPath(d: {
+	fullSrc: string;
+	/** 是目录节点 */ isDirectory: boolean;
+	basename: string;
+}) {
 	if (d.isDirectory) {
 		return (d.fullSrc.replace(doc_html_path, '') + '/').replace(
-			/** 网络路径通常使用 / */ /[\\\/]/g,
+			/* eslint-disable no-useless-escape */ //  eslint 规则的bug
+			/** 网络路径通常使用 /  */ /[\\/]/g,
 			'/'
 		);
 	} else {
 		return d.fullSrc.replace(doc_html_path, '').replace(/** 网络路径通常使用 / */ /[\\\/]/g, '/');
 	}
 }
-export function getName(d: docObj) {
+export function getName(d: Pick<DocObj, 'isDirectory' | 'basename'>) {
 	if (d.isDirectory) {
 		return './' + d.basename + '/';
 	} else {

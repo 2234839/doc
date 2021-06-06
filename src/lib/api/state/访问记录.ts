@@ -39,7 +39,7 @@ export function 踩一踩(path: string, browser = false) {
 			log.botCount[ua] = 0;
 		}
 		// 上面已经初始化了，所以这里使用 ! 断言
-		log.botCount[ua]! += 1;
+		log.botCount[ua] += 1;
 	}
 
 	if (browser) {

@@ -1,6 +1,10 @@
 import type * as apis from './apis';
-export namespace AJAX {
-	export function post(options: { url: string; data: unknown }) {
+
+type apis = typeof apis;
+type method = keyof apis;
+
+const AJAX = {
+	post(options: { url: string; data: unknown }) {
 		return fetch(options.url, {
 			method: 'POST',
 			body: JSON.stringify(options.data),
@@ -9,14 +13,11 @@ export namespace AJAX {
 			}
 		});
 	}
-}
-type apis = typeof apis;
-type method = keyof apis;
-
+};
 /** ═════════🏳‍🌈 超轻量级的远程调用，完备的类型提示！ 🏳‍🌈═════════  */
 
 /** Remote call ， 会就近的选择是远程调用还是使用本地函数 */
-export function RC<K extends method>(
+function RC<K extends method>(
 	method: K,
 	data: Parameters<apis[K]>
 ): Promise<unPromise<ReturnType<apis[K]>>> {
@@ -30,7 +31,7 @@ export function RC<K extends method>(
 }
 
 let temp = [];
-let id = 0 as any;
+let id: NodeJS.Timeout;
 function batchCall() {
 	const arr = temp;
 	temp = [];
@@ -44,13 +45,13 @@ function batchCall() {
 	}
 }
 /** 包装了一次的 RC 方便调整到函数定义  */
-export const API = new Proxy(
+const API = new Proxy(
 	{},
 	{
 		get(target, p: method) {
 			// 在浏览器端对于短时间（60ms）内的请求进行合并发送，如果不需要此优化的话只留下else分支即可
 			if (!import.meta.env.SSR) {
-				return (...arg: any) => {
+				return (...arg) => {
 					return new Promise((resolve, reject) => {
 						temp.push([p, arg, resolve, reject]);
 						clearTimeout(id);
@@ -58,7 +59,7 @@ export const API = new Proxy(
 					});
 				};
 			} else {
-				return (...arg: any) => RC(p, arg);
+				return (...arg) => RC(p, arg);
 			}
 		}
 	}
@@ -72,7 +73,7 @@ type apisPromise = {
 		res: unPromise<ReturnType<apis[K]>>;
 	};
 };
-export function 直接调用(ctx: any, method: string, arg: any[]) {
+function 直接调用(ctx, method: string, arg: unknown[]) {
 	console.log('[rc]', method, arg);
 
 	if (!Object.hasOwnProperty.call(ctx, method)) {
@@ -82,3 +83,5 @@ export function 直接调用(ctx: any, method: string, arg: any[]) {
 		return ctx[method](...arg);
 	}
 }
+
+export { AJAX, 直接调用, API, RC };

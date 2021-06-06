@@ -1,7 +1,6 @@
 <script context="module" lang="ts">
 	import { preload } from '../lib/path';
 	export const load = preload;
-	declare var md2website: any;
 </script>
 
 <script lang="ts">
@@ -12,9 +11,9 @@
 	import qs from 'qs';
 	import { goto } from '$app/navigation';
 
-	export let article: any;
+	export let article: { html?: string };
 	export let title: string;
-	export let menu: any[];
+	export let menu: { path: string; title: string }[];
 	const { page } = getStores();
 	const 访问记录 = API.get访问记录($page.path);
 	$: breadcrumbNavigation = decodeURIComponent($page.path).split('/');
@@ -34,7 +33,7 @@
 	}
 
 	/** 需要在销毁前调用的函数 */
-	let destroyCallBack = [] as Function[];
+	let destroyCallBack = [] as ((...arg: unknown[]) => void)[];
 	onDestroy(() => {
 		if (typeof document !== 'undefined') {
 			/** 动态生成的元素没有被svelte清除掉，所以这里主动将遗留下来的元素清掉 */
@@ -45,15 +44,16 @@
 	onMount(async () => {
 		console.log('触发 [path(.+)] onMount');
 		console.log(document.body.classList);
-		let old = null as any;
+		let old = null;
 
 		destroyCallBack.push(on(document.body, 'click', 'a', aSupper));
 
 		setTimeout(async () => {
+			/* eslint-disable no-constant-condition */
 			while (1) {
-				if (typeof md2website !== 'undefined') {
-					md2website.gotoClick = (e: Event) => {
-						aSupper(e, e.target! as HTMLElement);
+				if (typeof window['md2website'] !== 'undefined') {
+					window['md2website'].gotoClick = (e: Event) => {
+						aSupper(e, e.target as HTMLElement);
 					};
 					break;
 				} else {

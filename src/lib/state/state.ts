@@ -2,11 +2,11 @@ interface StateOptions {
 	/** 这个状态存在的位置 */
 	filePath: string;
 }
-import fsExtra from "fs-extra";
+import fsExtra from 'fs-extra';
 import { watchEffect } from 'vue';
 const { ensureFile, readFile, writeFile } = fsExtra;
 export async function stateASyncFile<T>(state: T, options: StateOptions) {
-	let oldState: any;
+	let oldState: unknown;
 	try {
 		const f = (await readFile(options.filePath)).toString();
 		oldState = JSON.parse(f);

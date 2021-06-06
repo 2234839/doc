@@ -162,20 +162,13 @@ td {
 	justify-content: center;
 	align-items: center;
 }
-
-/** 无序列表的装饰从点变成线 */
-.markdown-body li {
-	list-style: none;
-	position: relative;
-}
-.markdown-body li:before {
-	content: '';
-	border-left: 1px solid #685b5b;
-	position: absolute;
-	height: 100%;
-	margin-left: -8px;
-}
 html,
 body {
 	scroll-behavior: smooth;
+	margin: 0;
+	padding: 0;
+}
+
+.markdown-body {
+	padding: 0px !important;
 }

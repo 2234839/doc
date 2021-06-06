@@ -2,7 +2,7 @@ import { resolve } from 'path';
 import { Res } from '$lib/api/res';
 import { doc_html_path } from '$lib/env';
 import { 获取文档资源 } from '$lib/资源检索/最近更新';
-export async function get(req: any, res: any) {
+export async function get(req, res) {
 	const path = req.query.path as string;
 	const filePath = resolve(doc_html_path + path.replace(/\?.*$/, ''));
 
@@ -12,7 +12,7 @@ export async function get(req: any, res: any) {
 	const doc = docs.md_file.find((el) => el.virtual_path === filePath);
 
 	if (doc) {
-		const result = JSON.stringify(await doc.getViewInfo());
+		const result = JSON.stringify(await doc.docObj.getViewInfo());
 		res.writeHead(200, {
 			'Content-Type': 'application/json'
 		});

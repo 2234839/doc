@@ -1,6 +1,6 @@
 // 来自 npm 包 isBot 待会补上链接
 import list from './list.json';
-var regex;
+let regex;
 
 /**
  * Refresh the local regex variable (clusure)
@@ -24,7 +24,7 @@ export const isBot = function (userAgent) {
  * @return {string}
  */
 export const find = function (userAgent) {
-	var match = userAgent.match(regex);
+	const match = userAgent.match(regex);
 	return match && match[0];
 };
 
@@ -53,9 +53,9 @@ function included(rule) {
  * @return {void}
  */
 export const exclude = function (excludedFilters) {
-	var i = excludedFilters.length;
+	let i = excludedFilters.length;
 	while (i--) {
-		var index = list.lastIndexOf(excludedFilters[i].toLowerCase());
+		const index = list.lastIndexOf(excludedFilters[i].toLowerCase());
 		if (index > -1) {
 			list.splice(index, 1);
 		}

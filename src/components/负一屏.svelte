@@ -21,7 +21,7 @@
 		}
 	});
 	function showBody() {
-		document.querySelector('.llej-body')!.scrollIntoView({
+		document.querySelector('.llej-body')?.scrollIntoView({
 			behavior: 'smooth',
 			block: 'end',
 			inline: 'nearest'

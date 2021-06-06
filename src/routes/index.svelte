@@ -9,7 +9,9 @@
 </script>
 
 <script lang="ts">
-	export let user: any;
+	export let user: {
+		role: 'admin';
+	};
 	export let articleList: {
 		webPath: string;
 		name: string;

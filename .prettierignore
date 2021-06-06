@@ -1,4 +1,8 @@
-.svelte/**
+.svelte-kit/**
 static/**
 build/**
 node_modules/**
+doc/**
+docHTML/**
+
+pnpm-lock.yml

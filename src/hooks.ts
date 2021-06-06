@@ -13,8 +13,8 @@ type Context = {
 };
 /** 默认的 handle 处理器 */
 export type defaultHandle = Handle<Context>;
-
-const rawHandel: Handle = async ({ request, render }) => {
+type r = ReturnType<defaultHandle>;
+const rawHandel: Handle = async ({ request, resolve }) => {
 	const cookies = cookie.parse(request.headers.cookie || '');
 	request.locals.userid = cookies.userid || uuid();
 
@@ -23,7 +23,7 @@ const rawHandel: Handle = async ({ request, render }) => {
 		request.method = request.query.get('_method').toUpperCase();
 	}
 
-	const response = await render(request);
+	const response = await resolve(request);
 
 	if (!cookies.userid) {
 		// if this is the first time the user has visited this app,
@@ -33,14 +33,14 @@ const rawHandel: Handle = async ({ request, render }) => {
 	return response;
 };
 /** 静态文件服务 */
-const staticServe: defaultHandle = async ({ request, render }) => {
+const staticServe: defaultHandle = async ({ request }) => {
 	//=== 静态文件服务
 	const webPath = decodeURIComponent(request.path);
 	console.log('[webPath]', webPath);
 	// const targetPath = path.join(root_path, webPath);
 	for (const promise of [
 		assetsAdapter('/assets/', doc_html_path, webPath),
-		assetsAdapter('', root_path, webPath),
+		assetsAdapter('', root_path, webPath)
 		// assetsAdapter('', doc_path, webPath)
 	]) {
 		const r = await promise;
@@ -50,7 +50,7 @@ const staticServe: defaultHandle = async ({ request, render }) => {
 	}
 
 	function assetsAdapter(prePath: string, assetsPath: string, webPath: string) {
-		return new Promise((resolve, reject) => {
+		return new Promise<r>((resolve, reject) => {
 			if (webPath.startsWith(prePath)) {
 				const targetPath = path.join(assetsPath, './' + webPath.slice(1));
 				if (false === targetPath.startsWith(assetsPath)) {
@@ -60,13 +60,23 @@ const staticServe: defaultHandle = async ({ request, render }) => {
 					return fs
 						.readFile(targetPath)
 						.then(
-							(r) => ({
-								status: 200,
-								headers: {
-									'Content-Type': mime.getType(webPath)
-								},
-								body: r
-							}),
+							(r) => {
+								let body: Buffer | string = r;
+								if (webPath.endsWith('.html')) {
+									// 对于备份页面的脚本进行 patch 使其在 iframe 的时候也可以显示信息栏
+									body = String(r).replace(
+										`t.window==t.top&&("loading"==document.readyState?document`,
+										`true&&("loading"==document.readyState?document`
+									);
+								}
+								return {
+									status: 200,
+									headers: {
+										'Content-Type': mime.getType(webPath)
+									},
+									body
+								};
+							},
 							// throw '多半是找不着文件';
 							(err) => undefined
 						)
@@ -89,5 +99,5 @@ export const handle: defaultHandle = async function (p) {
 				return r;
 			}
 		}
-	});
+	}) as r;
 };

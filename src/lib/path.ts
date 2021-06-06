@@ -43,6 +43,7 @@ export const preload: Load = async function ({ page, fetch, session, context }) 
 			return r.json();
 		});
 		const title = decodeURIComponent(path)
+			/* eslint-disable no-useless-escape */
 			.split(/[\/\\]/)
 			.filter((el) => el)
 			.reverse()

@@ -1,25 +1,21 @@
 {
-    // 使用 IntelliSense 了解相关属性。
-    // 悬停以查看现有属性的描述。
-    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "ts-node 启动",
-            "args": [
-                "${workspaceFolder}/content/读书笔记/javascript编程精解/项目/egg编程语言/egg.ts"
-            ],
-            "runtimeArgs": ["--nolazy","-r","ts-node/register"],
-            "sourceMaps": true,
-            "cwd": "${workspaceFolder}",
-            "protocol": "auto",
-            "console": "internalConsole",
-            "internalConsoleOptions": "neverOpen",
-            "outFiles": [
-                "${workspaceFolder}/**/*.js"
-            ]
-        }
-    ]
+	// 使用 IntelliSense 了解相关属性。
+	// 悬停以查看现有属性的描述。
+	// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "ts-node 启动",
+			"args": ["${workspaceFolder}/content/读书笔记/javascript编程精解/项目/egg编程语言/egg.ts"],
+			"runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+			"sourceMaps": true,
+			"cwd": "${workspaceFolder}",
+			"protocol": "auto",
+			"console": "internalConsole",
+			"internalConsoleOptions": "neverOpen",
+			"outFiles": ["${workspaceFolder}/**/*.js"]
+		}
+	]
 }

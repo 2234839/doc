@@ -2,7 +2,7 @@ import { isBot as IsBot } from '$lib/isbot';
 import { AsyncLocalStorage } from 'async_hooks';
 import type { defaultHandle } from 'src/hooks';
 
-export let rawLog = console.log;
+export const rawLog = console.log;
 
 interface reqZone {
 	ip: string;
@@ -65,7 +65,7 @@ export const ReqZoneMiddleware = function (arg: Parameters<defaultHandle>[0], ne
 		referrer
 	};
 
-	const r = reqZone.run(params, next, arg) as Promise<any>;
+	const r = reqZone.run(params, next, arg) as Promise<unknown>;
 	const curZoneStore = params;
 	r.finally(() => {
 		const { ip, start, id, ua, isBot, referrer, url } = curZoneStore;

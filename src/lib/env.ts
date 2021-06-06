@@ -1,7 +1,7 @@
 import path from 'path';
 
 // 这里 vite 的 ssr 优化有问题导致 __dirname 无法正常使用 '
-let serverPath = path.resolve(path.dirname(''));
+const serverPath = path.resolve(path.dirname(''));
 // export const root_path = path.resolve(serverPath || '', '../../../');
 export const root_path = serverPath;
 /** 文档目录地址 */
