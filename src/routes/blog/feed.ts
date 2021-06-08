@@ -28,7 +28,7 @@ export const get: defaultHandle = async function get() {
   <description> 崮生 </description>
   <content:encoded xml:base="${siteBaseUrl}${el.webPath}">
     <![CDATA[
-      ${(await el.getViewInfo()).html}
+      ${(await el.docObj.getViewInfo()).html}
     ]]>
   </content:encoded>
 </item>

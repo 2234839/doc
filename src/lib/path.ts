@@ -39,6 +39,7 @@ export const preload: Load = async function ({ page, fetch, session, context }) 
 			}
 		};
 	} else if (path.endsWith('/') || path.split('/').pop().includes('.') === false) {
+		// 菜单页
 		const menu = await fetch('/menu.json?path=' + path).then((r) => {
 			return r.json();
 		});

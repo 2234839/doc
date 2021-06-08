@@ -1,6 +1,7 @@
 <script context="module" lang="ts">
 	import { preload } from '../lib/path';
 	export const load = preload;
+
 </script>
 
 <script lang="ts">
@@ -116,8 +117,14 @@
 			}
 		} else {
 			if (a.href.startsWith(location.origin)) {
-				goto(a.href);
-				e.preventDefault();
+				// 这里还缺乏像按住 alt 之类的点击行为处理,对于所有 [...path].svelte 无法处理的链接都使用新标签打开似乎是不错的做法
+				if (path.endsWith('.xml')) {
+					window.open(a.href, '_blank');
+					e.preventDefault();
+				} else {
+					goto(a.href);
+					e.preventDefault();
+				}
 			} else {
 				// 非同源链接就直接采用浏览器默认行为吧，或许也可以在这里加上新开标签打开的功能
 			}
@@ -134,6 +141,7 @@
   <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 <${'/'}script>`;
+
 </script>
 
 <svelte:head>
