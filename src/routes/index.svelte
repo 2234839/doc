@@ -23,9 +23,9 @@
 	<title>崮生 一些随笔</title>
 </svelte:head>
 
-<h1 class="justify-center" style="font-family: QIJIC">天行健，君子以自强不息!</h1>
+<h1 class="justify-center mt-4 font-QIJIC" >天行健，君子以自强不息!</h1>
 
-<figure class="flex justify-center">
+<figure class="flex justify-center mt-5">
 	<img
 		class="llej-bigImg"
 		alt="必应今日美图"
@@ -76,18 +76,13 @@
 	figure,
 	p {
 		text-align: center;
-		margin: 0 auto;
+		font-family: "QIJIC"
 	}
 
 	h1 {
 		font-size: 2.8em;
 		text-transform: uppercase;
 		font-weight: 700;
-		margin: 0 0 0.5em 0;
-	}
-
-	figure {
-		margin: 0 0 1em 0;
 	}
 
 	.llej-bigImg {
@@ -112,11 +107,5 @@
 			font-size: 4em;
 		}
 	}
-	@font-face {
-		font-family: 'QIJIC';
-		src: url('//webfont.shenzilong.cn/generate_fonts_dynamically.ttf?font=令东齐伋复刻体&text=天行健，君子以自强不息!)')
-			format('truetype');
-		font-style: normal;
-		font-weight: normal;
-	}
+
 </style>
