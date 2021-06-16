@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount, beforeUpdate } from 'svelte';
+	import { page } from '$app/stores';
 	import Nav from '../components/Nav.svelte';
 	import Footer from '../components/Footer.svelte';
 	import StyleSheet from '../components/style_sheet.svelte';
@@ -22,11 +23,13 @@
 			API.踩一踩(decodeURIComponent(location.pathname), true);
 		}
 	});
+
 </script>
 
 <StyleSheet />
-
-<NegativeOneScreen />
+{#if $page.path==="/"}
+ <NegativeOneScreen />
+{/if}
 <G_Message
 	bind:messageList={$messageList}
 	on:del={(el) => {

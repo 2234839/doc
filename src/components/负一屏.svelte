@@ -1,15 +1,7 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 
 	let show = false;
-	page.subscribe(({ path, params, query }) => {
-		if (path !== '/') {
-			/** 其他页面首次进来就不弹负一屏了 */
-			show = false;
-			return;
-		}
-	});
 	onMount(() => {
 		const old_time = Number(localStorage.getItem('上次访问时间'));
 		const cur_time = Date.now();
@@ -35,7 +27,7 @@
 		style="background-image: url('https://shenzilong.cn/util/redirect_to_bing_daily_picture_address'); "
 	>
 		<div
-			class="font-QIJIC text-white h-30"
+			class="font-QIJIC text-white "
 			style="margin-top: 40vh;font-size: 6vw;background: #7b7a7a36;display: inline-table;outline: 0.3rem solid
       #ffffffb0;padding: 1vh 6vw;backdrop-filter: blur(8px);color: rgb(255, 255, 255); "
 		>
