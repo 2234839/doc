@@ -76,7 +76,6 @@
 	figure,
 	p {
 		text-align: center;
-		font-family: "QIJIC"
 	}
 
 	h1 {

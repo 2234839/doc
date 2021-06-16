@@ -174,4 +174,8 @@ body {
 }
 .font-QIJIC {
 	font-family: 'QIJIC';
+	src: url('//webfont.shenzilong.cn/generate_fonts_dynamically.ttf?temp=true&font=优设标题黑&text=天行健，君子以自强不息!')
+		format('truetype');
+	font-style: normal;
+	font-weight: normal;
 }
