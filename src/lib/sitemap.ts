@@ -11,10 +11,11 @@ export async function generateSiteMap() {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     ${[...r, ...menu]
 			.map((el) => {
+				const docObj = 'docObj' in el ? el.docObj : el
 				return `
             <url>
-                <loc>${siteBaseUrl}${ToWebPath(el)}</loc>
-                <lastmod>${new Date(el.mtimeMs).toISOString()}</lastmod>
+                <loc>${siteBaseUrl}${ToWebPath(docObj)}</loc>
+                <lastmod>${new Date(docObj.mtimeMs).toISOString()}</lastmod>
             </url>
         `;
 			})

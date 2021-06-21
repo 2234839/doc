@@ -1,7 +1,7 @@
-import cheerio from 'cheerio';
 import { promises as fs } from 'fs';
 import * as Path from 'path';
 import { doc_html_path } from '../env';
+import { BuildDoc } from './资源编译';
 
 let oldTime = Date.now();
 type article = {
@@ -9,7 +9,7 @@ type article = {
 	html?: string;
 	raw_html?: string;
 };
-class DocObj {
+export class DocObj {
 	fullSrc: string;
 	isDirectory: boolean;
 	mtimeMs: number;
@@ -64,54 +64,39 @@ export async function 获取项目下所有文件(src: string) {
 	return r;
 }
 
-export const 最近更新 = [];
+async function main(): Promise<{
+	allFile: DocObj[];
+	md_file: {
+		docObj: DocObj;
+		fileID: '20210325155155-2wk7rxv';
+		webPath: string;
+		docData: {
+			blockId?: '20210325155155-2wk7rxv';
+			type?: 'NodeDocument';
+			updated: number;
+		};
+	}[];
+	menu: DocObj[];
+}> {
+	try{
+		const json = (await fs.readFile('./allFile.json')).toString();
+		return JSON.parse(json, (key, value) => {
+			if (key === 'allFile') {
+				return value.map(transform);
+			}else if (key ==="docObj"){
+				return transform(value)
+			}
+			return value;
+		});
+	} catch(e){
+		return await BuildDoc()
+	}
 
-async function main() {
-	const allFile = await 获取项目下所有文件(doc_html_path);
-	const md_file = (
-		await Promise.all(
-			allFile
-				.filter((el) => !el.isDirectory && el.fullSrc.endsWith('.html'))
-				.map(async (el) => {
-					const root = cheerio.load((await el.getViewInfo()).html || '');
-					const docRoot = root('main[data-type=NodeDocument]');
-
-					const data = { ...docRoot.data(), updated: Number(docRoot.attr('updated')) } as {
-						blockId?: '20210325155155-2wk7rxv';
-						type?: 'NodeDocument';
-						updated: number;
-					};
-
-					const r = {
-						...el,
-						docObj: el,
-						/** 虚拟路径，因为思源模式的笔记会在文件名后面加上 id,而这个值会去除掉那些id */
-						virtual_path: el.fullSrc,
-						// TODO: 待修正 为正确的id
-						fileID: data?.['blockId'],
-						/** 文本源码 */
-						webPath: ToWebPath(el),
-						docData: data
-					};
-					return r;
-				})
-		)
-	)
-		.filter((el) => el.docData?.type === 'NodeDocument')
-		.sort((a, b) => (b.docData.updated || b.mtimeMs) - (a.docData.updated || a.mtimeMs));
-
-	const menu = allFile.filter((el) => el.isDirectory);
-	const r = {
-		allFile,
-		md_file,
-		menu
-	};
-	console.log(
-		`刷新资源完毕， 共有 ${md_file.length} 篇文`,
-		completedDocumentResources ? `原有 ${completedDocumentResources.md_file.length} 篇` : ''
-	);
-	completedDocumentResources = r;
-	return r;
+	function transform(el: DocObj): DocObj {
+		const obj = new DocObj();
+		Object.assign(obj, el);
+		return obj;
+	}
 }
 
 /** 注意没有带上web前缀 */
@@ -140,8 +125,6 @@ export function getName(d: Pick<DocObj, 'isDirectory' | 'basename'>) {
 // TODO  这里使用中文变量名 vite ssr 会报语法错误
 /** 文档资源 */
 export let documentResource = main();
-/** 没有准备好的时候是 null，准备好的文档资源 */
-export let completedDocumentResources = null as null | unPromise<typeof documentResource>;
 
 /** 会触发更新资源的流程 */
 export async function 获取文档资源(强制刷新 = false) {

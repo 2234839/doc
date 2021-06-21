@@ -1,6 +1,6 @@
 // 来自 npm 包 isBot 待会补上链接
 import list from './list.json';
-let regex;
+let regex:RegExp;
 
 /**
  * Refresh the local regex variable (clusure)
@@ -11,48 +11,38 @@ function update() {
 
 /**
  * Check if string matches known crawler patterns
- * @param  {string} userAgent
- * @return {boolean}
  */
-export const isBot = function (userAgent) {
+export const isBot = function (userAgent:string):boolean {
 	return regex.test(userAgent);
 };
 
 /**
  * Get the match for strings' known crawler pattern
- * @param  {string} userAgent
- * @return {string}
  */
-export const find = function (userAgent) {
+export const find = function (userAgent:string):string {
 	const match = userAgent.match(regex);
 	return match && match[0];
 };
 
 /**
  * Extent patterns for known crawlers
- * @param  {array} additionalFilters
- * @return {void}
  */
-export const extend = function (additionalFilters) {
+export const extend = function (additionalFilters:Array<unknown>) {
 	[].push.apply(list, additionalFilters.filter(included));
 	update();
 };
 
 /**
  * Check if item is included in list
- * @param  {string} rule
- * @return {boolean}
  */
-function included(rule) {
+function included(rule:string):boolean {
 	return list.indexOf(rule) === -1;
 }
 
 /**
  * Exclude patterns from bot pattern rule
- * @param  {array} excludedFilters
- * @return {void}
  */
-export const exclude = function (excludedFilters) {
+export const exclude = function (excludedFilters:Array<string>) {
 	let i = excludedFilters.length;
 	while (i--) {
 		const index = list.lastIndexOf(excludedFilters[i].toLowerCase());

@@ -7,8 +7,8 @@ export async function batchCall(...arg: [string, unknown[]][]) {
 export async function 获取最近更新() {
 	return (await 获取文档资源()).md_file.slice(0, 20).map((el) => {
 		return {
-			webPath: ToWebPath(el),
-			name: getName(el)
+			webPath: ToWebPath(el.docObj),
+			name: getName(el.docObj)
 		};
 	});
 }

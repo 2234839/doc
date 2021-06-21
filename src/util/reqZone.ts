@@ -36,7 +36,7 @@ console.log = (...args: unknown[]) => {
 };
 /** 重写了 log 函数，通过 zone 来将 next 运行期间打印的 log 收集到一起直到请求结束后统一 log */
 
-export const ReqZoneMiddleware = function (arg: Parameters<defaultHandle>[0], next) {
+export const ReqZoneMiddleware = function (arg: Parameters<defaultHandle>[0], next: () => unknown) {
 	const { request: req } = arg;
 
 	const id = requestId++;
@@ -68,7 +68,7 @@ export const ReqZoneMiddleware = function (arg: Parameters<defaultHandle>[0], ne
 	const r = reqZone.run(params, next, arg) as Promise<unknown>;
 	const curZoneStore = params;
 	r.finally(() => {
-		const { ip, start, id, ua, isBot, referrer, url } = curZoneStore;
+		const { ip, start, ua, isBot, referrer, url } = curZoneStore;
 		if (['css', 'js', 'map', 'png'].includes(url.split('.').pop())) {
 			return;
 		}
