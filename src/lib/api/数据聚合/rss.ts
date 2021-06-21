@@ -43,7 +43,7 @@ async function 最近动态() {
 }
 
 async function rssFetch(平台: typeof RssHub[number]): Promise<RSS_data[]> {
-	const r = await Axios.get(平台.RssUrl).catch((e) => {
+	const r = await Axios.get(平台.RssUrl).catch(() => {
 		console.log('rss catch', 平台.RssUrl);
 		return { data: `[]` };
 	});

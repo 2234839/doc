@@ -4,7 +4,7 @@ export function on<K extends keyof DocumentEventMap>(
 	selector: string,
 	cb: (evt: Event, el: HTMLElement) => void
 ) {
-	const handle = (e) => {
+	const handle = (e:Event) => {
 		let t = e.target as HTMLElement;
 		// e.preventDefault()
 		// console.log('[e]',e,t)

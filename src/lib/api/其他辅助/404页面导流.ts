@@ -10,5 +10,5 @@ export async function find404Near(url: string, /** 返回几条 */ n = 5) {
 			return a.编辑距离 - b.编辑距离;
 		})
 		.slice(0, n)
-		.map((el) => ({ webPath: el.webPath, name: el.basename }));
+		.map((el) => ({ webPath: el.webPath, name: el.docObj.basename }));
 }

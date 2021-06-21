@@ -13,6 +13,11 @@
 	},
 	"devDependencies": {
 		"@sveltejs/kit": "next",
+		"@types/cookie": "^0.4.0",
+		"@types/fs-extra": "^9.0.11",
+		"@types/html-escaper": "^3.0.0",
+		"@types/papaparse": "^5.2.5",
+		"@types/qs": "^6.9.6",
 		"@typescript-eslint/eslint-plugin": "^4.27.0",
 		"@typescript-eslint/parser": "^4.27.0",
 		"eslint": "^7.29.0",

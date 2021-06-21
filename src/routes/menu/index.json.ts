@@ -10,9 +10,9 @@ export const get: RequestHandler = async function get(req) {
 	console.log('[webPath]', webPath);
 	const result = [
 		...[...docs.menu, ...docs.md_file]
-			.filter((el) => el.fullSrc.startsWith(menuPath))
+			.filter((el) => ('docObj' in el ? el.docObj : el).fullSrc.startsWith(menuPath))
 			.filter((el) => {
-				const restPath = el.fullSrc.slice(menuPath.length + 1);
+				const restPath = ('docObj' in el ? el.docObj : el).fullSrc.slice(menuPath.length + 1);
 				if (restPath) {
 					/** 只比 menuPath 多一个层级的 */
 					return !restPath.includes(sep);
@@ -23,6 +23,7 @@ export const get: RequestHandler = async function get(req) {
 			.map((el) => {
 				const endSnippet = webPath.replace(/\/$/, '').split('/').pop();
 				const prePath = './' + (endSnippet === '' ? '' : endSnippet + '/');
+				el = 'docObj' in el ? el.docObj : el;
 				if (el.isDirectory) {
 					return {
 						path: prePath + el.basename + '/',

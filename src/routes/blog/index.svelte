@@ -1,6 +1,6 @@
 <script context="module">
 	const toDay = new Date();
-	export function load({ params, query }) {
+	export function load() {
 		return {
 			props: {
 				menu: [

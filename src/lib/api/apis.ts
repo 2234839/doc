@@ -13,7 +13,7 @@ export async function 获取最近更新() {
 	});
 }
 export async function test(a: 1, b: number) {
-	return [1, 2];
+	return [a, b];
 }
 
 export * from './blog';

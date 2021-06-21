@@ -1,7 +1,8 @@
-import { Res } from '$lib/api/res';
+import type { Locals } from '$lib/types';
 import { 获取文档资源 } from '$lib/资源检索/最近更新';
-export async function get(req, res) {
-	const path = req.query.path as string;
+import type { RequestHandler } from '@sveltejs/kit';
+export const get: RequestHandler<Locals, FormData> = async function get(req) {
+	const path = req.query.get("path") as string;
 
 	const docs = await 获取文档资源();
 
@@ -10,15 +11,22 @@ export async function get(req, res) {
 
 	if (doc) {
 		const result = JSON.stringify(await doc.docObj.getViewInfo());
-		res.writeHead(200, {
-			'Content-Type': 'application/json'
-		});
-		res.end(result);
+		// res.writeHead(200, {
+		// 	'Content-Type': 'application/json'
+		// });
+		// res.end(result);
+		return {
+			status: 200,
+			body: JSON.parse(result)
+		};
 	} else {
 		// console.log('[outFilePath]',outFilePath)
-		Res.failure(res, '没有找到对应的文件');
+		return {
+			status: 200,
+			body: { code: -1, msg: '没有找到对应的文件' }
+		};
 	}
-}
+};
 
 /** post 接口做预览之用 */
 // export async function post(req: any, res: any) {

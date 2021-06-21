@@ -17,14 +17,14 @@ const AJAX = {
 /** ═════════🏳‍🌈 超轻量级的远程调用，完备的类型提示！ 🏳‍🌈═════════  */
 
 /** Remote call ， 会就近的选择是远程调用还是使用本地函数 */
-function RC<K extends method>(
+async function RC<K extends method>(
 	method: K,
 	data: Parameters<apis[K]>
 ): Promise<unPromise<ReturnType<apis[K]>>> {
 	if (import.meta.env.SSR) {
-		return import('./apis').then((r) => 直接调用(r, method, data));
+		return await import('./apis').then((r) => 直接调用(r, method, data));
 	} else {
-		return AJAX.post({ url: '/blog/api', data: { method, data } }).then(
+		return await AJAX.post({ url: '/blog/api', data: { method, data } }).then(
 			async (r) => (await r.json()).value
 		);
 	}
@@ -48,10 +48,10 @@ function batchCall() {
 const API = new Proxy(
 	{},
 	{
-		get(target, p: method) {
+		get(_, p: method) {
 			// 在浏览器端对于短时间（60ms）内的请求进行合并发送，如果不需要此优化的话只留下else分支即可
 			if (!import.meta.env.SSR) {
-				return (...arg) => {
+				return (...arg:any[]) => {
 					return new Promise((resolve, reject) => {
 						temp.push([p, arg, resolve, reject]);
 						clearTimeout(id);
@@ -59,7 +59,7 @@ const API = new Proxy(
 					});
 				};
 			} else {
-				return (...arg) => RC(p, arg);
+				return (...arg:any[]) => RC(p, arg);
 			}
 		}
 	}
@@ -73,7 +73,7 @@ type apisPromise = {
 		res: unPromise<ReturnType<apis[K]>>;
 	};
 };
-function 直接调用(ctx, method: string, arg: unknown[]) {
+function 直接调用(ctx:any, method: string, arg: unknown[]) {
 	console.log('[rc]', method, arg);
 
 	if (!Object.hasOwnProperty.call(ctx, method)) {

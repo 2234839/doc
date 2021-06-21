@@ -1,6 +1,6 @@
-import { Res } from '../../../lib/api/res';
+import { Res } from '$lib/api/res';
 
-export async function post(req, res) {
+export async function post(req:{session:string}, res:any) {
 	Res.failure(res, '登录失败', { s: req.session });
 
 	// if (req.body.username === '崮生' && false) {

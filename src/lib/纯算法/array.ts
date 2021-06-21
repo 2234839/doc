@@ -23,7 +23,7 @@ export function Array去重<T>(
 		el: T
 	) => el,
 	/** 用于决定和重复对象的合并方式，默认取后面的值，丢弃旧值 */ mergeF: (a: T, b: T) => T = (
-		a,
+		_,
 		b
 	) => b
 ) {

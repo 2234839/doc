@@ -1,6 +1,6 @@
 type res = {
-	writeHead: (number, unknown) => void;
-	end: (string) => void;
+	writeHead: (name:number,value:unknown) => void;
+	end: (res:string) => void;
 };
 export const Res = {
 	successful(res: res, msg: string, data: unknown) {

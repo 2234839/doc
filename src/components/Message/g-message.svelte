@@ -5,11 +5,11 @@
 	import Icon from '../Icon.svelte';
 
 	const dispatch = createEventDispatcher();
-	export let messageList: { style: string; dot: { c: string }; content: string }[];
+	export let messageList: { style: string; dot?: { c: string }; content: string }[];
 </script>
 
 <div class="llej-msg_list">
-	{#each messageList as item, index (item)}
+	{#each messageList as item, index (index)}
 		<div
 			animate:flip
 			transition:fly={{ x: 200, duration: 1000 }}

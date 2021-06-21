@@ -1,10 +1,10 @@
-import * as apis from '../../lib/api/apis';
-import { 直接调用 } from '../../lib/api/fetch';
-/**
- * post 接口做预览之用
- * @type {import('@sveltejs/kit').RequestHandler}
- */
-export async function post(req, res) {
+import type { Locals } from '$lib/types';
+import type { RequestHandler } from '@sveltejs/kit';
+import * as apis from '$lib/api/apis';
+import { 直接调用 } from '$lib/api/fetch';
+
+export const post: RequestHandler<Locals, FormData> = async function post(req) {
+	//@ts-ignore TODO: 这里类型有待改进
 	const { method, data: _data } = req.body;
 
 	const result = await 直接调用(apis, method, _data);
@@ -15,4 +15,4 @@ export async function post(req, res) {
 			value: result === undefined ? { message: '该远程函数无返回值' } : result
 		}
 	};
-}
+};

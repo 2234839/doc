@@ -1,16 +1,17 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+
 	type table = string[][];
 	let fileReader: FileReader;
 	let tabel = [[]] as table;
-	let 导出 = (t: table) => '';
+	let 导出 = (t: table) => t.toString();
 	onMount(async () => {
-		const Papa = await import('papaparse');
+		const Papa = (await import('./papaparse')).default;
 
 		fileReader = new FileReader();
-		fileReader.addEventListener('load', (ev) => {
+		fileReader.addEventListener('load', () => {
 			const text = fileReader.result;
-			const json = Papa.parse(text, {});
+			const json = Papa.parse<[]>(String(text), {});
 			tabel = json.data;
 		});
 
@@ -30,7 +31,7 @@
 	$: tabelView = cover(tabel, coverCode);
 	$: exportUrl = 导出(tabelView);
 
-	tabel.map((tr, tr_i) => [`[${tr[0]}](${tr[1]})`, tr[2]]);
+	tabel.map((tr) => [`[${tr[0]}](${tr[1]})`, tr[2]]);
 
 	function cover(t: table, code: string) {
 		if (typeof window == 'undefined') {

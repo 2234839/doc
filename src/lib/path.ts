@@ -1,7 +1,7 @@
 import { API } from './api/fetch';
 import type { Load } from '@sveltejs/kit';
 // 利用 error 页面的兜底功能来完成将 doc文档 映射到对应的 url
-export const preload: Load = async function ({ page, fetch, session, context }) {
+export const preload: Load = async function ({ page, fetch }) {
 	const path = decodeURIComponent(page.path);
 	if (import.meta.env.SSR) {
 		API.踩一踩(path, undefined);

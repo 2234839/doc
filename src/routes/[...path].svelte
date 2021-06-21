@@ -1,7 +1,6 @@
 <script context="module" lang="ts">
 	import { preload } from '../lib/path';
 	export const load = preload;
-
 </script>
 
 <script lang="ts">
@@ -9,8 +8,8 @@
 	import { getStores } from '$app/stores';
 	import { on } from '../lib/dom操作/event_listener';
 	import { API } from '../lib/api/fetch';
-	import qs from 'qs';
 	import { goto } from '$app/navigation';
+	import qs from '$lib/qs';
 
 	export let article: { html?: string };
 	export let title: string;
@@ -141,7 +140,6 @@
   <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 <${'/'}script>`;
-
 </script>
 
 <svelte:head>

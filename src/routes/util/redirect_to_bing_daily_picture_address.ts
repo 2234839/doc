@@ -6,7 +6,7 @@ const store = {
 		path: ''
 	}
 };
-export const get: defaultHandle = async function get(req) {
+export const get: defaultHandle = async function get() {
 	// !moment(Date.now()).isSame(store.必应地址.time, 'day')
 	if (
 		store.必应地址.path === '' ||

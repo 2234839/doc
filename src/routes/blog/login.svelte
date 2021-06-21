@@ -1,5 +1,6 @@
 <script>
-	import { showMessageForAWhile_actions } from '../../data/actions/showMessage.ts';
+	import { showMessageForAWhile_actions } from 'src/data/actions/showMessage';
+
 	let username = '';
 	let password = '';
 	function login() {
@@ -30,7 +31,7 @@
 		type="password"
 		bind:value={password}
 		on:keydown={(e) => {
-			if (e.keyCode === 13) {
+			if (e.key === "Enter") {
 				login();
 			}
 		}}

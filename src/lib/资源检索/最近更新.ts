@@ -17,7 +17,7 @@ export class DocObj {
 	public async getViewInfo(): Promise<article> {
 		const targetPath = this.fullSrc;
 		const rawHtml = (
-			await fs.readFile(targetPath).catch((e) => {
+			await fs.readFile(targetPath).catch(() => {
 				console.log('[targetPath] 读取失败', targetPath);
 				return '<程序内部错误，读取资源文件失败>';
 			})

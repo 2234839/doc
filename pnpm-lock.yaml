@@ -4,7 +4,12 @@ specifiers:
   '@fontsource/fira-mono': ^4.4.5
   '@lukeed/uuid': ^2.0.0
   '@sveltejs/kit': next
+  '@types/cookie': ^0.4.0
+  '@types/fs-extra': ^9.0.11
+  '@types/html-escaper': ^3.0.0
   '@types/mime': ^2.0.3
+  '@types/papaparse': ^5.2.5
+  '@types/qs': ^6.9.6
   '@typescript-eslint/eslint-plugin': ^4.27.0
   '@typescript-eslint/parser': ^4.27.0
   axios: ^0.21.1
@@ -47,6 +52,11 @@ dependencies:
 
 devDependencies:
   '@sveltejs/kit': 1.0.0-next.115_svelte@3.38.2
+  '@types/cookie': 0.4.0
+  '@types/fs-extra': 9.0.11
+  '@types/html-escaper': 3.0.0
+  '@types/papaparse': 5.2.5
+  '@types/qs': 6.9.6
   '@typescript-eslint/eslint-plugin': 4.27.0_b7b1357bbf6753e7455d6ef3191d413d
   '@typescript-eslint/parser': 4.27.0_eslint@7.29.0+typescript@4.3.4
   eslint: 7.29.0
@@ -201,6 +211,20 @@ packages:
       - supports-color
     dev: true
 
+  /@types/cookie/0.4.0:
+    resolution: {integrity: sha512-y7mImlc/rNkvCRmg8gC3/lj87S7pTUIJ6QGjwHR9WQJcFs+ZMTOaoPrkdFA/YdbuqVEmEbb5RdhVxMkAcgOnpg==}
+    dev: true
+
+  /@types/fs-extra/9.0.11:
+    resolution: {integrity: sha512-mZsifGG4QeQ7hlkhO56u7zt/ycBgGxSVsFI/6lGTU34VtwkiqrrSDgw0+ygs8kFGWcXnFQWMrzF2h7TtDFNixA==}
+    dependencies:
+      '@types/node': 15.12.4
+    dev: true
+
+  /@types/html-escaper/3.0.0:
+    resolution: {integrity: sha512-OcJcvP3Yk8mjYwf/IdXZtTE1tb/u0WF0qa29ER07ZHCYUBZXSN29Z1mBS+/96+kNMGTFUAbSz9X+pHmHpZrTCw==}
+    dev: true
+
   /@types/json-schema/7.0.7:
     resolution: {integrity: sha512-cxWFQVseBm6O9Gbw1IWb8r6OS4OhSt3hPZLkFApLjM8TEXROBuQGLAH2i2gZpcXdLBIrpXuTDhH7Vbm1iXmNGA==}
     dev: true
@@ -213,8 +237,18 @@ packages:
     resolution: {integrity: sha512-zrNj1+yqYF4WskCMOHwN+w9iuD12+dGm0rQ35HLl9/Ouuq52cEtd0CH9qMgrdNmi5ejC1/V7vKEXYubB+65DkA==}
     dev: true
 
+  /@types/papaparse/5.2.5:
+    resolution: {integrity: sha512-TlqGskBad6skAgx2ifQmkO/FwiwObuWltBvX2bDceQhXh9IyZ7jYCK7qwhjB67kxw+0LJDXXM4jN3lcGqm1g5w==}
+    dependencies:
+      '@types/node': 15.12.4
+    dev: true
+
   /@types/pug/2.0.4:
     resolution: {integrity: sha1-h3L80EGOPNLMFxVV1zAHQVBR9LI=}
+    dev: true
+
+  /@types/qs/6.9.6:
+    resolution: {integrity: sha512-0/HnwIfW4ki2D8L8c9GVcG5I72s9jP5GSLVF0VIXDW00kmIpA6O33G7a8n59Tmh7Nz0WUC3rSb7PTY/sdW2JzA==}
     dev: true
 
   /@types/sass/1.16.0:

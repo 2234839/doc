@@ -54,7 +54,7 @@ export function run() {
 			loadingDiv.innerHTML = `<div class="loading"></div>`;
 			el.parentElement?.appendChild(loadingDiv);
 
-			let resolve_cb;
+			let resolve_cb: (value: unknown) => void;
 			el[editorKey] = {
 				editor: null,
 				getEditor: new Promise((resolve) => {
@@ -75,7 +75,7 @@ export function run() {
 			return ([el, editorDiv] as unknown) as [HTMLElement, HTMLElement];
 		}
 	);
-	const show_editor = div_list.filter(([el, div]) => {
+	const show_editor = div_list.filter(([el]) => {
 		/** 隐藏起来的元素不需要编辑 */
 		if (el.classList.contains('hidden')) {
 			return false;
@@ -129,15 +129,15 @@ export function run() {
 	function getLanguage(el: HTMLElement) {
 		return (el.className.match(/language-(.*)\b/) || [])[1];
 	}
-	/**
-	 * 根据内容来计算高度
-	 * @param {HTMLElement} editor
-	 * @param {HTMLElement} div
-	 */
-	function editorAdapaHeight(editor, div) {
-		const lines = editor.getModel().getLinesContent().length;
-		div.style.height = lines * 19.4 + 'px';
-	}
+	// /**
+	//  * 根据内容来计算高度
+	//  * @param {HTMLElement} editor
+	//  * @param {HTMLElement} div
+	//  */
+	// function editorAdapaHeight(editor, div) {
+	// 	const lines = editor.getModel().getLinesContent().length;
+	// 	div.style.height = lines * 19.4 + 'px';
+	// }
 
 	function runCode({ code, lang, el }: { code: string; lang: string; el: HTMLElement }) {
 		console.log(lang, el);
@@ -201,11 +201,11 @@ export function run() {
 		if (lang === 'typescript') {
 			const code_el = el.firstElementChild;
 			code_el[editorKey].getEditor.then(({ monaco, editor }) => {
-				monaco.languages.typescript.getTypeScriptWorker().then((work) => {
+				monaco.languages.typescript.getTypeScriptWorker().then((work:any) => {
 					work(editor.getModel().uri)
-						.then((client) => client.getEmitOutput(editor.getModel().uri.toString()))
-						.then((r) => {
-							r.outputFiles.map((el) => window.eval(el.text));
+						.then((client:any) => client.getEmitOutput(editor.getModel().uri.toString()))
+						.then((r:any) => {
+							r.outputFiles.map((el:any) => window.eval(el.text));
 						});
 				});
 			});

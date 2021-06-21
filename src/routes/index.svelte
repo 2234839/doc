@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
 	import { API } from '../lib/api/fetch';
 
-	export async function load({ page, fetch, session, context }) {
+	export async function load() {
 		return {
 			props: { user: {}, articleList: await API.获取最近更新() }
 		};
@@ -67,7 +67,7 @@
 			</div>
 		{/each}
 	</div>
-{:catch e}
+{:catch}
 	<b>追踪崮生的踪迹失败...</b>
 {/await}
 

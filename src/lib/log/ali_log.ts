@@ -10,9 +10,8 @@ function createHttpRequest() {
 class AliLogTracker {
 	private uri_: string;
 	private params_: unknown[];
-	constructor(private host: string, private project: string, private logStore: string) {
-		this.uri_ =
-			'https://' + project + '.' + host + '/logstores/' + logStore + '/track?APIVersion=0.6.0';
+	constructor( host: string,  project: string,  logStore: string) {
+		this.uri_ = 'https://' + project + '.' + host + '/logstores/' + logStore + '/track?APIVersion=0.6.0';
 		this.params_ = [];
 		if (typeof window !== 'undefined') {
 			this.push('href', decodeURIComponent(location.href));

@@ -41,5 +41,6 @@ cd /root/app;
 
 ssh root@shenzilong.cn '
 pm2 reload blog-kit;
+curl http://localhost:9949/blog/auto_update_build
 pm2 log blog-kit;
 '

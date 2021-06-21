@@ -51,7 +51,7 @@ const staticServe: defaultHandle = async ({ request }) => {
 	}
 
 	function assetsAdapter(prePath: string, assetsPath: string, webPath: string) {
-		return new Promise<r>((resolve, reject) => {
+		return new Promise<r>((resolve) => {
 			if (webPath.startsWith(prePath)) {
 				const targetPath = path.join(assetsPath, './' + webPath.slice(1));
 				if (false === targetPath.startsWith(assetsPath)) {
@@ -79,7 +79,7 @@ const staticServe: defaultHandle = async ({ request }) => {
 								};
 							},
 							// throw '多半是找不着文件';
-							(err) => undefined
+							() => undefined
 						)
 						.then(resolve);
 				}
