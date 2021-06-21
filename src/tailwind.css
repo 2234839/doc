@@ -146,13 +146,6 @@ td {
 	position: relative;
 }
 
-.llej-body > main a::after {
-	content: '¸';
-	font-size: 40%;
-	bottom: 10%;
-	position: absolute;
-}
-
 .llej-body > main .vditor-anchor::after {
 	content: '';
 }
