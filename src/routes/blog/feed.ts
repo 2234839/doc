@@ -15,7 +15,7 @@ export const get: defaultHandle = async function get() {
 					(await 获取文档资源()).md_file.slice(0, 20).map(async (el) => {
 						return `
 <item>
-  <title>${el.basename}</title>
+  <title>${el.docObj.basename}</title>
   <link>${siteBaseUrl}${el.webPath}</link>
   ${
 		''
@@ -24,7 +24,7 @@ export const get: defaultHandle = async function get() {
 		// `<published>${new Date(Number(el.fileID.split("-")[0])).toISOString()}</published>`:''
 	}
 
-  <updated>${new Date(el.mtimeMs).toISOString()}</updated>
+  <updated>${new Date(el.docObj.mtimeMs).toISOString()}</updated>
   <description> 崮生 </description>
   <content:encoded xml:base="${siteBaseUrl}${el.webPath}">
     <![CDATA[
