@@ -1,5 +1,5 @@
 <script>
-	import { showMessageForAWhile_actions } from 'src/data/actions/showMessage';
+	import { showMessageForAWhile_actions } from '../../data/actions/showMessage';
 
 	let username = '';
 	let password = '';

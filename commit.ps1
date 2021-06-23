@@ -19,7 +19,7 @@
 # @REM '
 
 cd D:/code/oceanpress
-go run ./src/ -SourceDir C:/Users/llej/Documents/SiYuan/data/note -OutDir D:/code/doc/docHTML -TemplateDir D:/code/oceanpress/src/views -SqlitePath C:/Users/llej/AppData/Local/Temp/siyuan/siyuan.db -AssetsDir C:/Users/llej/Documents/SiYuan/data/assets
+go run ./src/ -SourceDir C:/Users/llej/Documents/SiYuan/data/note -OutDir D:/code/doc/docHTML -TemplateDir D:/code/oceanpress/src/views -SqlitePath C:/Users/llej/AppData/Local/Temp/siyuan/siyuan.db
 
 
 cd D:/code/doc/docHTML;
@@ -40,7 +40,7 @@ cd /root/app;
 '
 
 ssh root@shenzilong.cn '
-pm2 reload blog-kit;
+# pm2 reload blog-kit;
 curl http://localhost:9949/blog/auto_update_build
 pm2 log blog-kit;
 '
