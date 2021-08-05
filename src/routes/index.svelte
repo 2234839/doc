@@ -16,6 +16,7 @@
 		webPath: string;
 		name: string;
 	}[];
+	$:console.log(articleList);
 	const RCrss = API.最新动态_rss();
 </script>
 
@@ -23,7 +24,7 @@
 	<title>崮生 一些随笔</title>
 </svelte:head>
 
-<h1 class="justify-center mt-4 font-QIJIC" >天行健，君子以自强不息!</h1>
+<h1 class="justify-center mt-4 font-QIJIC">天行健，君子以自强不息!</h1>
 
 <figure class="flex justify-center mt-5">
 	<img
@@ -106,5 +107,4 @@
 			font-size: 4em;
 		}
 	}
-
 </style>

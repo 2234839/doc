@@ -7,7 +7,7 @@ export async function BuildDoc(): Promise<{
 	allFile: DocObj[];
 	md_file: {
 		docObj: DocObj;
-		fileID: '20210325155155-2wk7rxv';
+		fileID: string;
 		webPath: string;
 		docData: {
 			type?: 'NodeDocument';
@@ -36,7 +36,7 @@ export async function BuildDoc(): Promise<{
 
 					const r = {
 						docObj: el,
-						fileID: data?.['blockId'],
+						fileID: attr['data-n-id'],
 						webPath: ToWebPath(el),
 						docData: data
 					};
@@ -48,7 +48,7 @@ export async function BuildDoc(): Promise<{
 		.sort(
 			(a, b) => (b.docData.updated || b.docObj.mtimeMs) - (a.docData.updated || a.docObj.mtimeMs)
 		);
-
+	console.log('[md_file.length]', md_file.length);
 	const menu = allFile.filter((el) => el.isDirectory);
 	const r = {
 		allFile,
@@ -73,11 +73,11 @@ function parse(s: string) {
 	while (curIndex < s.length - 1) {
 		const c = next();
 		if (state === 'leisure') {
-			if (c === '<' || c === '>') {
+			if (c === '<') {
 				attr = {};
 				name = '';
 				value = '';
-			} else if (c === ' ') {
+			} else if (c === ' ' || c === '>') {
 				//next
 			} else {
 				state = 'name';
@@ -129,5 +129,5 @@ function parse(s: string) {
 			}
 		}
 	}
-	return [attr, dataset];
+	return [attr, dataset] as const;
 }

@@ -5,7 +5,8 @@ export async function batchCall(...arg: [string, unknown[]][]) {
 	return Promise.all(arg.map(([p, args]) => this[p](...args)));
 }
 export async function 获取最近更新() {
-	return (await 获取文档资源()).md_file.slice(0, 20).map((el) => {
+	const mdFile = (await 获取文档资源()).md_file;
+	return mdFile.slice(0, 20).map((el) => {
 		return {
 			webPath: ToWebPath(el.docObj),
 			name: getName(el.docObj)
