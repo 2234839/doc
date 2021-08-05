@@ -1,7 +1,6 @@
 import { promises as fs } from 'fs';
 import * as Path from 'path';
 import { doc_html_path } from '../env';
-import { BuildDoc } from './资源编译';
 
 let oldTime = Date.now();
 type article = {
@@ -34,7 +33,7 @@ export class DocObj {
 	}
 }
 
-export async function 获取项目下所有文件(src: string) {
+export async function getAllFileFromProject(src: string) {
 	// 读取目录中的所有文件/目录
 	const paths = await fs.readdir(src);
 	const r: DocObj[] = (
@@ -54,7 +53,7 @@ export async function 获取项目下所有文件(src: string) {
 
 				// 如果是目录则递归调用自身
 				if (isDirectory && !['.git', 'node_modules', 'assets'].includes(docObj.basename)) {
-					return [docObj, ...(await 获取项目下所有文件(fullSrc))];
+					return [docObj, ...(await getAllFileFromProject(fullSrc))];
 				} else {
 					return [docObj];
 				}
@@ -71,25 +70,24 @@ async function main(): Promise<{
 		fileID: '20210325155155-2wk7rxv';
 		webPath: string;
 		docData: {
-			blockId?: '20210325155155-2wk7rxv';
 			type?: 'NodeDocument';
 			updated: number;
 		};
 	}[];
 	menu: DocObj[];
 }> {
-	try{
+	try {
 		const json = (await fs.readFile('./allFile.json')).toString();
 		return JSON.parse(json, (key, value) => {
 			if (key === 'allFile') {
 				return value.map(transform);
-			}else if (key ==="docObj"){
-				return transform(value)
+			} else if (key === 'docObj') {
+				return transform(value);
 			}
 			return value;
 		});
-	} catch(e){
-		return await BuildDoc()
+	} catch (e) {
+		return await (await import('./资源编译')).BuildDoc();
 	}
 
 	function transform(el: DocObj): DocObj {

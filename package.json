@@ -13,29 +13,29 @@
 	},
 	"devDependencies": {
 		"@sveltejs/kit": "next",
-		"@types/cookie": "^0.4.0",
-		"@types/fs-extra": "^9.0.11",
+		"@types/cookie": "^0.4.1",
+		"@types/fs-extra": "^9.0.12",
 		"@types/html-escaper": "^3.0.0",
-		"@types/papaparse": "^5.2.5",
-		"@types/qs": "^6.9.6",
-		"@typescript-eslint/eslint-plugin": "^4.27.0",
-		"@typescript-eslint/parser": "^4.27.0",
-		"eslint": "^7.29.0",
+		"@types/papaparse": "^5.2.6",
+		"@types/qs": "^6.9.7",
+		"@typescript-eslint/eslint-plugin": "^4.29.0",
+		"@typescript-eslint/parser": "^4.29.0",
+		"eslint": "^7.32.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte3": "^3.2.0",
 		"prettier": "~2.2.1",
 		"prettier-plugin-svelte": "^2.3.1",
-		"svelte": "^3.38.2",
-		"svelte-check": "^2.2.0",
-		"svelte-preprocess": "^4.7.3",
+		"svelte": "^3.42.1",
+		"svelte-check": "^2.2.4",
+		"svelte-preprocess": "^4.7.4",
 		"tslib": "^2.3.0",
-		"typescript": "^4.3.4",
-		"vite": "^2.3.8",
-		"vite-plugin-windicss": "^1.0.4"
+		"typescript": "^4.3.5",
+		"vite": "^2.4.4",
+		"vite-plugin-windicss": "^1.2.7"
 	},
 	"type": "module",
 	"dependencies": {
-		"@fontsource/fira-mono": "^4.4.5",
+		"@fontsource/fira-mono": "^4.5.0",
 		"@lukeed/uuid": "^2.0.0",
 		"@types/mime": "^2.0.3",
 		"axios": "^0.21.1",
@@ -47,6 +47,6 @@
 		"mime": "^2.5.2",
 		"papaparse": "^5.3.1",
 		"qs": "^6.10.1",
-		"vue": "^3.1.1"
+		"vue": "^3.1.5"
 	}
 }

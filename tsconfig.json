@@ -20,7 +20,7 @@
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
 		// "strict": true,
-		// "strictNullChecks": true,
+		"strictNullChecks": true,
 		// "strictFunctionTypes": true,
 		"baseUrl": ".",
 		"allowJs": true,

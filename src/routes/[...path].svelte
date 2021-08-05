@@ -78,7 +78,7 @@
 
 			if (p.blockId) {
 				setTimeout(() => {
-					scrollIntoSelector(`[data-block-id="${p.blockId}"]`);
+					scrollIntoSelector(`[data-n-id="${p.blockId}"]`);
 				}, 500);
 			}
 
@@ -129,15 +129,14 @@
 			}
 		}
 	}
-	let adHTML = `
-  <!-- 谷歌 底部横幅广告  -->
-  <ins class="adsbygoogle"
-      style="display:block"
-      data-ad-client="ca-pub-7181140659254262"
-      data-ad-slot="4668486093"
-      data-ad-format="auto"
-      data-full-width-responsive="true"></ins>
-  <script>
+	let adHTML = ` <!-- 谷歌 底部横幅广告  -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7181140659254262"
+     data-ad-slot="4668486093"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 <${'/'}script>`;
 </script>

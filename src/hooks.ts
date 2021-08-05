@@ -40,9 +40,9 @@ const staticServe: defaultHandle = async ({ request }) => {
 	// const targetPath = path.join(root_path, webPath);
 	for (const promise of [
 		assetsAdapter('/assets/', doc_html_path, webPath),
+		// assetsAdapter('/widgets/', doc_html_path, webPath),
 		...(webPath.endsWith('.xml') ? [assetsAdapter('', doc_html_path, webPath)] : []),
 		assetsAdapter('', root_path, webPath)
-		// assetsAdapter('', doc_path, webPath)
 	]) {
 		const r = await promise;
 		if (r !== undefined) {

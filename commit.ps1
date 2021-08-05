@@ -19,7 +19,7 @@
 # @REM '
 
 cd D:/code/oceanpress
-go run ./src/ -SourceDir C:/Users/llej/Documents/SiYuan/data/note -OutDir D:/code/doc/docHTML -TemplateDir D:/code/oceanpress/src/views -SqlitePath C:/Users/llej/AppData/Local/Temp/siyuan/siyuan.db
+go run ./src/ -SourceDir C:/Users/llej/Documents/SiYuan/data/note -OutDir D:/code/doc/docHTML -TemplateDir D:/code/oceanpress/src/views -SqlitePath C:/Users/llej/Documents/SiYuan/temp/siyuan.db
 
 
 cd D:/code/doc/docHTML;
@@ -36,7 +36,7 @@ cd ./app/doc/docHTML;
 git pull;
 
 cd /root/app;
-./ossutil64 sync -f -u ./doc/docHTML/assets oss://store-llej/doc/assets
+./ossutil64 sync -f -u ./doc/docHTML/ oss://store-llej/doc/
 '
 
 ssh root@shenzilong.cn '

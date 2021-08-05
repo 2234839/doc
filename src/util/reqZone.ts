@@ -26,9 +26,12 @@ export function isReqZone() {
 	return id !== undefined;
 }
 let requestId = 0;
-
 console.log = (...args: unknown[]) => {
 	if (isReqZone()) {
+		// if (args.join('').trim() == '') {
+		// 	 console.error('空 log',new Error().stack);
+		// 	 throw new Error('空 log')
+		// }
 		reqZoneGet('msg').push([Date.now(), args]);
 	} else {
 		rawLog(...args);
@@ -65,7 +68,7 @@ export const ReqZoneMiddleware = function (arg: Parameters<defaultHandle>[0], ne
 		referrer
 	};
 
-	const r = reqZone.run(params, next, arg) as Promise<unknown>;
+	const r = reqZone.run(params, next) as Promise<unknown>;
 	const curZoneStore = params;
 	r.finally(() => {
 		const { ip, start, ua, isBot, referrer, url } = curZoneStore;
