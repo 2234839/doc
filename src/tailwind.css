@@ -170,7 +170,6 @@ body {
 }
 @font-face {
 	font-family: 'QIJIC';
-	/* 这部分 svelte-kit 和 vite windicss 似乎冲突 */
-	src: url('//webfont.shenzilong.cn/generate_fonts_dynamically.ttf?font=令东齐伋复刻体&text=天行健，君子以自强不息!)')
-		format('truetype');
+	/* url 中的部分最后处添加一个 ) 会导致css编译后丢失下面这个 src 部分 */
+	src: url('//webfont.shenzilong.cn/generate_fonts_dynamically.ttf?font=令东齐伋复刻体&text=天行健，君子以自强不息!') format('truetype');
 }
