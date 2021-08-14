@@ -21,14 +21,14 @@
 	}
 </script>
 
-{#if show}
+{#if show ||1}
 	<div
 		class="llej-负一屏 h-screen w-full bg-center bg-cover relative flex justify-center sticky top-0"
 		style="background-image: url('https://shenzilong.cn/util/redirect_to_bing_daily_picture_address'); "
 	>
 		<div
-			class="font-QIJIC text-white "
-			style="margin-top: 40vh;font-size: 6vw;background: #7b7a7a36;display: inline-table;outline: 0.3rem solid
+			class="font-QIJIC text-white h-1/2"
+			style="margin-top: 25vh;font-size: 6vw;background: #7b7a7a36;display: inline-table;outline: 0.3rem solid
       #ffffffb0;padding: 1vh 6vw;backdrop-filter: blur(8px);color: rgb(255, 255, 255); "
 		>
 			崮生 • 一些随笔
@@ -36,7 +36,7 @@
 		<svg
 			on:click={showBody}
 			class="llej-向下图标 animate-bounce icon absolute"
-			style="margin-top: 70vh;filter: brightness(100);width: 30vw;height: 20vw;max-width: 6rem;"
+			style="margin-top: 50vh;filter: brightness(100);width: 30vw;height: 20vw;max-width: 6rem;"
 			aria-hidden="true"
 		>
 			<use xlink:href="#icon-xiangxia" />
