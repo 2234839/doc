@@ -19,7 +19,7 @@
 # @REM '
 
 cd D:/code/oceanpress
-go run ./src/ -SourceDir C:/Users/llej/Documents/SiYuan/data/note -OutDir D:/code/doc/docHTML -TemplateDir D:/code/oceanpress/src/views -SqlitePath C:/Users/llej/Documents/SiYuan/temp/siyuan.db
+go run ./src/ -SourceDir C:/Users/llej/Documents/SiYuan/data/20210816161940-zo21go1 -OutDir D:/code/doc/docHTML -TemplateDir D:/code/oceanpress/src/views -SqlitePath C:/Users/llej/Documents/SiYuan/temp/siyuan.db
 
 
 cd D:/code/doc/docHTML;
