@@ -55,7 +55,7 @@ export async function BuildDoc(): Promise<{
 		md_file,
 		menu
 	};
-	fs.writeFile('./allFile.json', JSON.stringify(r, null, 4));
+	fs.writeFile('./state/allFile.json', JSON.stringify(r, null, 4));
 	return r;
 }
 

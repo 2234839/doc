@@ -67,7 +67,7 @@ async function main(): Promise<{
 	allFile: DocObj[];
 	md_file: {
 		docObj: DocObj;
-		fileID: '20210325155155-2wk7rxv';
+		fileID: string;
 		webPath: string;
 		docData: {
 			type?: 'NodeDocument';
@@ -77,7 +77,7 @@ async function main(): Promise<{
 	menu: DocObj[];
 }> {
 	try {
-		const json = (await fs.readFile('./allFile.json')).toString();
+		const json = (await fs.readFile('./state/allFile.json')).toString();
 		return JSON.parse(json, (key, value) => {
 			if (key === 'allFile') {
 				return value.map(transform);
