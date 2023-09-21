@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>从零开始学习嵌入式-尝试</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210524142217-v3z91to" data-node-id="20210524142217-v3z91to" data-type="NodeDocument" updated="20210608161856" data-subtype="h1" class="h1" title="从零开始学习嵌入式-尝试">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210524142217-50zhpxz" data-node-id="20210524142217-50zhpxz" data-type="NodeParagraph" updated="20210525113711" class="p">相关资料： 
+<span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210524142200-beuxyhb"
+      >
+        <a href="./../读书笔记/rust/崮生的rust速览.html">从零开始学习嵌入式</a>
+      </span>
+</div>
+<div id="20210524182703-642gbcm" data-node-id="20210524182703-642gbcm" data-type="NodeParagraph" updated="20210524182804" class="p" style="color: var(--b3-card-info-color);background-color: var(--b3-card-info-background);">我一个完全的 rust/嵌入式 菜鸟成功的跑起来了感觉很欣慰 φ(*￣0￣)
+</div>
+<div id="20210524142248-bdjziev" data-node-id="20210524142248-bdjziev" data-type="NodeHeading" updated="20210524142832" data-subtype="h2" class="h2">
+      <div>准备工作
+</div>
+    </div>
+<div
+      id="20210524182226-6harhur" data-node-id="20210524182226-6harhur" data-type="NodeSuperBlock" updated="20210524182558" class="sb"
+      data-sb-layout="col"
+    >
+      
+
+<div id="20210524182206-ewyxn8w" data-node-id="20210524182206-ewyxn8w" data-type="NodeParagraph" updated="20210524182558" class="p">在淘宝买了一个 STM32F303 DISCOVERY
+
+<a href="https://m.tb.cn/h.4HGxlGM?sm=fc0c4f">https://m.tb.cn/h.4HGxlGM?sm=fc0c4f</a>
+</div>
+<div id="20210524182214-kc567z9" data-node-id="20210524182214-kc567z9" data-type="NodeParagraph" updated="20210524182214" class="p"><span data-type="NodeImage" class="img" style="width: 174px;" style="undefined"
+      ><img
+        src="./../assets/image-20210524182214-bihnu7s.png"
+        data-src="./../assets/image-20210524182214-bihnu7s.png"
+        title=""
+        style="width: 174px;"
+      /><span class="protyle-action__title"></span></span
+    >
+
+
+
+</div>
+
+
+    </div>
+<div id="20210524142832-jtdlbi1" data-node-id="20210524142832-jtdlbi1" data-type="NodeList" updated="20210606093946" data-subtype="u" class="list"><div id="20210524142900-az175fe" data-node-id="20210524142900-az175fe" data-type="NodeListItem" updated="20210606093946" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524142900-i6b724o" data-node-id="20210524142900-i6b724o" data-type="NodeParagraph" updated="20210524182622" class="p">按照这里的文档来准备的，建议跟着官方文档走，写的挺好 -> 
+<a href="https://docs.rust-embedded.org/discovery/03-setup/index.html#tools">Setting up a development environment - Discovery (rust-embedded.org)</a>
+</div>
+<div id="20210524142902-vo37yfh" data-node-id="20210524142902-vo37yfh" data-type="NodeList" updated="20210606093946" data-subtype="u" class="list"><div id="20210524143015-7lry3h3" data-node-id="20210524143015-7lry3h3" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524143015-gcacnq1" data-node-id="20210524143015-gcacnq1" data-type="NodeParagraph" updated="20210524143021" class="p">之前已经安装了 rust
+</div>
+
+    </div>
+<div id="20210524143105-wdkiiox" data-node-id="20210524143105-wdkiiox" data-type="NodeListItem" updated="20210606093946" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524143105-06o74k7" data-node-id="20210524143105-06o74k7" data-type="NodeParagraph" updated="20210606093946" class="p"><span data-type="NodeTextMark" data-type="code"
+        >cargo install itm</span
+      >
+ 
+</div>
+
+    </div>
+<div id="20210606093921-9c9d8cb" data-node-id="20210606093921-9c9d8cb" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210606093921-fs7vby6" data-node-id="20210606093921-fs7vby6" data-type="NodeParagraph" class="p"><span data-type="NodeTextMark" data-type="code"
+        >arm-none-eabi-gdb</span
+      >
+ 
+<a href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads">GNU Toolchain | GNU Arm Embedded Toolchain Downloads – Arm Developer</a>
+</div>
+
+    </div>
+<div id="20210524144441-k74wx8c" data-node-id="20210524144441-k74wx8c" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524144441-8mbmxwd" data-node-id="20210524144441-8mbmxwd" data-type="NodeParagraph" updated="20210524145224" class="p">OpenOCD 
+<a href="https://github.com/xpack-dev-tools/openocd-xpack/releases">Releases · xpack-dev-tools/openocd-xpack (github.com)</a>
+</div>
+<div id="20210524150405-i72apf7" data-node-id="20210524150405-i72apf7" data-type="NodeList" data-subtype="u" class="list"><div id="20210524150404-s8sgje8" data-node-id="20210524150404-s8sgje8" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524150404-e1hbqly" data-node-id="20210524150404-e1hbqly" data-type="NodeParagraph" updated="20210524150412" class="p">需要配置环境变量 path
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210524143231-b0ig4uv" data-node-id="20210524143231-b0ig4uv" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524143231-a6r2s8g" data-node-id="20210524143231-a6r2s8g" data-type="NodeParagraph" updated="20210524143313" class="p"><a href="https://github.com/rust-embedded/cargo-binutils">cargo-binutils</a>
+</div>
+<div id="20210524143258-phy03jo" data-node-id="20210524143258-phy03jo" data-type="NodeCodeBlock" updated="20210524143310" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          bash
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">cargo install cargo-binutils
+rustup component add llvm-tools-preview
+</div>
+      </div>
+
+    </div>
+<div id="20210524142901-xqe98hw" data-node-id="20210524142901-xqe98hw" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524142901-c7ymivc" data-node-id="20210524142901-c7ymivc" data-type="NodeParagraph" updated="20210524142948" class="p">windows 上需要 
+<a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY</a>
+</div>
+
+    </div>
+<div id="20210524142949-6yc7suu" data-node-id="20210524142949-6yc7suu" data-type="NodeListItem" updated="20210524143136" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524143119-i23mm9h" data-node-id="20210524143119-i23mm9h" data-type="NodeParagraph" updated="20210524151748" class="p"><a href="http://www.st.com/en/embedded-software/stsw-link009.html">USB驱动程序</a>
+ 这个下载站点恶心到我了，直接注册账号才能下载，填邮箱下载一直失败
+</div>
+
+    </div>
+<div id="20210524152027-4k4b6z3" data-node-id="20210524152027-4k4b6z3" data-type="NodeListItem" updated="20210524181038" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524152027-yhyzozx" data-node-id="20210524152027-yhyzozx" data-type="NodeParagraph" updated="20210524152030" class="p">验证
+</div>
+<div id="20210524152031-whs1mkk" data-node-id="20210524152031-whs1mkk" data-type="NodeList" updated="20210524181038" data-subtype="u" class="list"><div id="20210524152031-pv2p7rb" data-node-id="20210524152031-pv2p7rb" data-type="NodeListItem" updated="20210524181038" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524152031-m3qa7xu" data-node-id="20210524152031-m3qa7xu" data-type="NodeParagraph" updated="20210524152158" class="p"><span data-type="NodeTextMark" data-type="code"
+        >openocd -f D:\app2\xpack-openocd-0.10.0-15\scripts\interface\stlink-v2-1.cfg -f D:\app2\xpack-openocd-0.10.0-15\scripts\target\stm32f3x.cfg</span
+      >
+ 
+</div>
+<div id="20210524152159-bl4boc1" data-node-id="20210524152159-bl4boc1" data-type="NodeList" updated="20210524181038" data-subtype="u" class="list"><div id="20210524152158-fkpbb72" data-node-id="20210524152158-fkpbb72" data-type="NodeListItem" updated="20210524181038" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524152158-q1lxt5t" data-node-id="20210524152158-q1lxt5t" data-type="NodeParagraph" updated="20210524181038" class="p">执行此命令后靠近usb口的灯开始在红绿之间闪烁
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="20210524142915-3s8e0i7" data-node-id="20210524142915-3s8e0i7" data-type="NodeHeading" updated="20210524181044" data-subtype="h2" class="h2">
+      <div>尝试
+</div>
+    </div>
+<div id="20210524181052-6q73fqc" data-node-id="20210524181052-6q73fqc" data-type="NodeList" updated="20210524183931" data-subtype="u" class="list"><div id="20210524153714-5q9ntf4" data-node-id="20210524153714-5q9ntf4" data-type="NodeListItem" updated="20210524183931" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524153714-23ilbsn" data-node-id="20210524153714-23ilbsn" data-type="NodeParagraph" updated="20210524155043" class="p"><a href="https://docs.rust-embedded.org/discovery/05-led-roulette/flash-it.html">Flash it - Discovery (rust-embedded.org)</a>
+</div>
+<div id="20210524153722-s2j15je" data-node-id="20210524153722-s2j15je" data-type="NodeList" updated="20210524183931" data-subtype="u" class="list"><div id="20210524154958-scapaqs" data-node-id="20210524154958-scapaqs" data-type="NodeListItem" updated="20210524170605" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524154958-s5h7naf" data-node-id="20210524154958-s5h7naf" data-type="NodeParagraph" updated="20210524155020" class="p">注意 
+<span data-type="NodeTextMark" data-type="code"
+        >undefined</span
+      >
+<span data-type="NodeTextMark" data-type="code"
+        >cd %TEMP%</span
+      >
+ 命令我只在 cmd 中尝试成功了，powershell 不行
+</div>
+<div id="20210524170556-c6w5l1m" data-node-id="20210524170556-c6w5l1m" data-type="NodeList" updated="20210524170605" data-subtype="u" class="list"><div id="20210524170555-5fadtoy" data-node-id="20210524170555-5fadtoy" data-type="NodeListItem" updated="20210524170605" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524170555-tjdllrx" data-node-id="20210524170555-tjdllrx" data-type="NodeCodeBlock" updated="20210524170605" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">cd %TEMP%
+openocd -s C:\share\scripts -f interface/stlink-v2-1.cfg -f target/stm32f3x.cfg
+</div>
+      </div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210524154952-us3mpfa" data-node-id="20210524154952-us3mpfa" data-type="NodeListItem" updated="20210524161446" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524154952-60vqxsw" data-node-id="20210524154952-60vqxsw" data-type="NodeParagraph" updated="20210524161321" class="p"><span data-type="NodeTextMark" data-type="code"
+        >undefined</span
+      >
+<span data-type="NodeTextMark" data-type="code"
+        >arm-none-eabi-gdb -q -ex &quot;target remote :3333&quot; target/thumbv7em-none-eabihf/debug/led-roulette</span
+      >
+</div>
+<div id="20210524161324-cyp7866" data-node-id="20210524161324-cyp7866" data-type="NodeList" updated="20210524161446" data-subtype="u" class="list"><div id="20210524161323-g2d5ir5" data-node-id="20210524161323-g2d5ir5" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524161323-b6celxo" data-node-id="20210524161323-b6celxo" data-type="NodeParagraph" updated="20210524161419" class="p">这个命令要在 
+<span data-type="NodeTextMark" data-type="code"
+        >undefined</span
+      >
+<span data-type="NodeTextMark" data-type="code"
+        >discovery\</span
+      >
+下面执行而非 
+<span data-type="NodeTextMark" data-type="code"
+        >undefined</span
+      >
+<span data-type="NodeTextMark" data-type="code"
+        >discovery\src\05-led-roulette</span
+      >
+ 中
+</div>
+
+    </div>
+<div id="20210524161421-6p2s0wk" data-node-id="20210524161421-6p2s0wk" data-type="NodeListItem" updated="20210524161446" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524161421-3jwcw93" data-node-id="20210524161421-3jwcw93" data-type="NodeParagraph" updated="20210524161446" class="p">注意看后面的 target/...  这个编译产物存在于 
+<span data-type="NodeTextMark" data-type="code"
+        >undefined</span
+      >
+<span data-type="NodeTextMark" data-type="code"
+        >discovery\</span
+      >
+ 下
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210524170159-pekld5l" data-node-id="20210524170159-pekld5l" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524170159-ux21gp1" data-node-id="20210524170159-ux21gp1" data-type="NodeParagraph" updated="20210524170251" class="p">我在 vscode 中 
+<span data-type="NodeTextMark" data-type="code"
+        >undefined</span
+      >
+<span data-type="NodeTextMark" data-type="code"
+        >discovery\src\05-led-roulette</span
+      >
+ 下一直执行 cargo go 失败，猜测是环境变量的问题，重启电脑后 ok
+</div>
+
+    </div>
+<div id="20210524170251-pqorviu" data-node-id="20210524170251-pqorviu" data-type="NodeListItem" updated="20210524183931" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524170251-uji7twc" data-node-id="20210524170251-uji7twc" data-type="NodeParagraph" updated="20210524183931" class="p">在 
+<span data-type="NodeTextMark" data-type="code"
+        >undefined</span
+      >
+<span data-type="NodeTextMark" data-type="code"
+        >(gdb)</span
+      >
+ 中执行 
+<span data-type="NodeTextMark" data-type="code"
+        >undefined</span
+      >
+<span data-type="NodeTextMark" data-type="code"
+        >target remote :3333</span
+      >
+ 的时候需要确保 
+<span
+        data-type="block-ref"
+        data-subtype="s"
+        data-id="20210524170555-tjdllrx"
+      >
+        <a href="./../other/从零开始学习嵌入式-尝试.html">openocd 命令</a>
+      </span>
+ 在正常运行，否则连不上的
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="20210524152156-q6gfal2" data-node-id="20210524152156-q6gfal2" data-type="NodeParagraph" updated="20210524182643" class="p"><span data-type="NodeImage" class="img" style="display: block;" style="undefined"
+      ><img
+        src="./../assets/image-20210524182643-ubh5tb6.png"
+        data-src="./../assets/image-20210524182643-ubh5tb6.png"
+        title="运行效果"
+        style="display: block;"
+      /><span class="protyle-action__title">运行效果</span></span
+    >
+</div>
+<div id="20210529201019-6ebfvzf" data-node-id="20210529201019-6ebfvzf" data-type="NodeList" updated="20210529201039" data-subtype="u" class="list"><div id="20210529201039-oppgi71" data-node-id="20210529201039-oppgi71" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210529201039-50mxdbi" data-node-id="20210529201039-50mxdbi" data-type="NodeParagraph" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210525153636-5r9kloo"
+      >
+        <a href="./../other/从零开始学习嵌入式-尝试.html">糟糕，玩崩了</a>
+      </span>
+</div>
+
+    </div>
+</div>
+<div id="20210525153630-r822d01" data-node-id="20210525153630-r822d01" data-type="NodeHeading" updated="20210525153653" data-subtype="h3" class="h3">
+      <div>debug、vscode
+</div>
+    </div>
+<div id="20210525153634-yaox4e6" data-node-id="20210525153634-yaox4e6" data-type="NodeBlockQueryEmbed" updated="20210525153634" data-type="NodeBlockquote" class="bq">
+      
+
+<div id="20210525111748-toasda3" data-node-id="20210525111748-toasda3" data-type="NodeListItem" updated="20210525114007" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210525111748-o33bw18" data-node-id="20210525111748-o33bw18" data-type="NodeParagraph" updated="20210525113219" class="p"><a href="https://dev.to/rubberduck/debugging-rust-arm-cortexm-programs-with-visual-studio-code-336h">Debugging Rust ARM CortexM Programs with Visual Studio Code - DEV Community</a>
+ 🎉
+</div>
+<div id="20210525112055-k5e8kan" data-node-id="20210525112055-k5e8kan" data-type="NodeList" updated="20210525114007" data-subtype="u" class="list"><div id="20210525113342-q0kubz9" data-node-id="20210525113342-q0kubz9" data-type="NodeListItem" updated="20210525113342" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210525113342-0llbvab" data-node-id="20210525113342-0llbvab" data-type="NodeParagraph" updated="20210525113417" class="p"><span data-type="tag" data-type="tag"
+        >网页备份</span
+      >
+ 
+<a href="assets/Debugging_Rust_ARM_CortexM_Programs_with_Visual_Studio_Code_-_DEV_Community_2021_5_25_上午11_32_45-20210525113300-giw0rfj.html">Debugging_Rust_ARM_CortexM_Programs_with_Visual_Studio_Code_-_DEV_Community_2021_5_25_上午11_32_45.html</a>
+</div>
+
+    </div>
+<div id="20210525112055-xwks8qs" data-node-id="20210525112055-xwks8qs" data-type="NodeListItem" updated="20210525113342" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210525112055-e6kams4" data-node-id="20210525112055-e6kams4" data-type="NodeParagraph" updated="20210525112300" class="p">这篇文章中有讲怎么在 vscode 中直接 debug 的，成功了❤
+</div>
+
+    </div>
+<div id="20210525112131-um1qvde" data-node-id="20210525112131-um1qvde" data-type="NodeListItem" updated="20210525114007" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210525112131-667fc4v" data-node-id="20210525112131-667fc4v" data-type="NodeParagraph" updated="20210525114007" class="p">在 
+<span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210521151500-39dgart"
+      >
+        <a href="./../读书笔记/rust/崮生的rust速览.html">Rust 嵌入式开发环境搭建指南 (二)：日常除虫</a>
+      </span>
+ 一文中也有讲怎么在 vscode 中 debug，但该文所用微处理器不同，我按照他的配置稍加改动也没有成功（应该是我太菜了）。
+</div>
+
+    </div>
+</div>
+
+    </div>
+
+
+
+    </div>
+<div id="20210528200454-42ar0iy" data-node-id="20210528200454-42ar0iy" data-type="NodeHeading" updated="20210608161856" data-subtype="h2" class="h2">
+      <div>gpio 
+</div>
+    </div>
+<div id="20210529200640-cpupu4i" data-node-id="20210529200640-cpupu4i" data-type="NodeParagraph" updated="20210529200817" class="p" style="color: var(--b3-card-info-color);background-color: var(--b3-card-info-background);">我之所以想来学习嵌入式就是为了这个功能，准确的说是为了利用程序对现实进行控制。
+</div>
+<div id="20210605181308-0b7zwz1" data-node-id="20210605181308-0b7zwz1" data-type="NodeParagraph" updated="20210605182125" class="p">通过 
+<a href="https://docs.rust-embedded.org/discovery/explore.html#analog-to-digital-converters-adc">rust-embedded/留给您探索的</a>
+ 部分可以得知单片机的一种输入（
+<a href="https://docs.rust-embedded.org/discovery/explore.html#analog-to-digital-converters-adc">ADC</a>
+）输出（
+<a href="https://docs.rust-embedded.org/discovery/explore.html#digital-to-analog-converters-dac">DAC</a>
+）模式
+</div>
+<div id="20210605182125-muhlba4" data-node-id="20210605182125-muhlba4" data-type="NodeParagraph" updated="20210605182340" class="p"><a href="https://github.com/stm32-rs/stm32f3xx-hal">stm32f3xx-hal</a>
+ 有提供 
+<a href="https://github.com/stm32-rs/stm32f3xx-hal/blob/dac205ea23502a8a038a438c4b8da2576958daa9/examples/adc.rs">adc的例子</a>
+ ，通过这个例子和以前的 led 控制代码就可以利用代码来 控制/读取 单片机引脚的电压从而影响到现实世界了
+</div>
+<div id="20210605182340-76vxv3j" data-node-id="20210605182340-76vxv3j" data-type="NodeThematicBreak" updated="20210605182340" class="hr"><div></div></div>
+<div id="20210605182341-h1o4fzx" data-node-id="20210605182341-h1o4fzx" data-type="NodeParagraph" updated="20210605182341" class="p"><a href="https://docs.rust-embedded.org/discovery/07-registers/rtrm.html">RTRM - Discovery (rust-embedded.org)</a>
+</div>
+<div id="20210528201646-1rm3gwi" data-node-id="20210528201646-1rm3gwi" data-type="NodeParagraph" updated="20210528201722" class="p"><a href="https://www.st.com/resource/en/reference_manual/dm00043574-stm32f303xb-c-d-e-stm32f303x6-8-stm32f328x8-stm32f358xc-stm32f398xe-advanced-arm-based-mcus-stmicroelectronics.pdf">STM32F303xB/C/D/E, STM32F303x6/8, STM32F328x8, STM32F358xC, STM32F398xE advanced ARM®-based MCUs</a>
+ 第51页中描述了 gpio 与 寄存器地址的对应关系
+</div>
+<div id="20210529200829-6yqs6e2" data-node-id="20210529200829-6yqs6e2" data-type="NodeParagraph" updated="20210529200909" class="p">ADC（模拟到数字） 与 DAC（数字到模拟）
+</div>
+<div id="20210528200531-lxm5u5s" data-node-id="20210528200531-lxm5u5s" data-type="NodeTable" updated="20210528201337" class="table">
+    <div>
+      <table spellcheck="false">
+        <colgroup>
+        <col /><col /><col />
+        </colgroup>
+        <thead><tr><td>引脚
+<br>
+</td>
+<td>功能
+<br>
+</td>
+<td>备注
+<br>
+</td>
+</tr>
+</thead>
+        <tbody>
+        <tr><td>pe8
+</td>
+<td>N左侧的led
+</td>
+<td>使用电线从左边第一排的3v连接到pe8可以点亮
+</td>
+</tr>
+<tr><td>pe9~pe15
+</td>
+<td>按顺序右移一个位置的led
+<br>
+</td>
+<td><br>
+</td>
+</tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<div id="20210529165245-m5jfq0q" data-node-id="20210529165245-m5jfq0q" data-type="NodeParagraph" updated="20210529165456" class="p" style="color: var(--b3-card-info-color);background-color: var(--b3-card-info-background);">我非常迷惑的一个点，板子上的 pe8 和 
+<span data-type="NodeTextMark" data-type="code"
+        >undefined</span
+      >
+<span data-type="NodeTextMark" data-type="code"
+        >ahbenr</span
+      >
+ 的关联关系在哪里
+</div>
+<div id="20210528201619-nna5n7w" data-node-id="20210528201619-nna5n7w" data-type="NodeCodeBlock" updated="20210528212750" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          å¯å­å¨
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">0b1100000000000000_1111000000000000
+//                 这后面的是pe15~pe0 的高电平控制
+//  
+</div>
+      </div>
+<div id="20210605151314-pjbczet" data-node-id="20210605151314-pjbczet" data-type="NodeHeading" updated="20210605151319" data-subtype="h2" class="h2">
+      <div>debug
+</div>
+    </div>
+<div id="20210605151319-zb96417" data-node-id="20210605151319-zb96417" data-type="NodeTable" updated="20210605151608" class="table">
+    <div>
+      <table spellcheck="false">
+        <colgroup>
+        <col /><col /><col />
+        </colgroup>
+        <thead><tr><td>命令
+</td>
+<td>简写
+</td>
+<td>功能
+</td>
+</tr>
+</thead>
+        <tbody>
+        <tr><td>setp
+</td>
+<td>s
+</td>
+<td>下一步
+<br>
+</td>
+</tr>
+<tr><td>help
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr><td>continue
+</td>
+<td>c
+</td>
+<td>继续执行
+</td>
+</tr>
+<tr><td>print
+</td>
+<td>p
+</td>
+<td>打印
+</td>
+</tr>
+<tr><td>disassemble /m
+</td>
+<td></td>
+<td>反汇编
+</td>
+</tr>
+<tr><td>info locals
+</td>
+<td></td>
+<td>打印本地变量
+</td>
+</tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<div id="20210525153636-5r9kloo" data-node-id="20210525153636-5r9kloo" data-type="NodeHeading" updated="20210529154613" data-subtype="h2" class="h2">
+      <div>糟糕，玩崩了
+</div>
+    </div>
+<div id="20210529154639-udrfg38" data-node-id="20210529154639-udrfg38" data-type="NodeHeading" updated="20210529154646" data-subtype="h3" class="h3">
+      <div>init mode failed (unable to connect to the target)
+</div>
+    </div>
+<div id="20210529154647-ztl4tv3" data-node-id="20210529154647-ztl4tv3" data-type="NodeParagraph" updated="20210529160155" class="p">我在尝试的时候突然弄得无法通过 
+<span
+        data-type="block-ref"
+        data-subtype="s"
+        data-id="20210524154958-scapaqs"
+      >
+        <a href="./../other/从零开始学习嵌入式-尝试.html">这个命令</a>
+      </span>
+ 连接了
+</div>
+<div id="20210529154613-o8n1z6l" data-node-id="20210529154613-o8n1z6l" data-type="NodeCodeBlock" updated="20210529154628" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          bash
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">WARNING: interface/stlink-v2-1.cfg is deprecated, please switch to interface/stlink.cfg
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+Info : Listening on port 6666 for tcl connections
+Info : Listening on port 4444 for telnet connections
+Info : clock speed 1000 kHz
+Info : STLINK V2J37M26 (API v2) VID:PID 0483:374B
+Info : Target voltage: 2.885933
+Error: init mode failed (unable to connect to the target)</div>
+      </div>
+<div id="20210529160328-m9yivcc" data-node-id="20210529160328-m9yivcc" data-type="NodeParagraph" updated="20210529160345" class="p">幸运的是通过 google 发现了下面这段
+</div>
+<div id="20210529160159-wi58eur" data-node-id="20210529160159-wi58eur" data-type="NodeBlockquote" updated="20210529160309" class="bq"><div id="20210529160234-vk5t0ap" data-node-id="20210529160234-vk5t0ap" data-type="NodeParagraph" updated="20210529160234" class="p">I had same situation on Ubuntu. I solved this, using STM32CubeProgrammer.
+</div>
+<div id="20210529160234-ar6np7l" data-node-id="20210529160234-ar6np7l" data-type="NodeParagraph" updated="20210529160234" class="p">On the ST-LINK configuration area:
+</div>
+<div id="20210529160234-wfbvxdy" data-node-id="20210529160234-wfbvxdy" data-type="NodeList" updated="20210529160234" data-subtype="o" class="list"><div id="20210529160234-iq5d3gl" data-node-id="20210529160234-iq5d3gl" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1.">
+      <div class="protyle-action">
+        1.
+      </div>
+      <div id="20210529160234-hgm7jci" data-node-id="20210529160234-hgm7jci" data-type="NodeParagraph" class="p">Serial number -> refresh to get your stlink serial
+</div>
+
+    </div>
+<div id="20210529160234-1ctw86q" data-node-id="20210529160234-1ctw86q" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2.">
+      <div class="protyle-action">
+        2.
+      </div>
+      <div id="20210529160234-5asr7e1" data-node-id="20210529160234-5asr7e1" data-type="NodeParagraph" class="p">Mode: Under reset
+</div>
+
+    </div>
+<div id="20210529160234-v4hda5q" data-node-id="20210529160234-v4hda5q" data-type="NodeListItem" data-subtype="o" class="li" data-marker="3.">
+      <div class="protyle-action">
+        3.
+      </div>
+      <div id="20210529160234-6x2ixat" data-node-id="20210529160234-6x2ixat" data-type="NodeParagraph" class="p">Reset mode: Core reset
+</div>
+
+    </div>
+</div>
+<div id="20210529160234-ikdczly" data-node-id="20210529160234-ikdczly" data-type="NodeParagraph" updated="20210529160234" class="p">try to connect asap when power your board. When you connect you can do "full chip erease". It suppose to be ready for next usage. I hope it helps
+</div>
+
+<div id="20210529160224-nq6ctpr" data-node-id="20210529160224-nq6ctpr" data-type="NodeParagraph" updated="20210529160309" class="p">--- 
+<a href="https://stackoverflow.com/questions/38092674/error-in-initializing-st-link-device-failed-to-connect-to-device#:~:text=I%20had%20same,hope%20it%20helps">stackoverflow/questions/38092674 </a>
+</div>
+</div>
+<div
+      id="20210529160731-j2l53td" data-node-id="20210529160731-j2l53td" data-type="NodeSuperBlock" updated="20210529160731" class="sb"
+      data-sb-layout="col"
+    >
+      
+
+<div id="20210529160656-k2tj481" data-node-id="20210529160656-k2tj481" data-type="NodeParagraph" updated="20210529160723" class="p">我按照他所说的成功连接上了设备，但我并不会使用 STM32CubeProgrammer...
+</div>
+<div id="20210529160401-pq7krgx" data-node-id="20210529160401-pq7krgx" data-type="NodeParagraph" updated="20210529160645" class="p"><span data-type="NodeImage" class="img" style="undefined"
+      ><img
+        src="./../assets/image-20210529160645-jh68m3a.png"
+        data-src="./../assets/image-20210529160645-jh68m3a.png"
+        title=""
+        style="undefined"
+      /><span class="protyle-action__title"></span></span
+    >
+
+
+</div>
+
+
+    </div>
+<div id="20210529160740-r02b8dl" data-node-id="20210529160740-r02b8dl" data-type="NodeParagraph" updated="20210529160822" class="p">不过通过我的经验，按照如下步骤之后又可以成功的直接连接了
+</div>
+<div
+      id="20210529161112-ahijafo" data-node-id="20210529161112-ahijafo" data-type="NodeSuperBlock" updated="20210529161112" class="sb"
+      data-sb-layout="col"
+    >
+      
+
+<div id="20210529160912-64i5wc5" data-node-id="20210529160912-64i5wc5" data-type="NodeList" updated="20210529160914" data-subtype="u" class="list"><div id="20210529160914-jvhro1m" data-node-id="20210529160914-jvhro1m" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210529160914-pjq7wi9" data-node-id="20210529160914-pjq7wi9" data-type="NodeParagraph" updated="20210529160924" class="p">点击左侧下载图标
+</div>
+
+    </div>
+<div id="20210529160925-okozi36" data-node-id="20210529160925-okozi36" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210529160925-e6iwv3r" data-node-id="20210529160925-e6iwv3r" data-type="NodeParagraph" updated="20210529160951" class="p">选择之前编译的二进制文件（改后缀为 .bin）
+</div>
+
+    </div>
+<div id="20210529160952-t3k4f4l" data-node-id="20210529160952-t3k4f4l" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210529160952-z7dxq33" data-node-id="20210529160952-z7dxq33" data-type="NodeParagraph" updated="20210529160959" class="p">点击 start 按钮
+</div>
+<div id="20210529161000-dsp34gc" data-node-id="20210529161000-dsp34gc" data-type="NodeList" data-subtype="u" class="list"><div id="20210529161000-36xoih6" data-node-id="20210529161000-36xoih6" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210529161000-lf72uz4" data-node-id="20210529161000-lf72uz4" data-type="NodeParagraph" updated="20210529161014" class="p">这里会失败，但没有关系
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210529161015-ia94giu" data-node-id="20210529161015-ia94giu" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210529161015-l3ylxcm" data-node-id="20210529161015-l3ylxcm" data-type="NodeParagraph" updated="20210529161020" class="p">断开连接
+</div>
+
+    </div>
+</div>
+<div id="20210529160823-stdstm7" data-node-id="20210529160823-stdstm7" data-type="NodeParagraph" updated="20210529160906" class="p"><span data-type="NodeImage" class="img" style="undefined"
+      ><img
+        src="./../assets/image-20210529160906-s4oanzn.png"
+        data-src="./../assets/image-20210529160906-s4oanzn.png"
+        title=""
+        style="undefined"
+      /><span class="protyle-action__title"></span></span
+    >
+
+
+</div>
+
+
+    </div>
+<div id="20210529161021-mrj2tl7" data-node-id="20210529161021-mrj2tl7" data-type="NodeParagraph" updated="20210529161106" class="p">此时就可以直接通过前面学习的方法使用 openocd 连接了
+</div>
+<div id="20210529161113-t73knpx" data-node-id="20210529161113-t73knpx" data-type="NodeParagraph" updated="20210529161113" class="p"></div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

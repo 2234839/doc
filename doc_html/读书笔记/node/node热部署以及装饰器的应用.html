@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>node热部署以及装饰器的应用</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201104153359-eraeclx" data-node-id="20201104153359-eraeclx" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" title="node热部署以及装饰器的应用" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210409165030-ktn5bpo" data-node-id="20210409165030-ktn5bpo" data-type="NodeHeading" data-subtype="h1" class="h1">
+      <div>
+node 热部署以及装饰器的应用
+</div>
+    </div>
+<div id="20210409165030-u9fmtda" data-node-id="20210409165030-u9fmtda" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210409165030-riuzp0d" data-node-id="20210409165030-riuzp0d" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210409165030-6508mjk" data-node-id="20210409165030-6508mjk" data-type="NodeParagraph" class="p">pubdate: 2019-03-16 17:43:29
+</div>
+
+    </div>
+<div id="20210409165030-3gcdvco" data-node-id="20210409165030-3gcdvco" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210409165030-d9mlps3" data-node-id="20210409165030-d9mlps3" data-type="NodeParagraph" class="p">tags : node.js,index
+</div>
+
+    </div>
+</div>
+<div id="20210409165030-v3ak87r" data-node-id="20210409165030-v3ak87r" data-type="NodeThematicBreak" class="hr"><div></div></div>
+<div id="20210409165030-ettv6mp" data-node-id="20210409165030-ettv6mp" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+node 热部署基础
+</div>
+    </div>
+<div id="20210409165030-bfbmp3f" data-node-id="20210409165030-bfbmp3f" data-type="NodeParagraph" class="p">node 的热部署主要依赖 require 来动态的引入模块
+​
+即通过 fs 模块来监视文件，如果文件发生变动则重新 require 该文件
+</div>
+<div id="20210409165030-ofn0f9x" data-node-id="20210409165030-ofn0f9x" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          typescript
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">fs.watch(
+  dirName,
+  {
+    recursive: true, //监视所有子目录
+  },
+  (eventType: String, filename: String) => {
+    if (eventType == "change" && filename.endsWith(".js")) {
+      const filePath = path.join(dirName, filename);
+      const module = require(filePath); //重新require该模块
+      /**
+                按照自己的需要用该模块替换掉旧的
+                也可以是该模块被require之后自动更新自身
+                registered(filePath,router)//我写了一个方法来更新koa的router绑定的函数
+             */
+    }
+  },
+);
+</div>
+      </div>
+<div id="20210409165030-4nrmz3b" data-node-id="20210409165030-4nrmz3b" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+koa-router 热部署
+</div>
+    </div>
+<div id="20210409165030-dkwfp70" data-node-id="20210409165030-dkwfp70" data-type="NodeBlockquote" class="bq">
+<div id="20210409165030-m5b5cc4" data-node-id="20210409165030-m5b5cc4" data-type="NodeParagraph" class="p">通过对 router.routeStack 中的 handler 函数的替换来实现保存代码改动之后立刻重新加载该函数无需重启整个服务
+</div>
+</div>
+<div id="20210409165030-s7gorew" data-node-id="20210409165030-s7gorew" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          typescript
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">/**
+ * 将一个文件显式声明的方法绑定到指定的路由对象上
+ * @param path 路由文件路径
+ * @param router koa-router 路由对象
+ */
+function registered(path: string, router: any) {
+  //热部署，小心内存泄露.... 之前一直失败原因居然是path中有 // 这样的路径  require智能的解析为 单斜杠了但导致delete则完全删除错了 所以使用path来进行路径合并就行了
+  delete require.cache[path];
+  let mapping = require(path);
+
+  for (const url in mapping) {
+    registerMethod(router, url, mapping[url]);
+  }
+}
+
+/**
+ * 注册一个方法到路由上指定的路径
+ * @param router 路由对象
+ * @param url url：例如 get /app/login
+ * @param fun 处理函数
+ */
+export function registerMethod(router, url, fun) {
+  let strList = url.match(/(.*?) (.*)/);
+  if (!strList) {
+    console.error(`此url存在错误 ${url}`);
+    return;
+  }
+  let method = strList[1];
+  let path = strList[2]; //去掉头部的get 。
+  let regexp = new RegExp(method, "i");
+  let b = router.routeStack.some((route) => {
+    if (route.path == path && regexp.test(route.method)) {
+      //在路由上找到了相同的路径
+      route.handler = fun;
+      console.log(`覆写一个方法： ${method} ${path}`);
+      return true;
+    }
+  });
+  if (!b) {
+    //在routeStack没有找到要注册的路径 新注册一个方法
+    try {
+      router[method.toLowerCase()](path, fun);
+      console.log(`注册一个方法： ${method} ${path}`);
+    } catch (error) {
+      console.error(`url 可能不符合规范，没有在router上找到该方法 ${url}`);
+    }
+    return;
+  }
+}
+</div>
+      </div>
+<div id="20210409165030-aedtzep" data-node-id="20210409165030-aedtzep" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+通过装饰器来绑定路径以及减少重复代码
+</div>
+    </div>
+<div id="20210409165030-nepcjko" data-node-id="20210409165030-nepcjko" data-type="NodeParagraph" class="p">装饰器的代码
+</div>
+<div id="20210409165030-ha29vf3" data-node-id="20210409165030-ha29vf3" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          typescript
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">/**
+ * 绑定方法到指定的路径上 这个方法依赖全局的 global["router"] 支持多重装饰
+ * @param url 绑定的路径 例如 "get /app/login"
+ */
+export function bindRouter(url: string) {
+  return function(target, name, descriptor) {
+    let value = async function(...args) {
+      let data = await descriptor.value.apply({}, args); //应用函数本身的逻辑并返回值
+      if (data === undefined) return args[0].response;
+      return data;
+    };
+    registerMethod(global["router"], url, value);
+    return {
+      ...descriptor,
+      value,
+    };
+  };
+}
+</div>
+      </div>
+<div id="20210409165030-wtpn2qc" data-node-id="20210409165030-wtpn2qc" data-type="NodeParagraph" class="p">应用装饰器
+</div>
+<div id="20210409165030-kn1ud9m" data-node-id="20210409165030-kn1ud9m" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          typescript
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">    @bindRouter("get /blog/proxy") @bindRouter("post /blog/proxy")
+    static async proxy(ctx, next) {
+        /** 实现功能的代码 */
+    }
+</div>
+      </div>
+<div id="20210409165030-icuszt2" data-node-id="20210409165030-icuszt2" data-type="NodeParagraph" updated="20210409165041" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201104153359-3hiw1pt"
+      >
+        <a href="./../../record/装饰器详解.html">装饰器详解</a>
+      </span>
+</div>
+<div id="20210409165044-burzr16" data-node-id="20210409165044-burzr16" data-type="NodeParagraph" class="p"></div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

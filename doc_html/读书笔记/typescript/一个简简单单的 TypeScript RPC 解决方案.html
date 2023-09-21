@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>一个简简单单的 TypeScript RPC 解决方案</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201121144434-sbev4ga" data-node-id="20201121144434-sbev4ga" data-type="NodeDocument" updated="20210609090256" data-subtype="h1" class="h1" title="一个简简单单的 TypeScript RPC 解决方案" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210410114147-c1tluk3" data-node-id="20210410114147-c1tluk3" data-type="NodeParagraph" updated="20210410153823" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210325155155-2wk7rxv"
+      >
+        <a href="./../../tag/文章分享到的地方：.html">文章分享到的地方：</a>
+      </span>
+​
+<a href="https://zhuanlan.zhihu.com/p/281083041">一个简简单单的 TypeScript RPC 解决方案 - 崮生的文章 - 知乎</a>
+​
+<a href="https://www.zhihu.com/question/345364393/answer/1827394867">在 TypeScript 处理后端API返回的响应数据这一块，你或者所在团队都做了哪些比较好的实践呢？ - 崮生的回答 - 知乎</a>
+</div>
+<div id="20210410154327-bahzt0o" data-node-id="20210410154327-bahzt0o" data-type="NodeParagraph" updated="20210410154327" class="p"></div>
+<div id="20230905115155-a1bzkzw" data-node-id="20230905115155-a1bzkzw" data-type="NodeBlockquote" class="bq">
+<div id="20230905115155-ds83r5g" data-node-id="20230905115155-ds83r5g" data-type="NodeParagraph" class="p">有时候不需要什么「分布式」，前后端「项目分离」。
+</div>
+<div id="20230905115155-cnlf2cw" data-node-id="20230905115155-cnlf2cw" data-type="NodeParagraph" class="p">只是想可以方便调用一个接口、不去写接口文档、还有有完善的方法类型提示而已。
+</div>
+<div id="20230905115155-buna54f" data-node-id="20230905115155-buna54f" data-type="NodeParagraph" class="p">何必那么复杂呢。......
+</div>
+<div id="20230905115155-cy777l4" data-node-id="20230905115155-cy777l4" data-type="NodeParagraph" class="p">这里提供超轻量级的远程调用，完备的类型提示！
+</div>
+</div>
+<div id="20230905115155-y56ufqk" data-node-id="20230905115155-y56ufqk" data-type="NodeParagraph" class="p"><a href="https://codesandbox.io/s/github/2234839/typescript_RPC_demo?utm_medium=plugin&file=/src/rpc.ts">codesandbox 体验地址</a>
+ codesandbox 的类型提示还不太行，本地开发是没有问题的
+</div>
+<div id="20230905115155-7oo1goa" data-node-id="20230905115155-7oo1goa" data-type="NodeParagraph" class="p"><a href="https://github.com/2234839/typescript_RPC_demo">demo  github 地址</a>
+</div>
+<div id="20230905115155-tef6xdb" data-node-id="20230905115155-tef6xdb" data-type="NodeParagraph" class="p"><span data-type="NodeImage" class="img" style="undefined"
+      ><img
+        src="./../../assets/20201109143728-hfw4r7v-image.png"
+        data-src="./../../assets/20201109143728-hfw4r7v-image.png"
+        title=""
+        style="undefined"
+      /><span class="protyle-action__title"></span></span
+    >
+</div>
+<div id="20230905115155-9om7dk6" data-node-id="20230905115155-9om7dk6" data-type="NodeHeading" updated="20210415103138" data-subtype="h2" class="h2">
+      <div>
+0x00 服务端方法
+</div>
+    </div>
+<div id="20230905115155-6tii4vn" data-node-id="20230905115155-6tii4vn" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          typescript
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">// apis/time.ts
+export function currentTime() {
+  return Date.now();
+}
+
+export function currentTime2(toLocaleString: boolean) {
+  if (toLocaleString) {
+    return new Date().toLocaleString();
+  } else {
+    return Date.now();
+  }
+}
+</div>
+      </div>
+<div id="20230905115155-zdmk94i" data-node-id="20230905115155-zdmk94i" data-type="NodeParagraph" class="p">这里随便写了几个方法
+</div>
+<div id="20230905115155-xlf5w29" data-node-id="20230905115155-xlf5w29" data-type="NodeHeading" updated="20210415103141" data-subtype="h2" class="h2">
+      <div>
+0x01 聚合
+</div>
+    </div>
+<div id="20230905115155-zt1fooc" data-node-id="20230905115155-zt1fooc" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          typescript
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">// apis/index.ts
+export * from "./time";
+</div>
+      </div>
+<div id="20230905115155-g8yorf4" data-node-id="20230905115155-g8yorf4" data-type="NodeParagraph" class="p">约定俗称的用一个 
+<span data-type="NodeTextMark" data-type="code"
+        >index.ts</span
+      >
+ 文件将其他文件中的方法聚合起来。
+</div>
+<div id="20230905115155-1u5mkax" data-node-id="20230905115155-1u5mkax" data-type="NodeHeading" updated="20210415103143" data-subtype="h2" class="h2">
+      <div>
+0x02 Remote Procedure Call !
+</div>
+    </div>
+<div id="20230905115155-43p7imx" data-node-id="20230905115155-43p7imx" data-type="NodeParagraph" class="p">Remote Procedure Call 要说的高大上呢那也有很多可以做的细节，但我们追求简简单单。
+</div>
+<div id="20230905115155-37yttsv" data-node-id="20230905115155-37yttsv" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          typescript
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">// router/rpc.ts
+import * as apis from "../apis";
+
+export async function post(req: any, res: any) {
+  const data = [] as any[];
+  req.on("data", function (chunk) {
+    data.push(chunk);
+  });
+  req.on("end", async () => {
+    const { method, data: _data } = JSON.parse(data.join(""));
+    const result = await apis[method](..._data);
+    res.writeHead(200, {
+      "Content-Type": "application/json"
+    });
+    res.end(JSON.stringify(result));
+  });
+}
+</div>
+      </div>
+<div id="20230905115155-ml6f273" data-node-id="20230905115155-ml6f273" data-type="NodeParagraph" class="p">简单的远程调用只需要暴露一个接口让用户可以调用本机方法就行了
+</div>
+<div id="20230905115155-mrbc48u" data-node-id="20230905115155-mrbc48u" data-type="NodeHeading" updated="20210415103146" data-subtype="h2" class="h2">
+      <div>
+0x03 TypeScript ! 🎉
+</div>
+    </div>
+<div id="20230905115155-hi0wght" data-node-id="20230905115155-hi0wght" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          typescript
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">//  rpc.ts
+/** ═════════🏳‍🌈 超轻量级的远程调用，完备的类型提示！ 🏳‍🌈═════════  */
+import type * as apis from "./apis";
+type apis = typeof apis;
+type method = keyof apis;
+
+/** Remote call ， 会就近的选择是远程调用还是使用本地函数 */
+export function RC<K extends method>(
+  method: K,
+  data: Parameters<apis[K]>
+): Promise<unPromise<ReturnType<apis[K]>>> {
+  if (typeof window !== "undefined") {
+    // 客户端运行
+    return fetch("/rpc", {
+      method: "POST",
+      body: JSON.stringify({ method, data }),
+      headers: {
+        "content-type": "application/json"
+      }
+    }).then((r) => r.json());
+  } else {
+    // 服务端运行，使用 import 的原因是避免 apis 的代码被打包发送到客户端
+    return import("./apis/index").then(async (r: any) => {
+      return await r[method](...data);
+    });
+  }
+}
+
+/** 解开 promise 类型包装 */
+declare type unPromise<T> = T extends Promise<infer R> ? R : T;
+
+// 示例 1 直接使用 RC
+
+RC("currentTime", []).then((r) => console.log("服务器当前时间", r));
+RC("currentTime2", [true]).then((r) => console.log("服务器当前时间本地化", r));
+
+/** 包装了一次的 RC 方便跳转到函数定义  */
+export const API = new Proxy(
+  {},
+  {
+    get(target, p: method) {
+      return (...arg: any) => RC(p, arg);
+    }
+  }
+) as apisPromiseify;
+
+/** apis 中包含的方法可能不是返回 promise 的，但 RC 调用后的一定是返回 promsie */
+type apisPromiseify = {
+  readonly [K in keyof apis]: (
+    ...arg: Parameters<apis[K]>
+  ) => Promise<unPromise<ReturnType<apis[K]>>>;
+};
+
+// 示例 2 通过 API 对象调用对应方法，这里的优点是可以直接跳转到对应函数的源码处
+
+API.currentTime().then((r) => console.log("服务器当前时间", r));
+API.currentTime2(true).then((r) => console.log("服务器当前时间本地化", r));
+
+</div>
+      </div>
+<div id="20230905115155-3ntogyt" data-node-id="20230905115155-3ntogyt" data-type="NodeParagraph" class="p">上面就是一顿类型操作，打完收工。
+</div>
+<div id="20230905115155-ox6u9vk" data-node-id="20230905115155-ox6u9vk" data-type="NodeParagraph" class="p">接下来无论是在服务端还是客户端通过 RC 或 API 来调用方法获得的体验是一模一样的。
+</div>
+<div id="20230905115155-kx10yph" data-node-id="20230905115155-kx10yph" data-type="NodeParagraph" class="p">并且通过 API 对象调用对应方法，这里的优点是可以直接跳转到对应函数的源码处。啥类型提示都有，接口文档也没有必要了。
+</div>
+<div id="20210415103149-r8j4car" data-node-id="20210415103149-r8j4car" data-type="NodeHeading" updated="20210415104847" data-subtype="h2" class="h2">
+      <div>
+0x04 安全性问题
+</div>
+    </div>
+<div id="20210415104855-4099tkm" data-node-id="20210415104855-4099tkm" data-type="NodeParagraph" updated="20210415104928" class="p">从 github 查看此次修改： 
+<a href="https://github.com/2234839/typescript_RPC_demo/commit/e4e674cdcd16791fbaaf525b7c99c9084d550946">e4e674c</a>
+</div>
+<div id="20210415103705-dca2gwe" data-node-id="20210415103705-dca2gwe" data-type="NodeParagraph" updated="20210415103719" class="p">知友提出了下面这个问题
+</div>
+<div id="20210415103204-jvkalet" data-node-id="20210415103204-jvkalet" data-type="NodeBlockquote" updated="20210415103658" class="bq">
+<div id="20210415103659-jsz34ww" data-node-id="20210415103659-jsz34ww" data-type="NodeParagraph" class="p"><a href="undefined">beeplin</a>
+<a href="https://www.zhihu.com/people/beeplin">beeplin</a>
+<span data-type="NodeTextMark" data-type="strong"
+        >昨天 01:05</span
+      >
+</div>
+<div id="20210415103659-lyhj1mn" data-node-id="20210415103659-lyhj1mn" data-type="NodeParagraph" class="p">用 dynamic import 通过 webpack 制造一个 永远不会被前端实际加载的 chunk，从而避免后端函数代码被打包到前端，我这个理解正确么？
+</div>
+<div id="20210415103659-wgxup04" data-node-id="20210415103659-wgxup04" data-type="NodeParagraph" class="p">如果没错的画，有个潜在的问题，这个 chunk 文件依然是放在 dist 目录下的，虽然正常情况下不会去主动加载，但是还是有被用户“偶然”猜对文件名从而加载到前端导致代码泄露的可能。有办法解决这个问题么？
+</div>
+</div>
+<div id="20210415103724-o8n2ube" data-node-id="20210415103724-o8n2ube" data-type="NodeParagraph" updated="20210415103856" class="p">我现在想出来的解决方案就是利用条件编译来使得前端打包时不去 
+<span data-type="NodeTextMark" data-type="code"
+        >import(&quot;./apis/index&quot;)</span
+      >
+ ,
+</div>
+<div id="20210415104022-zq7er4k" data-node-id="20210415104022-zq7er4k" data-type="NodeParagraph" updated="20210415104154" class="p">RC.ts 代码内的条件如下图这样改动，
+</div>
+<div id="20210415103858-8nnpgm8" data-node-id="20210415103858-8nnpgm8" data-type="NodeParagraph" updated="20210415104059" class="p"><span data-type="NodeImage" class="img" style="undefined"
+      ><img
+        src="./../../assets/image-20210415104020-terddw3.png"
+        data-src="./../../assets/image-20210415104020-terddw3.png"
+        title=""
+        style="undefined"
+      /><span class="protyle-action__title"></span></span
+    >
+</div>
+<div id="20210415104228-1f4xpw0" data-node-id="20210415104228-1f4xpw0" data-type="NodeParagraph" updated="20210415104249" class="p"><span data-type="NodeTextMark" data-type="code"
+        >process.browser</span
+      >
+ 来自于 webpack 插件的定义
+</div>
+<div id="20210415104158-t2yf6y3" data-node-id="20210415104158-t2yf6y3" data-type="NodeParagraph" updated="20210415104228" class="p"><span data-type="NodeImage" class="img" style="undefined"
+      ><img
+        src="./../../assets/image-20210415104225-nc4us9j.png"
+        data-src="./../../assets/image-20210415104225-nc4us9j.png"
+        title=""
+        style="undefined"
+      /><span class="protyle-action__title"></span></span
+    >
+</div>
+<div id="20210415104259-ugwphz5" data-node-id="20210415104259-ugwphz5" data-type="NodeParagraph" updated="20210415104543" class="p">这样改动后当打包前端代码的时候打包工具检测到 
+<span data-type="NodeTextMark" data-type="code"
+        >process.browser===true</span
+      >
+ 一定成立，于是会删去条件不成立分支的代码，之后再对代码进性依赖分析之类的就不会引入 api.ts 中的代码到前端代码中去了
+</div>
+<div id="20210415104455-rszq85y" data-node-id="20210415104455-rszq85y" data-type="NodeParagraph" class="p"></div>
+<div id="20230905115155-q995vgv" data-node-id="20230905115155-q995vgv" data-type="NodeHeading" updated="20210415104253" data-subtype="h2" class="h2">
+      <div>
+总结
+</div>
+    </div>
+<div id="20230905115155-6cmq4se" data-node-id="20230905115155-6cmq4se" data-type="NodeParagraph" class="p">这个
+<span data-type="NodeTextMark" data-type="s"
+        >项目</span
+      >
+ 方法 的重点在于复用了服务端提供接口的类型，并且可以直接跳转过去。
+</div>
+<div id="20230905115155-l0z7yi0" data-node-id="20230905115155-l0z7yi0" data-type="NodeParagraph" class="p">追求简单的方法，完善类型体验。
+</div>
+<div id="20230905115155-tz0u6kw" data-node-id="20230905115155-tz0u6kw" data-type="NodeParagraph" class="p">我写出这个想法之后觉得我以前就是憨憨，自己写一个项目还维护一份接口文档 😀。
+</div>
+<div id="20210410111402-fph404k" data-node-id="20210410111402-fph404k" data-type="NodeThematicBreak" class="hr"><div></div></div>
+<div id="20230905115155-qgf4bxk" data-node-id="20230905115155-qgf4bxk" data-type="NodeParagraph" class="p">现在 codesandbox 还不支持中文文件名，坑了我一把
+</div>
+<div id="20230905115155-s4d55ne" data-node-id="20230905115155-s4d55ne" data-type="NodeParagraph" class="p"><span data-type="NodeImage" class="img" style="undefined"
+      ><img
+        src="./../../assets/20201109171018-un3fain-image.png"
+        data-src="./../../assets/20201109171018-un3fain-image.png"
+        title=""
+        style="undefined"
+      /><span class="protyle-action__title"></span></span
+    >
+</div>
+<div id="20210410114552-ae38v0j" data-node-id="20210410114552-ae38v0j" data-type="NodeHeading" updated="20210609090256" data-subtype="h2" class="h2">
+      <div><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201127151651-bbzj4xi"
+      >
+        <a href="./../../record/每日总结/2020/doc/uniapp composition-api 中使用 onShow、onLoad 这样的生命周期.html">uniapp composition-api 中使用 onShow、onLoad 这样的生命周期</a>
+      </span>
+</div>
+    </div>
+<div id="20210609090256-d8w4uej" data-node-id="20210609090256-d8w4uej" data-type="NodeParagraph" updated="20210609090256" class="p"></div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

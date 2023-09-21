@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>typescript-vuex</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201104153359-1xck2an" data-node-id="20201104153359-1xck2an" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" title="typescript-vuex" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210521142715-977knrk" data-node-id="20210521142715-977knrk" data-type="NodeHeading" data-subtype="h1" class="h1">
+      <div>
+typescript 与 vuex，提供代码提示
+</div>
+    </div>
+<div id="20210521142715-9vt6n2y" data-node-id="20210521142715-9vt6n2y" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142715-syqpbf3" data-node-id="20210521142715-syqpbf3" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210521142715-68pcrwj" data-node-id="20210521142715-68pcrwj" data-type="NodeParagraph" class="p">pubdate:2019-11-10 19:50:04
+</div>
+
+    </div>
+<div id="20210521142715-96n2666" data-node-id="20210521142715-96n2666" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210521142715-hr54nvz" data-node-id="20210521142715-hr54nvz" data-type="NodeParagraph" class="p">tags:typescript,vuex
+</div>
+
+    </div>
+</div>
+<div id="20210521142715-mje0yzg" data-node-id="20210521142715-mje0yzg" data-type="NodeParagraph" class="p">vuex commit 是没有代码提示的，当初接触到 typescript 之后就一直想实现这个提示，现在终于做到了
+</div>
+<div id="20210521142715-s5zqbzp" data-node-id="20210521142715-s5zqbzp" data-type="NodeThematicBreak" class="hr"><div></div></div>
+<div id="20210521142715-bpatns0" data-node-id="20210521142715-bpatns0" data-type="NodeParagraph" class="p">下面是实现方式
+</div>
+<div id="20210521142715-zdxeqyy" data-node-id="20210521142715-zdxeqyy" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          typescript
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">import Vue from "vue";
+import Vuex from "vuex";
+import { API } from "@/services/mods";
+import { debounce } from "@/util/util_fun";
+import { config } from "@/config";
+Vue.use(Vuex);
+/** __开头的属性是不会保存到store 的 */
+const _state = {
+  user_info: {} as typeof API.报表开发移动端.postCustomerInfoValidateLogin.init["data"],
+  wxUsers: {} as un_return_promise<typeof API.报表开发移动端.postCustomerInfoFindCustomerInfoList.request>["data"],
+  /** 日报的缓存 */
+  daily_cache: {},
+  /** [这里进去的时候会查询这个缓存](src\pages\mine\view_subordinate_schedule\_view_subordinate_schedule_list.ts) */
+  查看下级选人缓存: [] as string[],
+  /** 当前选择的日程展示方式
+   *
+   * **副作用** 会设置tabBar index为1的按钮的text为当前值
+   */
+  scheduleType: "日程" as "日程" | "周程" | "月程",
+  /** 当前选中的tab地址 */
+  __tabPath: "",
+  __1: "测试存储",
+};
+
+const cache_state = uni.getStorageSync("state");
+Object.assign(_state, cache_state);
+type mutations_key = keyof typeof mutations;
+
+/**
+ * **注意** 这里的 mutations 里面的函数入参和vuex的要求是颠倒的,
+ * 原因是为了 commit.set_packet_token 这样的方法可以直接跳转过来，
+ * 在store_options中我是包了一层函数将参数调转位置交给这里面的函数
+ *
+ * **最后一个 state 参数不应该传入**
+ * */
+const mutations = {
+  set_user_info(user_info: typeof _state.user_info, state = _state) {
+    state.user_info = user_info;
+  },
+  set_packet_token(packet_token: string, state = _state) {
+    state.user_info.packet_token = packet_token;
+  },
+  set_wxUsersVoList(wxUsers: typeof _state.wxUsers, state = _state) {
+    state.wxUsers = wxUsers;
+  },
+  set_daily_cache(daily_cache: typeof _state.daily_cache, state = _state) {
+    state.daily_cache = daily_cache;
+  },
+  /** **jsdoc注释测试** */
+  set_查看下级选人缓存(查看下级选人缓存: typeof _state.查看下级选人缓存, state = _state) {
+    state.查看下级选人缓存 = 查看下级选人缓存;
+  },
+  set_tabPath(tabPath: typeof _state.__tabPath, state = _state) {
+    state.__tabPath = tabPath;
+  },
+
+  set_scheduleType(scheduleType: typeof _state.scheduleType, state = _state) {
+    state.scheduleType = scheduleType;
+  },
+};
+const store_options = {
+  state: {} as typeof _state,
+  mutations: (() => {
+    var obj = {} as any;
+    for (const key in mutations) {
+      const f = mutations[key as keyof typeof mutations];
+      /** 倒置入参，使参数顺序实际为正常 */
+      obj[key] = function (state: any, ...payload: any[]) {
+        //@ts-ignore
+        return f(...payload, state);
+      };
+    }
+    return obj;
+  })(),
+};
+
+export const store = new Vuex.Store(store_options);
+
+store.watch(
+  (state) => {
+    return state.scheduleType;
+  },
+  (scheduleType) => {
+    uni.setTabBarItem({
+      index: 1,
+      text: scheduleType,
+    });
+    $emit_event("日程切换", scheduleType);
+  },
+);
+/** 在这里使用 replaceState 而非直接在 store_options 赋值的原因是为了store.watch第一次加载的时候也可以生效 */
+store.replaceState(_state);
+/** vuex 的commit */
+export const commit = {} as typeof mutations;
+
+for (const key in store_options.mutations) {
+  commit[key as mutations_key] = (data: any) => {
+    return store.commit(key, data);
+  };
+}
+
+/** 存储 store */
+store.subscribe(
+  debounce((mutation: any, state: any) => {
+    if (config.isDev) {
+      console.log(state);
+    }
+    const data = JSON.parse(JSON.stringify(state));
+    for (const key in data) {
+      /** 剔除 __ 开头的属性，这种属性不用存储 */
+      if (data.hasOwnProperty(key) && key.startsWith("__")) {
+        delete data[key];
+      }
+    }
+    uni.setStorage({ key: "state", data: data });
+  }, 200),
+);
+</div>
+      </div>
+<div id="20210521142715-8nagyu4" data-node-id="20210521142715-8nagyu4" data-type="NodeParagraph" class="p">通过类型系统，commit 对象上的方法可以直接使用，代码提示一应俱全，actions 可以采用同样的思路
+</div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

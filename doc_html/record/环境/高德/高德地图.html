@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>高德地图</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201104153359-gu2wpr5" data-node-id="20201104153359-gu2wpr5" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" title="高德地图" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210521142713-uy3q5rh" data-node-id="20210521142713-uy3q5rh" data-type="NodeHeading" data-subtype="h1" class="h1">
+      <div>
+高德地图
+</div>
+    </div>
+<div id="20210521142713-37xdzip" data-node-id="20210521142713-37xdzip" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142713-8taayrb" data-node-id="20210521142713-8taayrb" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210521142713-myb9w9o" data-node-id="20210521142713-myb9w9o" data-type="NodeParagraph" class="p">pubdate: 2019-06-04 10:38:55
+</div>
+
+    </div>
+<div id="20210521142713-en11wer" data-node-id="20210521142713-en11wer" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210521142713-82ac63c" data-node-id="20210521142713-82ac63c" data-type="NodeParagraph" class="p">tags: 地图，JavaScript
+</div>
+
+    </div>
+</div>
+<div id="20210521142713-4bms2mt" data-node-id="20210521142713-4bms2mt" data-type="NodeThematicBreak" class="hr"><div></div></div>
+<div id="20210521142713-frq85f0" data-node-id="20210521142713-frq85f0" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          html
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false"><div id="container"></div>
+<div id="panel" title="需要这个来展示路径"> </div>
+<style>
+    #container {
+        width: 600px;
+        height: 400px;
+    }
+</style>
+<script>
+    var map
+    function main() {
+        /** 地图对象 */
+        map = new AMap.Map('container', {
+            resizeEnable: true
+        });
+        /** 规划路线 */
+        var planPath
+        /** 添加定位按钮 */
+        AMap.plugin(['AMap.Geolocation', 'AMap.Walking', 'AMap.Driving'], function () {
+            var geolocation = new AMap.Geolocation({
+                enableHighAccuracy: true,//是否使用高精度定位，默认:true
+                timeout: 10000,          //超过10秒后停止定位，默认：5s
+                buttonPosition: 'RB',    //定位按钮的停靠位置
+                buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+                zoomToAccuracy: true,   //定位成功后是否自动调整地图视野到定位点
+
+            });
+            map.addControl(geolocation);
+            geolocation.getCurrentPosition(function (status, result) {
+                if (status == 'complete') {
+                    onComplete(result)
+                } else {
+                    onError(result)
+                }
+            });
+        });
+        planPath = (function (map) {
+            //构造路线导航类
+            var navigation = {
+                driving: new AMap.Driving({
+                    map: map,
+                    panel: "panel" //用来展示仪表板的元素的id
+                }),
+                walking: new AMap.Walking({
+                    map: map,
+                    panel: "panel"
+                }),
+            }
+
+            /** 通过什么类型的工具进行 */
+            var walkingType
+            return function (p1, p2,/** 交通工具的类型 */ type) {
+                // 根据起终点经纬度规划驾车导航路线
+                navigation[type].search(p1, p2, function (status, result) {
+                    // result 即是对应的驾车导航信息，相关数据结构文档请参考  https://lbs.amap.com/api/javascript-api/reference/route-search#m_DrivingResult
+                    if (status === 'complete') {
+                        console.log('绘制驾车路线完成');
+                    } else {
+                        console.error('获取驾车数据失败：' + result)
+                    }
+                });
+            }
+        })(map)
+        var localPosition
+        //解析定位结果
+        function onComplete(data) {
+            var str = [];
+            localPosition = data.position
+            str.push('定位结果：' + data.position);
+            str.push('定位类别：' + data.location_type);
+            if (data.accuracy) {
+                str.push('精度：' + data.accuracy + ' 米');
+            }//如为IP精确定位结果则没有精度信息
+            str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
+        }
+        //解析定位错误信息
+        function onError(data) {
+            console.log('定位失败', data);
+        }
+
+
+
+        //为地图注册click事件获取鼠标点击出的经纬度坐标
+        map.on('click', function (e) {
+            console.log("经纬度", e.lnglat.getLng(), e.lnglat.getLat());
+            var position = new AMap.LngLat(e.lnglat.getLng(), e.lnglat.getLat())
+            /** 添加简单的标识 */
+            const marker = new AMap.Marker({
+                position: position,
+                offset: new AMap.Pixel(-10, -10),
+                icon: '//vdata.amap.com/icons/b18/1/2.png', // 添加 Icon 图标 URL
+                title: `${e.lnglat.getLng()}--${e.lnglat.getLat()} 该点离你 ${distance(localPosition, position)} 米`
+            })
+            map.add(marker);
+            marker.on('click', function (e) {
+                console.log(this.title);
+                planPath(localPosition, position, 'walking')
+            })
+        });
+        /** 获取两点之间的距离 */
+        function distance(p1, p2) {
+            return Math.round(p1.distance(p2));
+        }
+    }
+
+    function addScript(url, cb) {
+        var jsapi = document.createElement('script');
+        jsapi.charset = 'utf-8';
+        jsapi.src = url;
+        document.head.appendChild(jsapi);
+        jsapi.onload = cb
+    }
+    addScript('//webapi.amap.com/maps?v=1.4.14&key=2b6bf6b72d9056ff8885a005a816c711', function () {
+        addScript('//webapi.amap.com/ui/1.0/main.js?v=1.0.11', function () {
+            addScript('//cache.amap.com/lbs/static/addToolbar.js', function () {
+                main()
+
+            })
+        })
+    })
+
+</script>
+</div>
+      </div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>OceanPress</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201121142503-ivwtfzg" data-node-id="20201121142503-ivwtfzg" data-type="NodeDocument" updated="20210906152610" data-subtype="h1" class="h1" icon="1f30a" scroll="&#123;&quot;rootId&quot;:&quot;20201121142503-ivwtfzg&quot;,&quot;startId&quot;:&quot;20210523161027-y2z06cj&quot;,&quot;endId&quot;:&quot;20210702202952-n3qmto3&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210607090121-k3ddwvv&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" title="OceanPress" title-img="background:linear-gradient(135deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px),linear-gradient(225deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 64px;background-color:#708090;background-size: 64px 128px;" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;background:linear-gradient(135deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px),linear-gradient(225deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 64px;background-color:#708090;background-size: 64px 128px;"/>
+      <div style="position: absolute;bottom:-10px;left:15px;height: 80px;width: 80px;transition: var(--b3-transition);cursor: pointer;font-size: 68px;line-height: 80px;text-align: center;font-family: var(--b3-font-family-emoji);margin-right: 16px;"> &#x1f30a </div>
+</div>
+<div id="20210523161027-y2z06cj" data-node-id="20210523161027-y2z06cj" data-type="NodeBlockquote" updated="20210821095200" class="bq" style="background-color: var(--b3-font-background4);">
+<div id="20210523161030-szswzzr" data-node-id="20210523161030-szswzzr" data-type="NodeParagraph" updated="20210523161121" class="p" style="color: var(--b3-card-info-color);background-color: var(--b3-card-info-background);">这是一款从 
+<span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201104155455-awawq0n"
+      >
+        <a href="./../../record/思源笔记.html">思源笔记</a>
+      </span>
+本 生成一个静态站点的工具
+</div>
+<div id="20210523161157-ibq3qkf" data-node-id="20210523161157-ibq3qkf" data-type="NodeParagraph" updated="20210523162558" class="p" style="color: var(--b3-card-success-color);background-color: var(--b3-card-success-background);">这个网站的文章内容就是基于 
+<span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201121142503-ivwtfzg"
+      >
+        <a href="./../../想法/项目/OceanPress.html">OceanPress</a>
+      </span>
+ 构建的
+</div>
+<div id="20210523161241-n5n8z98" data-node-id="20210523161241-n5n8z98" data-type="NodeParagraph" updated="20210821095200" class="p" style="color: var(--b3-card-info-color);background-color: var(--b3-card-info-background);"><a href="https://siyuan-note.github.io/oceanpress/OceanPress.html">点击这里查看纯粹由 OceanPress 构建的「思源帮助笔记」的效果</a>
+</div>
+</div>
+<div id="20210607085942-3uua4pl" data-node-id="20210607085942-3uua4pl" data-type="NodeHeading" updated="20210607085952" data-subtype="h2" class="h2">
+      <div>特性
+</div>
+    </div>
+<div id="20210607085952-yoifm0f" data-node-id="20210607085952-yoifm0f" data-type="NodeList" updated="20210823125219" data-subtype="o" class="list"><div id="20210607085958-y217qm6" data-node-id="20210607085958-y217qm6" data-type="NodeListItem" updated="20210607090016" data-subtype="o" class="li" data-marker="1.">
+      <div class="protyle-action">
+        1.
+      </div>
+      <div id="20210607085958-sdfvcvm" data-node-id="20210607085958-sdfvcvm" data-type="NodeParagraph" updated="20210819143450" class="p"><span data-type="NodeTextMark" data-type="strong"
+        >兼容思源绝大部分效果</span
+      >
+ 🎉
+</div>
+
+    </div>
+<div id="20210607090121-bjqewpl" data-node-id="20210607090121-bjqewpl" data-type="NodeListItem" updated="20210821095205" data-subtype="o" class="li" data-marker="2.">
+      <div class="protyle-action">
+        2.
+      </div>
+      <div id="20210607090121-k3ddwvv" data-node-id="20210607090121-k3ddwvv" data-type="NodeParagraph" updated="20210821095205" class="p">生成
+<a href="https://siyuan-note.github.io/oceanpress/OceanPress.html">彻底的静态站点</a>
+，可以直接将文件拖拽到浏览器打开不需要启动 http 服务（非常适合用来分发软件的使用说明文档之类的）
+</div>
+<div id="20210607090442-xh71ngv" data-node-id="20210607090442-xh71ngv" data-type="NodeList" updated="20210608133636" data-subtype="o" class="list"><div id="20210607090441-tmjqgaf" data-node-id="20210607090441-tmjqgaf" data-type="NodeListItem" updated="20210608133636" data-subtype="o" class="li" data-marker="1.">
+      <div class="protyle-action">
+        1.
+      </div>
+      <div id="20210607090441-q58uhha" data-node-id="20210607090441-q58uhha" data-type="NodeParagraph" updated="20210608133636" class="p">目前完全离线会有显示上的一些问题，主要是 vditor 依赖的一些 cdn 资源还没有配置成本地资源，之后会实现完全离线
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210607090017-g7387kg" data-node-id="20210607090017-g7387kg" data-type="NodeListItem" data-subtype="o" class="li" data-marker="3.">
+      <div class="protyle-action">
+        3.
+      </div>
+      <div id="20210607090017-on7aurl" data-node-id="20210607090017-on7aurl" data-type="NodeParagraph" updated="20210607090118" class="p"><span
+        data-type="block-ref"
+        data-subtype="s"
+        data-id="20210209130028-x9x8ywu"
+      >
+        <a href="./../../想法/项目/OceanPress.html">支持底部反链列表显示</a>
+      </span>
+</div>
+
+    </div>
+<div id="20210806114312-3ewqpjn" data-node-id="20210806114312-3ewqpjn" data-type="NodeListItem" updated="20210806114440" data-subtype="o" class="li" data-marker="4.">
+      <div class="protyle-action">
+        4.
+      </div>
+      <div id="20210806114312-bthdetp" data-node-id="20210806114312-bthdetp" data-type="NodeParagraph" updated="20210819143343" class="p"><span
+        data-type="block-ref"
+        data-subtype="s"
+        data-id="20210806114102-3nlanl2"
+      >
+        <a href="./../../想法/项目/OceanPress.html">支持生成 rss.xml</a>
+      </span>
+ 查看效果 - 
+<a href="https://shenzilong.cn/%E5%85%B3%E4%BA%8E/rss/%E6%9C%80%E8%BF%91%E6%9B%B4%E6%96%B0.rss.xml">崮生_最近更新.rss</a>
+</div>
+
+    </div>
+<div id="20210626011625-f1jknq0" data-node-id="20210626011625-f1jknq0" data-type="NodeListItem" updated="20210717103856" data-subtype="o" class="li" data-marker="5.">
+      <div class="protyle-action">
+        5.
+      </div>
+      <div id="20210626011625-v2yfi8y" data-node-id="20210626011625-v2yfi8y" data-type="NodeParagraph" updated="20210806113836" class="p"><span
+        data-type="block-ref"
+        data-subtype="s"
+        data-id="20210806113607-g40s6cy"
+      >
+        <a href="./../../想法/项目/OceanPress.html">可以配合 hexo 等系统一起使用</a>
+      </span>
+ 
+<a href="https://2234839.github.io/hexo-oceanpress/">效果预览</a>
+</div>
+
+    </div>
+<div id="20210821094914-ug12oxt" data-node-id="20210821094914-ug12oxt" data-type="NodeListItem" updated="20210823125219" data-subtype="o" class="li" data-marker="6.">
+      <div class="protyle-action">
+        6.
+      </div>
+      <div id="20210821094914-hjjox3h" data-node-id="20210821094914-hjjox3h" data-type="NodeParagraph" updated="20210823125219" class="p"><span
+        data-type="block-ref"
+        data-subtype="s"
+        data-id="20210819142523-7m7inls"
+      >
+        <a href="./../../想法/项目/OceanPress.html">良好的 SEO 支持</a>
+      </span>
+ ，可以放心大胆的随意重构所有文档结构  不用担心用户无法通过原来的链接访问到重构后的文档。
+</div>
+
+    </div>
+<div id="20210819143729-jrzu7g0" data-node-id="20210819143729-jrzu7g0" data-type="NodeListItem" updated="20210819144323" data-subtype="o" class="li" data-marker="7.">
+      <div class="protyle-action">
+        7.
+      </div>
+      <div id="20210819143729-0odbaw6" data-node-id="20210819143729-0odbaw6" data-type="NodeParagraph" updated="20210819143745" class="p">周边/工具
+</div>
+<div id="20210819143747-scmgbg1" data-node-id="20210819143747-scmgbg1" data-type="NodeList" updated="20210819144323" data-subtype="o" class="list"><div id="20210819143747-i6jn6mc" data-node-id="20210819143747-i6jn6mc" data-type="NodeListItem" updated="20210819144323" data-subtype="o" class="li" data-marker="1.">
+      <div class="protyle-action">
+        1.
+      </div>
+      <div id="20210819143747-u38zlrw" data-node-id="20210819143747-u38zlrw" data-type="NodeParagraph" updated="20210819144323" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210819143836-o8fisty"
+      >
+        <a href="./../../想法/项目/OceanPress/website-check.html">website-check</a>
+      </span>
+ ( 
+<span data-type="NodeTextMark" style="color: var(--b3-font-color8);" data-type="strong"
+        >尚未施工完毕</span
+      >
+
+ ) , 检查静态站点中的全部同站链接是否存在死链 （支持 a、iframe、video、audio、img 标签）
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="20210819143615-dqrsmk6" data-node-id="20210819143615-dqrsmk6" data-type="NodeHeading" updated="20210819143621" data-subtype="h2" class="h2">
+      <div>快速开始
+</div>
+    </div>
+<div id="20210819143622-bzb9oj4" data-node-id="20210819143622-bzb9oj4" data-type="NodeParagraph" updated="20210819143701" class="p">请参见此 repo 文档 
+<a href="https://github.com/siyuan-note/oceanpress">siyuan-note/oceanpress</a>
+</div>
+<div id="20210523144512-cdrqpv6" data-node-id="20210523144512-cdrqpv6" data-type="NodeHeading" updated="20210523155235" data-subtype="h2" class="h2">
+      <div>待办
+</div>
+    </div>
+<div id="20210523162250-yfz0ahq" data-node-id="20210523162250-yfz0ahq" data-type="NodeList" updated="20210803165454" data-subtype="t" class="list"><div id="20210523162257-bb3twkx" data-node-id="20210523162257-bb3twkx" data-type="NodeListItem" updated="20210803165454" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210523162257-a13h6ab" data-node-id="20210523162257-a13h6ab" data-type="NodeParagraph" updated="20210803165454" class="p">不断更新中...
+</div>
+
+    </div>
+<div id="20210827081313-6a8w7bw" data-node-id="20210827081313-6a8w7bw" data-type="NodeListItem" updated="20210827081319" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      
+<div id="20210827081313-81cq7fl" data-node-id="20210827081313-81cq7fl" data-type="NodeParagraph" updated="20210827081319" class="p">自定义 emoji表情支持
+</div>
+
+    </div>
+<div id="20210823160230-udnc4te" data-node-id="20210823160230-udnc4te" data-type="NodeListItem" updated="20210823160253" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      
+<div id="20210823160230-4ujwtqd" data-node-id="20210823160230-4ujwtqd" data-type="NodeParagraph" updated="20210823160253" class="p">路径重合的文档的处理方案
+</div>
+
+    </div>
+<div id="20210816212905-usodksd" data-node-id="20210816212905-usodksd" data-type="NodeListItem" updated="20210816212912" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      
+<div id="20210816212905-12wnfo0" data-node-id="20210816212905-12wnfo0" data-type="NodeParagraph" updated="20210816212912" class="p">支持 hexo post 模式
+</div>
+
+    </div>
+<div id="20210806111216-ovfkb3m" data-node-id="20210806111216-ovfkb3m" data-type="NodeListItem" updated="20210806111234" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      
+<div id="20210806111216-w4nb200" data-node-id="20210806111216-w4nb200" data-type="NodeParagraph" updated="20210816194905" class="p">重构嵌入块的样式，保持和思源一致
+</div>
+
+    </div>
+<div id="20210714154958-8chwhks" data-node-id="20210714154958-8chwhks" data-type="NodeListItem" updated="20210805180404" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      
+<div id="20210714154958-6dm48cm" data-node-id="20210714154958-6dm48cm" data-type="NodeParagraph" updated="20210805180404" class="p"><span
+        data-type="block-ref"
+        data-subtype="s"
+        data-id="20210703160856-as7pzbk"
+      >
+        <a href="./../../record/每日总结/2021/7月.html">这里的两个链接</a>
+      </span>
+ 编译后变成了 iframe ，不应该这样
+</div>
+
+    </div>
+<div id="20210623145805-rdp3zsl" data-node-id="20210623145805-rdp3zsl" data-type="NodeListItem" updated="20210623145825" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      
+<div id="20210623145805-mo33jqf" data-node-id="20210623145805-mo33jqf" data-type="NodeParagraph" updated="20210623145825" class="p">增量编译，不用每次全部编译一遍
+</div>
+
+    </div>
+<div id="20210602183428-jmc88ha" data-node-id="20210602183428-jmc88ha" data-type="NodeListItem" updated="20210605145539" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      
+<div id="20210602183428-e9e0f0l" data-node-id="20210602183428-e9e0f0l" data-type="NodeParagraph" updated="20210605145539" class="p">对于底部反链中的块引用解析发出的警告 添加对应的描述
+</div>
+
+    </div>
+<div id="20210817181506-spidqtg" data-node-id="20210817181506-spidqtg" data-type="NodeListItem" updated="20210817181518" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      
+<div id="20210817181506-5rfrgwi" data-node-id="20210817181506-5rfrgwi" data-type="NodeParagraph" updated="20210817181518" class="p">重构资源 copy 逻辑
+</div>
+
+    </div>
+</div>
+<div id="20210605214632-4e38cdi" data-node-id="20210605214632-4e38cdi" data-type="NodeHeading" updated="20210623172746" data-subtype="h3" class="h3">
+      <div>版本迭代记录
+</div>
+    </div>
+<div id="20210622133241-jftbwtv" data-node-id="20210622133241-jftbwtv" data-type="NodeHeading" updated="20210626105152" data-subtype="h4" class="h4">
+      <div>最新代码
+</div>
+    </div>
+<div id="20210905222753-746xtk6" data-node-id="20210905222753-746xtk6" data-type="NodeList" updated="20210906152610" data-subtype="t" class="list"><div id="20210905182824-fy6nu15" data-node-id="20210905182824-fy6nu15" data-type="NodeListItem" updated="20210906152610" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210905182824-729xpey" data-node-id="20210905182824-729xpey" data-type="NodeParagraph" updated="20210906152610" class="p">挂件块路径兼容
+</div>
+
+    </div>
+<div id="20210905222900-prtp350" data-node-id="20210905222900-prtp350" data-type="NodeListItem" updated="20210905222900" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210905222900-fijr55o" data-node-id="20210905222900-fijr55o" data-type="NodeParagraph" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210905181933-ueos7ua"
+      >
+        <a href="./../../想法/项目/OceanPress.html">tag 采用 v0.5.3_tested_on_siyuan_v1.3.3_Kernel_v1.3.3 这样的格式，前面的 v0.5.3 代表 OceanPress 自身的版本号，后面的 si...</a>
+      </span>
+</div>
+
+    </div>
+</div>
+<div id="20210816212922-x5pcnzj" data-node-id="20210816212922-x5pcnzj" data-type="NodeHeading" updated="20210816212928" data-subtype="h4" class="h4">
+      <div>v0.5
+</div>
+    </div>
+<div id="20210702202952-n3qmto3" data-node-id="20210702202952-n3qmto3" data-type="NodeList" updated="20210816212902" data-subtype="t" class="list"><div id="20210816194900-z4f5eqr" data-node-id="20210816194900-z4f5eqr" data-type="NodeListItem" updated="20210816212902" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210816194900-z91e70o" data-node-id="20210816194900-z91e70o" data-type="NodeParagraph" updated="20210816212902" class="p">兼容思源  v1.2.5 版本的文件目录改为 id 的行为，现在支持两种模式 id, title
+</div>
+
+    </div>
+<div id="20210527113126-b6e45ax" data-node-id="20210527113126-b6e45ax" data-type="NodeListItem" updated="20210527113126" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210527113126-ot785tz" data-node-id="20210527113126-ot785tz" data-type="NodeParagraph" updated="20210527113130" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210408173534-g2iwtr5"
+      >
+        <a href="./../../想法/项目/OceanPress.html">OceanPress 挂件块支持</a>
+      </span>
+</div>
+
+    </div>
+<div id="20210816194945-jszif0l" data-node-id="20210816194945-jszif0l" data-type="NodeListItem" updated="20210816212847" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210816194945-7u48qtr" data-node-id="20210816194945-7u48qtr" data-type="NodeParagraph" updated="20210816212847" class="p">支持思源文档图标功能，
+<a href="https://siyuan-note.github.io/oceanpress/OceanPress.html">点击查看效果</a>
+</div>
+
+    </div>
+<div id="20210819142523-7m7inls" data-node-id="20210819142523-7m7inls" data-type="NodeListItem" updated="20210823125508" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210819142523-hpbgn7k" data-node-id="20210819142523-hpbgn7k" data-type="NodeParagraph" updated="20210823125508" class="p">优化 SEO，实现重定向功能 :「对于被移动到其他地方的文章(被移动到文档内则生成带id hash 的链接)生成一个包含 
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta#:~:text=%E8%AE%BE%E7%BD%AE%E4%BA%86%20refresh%20%E5%80%BC%E7%9A%84%E9%A1%B5%E9%9D%A2%E5%8F%AF%E8%83%BD%E6%9C%89%E6%97%B6%E9%97%B4%E9%97%B4%E9%9A%94%E5%A4%AA%E7%9F%AD%E7%9A%84%E9%A3%8E%E9%99%A9%E3%80%82">meta 标签</a>
+的 html 页面，此功能基于
+<span
+        data-type="block-ref"
+        data-subtype="s"
+        data-id="20210823125253-8eyv1dc"
+      >
+        <a href="./../../想法/项目/OceanPress.html">之前编译所生成的数据</a>
+      </span>
+。
+<a href="https://developers.google.com/search/docs/advanced/crawling/special-tags?hl=zh-cn#:~:text=%E5%B9%B6%E9%9D%9E%E6%89%80%E6%9C%89%E6%B5%8F%E8%A7%88%E5%99%A8%E9%83%BD%E6%94%AF%E6%8C%81%E4%BD%BF%E7%94%A8%E6%AD%A4%E5%85%83%E6%A0%87%E8%AE%B0%2C%E5%9B%A0%E8%80%8C%E5%8F%AF%E8%83%BD%E4%BC%9A%E4%BB%A4%E7%94%A8%E6%88%B7%E6%84%9F%E5%88%B0%E5%9B%B0%E6%83%91%E3%80%82">并非所有浏览器都支持使用此元标记</a>
+ ，还需要添加一段 js 代码来兼容」
+</div>
+<div id="20210823125253-8eyv1dc" data-node-id="20210823125253-8eyv1dc" data-type="NodeList" updated="20210823125450" data-subtype="u" class="list"><div id="20210823125253-ze80tyl" data-node-id="20210823125253-ze80tyl" data-type="NodeListItem" updated="20210823125450" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210823125253-9v8p8dg" data-node-id="20210823125253-9v8p8dg" data-type="NodeParagraph" updated="20210823125450" class="p">之前编译所生成的数据目前会存储在 
+<span data-type="NodeTextMark" data-type="code"
+        >设定的输出目录/assets/historical_data/redirect.json</span
+      >
+ 中
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210803154129-9p336nx" data-node-id="20210803154129-9p336nx" data-type="NodeListItem" updated="20210803170705" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210803154129-gzyyv42" data-node-id="20210803154129-gzyyv42" data-type="NodeParagraph" updated="20210803154130" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210527113401-svyf82q"
+      >
+        <a href="./../../想法/项目/OceanPress.html">使用请求缓存来持久化数据 git repo</a>
+      </span>
+</div>
+<div id="20210803154131-7l98ghw" data-node-id="20210803154131-7l98ghw" data-type="NodeList" updated="20210803170705" data-subtype="t" class="list"><div id="20210803154130-b0eorzo" data-node-id="20210803154130-b0eorzo" data-type="NodeListItem" updated="20210803170705" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210803154130-6hwdd2a" data-node-id="20210803154130-6hwdd2a" data-type="NodeParagraph" updated="20210803170705" class="p">创建一个基于 
+<a href="https://runkit.com/">https://runkit.com/</a>
+ 的 挂件块项目 
+<a href="https://github.com/2234839/run-code">2234839/run-code (github.com)</a>
+，使用上面所描述的包来实现思源与非思源的使用，这个项目可以作为一个示例
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210821090318-stoestl" data-node-id="20210821090318-stoestl" data-type="NodeListItem" updated="20210821090403" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210821090318-4f8pw17" data-node-id="20210821090318-4f8pw17" data-type="NodeParagraph" updated="20210821123001" class="p">对于打开失败的文件进行跳过，不直接报错退出（不然每次我使用都要关掉思源）  
+</div>
+
+    </div>
+<div id="20210630162030-ksqtm2o" data-node-id="20210630162030-ksqtm2o" data-type="NodeListItem" updated="20210805180336" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210630162030-q95cof1" data-node-id="20210630162030-q95cof1" data-type="NodeParagraph" updated="20210630162046" class="p">assets 文件访问逻辑修改
+</div>
+
+    </div>
+</div>
+<div id="20210626105152-rl5jrvt" data-node-id="20210626105152-rl5jrvt" data-type="NodeHeading" updated="20210626105156" data-subtype="h4" class="h4">
+      <div>v0.4
+</div>
+    </div>
+<div id="20210618112614-r81bqki" data-node-id="20210618112614-r81bqki" data-type="NodeList" updated="20210806114607" data-subtype="t" class="list" heading-fold="1"><div id="20210806113607-g40s6cy" data-node-id="20210806113607-g40s6cy" data-type="NodeListItem" updated="20210806114607" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210806113607-w307k12" data-node-id="20210806113607-w307k12" data-type="NodeParagraph" class="p">hexo 支持 (
+<a href="https://ld246.com/article/1624611859963">来源</a>
+) 
+<span data-type="NodeTextMark" data-type="strong"
+        >不需要添加功能</span
+      >
+</div>
+<div id="20210806113555-yvudo1l" data-node-id="20210806113555-yvudo1l" data-type="NodeList" data-subtype="u" class="list"><div id="20210806113555-qwmhqpa" data-node-id="20210806113555-qwmhqpa" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210806113555-x0htvjh" data-node-id="20210806113555-x0htvjh" data-type="NodeParagraph" updated="20210806113604" class="p"><a href="https://link.ld246.com/forward?goto=https%3A%2F%2Fgithub.com%2F2234839%2Fhexo-oceanpress">hexo-oceanpress/示例项目</a>
+<a href="https://link.ld246.com/forward?goto=https%3A%2F%2F2234839.github.io%2Fhexo-oceanpress%2Foceanpress%2F0%2520%25E8%25AF%25B7%25E4%25BB%258E%25E8%25BF%2599%25E9%2587%258C%25E5%25BC%2580%25E5%25A7%258B.html">体验地址</a>
+</div>
+
+    </div>
+</div>
+<div id="20210806113610-homtgan" data-node-id="20210806113610-homtgan" data-type="NodeList" updated="20210806114607" data-subtype="u" class="list"><div id="20210806113555-qdniyd0" data-node-id="20210806113555-qdniyd0" data-type="NodeListItem" updated="20210806114607" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210806113555-dh3eqaz" data-node-id="20210806113555-dh3eqaz" data-type="NodeParagraph" updated="20210806114607" class="p">hexo 的 
+<span data-type="NodeTextMark" data-type="code"
+        >page</span
+      >
+ 布局文章
+<a href="https://github.com/hexojs/hexo/issues/1067?utm_source=ld246.com">似乎是没有办法在首页以及使用 tag 的</a>
+，所以直接将 OceanPress 生成的文件丢到 hexo 的 source 目录下即可
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210623110349-9yre5d6" data-node-id="20210623110349-9yre5d6" data-type="NodeListItem" updated="20210623110349" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210623110349-1szqftm" data-node-id="20210623110349-1szqftm" data-type="NodeParagraph" updated="20210623113419" class="p">文档标题 
+<a href="https://github.com/siyuan-note/oceanpress/commit/948980ca437b5ffe3cca710487f7eca7b871c6a7">✨ feat(NodeDocument): 在顶部新增一个 h1 来显示文档标题</a>
+</div>
+
+    </div>
+<div id="20210616165145-jgdlg94" data-node-id="20210616165145-jgdlg94" data-type="NodeListItem" updated="20210622172213" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210616165145-2l0dby5" data-node-id="20210616165145-2l0dby5" data-type="NodeParagraph" updated="20210623113412" class="p">命名别名备注的效果实现 （
+<span
+        data-type="block-ref"
+        data-subtype="s"
+        data-id="20210521144338-li21s3u"
+      >
+        <a href="./../../record/思源笔记.html">命名，别名，备注 测试</a>
+      </span>
+） 
+<a href="https://github.com/siyuan-note/oceanpress/commit/f0c29b7d1bf9bad1f4290764d33173532de401b0">✨ feat(front-end-lib): 修正命名错误，添加命名别名等功能</a>
+</div>
+
+    </div>
+<div id="20210605144024-5q1q2r1" data-node-id="20210605144024-5q1q2r1" data-type="NodeListItem" updated="20210606160547" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210605144024-4j1xk01" data-node-id="20210605144024-4j1xk01" data-type="NodeParagraph" updated="20210606160547" class="p"><a href="https://github.com/siyuan-note/oceanpress/commit/b3c9987eaf95b8d90e08e719fd7389f1997ccfd6">头图显示功能</a>
+（ 
+<span
+        data-type="block-ref"
+        data-subtype="s"
+        data-id="20210602160922-oyit5cy"
+      >
+        <a href="./../../record/每日总结/2021/6月.html">6月</a>
+      </span>
+文档设置了头图 ）
+</div>
+
+    </div>
+<div id="20210525144546-5r2t1yj" data-node-id="20210525144546-5r2t1yj" data-type="NodeListItem" updated="20210608161243" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210525144546-fwzdnc6" data-node-id="20210525144546-fwzdnc6" data-type="NodeParagraph" updated="20210608161243" class="p"><a href="https://github.com/siyuan-note/oceanpress/commit/62cdb26cde877f33dd6dc98c72f441ea4acbd4e5">在火狐上，任务列表前方的图标没有显示，引导线也未正常显示，优化列表样式兼容</a>
+</div>
+
+    </div>
+<div id="20210618164432-s8doqgx" data-node-id="20210618164432-s8doqgx" data-type="NodeListItem" updated="20210618173250" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210618164432-mtof4eo" data-node-id="20210618164432-mtof4eo" data-type="NodeParagraph" updated="20210618173250" class="p"><a href="https://github.com/siyuan-note/oceanpress/commit/11248a6973402333e56c032b67c4e67b479bce1b">🐞 fix(图片块): 居中效果</a>
+</div>
+
+    </div>
+<div id="20210622113913-y9p16uu" data-node-id="20210622113913-y9p16uu" data-type="NodeListItem" updated="20210622113913" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210622113913-1u5j159" data-node-id="20210622113913-1u5j159" data-type="NodeParagraph" updated="20210622113919" class="p"><a href="https://github.com/siyuan-note/oceanpress/commit/a322aee32544e3aa0e971b1cd2404678aa8f20b8">🦄 refactor(程序参数): 去除 AssetsDir 参数 </a>
+</div>
+
+    </div>
+</div>
+<div id="20210605214640-cmmoru5" data-node-id="20210605214640-cmmoru5" data-type="NodeHeading" updated="20210806113916" data-subtype="h4" class="h4">
+      <div>v0.3
+</div>
+    </div>
+<div id="20210605214834-1uf1fat" data-node-id="20210605214834-1uf1fat" data-type="NodeList" updated="20210806114102" data-subtype="t" class="list" heading-fold="1"><div id="20210806114102-3nlanl2" data-node-id="20210806114102-3nlanl2" data-type="NodeListItem" updated="20210806114102" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210806113916-udpdlin" data-node-id="20210806113916-udpdlin" data-type="NodeParagraph" updated="20210806113917" class="p"><a href="https://link.ld246.com/forward?goto=https%3A%2F%2Fgithub.com%2Fsiyuan-note%2Foceanpress%2Fcommit%2Fbc3b606a636bc5d34060583817e67e23c0e67a92">✨ feat(rss): rss 生成功能</a>
+：在文档名为 
+<span data-type="NodeTextMark" data-type="code"
+        >[/s/S]*.rss.xml</span
+      >
+ 这种格式的时候（例如：
+<span data-type="NodeTextMark" data-type="code"
+        >最近更新.rss.xml 最近新增.rss.xml</span
+      >
+ ）
+<br>
+ 会根据该文档内引用的其他文档另外生成一份 xml 格式的文件。
+</div>
+
+    </div>
+<div id="20210806113956-zpw7gvf" data-node-id="20210806113956-zpw7gvf" data-type="NodeListItem" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210806113956-45gxmny" data-node-id="20210806113956-45gxmny" data-type="NodeParagraph" class="p">点击 
+<span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210524143105-06o74k7"
+      >
+        <a href="./../../other/从零开始学习嵌入式-尝试.html">cargo install itm</a>
+      </span>
+无法定位到该元素
+</div>
+
+    </div>
+<div id="20210525113824-q3cdn1k" data-node-id="20210525113824-q3cdn1k" data-type="NodeListItem" updated="20210525113824" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210525113824-drz49hg" data-node-id="20210525113824-drz49hg" data-type="NodeParagraph" updated="20210606094016" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210524143105-06o74k7"
+      >
+        <a href="./../../other/从零开始学习嵌入式-尝试.html">cargo install itm</a>
+      </span>
+ 此处下方渲染多了一行列表（应该算思源的bug，该列表内容为空但思源没有显示）
+</div>
+
+    </div>
+<div id="20210524184039-735p3pr" data-node-id="20210524184039-735p3pr" data-type="NodeListItem" updated="20210524184039" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210524184039-d3dhewf" data-node-id="20210524184039-d3dhewf" data-type="NodeParagraph" updated="20210524184112" class="p">图片的居中效果没有生效，下方的描述文字也是这样
+</div>
+
+    </div>
+<div id="20210606092237-s5van5o" data-node-id="20210606092237-s5van5o" data-type="NodeListItem" updated="20210606092343" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210606092237-aivmnor" data-node-id="20210606092237-aivmnor" data-type="NodeParagraph" updated="20210606092343" class="p"><a href="https://github.com/siyuan-note/oceanpress/commit/8ac1f103f3a088fe67a4702d0ed828c83c86ff87">🐞 fix(代码块): 添加 id 等属性</a>
+ 之前没有 id 导致对代码块的引用无法跳转对应位置
+</div>
+
+    </div>
+<div id="20210606075706-eod0n4g" data-node-id="20210606075706-eod0n4g" data-type="NodeListItem" updated="20210606075706" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210606075706-ldpvx1v" data-node-id="20210606075706-ldpvx1v" data-type="NodeParagraph" updated="20210606083545" class="p"><a href="https://github.com/siyuan-note/oceanpress/commit/a89bbb505e8f80dcb1d458b8b69b7391bea552c5">✨ feat(块引用): 对于命名块的引用应该显示其命名</a>
+，示例 
+<span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210530160230-36ipusk"
+      >
+        <a href="./../../读书笔记/rust/崮生的rust速览.html">rust Result</a>
+      </span>
+</div>
+
+    </div>
+<div id="20210606074420-t3fdzq0" data-node-id="20210606074420-t3fdzq0" data-type="NodeListItem" updated="20210606080043" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210606074420-c14uddk" data-node-id="20210606074420-c14uddk" data-type="NodeParagraph" updated="20210606080043" class="p"><a href="https://github.com/siyuan-note/oceanpress/commit/f0ba1eb71b0208d708d33a2383c334cf41262b72">🐞 fix(块引用): 对于代码块的块引用没有渲染文本</a>
+</div>
+<div id="20210606075752-v9bw5hw" data-node-id="20210606075752-v9bw5hw" data-type="NodeList" updated="20210606075809" data-subtype="u" class="list"><div id="20210606075752-hm8sydq" data-node-id="20210606075752-hm8sydq" data-type="NodeListItem" updated="20210606075809" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210606075752-9anlz7x" data-node-id="20210606075752-9anlz7x" data-type="NodeParagraph" updated="20210606075809" class="p">lute 
+<a href="https://github.com/88250/lute/issues/146">Text 方法是否应该渲染 NodeCodeSpanContent 的内容？</a>
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210523162301-le1y5sf" data-node-id="20210523162301-le1y5sf" data-type="NodeListItem" updated="20210605215700" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210523162301-q10jslu" data-node-id="20210523162301-q10jslu" data-type="NodeParagraph" updated="20210606074037" class="p">当一个文档被同一个块内部引用了两次的时候底部反链也会渲染两次，应该改成只渲染一次
+
+<a href="https://github.com/siyuan-note/oceanpress/commit/999798e7f55956cdea09e103f8db2b1d5e00d966">🎈 perf(底部反链): 相同的块只渲染一次</a>
+
+
+<a href="https://github.com/siyuan-note/oceanpress/commit/dea1f645e6a413596a5a5bcfc935a92cd1b2d6ac">🎈 perf(render): 优化渲染速度;底部反链不再渲染当前文档内的引用
+</a>
+</div>
+
+    </div>
+<div id="20210602183045-0nq3jqj" data-node-id="20210602183045-0nq3jqj" data-type="NodeListItem" updated="20210606075900" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210602183045-e7hvpll" data-node-id="20210602183045-e7hvpll" data-type="NodeParagraph" updated="20210606075900" class="p">添加运行计时，优化编译速度
+</div>
+
+    </div>
+</div>
+<div id="20210605214715-g9xvzv8" data-node-id="20210605214715-g9xvzv8" data-type="NodeHeading" updated="20210623172731" data-subtype="h4" class="h4">
+      <div>v0.2.9 以及之前的提交
+</div>
+    </div>
+<div id="20210605214712-mgldf9a" data-node-id="20210605214712-mgldf9a" data-type="NodeList" updated="20210523155326" data-subtype="t" class="list" heading-fold="1"><div id="20210523202901-l40srsq" data-node-id="20210523202901-l40srsq" data-type="NodeListItem" updated="20210523202930" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210523202901-en4dmzf" data-node-id="20210523202901-en4dmzf" data-type="NodeParagraph" updated="20210523202930" class="p">块引用渲染产生了多余的空格
+</div>
+
+    </div>
+<div id="20210523180625-3phtm2s" data-node-id="20210523180625-3phtm2s" data-type="NodeListItem" updated="20210523180625" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210523180625-goe439k" data-node-id="20210523180625-goe439k" data-type="NodeParagraph" class="p"><span data-type="NodeTextMark" style="color: var(--b3-font-color8);" data-type="strong"
+        >超级块排版渲染有比较严重的问题</span
+      >
+
+ 
+<a href="https://github.com/siyuan-note/oceanpress/commit/86ce8ecc3f8fae30a650a124faa52266c12fb538">🐞 fix(超级块): 修复顺序错乱</a>
+</div>
+<div id="20210523145000-8jcqer7" data-node-id="20210523145000-8jcqer7" data-type="NodeList" updated="20210523145000" data-subtype="t" class="list"><div id="20210523145000-y20ovmp" data-node-id="20210523145000-y20ovmp" data-type="NodeListItem" updated="20210523145000" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210523145000-cypl2ni" data-node-id="20210523145000-cypl2ni" data-type="NodeParagraph" updated="20210523162059" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210523134052-dz43vdr"
+      >
+        <a href="./../../other/我来迁移文档/春秋义战.html">春秋义战</a>
+      </span>
+ 这里标题部分甚至渲染了两遍信息块
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210523144531-fuia9n7" data-node-id="20210523144531-fuia9n7" data-type="NodeListItem" updated="20210523155326" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      
+<div id="20210523144531-4p4jiv6" data-node-id="20210523144531-4p4jiv6" data-type="NodeParagraph" updated="20210523155326" class="p">软换行没有渲染出效果 
+<a href="https://github.com/siyuan-note/oceanpress/commit/457c6eb566bad4275cf027e59090777e775efb50">✨ feat(软换行): 完成软换行适配</a>
+</div>
+
+    </div>
+</div>
+<div id="20210605214653-7o255xb" data-node-id="20210605214653-7o255xb" data-type="NodeHeading" updated="20210626180122" data-subtype="h3" class="h3">
+      <div>一开始想实现后来放弃了的特性（没有足够的收益）
+</div>
+    </div>
+<div id="20210626180113-cq6i6qd" data-node-id="20210626180113-cq6i6qd" data-type="NodeList" updated="20210626180125" data-subtype="t" class="list"><div id="20210527121800-ow5f9km" data-node-id="20210527121800-ow5f9km" data-type="NodeListItem" updated="20210626180125" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      
+<div id="20210527121800-y79g36b" data-node-id="20210527121800-y79g36b" data-type="NodeParagraph" updated="20210626180125" class="p">利用 
+<span data-type="NodeTextMark" data-type="code"
+        >go:embed</span
+      >
+ 将静态资源嵌入到二进制文件
+</div>
+
+    </div>
+</div>
+<div id="20201123184151-347n1yy" data-node-id="20201123184151-347n1yy" data-type="NodeHeading" updated="20210527112920" data-subtype="h2" class="h2">
+      <div>开发记录
+</div>
+    </div>
+<div id="20201123184156-ypy520c" data-node-id="20201123184156-ypy520c" data-type="NodeList" data-subtype="u" class="list" heading-fold="1" data-marker="-"><div id="20201123184252-lv442ve" data-node-id="20201123184252-lv442ve" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210209130028-vljry5d" data-node-id="20210209130028-vljry5d" data-type="NodeParagraph" class="p">2020/11/23 
+<a href="https://github.com/88250/lute/issues/114">遇到 lute 对嵌入块查询的渲染bug </a>
+</div>
+
+    </div>
+</div>
+<div id="20210209130028-x9x8ywu" data-node-id="20210209130028-x9x8ywu" data-type="NodeList" updated="20210408173533" data-subtype="u" class="list" heading-fold="1" data-marker="-"><div id="20210408173455-ktu5tzn" data-node-id="20210408173455-ktu5tzn" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210408173455-cbdlrix" data-node-id="20210408173455-cbdlrix" data-type="NodeParagraph" updated="20210408173628" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201121142503-ivwtfzg"
+      >
+        <a href="./../../想法/项目/OceanPress.html">OceanPress</a>
+      </span>
+  新增  
+<a href="https://github.com/siyuan-note/oceanpress/issues/8">底部反链显示</a>
+</div>
+<div id="20210408173542-tinqdc1" data-node-id="20210408173542-tinqdc1" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210408173542-ahu9z8v" data-node-id="20210408173542-ahu9z8v" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210408173542-4asra9r" data-node-id="20210408173542-4asra9r" data-type="NodeParagraph" updated="20210408173601" class="p"><span data-type="NodeImage" class="img" style="display: block; text-align: center; white-space: initial;" style="undefined"
+      ><img
+        src="./../../assets/image-20210408173544-08xe8hl.png"
+        data-src="./../../assets/image-20210408173544-08xe8hl.png"
+        title="演示截图"
+        style="display: block; text-align: center; white-space: initial;"
+      /><span class="protyle-action__title">演示截图</span></span
+    >
+
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="20201121142443-72dsrnf" data-node-id="20201121142443-72dsrnf" data-type="NodeHeading" updated="20201121142443" data-subtype="h2" class="h2">
+      <div>其他相关信息
+</div>
+    </div>
+<div id="20210905181857-2d5qywm" data-node-id="20210905181857-2d5qywm" data-type="NodeHeading" updated="20210905181907" data-subtype="h3" class="h3">
+      <div>OceanPress 开发规范
+</div>
+    </div>
+<div id="20210905181907-4ts9hhv" data-node-id="20210905181907-4ts9hhv" data-type="NodeList" updated="20210905223847" data-subtype="u" class="list"><div id="20210905181911-02n2gab" data-node-id="20210905181911-02n2gab" data-type="NodeListItem" updated="20210905223847" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210905181911-ad24ziz" data-node-id="20210905181911-ad24ziz" data-type="NodeParagraph" updated="20210905182636" class="p"><span data-type="NodeTextMark" data-type="strong"
+        >发版</span
+      >
+</div>
+<div id="20210905181914-lw7w9id" data-node-id="20210905181914-lw7w9id" data-type="NodeList" updated="20210905223847" data-subtype="u" class="list"><div id="20210905181914-sqa9dy0" data-node-id="20210905181914-sqa9dy0" data-type="NodeListItem" updated="20210905182657" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210905181914-4dzs9wk" data-node-id="20210905181914-4dzs9wk" data-type="NodeParagraph" updated="20210905182657" class="p">使用 github 的 actions 功能在添加特定 tag 时自动发版
+</div>
+
+    </div>
+<div id="20210905181933-ueos7ua" data-node-id="20210905181933-ueos7ua" data-type="NodeListItem" updated="20210905223847" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210905181933-gh228o8" data-node-id="20210905181933-gh228o8" data-type="NodeParagraph" updated="20210905223847" class="p">tag 采用 
+<span data-type="NodeTextMark" data-type="code"
+        >v0.5.3_tested_on_siyuan_v1.3.3_Kernel_v1.3.3</span
+      >
+ 这样的格式，前面的 v0.5.3 代表 OceanPress 自身的版本号，后面的 siyuan_v1.3.3_Kernel_v1.3.3 表示该版本在思源对应版本所生成的数据下进行测试和开发的
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="20201121142546-la6gl1c" data-node-id="20201121142546-la6gl1c" data-type="NodeParagraph" updated="20201121142546" class="p"><a href="https://github.com/siyuan-note/siyuan/issues/34">思源 生成静态站点 issues </a>
+ 
+<span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201123184151-347n1yy"
+      >
+        <a href="./../../想法/项目/OceanPress.html">开发记录</a>
+      </span>
+</div>
+<div id="20201225091218-pxbqz6v" data-node-id="20201225091218-pxbqz6v" data-type="NodeParagraph" updated="20210523155944" class="p">
+ 移动到 
+<span data-type="NodeTextMark" data-type="code"
+        >siyuan-note</span
+      >
+ 组织了  
+<a href="https://github.com/siyuan-note/oceanpress">oceanpress github 地址</a>
+( 
+<span
+        data-type="block-ref"
+        data-subtype="s"
+        data-id="20201121142546-la6gl1c"
+      >
+        <a href="./../../想法/项目/OceanPress.html">相关 issues</a>
+      </span>
+ ) , 并且改名 
+<span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201121142503-ivwtfzg"
+      >
+        <a href="./../../想法/项目/OceanPress.html">OceanPress</a>
+      </span>
+</div>
+<div id="20210408173534-g2iwtr5" data-node-id="20210408173534-g2iwtr5" data-type="NodeHeading" updated="20210527113138" data-subtype="h2" class="h2" style="border-radius: 4px; transition: all 0.15s cubic-bezier(0, 0, 0.2, 1) 0ms; background-color: var(--b3-theme-primary-lightest); box-shadow: 4px 0px 0 var(--b3-theme-primary-lightest), -4px 0px 0 var(--b3-theme-primary-lightest);">
+      <div><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201121142503-ivwtfzg"
+      >
+        <a href="./../../想法/项目/OceanPress.html">OceanPress</a>
+      </span>
+ 挂件块支持
+</div>
+    </div>
+<div id="20210527113140-qfyydu4" data-node-id="20210527113140-qfyydu4" data-type="NodeHeading" updated="20210527113202" data-subtype="h3" class="h3">
+      <div>起始-qq群讨论
+</div>
+    </div>
+<div id="20210527113020-u0u6fl8" data-node-id="20210527113020-u0u6fl8" data-type="NodeParagraph" updated="20210527113100" class="p">88250 2021-05-25 22:05:31
+@2234839 
+<a href="https://github.com/siyuan-note/siyuan/issues/1488
+">思源挂件块 Widget Block </a>
+</div>
+<div id="20210527113020-4j1ob5z" data-node-id="20210527113020-4j1ob5z" data-type="NodeParagraph" updated="20210527113735" class="p">2234839 2021-05-25 22:08:27
+@88250 看上去如果没有运行时的api调用的话 oceanPress 可以兼容 /疑问
+</div>
+<div id="20210527113020-jvkgh67" data-node-id="20210527113020-jvkgh67" data-type="NodeParagraph" updated="20210527113020" class="p">88250 2021-05-25 22:09:08
+iframe 得有伺服环境
+</div>
+<div id="20210527113020-w8am9gj" data-node-id="20210527113020-w8am9gj" data-type="NodeParagraph" updated="20210527113020" class="p">2234839 2021-05-25 22:16:28
+直接兼容好像不可能，不过挂件块如果提供一个hook函数在这个函数内做完从用户输入以及思源api调用返回他需要的数据，oceanpress 将这个数据持久化到页面然后再通过iframe喂给挂件块。还是有一定的机会
+</div>
+<div id="20210527113020-c7tvw1j" data-node-id="20210527113020-c7tvw1j" data-type="NodeParagraph" updated="20210527113020" class="p">88250 2021-05-25 22:18:14
+了解，这部分下个月我们讨论一下
+</div>
+<div id="20210527113020-0a7m2p0" data-node-id="20210527113020-0a7m2p0" data-type="NodeParagraph" updated="20210527113103" class="p">2234839 2021-05-25 22:18:23
+@88250 OK
+</div>
+<div id="20210527113204-cbf1xsl" data-node-id="20210527113204-cbf1xsl" data-type="NodeHeading" updated="20210527113216" data-subtype="h3" class="h3">
+      <div>可行性
+</div>
+    </div>
+<div id="20210527113217-utdicpv" data-node-id="20210527113217-utdicpv" data-type="NodeList" updated="20210602183209" data-subtype="u" class="list"><div id="20210527115746-elx2zt3" data-node-id="20210527115746-elx2zt3" data-type="NodeListItem" updated="20210602183209" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210527115746-esjnupf" data-node-id="20210527115746-esjnupf" data-type="NodeParagraph" class="p">golang 的 ECMAScript/js 引擎 : 
+<a href="undefined">https://github.com/dop251/goja</a>
+</div>
+<div id="20210527115747-ih38vuh" data-node-id="20210527115747-ih38vuh" data-type="NodeList" updated="20210602183209" data-subtype="u" class="list"><div id="20210527115747-jo25yzg" data-node-id="20210527115747-jo25yzg" data-type="NodeListItem" updated="20210602183209" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210527115747-avte7l7" data-node-id="20210527115747-avte7l7" data-type="NodeParagraph" updated="20210602183209" class="p">对 es6 的支持还不太行（也许可以通过运行 babel.js 来解决这个问题）
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="20210527113315-knp9lh8" data-node-id="20210527113315-knp9lh8" data-type="NodeParagraph" updated="20210527113403" class="p">我目前的大致思路就是利用 goja 来 
+<span
+        data-type="block-ref"
+        data-subtype="s"
+        data-id="20210527113020-w8am9gj"
+      >
+        <a href="./../../想法/项目/OceanPress.html">执行 hook 函数并持久化数据</a>
+      </span>
+</div>
+<div id="20210527113401-svyf82q" data-node-id="20210527113401-svyf82q" data-type="NodeHeading" updated="20210717111421" data-subtype="h3" class="h3">
+      <div>使用请求缓存来持久化数据 
+<a href="https://github.com/2234839/siyuan_api_cache_lib#readme">git repo</a>
+</div>
+    </div>
+<div id="20210716113508-3y57naj" data-node-id="20210716113508-3y57naj" data-type="NodeParagraph" updated="20210716113515" class="p">提供一个npm包，用来支持 思源笔记的api请求和数据持久化，方便用于 oceanpress 这样的离线场景
+<br>
+<br>
+原理：在处于思源笔记内运行时，对于查询类的 api 对请求结果进行缓存（存到自定义属性）
+<br>
+处于非思源笔记场景时对于查询请求就不会发送xhr了而是使用之前缓存的结果
+</div>
+<div id="20210716113521-5w4bg4n" data-node-id="20210716113521-5w4bg4n" data-type="NodeHeading" updated="20210716113523" data-subtype="h4" class="h4">
+      <div>其它特性
+</div>
+    </div>
+<div id="20210716113538-257xetr" data-node-id="20210716113538-257xetr" data-type="NodeParagraph" updated="20210716113539" class="p">- 利用 .d.ts 提供思源接口的类型
+<br>
+- 提供环境判断的函数使挂件可以知道当前处于什么模式，便于其停止写操作以及相关 ui 的展现
+</div>
+<div id="20210717111323-h8zlq8z" data-node-id="20210717111323-h8zlq8z" data-type="NodeHeading" updated="20210717111335" data-subtype="h4" class="h4">
+      <div>架构设计
+</div>
+    </div>
+<div id="20210717111448-smr8gf6" data-node-id="20210717111448-smr8gf6" data-type="NodeList" updated="20210721204124" data-subtype="u" class="list"><div id="20210717111804-undw78r" data-node-id="20210717111804-undw78r" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210717111804-y26naj4" data-node-id="20210717111804-y26naj4" data-type="NodeParagraph" updated="20210717111806" class="p">角色
+</div>
+<div id="20210717111807-7jq4r03" data-node-id="20210717111807-7jq4r03" data-type="NodeList" data-subtype="u" class="list"><div id="20210717111806-sc2wh2w" data-node-id="20210717111806-sc2wh2w" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210717111806-jjf08a4" data-node-id="20210717111806-jjf08a4" data-type="NodeParagraph" class="p">挂件块使用者
+</div>
+
+    </div>
+<div id="20210717111809-t0ltl4z" data-node-id="20210717111809-t0ltl4z" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210717111809-tencm6k" data-node-id="20210717111809-tencm6k" data-type="NodeParagraph" updated="20210717111816" class="p">挂件块开发者
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210717111834-khyq1o8" data-node-id="20210717111834-khyq1o8" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210717111834-xk3ghtk" data-node-id="20210717111834-xk3ghtk" data-type="NodeParagraph" updated="20210717111843" class="p">场景
+</div>
+<div id="20210717111844-8l8u5vk" data-node-id="20210717111844-8l8u5vk" data-type="NodeList" data-subtype="u" class="list"><div id="20210717111843-8cihuq6" data-node-id="20210717111843-8cihuq6" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210717111843-k5498nj" data-node-id="20210717111843-k5498nj" data-type="NodeParagraph" updated="20210717112121" class="p">思源笔记
+</div>
+
+    </div>
+<div id="20210717111847-s83ptgs" data-node-id="20210717111847-s83ptgs" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210717111847-b27k22q" data-node-id="20210717111847-b27k22q" data-type="NodeParagraph" updated="20210717112119" class="p">非思源笔记
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210717112147-6ptdeod" data-node-id="20210717112147-6ptdeod" data-type="NodeListItem" updated="20210721204124" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210717112147-cbpxy1k" data-node-id="20210717112147-cbpxy1k" data-type="NodeParagraph" updated="20210717112149" class="p">功能
+</div>
+<div id="20210717112150-ut1nbkw" data-node-id="20210717112150-ut1nbkw" data-type="NodeList" updated="20210721204124" data-subtype="u" class="list"><div id="20210717112149-z6jbsw8" data-node-id="20210717112149-z6jbsw8" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210717112149-vdqcp6c" data-node-id="20210717112149-vdqcp6c" data-type="NodeParagraph" updated="20210717112155" class="p">思源 api 调用 
+</div>
+
+    </div>
+<div id="20210721204111-qnqub7g" data-node-id="20210721204111-qnqub7g" data-type="NodeListItem" updated="20210721204124" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210721204111-5xm0a3i" data-node-id="20210721204111-5xm0a3i" data-type="NodeParagraph" updated="20210721204124" class="p">判断所处环境
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="20210716113427-gvs2xk4" data-node-id="20210716113427-gvs2xk4" data-type="NodeParagraph" updated="20210716113427" class="p"></div>
+<div id="20210819144604-fohtbtl" data-node-id="20210819144604-fohtbtl" data-type="NodeParagraph" updated="20210819144604" class="p"></div>
+<div id="20210905160428-umnyvj1" data-node-id="20210905160428-umnyvj1" data-type="NodeParagraph" updated="20210905160428" class="p"></div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>javascipt 可能会抛出异常的方法统计</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210411105659-pcgjcao" data-node-id="20210411105659-pcgjcao" data-type="NodeDocument" updated="20210411105659" data-subtype="h1" class="h1" title="javascipt 可能会抛出异常的方法统计" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210414133152-ygcpacf" data-node-id="20210414133152-ygcpacf" data-type="NodeParagraph" updated="20210414133228" class="p">此文档来自对 
+<span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210414122455-mqv4xo9"
+      >
+        <a href="./../other/javascipt 可能会抛出异常的方法统计.html">mdn Errors参考页面</a>
+      </span>
+ 的整理。
+</div>
+<div id="20210414133229-epjbo70" data-node-id="20210414133229-epjbo70" data-type="NodeParagraph" updated="20210414133551" class="p">总得来说使用下面这些需要小心谨慎
+</div>
+<div id="20210414133415-4a86di0" data-node-id="20210414133415-4a86di0" data-type="NodeList" updated="20210414133415" data-subtype="u" class="list" data-marker="-"><div id="20210414133415-6tq4qbs" data-node-id="20210414133415-6tq4qbs" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414133415-zzruzm8" data-node-id="20210414133415-zzruzm8" data-type="NodeParagraph" updated="20210414133421" class="p">构造相关
+</div>
+<div id="20210414133422-a9wjuu4" data-node-id="20210414133422-a9wjuu4" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210414133422-q32wle5" data-node-id="20210414133422-q32wle5" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414133422-7s37gpc" data-node-id="20210414133422-7s37gpc" data-type="NodeParagraph" updated="20210414133536" class="p"><span data-type="NodeTextMark" data-type="code"
+        >Array</span
+      >
+ 
+<span data-type="NodeTextMark" data-type="code"
+        >ArrayBuffer</span
+      >
+ 
+<span data-type="NodeTextMark" data-type="code"
+        >Date</span
+      >
+ 
+<span data-type="NodeTextMark" data-type="code"
+        >Function</span
+      >
+ 
+<span data-type="NodeTextMark" data-type="code"
+        >RegExp</span
+      >
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210414133547-k6tpyf8" data-node-id="20210414133547-k6tpyf8" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414133546-y8fr1g2" data-node-id="20210414133546-y8fr1g2" data-type="NodeParagraph" updated="20210414133600" class="p">方法调用相关
+</div>
+<div id="20210414133602-u96k5o6" data-node-id="20210414133602-u96k5o6" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210414133602-4xbuitv" data-node-id="20210414133602-4xbuitv" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414133602-n5ahu3z" data-node-id="20210414133602-n5ahu3z" data-type="NodeParagraph" updated="20210414133847" class="p">String
+</div>
+<div id="20210414133848-kensbuu" data-node-id="20210414133848-kensbuu" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210414133848-0ie16em" data-node-id="20210414133848-0ie16em" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414133848-ck6zxx7" data-node-id="20210414133848-ck6zxx7" data-type="NodeParagraph" updated="20210414133848" class="p"><span data-type="NodeTextMark" data-type="code"
+        >String.fromCodePoint()</span
+      >
+</div>
+
+    </div>
+<div id="20210414133850-1s05fp9" data-node-id="20210414133850-1s05fp9" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414133850-x98y1p3" data-node-id="20210414133850-x98y1p3" data-type="NodeParagraph" updated="20210414133850" class="p"><span data-type="NodeTextMark" data-type="code"
+        >String.prototype.repeat()</span
+      >
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210414133743-jb6xvwm" data-node-id="20210414133743-jb6xvwm" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414133743-k9aw9m0" data-node-id="20210414133743-k9aw9m0" data-type="NodeParagraph" updated="20210414133743" class="p"><span data-type="NodeTextMark" data-type="code"
+        >Date.parse()</span
+      >
+</div>
+
+    </div>
+<div id="20210414133734-ovvd86q" data-node-id="20210414133734-ovvd86q" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414133734-4dz6dqa" data-node-id="20210414133734-4dz6dqa" data-type="NodeParagraph" updated="20210414133820" class="p">Number
+</div>
+<div id="20210414133821-ohld38v" data-node-id="20210414133821-ohld38v" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210414133820-nnbsd04" data-node-id="20210414133820-nnbsd04" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414133820-nudtqjy" data-node-id="20210414133820-nudtqjy" data-type="NodeParagraph" updated="20210414133820" class="p"><span data-type="NodeTextMark" data-type="code"
+        >Number.prototype.toExponential()</span
+      >
+</div>
+
+    </div>
+<div id="20210414133825-h2ep561" data-node-id="20210414133825-h2ep561" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414133825-cxvvz6z" data-node-id="20210414133825-cxvvz6z" data-type="NodeParagraph" updated="20210414133825" class="p">
+</div>
+
+    </div>
+<div id="20210414133829-o5kea0m" data-node-id="20210414133829-o5kea0m" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414133829-outckvn" data-node-id="20210414133829-outckvn" data-type="NodeParagraph" updated="20210414133829" class="p"><span data-type="NodeTextMark" data-type="code"
+        >Number.prototype.toPrecision()</span
+      >
+</div>
+
+    </div>
+<div id="20210414133831-cx4x1wp" data-node-id="20210414133831-cx4x1wp" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414133831-1xh9dsy" data-node-id="20210414133831-1xh9dsy" data-type="NodeParagraph" updated="20210414133835" class="p"><span data-type="NodeTextMark" data-type="code"
+        >Number.prototype.toString()</span
+      >
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210414133848-srjxiib" data-node-id="20210414133848-srjxiib" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414133850-5dclcb4" data-node-id="20210414133850-5dclcb4" data-type="NodeParagraph" updated="20210414134019" class="p">JSON
+</div>
+<div id="20210414134020-hhijy1v" data-node-id="20210414134020-hhijy1v" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210414134020-ymzdhao" data-node-id="20210414134020-ymzdhao" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414134020-zepa3hl" data-node-id="20210414134020-zepa3hl" data-type="NodeParagraph" updated="20210414134020" class="p"><span data-type="NodeTextMark" data-type="code"
+        >JSON.parse()</span
+      >
+</div>
+
+    </div>
+<div id="20210414134021-4n39tfc" data-node-id="20210414134021-4n39tfc" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414134021-oklqkp1" data-node-id="20210414134021-oklqkp1" data-type="NodeParagraph" updated="20210414134021" class="p"><span data-type="NodeTextMark" data-type="code"
+        >JSON.stringify()</span
+      >
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210414133950-0f40j25" data-node-id="20210414133950-0f40j25" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414133950-9sihuap" data-node-id="20210414133950-9sihuap" data-type="NodeParagraph" updated="20210414133956" class="p"><span data-type="NodeTextMark" data-type="code"
+        >Object.create()</span
+      >
+</div>
+
+    </div>
+<div id="20210414133959-7grpvqd" data-node-id="20210414133959-7grpvqd" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414133959-0tpbph9" data-node-id="20210414133959-0tpbph9" data-type="NodeParagraph" updated="20210414133958" class="p"><span data-type="NodeTextMark" data-type="code"
+        >Symbol.keyFor()</span
+      >
+</div>
+
+    </div>
+<div id="20210414134020-shgslda" data-node-id="20210414134020-shgslda" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414134021-xkcj3i2" data-node-id="20210414134021-xkcj3i2" data-type="NodeParagraph" class="p"><span data-type="NodeTextMark" data-type="code"
+        >instanceof</span
+      >
+</div>
+
+    </div>
+<div id="20210414134050-udbc8j5" data-node-id="20210414134050-udbc8j5" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414134050-h7hmqzu" data-node-id="20210414134050-h7hmqzu" data-type="NodeParagraph" updated="20210414134113" class="p">URI
+</div>
+<div id="20210414134116-czl0mbl" data-node-id="20210414134116-czl0mbl" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210414134115-2wrd6iu" data-node-id="20210414134115-2wrd6iu" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414134115-uz2j1qw" data-node-id="20210414134115-uz2j1qw" data-type="NodeParagraph" updated="20210414134115" class="p"><span data-type="NodeTextMark" data-type="code"
+        >decodeURI()</span
+      >
+</div>
+
+    </div>
+<div id="20210414134121-vxmku5s" data-node-id="20210414134121-vxmku5s" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414134121-oif058c" data-node-id="20210414134121-oif058c" data-type="NodeParagraph" updated="20210414134129" class="p"><span data-type="NodeTextMark" data-type="code"
+        >encodeURI()</span
+      >
+</div>
+
+    </div>
+<div id="20210414134130-larwdpq" data-node-id="20210414134130-larwdpq" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414134130-3nia3g1" data-node-id="20210414134130-3nia3g1" data-type="NodeParagraph" updated="20210414134130" class="p">
+</div>
+
+    </div>
+<div id="20210414134136-4z2of8q" data-node-id="20210414134136-4z2of8q" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414134136-fdigb3j" data-node-id="20210414134136-fdigb3j" data-type="NodeParagraph" updated="20210414134136" class="p">
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210414134144-s60gceu" data-node-id="20210414134144-s60gceu" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414134139-9rinrhg" data-node-id="20210414134139-9rinrhg" data-type="NodeParagraph" updated="20210414134200" class="p">Function
+</div>
+<div id="20210414134201-4wprbk0" data-node-id="20210414134201-4wprbk0" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210414134201-qfl3fpc" data-node-id="20210414134201-qfl3fpc" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414134201-s460ff5" data-node-id="20210414134201-s460ff5" data-type="NodeParagraph" updated="20210414134218" class="p"><span data-type="NodeTextMark" data-type="code"
+        >Function.prototype.call()</span
+      >
+</div>
+
+    </div>
+<div id="20210414134220-qg0aud4" data-node-id="20210414134220-qg0aud4" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414134220-515zqhk" data-node-id="20210414134220-515zqhk" data-type="NodeParagraph" updated="20210414134222" class="p"><span data-type="NodeTextMark" data-type="code"
+        >Function.prototype.apply()</span
+      >
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="20210414125032-b7djx4n" data-node-id="20210414125032-b7djx4n" data-type="NodeHeading" updated="20210414125122" data-subtype="h2" class="h2">
+      <div>
+特殊场景下的错误
+</div>
+    </div>
+<div id="20210414125053-4ab2lxb" data-node-id="20210414125053-4ab2lxb" data-type="NodeList" updated="20210414125054" data-subtype="u" class="list" data-marker="-"><div id="20210414125054-hk9m9xb" data-node-id="20210414125054-hk9m9xb" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414125054-ei2oov7" data-node-id="20210414125054-ei2oov7" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Property_access_denied">Error: Permission denied to access property &quot;x&quot;</a>
+</div>
+
+    </div>
+<div id="20210414125125-f6gud0y" data-node-id="20210414125125-f6gud0y" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414125125-btqtkqt" data-node-id="20210414125125-btqtkqt" data-type="NodeParagraph" updated="20210414125125" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Too_much_recursion">InternalError: too much recursion</a>
+</div>
+
+    </div>
+<div id="20210414125746-cuhyoub" data-node-id="20210414125746-cuhyoub" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414125746-l2tf8u9" data-node-id="20210414125746-l2tf8u9" data-type="NodeParagraph" updated="20210414125746" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210414124112-c3m2knd"
+      >
+        <a href="./../other/javascipt 可能会抛出异常的方法统计.html">ReferenceError</a>
+      </span>
+</div>
+
+    </div>
+</div>
+<div id="20210414123752-3z491wq" data-node-id="20210414123752-3z491wq" data-type="NodeHeading" updated="20210414123819" data-subtype="h2" class="h2">
+      <div>
+
+</div>
+    </div>
+<div id="20210414124015-fdcjd6w" data-node-id="20210414124015-fdcjd6w" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210414123846-11vkhri" data-node-id="20210414123846-11vkhri" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414123846-rk67tnb" data-node-id="20210414123846-rk67tnb" data-type="NodeParagraph" updated="20210414123901" class="p">
+  
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_a_codepoint">RangeError: argument is not a valid code point</a>
+</div>
+
+    </div>
+<div id="20210414123903-kdxuu8k" data-node-id="20210414123903-kdxuu8k" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414123903-cyrsawf" data-node-id="20210414123903-cyrsawf" data-type="NodeParagraph" updated="20210414123931" class="p">
+ 
+
+  
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Invalid_array_length">RangeError: invalid array length</a>
+</div>
+
+    </div>
+<div id="20210414123933-o3iikne" data-node-id="20210414123933-o3iikne" data-type="NodeListItem" updated="20210414123933" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414123945-yeit6r9" data-node-id="20210414123945-yeit6r9" data-type="NodeParagraph" updated="20210414124000" class="p">
+ 
+
+ 
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Invalid_date">RangeError: invalid date</a>
+</div>
+
+    </div>
+<div id="20210414124011-nv6qixu" data-node-id="20210414124011-nv6qixu" data-type="NodeListItem" updated="20210414124011" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414124015-e6xinz8" data-node-id="20210414124015-e6xinz8" data-type="NodeParagraph" updated="20210414124055" class="p">
+ 
+
+ 
+
+​
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Precision_range">RangeError: precision is out of range</a>
+</div>
+
+    </div>
+<div id="20210414124113-edi97js" data-node-id="20210414124113-edi97js" data-type="NodeListItem" updated="20210414124011" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414124113-otnygcd" data-node-id="20210414124113-otnygcd" data-type="NodeParagraph" updated="20210414124305" class="p">
+ 
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Bad_radix">RangeError: radix must be an integer</a>
+</div>
+
+    </div>
+<div id="20210414124403-pkhixye" data-node-id="20210414124403-pkhixye" data-type="NodeListItem" updated="20210414124011" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414124403-u5171lz" data-node-id="20210414124403-u5171lz" data-type="NodeParagraph" updated="20210414124751" class="p">
+ 
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Resulting_string_too_large">RangeError: repeat count must be less than infinity</a>
+</div>
+<div id="20210414124436-291ogcp" data-node-id="20210414124436-291ogcp" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210414124435-gujxsj5" data-node-id="20210414124435-gujxsj5" data-type="NodeListItem" updated="20210414124011" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414124435-jkxran8" data-node-id="20210414124435-jkxran8" data-type="NodeParagraph" updated="20210414124932" class="p">用来计数的参数小于正 
+
+ ，
+<span
+        data-type="block-ref"
+        data-subtype="s"
+        data-id="20210414124751-352qw0z"
+      >
+        <a href="./../other/javascipt 可能会抛出异常的方法统计.html">且不能为负数</a>
+      </span>
+。该值的合法范围可以这样表示： [0, +∞)。
+</div>
+
+    </div>
+<div id="20210414124540-lt8unu1" data-node-id="20210414124540-lt8unu1" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414124540-qzfhuw0" data-node-id="20210414124540-qzfhuw0" data-type="NodeParagraph" class="p">其结果字符串也不能长于最大字符串，不同 JavaScript 引擎中可能有所不同。 在 Firefox (SpiderMonkey) 里最大字符串大小为 2
+<span data-type="NodeTextMark" data-type="sup"
+        >28</span
+      >
+ -1 (
+<span data-type="NodeTextMark" data-type="code"
+        >0xFFFFFFF</span
+      >
+)。
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210414124624-uumge2b" data-node-id="20210414124624-uumge2b" data-type="NodeListItem" updated="20210414124749" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414124751-352qw0z" data-node-id="20210414124751-352qw0z" data-type="NodeParagraph" class="p">
+ 
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Negative_repetition_count">RangeError: repeat count must be non-negative</a>
+</div>
+
+    </div>
+</div>
+<div id="20210414124112-c3m2knd" data-node-id="20210414124112-c3m2knd" data-type="NodeHeading" updated="20210414125205" data-subtype="h2" class="h2">
+      <div>
+
+</div>
+    </div>
+<div id="20210414125206-4jkawg4" data-node-id="20210414125206-4jkawg4" data-type="NodeList" updated="20210414125232" data-subtype="u" class="list" data-marker="-"><div id="20210414125232-r92eip8" data-node-id="20210414125232-r92eip8" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414125232-nau5r8k" data-node-id="20210414125232-nau5r8k" data-type="NodeParagraph" updated="20210414125258" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Not_defined">ReferenceError: &quot;x&quot; is not defined</a>
+</div>
+<div id="20210414125259-b5b6nh4" data-node-id="20210414125259-b5b6nh4" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210414125259-8awd0x5" data-node-id="20210414125259-8awd0x5" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414125259-id9rsut" data-node-id="20210414125259-id9rsut" data-type="NodeParagraph" updated="20210414125259" class="p">当你使用变量的时候，这个变量必须是已经被声明的，或者你可以确保它在你当前的脚本或作用域 (
+<a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope">scope</a>
+) 中可用。
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210414125259-rp3sboq" data-node-id="20210414125259-rp3sboq" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414125259-igx7v0h" data-node-id="20210414125259-igx7v0h" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Undeclared_var">ReferenceError: assignment to undeclared variable &quot;x&quot;</a>
+</div>
+<div id="20210414125336-g46v9bh" data-node-id="20210414125336-g46v9bh" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210414125335-mrxzom4" data-node-id="20210414125335-mrxzom4" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414125335-fe3q95t" data-node-id="20210414125335-fe3q95t" data-type="NodeParagraph" updated="20210414125335" class="p">仅在
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode">严格模式</a>
+中出现 
+
+ 警告。
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210414125439-uihb0o8" data-node-id="20210414125439-uihb0o8" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414125438-5vuzitr" data-node-id="20210414125438-5vuzitr" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Cant_access_lexical_declaration_before_init">ReferenceError: can't access lexical declaration`X' before initialization</a>
+</div>
+<div id="20210414125451-hgzd185" data-node-id="20210414125451-hgzd185" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210414125450-8n4g7hx" data-node-id="20210414125450-8n4g7hx" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414125450-eu1kw9k" data-node-id="20210414125450-eu1kw9k" data-type="NodeParagraph" updated="20210414125450" class="p">词法变量在初始化之前被访问。该错误可以发生于任何语句块中，当使用 let 或 const 修饰的变量在初始化之前被访问的时候。
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210414125609-xyn2bt0" data-node-id="20210414125609-xyn2bt0" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414125608-uy6m1f1" data-node-id="20210414125608-uy6m1f1" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Deprecated_caller_or_arguments_usage">ReferenceError: deprecated caller or arguments usage</a>
+</div>
+<div id="20210414125615-ge6lkaz" data-node-id="20210414125615-ge6lkaz" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210414125615-zjr5upi" data-node-id="20210414125615-zjr5upi" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414125615-li2hb1d" data-node-id="20210414125615-li2hb1d" data-type="NodeParagraph" updated="20210414125615" class="p">仅在严格模式下出现的 
+
+ 警告。JavaScript 的执行将不会停止。
+</div>
+
+    </div>
+<div id="20210414125616-o8pi1jc" data-node-id="20210414125616-o8pi1jc" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414125616-xj13r7j" data-node-id="20210414125616-xj13r7j" data-type="NodeParagraph" class="p">在 
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode">strict mode</a>
+ 中，
+
+ 和 
+
+ 属性是不该使用的。它们都是已经被废弃的了，因为这两者泄露了函数的调用者，是不标准的，难于优化和有这潜在的性能问题。
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210414125700-lm1oudp" data-node-id="20210414125700-lm1oudp" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414125659-s1ofgy7" data-node-id="20210414125659-s1ofgy7" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Invalid_assignment_left-hand_side">ReferenceError: invalid assignment left-hand side</a>
+</div>
+
+    </div>
+<div id="20210414130743-nfw1vp9" data-node-id="20210414130743-nfw1vp9" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414125728-wck75bh" data-node-id="20210414125728-wck75bh" data-type="NodeParagraph" updated="20210414130742" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Undefined_prop">ReferenceError: reference to undefined property &quot;x&quot;</a>
+</div>
+<div id="20210414130745-0k44ukh" data-node-id="20210414130745-0k44ukh" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210414125728-ud4yrs8" data-node-id="20210414125728-ud4yrs8" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130743-yvyhsjh" data-node-id="20210414130743-yvyhsjh" data-type="NodeParagraph" class="p">脚本尝试去访问一个不存在的对象属性。
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_Accessors">property accessors</a>
+页面描述了两种访问属性的方法。
+</div>
+
+    </div>
+</div>
+<div id="20210414125835-akbyhs4" data-node-id="20210414125835-akbyhs4" data-type="NodeParagraph" class="p">引用未定义属性的错误仅出现在 
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode">strict mode </a>
+代码中。在非严格代码中，对不存在的属性的访问将被忽略
+</div>
+
+    </div>
+</div>
+<div id="20210414125905-tiod6ye" data-node-id="20210414125905-tiod6ye" data-type="NodeHeading" updated="20210414125906" data-subtype="h2" class="h2">
+      <div>
+
+</div>
+    </div>
+<div id="20210414125907-9h3y6h4" data-node-id="20210414125907-9h3y6h4" data-type="NodeList" updated="20210414125941" data-subtype="u" class="list" data-marker="-"><div id="20210414125941-gc2m0ch" data-node-id="20210414125941-gc2m0ch" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414125941-xf44ij9" data-node-id="20210414125941-xf44ij9" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Deprecated_octal">SyntaxError: &quot;0&quot;-prefixed octal literals and octal escape seq. are deprecated</a>
+</div>
+
+    </div>
+<div id="20210414130017-lgqblq8" data-node-id="20210414130017-lgqblq8" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130017-1shvnsq" data-node-id="20210414130017-1shvnsq" data-type="NodeParagraph" updated="20210414130017" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Strict_Non_Simple_Params">SyntaxError: &quot;use strict&quot; not allowed in function with non-simple parameters</a>
+</div>
+
+    </div>
+<div id="20210414130019-thnda3j" data-node-id="20210414130019-thnda3j" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130019-bhdd3cj" data-node-id="20210414130019-bhdd3cj" data-type="NodeParagraph" updated="20210414130040" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Reserved_identifier">SyntaxError: &quot;x&quot; is a reserved identifier</a>
+</div>
+<div id="20210414130041-75jd3wl" data-node-id="20210414130041-75jd3wl" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210414130041-kbpdezg" data-node-id="20210414130041-kbpdezg" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130041-ivvn7dp" data-node-id="20210414130041-ivvn7dp" data-type="NodeParagraph" updated="20210414130749" class="p"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords">保留字</a>
+ 用作标记符将会出错
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="20210414130224-5hg4in1" data-node-id="20210414130224-5hg4in1" data-type="NodeList" data-subtype="u" class="list" data-marker="*"><div id="20210414130224-ba5jmyo" data-node-id="20210414130224-ba5jmyo" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-i2o2a6y" data-node-id="20210414130224-i2o2a6y" data-type="NodeParagraph" updated="20210414130246" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Bad_octal">SyntaxError: &quot;x&quot; is not a legal ECMA-262 octal constant</a>
+</div>
+<div id="20210414130309-mw16fsy" data-node-id="20210414130309-mw16fsy" data-type="NodeList" data-subtype="u" class="list" data-marker="*"><div id="20210414130309-f75sj81" data-node-id="20210414130309-f75sj81" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130309-3srfs5y" data-node-id="20210414130309-3srfs5y" data-type="NodeParagraph" updated="20210414130309" class="p">十进制字面量可以以零作为开始(
+<span data-type="NodeTextMark" data-type="code"
+        >0</span
+      >
+)，后面跟着其他十进制数，但是假如前导 0 之后的所有数字都小于 8，那么这个数就会被解析为一个八进制的数。因为 08 和 09 不是这样的，所以 JavaScript 会发出警告
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210414130224-55a25je" data-node-id="20210414130224-55a25je" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-qxeik3v" data-node-id="20210414130224-qxeik3v" data-type="NodeParagraph" updated="20210414130415" class="p">
+  
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/JSON_bad_parse">SyntaxError: JSON.parse: bad parsing</a>
+</div>
+
+    </div>
+<div id="20210414130224-uhnrebf" data-node-id="20210414130224-uhnrebf" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-3h3fi3i" data-node-id="20210414130224-3h3fi3i" data-type="NodeParagraph" updated="20210414130625" class="p">
+  
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Malformed_formal_parameter">SyntaxError: Malformed formal parameter</a>
+</div>
+
+    </div>
+<div id="20210414130224-4ag6buq" data-node-id="20210414130224-4ag6buq" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-asfdbhb" data-node-id="20210414130224-asfdbhb" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Unexpected_token">SyntaxError: Unexpected token</a>
+</div>
+
+    </div>
+<div id="20210414130224-osoixp9" data-node-id="20210414130224-osoixp9" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-zov220o" data-node-id="20210414130224-zov220o" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Deprecated_source_map_pragma">SyntaxError: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead</a>
+</div>
+
+    </div>
+<div id="20210414130224-y781jwz" data-node-id="20210414130224-y781jwz" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-05k1b3j" data-node-id="20210414130224-05k1b3j" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Invalid_for-of_initializer">SyntaxError: a declaration in the head of a for-of loop can</a>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Invalid_for-of_initializer">t have an initializer</a>
+</div>
+
+    </div>
+<div id="20210414130224-4xiirj3" data-node-id="20210414130224-4xiirj3" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-aoybeea" data-node-id="20210414130224-aoybeea" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Delete_in_strict_mode">SyntaxError: applying the </a>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Delete_in_strict_mode">delete</a>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Delete_in_strict_mode"> operator to an unqualified name is deprecated</a>
+</div>
+
+    </div>
+<div id="20210414130224-36vui3k" data-node-id="20210414130224-36vui3k" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-80ysg00" data-node-id="20210414130224-80ysg00" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Invalid_for-in_initializer">SyntaxError: for-in loop head declarations may not have initializers</a>
+</div>
+
+    </div>
+<div id="20210414130224-in9kdlq" data-node-id="20210414130224-in9kdlq" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-9o37d9k" data-node-id="20210414130224-9o37d9k" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Unnamed_function_statement">SyntaxError: function statement requires a name</a>
+</div>
+
+    </div>
+<div id="20210414130224-y9nl0xe" data-node-id="20210414130224-y9nl0xe" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-jmvvu3i" data-node-id="20210414130224-jmvvu3i" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Identifier_after_number">SyntaxError: identifier starts immediately after numeric literal</a>
+</div>
+
+    </div>
+<div id="20210414130224-7n3rxk9" data-node-id="20210414130224-7n3rxk9" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-ntkxxdb" data-node-id="20210414130224-ntkxxdb" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Illegal_character">SyntaxError: illegal character</a>
+</div>
+
+    </div>
+<div id="20210414130224-sibabz7" data-node-id="20210414130224-sibabz7" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-fbfqtvm" data-node-id="20210414130224-fbfqtvm" data-type="NodeParagraph" updated="20210414131212" class="p">
+ 
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Bad_regexp_flag">SyntaxError: invalid regular expression flag &quot;x&quot;​</a>
+</div>
+
+    </div>
+<div id="20210414130224-w5r4xk8" data-node-id="20210414130224-w5r4xk8" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-dy98542" data-node-id="20210414130224-dy98542" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Missing_parenthesis_after_argument_list">SyntaxError: missing ) after argument list</a>
+</div>
+
+    </div>
+<div id="20210414130224-yaamq46" data-node-id="20210414130224-yaamq46" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-dhcrb9c" data-node-id="20210414130224-dhcrb9c" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Missing_parenthesis_after_condition">SyntaxError: missing ) after condition</a>
+</div>
+
+    </div>
+<div id="20210414130224-em4gkvs" data-node-id="20210414130224-em4gkvs" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-9j4yhae" data-node-id="20210414130224-9j4yhae" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Missing_colon_after_property_id">SyntaxError: missing : after property id</a>
+</div>
+
+    </div>
+<div id="20210414130224-do4ecak" data-node-id="20210414130224-do4ecak" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-bwigw8q" data-node-id="20210414130224-bwigw8q" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Missing_semicolon_before_statement">SyntaxError: missing ; before statement</a>
+</div>
+
+    </div>
+<div id="20210414130224-74catum" data-node-id="20210414130224-74catum" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-inpbmiv" data-node-id="20210414130224-inpbmiv" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Missing_initializer_in_const">SyntaxError: missing = in const declaration</a>
+</div>
+
+    </div>
+<div id="20210414130224-tjuu8w8" data-node-id="20210414130224-tjuu8w8" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-gx0kezc" data-node-id="20210414130224-gx0kezc" data-type="NodeParagraph" updated="20210414131343" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Missing_bracket_after_list">SyntaxError: missing </a>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Missing_bracket_after_list"> after element list</a>
+</div>
+
+    </div>
+<div id="20210414130224-wez9vr4" data-node-id="20210414130224-wez9vr4" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-iy9l49h" data-node-id="20210414130224-iy9l49h" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Missing_formal_parameter">SyntaxError: missing formal parameter</a>
+</div>
+
+    </div>
+<div id="20210414130224-9qvkt71" data-node-id="20210414130224-9qvkt71" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-efothed" data-node-id="20210414130224-efothed" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Missing_name_after_dot_operator">SyntaxError: missing name after . operator</a>
+</div>
+
+    </div>
+<div id="20210414130224-gg2uvpq" data-node-id="20210414130224-gg2uvpq" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-exh3k63" data-node-id="20210414130224-exh3k63" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/No_variable_name">SyntaxError: missing variable name</a>
+</div>
+
+    </div>
+<div id="20210414130224-r6hcwv5" data-node-id="20210414130224-r6hcwv5" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-136b8la" data-node-id="20210414130224-136b8la" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Missing_curly_after_function_body">SyntaxError: missing } after function body</a>
+</div>
+
+    </div>
+<div id="20210414130224-jl9ixkk" data-node-id="20210414130224-jl9ixkk" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-2nbqb1o" data-node-id="20210414130224-2nbqb1o" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Missing_curly_after_property_list">SyntaxError: missing } after property list</a>
+</div>
+
+    </div>
+<div id="20210414130224-ulsgqck" data-node-id="20210414130224-ulsgqck" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-ypgz2yo" data-node-id="20210414130224-ypgz2yo" data-type="NodeParagraph" updated="20210414131851" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Redeclared_parameter">SyntaxError: redeclaration of formal parameter &quot;x&quot;​</a>
+</div>
+
+    </div>
+<div id="20210414130224-96uggsq" data-node-id="20210414130224-96uggsq" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-6m1rzcs" data-node-id="20210414130224-6m1rzcs" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Bad_return_or_yield">SyntaxError: return not in function</a>
+</div>
+
+    </div>
+<div id="20210414130224-lu56wqq" data-node-id="20210414130224-lu56wqq" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-7in527x" data-node-id="20210414130224-7in527x" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Equal_as_assign">SyntaxError: test for equality (==) mistyped as assignment (=)?</a>
+</div>
+
+    </div>
+<div id="20210414130224-sxk9q8f" data-node-id="20210414130224-sxk9q8f" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-7qestqm" data-node-id="20210414130224-7qestqm" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Unterminated_string_literal">SyntaxError: unterminated string literal</a>
+</div>
+
+    </div>
+<div id="20210414130224-hv324r3" data-node-id="20210414130224-hv324r3" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-vr334dt" data-node-id="20210414130224-vr334dt" data-type="NodeParagraph" updated="20210414131858" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/No_properties">TypeError: &quot;x&quot; has no properties</a>
+</div>
+
+    </div>
+<div id="20210414130224-rfsbkwo" data-node-id="20210414130224-rfsbkwo" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-cvtp6x2" data-node-id="20210414130224-cvtp6x2" data-type="NodeParagraph" updated="20210414131812" class="p">
+ 
+
+ 
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Unexpected_type">TypeError: &quot;x&quot; is (not) &quot;y&quot;​</a>
+</div>
+
+    </div>
+<div id="20210414130224-2f4zg2q" data-node-id="20210414130224-2f4zg2q" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-rgx1ozf" data-node-id="20210414130224-rgx1ozf" data-type="NodeParagraph" updated="20210414131839" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Not_a_constructor">TypeError: &quot;x&quot; is not a constructor</a>
+</div>
+
+    </div>
+<div id="20210414130224-oe8dy1q" data-node-id="20210414130224-oe8dy1q" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-yx2etus" data-node-id="20210414130224-yx2etus" data-type="NodeParagraph" updated="20210414131941" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Not_a_function">TypeError: &quot;x&quot; is not a function</a>
+</div>
+
+    </div>
+<div id="20210414130224-sb2009t" data-node-id="20210414130224-sb2009t" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-460o6mq" data-node-id="20210414130224-460o6mq" data-type="NodeParagraph" updated="20210414131927" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/No_non-null_object">TypeError: &quot;x&quot; is not a non-null object</a>
+</div>
+
+    </div>
+<div id="20210414130224-ktifzon" data-node-id="20210414130224-ktifzon" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-f8327hs" data-node-id="20210414130224-f8327hs" data-type="NodeParagraph" updated="20210414131953" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Read-only">TypeError: &quot;x&quot; is read-only</a>
+</div>
+
+    </div>
+<div id="20210414130224-l3op05m" data-node-id="20210414130224-l3op05m" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-jnv6vks" data-node-id="20210414130224-jnv6vks" data-type="NodeParagraph" updated="20210414132100" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/is_not_iterable">TypeError: 'x' is not iterable</a>
+</div>
+
+    </div>
+<div id="20210414130224-y8cvxk3" data-node-id="20210414130224-y8cvxk3" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-fmg3136" data-node-id="20210414130224-fmg3136" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/More_arguments_needed">TypeError: More arguments needed</a>
+</div>
+
+    </div>
+<div id="20210414130224-y2xmpts" data-node-id="20210414130224-y2xmpts" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-u7ks5kb" data-node-id="20210414130224-u7ks5kb" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Reduce_of_empty_array_with_no_initial_value">TypeError: Reduce of empty array with no initial value</a>
+</div>
+
+    </div>
+<div id="20210414130224-9o204j1" data-node-id="20210414130224-9o204j1" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-1gyk1mk" data-node-id="20210414130224-1gyk1mk" data-type="NodeParagraph" updated="20210414132151" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Dead_object">TypeError: can't access dead object</a>
+</div>
+
+    </div>
+<div id="20210414130224-sqp0sf2" data-node-id="20210414130224-sqp0sf2" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-tjvfwx4" data-node-id="20210414130224-tjvfwx4" data-type="NodeParagraph" updated="20210414132216" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Cant_access_property">TypeError: can't access property &quot;x&quot; of &quot;y&quot;​</a>
+</div>
+
+    </div>
+<div id="20210414130224-7jkkryr" data-node-id="20210414130224-7jkkryr" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-2rkegrh" data-node-id="20210414130224-2rkegrh" data-type="NodeParagraph" updated="20210414132240" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Cant_assign_to_property">TypeError: can't assign to property &quot;x&quot; on &quot;y&quot;: not an object</a>
+</div>
+
+    </div>
+<div id="20210414130224-1yvkezx" data-node-id="20210414130224-1yvkezx" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-yvlx7qr" data-node-id="20210414130224-yvlx7qr" data-type="NodeParagraph" updated="20210414132303" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Cant_define_property_object_not_extensible">TypeError: can't define property &quot;x&quot;: &quot;obj&quot; is not extensible</a>
+</div>
+
+    </div>
+<div id="20210414130224-kjpmbpd" data-node-id="20210414130224-kjpmbpd" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-lkp327a" data-node-id="20210414130224-lkp327a" data-type="NodeParagraph" updated="20210414132310" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Non_configurable_array_element">TypeError: can't delete non-configurable array element</a>
+</div>
+
+    </div>
+<div id="20210414130224-o4rh32x" data-node-id="20210414130224-o4rh32x" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-e2lvths" data-node-id="20210414130224-e2lvths" data-type="NodeParagraph" updated="20210414132319" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Cant_redefine_property">TypeError: can't redefine non-configurable property &quot;x&quot;​</a>
+</div>
+
+    </div>
+<div id="20210414130224-0e0vxir" data-node-id="20210414130224-0e0vxir" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-t8ex4g1" data-node-id="20210414130224-t8ex4g1" data-type="NodeParagraph" updated="20210414132338" class="p">
+ 
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Cyclic_object_value">TypeError: cyclic object value</a>
+</div>
+
+    </div>
+<div id="20210414130224-a6lldb3" data-node-id="20210414130224-a6lldb3" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-08a4gmt" data-node-id="20210414130224-08a4gmt" data-type="NodeParagraph" updated="20210414132411" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/in_operator_no_object">TypeError: invalid 'in' operand &quot;x&quot;​</a>
+</div>
+
+    </div>
+<div id="20210414130224-dr23l02" data-node-id="20210414130224-dr23l02" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-65my5ig" data-node-id="20210414130224-65my5ig" data-type="NodeParagraph" updated="20210414132434" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/invalid_right_hand_side_instanceof_operand">TypeError: invalid 'instanceof' operand 'x'​</a>
+</div>
+
+    </div>
+<div id="20210414130224-6rvs7dq" data-node-id="20210414130224-6rvs7dq" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-vzi95kh" data-node-id="20210414130224-vzi95kh" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Array_sort_argument">TypeError: invalid Array.prototype.sort argument</a>
+</div>
+
+    </div>
+<div id="20210414130224-hhba3kt" data-node-id="20210414130224-hhba3kt" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-1ljoxix" data-node-id="20210414130224-1ljoxix" data-type="NodeParagraph" updated="20210414132503" class="p">
+ 
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Typed_array_invalid_arguments">TypeError: invalid arguments</a>
+</div>
+
+    </div>
+<div id="20210414130224-5lfkp5w" data-node-id="20210414130224-5lfkp5w" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-gqqt9zc" data-node-id="20210414130224-gqqt9zc" data-type="NodeParagraph" updated="20210414132549" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Invalid_const_assignment">TypeError: invalid assignment to const &quot;x&quot;​</a>
+</div>
+
+    </div>
+<div id="20210414130224-v0moefa" data-node-id="20210414130224-v0moefa" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-ybjl5nu" data-node-id="20210414130224-ybjl5nu" data-type="NodeParagraph" updated="20210414132611" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Cant_delete">TypeError: property &quot;x&quot; is non-configurable and can't be deleted</a>
+</div>
+
+    </div>
+<div id="20210414130224-vzruzcl" data-node-id="20210414130224-vzruzcl" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-lzg0ocn" data-node-id="20210414130224-lzg0ocn" data-type="NodeParagraph" updated="20210414132658" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Getter_only">TypeError: setting getter-only property &quot;x&quot;​</a>
+</div>
+
+    </div>
+<div id="20210414130224-yd9okn1" data-node-id="20210414130224-yd9okn1" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-0il9qm6" data-node-id="20210414130224-0il9qm6" data-type="NodeParagraph" updated="20210414132716" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Var_hides_argument">TypeError: variable &quot;x&quot; redeclares argument</a>
+</div>
+
+    </div>
+<div id="20210414130224-l4g084w" data-node-id="20210414130224-l4g084w" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-8acplmp" data-node-id="20210414130224-8acplmp" data-type="NodeParagraph" updated="20210414133353" class="p">
+ 
+
+ 
+
+ 
+
+ 
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Malformed_URI">URIError: malformed URI sequence</a>
+</div>
+
+    </div>
+<div id="20210414130224-49yyu6u" data-node-id="20210414130224-49yyu6u" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-nw86xxy" data-node-id="20210414130224-nw86xxy" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Already_has_pragma">Warning: -file- is being assigned a //# sourceMappingURL, but already has one</a>
+</div>
+
+    </div>
+<div id="20210414130224-6yalgc2" data-node-id="20210414130224-6yalgc2" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-2cyfqsk" data-node-id="20210414130224-2cyfqsk" data-type="NodeParagraph" updated="20210414132913" class="p">
+ 
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Deprecated_toLocaleFormat">Warning: Date.prototype.toLocaleFormat is deprecated</a>
+</div>
+<div id="20210414132917-2ozrsaj" data-node-id="20210414132917-2ozrsaj" data-type="NodeList" data-subtype="u" class="list" data-marker="*"><div id="20210414132916-sjdw8yz" data-node-id="20210414132916-sjdw8yz" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414132916-htpiczi" data-node-id="20210414132916-htpiczi" data-type="NodeParagraph" updated="20210414132947" class="p">toLocaleFormat 已经弃用了
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210414130224-r0lcynv" data-node-id="20210414130224-r0lcynv" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-9ytia1w" data-node-id="20210414130224-9ytia1w" data-type="NodeParagraph" updated="20210414133024" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/For-each-in_loops_are_deprecated">Warning: JavaScript 1.6's for-each-in loops are deprecated</a>
+</div>
+
+    </div>
+<div id="20210414130224-xnmwlve" data-node-id="20210414130224-xnmwlve" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-ccw33cf" data-node-id="20210414130224-ccw33cf" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Deprecated_String_generics">Warning: String.x is deprecated; use String.prototype.x instead</a>
+</div>
+
+    </div>
+<div id="20210414130224-gbxsky7" data-node-id="20210414130224-gbxsky7" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-f15cvhu" data-node-id="20210414130224-f15cvhu" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Deprecated_expression_closures">Warning: expression closures are deprecated</a>
+</div>
+
+    </div>
+<div id="20210414130224-1gepknh" data-node-id="20210414130224-1gepknh" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-a4fk3z0" data-node-id="20210414130224-a4fk3z0" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Stmt_after_return">Warning: unreachable code after return statement</a>
+</div>
+
+    </div>
+<div id="20210414130224-7yutl4v" data-node-id="20210414130224-7yutl4v" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210414130224-mle7a5m" data-node-id="20210414130224-mle7a5m" data-type="NodeParagraph" updated="20210414133143" class="p">
+ 
+
+ 
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors/Called_on_incompatible_type">X.prototype.y called on incompatible type</a>
+</div>
+
+    </div>
+</div>
+<div id="20210414122449-ucpsg6o" data-node-id="20210414122449-ucpsg6o" data-type="NodeHeading" updated="20210414124128" data-subtype="h2" class="h2">
+      <div>
+相关文档
+</div>
+    </div>
+<div id="20210414122455-mqv4xo9" data-node-id="20210414122455-mqv4xo9" data-type="NodeParagraph" updated="20210414122531" class="p"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors">mdn Errors参考页面</a>
+</div>
+<div id="20210414122620-43cedv0" data-node-id="20210414122620-43cedv0" data-type="NodeParagraph" class="p"></div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

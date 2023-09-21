@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>electron icp 封装（基于vue computed）</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210330075700-7dekwqy" data-node-id="20210330075700-7dekwqy" data-type="NodeDocument" updated="20210330075700" data-subtype="h1" class="h1" title="electron icp 封装（基于vue computed）" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210330080300-857gpch" data-node-id="20210330080300-857gpch" data-type="NodeHeading" updated="20210330080305" data-subtype="h2" class="h2">
+      <div>
+序
+</div>
+    </div>
+<div id="20210330075753-6qu6tnx" data-node-id="20210330075753-6qu6tnx" data-type="NodeParagraph" updated="20210330080300" class="p"><span
+        data-type="block-ref"
+        data-subtype="s"
+        data-id="20210330075704-i2hw4i6"
+      >
+        <a href="./../other/electron icp 封装（基于vue computed）.html">点击这里直接去看源码 >>></a>
+      </span>
+</div>
+<div id="20210330075833-0cpddam" data-node-id="20210330075833-0cpddam" data-type="NodeList" updated="20210330081041" data-subtype="u" class="list" data-marker="-"><div id="20210330080543-fxe211d" data-node-id="20210330080543-fxe211d" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210330080543-xfnvnj5" data-node-id="20210330080543-xfnvnj5" data-type="NodeParagraph" updated="20210330080801" class="p">虽然标题是 
+<span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210330075700-7dekwqy"
+      >
+        <a href="./../other/electron icp 封装（基于vue computed）.html">electron icp 封装（基于vue computed）</a>
+      </span>
+, 但实际上这套封装可以应用到所有的前后端状态同步场景, 只需要修改一下事件监听与发送的代码。
+</div>
+
+    </div>
+<div id="20210330080801-wfgb6ou" data-node-id="20210330080801-wfgb6ou" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210330080801-btc2cpi" data-node-id="20210330080801-btc2cpi" data-type="NodeParagraph" updated="20210330081050" class="p">代码中引入的其他函数的作用
+</div>
+<div id="20210330080838-q6gm15v" data-node-id="20210330080838-q6gm15v" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210330080838-nxk2wwy" data-node-id="20210330080838-nxk2wwy" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210330080838-0i4tsbq" data-node-id="20210330080838-0i4tsbq" data-type="NodeParagraph" updated="20210330081008" class="p"><span data-type="NodeTextMark" data-type="code"
+        >env_isRenderer</span
+      >
+ ：判断当前代码环境是否处于 renderer , 这个代码前后端都是可以引用的。
+</div>
+
+    </div>
+<div id="20210330080937-r2ckcc1" data-node-id="20210330080937-r2ckcc1" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210330080937-r6w26r6" data-node-id="20210330080937-r6w26r6" data-type="NodeParagraph" updated="20210330081005" class="p"><span data-type="NodeTextMark" data-type="code"
+        >useElectron</span
+      >
+ ：获取 
+<span data-type="NodeTextMark" data-type="code"
+        >Electron</span
+      >
+ 对象
+</div>
+
+    </div>
+<div id="20210330081012-g5gn2hi" data-node-id="20210330081012-g5gn2hi" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210330081012-hlpin8q" data-node-id="20210330081012-hlpin8q" data-type="NodeParagraph" updated="20210330081045" class="p"><span data-type="NodeTextMark" data-type="code"
+        >useIpc</span
+      >
+ : 获取 
+<span data-type="NodeTextMark" data-type="code"
+        >Electron.IpcRenderer</span
+      >
+ 对象
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210330082300-bprukor" data-node-id="20210330082300-bprukor" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210330082258-1rt29vd" data-node-id="20210330082258-1rt29vd" data-type="NodeParagraph" updated="20210330082304" class="p">这个封装的作用
+</div>
+<div id="20210330082306-f1n73mt" data-node-id="20210330082306-f1n73mt" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210330082306-6qzgm5t" data-node-id="20210330082306-6qzgm5t" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210330082306-i14tid1" data-node-id="20210330082306-i14tid1" data-type="NodeParagraph" updated="20210330082443" class="p">无论是在主线程还是渲染线程对该函数产生的计算属性的 
+<span data-type="NodeTextMark" data-type="code"
+        >set value</span
+      >
+ 都会通过 ipc 同步到主线程与所有的渲染线程
+</div>
+
+    </div>
+<div id="20210330082443-urrslvo" data-node-id="20210330082443-urrslvo" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210330082443-2ff2324" data-node-id="20210330082443-2ff2324" data-type="NodeParagraph" updated="20210330082617" class="p">使用起来的时候就无需考虑 
+<span data-type="NodeTextMark" data-type="code"
+        >.on</span
+      >
+ 这样的代码，就是简简单单的引入一个计算属性然后想咋用咋用。
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="20210330081154-mqagtl9" data-node-id="20210330081154-mqagtl9" data-type="NodeParagraph" updated="20210330081221" class="p">另外就没什么好说的了，直接去下面看源码吧，注释很详细。
+</div>
+<div id="20210330080538-0a11xzg" data-node-id="20210330080538-0a11xzg" data-type="NodeParagraph" updated="20210330080541" class="p"></div>
+<div id="20210330075815-77no075" data-node-id="20210330075815-77no075" data-type="NodeHeading" updated="20210330075836" data-subtype="h2" class="h2">
+      <div>
+源码
+</div>
+    </div>
+<div id="20210330075838-u8bmwj1" data-node-id="20210330075838-u8bmwj1" data-type="NodeParagraph" updated="20210330080247" class="p"><a href="https://github.com/2234839/quote/blob/main/packages/app/src/shared/hook/icp_wrap.ts">起源项目</a>
+</div>
+<div id="20210330075704-i2hw4i6" data-node-id="20210330075704-i2hw4i6" data-type="NodeCodeBlock" updated="20210330075725" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          ts
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">import { env_isRenderer } from "../sharedLib";
+import { computed, ref, toRaw, UnwrapRef, WritableComputedRef } from "vue";
+import { useElectron, useIpc } from "./electron";
+
+export function useIpcComputed<T>(
+  channel: string,
+  defaultData: T
+): WritableComputedRef<UnwrapRef<T>> {
+
+  const { cacheMap, getRendererUpdateChannel } = useIpcComputed;
+
+  if (cacheMap.has(channel)) {
+
+    return cacheMap.get(channel);
+  } else {
+    const _ref = ref(defaultData);
+    const _computed = computed({
+      get() {
+        return _ref.value;
+      },
+      set(v: UnwrapRef<T>) {
+        _ref.value = v;
+
+        if (env_isRenderer()) {
+          // 客户端更新值到服务端,这里会使发送者的 computed 触发两次更新（它自己 set 一次，这里一次），
+          // 不过这不是什么大问题，还可以保持各端的数据一致
+          useIpc().send(getRendererUpdateChannel(channel), v);
+        } else {
+          // 服务端推送新值到所有客户端
+          useElectron()
+            .webContents.getAllWebContents()
+            .forEach((webContent) => webContent.send(channel, v));
+        }
+      },
+    });
+
+    if (env_isRenderer()) {
+      // 客户端第一次调用 useIpcComputed 从 主线程 更新一下默认值
+      useIpc().send(channel);
+      // 客户端监听服务端的值更新
+      useIpc().on(channel, (event, v: UnwrapRef<T>) => (_ref.value = v));
+    } else {
+      // 客户端第一次调用 useIpcComputed 会从 主线程 更新一下默认值，这里用于处理该事件
+
+      useElectron().ipcMain.on(channel, (event, v) => {
+        // 因为 ref.value 是一个 proxy 而 event.reply 内部无法序列化 proxy
+        const _raw_v = toRaw(_ref.value);
+        event.reply(channel, _raw_v);
+      });
+      // 客户端主动更新值
+      useElectron().ipcMain.on(
+        getRendererUpdateChannel(channel),
+        (event, v) => {
+          _computed.value = v;
+        }
+      );
+    }
+
+    cacheMap.set(channel, _computed);
+    return _computed;
+  }
+}
+export namespace useIpcComputed {
+
+  export const cacheMap = new Map<string, any>();
+  export const getRendererUpdateChannel = (s: string) => `${s}-renderer-update`;
+}
+
+</div>
+      </div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

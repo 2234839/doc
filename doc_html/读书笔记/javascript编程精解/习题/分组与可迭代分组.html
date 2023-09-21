@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>分组与可迭代分组</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201104153359-6bs7c2t" data-node-id="20201104153359-6bs7c2t" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" title="分组与可迭代分组" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210521142714-l4gmd76" data-node-id="20210521142714-l4gmd76" data-type="NodeHeading" data-subtype="h1" class="h1">
+      <div>
+分组与可迭代分组
+</div>
+    </div>
+<div id="20210521142714-79rjyq5" data-node-id="20210521142714-79rjyq5" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142714-npn1oef" data-node-id="20210521142714-npn1oef" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210521142714-rw3a045" data-node-id="20210521142714-rw3a045" data-type="NodeParagraph" class="p">pubdate:2019-07-09 11:07:41
+</div>
+
+    </div>
+<div id="20210521142714-rz416yu" data-node-id="20210521142714-rz416yu" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210521142714-1rqezv1" data-node-id="20210521142714-1rqezv1" data-type="NodeParagraph" class="p">tags:习题，JavaScript
+</div>
+
+    </div>
+</div>
+<div id="20210521142714-ci7d575" data-node-id="20210521142714-ci7d575" data-type="NodeThematicBreak" class="hr"><div></div></div>
+<div id="20210521142714-fe0c0wc" data-node-id="20210521142714-fe0c0wc" data-type="NodeParagraph" class="p">题目：
+​
+标准的 JavaScript 环境提供了另一个名为 Set 的数据结构。 像 Map 的实例一样，集合包含一组值。 与 Map 不同，它不会将其他值与这些值相关联 - 它只会跟踪哪些值是该集合的一部分。 一个值只能是一个集合的一部分 - 再次添加它没有任何作用。
+​
+写一个名为 Group 的类（因为 Set 已被占用）。 像 Set 一样，它具有 add，delete 和 has 方法。 它的构造器创建一个空的分组，add 给分组添加一个值（但仅当它不是成员时），delete 从组中删除它的参数（如果它是成员），has 返回一个布尔值，表明其参数是否为分组的成员。
+​
+使用===运算符或类似于 indexOf 的东西来确定两个值是否相同。
+​
+为该类提供一个静态的 from 方法，该方法接受一个可迭代的对象作为参数，并创建一个分组，包含遍历它产生的所有值。
+</div>
+<div id="20210521142714-5ufo7e8" data-node-id="20210521142714-5ufo7e8" data-type="NodeParagraph" class="p">解
+</div>
+<div id="20210521142714-6e6cl6l" data-node-id="20210521142714-6e6cl6l" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          javascript
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">class Group {
+    group=[]
+    constructor(){}
+    static from(array){
+        const group= new Group()
+        array.forEach(el => {
+            group.add(el)
+        });
+        return group
+    }
+    has(el){
+        return this.group.includes(el)
+    }
+    add(el){
+        if(this.has(el)===false)
+            this.group.push(el)
+    }
+    delete(el){
+        let index = this.group.indexOf(el);
+        if (index > -1) {
+            this.group.splice(index, 1);
+        }
+    }
+    [Symbol.iterator](){
+        const group=this
+        let i=0
+        return {
+            next:()=>{
+                return {
+                    value:group.group[i++],
+                    done:i>=group.group.length+1
+                }
+            }
+        }
+    }
+}
+let group = Group.from([10, 20]);
+console.log(group.has(10));
+// → true
+console.log(group.has(30));
+// → false
+group.add(10);
+group.delete(10);
+console.log(group.has(10));
+// → false
+</div>
+      </div>
+<div id="20210521142714-rrpgyc5" data-node-id="20210521142714-rrpgyc5" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+可迭代分组
+</div>
+    </div>
+<div id="20210521142714-v56chbz" data-node-id="20210521142714-v56chbz" data-type="NodeParagraph" class="p">题：
+​
+使上一个练习中的 Group 类可迭代。 如果你不清楚接口的确切形式，请参阅本章前面迭代器接口的章节。
+​
+如果你使用数组来表示分组的成员，则不要仅仅通过调用数组中的 Symbol.iterator 方法来返回迭代器。 这会起作用，但它会破坏这个练习的目的。
+​
+如果分组被修改时，你的迭代器在迭代过程中出现奇怪的行为，那也没问题。
+</div>
+<div id="20210521142714-nx6qfcc" data-node-id="20210521142714-nx6qfcc" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          javascript
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">// Your code here (and the code from the previous exercise)
+
+for (let value of Group.from(["a", "b", "c"])) {
+  console.log(value);
+}
+// → a
+// → b
+// → c
+</div>
+      </div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

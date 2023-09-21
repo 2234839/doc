@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>图解算法数据结构</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210703185604-39qdl8v" data-node-id="20210703185604-39qdl8v" data-type="NodeDocument" updated="20210704160503" data-subtype="h1" class="h1" title="图解算法数据结构">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210703201540-by0ty5k" data-node-id="20210703201540-by0ty5k" data-type="NodeParagraph" updated="20210703201601" class="p"><a href="https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/r81qpe/">leetcode 图解算法数据结构</a>
+</div>
+<div id="20210703185604-l6h2zyj" data-node-id="20210703185604-l6h2zyj" data-type="NodeHeading" updated="20210703185611" data-subtype="h2" class="h2">
+      <div>复杂度
+</div>
+    </div>
+<div id="20210703185612-xy4c5xj" data-node-id="20210703185612-xy4c5xj" data-type="NodeParagraph" updated="20210703190152" class="p">时间复杂度具有「最差」、「平均」、「最佳」三种情况，分别使用 
+<span
+        data-type="inline-math"
+        data-subtype="math"
+        data-content="\mathcal{O}"
+        class="render-node"
+      ></span>
+ , Theta 
+<span
+        data-type="inline-math"
+        data-subtype="math"
+        data-content="Θ"
+        class="render-node"
+      ></span>
+ , Omega 
+<span
+        data-type="inline-math"
+        data-subtype="math"
+        data-content="Ω"
+        class="render-node"
+      ></span>
+ 三种符号表示, 符号后面接复杂度，例如 
+<span
+        data-type="inline-math"
+        data-subtype="math"
+        data-content="\mathcal{O}(N)"
+        class="render-node"
+      ></span>
+ 代表最差情况下也只需要 N 次，
+<span
+        data-type="inline-math"
+        data-subtype="math"
+        data-content="Ω(1)"
+        class="render-node"
+      ></span>
+ 代表最好情况下只需要 1 次
+</div>
+<div id="20210703201624-b9posep" data-node-id="20210703201624-b9posep" data-type="NodeParagraph" updated="20210703201624" class="p">根据从小到大排列，常见的算法时间复杂度主要有：
+</div>
+<div id="20210703201638-gema7zz" data-node-id="20210703201638-gema7zz" data-type="NodeMathBlock" updated="20210703201752" data-subtype="math" class="render-node" data-content="O(1)<O(logN)<O(N)<O(N log N)<O(N^2)<O(2^N)<O(N!)">
+    <div spin="1"></div>
+  </div>
+<div id="20210703201752-x7x29ve" data-node-id="20210703201752-x7x29ve" data-type="NodeHeading" updated="20210704160424" data-subtype="h2" class="h2">
+      <div>状态机
+</div>
+    </div>
+<div id="20210704160503-ml1zjdy" data-node-id="20210704160503-ml1zjdy" data-type="NodeBlockQueryEmbed" updated="20210704160503" data-type="NodeBlockquote" class="bq">
+      
+
+<div id="20210704155454-3h2pjza" data-node-id="20210704155454-3h2pjza" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210704155454-wpr3hev" data-node-id="20210704155454-wpr3hev" data-type="NodeParagraph" updated="20210704160049" class="p"><a href="https://www.typescriptlang.org/zh/play?ssl=70&ssc=11&pln=20&pc=1#code/MYewdgzgLgBAZjAvDA3gWAFAxgSwgOQFcBbAIwFMAnACmAC4ZpKcwBzASgdJBABtyAhmFSZs2UJFigAJuSQxgAOmAALAZQDCIWQEEo1AAzsA3KLGVyUQpWEAWABwwAPMhlyAZO4Xa5LmAFYAdjMAXwAaMzwAZQAHAWByWgYmFg4uHn4hESxzS2thYCREZAAiGBLQiJzogE8yPiTGKGY2ThhuPkFhdBzsCysbBSLSgGoygB9xoeLSgFoKnPDIiAAREH16Jpa09oyu7LEYfvzp4vLFBewl6ogAUUaU1vTOrJ7D48HCmfLbiamvs4lciXGDXEKYTASaBNARQOTIN4wyhQBiI7CAWSVAAD+gAdTQDq2gw4Io8EQyFQqocsYAvL0APBYEokQWLxcjksRYwBk3oB35TptXqvBZ2EA8DrYwCdDtzVusWdcMZiaaizNLZfB6YyEvyYOyuUqedw+fKYELRVrxVA1Vi8WKSRRKJKWWb8QdWTj7YTiSQrabsYA4FUNLuNatuYtuas9MtpRpVzMqZg1ct66qdFrdZL1BrFaxNUZy6K9orR+uxidJ1r1IcVvoj-sDNrMqYdgoLRstycWLIDdZgtwbvqbxbjnc5YqidR11Zy-a5ec7hfdmfrscOQunzcOpbD5biqr1bd9QdnHYbk679J7wdDg43kZbZlX87EN-DF8lmBCMAEEG8kkh4GhcAgxHkiLANYURQLC5AMCU0DqFAZRvjAADW5A1CACBQDUMTkChMJwiylCEGA1AQMkzSpOw7ZwCAlAwLQ35SDAWEQGRebiLR9GkAAVvIUFwgA2lAKh4MowGgXCAC6eosZIjDyAA8hx5DAFAiiITUEDUCAHHsIocAsNI1DUFAIAgWBZGIAAfO2hxQrAcD4fIGnsXxRkieQ4lxocOAINQtkEcA7BMRJhwwAA9MFH4QJ0ii8CArDUCUZklGEMCGcZcLsIFhz8YJQGUKl8LJc5YEZbkAzCM0hDkMVL7kLwEByMxQUfMIcACLVlXuWI4IdSE6UdZ51Hvt8+GyDpYDkNIAUdX0eSDGNADuHaUJQlFxYAbU6AIAGgCwcoAnMqALKJ5QwCM5TjGUR2FEdJQnYdyUCRAQm5S5vVBaCMA1XVlliBIUAsBVgVdYc-0lScWV3TleV7hYdX6JNmW3fdeXyJBoHIiC02lTdeChM+EIYFCkXRbFJSzMTJOkyUvV4-wUUxd5f6KJDljUFpeEESUACM5T+V+kD4zTv7EPT5BQ0z9P4XFMC2LY5MU9+vOxfzgvC8zYunZL0vcxFVME7TAsM9Dous4dtiKLYnO9aF4VyzriuM8rhsjMbti3AAzIoABs6sYBblPkNT8t03rIss+LDsm4oLuez7fvW4HdtxbYbuKOQzsLP5QA">手写的一个有限简单状态机</a>
+ 用来解 
+<a href="https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/5d6vi6/
+">剑指 Offer 20. 表示数值的字符串</a>
+ ，我写的这个效率好低呀
+</div>
+<div id="20210704155902-biqh17s" data-node-id="20210704155902-biqh17s" data-type="NodeList" data-subtype="u" class="list"><div id="20210704155902-kkjb4tu" data-node-id="20210704155902-kkjb4tu" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210704155902-qdpudx1" data-node-id="20210704155902-qdpudx1" data-type="NodeParagraph" updated="20210704160003" class="p"><a href="https://www.typescriptlang.org/zh/play?#code/PQKhFgCgAIGoEYBMA6AzAUwLTytEwop0A7AVwFtoBlAFwEMb1oBvXa+gJxoBo2ARAJYBzAT37DRVAJ7ladLrxjRBImgHVRAC2nlF0ZRJoAFAPYDiYpQDEANiYYA5CnuinzNOQrYBRAB4AHT0t9P38NGm0ZF1CncigAX0JIEgpoAGFNeQAVKX8mViUdF1jogJMXNwsXAEkbdCE6GwSkgDNSYgBjGgETYmghdBoM7Nz0AAoOzI4ALmgAZxoOcyEASlnhjhy8ljY5gHdRSegJqZWdpX0OujmmACJYW+m2S+u7zEfn-WgOQdIOPo2W3QyB0nyuN2gt2Qj2+v3+6SmQOQlRoYNekPQHwu0HBd28WK+Xx+ND+AMRo2QoRMnwAJugWnRSDYaLNiaToMAANoABkwAE4ALrAZCMBYneQrT76AD8CJGeWQsSl0HW5IVtXqjTYiUgOqgHV6C3m9EYAFk6P5oABec76TlyRggzg0AWzAqEzmAimxV3sBjAlSiFx2r0KlG+h3AlFBYPQT1q4E6CMmgOGHRBbUue0p5FmCxBX3ur7x+XAn2zSPIWz2GglTNsbP+5CBl1uz4lzbeijJpst2MdpFUnuO0Ix9uhqN51t+x0tlH1pSN2dpmQFtvYgdd8jD1OqcKRXTjhO59w7k-550Lu2V6uObvrj0TyllM+j539p-lmfA2+1ihXuNKxbfckwfYtP3vb9m0MD9jyHCsczfeRgnA49wwQptfyVJR4izIDDHQ21UNLRVIJvOw70PDcn3gqCkK4ACl2BejpyLENj1AuiAhAqIjxIr9Kxif8cLwxCAi-Ni4wg7cMJHcThP0XCG0E7itE4yTNwVASxP8bDFOaSAoDaTpul6aBFgEcgxjmWYFiWYhViIg1iCNOo+htOZkDcoQIjYOoaGNZDrWgbk-MGaASBpYK3OgTBoBwJQ9k0AQ6mOBYgoAHmgNyzkkgQWjSzl0q4AVrStG1bkhXLlWKmhYFgT54gimwIQAIx+OgAGttTYJKUqYMZIugAA+G1uWq7F8sKyLSvKiqqqIwlIswTBGuatqOu6nC2DZeFPLmGwBA6cZau4CLiCi2B4slXVWnaLoej6AQ5liVr0A4azbIshy1mgVqTBMOo6D6Is5mCiyrLmG79H8wLGGCysMyUWGBBpXxgtCpRnNckhgs87zfMMxLktSsZUfRrKcsWnFDQCyZS2CgYhgTazOXJ+qBWhr4pvFTttjmuU+eBDUGhsM5dr6BkWvQT50vhjyU3NfwipTAVOXpoWBU+HmAEI5fQcW4Ulxobh6pR9kOTQ0pTCbCVxKCgiebF7ZUwJnSdu30VdnjyA9r4XZzaN3bRCF8NUdNg+xfQJegKXTexOkGSZFllRjxZSBl7bdQAbiAA">这有一个写的比我的好很多的状态机</a>
+ ，我的思路看来不太对
+</div>
+
+    </div>
+</div>
+
+    </div>
+
+
+
+    </div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

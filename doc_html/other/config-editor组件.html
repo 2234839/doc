@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>config-editor组件</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210401171714-bbrvuw7" data-node-id="20210401171714-bbrvuw7" data-type="NodeDocument" updated="20210521200902" data-subtype="h1" class="h1" title="config-editor组件" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210401172718-2pzff57" data-node-id="20210401172718-2pzff57" data-type="NodeHeading" updated="20210401172725" data-subtype="h2" class="h2">
+      <div>
+序
+</div>
+    </div>
+<div id="20210401172725-g338ql1" data-node-id="20210401172725-g338ql1" data-type="NodeBlockquote" updated="20210401173225" class="bq">
+<div id="20210401172848-wygk6xg" data-node-id="20210401172848-wygk6xg" data-type="NodeParagraph" updated="20210401173217" class="p">80% 的软件的配置功能都十分难用，还有 10% 没有配置功能。 ——  
+<span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210401172931-hc1maz5"
+      >
+        <a href="./../other/沃·兹基硕德.html">沃·兹基硕德</a>
+      </span>
+</div>
+</div>
+<div id="20210521200902-2jqrn63" data-node-id="20210521200902-2jqrn63" data-type="NodeParagraph" updated="20210521200902" class="p"></div>
+<div id="20210401171716-ghz2vtr" data-node-id="20210401171716-ghz2vtr" data-type="NodeParagraph" updated="20210401173523" class="p">我一直在寻找美好的配置组件 ，也曾写过配置组件，但始终不满意，
+<a href="https://shenzilong.cn/time/2021/4/1-17:34">今天</a>
+才突然开悟，我要的就是 vscode 那个配置系统啊。
+</div>
+<div id="20210401171931-3hc3b23" data-node-id="20210401171931-3hc3b23" data-type="NodeList" updated="20210401171959" data-subtype="o" class="list" data-marker="1"><div id="20210401171959-e74slii" data-node-id="20210401171959-e74slii" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
+      <div class="protyle-action">
+        1
+      </div>
+      <div id="20210401171959-53zsox5" data-node-id="20210401171959-53zsox5" data-type="NodeParagraph" updated="20210401172125" class="p">可以方便的新增
+<span data-type="NodeTextMark" style="color: var(--b3-font-color12); background-color: var(--b3-font-background4);" data-type="strong"
+        >新的配置</span
+      >
+
+</div>
+
+    </div>
+</div>
+<div id="20210401171942-ru09v4g" data-node-id="20210401171942-ru09v4g" data-type="NodeList" updated="20210401172001" data-subtype="o" class="list" data-marker="2"><div id="20210401172001-yvj075l" data-node-id="20210401172001-yvj075l" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
+      <div class="protyle-action">
+        2
+      </div>
+      <div id="20210401172001-1ygs7r2" data-node-id="20210401172001-1ygs7r2" data-type="NodeParagraph" class="p">可以直观的展示配置结果
+</div>
+
+    </div>
+</div>
+<div id="20210401171955-u9glgjf" data-node-id="20210401171955-u9glgjf" data-type="NodeList" updated="20210401172003" data-subtype="o" class="list" data-marker="3"><div id="20210401172003-b74jz6s" data-node-id="20210401172003-b74jz6s" data-type="NodeListItem" data-subtype="o" class="li" data-marker="3">
+      <div class="protyle-action">
+        3
+      </div>
+      <div id="20210401172003-6berz5o" data-node-id="20210401172003-6berz5o" data-type="NodeParagraph" updated="20210401172024" class="p">拥有可视化配置界面与源码配置界面
+</div>
+<div id="20210401174813-sxnwgq4" data-node-id="20210401174813-sxnwgq4" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20210401174542-zza26um" data-node-id="20210401174542-zza26um" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
+      <div class="protyle-action">
+        1
+      </div>
+      <div id="20210401174542-ses0xng" data-node-id="20210401174542-ses0xng" data-type="NodeParagraph" updated="20210401174819" class="p">两种方式都有值的
+<span data-type="NodeTextMark" style="color: var(--b3-font-color12); background-color: var(--b3-font-background4);" data-type="strong"
+        >类型校验与提醒</span
+      >
+
+以及描述
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210401175121-mts8qnl" data-node-id="20210401175121-mts8qnl" data-type="NodeListItem" data-subtype="o" class="li" data-marker="4">
+      <div class="protyle-action">
+        4
+      </div>
+      <div id="20210401175120-2qzkxh9" data-node-id="20210401175120-2qzkxh9" data-type="NodeParagraph" updated="20210401175146" class="p">有公共的配置以及个体的配置
+</div>
+
+    </div>
+</div>
+<div id="20210401174640-y4l8nty" data-node-id="20210401174640-y4l8nty" data-type="NodeHeading" updated="20210401174735" data-subtype="h2" class="h2">
+      <div>
+项目相关( 开发中 )
+</div>
+    </div>
+<div id="20210401174655-79v956s" data-node-id="20210401174655-79v956s" data-type="NodeParagraph" updated="20210401175019" class="p"><a href="https://github.com/2234839/vue-demo/tree/master/src/components/config-editor">github repo</a>
+   在线尝试地址：
+<a href="https://2234839.github.io/vue-demo/?template_name=Y29uZmlnLWVkaXRvcg%3D%3D">崮生 vue_demo-config_editor (2234839.github.io)</a>
+</div>
+<div id="20210401171808-x2huun8" data-node-id="20210401171808-x2huun8" data-type="NodeParagraph" class="p"></div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

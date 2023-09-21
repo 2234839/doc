@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>Vue conf 21</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210522103127-ugoktxu" data-node-id="20210522103127-ugoktxu" data-type="NodeDocument" updated="20210522190131" data-subtype="h1" class="h1" title="Vue conf 21">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210522103127-n0y7fhv" data-node-id="20210522103127-n0y7fhv" data-type="NodeList" updated="20210522110830" data-subtype="u" class="list"><div id="20210522103624-5itkrpb" data-node-id="20210522103624-5itkrpb" data-type="NodeListItem" updated="20210522110830" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210522103624-am69k7j" data-node-id="20210522103624-am69k7j" data-type="NodeParagraph" updated="20210522110830" class="p"><a href="https://vitepress.vuejs.org/">VitePress (vuejs.org)</a>
+ 文档工具
+</div>
+<div id="20210522103710-drqb95k" data-node-id="20210522103710-drqb95k" data-type="NodeList" updated="20210522103831" data-subtype="u" class="list"><div id="20210522103710-cap6w4k" data-node-id="20210522103710-cap6w4k" data-type="NodeListItem" updated="20210522103758" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210522103710-tcdbiax" data-node-id="20210522103710-tcdbiax" data-type="NodeParagraph" updated="20210522103758" class="p">使用 vite 之后很快
+</div>
+
+    </div>
+<div id="20210522103759-qdipl58" data-node-id="20210522103759-qdipl58" data-type="NodeListItem" updated="20210522103831" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210522103759-nfmjd5e" data-node-id="20210522103759-nfmjd5e" data-type="NodeParagraph" updated="20210522103831" class="p">避免纯静态内容的 double payload 和 hydration 开销
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="20210522103835-rstpz3m" data-node-id="20210522103835-rstpz3m" data-type="NodeList" updated="20210522105720" data-subtype="u" class="list"><div id="20210522105611-2rgf2yu" data-node-id="20210522105611-2rgf2yu" data-type="NodeListItem" updated="20210522105720" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210522105611-wvue9uc" data-node-id="20210522105611-wvue9uc" data-type="NodeParagraph" updated="20210522105720" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210113161842-a09102t"
+      >
+        <a href="./../record/环境/vscode/vscode使用心得.html">⭐❤ volar vue3 模板 ts 类型提示插件（爽！）。 还有一个​小问题~~~~</a>
+      </span>
+</div>
+
+    </div>
+</div>
+<div id="20210522105728-qeblfqj" data-node-id="20210522105728-qeblfqj" data-type="NodeList" updated="20210522110703" data-subtype="u" class="list"><div id="20210522105736-wbjnqdp" data-node-id="20210522105736-wbjnqdp" data-type="NodeListItem" updated="20210522110703" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210522105736-i4azwz3" data-node-id="20210522105736-i4azwz3" data-type="NodeParagraph" updated="20210522110703" class="p">不再支持 IE11, 绝对兼容需等待 2.7
+</div>
+
+    </div>
+<div id="20210522105747-i408w54" data-node-id="20210522105747-i408w54" data-type="NodeListItem" updated="20210522110537" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210522105747-vs10ivf" data-node-id="20210522105747-vs10ivf" data-type="NodeParagraph" updated="20210522110537" class="p"><a href="https://github.com/vuejs/vue-next/tree/master/packages/vue-compat">@vue/compat</a>
+ vue3兼容相关文档
+</div>
+
+    </div>
+</div>
+<div id="20210522110251-77k6yya" data-node-id="20210522110251-77k6yya" data-type="NodeThematicBreak" updated="20210522110251" class="hr"><div></div></div>
+<div id="20210522190057-9bnnayt" data-node-id="20210522190057-9bnnayt" data-type="NodeParagraph" updated="20210522190131" class="p">因为一些琐事还有自己的心态原因后面的没有继续听了，浪费了门票钱 💔
+</div>
+<div id="20210522190132-kd7mlvt" data-node-id="20210522190132-kd7mlvt" data-type="NodeParagraph" updated="20210522190132" class="p"></div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

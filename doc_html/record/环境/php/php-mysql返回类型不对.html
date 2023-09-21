@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>php-mysql返回类型不对</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201104153359-ie21qk4" data-node-id="20201104153359-ie21qk4" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" title="php-mysql返回类型不对" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210408131303-h66s9py" data-node-id="20210408131303-h66s9py" data-type="NodeHeading" data-subtype="h1" class="h1">
+      <div>
+PHP MySQL 查询返回的数据类型不对 全是 string
+</div>
+    </div>
+<div id="20210408131303-hu94rhv" data-node-id="20210408131303-hu94rhv" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210408131303-4ek1ri1" data-node-id="20210408131303-4ek1ri1" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210408131303-hgtd4hy" data-node-id="20210408131303-hgtd4hy" data-type="NodeParagraph" class="p">pubdate:2019-08-25 19:13:03
+</div>
+
+    </div>
+<div id="20210408131303-4jw7bbj" data-node-id="20210408131303-4jw7bbj" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210408131303-lmpsumr" data-node-id="20210408131303-lmpsumr" data-type="NodeParagraph" class="p">tags:php
+</div>
+
+    </div>
+</div>
+<div id="20210408131303-oz6j8zy" data-node-id="20210408131303-oz6j8zy" data-type="NodeThematicBreak" class="hr"><div></div></div>
+<div id="20210408131303-jjjui0r" data-node-id="20210408131303-jjjui0r" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+每个 MySQL 操作查询返回的类型全是 string
+</div>
+    </div>
+<div id="20210408131303-c5n2svs" data-node-id="20210408131303-c5n2svs" data-type="NodeParagraph" class="p">一开始在网上找到说修改 pdo 下面这些选项，但我的项目已经是这样了
+</div>
+<div id="20210408131303-min22g9" data-node-id="20210408131303-min22g9" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          php
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">PDO::ATTR_STRINGIFY_FETCHES => false,
+PDO::ATTR_EMULATE_PREPARES  => false,
+</div>
+      </div>
+<div id="20210408131303-swq7bei" data-node-id="20210408131303-swq7bei" data-type="NodeParagraph" class="p">然后继续找，苦心人天不负 😂 找了大概两个小时发现一篇讲 PHP 数据库驱动的。
+​
+然后就去检查 PHP 的数据库驱动
+</div>
+<div id="20210408131303-4eazcc2" data-node-id="20210408131303-4eazcc2" data-type="NodeParagraph" class="p">在网上找到了一个这样的脚本 
+<a href="http://www.q2zy.com/php-pdo%E9%A9%B1%E5%8A%A8-mysqlnd%E6%8A%98%E8%85%BE%E8%AE%B0/">http://www.q2zy.com/php-pdo 驱动-mysqlnd 折腾记</a>
+</div>
+<div id="20210408131303-esb99fr" data-node-id="20210408131303-esb99fr" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          php
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false"><?php
+$hasMySQL = false;
+$hasMySQLi = false;
+$withMySQLnd = false;
+$sentence='';
+
+if (function_exists('mysql_connect')) {
+    $hasMySQL = true;
+    $sentence.= "(Deprecated) MySQL <b>is installed</b> ";
+} else
+    $sentence.= "(Deprecated) MySQL <b>is not</b> installed ";
+
+if (function_exists('mysqli_connect')) {
+    $hasMySQLi = true;
+    $sentence.= "and the new (improved) MySQL <b>is installed</b>. ";
+} else
+    $sentence.= "and the new (improved) MySQL <b>is not installed</b>. ";
+
+// 这句是关键，只有mysqlnd才提供了mysqli_fetch_all
+if (function_exists('mysqli_fetch_all')) {
+    $withMySQLnd = true;
+    $sentence.= "This server is using MySQLnd as the driver.";
+} else
+    $sentence.= "This server is using libmysqlclient as the driver.";
+
+echo $sentence;
+</div>
+      </div>
+<div id="20210408131303-90f8n6a" data-node-id="20210408131303-90f8n6a" data-type="NodeParagraph" updated="20210408131329" class="p">一检测果然是驱动太旧了，再翻回当初 
+<span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201104153359-9xdmm8q"
+      >
+        <a href="./../../../record/环境/php/php安装.html">php安装</a>
+      </span>
+  这个文档。坑原来从一开始就挖下了
+</div>
+<div id="20210408131303-ne23ex2" data-node-id="20210408131303-ne23ex2" data-type="NodeParagraph" class="p">解决方案在上面的链接中
+</div>
+<div id="20210408131437-sohx4we" data-node-id="20210408131437-sohx4we" data-type="NodeParagraph" class="p"></div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

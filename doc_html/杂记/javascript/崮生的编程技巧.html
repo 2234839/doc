@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>崮生的编程技巧</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201113144133-kxmi1f7" data-node-id="20201113144133-kxmi1f7" data-type="NodeDocument" updated="20201113144133" data-subtype="h1" class="h1" title="崮生的编程技巧" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20201230203705-t7d9zfw" data-node-id="20201230203705-t7d9zfw" data-type="NodeHeading" data-subtype="h1" class="h1">
+      <div>
+崮生的编程技巧
+</div>
+    </div>
+<div id="20201230203705-5pqg4jz" data-node-id="20201230203705-5pqg4jz" data-type="NodeParagraph" class="p">2020-11-13 教同事如何写更好的代码的一些总结
+</div>
+<div id="20201230203705-w38qfh2" data-node-id="20201230203705-w38qfh2" data-type="NodeParagraph" class="p"><span data-type="NodeImage" class="img" style="undefined"
+      ><img
+        src="./../../assets/20201113144410-gqm7f9i-image.png"
+        data-src="./../../assets/20201113144410-gqm7f9i-image.png"
+        title=""
+        style="undefined"
+      /><span class="protyle-action__title"></span></span
+    >
+</div>
+<div id="20201230203705-wvrsncm" data-node-id="20201230203705-wvrsncm" data-type="NodeParagraph" class="p">核心思想就是减少数据量，数据量越小人越容易理解。而在 vue 中计算属性可以很好的缩小数据。
+</div>
+<div id="20210521142714-5r19ybn" data-node-id="20210521142714-5r19ybn" data-type="NodeThematicBreak" class="hr"><div></div></div>
+<div
+      id="20201231154951-w78fwxr" data-node-id="20201231154951-w78fwxr" data-type="NodeSuperBlock" class="sb"
+      data-sb-layout="undefined"
+    >
+      
+
+<div id="20201231153541-m59m11z" data-node-id="20201231153541-m59m11z" data-type="NodeParagraph" class="p">更明确的说法其实就是要思考好 输入 与 输出，我的输入到底是什么，我的输出又是什么呢，代码中的这一段是用来处理输入的还是处理输出的？
+</div>
+<div id="20201231153729-qfdlj0i" data-node-id="20201231153729-qfdlj0i" data-type="NodeParagraph" class="p">输入越少的系统一般来说鲁棒性是越强的，写这样的系统的代码也不容易出错。
+</div>
+<div id="20201231153922-bb3edvp" data-node-id="20201231153922-bb3edvp" data-type="NodeParagraph" class="p">如果不在开始写代码之前思考清楚输入与输出，那写出来的代码很有可能就是混乱不堪的，代码之间的关系会相互纠缠难以理清。
+</div>
+<div id="20201231154207-1hr9x77" data-node-id="20201231154207-1hr9x77" data-type="NodeParagraph" class="p">明确输入与输出之后，在写代码的时候也需要做好隔离，不能说我处理输入 A 的代码分散到了天涯海角（这个问题我之前是挺严重的）
+</div>
+<div id="20210521142715-yjuuuag" data-node-id="20210521142715-yjuuuag" data-type="NodeParagraph" class="p">程序的结构只有这一种 :
+</div>
+<div id="20210521142715-fap0ids" data-node-id="20210521142715-fap0ids" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108205107-2ki19h5" data-node-id="20210108205107-2ki19h5" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210521142714-axb7pnb" data-node-id="20210521142714-axb7pnb" data-type="NodeParagraph" class="p">input -> tranform -> out
+</div>
+
+    </div>
+</div>
+<div id="20210108202619-012q47w" data-node-id="20210108202619-012q47w" data-type="NodeParagraph" class="p">写程序最重要的就是理清 input 与 out 然后再 思考 tranform 应该是什么样子的、该怎么写
+</div>
+
+    </div>
+<div id="20210521142714-y5oe6fn" data-node-id="20210521142714-y5oe6fn" data-type="NodeThematicBreak" class="hr"><div></div></div>
+<div id="20201231154914-ntimgsc" data-node-id="20201231154914-ntimgsc" data-type="NodeParagraph" class="p"><span
+        data-type="block-ref"
+        data-subtype="s"
+        data-id="20201231154951-w78fwxr"
+      >
+        <a href="./../../杂记/javascript/崮生的编程技巧.html">上面一段</a>
+      </span>
+是整体的指导思想，对于前端常用的 
+<a href="https://zh.wikipedia.org/wiki/MVVM">MVVM</a>
+ 软件架构可以使用这种思想来指导 model 与 view 的定义，model 中哪一部分是输入？哪一部分是输出？输入在 view 中是怎么呈现的？输出又是在 view 中如何呈现呢？
+</div>
+<div id="20201231155654-wzwxhxp" data-node-id="20201231155654-wzwxhxp" data-type="NodeParagraph" class="p">从现实的前端工作中来说，有时我们需要通过设计图来决定程序的实现，在这种情况下我们已经明确了 view ，如何反推出优良的 model 定义呢？这就是如何根据需求建模。
+</div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

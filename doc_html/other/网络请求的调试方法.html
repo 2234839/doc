@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>网络请求的调试方法</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210716095156-av6caio" data-node-id="20210716095156-av6caio" data-type="NodeDocument" updated="20210716100436" data-subtype="h1" class="h1" title="网络请求的调试方法">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210716095156-wpg48mg" data-node-id="20210716095156-wpg48mg" data-type="NodeParagraph" updated="20210716095326" class="p">有时候会经常遇到一些请求在某些情况下可以得到预期的结果，有时候却出现各种各样的错误
+</div>
+<div id="20210716095349-kvh892j" data-node-id="20210716095349-kvh892j" data-type="NodeParagraph" updated="20210716095416" class="p">这时候可以将成功与失败的请求都通过下图这样的方式复制为 fetch 
+</div>
+<div id="20210716095326-m9l7z2e" data-node-id="20210716095326-m9l7z2e" data-type="NodeParagraph" updated="20210716095346" class="p"><span data-type="NodeImage" class="img" style="undefined"
+      ><img
+        src="./../assets/image-20210716095346-4ikzicg.png"
+        data-src="./../assets/image-20210716095346-4ikzicg.png"
+        title=""
+        style="undefined"
+      /><span class="protyle-action__title"></span></span
+    >
+</div>
+<div id="20210716095418-prqof15" data-node-id="20210716095418-prqof15" data-type="NodeParagraph" updated="20210716095505" class="p">然后直接对比他俩究竟有什么区别，这要比自己去审阅代码更容易找到问题
+</div>
+<div id="20210716095521-z72lyoe" data-node-id="20210716095521-z72lyoe" data-type="NodeParagraph" updated="20210716095521" class="p"></div>
+<div id="20210716095522-zrsojud" data-node-id="20210716095522-zrsojud" data-type="NodeParagraph" updated="20210716100154" class="p">还可以按上图的方式最后一步选择 「
+<span data-type="NodeTextMark" data-type="strong"
+        >复制为cURL(bash)</span
+      >
+」然后导入 postman 来进行调试
+</div>
+<div id="20210716100154-fi54q5y" data-node-id="20210716100154-fi54q5y" data-type="NodeParagraph" updated="20210716100154" class="p"></div>
+<div id="20210716100355-becq2b8" data-node-id="20210716100355-becq2b8" data-type="NodeThematicBreak" updated="20210716100355" class="hr"><div></div></div>
+<div id="20210716100416-8585h8z" data-node-id="20210716100416-8585h8z" data-type="NodeParagraph" updated="20210716100435" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210325155155-2wk7rxv"
+      >
+        <a href="./../tag/文章分享到的地方：.html">文章分享到的地方：</a>
+      </span>
+ 
+<a href="https://segmentfault.com/q/1010000040353797#:~:text=%E6%9C%89%E6%97%B6%E5%80%99%E4%BC%9A%E7%BB%8F%E5%B8%B8%E9%81%87%E5%88%B0%E4%B8%80%E4%BA%9B%E8%AF%B7%E6%B1%82%E5%9C%A8%E6%9F%90%E4%BA%9B%E6%83%85%E5%86%B5%E4%B8%8B%E5%8F%AF%E4%BB%A5%E5%BE%97%E5%88%B0%E9%A2%84%E6%9C%9F%E7%9A%84%E7%BB%93%E6%9E%9C%2C%E6%9C%89%E6%97%B6%E5%80%99%E5%8D%B4%E5%87%BA%E7%8E%B0%E5%90%84%E7%A7%8D%E5%90%84%E6%A0%B7%E7%9A%84%E9%94%99%E8%AF%AF">思否</a>
+</div>
+<div id="20210716100436-iim1nee" data-node-id="20210716100436-iim1nee" data-type="NodeParagraph" updated="20210716100436" class="p"></div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

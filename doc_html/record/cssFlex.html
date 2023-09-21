@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>cssFlex</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201104153359-8cmuico" data-node-id="20201104153359-8cmuico" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" title="cssFlex" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210521142712-7m17enh" data-node-id="20210521142712-7m17enh" data-type="NodeHeading" data-subtype="h1" class="h1">
+      <div>
+CSS Flex
+</div>
+    </div>
+<div id="20210521142712-dav7iq8" data-node-id="20210521142712-dav7iq8" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142712-czasm3o" data-node-id="20210521142712-czasm3o" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210521142712-dsb6k9y" data-node-id="20210521142712-dsb6k9y" data-type="NodeParagraph" class="p">pubdate: 2019-06-05 14:45:32
+</div>
+
+    </div>
+<div id="20210521142712-hvgsl5g" data-node-id="20210521142712-hvgsl5g" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210521142712-yu03suu" data-node-id="20210521142712-yu03suu" data-type="NodeParagraph" class="p">tags: css,index
+</div>
+
+    </div>
+</div>
+<div id="20210521142712-t75wfh0" data-node-id="20210521142712-t75wfh0" data-type="NodeParagraph" class="p">感谢 flex
+</div>
+<div id="20210521142712-qw3099k" data-node-id="20210521142712-qw3099k" data-type="NodeThematicBreak" class="hr"><div></div></div>
+<div id="20210521142712-od2b999" data-node-id="20210521142712-od2b999" data-type="NodeParagraph" class="p"><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout">css 弹性盒子</a>
+</div>
+<div id="20210521142712-61hddkv" data-node-id="20210521142712-61hddkv" data-type="NodeParagraph" class="p"><a href="http://www.csstutorial.org/flex-both.html">一个 flex 布局查看效果的网站</a>
+</div>
+<div id="20210521142712-l1c349s" data-node-id="20210521142712-l1c349s" data-type="NodeParagraph" class="p"><a href="https://www.zhangxinxu.com/wordpress/2019/12/css-flex-deep/">CSS flex 属性深入理解</a>
+ 这篇文章还讲解了 CSS 语法怎么读和使用
+</div>
+<div id="20210521142712-64suzyx" data-node-id="20210521142712-64suzyx" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          html{run}
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false"><div class="flex">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+  <div>7</div>
+</div>
+</div>
+      </div>
+<div id="20210521142712-epcbdlm" data-node-id="20210521142712-epcbdlm" data-type="NodeParagraph" class="p">justify-content 实验场，align-content 只是换了一个轴向
+</div>
+<div id="20210521142712-eineoxx" data-node-id="20210521142712-eineoxx" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          css{run}
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">.flex {
+  color: white;
+  display: flex;
+  /* ## Positional alignment ## */
+  /** 居中排列 */
+  /* justify-content: center;      */
+  /** Pack items from the start */
+  /* justify-content: start;       */
+  /** Pack items from the end */
+  /* justify-content: end; */
+  /** 从行首起始位置开始排列 */
+  /* justify-content: flex-start; */
+  /** 从行尾位置开始排列 */
+  /* justify-content: flex-end;    */
+  /** Pack items from the left */
+  /* justify-content: left; */
+  /** Pack items from the right */
+  /* justify-content: right;       */
+
+  /* ## Baseline alignment ## */
+  /* justify-content: baseline;
+    justify-content: first baseline;
+    justify-content: last baseline; */
+
+  /* ## Distributed alignment ## */
+  /** 均匀排列每个元素 首个元素放置于起点，末尾元素放置于终点 */
+  /* justify-content: space-between;   */
+  /**💕 均匀排列每个元素 每个元素周围分配相同的空间,注意左右两边只有中间的一半 */
+  /* justify-content: space-around;   */
+  /**❤🌹 均匀排列每个元素 每个元素之间的间隔相等 完美的间距 */
+  /* justify-content: space-evenly;  */
+  /** Distribute items evenly Stretch 'auto'-sized items to fit the container */
+  /* justify-content: stretch; */
+
+  /* ## Overflow alignment ## */
+  /* justify-content: safe center; */
+  /* justify-content: unsafe center; */
+
+  /* ## Global values ## */
+  /* justify-content: inherit; */
+  /* justify-content: initial; */
+  /* justify-content: unset; */
+}
+.flex div {
+  background-color: saddlebrown;
+}
+</div>
+      </div>
+<div id="20210521142712-guq0d5e" data-node-id="20210521142712-guq0d5e" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+布局
+</div>
+    </div>
+<div id="20210521142712-zk7tp3j" data-node-id="20210521142712-zk7tp3j" data-type="NodeParagraph" class="p"><a href="https://www.zhangxinxu.com/wordpress/2019/08/css-flex-last-align/">最后一行靠左</a>
+ 推荐空元素占位法
+</div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

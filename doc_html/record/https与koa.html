@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>https与koa</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201104153359-5sr0lpx" data-node-id="20201104153359-5sr0lpx" data-type="NodeDocument" updated="20210818112551" data-subtype="h1" class="h1" title="https与koa" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210521142712-chels3q" data-node-id="20210521142712-chels3q" data-type="NodeHeading" data-subtype="h1" class="h1">
+      <div>
+node 使用 koa 搭建 https 网站
+</div>
+    </div>
+<div id="20210521142712-yijn9w4" data-node-id="20210521142712-yijn9w4" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142712-rima1l4" data-node-id="20210521142712-rima1l4" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210521142712-ndhziov" data-node-id="20210521142712-ndhziov" data-type="NodeParagraph" class="p">pubdate: 2019-03-09 18:17:32
+</div>
+
+    </div>
+<div id="20210521142712-5clcgqv" data-node-id="20210521142712-5clcgqv" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210521142712-5mbwkar" data-node-id="20210521142712-5mbwkar" data-type="NodeParagraph" class="p">tags : 服务器，https，网站建设，koa
+</div>
+
+    </div>
+</div>
+<div id="20210521142712-7ft3e9r" data-node-id="20210521142712-7ft3e9r" data-type="NodeThematicBreak" class="hr"><div></div></div>
+<div id="20210521142712-wcd2rwy" data-node-id="20210521142712-wcd2rwy" data-type="NodeParagraph" updated="20210818112533" class="p"><span data-type="NodeImage" class="img" style="undefined"
+      ><img
+        src="./../assets/https与koa不安全-20210818112533-01kdqwb.png"
+        data-src="./../assets/https与koa不安全-20210818112533-01kdqwb.png"
+        title="扎心"
+        style="undefined"
+      /><span class="protyle-action__title">扎心</span></span
+    >
+</div>
+<div id="20210521142712-sp2r9r7" data-node-id="20210521142712-sp2r9r7" data-type="NodeParagraph" class="p">看着这个标识有点碍眼于是决定搭建一个 https 的站点来练练手
+</div>
+<div id="20210521142712-cp9kitk" data-node-id="20210521142712-cp9kitk" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+ssl 证书
+</div>
+    </div>
+<div id="20210521142712-17pn1bn" data-node-id="20210521142712-17pn1bn" data-type="NodeParagraph" class="p">这个很容易，去阿里云申请一个免费的 ssl 证书
+</div>
+<div id="20210521142712-xddq3t6" data-node-id="20210521142712-xddq3t6" data-type="NodeParagraph" updated="20210818112551" class="p"><span data-type="NodeImage" class="img" style="undefined"
+      ><img
+        src="./../assets/ssl证书-20210818112551-24t5z62.png"
+        data-src="./../assets/ssl证书-20210818112551-24t5z62.png"
+        title=""
+        style="undefined"
+      /><span class="protyle-action__title"></span></span
+    >
+</div>
+<div id="20210521142712-b0idvrj" data-node-id="20210521142712-b0idvrj" data-type="NodeParagraph" class="p">然后下载下来。
+​
+得到了一个 key 文件和一个 pem 文件。
+</div>
+<div id="20210521142712-uv3a8wv" data-node-id="20210521142712-uv3a8wv" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+创建 https 服务器
+</div>
+    </div>
+<div id="20210521142712-p9nz19f" data-node-id="20210521142712-p9nz19f" data-type="NodeParagraph" class="p">这一步也十分简单
+​
+读取 key 文件和 pem 文件构造出指定键名的对象
+​
+然后用 https 模块创建 server 传入 options 和 koa 的处理函数
+</div>
+<div id="20210521142712-aqv9d2s" data-node-id="20210521142712-aqv9d2s" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          javascript
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">const options = {
+    key: fs.readFileSync(path.resolve(__dirname,config.sslDir.key)),
+    cert: fs.readFileSync(path.resolve(__dirname,config.sslDir.pem))
+};
+
+http.createServer(app.callback()).listen(80);
+https.createServer(options,app.callback()).listen(443);
+</div>
+      </div>
+<div id="20210521142712-oxfknji" data-node-id="20210521142712-oxfknji" data-type="NodeParagraph" class="p">就大功告成了。
+</div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

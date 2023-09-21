@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>pnpm</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210428160117-mmi8zfa" data-node-id="20210428160117-mmi8zfa" data-type="NodeDocument" updated="20210819174922" data-subtype="h1" class="h1" icon="23f1" title="pnpm" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      <div style="position: absolute;bottom:-10px;left:15px;height: 80px;width: 80px;transition: var(--b3-transition);cursor: pointer;font-size: 68px;line-height: 80px;text-align: center;font-family: var(--b3-font-family-emoji);margin-right: 16px;"> &#x23f1 </div>
+</div>
+<div id="20210428160531-ze2bkmf" data-node-id="20210428160531-ze2bkmf" data-type="NodeBlockquote" updated="20210819174628" class="bq">
+<div id="20210428160534-kh2jjbl" data-node-id="20210428160534-kh2jjbl" data-type="NodeParagraph" updated="20210806120143" class="p">更好的 包管理工具，项目的 node_modules 终于不是黑洞了，在文件树中找对应的包也很轻松
+</div>
+</div>
+<div id="20210819174628-yjz0bjj" data-node-id="20210819174628-yjz0bjj" data-type="NodeHeading" updated="20210819174637" data-subtype="h2" class="h2">
+      <div>为什么使用 
+<span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210428160114-qmt1m0i"
+      >
+        <a href="./../record/每日总结/2021/4月.html">pnpm</a>
+      </span>
+</div>
+    </div>
+<div id="20210819174639-4fn0ok1" data-node-id="20210819174639-4fn0ok1" data-type="NodeParagraph" updated="20210819174922" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210428160114-qmt1m0i"
+      >
+        <a href="./../record/每日总结/2021/4月.html">pnpm</a>
+      </span>
+ 采用软链接等技巧使得所有的 npm 包都存放到一起，多个项目使用同一个包只会占用一份空间 ( 逃离 node_modules 黑洞 
+=== 没有找到对应的渲染器 NodeEmoji ===
+)
+</div>
+<div id="20210819174805-ru0q8lr" data-node-id="20210819174805-ru0q8lr" data-type="NodeParagraph" updated="20210819174854" class="p">还支持清理总存储中没有被使用的包 : 
+<span data-type="NodeTextMark" data-type="code"
+        >pnpm store prune</span
+      >
+ 
+</div>
+<div id="20210428160120-qasd13f" data-node-id="20210428160120-qasd13f" data-type="NodeHeading" updated="20210428160531" data-subtype="h2" class="h2">
+      <div>
+workspace
+</div>
+    </div>
+<div id="20210428160213-s08xsjg" data-node-id="20210428160213-s08xsjg" data-type="NodeList" updated="20210428161703" data-subtype="u" class="list" data-marker="-"><div id="20210428160239-e9mvqhv" data-node-id="20210428160239-e9mvqhv" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210428160239-ysmih97" data-node-id="20210428160239-ysmih97" data-type="NodeParagraph" class="p"><a href="https://pnpm.io/pnpm-workspace_yaml#:~:text=Version%3A%206.x-,pnpm-workspace.yaml,-pnpm-workspace.yaml">新建 pnpm-workspace.yaml 并配置</a>
+</div>
+<div id="20210428160244-nl82kpt" data-node-id="20210428160244-nl82kpt" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210428160243-o2ib421" data-node-id="20210428160243-o2ib421" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210428160243-a02oqrp" data-node-id="20210428160243-a02oqrp" data-type="NodeParagraph" updated="20210428160310" class="p">直接 
+<span data-type="NodeTextMark" data-type="code"
+        >pnpm install</span
+      >
+ 可以将之前使用其他包管理工具建立的依赖重构掉
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210428161703-y4hss67" data-node-id="20210428161703-y4hss67" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210428161703-lk8cv0c" data-node-id="20210428161703-lk8cv0c" data-type="NodeParagraph" updated="20210428161758" class="p">运行其中包的方式 
+<span data-type="NodeTextMark" data-type="code"
+        >pnpm --filter [app:package name] run dev</span
+      >
+</div>
+
+    </div>
+</div>
+<div id="20210428161717-7kdxen7" data-node-id="20210428161717-7kdxen7" data-type="NodeParagraph" class="p"></div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>typescript速查文档</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210118110553-zmx5glh" data-node-id="20210118110553-zmx5glh" data-type="NodeDocument" updated="20210118110553" data-subtype="h1" class="h1" title="typescript速查文档" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210118110553-jnbn2bw" data-node-id="20210118110553-jnbn2bw" data-type="NodeParagraph" class="p"><a href="https://www.typescriptlang.org/docs/handbook/utility-types.html">typescript 内置实用类型</a>
+</div>
+<div id="20210118150831-86khe6l" data-node-id="20210118150831-86khe6l" data-type="NodeThematicBreak" class="hr"><div></div></div>
+<div id="20210118150831-o9gzcaz" data-node-id="20210118150831-o9gzcaz" data-type="NodeParagraph" class="p">联合类型/或 ： 
+<span data-type="NodeTextMark" data-type="code"
+        >type a = string | number</span
+      >
+</div>
+<div id="20210118111833-afs3uvp" data-node-id="20210118111833-afs3uvp" data-type="NodeParagraph" class="p">获取值的类型 ： 
+<span data-type="NodeTextMark" data-type="code"
+        >type a = typeof 标识符</span
+      >
+</div>
+<div id="20210118112014-n207ycp" data-node-id="20210118112014-n207ycp" data-type="NodeParagraph" class="p">表示值的类型不会变化 ： 
+<span data-type="NodeTextMark" data-type="code"
+        >let a = [1, 2] as const</span
+      >
+</div>
+<div id="20210118111929-v9itsf8" data-node-id="20210118111929-v9itsf8" data-type="NodeParagraph" class="p">获取索引的类型 : 
+<span data-type="NodeTextMark" data-type="code"
+        >type k = keyof {a:1,b:2}</span
+      >
+ => 
+<span data-type="NodeTextMark" data-type="code"
+        >k === &quot;a&quot; | &quot;b&quot;</span
+      >
+</div>
+<div id="20210118140957-dfjko4e" data-node-id="20210118140957-dfjko4e" data-type="NodeParagraph" class="p"><a href="https://www.typescriptlang.org/docs/handbook/advanced-types.html#mapped-types">映射类型</a>
+  ：如下操作中 k2 就是 k 的映射类型。这里 k2 与 k 是一样的，但 k2 的定义我们有操作空间可以进行改造
+</div>
+<div id="20210118140857-6124u6d" data-node-id="20210118140857-6124u6d" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          typescript
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">type k = {a:1,b:2}
+
+type k2 = {
+  [key in keyof k] : k[key]
+}
+</div>
+      </div>
+<div id="20210521142715-pho5xsp" data-node-id="20210521142715-pho5xsp" data-type="NodeParagraph" class="p">{: id="20210118141006-uaruzc4"}
+</div>
+<div
+      id="20210118145939-28vi9fa" data-node-id="20210118145939-28vi9fa" data-type="NodeSuperBlock" class="sb"
+      data-sb-layout="undefined"
+    >
+      
+
+<div id="20210118141412-e5ez4qf" data-node-id="20210118141412-e5ez4qf" data-type="NodeParagraph" class="p"><a href="https://www.typescriptlang.org/docs/handbook/advanced-types.html#conditional-types">条件类型</a>
+（
+<span data-type="NodeTextMark" data-type="strong"
+        >ts体操万恶之源</span
+      >
+）：与 "(20210118140957-dfjko4e "映射类型"") 结合起来可以实现非常有用的一些操作
+</div>
+<div id="20210118141632-7ipbkab" data-node-id="20210118141632-7ipbkab" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210118141634-vd04dhk" data-node-id="20210118141634-vd04dhk" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210521142715-kcbhaw4" data-node-id="20210521142715-kcbhaw4" data-type="NodeParagraph" class="p"><span data-type="NodeTextMark" data-type="code"
+        >type k&lt;T&gt; = T extends U ? X : Y</span
+      >
+ T 如果可以分配 给 U 则返回 X 否则返回 Y
+</div>
+
+    </div>
+<div id="20210118141639-hfxeezv" data-node-id="20210118141639-hfxeezv" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210521142715-8fe5ulu" data-node-id="20210521142715-8fe5ulu" data-type="NodeParagraph" class="p">实例：
+<span data-type="NodeTextMark" data-type="code"
+        >type k&lt;T&gt; = T extends number ? string : boolean</span
+      >
+</div>
+
+    </div>
+</div>
+<div id="20210118145558-oe88tr5" data-node-id="20210118145558-oe88tr5" data-type="NodeParagraph" class="p">可以通过下面这样的条件来筛选联合类型
+</div>
+<div id="20210118150048-hk1xvmf" data-node-id="20210118150048-hk1xvmf" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">type a = string | number
+
+type k<T> = T extends string ? never : T
+
+type b = k<a> // number
+</div>
+      </div>
+
+    </div>
+<div id="20210118145614-qs40rhi" data-node-id="20210118145614-qs40rhi" data-type="NodeParagraph" class="p">推断 infer ：只能使用在
+<span
+        data-type="block-ref"
+        data-subtype="s"
+        data-id="20210118145939-28vi9fa"
+      >
+        <a href="./../../读书笔记/typescript/typescript速查文档.html">条件类型</a>
+      </span>
+中  
+<span data-type="NodeTextMark" data-type="code"
+        >type k&lt;T&gt; = T extends infer R ? R : boolean</span
+      >
+ 这里使用推断返回了 T 自身，但 infer 更多的是用于获取 T 中的某一部分的类型，例如 T 是一个函数的时候  
+<span data-type="NodeTextMark" data-type="code"
+        >type k&lt;T&gt; = T extends (...arg)=&gt;infer R ? R : T</span
+      >
+ 这里利用 infer 获取 T 的返回值的类型
+</div>
+<div id="20210118135213-jzm19x3" data-node-id="20210118135213-jzm19x3" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+<span data-type="NodeTextMark" data-type="s"
+        >类型保护</span
+      >
+ 缩小类型范围（我认为这样描述更形象贴切）
+</div>
+    </div>
+<div id="20210118135541-zjlmobl" data-node-id="20210118135541-zjlmobl" data-type="NodeParagraph" class="p"><span data-type="NodeTextMark" data-type="code"
+        >in</span
+      >
+ , 
+<span data-type="NodeTextMark" data-type="code"
+        >typeof</span
+      >
+ , 
+<span data-type="NodeTextMark" data-type="code"
+        >instanceof</span
+      >
+ 这三个操作符 ts 都可以自动推断排除操作结果为假的类型
+</div>
+<div id="20210118135218-4z32b52" data-node-id="20210118135218-4z32b52" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          typescript
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">if("swim" in pet){// 还可以改成 pet.swim ,typeof 也有缩小类型范围的功能
+//  在这个范围内 pet 的类型被确认为 Fish 了
+}
+</div>
+      </div>
+<div id="20210118135117-q6jeuqf" data-node-id="20210118135117-q6jeuqf" data-type="NodeParagraph" class="p">自定义类型保护:
+</div>
+<div id="20210118135127-kcn75p2" data-node-id="20210118135127-kcn75p2" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          typescript
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">function isFish(pet: Fish | Bird): pet is Fish {
+     return (pet as Fish).swim !== undefined;
+}
+</div>
+      </div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

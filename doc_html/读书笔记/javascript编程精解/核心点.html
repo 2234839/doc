@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>核心点</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201104153359-gqh773e" data-node-id="20201104153359-gqh773e" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" title="核心点" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210408131442-kb511f8" data-node-id="20210408131442-kb511f8" data-type="NodeHeading" data-subtype="h1" class="h1">
+      <div>
+读 JavaScript 编程精解自我理解的核心点
+</div>
+    </div>
+<div id="20210408131442-01heyyf" data-node-id="20210408131442-01heyyf" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210408131442-k58cbja" data-node-id="20210408131442-k58cbja" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210408131442-dxiwrmw" data-node-id="20210408131442-dxiwrmw" data-type="NodeParagraph" class="p">pubdate:2019-07-04 09:08:50
+</div>
+
+    </div>
+<div id="20210408131442-c6j9035" data-node-id="20210408131442-c6j9035" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210408131442-e1e80sa" data-node-id="20210408131442-e1e80sa" data-type="NodeParagraph" class="p">tags:javascript，读书笔记，index
+</div>
+
+    </div>
+</div>
+<div id="20210408131442-iwz369m" data-node-id="20210408131442-iwz369m" data-type="NodeThematicBreak" class="hr"><div></div></div>
+<div id="20210408131442-1wdg04o" data-node-id="20210408131442-1wdg04o" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+资源地址
+</div>
+    </div>
+<div id="20210408131442-caf7twb" data-node-id="20210408131442-caf7twb" data-type="NodeParagraph" class="p"><a href="https://legacy.gitbook.com/book/wizardforcel/eloquent-js-3e/details">JavaScript 编程精解中文第三版</a>
+</div>
+<div id="20210408131442-1melils" data-node-id="20210408131442-1melils" data-type="NodeParagraph" class="p">知乎的回答：
+<a href="https://zhuanlan.zhihu.com/p/37881866">JavaScript 编程精解 中文第三版 翻译完成</a>
+</div>
+<div id="20210408131442-sjy8amr" data-node-id="20210408131442-sjy8amr" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+一些问题和解决方法
+</div>
+    </div>
+<div id="20210408131442-szf0n44" data-node-id="20210408131442-szf0n44" data-type="NodeList" updated="20210408131501" data-subtype="u" class="list" data-marker="-"><div id="20210408131442-t4w9mid" data-node-id="20210408131442-t4w9mid" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210408131442-aq7mri6" data-node-id="20210408131442-aq7mri6" data-type="NodeParagraph" updated="20210408131501" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201104153359-8o50xst"
+      >
+        <a href="./../../读书笔记/javascript编程精解/javascript数值问题.html">javascript数值问题</a>
+      </span>
+</div>
+
+    </div>
+</div>
+<div id="20210408131442-p74n5e4" data-node-id="20210408131442-p74n5e4" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+有意思的说法
+</div>
+    </div>
+<div id="20210408131442-ezmmboc" data-node-id="20210408131442-ezmmboc" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210408131442-do0e1c6" data-node-id="20210408131442-do0e1c6" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210408131442-5huf3mp" data-node-id="20210408131442-5huf3mp" data-type="NodeParagraph" class="p"><a href="https://wizardforcel.gitbooks.io/eloquent-js-3e/content/2.html#绑定">你应该将绑定想象为触手，而不是盒子</a>
+;
+</div>
+<div id="20210408131442-40aloou" data-node-id="20210408131442-40aloou" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20210408131442-86qsvr3" data-node-id="20210408131442-86qsvr3" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
+      <div class="protyle-action">
+        1
+      </div>
+      <div id="20210408131442-cgggkuh" data-node-id="20210408131442-cgggkuh" data-type="NodeParagraph" class="p">我一开始对变量的理解是理解为盒子的，后来接触指针之后就使用指针来理解了，用触手这种连接线的想法更加形象
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="20210408131442-v3k49ys" data-node-id="20210408131442-v3k49ys" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+习题
+</div>
+    </div>
+<div id="20210408131442-ipjy0jh" data-node-id="20210408131442-ipjy0jh" data-type="NodeList" updated="20210408131710" data-subtype="o" class="list" data-marker="2"><div id="20210408131442-wb9jdyr" data-node-id="20210408131442-wb9jdyr" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
+      <div class="protyle-action">
+        2
+      </div>
+      <div id="20210408131442-ys8i1h0" data-node-id="20210408131442-ys8i1h0" data-type="NodeParagraph" class="p">程序结构
+</div>
+<div id="20210408131442-4hlnvbz" data-node-id="20210408131442-4hlnvbz" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20210408131442-rio20m9" data-node-id="20210408131442-rio20m9" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
+      <div class="protyle-action">
+        1
+      </div>
+      <div id="20210408131442-84e2xsz" data-node-id="20210408131442-84e2xsz" data-type="NodeParagraph" updated="20210408131514" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201104153359-9fw3wmp"
+      >
+        <a href="./../../读书笔记/javascript编程精解/习题/FizzBuzz.html">FizzBuzz</a>
+      </span>
+</div>
+
+    </div>
+<div id="20210408131442-4430x1t" data-node-id="20210408131442-4430x1t" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
+      <div class="protyle-action">
+        2
+      </div>
+      <div id="20210408131442-a1i0g75" data-node-id="20210408131442-a1i0g75" data-type="NodeParagraph" updated="20210408131526" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201104153359-nyj5skv"
+      >
+        <a href="./../../读书笔记/javascript编程精解/习题/棋盘.html">棋盘</a>
+      </span>
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210408131442-q9j5na4" data-node-id="20210408131442-q9j5na4" data-type="NodeListItem" data-subtype="o" class="li" data-marker="3">
+      <div class="protyle-action">
+        3
+      </div>
+      <div id="20210408131442-fboltkv" data-node-id="20210408131442-fboltkv" data-type="NodeParagraph" class="p">函数
+</div>
+<div id="20210408131442-x11u9wg" data-node-id="20210408131442-x11u9wg" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20210408131442-fkuzocx" data-node-id="20210408131442-fkuzocx" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
+      <div class="protyle-action">
+        1
+      </div>
+      <div id="20210408131442-b27wu2b" data-node-id="20210408131442-b27wu2b" data-type="NodeParagraph" updated="20210408131534" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201104153359-ut8ga52"
+      >
+        <a href="./../../读书笔记/javascript编程精解/习题/最小值.html">最小值</a>
+      </span>
+</div>
+
+    </div>
+<div id="20210408131442-n40yqwm" data-node-id="20210408131442-n40yqwm" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
+      <div class="protyle-action">
+        2
+      </div>
+      <div id="20210408131442-eju7zwy" data-node-id="20210408131442-eju7zwy" data-type="NodeParagraph" updated="20210408131542" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201104153359-xkdstl8"
+      >
+        <a href="./../../读书笔记/javascript编程精解/习题/递归.html">递归</a>
+      </span>
+</div>
+
+    </div>
+<div id="20210408131442-c2wkp87" data-node-id="20210408131442-c2wkp87" data-type="NodeListItem" data-subtype="o" class="li" data-marker="3">
+      <div class="protyle-action">
+        3
+      </div>
+      <div id="20210408131442-c8eq9c3" data-node-id="20210408131442-c8eq9c3" data-type="NodeParagraph" updated="20210408131550" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201104153359-zj5gqvy"
+      >
+        <a href="./../../读书笔记/javascript编程精解/习题/字符计数.html">字符计数</a>
+      </span>
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210408131442-981zgyk" data-node-id="20210408131442-981zgyk" data-type="NodeListItem" data-subtype="o" class="li" data-marker="4">
+      <div class="protyle-action">
+        4
+      </div>
+      <div id="20210408131442-9ni8crv" data-node-id="20210408131442-9ni8crv" data-type="NodeParagraph" class="p">高阶函数
+</div>
+<div id="20210408131442-47i6nr5" data-node-id="20210408131442-47i6nr5" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20210408131442-qwq1qjc" data-node-id="20210408131442-qwq1qjc" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
+      <div class="protyle-action">
+        1
+      </div>
+      <div id="20210408131442-mkpn6js" data-node-id="20210408131442-mkpn6js" data-type="NodeParagraph" updated="20210408131611" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201104153359-zqr64qz"
+      >
+        <a href="./../../读书笔记/javascript编程精解/习题/展开.html">展开</a>
+      </span>
+</div>
+
+    </div>
+<div id="20210408131442-lchcd4s" data-node-id="20210408131442-lchcd4s" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
+      <div class="protyle-action">
+        2
+      </div>
+      <div id="20210408131442-eok9mfj" data-node-id="20210408131442-eok9mfj" data-type="NodeParagraph" updated="20210408131624" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201104153359-6dlzvfx"
+      >
+        <a href="./../../读书笔记/javascript编程精解/习题/你自己的循环.html">你自己的循环</a>
+      </span>
+</div>
+
+    </div>
+<div id="20210408131442-j5tja3w" data-node-id="20210408131442-j5tja3w" data-type="NodeListItem" data-subtype="o" class="li" data-marker="3">
+      <div class="protyle-action">
+        3
+      </div>
+      <div id="20210408131442-gco6uaa" data-node-id="20210408131442-gco6uaa" data-type="NodeParagraph" updated="20210408131632" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201104153359-gj1v86t"
+      >
+        <a href="./../../读书笔记/javascript编程精解/习题/every.html">every</a>
+      </span>
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210408131442-uk024km" data-node-id="20210408131442-uk024km" data-type="NodeListItem" data-subtype="o" class="li" data-marker="5">
+      <div class="protyle-action">
+        5
+      </div>
+      <div id="20210408131442-ceqsq9i" data-node-id="20210408131442-ceqsq9i" data-type="NodeParagraph" class="p">对象的秘密
+</div>
+<div id="20210408131442-gklihwu" data-node-id="20210408131442-gklihwu" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20210408131442-gf90rfg" data-node-id="20210408131442-gf90rfg" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
+      <div class="protyle-action">
+        1
+      </div>
+      <div id="20210408131442-crbyvww" data-node-id="20210408131442-crbyvww" data-type="NodeParagraph" updated="20210408131652" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201104153359-n2mjpeu"
+      >
+        <a href="./../../读书笔记/javascript编程精解/习题/向量类型.html">向量类型</a>
+      </span>
+  
+<span data-type="NodeTextMark" data-type="em"
+        >从头开始学数学</span
+      >
+ 🤣
+</div>
+
+    </div>
+<div id="20210408131442-bwj2yal" data-node-id="20210408131442-bwj2yal" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
+      <div class="protyle-action">
+        2
+      </div>
+      <div id="20210408131442-fd4kni4" data-node-id="20210408131442-fd4kni4" data-type="NodeParagraph" updated="20210408131700" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201104153359-6bs7c2t"
+      >
+        <a href="./../../读书笔记/javascript编程精解/习题/分组与可迭代分组.html">分组与可迭代分组</a>
+      </span>
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210408131442-yb0edkv" data-node-id="20210408131442-yb0edkv" data-type="NodeListItem" data-subtype="o" class="li" data-marker="6">
+      <div class="protyle-action">
+        6
+      </div>
+      <div id="20210408131442-z9wqo36" data-node-id="20210408131442-z9wqo36" data-type="NodeParagraph" updated="20210408131710" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20201104153359-brkto0f"
+      >
+        <a href="./../../读书笔记/javascript编程精解/项目/机器人.html">机器人</a>
+      </span>
+</div>
+
+    </div>
+</div>
+<div id="20210408132043-gi0ofgi" data-node-id="20210408132043-gi0ofgi" data-type="NodeParagraph" class="p"></div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

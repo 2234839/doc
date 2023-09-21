@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>思源图表小白教程</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210824162114-vaqmnda" data-node-id="20210824162114-vaqmnda" data-type="NodeDocument" updated="20210824163918" data-subtype="h1" class="h1" title="思源图表小白教程">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210824162114-jj8n2e5" data-node-id="20210824162114-jj8n2e5" data-type="NodeParagraph" updated="20210824162727" class="p">思源内置了有 echarts 图表的功能，但估计不是程序员的都不会使用，特此教学。
+</div>
+<div id="20210824162221-1krfb98" data-node-id="20210824162221-1krfb98" data-type="NodeHeading" updated="20210824162252" data-subtype="h3" class="h3">
+      <div>问：怎么在思源内插入图表?
+</div>
+    </div>
+<div id="20210824162237-hgef2dm" data-node-id="20210824162237-hgef2dm" data-type="NodeParagraph" updated="20210824162603" class="p">答：在思源内输入  
+<span data-type="NodeTextMark" data-type="code"
+        >/chart</span
+      >
+ 可以看到右图这样菜单，选择第一项即可 
+<span data-type="NodeImage" class="img" parent-style="max-width: 504px;" style="max-width: 504px;"
+      ><img
+        src="./../assets/image-20210824162350-4fh130e.png"
+        data-src="./../assets/image-20210824162350-4fh130e.png"
+        title="图表选项"
+        style="undefined"
+      /><span class="protyle-action__title">图表选项</span></span
+    >
+
+</div>
+<div id="20210824162630-w1k5g4w" data-node-id="20210824162630-w1k5g4w" data-type="NodeParagraph" updated="20210824163216" class="p">这实际上是插入了一个代码块，图表所需要的代码是一段 JSON .例如下面这段 JSON
+</div>
+<div id="20210824162914-mfz8x5z" data-node-id="20210824162914-mfz8x5z" data-type="NodeCodeBlock" updated="20210824163202" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          json
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">{
+  "xAxis": {
+    "type": "category",
+    "boundaryGap": false,
+    "data": [
+      "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"
+    ]
+  },
+  "yAxis": {
+    "type": "value"
+  },
+  "series": [
+    { 
+        "data": [ 820, 932, 901, 934, 1290, 1330, 1320 ],
+      "type": "line",
+      "areaStyle": {}
+    }
+  ]
+}</div>
+      </div>
+<div id="20210824163241-httai3k" data-node-id="20210824163241-httai3k" data-type="NodeParagraph" updated="20210824163302" class="p">上面这段 JSON 代码 echarts 渲染出来的效果如下
+</div>
+<div id="20210824163218-ae3up1f" data-node-id="20210824163218-ae3up1f" data-type="NodeCodeBlock" updated="20210824163229" data-subtype="echarts" class="render-node" data-content="{
+  &quot;xAxis&quot;: {
+    &quot;type&quot;: &quot;category&quot;,
+    &quot;boundaryGap&quot;: false,
+    &quot;data&quot;: [
+      &quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;
+    ]
+  },
+  &quot;yAxis&quot;: {
+    &quot;type&quot;: &quot;value&quot;
+  },
+  &quot;series&quot;: [
+    { 
+        &quot;data&quot;: [ 820, 932, 901, 934, 1290, 1330, 1320 ],
+      &quot;type&quot;: &quot;line&quot;,
+      &quot;areaStyle&quot;: {}
+    }
+  ]
+}">
+        <div spin="1"></div>
+        <div class="protyle-attr" contenteditable="false"></div>
+      </div>
+<div id="20210824163235-a76k5h2" data-node-id="20210824163235-a76k5h2" data-type="NodeHeading" updated="20210824163338" data-subtype="h3" class="h3">
+      <div>问：好像很复杂的样子，不懂 JSON
+</div>
+    </div>
+<div id="20210824163339-rollxwt" data-node-id="20210824163339-rollxwt" data-type="NodeParagraph" updated="20210824163956" class="p">答：不要担心这是小白教程，感谢 百度图说 
+<a href="https://tushuo.baidu.com/">https://tushuo.baidu.com/</a>
+ 它提供了一个在线编辑图表并且可以导出数据的功能 （虽然我很不喜欢百度，但不得不说类似于 百度脑图还有这个产品 很不错）
+</div>
+<div id="20210824163453-ob8gdfl" data-node-id="20210824163453-ob8gdfl" data-type="NodeParagraph" updated="20210824163506" class="p"><span data-type="NodeImage" class="img" parent-style="max-width: 1008px;" style="max-width: 1008px;"
+      ><img
+        src="./../assets/image-20210824163506-wnygs7b.png"
+        data-src="./../assets/image-20210824163506-wnygs7b.png"
+        title="百度图说页面预览"
+        style="undefined"
+      /><span class="protyle-action__title">百度图说页面预览</span></span
+    >
+
+</div>
+<div id="20210824163554-xy4x7ky" data-node-id="20210824163554-xy4x7ky" data-type="NodeParagraph" updated="20210905222338" class="p">点击右侧图表上方会弹出一个工具栏，再点击显示代码
+</div>
+<div
+      id="20210824163648-1bb7icj" data-node-id="20210824163648-1bb7icj" data-type="NodeSuperBlock" updated="20210824163643" class="sb"
+      data-sb-layout="col"
+    >
+      
+
+<div id="20210824163624-72avvqr" data-node-id="20210824163624-72avvqr" data-type="NodeParagraph" updated="20210824163624" class="p"><span data-type="NodeImage" class="img" parent-style="max-width: 496px;" style="max-width: 496px;"
+      ><img
+        src="./../assets/image-20210824163624-9a0kdgc.png"
+        data-src="./../assets/image-20210824163624-9a0kdgc.png"
+        title="显示工具栏的图表"
+        style="undefined"
+      /><span class="protyle-action__title">显示工具栏的图表</span></span
+    >
+
+</div>
+<div id="20210824163642-2d1obek" data-node-id="20210824163642-2d1obek" data-type="NodeParagraph" updated="20210824163643" class="p"><span data-type="NodeImage" class="img" parent-style="max-width: 496px;" style="max-width: 496px;"
+      ><img
+        src="./../assets/image-20210824163643-9n1pceb.png"
+        data-src="./../assets/image-20210824163643-9n1pceb.png"
+        title="显示代码"
+        style="undefined"
+      /><span class="protyle-action__title">显示代码</span></span
+    >
+
+</div>
+
+
+    </div>
+<div id="20210824163649-h5xla1v" data-node-id="20210824163649-h5xla1v" data-type="NodeParagraph" updated="20210905225128" class="p">直接复制该代码到思源的图表块中试试，很遗憾会报错如下
+</div>
+<div id="20210824163917-82vefs0" data-node-id="20210824163917-82vefs0" data-type="NodeParagraph" updated="20210824163918" class="p"><span data-type="NodeImage" class="img" parent-style="max-width: 1056px;" style="max-width: 1056px;"
+      ><img
+        src="./../assets/image-20210824163918-7qsbqa8.png"
+        data-src="./../assets/image-20210824163918-7qsbqa8.png"
+        title="该代码无法序列化为 json"
+        style="undefined"
+      /><span class="protyle-action__title">该代码无法序列化为 json</span></span
+    >
+
+</div>
+<div id="20210824163919-056dmy8" data-node-id="20210824163919-056dmy8" data-type="NodeParagraph" updated="20210824164035" class="p">这是因为他所提供的代码虽然看起来很像 JSON 但实际上是 js
+</div>
+<div id="20210824165349-m9q9nxo" data-node-id="20210824165349-m9q9nxo" data-type="NodeParagraph" updated="20210824165701" class="p">下面的 
+<span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210805133127-rkx8qr6"
+      >
+        <a href="./../other/思源挂件块开发实践.html">挂件块 run-code</a>
+      </span>
+ 中的代码提供了一个简单的从 js 转换到 json 的功能 （这个挂件块可能加载有点慢，耐心等待）
+</div>
+=== 没有找到对应的渲染器 NodeWidget ===
+<div id="20210824165504-qqq8vbc" data-node-id="20210824165504-qqq8vbc" data-type="NodeParagraph" updated="20210824165637" class="p">我们将之前复制的 js 代码粘贴到上方挂件块下面渲染出来的文本框内，流程如下图
+<span data-type="NodeImage" class="img" style="undefined"
+      ><img
+        src="./../assets/image-20210824165626-o8p6jx1.png"
+        data-src="./../assets/image-20210824165626-o8p6jx1.png"
+        title=""
+        style="undefined"
+      /><span class="protyle-action__title"></span></span
+    >
+</div>
+<div id="20210824165706-cp4ulg5" data-node-id="20210824165706-cp4ulg5" data-type="NodeParagraph" updated="20210824165753" class="p">然后将上面点击复制后得到的 JSON 代码填入思源图表内应当可以得到类似下表这样的显示了
+</div>
+<div id="20210824164042-u3yn7ip" data-node-id="20210824164042-u3yn7ip" data-type="NodeCodeBlock" updated="20210824165500" data-subtype="echarts" class="render-node" data-content="{
+  &quot;title&quot;: {
+    &quot;text&quot;: &quot;未来一周气温变化&quot;,
+    &quot;subtext&quot;: &quot;纯属虚构&quot;
+  },
+  &quot;tooltip&quot;: {
+    &quot;trigger&quot;: &quot;axis&quot;
+  },
+  &quot;legend&quot;: {
+    &quot;data&quot;: [
+      &quot;最高气温&quot;,
+      &quot;最低气温&quot;
+    ]
+  },
+  &quot;toolbox&quot;: {
+    &quot;show&quot;: true,
+    &quot;feature&quot;: {
+      &quot;mark&quot;: {
+        &quot;show&quot;: true
+      },
+      &quot;dataView&quot;: {
+        &quot;show&quot;: true,
+        &quot;readOnly&quot;: true
+      },
+      &quot;magicType&quot;: {
+        &quot;show&quot;: false,
+        &quot;type&quot;: [
+          &quot;line&quot;,
+          &quot;bar&quot;
+        ]
+      },
+      &quot;restore&quot;: {
+        &quot;show&quot;: true
+      },
+      &quot;saveAsImage&quot;: {
+        &quot;show&quot;: true
+      }
+    }
+  },
+  &quot;calculable&quot;: true,
+  &quot;xAxis&quot;: [
+    {
+      &quot;type&quot;: &quot;category&quot;,
+      &quot;boundaryGap&quot;: false,
+      &quot;data&quot;: [
+        &quot;周一&quot;,
+        &quot;周二&quot;,
+        &quot;周三&quot;,
+        &quot;周四&quot;,
+        &quot;周五&quot;,
+        &quot;周六&quot;,
+        &quot;周日&quot;
+      ]
+    }
+  ],
+  &quot;yAxis&quot;: [
+    {
+      &quot;type&quot;: &quot;value&quot;,
+      &quot;name&quot;: &quot;°C&quot;
+    }
+  ],
+  &quot;series&quot;: [
+    {
+      &quot;name&quot;: &quot;最高气温&quot;,
+      &quot;type&quot;: &quot;line&quot;,
+      &quot;data&quot;: [
+        11,
+        11,
+        15,
+        13,
+        12,
+        13,
+        10
+      ]
+    },
+    {
+      &quot;name&quot;: &quot;最低气温&quot;,
+      &quot;type&quot;: &quot;line&quot;,
+      &quot;data&quot;: [
+        1,
+        -2,
+        2,
+        5,
+        3,
+        2,
+        0
+      ]
+    }
+  ]
+}">
+        <div spin="1"></div>
+        <div class="protyle-attr" contenteditable="false"></div>
+      </div>
+<div id="20210824165500-l03x2xk" data-node-id="20210824165500-l03x2xk" data-type="NodeHeading" updated="20210824165832" data-subtype="h3" class="h3">
+      <div>教程完毕🎉
+</div>
+    </div>
+<div id="20210824165840-aw6otgo" data-node-id="20210824165840-aw6otgo" data-type="NodeParagraph" updated="20210824165850" class="p">有缘再见
+</div>
+<div id="20210905224432-qk1mybz" data-node-id="20210905224432-qk1mybz" data-type="NodeThematicBreak" updated="20210905224432" class="hr"><div></div></div>
+<div id="20210905224503-i3ftc81" data-node-id="20210905224503-i3ftc81" data-type="NodeParagraph" updated="20210905224531" class="p"><span
+        data-type="block-ref"
+        data-subtype="d"
+        data-id="20210325155155-2wk7rxv"
+      >
+        <a href="./../tag/文章分享到的地方：.html">文章分享到的地方：</a>
+      </span>
+ 
+<a href="https://ld246.com/article/1630851751280">思源图表小白教程 - 链滴 (ld246.com)</a>
+</div>
+<div id="20210905224529-3hrt7gf" data-node-id="20210905224529-3hrt7gf" data-type="NodeParagraph" updated="20210905224529" class="p"></div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>思源安卓版 git 同步方法</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210209161008-nzq3um7" data-node-id="20210209161008-nzq3um7" data-type="NodeDocument" updated="20210209161008" data-subtype="h1" class="h1" title="思源安卓版 git 同步方法" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210209163730-gn0jm0o" data-node-id="20210209163730-gn0jm0o" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+拉取
+</div>
+    </div>
+<div id="20210209163803-2fjcm0r" data-node-id="20210209163803-2fjcm0r" data-type="NodeHeading" data-subtype="h3" class="h3">
+      <div>
+第一次的准备
+</div>
+    </div>
+<div id="20210209161010-cks0cpz" data-node-id="20210209161010-cks0cpz" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20210209161016-ghs9yse" data-node-id="20210209161016-ghs9yse" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
+      <div class="protyle-action">
+        1
+      </div>
+      <div id="20210209161016-34dphg4" data-node-id="20210209161016-34dphg4" data-type="NodeParagraph" class="p">安装 
+<a href="https://github.com/siyuan-note/siyuan">思源 apk</a>
+</div>
+
+    </div>
+<div id="20210209161050-l0yktoo" data-node-id="20210209161050-l0yktoo" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
+      <div class="protyle-action">
+        2
+      </div>
+      <div id="20210209161050-a7s4gdy" data-node-id="20210209161050-a7s4gdy" data-type="NodeParagraph" class="p">安装 
+<a href="https://www.coolapk.com/apk/com.termux">Termux</a>
+</div>
+
+    </div>
+<div id="20210209161315-toro8c6" data-node-id="20210209161315-toro8c6" data-type="NodeListItem" data-subtype="o" class="li" data-marker="3">
+      <div class="protyle-action">
+        3
+      </div>
+      <div id="20210209161315-sgakbo9" data-node-id="20210209161315-sgakbo9" data-type="NodeParagraph" class="p">在 Termux 中安装 git 相关软件
+</div>
+<div id="20210209161235-nk7oovk" data-node-id="20210209161235-nk7oovk" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20210209161234-cb8en8b" data-node-id="20210209161234-cb8en8b" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
+      <div class="protyle-action">
+        1
+      </div>
+      <div id="20210209161234-ukh3aqn" data-node-id="20210209161234-ukh3aqn" data-type="NodeParagraph" class="p">执行命令 
+<span data-type="NodeTextMark" data-type="code"
+        >pkg install git</span
+      >
+</div>
+
+    </div>
+<div id="20210209161325-rqhoi3r" data-node-id="20210209161325-rqhoi3r" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
+      <div class="protyle-action">
+        2
+      </div>
+      <div id="20210209161325-r978neh" data-node-id="20210209161325-r978neh" data-type="NodeParagraph" class="p">执行命令 
+<span data-type="NodeTextMark" data-type="code"
+        >pkg install openssh</span
+      >
+</div>
+
+    </div>
+<div id="20210209161404-jtjl55h" data-node-id="20210209161404-jtjl55h" data-type="NodeListItem" data-subtype="o" class="li" data-marker="3">
+      <div class="protyle-action">
+        3
+      </div>
+      <div id="20210209161404-8pq29uy" data-node-id="20210209161404-8pq29uy" data-type="NodeParagraph" class="p"><a href="https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5">生成 SSH 公钥</a>
+</div>
+
+    </div>
+<div id="20210209161607-q1m7ixv" data-node-id="20210209161607-q1m7ixv" data-type="NodeListItem" data-subtype="o" class="li" data-marker="4">
+      <div class="protyle-action">
+        4
+      </div>
+      <div id="20210209161607-kgksapb" data-node-id="20210209161607-kgksapb" data-type="NodeParagraph" class="p">去相关 git 服务配置好公钥
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210209163424-ai59rqs" data-node-id="20210209163424-ai59rqs" data-type="NodeListItem" data-subtype="o" class="li" data-marker="4">
+      <div class="protyle-action">
+        4
+      </div>
+      <div id="20210209163423-0u1m2ao" data-node-id="20210209163423-0u1m2ao" data-type="NodeParagraph" class="p">执行命令
+<span data-type="NodeTextMark" data-type="code"
+        >termux-setup-storage</span
+      >
+让 Termux 获取访问其他目录的权限
+</div>
+
+    </div>
+<div id="20210209163443-swopf2l" data-node-id="20210209163443-swopf2l" data-type="NodeListItem" data-subtype="o" class="li" data-marker="5">
+      <div class="protyle-action">
+        5
+      </div>
+      <div id="20210209163443-tgbnmpc" data-node-id="20210209163443-tgbnmpc" data-type="NodeParagraph" class="p">执行命令 
+<span data-type="NodeTextMark" data-type="code"
+        >cd ~/storage/shared/siyuan/data/</span
+      >
+ 进入思源的笔记目录
+</div>
+
+    </div>
+<div id="20210209163540-8y5eckc" data-node-id="20210209163540-8y5eckc" data-type="NodeListItem" data-subtype="o" class="li" data-marker="6">
+      <div class="protyle-action">
+        6
+      </div>
+      <div id="20210209163540-bka3y9d" data-node-id="20210209163540-bka3y9d" data-type="NodeParagraph" class="p">执行命令 
+<span data-type="NodeTextMark" data-type="code"
+        >git clone (你的git库的 ssh 地址)</span
+      >
+ 拉取 git 库
+</div>
+
+    </div>
+<div id="20210209163643-ysz5dc8" data-node-id="20210209163643-ysz5dc8" data-type="NodeListItem" data-subtype="o" class="li" data-marker="7">
+      <div class="protyle-action">
+        7
+      </div>
+      <div id="20210209163643-ge0z90n" data-node-id="20210209163643-ge0z90n" data-type="NodeParagraph" class="p">在思源 app 中打开该笔记 ，🎉
+</div>
+
+    </div>
+</div>
+<div id="20210209163813-745oa3i" data-node-id="20210209163813-745oa3i" data-type="NodeHeading" data-subtype="h3" class="h3">
+      <div>
+之后的同步方法
+</div>
+    </div>
+<div id="20210209163826-231fkgy" data-node-id="20210209163826-231fkgy" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20210209164043-wdxwk3t" data-node-id="20210209164043-wdxwk3t" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
+      <div class="protyle-action">
+        1
+      </div>
+      <div id="20210209164043-aarebyt" data-node-id="20210209164043-aarebyt" data-type="NodeParagraph" class="p"><span data-type="NodeTextMark" data-type="code"
+        >cd ~/storage/shared/siyuan/data/(你的笔记目录)</span
+      >
+</div>
+
+    </div>
+<div id="20210209163827-60jbo6m" data-node-id="20210209163827-60jbo6m" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
+      <div class="protyle-action">
+        2
+      </div>
+      <div id="20210209163827-xk4k5yd" data-node-id="20210209163827-xk4k5yd" data-type="NodeParagraph" class="p">执行命令 
+<span data-type="NodeTextMark" data-type="code"
+        >git pull</span
+      >
+</div>
+
+    </div>
+</div>
+<div id="20210209161204-nqdqosk" data-node-id="20210209161204-nqdqosk" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+推送
+</div>
+    </div>
+<div id="20210209163752-1vvkea7" data-node-id="20210209163752-1vvkea7" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20210209163847-7uj1ase" data-node-id="20210209163847-7uj1ase" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
+      <div class="protyle-action">
+        1
+      </div>
+      <div id="20210209163847-pxtn2af" data-node-id="20210209163847-pxtn2af" data-type="NodeParagraph" class="p"><span data-type="NodeTextMark" data-type="code"
+        >cd ~/storage/shared/siyuan/data/(你的笔记目录)</span
+      >
+</div>
+
+    </div>
+<div id="20210209164012-5kmbu5q" data-node-id="20210209164012-5kmbu5q" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
+      <div class="protyle-action">
+        2
+      </div>
+      <div id="20210209164012-c1m76os" data-node-id="20210209164012-c1m76os" data-type="NodeParagraph" class="p">执行命令 
+<span data-type="NodeTextMark" data-type="code"
+        >add .</span
+      >
+</div>
+
+    </div>
+<div id="20210209163929-abewf9t" data-node-id="20210209163929-abewf9t" data-type="NodeListItem" data-subtype="o" class="li" data-marker="3">
+      <div class="protyle-action">
+        3
+      </div>
+      <div id="20210209163929-c3v5n00" data-node-id="20210209163929-c3v5n00" data-type="NodeParagraph" class="p">执行命令 
+<span data-type="NodeTextMark" data-type="code"
+        >git commit -m &quot;更新了文档&quot;</span
+      >
+</div>
+
+    </div>
+<div id="20210209163951-19sda1a" data-node-id="20210209163951-19sda1a" data-type="NodeListItem" data-subtype="o" class="li" data-marker="4">
+      <div class="protyle-action">
+        4
+      </div>
+      <div id="20210209163951-j29hygb" data-node-id="20210209163951-j29hygb" data-type="NodeParagraph" class="p">执行命令 
+<span data-type="NodeTextMark" data-type="code"
+        >git push</span
+      >
+</div>
+
+    </div>
+</div>
+<div id="20210209165313-t0hal9j" data-node-id="20210209165313-t0hal9j" data-type="NodeParagraph" class="p"></div>
+<div id="20210209164244-plrha59" data-node-id="20210209164244-plrha59" data-type="NodeParagraph" class="p"></div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

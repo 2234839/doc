@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>malagu Failed to resolve moduld 问题</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210820105114-4lrg7mt" data-node-id="20210820105114-4lrg7mt" data-type="NodeDocument" updated="20210821053953" data-subtype="h1" class="h1" title="malagu Failed to resolve moduld 问题">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210820105114-cv29u11" data-node-id="20210820105114-cv29u11" data-type="NodeParagraph" updated="20210820105141" class="p">部分报错信息
+</div>
+<div id="20210820105141-06xsvdb" data-node-id="20210820105141-06xsvdb" data-type="NodeCodeBlock" updated="20210820105144" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          log
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">Failed to resolve module: class-transformer
+Failed to resolve module: class-validator
+Failed to resolve module: inversify
+Failed to resolve module: lodash.debounce
+Failed to resolve module: lodash.throttle
+Failed to resolve module: loglevel
+Failed to resolve module: process
+Failed to resolve module: reflect-metadata
+Failed to resolve module: setimmediate</div>
+      </div>
+<div id="20210820105146-6johg1v" data-node-id="20210820105146-6johg1v" data-type="NodeParagraph" updated="20210820105217" class="p">根据经验确定这应该是 malagu 加载模块的部分不兼容 pnpm 的树状结构所致
+</div>
+<div id="20210820105221-6wm5ujy" data-node-id="20210820105221-6wm5ujy" data-type="NodeParagraph" updated="20210820105250" class="p"><span data-type="NodeImage" class="img" parent-style="max-width: 1008px;" style="max-width: 1008px;"
+      ><img
+        src="./../assets/image-20210820105250-rwrx0nk.png"
+        data-src="./../assets/image-20210820105250-rwrx0nk.png"
+        title="查阅代码后所定位到的报错代码"
+        style="undefined"
+      /><span class="protyle-action__title">查阅代码后所定位到的报错代码</span></span
+    >
+
+</div>
+<div id="20210820124638-bbdyk11" data-node-id="20210820124638-bbdyk11" data-type="NodeHeading" updated="20210820124645" data-subtype="h2" class="h2">
+      <div>依赖版本不一致
+</div>
+    </div>
+<div id="20210821053910-q7ep2dc" data-node-id="20210821053910-q7ep2dc" data-type="NodeParagraph" updated="20210821053948" class="p" style="color: var(--b3-card-warning-color);background-color: var(--b3-card-warning-background);">放弃修改 malagu 项目本身使用 pnpm 了，需要改的地方太多了，对项目又不太熟悉
+</div>
+<div id="20210820124645-x9m9ehh" data-node-id="20210820124645-x9m9ehh" data-type="NodeParagraph" updated="20210820124941" class="p">考虑：有些库可能就是需要旧版本的，但在 malagu 内所维护的 package 应该要尽量保持一致（共用的第三方包仅在工作空间中声明，利用工作空间存在 node_modules 以及 require 在找包的时候会一级一级往上找），对于需要旧版本的再单独在 package.json 中声明
+</div>
+<div id="20210820105314-rhjdhlt" data-node-id="20210820105314-rhjdhlt" data-type="NodeParagraph" updated="20210820124954" class="p">例如：typescript 版本不一致（有些是旧版本），解决方案：在工作空间中安装最新版 ts
+<span data-type="NodeImage" class="img" style="undefined"
+      ><img
+        src="./../assets/image-20210820123909-j3s8opn.png"
+        data-src="./../assets/image-20210820123909-j3s8opn.png"
+        title=""
+        style="undefined"
+      /><span class="protyle-action__title"></span></span
+    >
+</div>
+<div id="20210820124630-bp9o5zb" data-node-id="20210820124630-bp9o5zb" data-type="NodeParagraph" updated="20210820130243" class="p">例如：多个 package依赖同一个包，同步版本会比较繁琐，就可以选择装在工作空间那一层
+</div>
+<div id="20210820130046-07irit8" data-node-id="20210820130046-07irit8" data-type="NodeParagraph" updated="20210820130047" class="p"><span data-type="NodeImage" class="img" style="undefined"
+      ><img
+        src="./../assets/image-20210820130047-j86jxx1.png"
+        data-src="./../assets/image-20210820130047-j86jxx1.png"
+        title=""
+        style="undefined"
+      /><span class="protyle-action__title"></span></span
+    >
+</div>
+<div id="20210821053953-gtjw8l9" data-node-id="20210821053953-gtjw8l9" data-type="NodeParagraph" updated="20210821053953" class="p"></div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

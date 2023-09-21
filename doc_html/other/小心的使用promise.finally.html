@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>小心的使用promise.finally</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210811164611-ktksld1" data-node-id="20210811164611-ktksld1" data-type="NodeDocument" updated="20210811165847" data-subtype="h1" class="h1" title="小心的使用promise.finally">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210811164611-jwt8gq8" data-node-id="20210811164611-jwt8gq8" data-type="NodeParagraph" updated="20210811164702" class="p">有网友问了一个问题 ： 
+<a href="https://deno.js.cn/t/topic/873">问一个关于async 嵌套 catch的问题，这到底有没有catch到呢？</a>
+</div>
+<div id="20210811164703-zltlvhd" data-node-id="20210811164703-zltlvhd" data-type="NodeParagraph" updated="20210811164730" class="p">这个问题中的代码经过极致简化后如下
+</div>
+ <div id="20210811164730-de1gxhi" data-node-id="20210811164730-de1gxhi" data-type="NodeIFrame" updated="20210811164749" class="iframe" custom-config="{&quot;source&quot;:&quot;async function deadline(p) {\n    // 去掉 await 则会报错 finally，只是说无论结果是否成功，都会执行 finally。但不会 catch error\n    // 原来的代码问题在于 p 被执行的时候既没有被 await 同步，也没有被 .catch 异步，所以没有被 catch error\n    await p.finally(() =&gt; {\n        console.log(`1`);\n    });\n}\nasync function main() {\n    try {\n        await deadline(Promise.reject(\&quot;boom\&quot;));\n    } catch (error) {\n        console.log(`catch error ${error}`);\n    }\n}\n\nprocess.on('uncaughtException', err =&gt; {\n    console.error('有一个未捕获的错误', err);\n    process.exit(1); //强制性的（根据 Node.js 文档）\n});\n\nmain();&quot;,&quot;inside&quot;:&quot;inside&quot;,&quot;title&quot;:&quot;&quot;,&quot;preamble&quot;:&quot;&quot;,&quot;version&quot;:&quot;16.x.x&quot;}" custom-z-ir-3779652868977396="{&quot;block_id&quot;:&quot;20210811164730-de1gxhi&quot;,&quot;box&quot;:&quot;note&quot;,&quot;id&quot;:&quot;&quot;,&quot;name&quot;:&quot;custom-config&quot;,&quot;path&quot;:&quot;/other/小心的使用promise.finally.sy&quot;,&quot;root_id&quot;:&quot;20210811164611-ktksld1&quot;,&quot;type&quot;:&quot;b&quot;,&quot;value&quot;:&quot;{&amp;quot;source&amp;quot;:&amp;quot;async function deadline(p) {\\n    // 去掉 await 则会报错 finally，只是说无论结果是否成功，都会执行 finally。但不会 catch error\\n    // 原来的代码问题在于 p 被执行的时候既没有被 await 同步，也没有被 .catch 异步，所以没有被 catch error\\n    await p.finally(() =&amp;gt; {\\n        console.log(`1`);\\n    });\\n}\\nasync function main() {\\n    try {\\n        await deadline(Promise.reject(\\&amp;quot;boom\\&amp;quot;));\\n    } catch (error) {\\n        console.log(`catch error ${error}`);\\n    }\\n}\\n\\nprocess.on('uncaughtException', err =&amp;gt; {\\n    console.error('有一个未捕获的错误', err);\\n    process.exit(1); //强制性的（根据 Node.js 文档）\\n});\\n\\nmain();&amp;quot;,&amp;quot;inside&amp;quot;:&amp;quot;inside&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;preamble&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;version&amp;quot;:&amp;quot;16.x.x&amp;quot;}&quot;}" custom-z-ss-186603330745775="{&quot;block_id&quot;:&quot;20210811164730-de1gxhi&quot;,&quot;box&quot;:&quot;&quot;,&quot;id&quot;:&quot;&quot;,&quot;name&quot;:&quot;custom-config&quot;,&quot;path&quot;:&quot;/20210816161940-zo21go1/20210816161944-cn1ky4x/20210811164611-ktksld1.sy&quot;,&quot;root_id&quot;:&quot;20210811164611-ktksld1&quot;,&quot;type&quot;:&quot;b&quot;,&quot;value&quot;:&quot;{&amp;quot;source&amp;quot;:&amp;quot;async function deadline(p) {\\n    // 去掉 await 则会报错 finally，只是说无论结果是否成功，都会执行 finally。但不会 catch error\\n    // 原来的代码问题在于 p 被执行的时候既没有被 await 同步，也没有被 .catch 异步，所以没有被 catch error\\n    await p.finally(() =&amp;gt; {\\n        console.log(`1`);\\n    });\\n}\\nasync function main() {\\n    try {\\n        await deadline(Promise.reject(\\&amp;quot;boom\\&amp;quot;));\\n    } catch (error) {\\n        console.log(`catch error ${error}`);\\n    }\\n}\\n\\nprocess.on('uncaughtException', err =&amp;gt; {\\n    console.error('有一个未捕获的错误', err);\\n    process.exit(1); //强制性的（根据 Node.js 文档）\\n});\\n\\nmain();&amp;quot;,&amp;quot;inside&amp;quot;:&amp;quot;inside&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;preamble&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;version&amp;quot;:&amp;quot;16.x.x&amp;quot;}&quot;}">
+    <div class="iframe-content">
+    <iframe src="/widgets/run-code/index.html" data-src="" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 1006px; height: 644px;"></iframe>
+    </div>
+  </div>
+<div id="20210811164806-f0kcg6f" data-node-id="20210811164806-f0kcg6f" data-type="NodeParagraph" updated="20210811165847" class="p">里面的注释大致说明了问题所在，我以前使用 finally 的时候很少考虑此问题，但事实上如果不小心处理的话很容易出现未捕获的异常
+</div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>

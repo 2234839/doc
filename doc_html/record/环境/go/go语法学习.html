@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>go语法学习</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201110231008-4kvyoy9" data-node-id="20201110231008-4kvyoy9" data-type="NodeDocument" updated="20210522114105" data-subtype="h1" class="h1" title="go语法学习" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20201110231020-zdgkdst" data-node-id="20201110231020-zdgkdst" data-type="NodeHeading" updated="20210422124315" data-subtype="h1" class="h1">
+      <div>
+崮生的 go 速览
+</div>
+    </div>
+<div id="20210422122331-v3mvknq" data-node-id="20210422122331-v3mvknq" data-type="NodeParagraph" updated="20210422124318" class="p">我打算先从这开始了解 go 的语法 
+<a href="https://studygolang.com/topics/548">30 分钟上手 GO 语言--基础语法</a>
+</div>
+<div id="20210422122331-rmdschc" data-node-id="20210422122331-rmdschc" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+基本语法
+</div>
+    </div>
+<div id="20210422122331-pwm2alz" data-node-id="20210422122331-pwm2alz" data-type="NodeParagraph" class="p"><span data-type="NodeTextMark" data-type="code"
+        >package main</span
+      >
+ package 声明一个包，程序运行入口是包 
+<span data-type="NodeTextMark" data-type="code"
+        >main</span
+      >
+</div>
+<div id="20210422122331-w9mtgeh" data-node-id="20210422122331-w9mtgeh" data-type="NodeParagraph" class="p"><span data-type="NodeTextMark" data-type="code"
+        >import &quot;fmt&quot;</span
+      >
+</div>
+<div id="20210422124020-eyt8inr" data-node-id="20210422124020-eyt8inr" data-type="NodeHeading" updated="20210422124155" data-subtype="h3" class="h3">
+      <div>
+变量声明
+</div>
+    </div>
+<div id="20210422124026-1oxneyf" data-node-id="20210422124026-1oxneyf" data-type="NodeCodeBlock" updated="20210422124811" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          go
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">var firstName string  // 声明一个名为 firstName 的 string 类型变量
+var firstName, lastName string // 声明同类型的多个变量
+const HTTPStatusOK = 200 // 常量
+var ( // 少写 var/const 的语法糖
+    firstName, lastName string
+    age int
+)
+//----变量初始化 ----
+var (
+    firstName string = "John"
+    lastName  string = "Doe"
+    age              = 32 // go 可以不显示标识类型而自动推断类型
+)
+var (// 少写 = 的语法糖
+    firstName, lastName, age = "John", "Doe", 32
+)
+func main() {
+    age := 32  // 使用 := 声明了一个新变量，相当于 var age = 32
+    firstName, lastName := "John", "Doe"
+}
+</div>
+      </div>
+<div id="20210422122331-25c0rxb" data-node-id="20210422122331-25c0rxb" data-type="NodeHeading" updated="20210422130341" data-subtype="h3" class="h3">
+      <div>
+类型
+</div>
+    </div>
+<div id="20210422122331-1d7h22s" data-node-id="20210422122331-1d7h22s" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          go
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">bool
+string
+int  int8  int16  int32  int64
+uint uint8 uint16 uint32 uint64 uintptr
+byte // uint8 的别名
+rune // int32 的别名// 代表一个Unicode码
+float32 float64
+complex64 complex128
+</div>
+      </div>
+<div id="20210422122331-amqrbz4" data-node-id="20210422122331-amqrbz4" data-type="NodeParagraph" class="p">变量在
+<span data-type="NodeTextMark" data-type="strong"
+        >定义时没有明确的初始化时会赋值为零值</span
+      >
+。数值类型为 
+<span data-type="NodeTextMark" data-type="code"
+        >0</span
+      >
+，布尔类型为 
+<span data-type="NodeTextMark" data-type="code"
+        >false</span
+      >
+，字符串为 
+<span data-type="NodeTextMark" data-type="code"
+        >&quot;&quot;</span
+      >
+。
+</div>
+<div id="20210422122331-t1wcf2e" data-node-id="20210422122331-t1wcf2e" data-type="NodeHeading" updated="20210422130350" data-subtype="h4" class="h4">
+      <div>
+类型转换
+</div>
+    </div>
+<div id="20210422122331-rotklga" data-node-id="20210422122331-rotklga" data-type="NodeParagraph" class="p">Go 的在不同类型之间的项目赋值时需要显式转换。表达式 T(v) 将值 v 转换为类型 
+<span data-type="NodeTextMark" data-type="code"
+        >T</span
+      >
+。比如：
+</div>
+<div id="20210422122331-rdzoo8w" data-node-id="20210422122331-rdzoo8w" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          go
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">var integer16 int16 = 127
+var integer32 int32 = 32767
+println(int32(integer16) + integer32)
+</div>
+      </div>
+<div id="20210422130610-rcutnhj" data-node-id="20210422130610-rcutnhj" data-type="NodeHeading" updated="20210422130711" data-subtype="h3" class="h3">
+      <div>
+函数
+</div>
+    </div>
+<div id="20210422130712-8j6pdsz" data-node-id="20210422130712-8j6pdsz" data-type="NodeCodeBlock" updated="20210422131442" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          go
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">func sum(int1 int, int2 int) (int, int) { // go 可以返回多个值
+    return int1 + int2, int1
+}
+func sum(int1 int, int2 int) (result int) { // 可以给返回值设置名称，不建议这样写
+    result = int1 + int2
+    return 
+}
+func main() {
+// 使用 _ 来忽略自己不需要的结果（因为不使用的变量在go中会报错，不接收全部返回结果也会报错）
+    s, _ = sum(1, 2) 
+}
+</div>
+      </div>
+<div id="20210422122331-n7qekbo" data-node-id="20210422122331-n7qekbo" data-type="NodeHeading" data-subtype="h3" class="h3">
+      <div>
+指针
+</div>
+    </div>
+<div id="20210422131900-zvb1fff" data-node-id="20210422131900-zvb1fff" data-type="NodeBlockquote" updated="20210422131914" class="bq">
+<div id="20210422131914-gyqirs5" data-node-id="20210422131914-gyqirs5" data-type="NodeParagraph" updated="20210422131920" class="p">Go 是“按值传递”编程语言。 这意味着每次向函数传递值时，Go 都会使用该值并创建本地副本（内存中的新变量）。 在函数中对该变量所做的更改都不会影响你向函数发送的更改。
+</div>
+</div>
+<div id="20210422131927-dwt2375" data-node-id="20210422131927-dwt2375" data-type="NodeParagraph" updated="20210422132243" class="p">指针可以让我们传递变量的地址，从而可以修改变量的值
+</div>
+<div id="20210422132122-uryc0ub" data-node-id="20210422132122-uryc0ub" data-type="NodeList" data-subtype="u" class="list" data-marker="*"><div id="20210422132122-916fhfk" data-node-id="20210422132122-916fhfk" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210422132122-tc8a3or" data-node-id="20210422132122-tc8a3or" data-type="NodeParagraph" updated="20210422132150" class="p"><span data-type="NodeTextMark" data-type="code"
+        >&amp;</span
+      >
+ 运算符取其后对象的地址
+</div>
+
+    </div>
+<div id="20210422132122-o3bb3fi" data-node-id="20210422132122-o3bb3fi" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210422132122-01mgmg9" data-node-id="20210422132122-01mgmg9" data-type="NodeParagraph" updated="20210422132158" class="p"><span data-type="NodeTextMark" data-type="code"
+        >*</span
+      >
+ 取其后地址的所存放的值
+</div>
+
+    </div>
+</div>
+<div id="20210422122331-tt5t3a8" data-node-id="20210422122331-tt5t3a8" data-type="NodeCodeBlock" updated="20210422132256" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          go
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">func main() {
+    var p *int
+    i := 42
+    p = &i // & 取地址 
+    fmt.Println(*p) // 通过指针 p 读取 i
+    *p = 21         // 通过指针 p 设置 i
+
+    int1 := 1
+    s, _ := sum(&int1, 2)
+    println(int1, s) // 2 4   // 这里可以看到  int1 的值发生了变化
+}
+func sum(int1 *int, int2 int) (int, int) {
+	*int1 = int2
+	return *int1 + int2, *int1
+}
+</div>
+      </div>
+<div id="20210422132404-ximibso" data-node-id="20210422132404-ximibso" data-type="NodeHeading" updated="20210422140600" data-subtype="h3" class="h3">
+      <div>
+<a href="https://docs.microsoft.com/zh-cn/learn/modules/go-variables-functions-packages/4-packages">包（模块）</a>
+</div>
+    </div>
+<div id="20210422133544-jfoo84x" data-node-id="20210422133544-jfoo84x" data-type="NodeCodeBlock" updated="20210522114105" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          go
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">go mod init github.com/用户名/模块名 // 在模块目录下执行此命令创建模块的描述文件
+go get github.com/88250/lute@master //更新模块到最新
+</div>
+      </div>
+<div id="20210422132416-79lfxkm" data-node-id="20210422132416-79lfxkm" data-type="NodeCodeBlock" updated="20210422132454" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          go
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">package test // 声明当前代码属于 test 包
+
+import "math/rand"
+
+rand.Int()
+
+// Version 大写字符开头的变量将在 test 包内共享，否则仅在当前文件共享
+var Version = "1.0"
+</div>
+      </div>
+<div id="20210422141427-r8crgfe" data-node-id="20210422141427-r8crgfe" data-type="NodeHeading" updated="20210422141432" data-subtype="h3" class="h3">
+      <div>
+控制流
+</div>
+    </div>
+<div id="20210422141433-0imo5a4" data-node-id="20210422141433-0imo5a4" data-type="NodeCodeBlock" updated="20210422142703" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          go
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">package main
+
+import "fmt"
+
+func main() {
+    x := 27
+    if x%2 == 0 { // 小括号可以省略
+        fmt.Println(x, "is even")
+    } else if num < 10 {
+        fmt.Println(num, "has only one digit")
+    } else {
+        fmt.Println(num, "has multiple digits")
+    }
+    // 这里声明的 num 变量仅在这里的全部 if 分支中可用，if 块外不可
+    if num := givemeanumber(); num < 0 {
+        fmt.Println(num, "is negative")
+    }
+    switch i {// 这里的 i 可以不传
+        case 0:
+            fmt.Print("zero...")
+            fallthrough // 继续下一个 case ，其他语言一般默认继续，go 默认 break
+        case 1:
+            fmt.Print("one...")
+        case 2, 3: // 支持多个表达式
+            fmt.Print("two...")
+        case i == 4: // 这里可以直接使用表达式
+            fmt.Print("four...")
+        default:
+            fmt.Print("no match...")
+    }
+
+    for i := 1; i <= 100; i++ {
+        fmt.Println(i)
+    }
+    for x!= 5 { // 当 x == 5 时才会停止
+        x= rand.Int63n(15)
+        if num%5 == 0 {
+            continue
+        }
+        fmt.Println(x)
+    }
+    for { // 一直循环
+        fmt.Println(x)
+        break
+    }
+}
+</div>
+      </div>
+<div id="20210422142816-8fkfnnh" data-node-id="20210422142816-8fkfnnh" data-type="NodeHeading" updated="20210422142939" data-subtype="h4" class="h4">
+      <div>
+<a href="https://docs.microsoft.com/zh-cn/learn/modules/go-control-flow/4-use-defer-statement">defer、panic 和 recover</a>
+</div>
+    </div>
+<div id="20210422142841-lrfpjte" data-node-id="20210422142841-lrfpjte" data-type="NodeCodeBlock" updated="20210422143150" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          go
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">package main
+
+import "fmt"
+
+func main() {
+    defer func() {
+        // 这里 recover 可以接收到下面 panic 的结果，阻止程序崩溃
+        if r := recover(); r != nil {
+            fmt.Println("Recovered in main", r)
+        }
+    }()
+    for i := 1; i <= 4; i++ {
+        // 延迟到 main 执行完毕再逆序（从调用栈底开始）执行，可用于避免忘记任务（例如关闭文件）
+        defer fmt.Println("deferred", -i) 
+        fmt.Println("regular", i)
+    }
+    // 糟了，类似于 throw err
+    panic("不爱了，毁灭吧")
+}
+</div>
+      </div>
+<div id="20210425100550-349fqee" data-node-id="20210425100550-349fqee" data-type="NodeHeading" updated="20210425100556" data-subtype="h3" class="h3">
+      <div>
+复杂结构
+</div>
+    </div>
+<div id="20210425100851-yhblau2" data-node-id="20210425100851-yhblau2" data-type="NodeHeading" updated="20210425100854" data-subtype="h4" class="h4">
+      <div>
+数组
+</div>
+    </div>
+<div id="20210425100557-iixw7jm" data-node-id="20210425100557-iixw7jm" data-type="NodeCodeBlock" updated="20210425100602" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          go
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">var a [3]int // 数组，必须声明类型与长度
+// 数组初始化方式 1
+cities := [5]string{"New York", "Paris", "Berlin", "Madrid"}
+// 在知道有多少数据的情况下自动推断数组长度的语法糖
+q := [...]int{1, 2, 3}
+</div>
+      </div>
+<div id="20210422122331-06wt2si" data-node-id="20210422122331-06wt2si" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+怎么运行
+</div>
+    </div>
+<div id="20210422122331-afo2lcm" data-node-id="20210422122331-afo2lcm" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">go run main.go
+</div>
+      </div>
+<div id="20210422122331-xgjj4yo" data-node-id="20210422122331-xgjj4yo" data-type="NodeHeading" data-subtype="h3" class="h3">
+      <div>
+怎么导入依赖
+</div>
+    </div>
+<div id="20210422122331-6weiex3" data-node-id="20210422122331-6weiex3" data-type="NodeParagraph" updated="20210422122358" class="p"><span data-type="NodeTextMark" data-type="code"
+        >go mod init</span
+      >
+</div>
+<div id="20210522113550-su0j5fo" data-node-id="20210522113550-su0j5fo" data-type="NodeParagraph" updated="20210522113550" class="p"></div>
+
+
+        </div>
+        <footer>
+          <p style="text-align:center;margin:15px 0;">
+            技术支持：
+            <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+            开发者：
+            <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts"
+              >崮生（子虚）</a
+            >
+          </p>
+        </footer>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+      </body>
+    </html>
