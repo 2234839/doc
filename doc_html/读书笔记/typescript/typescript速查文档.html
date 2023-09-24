@@ -122,28 +122,18 @@
 </div>
 <div id="20210118150831-86khe6l" data-node-id="20210118150831-86khe6l" data-type="NodeThematicBreak" class="hr"><div></div></div>
 <div id="20210118150831-o9gzcaz" data-node-id="20210118150831-o9gzcaz" data-type="NodeParagraph" class="p">联合类型/或 ： 
-<span data-type="NodeTextMark" data-type="code"
-        >type a = string | number</span
-      >
+<span data-type="code">type a = string | number</span>
 </div>
 <div id="20210118111833-afs3uvp" data-node-id="20210118111833-afs3uvp" data-type="NodeParagraph" class="p">获取值的类型 ： 
-<span data-type="NodeTextMark" data-type="code"
-        >type a = typeof 标识符</span
-      >
+<span data-type="code">type a = typeof 标识符</span>
 </div>
 <div id="20210118112014-n207ycp" data-node-id="20210118112014-n207ycp" data-type="NodeParagraph" class="p">表示值的类型不会变化 ： 
-<span data-type="NodeTextMark" data-type="code"
-        >let a = [1, 2] as const</span
-      >
+<span data-type="code">let a = [1, 2] as const</span>
 </div>
 <div id="20210118111929-v9itsf8" data-node-id="20210118111929-v9itsf8" data-type="NodeParagraph" class="p">获取索引的类型 : 
-<span data-type="NodeTextMark" data-type="code"
-        >type k = keyof {a:1,b:2}</span
-      >
+<span data-type="code">type k = keyof {a:1,b:2}</span>
  => 
-<span data-type="NodeTextMark" data-type="code"
-        >k === &quot;a&quot; | &quot;b&quot;</span
-      >
+<span data-type="code">k === &quot;a&quot; | &quot;b&quot;</span>
 </div>
 <div id="20210118140957-dfjko4e" data-node-id="20210118140957-dfjko4e" data-type="NodeParagraph" class="p"><a href="https://www.typescriptlang.org/docs/handbook/advanced-types.html#mapped-types">映射类型</a>
   ：如下操作中 k2 就是 k 的映射类型。这里 k2 与 k 是一样的，但 k2 的定义我们有操作空间可以进行改造
@@ -175,18 +165,14 @@ type k2 = {
 
 <div id="20210118141412-e5ez4qf" data-node-id="20210118141412-e5ez4qf" data-type="NodeParagraph" class="p"><a href="https://www.typescriptlang.org/docs/handbook/advanced-types.html#conditional-types">条件类型</a>
 （
-<span data-type="NodeTextMark" data-type="strong"
-        >ts体操万恶之源</span
-      >
+<span data-type="strong">ts体操万恶之源</span>
 ）：与 "(20210118140957-dfjko4e "映射类型"") 结合起来可以实现非常有用的一些操作
 </div>
 <div id="20210118141632-7ipbkab" data-node-id="20210118141632-7ipbkab" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210118141634-vd04dhk" data-node-id="20210118141634-vd04dhk" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142715-kcbhaw4" data-node-id="20210521142715-kcbhaw4" data-type="NodeParagraph" class="p"><span data-type="NodeTextMark" data-type="code"
-        >type k&lt;T&gt; = T extends U ? X : Y</span
-      >
+      <div id="20210521142715-kcbhaw4" data-node-id="20210521142715-kcbhaw4" data-type="NodeParagraph" class="p"><span data-type="code">type k&lt;T&gt; = T extends U ? X : Y</span>
  T 如果可以分配 给 U 则返回 X 否则返回 Y
 </div>
 
@@ -196,9 +182,7 @@ type k2 = {
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
       <div id="20210521142715-8fe5ulu" data-node-id="20210521142715-8fe5ulu" data-type="NodeParagraph" class="p">实例：
-<span data-type="NodeTextMark" data-type="code"
-        >type k&lt;T&gt; = T extends number ? string : boolean</span
-      >
+<span data-type="code">type k&lt;T&gt; = T extends number ? string : boolean</span>
 </div>
 
     </div>
@@ -225,42 +209,26 @@ type b = k<a> // number
 
     </div>
 <div id="20210118145614-qs40rhi" data-node-id="20210118145614-qs40rhi" data-type="NodeParagraph" class="p">推断 infer ：只能使用在
-<span
-        data-type="block-ref"
-        data-subtype="s"
-        data-id="20210118145939-28vi9fa"
-      >
-        <a href="./../../读书笔记/typescript/typescript速查文档.html">条件类型</a>
-      </span>
+<span data-type="block-ref"     data-subtype="s"     data-id="20210118145939-28vi9fa">
+          <a href="./../../读书笔记/typescript/typescript速查文档.html#20210118145939-28vi9fa">条件类型</a>
+  </span>
 中  
-<span data-type="NodeTextMark" data-type="code"
-        >type k&lt;T&gt; = T extends infer R ? R : boolean</span
-      >
+<span data-type="code">type k&lt;T&gt; = T extends infer R ? R : boolean</span>
  这里使用推断返回了 T 自身，但 infer 更多的是用于获取 T 中的某一部分的类型，例如 T 是一个函数的时候  
-<span data-type="NodeTextMark" data-type="code"
-        >type k&lt;T&gt; = T extends (...arg)=&gt;infer R ? R : T</span
-      >
+<span data-type="code">type k&lt;T&gt; = T extends (...arg)=&gt;infer R ? R : T</span>
  这里利用 infer 获取 T 的返回值的类型
 </div>
 <div id="20210118135213-jzm19x3" data-node-id="20210118135213-jzm19x3" data-type="NodeHeading" data-subtype="h2" class="h2">
       <div>
-<span data-type="NodeTextMark" data-type="s"
-        >类型保护</span
-      >
+<span data-type="s">类型保护</span>
  缩小类型范围（我认为这样描述更形象贴切）
 </div>
     </div>
-<div id="20210118135541-zjlmobl" data-node-id="20210118135541-zjlmobl" data-type="NodeParagraph" class="p"><span data-type="NodeTextMark" data-type="code"
-        >in</span
-      >
+<div id="20210118135541-zjlmobl" data-node-id="20210118135541-zjlmobl" data-type="NodeParagraph" class="p"><span data-type="code">in</span>
  , 
-<span data-type="NodeTextMark" data-type="code"
-        >typeof</span
-      >
+<span data-type="code">typeof</span>
  , 
-<span data-type="NodeTextMark" data-type="code"
-        >instanceof</span
-      >
+<span data-type="code">instanceof</span>
  这三个操作符 ts 都可以自动推断排除操作结果为假的类型
 </div>
 <div id="20210118135218-4z32b52" data-node-id="20210118135218-4z32b52" data-type="NodeCodeBlock" class="code-block">

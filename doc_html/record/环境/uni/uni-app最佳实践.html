@@ -114,7 +114,7 @@
           style="max-width: 800px;margin: 0 auto;"
           id="preview"
         >
-          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210120134520-egxkpts" data-node-id="20210120134520-egxkpts" data-type="NodeDocument" updated="20210120134520" data-subtype="h1" class="h1" title="uni-app最佳实践" type="doc">
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210120134520-egxkpts" data-node-id="20210120134520-egxkpts" data-type="NodeDocument" updated="20230924154548" data-subtype="h1" class="h1" title="uni-app最佳实践" type="doc">
       <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
       
 </div>
@@ -122,20 +122,14 @@
 </div>
 <div id="20210120134541-yvifakc" data-node-id="20210120134541-yvifakc" data-type="NodeHeading" data-subtype="h2" class="h2">
       <div>
-<span
-        data-type="block-ref"
-        data-subtype="d"
-        data-id="20201104153359-jkol7s4"
-      >
-        <a href="./../../../读书笔记/tailwindcss/tailwindcss.html">tailwind</a>
-      </span>
+<span data-type="block-ref"     data-subtype="d"     data-id="20201104153359-jkol7s4">
+          <a href="./../../../读书笔记/tailwindcss/tailwindcss.html#20201104153359-jkol7s4">tailwind</a>
+  </span>
 </div>
     </div>
-<div id="20210120134556-w728bux" data-node-id="20210120134556-w728bux" data-type="NodeParagraph" class="p">！ 值得注意的是微信小程序并不支持一些 css 选择器还有他的 wxss 不支持 
-<span data-type="NodeTextMark" data-type="code"
-        >\</span
-      >
-  所以如果直接使用tailwindcss 会报错类似于图中这样的错 : 
+<div id="20210120134556-w728bux" data-node-id="20210120134556-w728bux" data-type="NodeParagraph" updated="20230924154548" class="p">值得注意的是微信小程序并不支持一些 css 选择器还有他的 wxss 不支持 
+<span data-type="code">\</span>
+​  所以如果直接使用tailwindcss 会报错类似于图中这样的错 : 
 <span data-type="NodeImage" class="img" style="undefined"
       ><img
         src="./../../../assets/20210120143300-oymna2p-image.png"
@@ -144,13 +138,14 @@
         style="undefined"
       /><span class="protyle-action__title"></span></span
     >
+​
 </div>
 <div id="20210120143301-jwaumns" data-node-id="20210120143301-jwaumns" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210120195129-c3dvtb9" data-node-id="20210120195129-c3dvtb9" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
       <div id="20210410114628-2boxawu" data-node-id="20210410114628-2boxawu" data-type="NodeParagraph" class="p">幸运的是 tailwindcss 支持自定义 
-
+<a href="undefined"><span data-type="code">separator</span></a>
 </div>
 
     </div>
@@ -159,25 +154,15 @@
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
       <div id="20210410114628-biamles" data-node-id="20210410114628-biamles" data-type="NodeParagraph" class="p">但是在类名中包含 
-<span data-type="NodeTextMark" data-type="code"
-        >.</span
-      >
+<span data-type="code">.</span>
  的又需要 
-<span data-type="NodeTextMark" data-type="code"
-        >\.</span
-      >
+<span data-type="code">\.</span>
  这样的形式去声明类名而且貌似没有办法自定义这个， 所以在这种情况下我复制了 
-<span data-type="NodeTextMark" data-type="code"
-        >'tailwindcss/defaultConfig'</span
-      >
+<span data-type="code">'tailwindcss/defaultConfig'</span>
  中的配置将 
-<span data-type="NodeTextMark" data-type="code"
-        >\</span
-      >
+<span data-type="code">\</span>
  全部改成了 
-<span data-type="NodeTextMark" data-type="code"
-        >_</span
-      >
+<span data-type="code">_</span>
 </div>
 
     </div>
@@ -194,7 +179,7 @@
       /><span class="protyle-action__title"></span></span
     >
 这种语法 wxss 也不支持.... 这里不是 css 类名修改可以避免的，就只能去
-
+<a href="undefined"><span data-type="code">corePlugins</span></a>
 禁用相关的插件
 </div>
 <div id="20210120201649-ce03ndq" data-node-id="20210120201649-ce03ndq" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210120201649-uhb7y2o" data-node-id="20210120201649-uhb7y2o" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
@@ -202,21 +187,13 @@
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
       <div id="20210410114628-eh1lbnc" data-node-id="20210410114628-eh1lbnc" data-type="NodeParagraph" class="p">禁用了 
-<span data-type="NodeTextMark" data-type="code"
-        >space</span
-      >
+<span data-type="code">space</span>
  
-<span data-type="NodeTextMark" data-type="code"
-        >divideWidth</span
-      >
+<span data-type="code">divideWidth</span>
  
-<span data-type="NodeTextMark" data-type="code"
-        >divideStyle</span
-      >
+<span data-type="code">divideStyle</span>
  
-<span data-type="NodeTextMark" data-type="code"
-        >divideOpacity</span
-      >
+<span data-type="code">divideOpacity</span>
 </div>
 
     </div>
@@ -228,29 +205,17 @@
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
       <div id="20210410114628-spkvfyp" data-node-id="20210410114628-spkvfyp" data-type="NodeParagraph" class="p">css 的类名是允许以数字开头的，但需要进行转义，而 
-<span data-type="NodeTextMark" data-type="code"
-        >screens</span
-      >
+<span data-type="code">screens</span>
  配置中有一个 
-<span data-type="NodeTextMark" data-type="code"
-        >2xl</span
-      >
+<span data-type="code">2xl</span>
  这个 key 会在类名的最前面出现，于是 tailwind 转义为 
-<span data-type="NodeTextMark" data-type="code"
-        >\32xl</span
-      >
+<span data-type="code">\32xl</span>
  这里就又有了 
-<span data-type="NodeTextMark" data-type="code"
-        >\</span
-      >
+<span data-type="code">\</span>
  所以这里也需要
-<span
-        data-type="block-ref"
-        data-subtype="s"
-        data-id="20210120204412-5n4ys5v"
-      >
-        <a href="./../../../record/环境/uni/uni-app最佳实践.html">改一下</a>
-      </span>
+<span data-type="block-ref"     data-subtype="s"     data-id="20210120204412-5n4ys5v">
+          <a href="./../../../record/环境/uni/uni-app最佳实践.html#20210120204412-5n4ys5v">改一下</a>
+  </span>
 </div>
 
     </div>
@@ -265,13 +230,9 @@
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
       <div id="20210410114628-dntf8jq" data-node-id="20210410114628-dntf8jq" data-type="NodeParagraph" class="p">建议使用这里 
-<span
-        data-type="block-ref"
-        data-subtype="d"
-        data-id="20210120201815-mhusgkv"
-      >
-        <a href="./../../../record/环境/vscode/vscode使用心得.html">⭐❤ tailwindcss 类名提示</a>
-      </span>
+<span data-type="block-ref"     data-subtype="d"     data-id="20210120201815-mhusgkv">
+          <a href="./../../../record/环境/vscode/vscode使用心得.html#20210120201815-mhusgkv">⭐❤ tailwindcss 类名提示</a>
+  </span>
  链接中的插件
 </div>
 
@@ -325,7 +286,7 @@
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
       <div id="20210410114628-y1m1cqn" data-node-id="20210410114628-y1m1cqn" data-type="NodeParagraph" class="p">引入 tailwindcss 并在 微信开发者工具中正常跑起来的改动 
-
+<a href="undefined"><span data-type="code">b3c7085</span></a>
 </div>
 
     </div>
@@ -347,21 +308,13 @@
     </div>
 </div>
 <div id="20210410114628-7nv7a6f" data-node-id="20210410114628-7nv7a6f" data-type="NodeThematicBreak" class="hr"><div></div></div>
-<div id="20210120202722-w0313d3" data-node-id="20210120202722-w0313d3" data-type="NodeParagraph" updated="20210410153935" class="p"><span
-        data-type="block-ref"
-        data-subtype="d"
-        data-id="20210325155155-2wk7rxv"
-      >
-        <a href="./../../../tag/文章分享到的地方：.html">文章分享到的地方：</a>
-      </span>
+<div id="20210120202722-w0313d3" data-node-id="20210120202722-w0313d3" data-type="NodeParagraph" updated="20210410153935" class="p"><span data-type="block-ref"     data-subtype="d"     data-id="20210325155155-2wk7rxv">
+          <a href="./../../../tag/文章分享到的地方：.html#20210325155155-2wk7rxv">文章分享到的地方：</a>
+  </span>
 ​
-<span
-        data-type="block-ref"
-        data-subtype="d"
-        data-id="20210120134541-yvifakc"
-      >
-        <a href="./../../../record/环境/uni/uni-app最佳实践.html">tailwind</a>
-      </span>
+<span data-type="block-ref"     data-subtype="d"     data-id="20210120134541-yvifakc">
+          <a href="./../../../record/环境/uni/uni-app最佳实践.html#20210120134541-yvifakc">tailwind</a>
+  </span>
  章节 ：
 <a href="https://ask.dcloud.net.cn/article/38697">dcloud</a>
 </div>

@@ -145,9 +145,7 @@
 </div>
     </div>
 <div id="20210301181643-rw9k20q" data-node-id="20210301181643-rw9k20q" data-type="NodeParagraph" class="p">业务是一直在变化的，但一些业务是具有共通性。例如要给 API 添加日志和权限控制，可以直接在 API 内部实现，但这样每个 API 都会有重复的代码，
-<span data-type="NodeTextMark" data-type="strong"
-        >重复代码是万恶之源</span
-      >
+<span data-type="strong">重复代码是万恶之源</span>
  故需要将他们分离开来。
 </div>
 <div id="20210301181643-r03cghh" data-node-id="20210301181643-r03cghh" data-type="NodeParagraph" class="p">我们可以将这个日志和权限控制前置或者后置，就是一个请求先进入权限处理在进入实际的业务流程在返回同时进行日志处理。

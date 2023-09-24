@@ -192,17 +192,11 @@ module.exports.handler = function (req, res, context) {
 <div id="20210521142713-omb9zie" data-node-id="20210521142713-omb9zie" data-type="NodeParagraph" class="p">结果 （；´д ｀）ゞ 他啪啪啪的一直超时，我就不明白了他为啥调用一直超时。
 </div>
 <div id="20210521142713-qnus819" data-node-id="20210521142713-qnus819" data-type="NodeParagraph" class="p">经过一行行的测试发现 
-<span data-type="NodeTextMark" data-type="code"
-        >module.exports.handler</span
-      >
+<span data-type="code">module.exports.handler</span>
  中一旦是异步执行 
-<span data-type="NodeTextMark" data-type="code"
-        >server.httpProxy(req, res, context)</span
-      >
+<span data-type="code">server.httpProxy(req, res, context)</span>
  哪怕是这样写 
-<span data-type="NodeTextMark" data-type="code"
-        >setTimeout(()=&gt;{server.httpProxy(req, res, context)},1)</span
-      >
+<span data-type="code">setTimeout(()=&gt;{server.httpProxy(req, res, context)},1)</span>
  他也会超时。这里不知道原因，也不想浪费时间
 </div>
 <div id="20210521142713-v3hc5al" data-node-id="20210521142713-v3hc5al" data-type="NodeParagraph" class="p">既然找到了症结那就简单了，咻咻咻一段修改得到如下代码
@@ -246,9 +240,7 @@ module.exports.handler = function (req, res, context) {
 </div>
       </div>
 <div id="20210521142713-zr3l6en" data-node-id="20210521142713-zr3l6en" data-type="NodeParagraph" class="p">完美运行，诀窍就是 
-<span data-type="NodeTextMark" data-type="code"
-        >module.exports.handler</span
-      >
+<span data-type="code">module.exports.handler</span>
  内部不异步执行了，等待 nest.js 初始化的这个操作放到 express 中间件中去就行了
 </div>
 <div id="20210521142713-x9t8ufz" data-node-id="20210521142713-x9t8ufz" data-type="NodeParagraph" class="p"><a href="https://github.com/2234839/nest.js_aliyun_serverless">样例代码 github 地址</a>

@@ -124,24 +124,16 @@
 </div>
     </div>
 <div id="20210505154928-4tmahzn" data-node-id="20210505154928-4tmahzn" data-type="NodeParagraph" updated="20210505155206" class="p">主要错误是 
-<span data-type="NodeTextMark" data-type="code"
-        >http://download.zerotier.com/redhat/el/17.01/repodata/repomd.xml: [Errno 14] HTTP Error 404 - Not Found</span
-      >
+<span data-type="code">http://download.zerotier.com/redhat/el/17.01/repodata/repomd.xml: [Errno 14] HTTP Error 404 - Not Found</span>
  
-<span
-        data-type="block-ref"
-        data-subtype="d"
-        data-id="20210505154759-540e2ii"
-      >
-        <a href="./../other/Aliyun Linux 17.1安装 zerotier 失败.html">具体报错信息</a>
-      </span>
+<span data-type="block-ref"     data-subtype="d"     data-id="20210505154759-540e2ii">
+          <a href="./../other/Aliyun Linux 17.1安装 zerotier 失败.html#20210505154759-540e2ii">具体报错信息</a>
+  </span>
 </div>
 <div id="20210505155020-ai67wj2" data-node-id="20210505155020-ai67wj2" data-type="NodeParagraph" updated="20210505155345" class="p">通过查看 
 <a href="http://download.zerotier.com/redhat/el/">http://download.zerotier.com/redhat/el/</a>
  可知应该是 
-<span data-type="NodeTextMark" data-type="code"
-        >curl -s https://install.zerotier.com | sudo bash</span
-      >
+<span data-type="code">curl -s https://install.zerotier.com | sudo bash</span>
  命令内依赖了系统版本这个数据，但由于我使用的是 Aliyun Linux 17.1 所以他找不到相关的信息
 </div>
 <div id="20210505155153-q1codxb" data-node-id="20210505155153-q1codxb" data-type="NodeHeading" updated="20210505155213" data-subtype="h2" class="h2">
@@ -163,17 +155,11 @@
     >
 </div>
 <div id="20210505154920-qope8vf" data-node-id="20210505154920-qope8vf" data-type="NodeParagraph" updated="20210505155438" class="p">这里有一个 
-<span data-type="NodeTextMark" data-type="code"
-        >$releaserver</span
-      >
+<span data-type="code">$releaserver</span>
  基本验证了 
-<span
-        data-type="block-ref"
-        data-subtype="s"
-        data-id="20210505155020-ai67wj2"
-      >
-        <a href="./../other/Aliyun Linux 17.1安装 zerotier 失败.html">这里的推测</a>
-      </span>
+<span data-type="block-ref"     data-subtype="s"     data-id="20210505155020-ai67wj2">
+          <a href="./../other/Aliyun Linux 17.1安装 zerotier 失败.html#20210505155020-ai67wj2">这里的推测</a>
+  </span>
 </div>
 <div id="20210505155459-ptpajb6" data-node-id="20210505155459-ptpajb6" data-type="NodeParagraph" updated="20210505155521" class="p">我改成下图这样后再手动执行脚本安装成功了
 </div>

@@ -114,7 +114,7 @@
           style="max-width: 800px;margin: 0 auto;"
           id="preview"
         >
-          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201231214224-yxqubps" data-node-id="20201231214224-yxqubps" data-type="NodeDocument" updated="20201231214224" data-subtype="h1" class="h1" title="Serverless state" type="doc">
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201231214224-yxqubps" data-node-id="20201231214224-yxqubps" data-type="NodeDocument" updated="20201231214224" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201231214224-yxqubps&quot;,&quot;startId&quot;:&quot;20201231214224-a8w7gcz&quot;,&quot;endId&quot;:&quot;20201231220325-w3q5f6u&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20201231214250-7ca5hx5&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" title="Serverless state" type="doc">
       <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
       
 </div>
@@ -131,20 +131,14 @@
 <div id="20201231220337-o9ck5yx" data-node-id="20201231220337-o9ck5yx" data-type="NodeParagraph" class="p">应用部署到 serverless 平台后调起了两个实例  App1 App2
 </div>
 <div id="20201231220737-kc9prkn" data-node-id="20201231220737-kc9prkn" data-type="NodeParagraph" class="p">App1 启动的时候从 oss 拉取状态得知 
-<span data-type="NodeTextMark" data-type="code"
-        >State1 = 60</span
-      >
+<span data-type="code">State1 = 60</span>
 </div>
 <div id="20201231220808-3cchj2t" data-node-id="20201231220808-3cchj2t" data-type="NodeParagraph" class="p">App2 启动的时候从 oss 拉取状态得知 
-<span data-type="NodeTextMark" data-type="code"
-        >State1 = 63</span
-      >
+<span data-type="code">State1 = 63</span>
  (比 App1 晚启动)
 </div>
 <div id="20201231220518-c3wruyn" data-node-id="20201231220518-c3wruyn" data-type="NodeParagraph" class="p">这时实例 App1 App2 同时被访问了，他们都想执行 
-<span data-type="NodeTextMark" data-type="code"
-        >State1+=1</span
-      >
+<span data-type="code">State1+=1</span>
  这样的操作然后保存这个状态到 oss 去
 </div>
 <div id="20201231220933-h3h5013" data-node-id="20201231220933-h3h5013" data-type="NodeParagraph" class="p">要怎么实现这样的逻辑呢？

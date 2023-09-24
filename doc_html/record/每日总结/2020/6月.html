@@ -149,9 +149,7 @@
 <div id="20210521142713-8o7c10g" data-node-id="20210521142713-8o7c10g" data-type="NodeHeading" data-subtype="h3" class="h3">
       <div>
 VueX 与 ts 的结合
-<span data-type="NodeTextMark" data-type="strong"
-        >进阶</span
-      >
+<span data-type="strong">进阶</span>
 版
 </div>
     </div>
@@ -359,9 +357,7 @@ parcel CSS in js
 <div id="20210521142713-94c8xmg" data-node-id="20210521142713-94c8xmg" data-type="NodeParagraph" class="p">我在写油猴脚本时经常有加载 CSS 的需求，这时利用打包工具直接将 CSS 内联到 js 中就十分有用
 </div>
 <div id="20210521142713-699c6ks" data-node-id="20210521142713-699c6ks" data-type="NodeParagraph" class="p">但 parcel 对于这种情况目前 
-<span data-type="NodeTextMark" data-type="code"
-        >import '***.css'</span
-      >
+<span data-type="code">import '***.css'</span>
  是不会将 CSS 内联进去的，我从 https://github.com/parcel-bundler/parcel/issues/1370 找到了内联 CSS 的方法，虽然感觉并不优雅
 </div>
 <div id="20210521142713-1jbffj4" data-node-id="20210521142713-1jbffj4" data-type="NodeCodeBlock" class="code-block">
@@ -585,23 +581,15 @@ uni-app 及微信小程序类的 showLoading 与 showToast 处理
 </div>
     </div>
 <div id="20210521142713-icaonbv" data-node-id="20210521142713-icaonbv" data-type="NodeParagraph" class="p">首先单个的长单词默认是不换行的，需要设置 
-<span data-type="NodeTextMark" data-type="code"
-        >word-break: break-all;</span
-      >
+<span data-type="code">word-break: break-all;</span>
  , 然后微信的 cover-view 中如果只有单个长单词设置了 
-<span data-type="NodeTextMark" data-type="code"
-        >word-break: break-all;</span
-      >
+<span data-type="code">word-break: break-all;</span>
  虽然能换行但 cover-view 不会自动调整高度，导致换行后的文本根本看不见，但 
-<span data-type="NodeTextMark" data-type="code"
-        >white-space:pre-wrap;</span
-      >
+<span data-type="code">white-space:pre-wrap;</span>
  的换行 cover-view 却会自动调整高度。
 </div>
 <div id="20210521142713-7s03fu0" data-node-id="20210521142713-7s03fu0" data-type="NodeParagraph" class="p">所以我的思路就是在单个的长单词或者长数字后面影藏另外一个单词利用 
-<span data-type="NodeTextMark" data-type="code"
-        >white-space:pre-wrap;</span
-      >
+<span data-type="code">white-space:pre-wrap;</span>
  换行来完整的展现出长单词，实例如下：
 </div>
 <div id="20210521142713-lowb7me" data-node-id="20210521142713-lowb7me" data-type="NodeCodeBlock" class="code-block">
@@ -623,13 +611,9 @@ uni-app 及微信小程序类的 showLoading 与 showToast 处理
 </div>
       </div>
 <div id="20210521142713-rfm91ic" data-node-id="20210521142713-rfm91ic" data-type="NodeParagraph" class="p">这里的 
-<span data-type="NodeTextMark" data-type="code"
-        >count_cart_discounts.activityTotalAmount</span
-      >
+<span data-type="code">count_cart_discounts.activityTotalAmount</span>
  就有可能是一个长数值。结果出现了被截断显示不完整的 bug 通过后面隐藏的 
-<span data-type="NodeTextMark" data-type="code"
-        >&lt;cover-view style=&quot;color:transparent&quot;&gt;1&lt;/cover-view&gt;</span
-      >
+<span data-type="code">&lt;cover-view style=&quot;color:transparent&quot;&gt;1&lt;/cover-view&gt;</span>
  成功全部显示出来了
 </div>
 <div id="20210521142713-z5c3a8q" data-node-id="20210521142713-z5c3a8q" data-type="NodeHeading" data-subtype="h2" class="h2">

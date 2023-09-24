@@ -118,13 +118,9 @@
       <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
       
 </div>
-<div id="20210410114147-c1tluk3" data-node-id="20210410114147-c1tluk3" data-type="NodeParagraph" updated="20210410153823" class="p"><span
-        data-type="block-ref"
-        data-subtype="d"
-        data-id="20210325155155-2wk7rxv"
-      >
-        <a href="./../../tag/文章分享到的地方：.html">文章分享到的地方：</a>
-      </span>
+<div id="20210410114147-c1tluk3" data-node-id="20210410114147-c1tluk3" data-type="NodeParagraph" updated="20210410153823" class="p"><span data-type="block-ref"     data-subtype="d"     data-id="20210325155155-2wk7rxv">
+          <a href="./../../tag/文章分享到的地方：.html#20210325155155-2wk7rxv">文章分享到的地方：</a>
+  </span>
 ​
 <a href="https://zhuanlan.zhihu.com/p/281083041">一个简简单单的 TypeScript RPC 解决方案 - 崮生的文章 - 知乎</a>
 ​
@@ -206,9 +202,7 @@ export * from "./time";
 </div>
       </div>
 <div id="20230905115155-g8yorf4" data-node-id="20230905115155-g8yorf4" data-type="NodeParagraph" class="p">约定俗称的用一个 
-<span data-type="NodeTextMark" data-type="code"
-        >index.ts</span
-      >
+<span data-type="code">index.ts</span>
  文件将其他文件中的方法聚合起来。
 </div>
 <div id="20230905115155-1u5mkax" data-node-id="20230905115155-1u5mkax" data-type="NodeHeading" updated="20210415103143" data-subtype="h2" class="h2">
@@ -343,9 +337,7 @@ API.currentTime2(true).then((r) => console.log("服务器当前时间本地化",
 <div id="20210415103204-jvkalet" data-node-id="20210415103204-jvkalet" data-type="NodeBlockquote" updated="20210415103658" class="bq">
 <div id="20210415103659-jsz34ww" data-node-id="20210415103659-jsz34ww" data-type="NodeParagraph" class="p"><a href="undefined">beeplin</a>
 <a href="https://www.zhihu.com/people/beeplin">beeplin</a>
-<span data-type="NodeTextMark" data-type="strong"
-        >昨天 01:05</span
-      >
+<span data-type="strong">昨天 01:05</span>
 </div>
 <div id="20210415103659-lyhj1mn" data-node-id="20210415103659-lyhj1mn" data-type="NodeParagraph" class="p">用 dynamic import 通过 webpack 制造一个 永远不会被前端实际加载的 chunk，从而避免后端函数代码被打包到前端，我这个理解正确么？
 </div>
@@ -353,9 +345,7 @@ API.currentTime2(true).then((r) => console.log("服务器当前时间本地化",
 </div>
 </div>
 <div id="20210415103724-o8n2ube" data-node-id="20210415103724-o8n2ube" data-type="NodeParagraph" updated="20210415103856" class="p">我现在想出来的解决方案就是利用条件编译来使得前端打包时不去 
-<span data-type="NodeTextMark" data-type="code"
-        >import(&quot;./apis/index&quot;)</span
-      >
+<span data-type="code">import(&quot;./apis/index&quot;)</span>
  ,
 </div>
 <div id="20210415104022-zq7er4k" data-node-id="20210415104022-zq7er4k" data-type="NodeParagraph" updated="20210415104154" class="p">RC.ts 代码内的条件如下图这样改动，
@@ -369,9 +359,7 @@ API.currentTime2(true).then((r) => console.log("服务器当前时间本地化",
       /><span class="protyle-action__title"></span></span
     >
 </div>
-<div id="20210415104228-1f4xpw0" data-node-id="20210415104228-1f4xpw0" data-type="NodeParagraph" updated="20210415104249" class="p"><span data-type="NodeTextMark" data-type="code"
-        >process.browser</span
-      >
+<div id="20210415104228-1f4xpw0" data-node-id="20210415104228-1f4xpw0" data-type="NodeParagraph" updated="20210415104249" class="p"><span data-type="code">process.browser</span>
  来自于 webpack 插件的定义
 </div>
 <div id="20210415104158-t2yf6y3" data-node-id="20210415104158-t2yf6y3" data-type="NodeParagraph" updated="20210415104228" class="p"><span data-type="NodeImage" class="img" style="undefined"
@@ -384,9 +372,7 @@ API.currentTime2(true).then((r) => console.log("服务器当前时间本地化",
     >
 </div>
 <div id="20210415104259-ugwphz5" data-node-id="20210415104259-ugwphz5" data-type="NodeParagraph" updated="20210415104543" class="p">这样改动后当打包前端代码的时候打包工具检测到 
-<span data-type="NodeTextMark" data-type="code"
-        >process.browser===true</span
-      >
+<span data-type="code">process.browser===true</span>
  一定成立，于是会删去条件不成立分支的代码，之后再对代码进性依赖分析之类的就不会引入 api.ts 中的代码到前端代码中去了
 </div>
 <div id="20210415104455-rszq85y" data-node-id="20210415104455-rszq85y" data-type="NodeParagraph" class="p"></div>
@@ -396,9 +382,7 @@ API.currentTime2(true).then((r) => console.log("服务器当前时间本地化",
 </div>
     </div>
 <div id="20230905115155-6cmq4se" data-node-id="20230905115155-6cmq4se" data-type="NodeParagraph" class="p">这个
-<span data-type="NodeTextMark" data-type="s"
-        >项目</span
-      >
+<span data-type="s">项目</span>
  方法 的重点在于复用了服务端提供接口的类型，并且可以直接跳转过去。
 </div>
 <div id="20230905115155-l0z7yi0" data-node-id="20230905115155-l0z7yi0" data-type="NodeParagraph" class="p">追求简单的方法，完善类型体验。
@@ -418,13 +402,9 @@ API.currentTime2(true).then((r) => console.log("服务器当前时间本地化",
     >
 </div>
 <div id="20210410114552-ae38v0j" data-node-id="20210410114552-ae38v0j" data-type="NodeHeading" updated="20210609090256" data-subtype="h2" class="h2">
-      <div><span
-        data-type="block-ref"
-        data-subtype="d"
-        data-id="20201127151651-bbzj4xi"
-      >
-        <a href="./../../record/每日总结/2020/doc/uniapp composition-api 中使用 onShow、onLoad 这样的生命周期.html">uniapp composition-api 中使用 onShow、onLoad 这样的生命周期</a>
-      </span>
+      <div><span data-type="block-ref"     data-subtype="d"     data-id="20201127151651-bbzj4xi">
+          <a href="./../../record/每日总结/2020/doc/uniapp composition-api 中使用 onShow、onLoad 这样的生命周期.html#20201127151651-bbzj4xi">uniapp composition-api 中使用 onShow、onLoad 这样的生命周期</a>
+  </span>
 </div>
     </div>
 <div id="20210609090256-d8w4uej" data-node-id="20210609090256-d8w4uej" data-type="NodeParagraph" updated="20210609090256" class="p"></div>

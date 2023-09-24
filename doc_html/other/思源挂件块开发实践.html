@@ -173,25 +173,17 @@
 <div id="20210805125642-cmk42vk" data-node-id="20210805125642-cmk42vk" data-type="NodeParagraph" updated="20210805191324" class="p">由于 
 <a href="https://github.com/2234839/siyuan_api_cache_lib">siyuan_api_cache_lib</a>
  内使用了 
-<span data-type="NodeTextMark" data-type="code"
-        >self.frameElement</span
-      >
+<span data-type="code">self.frameElement</span>
  而 
-<span data-type="NodeTextMark" data-type="code"
-        >frameElement</span
-      >
+<span data-type="code">frameElement</span>
  只能在同源的情况下才能访问到
 所以我在开发的时候使用 nginx 进行转发来绕过这个问题
 (我使用 chrome 关闭跨域的安全策略还是无法在非同源的情况下拿到 
-<span data-type="NodeTextMark" data-type="code"
-        >frameElement</span
-      >
+<span data-type="code">frameElement</span>
 )
 </div>
 <div id="20210805125642-y75f9jo" data-node-id="20210805125642-y75f9jo" data-type="NodeParagraph" updated="20210805125642" class="p">配置 iframe 的资源链接为 
-<span data-type="NodeTextMark" data-type="code"
-        >http://127.0.0.1/widget/run-code/</span
-      >
+<span data-type="code">http://127.0.0.1/widget/run-code/</span>
  (run-code 是我在开发的插件 
 <a href="https://github.com/2234839/run-code">github.com/run-code</a>
 ，建议查看这个项目里面对本库的使用方式)
