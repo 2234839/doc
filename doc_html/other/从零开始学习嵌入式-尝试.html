@@ -6,7 +6,7 @@
       data-dark-theme="midnight"
     >
       <head>
-        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta
@@ -110,13 +110,13 @@
         </style>
       </head>
       <body>
-        
+        <div id="search"></div>
         <div
           class="protyle-wysiwyg protyle-wysiwyg--attr"
           style="max-width: 800px;margin: 0 auto;"
           id="preview"
         >
-          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210524142217-v3z91to" data-node-id="20210524142217-v3z91to" data-type="NodeDocument" updated="20210608161856" data-subtype="h1" class="h1" title="从零开始学习嵌入式-尝试">
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210524142217-v3z91to" data-node-id="20210524142217-v3z91to" data-type="NodeDocument" updated="20230929200614" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210524142217-v3z91to&quot;,&quot;startId&quot;:&quot;20210524142217-50zhpxz&quot;,&quot;endId&quot;:&quot;20230929092417-hll3jeb&quot;,&quot;scrollTop&quot;:2100,&quot;focusId&quot;:&quot;20230929144100-jtcwh6p&quot;,&quot;focusStart&quot;:73,&quot;focusEnd&quot;:73&#125;" title="从零开始学习嵌入式-尝试">
       <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
       
 </div>
@@ -283,101 +283,91 @@ rustup component add llvm-tools-preview
       <div>尝试
 </div>
     </div>
-<div id="20210524181052-6q73fqc" data-node-id="20210524181052-6q73fqc" data-type="NodeList" updated="20210524183931" data-subtype="u" class="list"><div id="20210524153714-5q9ntf4" data-node-id="20210524153714-5q9ntf4" data-type="NodeListItem" updated="20210524183931" data-subtype="u" class="li" data-marker="*">
+<div id="20210524181052-6q73fqc" data-node-id="20210524181052-6q73fqc" data-type="NodeList" updated="20230929200457" data-subtype="u" class="list"><div id="20210524153714-5q9ntf4" data-node-id="20210524153714-5q9ntf4" data-type="NodeListItem" updated="20230929200457" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
       <div id="20210524153714-23ilbsn" data-node-id="20210524153714-23ilbsn" data-type="NodeParagraph" updated="20210524155043" class="p"><a href="https://docs.rust-embedded.org/discovery/05-led-roulette/flash-it.html">Flash it - Discovery (rust-embedded.org)</a>
 </div>
-<div id="20210524153722-s2j15je" data-node-id="20210524153722-s2j15je" data-type="NodeList" updated="20210524183931" data-subtype="u" class="list"><div id="20210524154958-scapaqs" data-node-id="20210524154958-scapaqs" data-type="NodeListItem" updated="20210524170605" data-subtype="u" class="li" data-marker="*">
+<div id="20210524170556-c6w5l1m" data-node-id="20210524170556-c6w5l1m" data-type="NodeList" updated="20230929200457" data-subtype="u" class="list"><div id="20210524170555-5fadtoy" data-node-id="20210524170555-5fadtoy" data-type="NodeListItem" updated="20230929200457" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210524154958-s5h7naf" data-node-id="20210524154958-s5h7naf" data-type="NodeParagraph" updated="20210524155020" class="p">注意 
-<span data-type="code"></span>
-<span data-type="code">cd %TEMP%</span>
- 命令我只在 cmd 中尝试成功了，powershell 不行
-</div>
-<div id="20210524170556-c6w5l1m" data-node-id="20210524170556-c6w5l1m" data-type="NodeList" updated="20210524170605" data-subtype="u" class="list"><div id="20210524170555-5fadtoy" data-node-id="20210524170555-5fadtoy" data-type="NodeListItem" updated="20210524170605" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210524170555-tjdllrx" data-node-id="20210524170555-tjdllrx" data-type="NodeCodeBlock" updated="20210524170605" class="code-block">
+      <div id="20210524170555-tjdllrx" data-node-id="20210524170555-tjdllrx" data-type="NodeCodeBlock" updated="20230929200457" class="code-block" style="line-height: 22px;">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">
-          
+          bash
           </span>
             <span class="fn__flex-1"></span>
             <span class="protyle-icon protyle-icon--only protyle-action__copy">
             <svg><use xlink:href="#iconCopy"></use></svg>
           </span>
         </div>
-        <div class="hljs" spellcheck="false">cd %TEMP%
-openocd -s C:\share\scripts -f interface/stlink-v2-1.cfg -f target/stm32f3x.cfg
+        <div class="hljs" spellcheck="false">openocd -s C:\share\scripts -f interface/stlink-v2-1.cfg -f target/stm32f3x.cfg
 </div>
       </div>
 
     </div>
 </div>
-
-    </div>
-<div id="20210524154952-us3mpfa" data-node-id="20210524154952-us3mpfa" data-type="NodeListItem" updated="20210524161446" data-subtype="u" class="li" data-marker="*">
+<div id="20210524153722-s2j15je" data-node-id="20210524153722-s2j15je" data-type="NodeList" updated="20230929200431" data-subtype="u" class="list"><div id="20210524154952-us3mpfa" data-node-id="20210524154952-us3mpfa" data-type="NodeListItem" updated="20230929200240" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210524154952-60vqxsw" data-node-id="20210524154952-60vqxsw" data-type="NodeParagraph" updated="20210524161321" class="p"><span data-type="code"></span>
+      <div id="20210524154952-60vqxsw" data-node-id="20210524154952-60vqxsw" data-type="NodeParagraph" updated="20230929200240" class="p">​
 <span data-type="code">arm-none-eabi-gdb -q -ex &quot;target remote :3333&quot; target/thumbv7em-none-eabihf/debug/led-roulette</span>
+​​
 </div>
-<div id="20210524161324-cyp7866" data-node-id="20210524161324-cyp7866" data-type="NodeList" updated="20210524161446" data-subtype="u" class="list"><div id="20210524161323-g2d5ir5" data-node-id="20210524161323-g2d5ir5" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+<div id="20210524161324-cyp7866" data-node-id="20210524161324-cyp7866" data-type="NodeList" updated="20230929200237" data-subtype="u" class="list"><div id="20210524161323-g2d5ir5" data-node-id="20210524161323-g2d5ir5" data-type="NodeListItem" updated="20230929200237" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210524161323-b6celxo" data-node-id="20210524161323-b6celxo" data-type="NodeParagraph" updated="20210524161419" class="p">这个命令要在 
-<span data-type="code"></span>
+      <div id="20210524161323-b6celxo" data-node-id="20210524161323-b6celxo" data-type="NodeParagraph" updated="20230929200237" class="p">这个命令
+要在 
 <span data-type="code">discovery\</span>
-下面执行而非 
-<span data-type="code"></span>
+​​下面执行而非 
 <span data-type="code">discovery\src\05-led-roulette</span>
- 中
+​​ 中
 </div>
 
     </div>
-<div id="20210524161421-6p2s0wk" data-node-id="20210524161421-6p2s0wk" data-type="NodeListItem" updated="20210524161446" data-subtype="u" class="li" data-marker="*">
+<div id="20210524161421-6p2s0wk" data-node-id="20210524161421-6p2s0wk" data-type="NodeListItem" updated="20230929200236" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210524161421-3jwcw93" data-node-id="20210524161421-3jwcw93" data-type="NodeParagraph" updated="20210524161446" class="p">注意看后面的 target/...  这个编译产物存在于 
-<span data-type="code"></span>
+      <div id="20210524161421-3jwcw93" data-node-id="20210524161421-3jwcw93" data-type="NodeParagraph" updated="20230929200236" class="p">注意看后面的 target/...  这个编译产物存在于 
 <span data-type="code">discovery\</span>
- 下
+​​ 下
 </div>
 
     </div>
 </div>
 
     </div>
-<div id="20210524170159-pekld5l" data-node-id="20210524170159-pekld5l" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+<div id="20210524170159-pekld5l" data-node-id="20210524170159-pekld5l" data-type="NodeListItem" updated="20230929200230" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210524170159-ux21gp1" data-node-id="20210524170159-ux21gp1" data-type="NodeParagraph" updated="20210524170251" class="p">我在 vscode 中 
-<span data-type="code"></span>
+      <div id="20210524170159-ux21gp1" data-node-id="20210524170159-ux21gp1" data-type="NodeParagraph" updated="20230929200230" class="p">我在 
+vscode
+ 中 
 <span data-type="code">discovery\src\05-led-roulette</span>
- 下一直执行 cargo go 失败，猜测是环境变量的问题，重启电脑后 ok
+​​ 下一直执行 cargo 
+go
+ 失败，猜测是
+环境
+变量的问题，重启电脑后 ok
 </div>
 
     </div>
-<div id="20210524170251-pqorviu" data-node-id="20210524170251-pqorviu" data-type="NodeListItem" updated="20210524183931" data-subtype="u" class="li" data-marker="*">
+<div id="20210524170251-pqorviu" data-node-id="20210524170251-pqorviu" data-type="NodeListItem" updated="20230929200232" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210524170251-uji7twc" data-node-id="20210524170251-uji7twc" data-type="NodeParagraph" updated="20210524183931" class="p">在 
-<span data-type="code"></span>
+      <div id="20210524170251-uji7twc" data-node-id="20210524170251-uji7twc" data-type="NodeParagraph" updated="20230929200232" class="p">在 
 <span data-type="code">(gdb)</span>
- 中执行 
-<span data-type="code"></span>
+​​ 中执行 
 <span data-type="code">target remote :3333</span>
- 的时候需要确保 
+​​ 的时候需要确保 
 <span data-type="block-ref"     data-subtype="s"     data-id="20210524170555-tjdllrx">
           <a href="./../other/从零开始学习嵌入式-尝试.html#20210524170555-tjdllrx">openocd 命令</a>
   </span>
@@ -409,8 +399,8 @@ openocd -s C:\share\scripts -f interface/stlink-v2-1.cfg -f target/stm32f3x.cfg
 
     </div>
 </div>
-<div id="20210525153630-r822d01" data-node-id="20210525153630-r822d01" data-type="NodeHeading" updated="20210525153653" data-subtype="h3" class="h3">
-      <div>debug、vscode
+<div id="20210525153630-r822d01" data-node-id="20210525153630-r822d01" data-type="NodeHeading" updated="20230929143547" data-subtype="h3" class="h3">
+      <div>使用vscode 的 debug 功能，而非在命令行中使用gdb
 </div>
     </div>
 <div id="20210525153634-yaox4e6" data-node-id="20210525153634-yaox4e6" data-type="NodeBlockQueryEmbed" updated="20210525153634" data-type="NodeBlockquote" class="bq">
@@ -460,6 +450,119 @@ openocd -s C:\share\scripts -f interface/stlink-v2-1.cfg -f target/stm32f3x.cfg
 
 
     </div>
+<div id="20230929144100-1rr1y24" data-node-id="20230929144100-1rr1y24" data-type="NodeHeading" updated="20230929144100" data-subtype="h2" class="h2">
+      <div>debug
+</div>
+    </div>
+<div id="20230929144100-jtcwh6p" data-node-id="20230929144100-jtcwh6p" data-type="NodeTable" updated="20230929144100" class="table" colgroup="||">
+    <div>
+      <table spellcheck="false">
+        <colgroup>
+        <col /><col /><col />
+        </colgroup>
+        <thead><tr><td>命令
+</td>
+<td>简写
+</td>
+<td>功能
+</td>
+</tr>
+</thead>
+        <tbody>
+        <tr><td>setp
+</td>
+<td>s
+</td>
+<td>下一步
+<br>
+</td>
+</tr>
+<tr><td>help
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr><td>continue
+</td>
+<td>c
+</td>
+<td>继续执行
+</td>
+</tr>
+<tr><td>print
+</td>
+<td>p
+</td>
+<td>打印
+</td>
+</tr>
+<tr><td>disassemble /m
+</td>
+<td></td>
+<td>反汇编
+</td>
+</tr>
+<tr><td>info locals
+</td>
+<td></td>
+<td>打印本地变量
+</td>
+</tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<div id="20230929144105-a16r71z" data-node-id="20230929144105-a16r71z" data-type="NodeHeading" updated="20230929144150" data-subtype="h3" class="h3">
+      <div> 
+<a href="https://docs.rust-embedded.org/discovery/f3discovery/06-hello-world/index.html">println!</a>
+</div>
+    </div>
+<div id="20230929200403-23t5kmz" data-node-id="20230929200403-23t5kmz" data-type="NodeParagraph" updated="20230929200412" class="p">在同一个目录下分别执行
+</div>
+<div id="20230929200517-o1u87gy" data-node-id="20230929200517-o1u87gy" data-type="NodeBlockQueryEmbed" updated="20230929200517" data-type="NodeBlockquote" class="bq">
+      
+
+<div id="20210524170555-5fadtoy" data-node-id="20210524170555-5fadtoy" data-type="NodeListItem" updated="20230929200457" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524170555-tjdllrx" data-node-id="20210524170555-tjdllrx" data-type="NodeCodeBlock" updated="20230929200457" class="code-block" style="line-height: 22px;">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          bash
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">openocd -s C:\share\scripts -f interface/stlink-v2-1.cfg -f target/stm32f3x.cfg
+</div>
+      </div>
+
+    </div>
+
+
+
+    </div>
+<div id="20230929200523-fmqe9nk" data-node-id="20230929200523-fmqe9nk" data-type="NodeParagraph" updated="20230929200528" class="p">和
+</div>
+<div id="20230929200534-bx4f0re" data-node-id="20230929200534-bx4f0re" data-type="NodeCodeBlock" updated="20230929200559" class="code-block" style="line-height: 22px;">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          bash
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false"> # both
+itmdump -F -f itm.txt
+</div>
+      </div>
+<div id="20230929200602-xlp3phv" data-node-id="20230929200602-xlp3phv" data-type="NodeParagraph" updated="20230929200614" class="p">然后再运行 cargo run 即可
+</div>
 <div id="20210528200454-42ar0iy" data-node-id="20210528200454-42ar0iy" data-type="NodeHeading" updated="20210608161856" data-subtype="h2" class="h2">
       <div>gpio 
 </div>
@@ -544,68 +647,6 @@ openocd -s C:\share\scripts -f interface/stlink-v2-1.cfg -f target/stm32f3x.cfg
 //  
 </div>
       </div>
-<div id="20210605151314-pjbczet" data-node-id="20210605151314-pjbczet" data-type="NodeHeading" updated="20210605151319" data-subtype="h2" class="h2">
-      <div>debug
-</div>
-    </div>
-<div id="20210605151319-zb96417" data-node-id="20210605151319-zb96417" data-type="NodeTable" updated="20210605151608" class="table">
-    <div>
-      <table spellcheck="false">
-        <colgroup>
-        <col /><col /><col />
-        </colgroup>
-        <thead><tr><td>命令
-</td>
-<td>简写
-</td>
-<td>功能
-</td>
-</tr>
-</thead>
-        <tbody>
-        <tr><td>setp
-</td>
-<td>s
-</td>
-<td>下一步
-<br>
-</td>
-</tr>
-<tr><td>help
-</td>
-<td></td>
-<td></td>
-</tr>
-<tr><td>continue
-</td>
-<td>c
-</td>
-<td>继续执行
-</td>
-</tr>
-<tr><td>print
-</td>
-<td>p
-</td>
-<td>打印
-</td>
-</tr>
-<tr><td>disassemble /m
-</td>
-<td></td>
-<td>反汇编
-</td>
-</tr>
-<tr><td>info locals
-</td>
-<td></td>
-<td>打印本地变量
-</td>
-</tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
 <div id="20210525153636-5r9kloo" data-node-id="20210525153636-5r9kloo" data-type="NodeHeading" updated="20210529154613" data-subtype="h2" class="h2">
       <div>糟糕，玩崩了
 </div>
@@ -616,7 +657,7 @@ openocd -s C:\share\scripts -f interface/stlink-v2-1.cfg -f target/stm32f3x.cfg
     </div>
 <div id="20210529154647-ztl4tv3" data-node-id="20210529154647-ztl4tv3" data-type="NodeParagraph" updated="20210529160155" class="p">我在尝试的时候突然弄得无法通过 
 <span data-type="block-ref"     data-subtype="s"     data-id="20210524154958-scapaqs">
-          <a href="./../other/从零开始学习嵌入式-尝试.html#20210524154958-scapaqs">这个命令</a>
+          <a href="">这个命令</a>
   </span>
  连接了
 </div>
@@ -766,7 +807,8 @@ Error: init mode failed (unable to connect to the target)</div>
     </div>
 <div id="20210529161021-mrj2tl7" data-node-id="20210529161021-mrj2tl7" data-type="NodeParagraph" updated="20210529161106" class="p">此时就可以直接通过前面学习的方法使用 openocd 连接了
 </div>
-<div id="20210529161113-t73knpx" data-node-id="20210529161113-t73knpx" data-type="NodeParagraph" updated="20210529161113" class="p"></div>
+<div id="20230929092417-hll3jeb" data-node-id="20230929092417-hll3jeb" data-type="NodeParagraph" class="p"></div>
+<div id="20210529161113-t73knpx" data-node-id="20210529161113-t73knpx" data-type="NodeParagraph" updated="20230929092604" class="p"></div>
 
 
         </div>
@@ -813,13 +855,25 @@ Error: init mode failed (unable to connect to the target)</div>
           });
         </script>
         <footer>
-  <p style="text-align:center;margin:15px 0;">
-    技术支持：
-    <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
-    开发者：
+<p style="text-align:center;margin:15px 0;">
+  技术支持：
+  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+  开发者：
+  <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a>|
     <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
     <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
-  </p>
+</p>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+docsearch({
+appId: "UBOM0V691R",
+apiKey: "0c572ae8b8611d29477570967f44c3cf",
+indexName: "shenzilong",
+insights: true, // Optional, automatically send insights when user interacts with search results
+container: '#search',
+debug: false // Set debug to true if you want to inspect the modal
+});
+</script>
       </body>
     </html>
