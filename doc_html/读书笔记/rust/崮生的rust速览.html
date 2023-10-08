@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>崮生的rust速览</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div id="search"></div>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201227173912-l5o79dn" data-node-id="20201227173912-l5o79dn" data-type="NodeDocument" updated="20210530153551" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201227173912-l5o79dn&quot;,&quot;startId&quot;:&quot;20210530123438-shs9a8m&quot;,&quot;endId&quot;:&quot;20210530152927-05yua0c&quot;,&quot;scrollTop&quot;:5798.39990234375&#125;" title="崮生的rust速览" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210526203934-08vd4jl" data-node-id="20210526203934-08vd4jl" data-type="NodeParagraph" updated="20210526204026" class="p" style="color: var(--b3-card-info-color);background-color: var(--b3-card-info-background);"><span data-type="block-ref"     data-subtype="d"     data-id="20210526203700-iclp3d7">
+          <a href="./../../other/速览系列.html#20210526203700-iclp3d7">速览系列</a>
+  </span>
+ 
+</div>
+<div id="20210521142716-iv30m9g" data-node-id="20210521142716-iv30m9g" data-type="NodeBlockQueryEmbed" data-type="NodeBlockquote" class="bq">
+      
+
+<div id="20201227174241-nxny1tq" data-node-id="20201227174241-nxny1tq" data-type="NodeHeading" data-subtype="h3" class="h3">
+      <div>
+Cargo：Rust 的构建工具和包管理器
+</div>
+    </div>
+
+
+
+    </div>
+<div id="20201227174018-vw6sy1c" data-node-id="20201227174018-vw6sy1c" data-type="NodeHeading" updated="20210521150818" data-subtype="h2" class="h2">
+      <div>Rust 项目结构
+</div>
+    </div>
+<div id="20201227175010-0i6gs1q" data-node-id="20201227175010-0i6gs1q" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">hello-rust
+|- Cargo.toml
+|- src
+  |- main.rs
+</div>
+      </div>
+<div id="20201227175011-bg2a5yb" data-node-id="20201227175011-bg2a5yb" data-type="NodeParagraph" class="p"><span data-type="code">Cargo.toml</span>
+ 为 Rust 的清单文件。其中包含了项目的元数据和依赖库。
+</div>
+<div id="20201227175011-2kd0awj" data-node-id="20201227175011-2kd0awj" data-type="NodeParagraph" updated="20201227175011" class="p"><span data-type="code"></span>
+<span data-type="code">src/main.rs</span>
+ 为编写应用代码的地方。
+</div>
+<div id="20210525141857-ernxfa1" data-node-id="20210525141857-ernxfa1" data-type="NodeHeading" updated="20210525141904" data-subtype="h2" class="h2">
+      <div>Rust 语法
+</div>
+    </div>
+<div id="20210525150513-rn396dr" data-node-id="20210525150513-rn396dr" data-type="NodeCodeBlock" updated="20210525151253" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">// rust 打印 log 方案，
+println!("{:?}+{1:#?}, {} + {1} = {2:?}", 1, 2, 3);
+</div>
+      </div>
+<div id="20210525141904-8rtreg7" data-node-id="20210525141904-8rtreg7" data-type="NodeCodeBlock" updated="20210525151409" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">println!("rust 字面量 数值 {},{1},{2},{3}", 1, 1_i8, 1_i16, 1_u16);
+println!("rust 字面量 数值 {},{1},{2},{3}", 1, 0x1, 0o1, 0b1);
+</div>
+      </div>
+<div id="20210526203332-c7y8jvz" data-node-id="20210526203332-c7y8jvz" data-type="NodeHeading" updated="20210526203349" data-subtype="h3" class="h3">
+      <div>Rust 函数
+</div>
+    </div>
+<div id="20210525152722-u5vivxk" data-node-id="20210525152722-u5vivxk" data-type="NodeCodeBlock" updated="20210603190328" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">fn main() {
+    fn add1(x: i32) -> i32 {
+        return x + 1;
+    }
+}
+</div>
+      </div>
+<div id="20210603185937-iacbqja" data-node-id="20210603185937-iacbqja" data-type="NodeHeading" updated="20210603190347" data-subtype="h4" class="h4">
+      <div><a href="https://kaisery.github.io/trpl-zh-cn/ch13-01-closures.html#%E9%87%8D%E6%9E%84%E4%BD%BF%E7%94%A8%E9%97%AD%E5%8C%85%E5%82%A8%E5%AD%98%E4%BB%A3%E7%A0%81">闭包</a>
+/lambda
+</div>
+    </div>
+<div id="20210603190626-ejdlsyk" data-node-id="20210603190626-ejdlsyk" data-type="NodeParagraph" updated="20210603190645" class="p">为什么是竖线 ： 与 Smalltalk 和 Ruby 的闭包定义类似
+</div>
+<div id="20210603190315-dm8o52c" data-node-id="20210603190315-dm8o52c" data-type="NodeCodeBlock" updated="20210603191526" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">// rust 的 lambda，两个竖线所包裹的就是参数，后面是函数体，可以用花括号（代码块）来添加多条语句
+let add3 = |w: i32| w + 3;
+println!("{:?} {:?}", add1(6), add3(6))
+</div>
+      </div>
+<div id="20210603191419-73uhvnd" data-node-id="20210603191419-73uhvnd" data-type="NodeHeading" updated="20210603191451" data-subtype="h5" class="h5">
+      <div><a href="https://kaisery.github.io/trpl-zh-cn/ch13-01-closures.html#:~:text=%E5%A6%82%E6%9E%9C%E4%BD%A0%E5%B8%8C%E6%9C%9B%E5%BC%BA%E5%88%B6%E9%97%AD%E5%8C%85%E8%8E%B7%E5%8F%96%E5%85%B6%E4%BD%BF%E7%94%A8%E7%9A%84%E7%8E%AF%E5%A2%83%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89%E6%9D%83%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%9C%A8%E5%8F%82%E6%95%B0%E5%88%97%E8%A1%A8%E5%89%8D%E4%BD%BF%E7%94%A8%20move%20%E5%85%B3%E9%94%AE%E5%AD%97">move 强制闭包获取其使用的环境值的所有权</a>
+</div>
+    </div>
+<div id="20210603191512-jcpwhk2" data-node-id="20210603191512-jcpwhk2" data-type="NodeCodeBlock" updated="20210603191620" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">let equal_to_x = move |z| z == x; // 这里不使用 move 的话，下面还可以继续访问 x 的
+</div>
+      </div>
+<div id="20210526203115-mfwaj21" data-node-id="20210526203115-mfwaj21" data-type="NodeHeading" updated="20210530130341" data-subtype="h3" class="h3">
+      <div>Rust 结构体、元组、数组、vector、...
+</div>
+    </div>
+<div id="20210525151458-ni6rt8s" data-node-id="20210525151458-ni6rt8s" data-type="NodeCodeBlock" updated="20210529210540" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">fn main() {
+    #[derive(Debug)] // 不需要 println 就不需要加这个
+    struct User {
+        username: String,
+        email: String,
+    }
+    impl User {
+        // 给结构体添加方法的语法
+        fn name_email(&self) -> String {
+            let mut str: String = self.username.to_owned();
+            str.push_str("__");
+            str.push_str(&self.email);
+            return str;
+        }
+        // 关联函数
+        fn init() -> User {
+            User {
+                username: String::from("someone"),
+                email: String::from("someone@example.com"),
+            }
+        }
+    }
+    // 创建User 结构的实例, 需要修改则必须要可变
+    let mut user1 = User::init();
+    user1.username = String::from("崮生");
+    println!("{:?} {:?}", user1.name_email(), user1);
+    // 使用结构体更新语法从其他实例创建实例 struct update syntax）
+    let user2 = User {
+        username: String::from("崮生2"),
+        ..user1
+    };
+    println!("{:?} {:?}", user2.name_email(), user2);
+}</div>
+      </div>
+<div id="20210525151420-njv2ngn" data-node-id="20210525151420-njv2ngn" data-type="NodeCodeBlock" updated="20210525151709" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">println!("rust 元组 {:?} / {:?}", (1, 1_i8), (0, false, 1, true, (0, 1)));
+// > rust 元组 (1, 1) / (0, false, 1, true, (0, 1)) 
+</div>
+      </div>
+<div id="20210529203110-kzgdkll" data-node-id="20210529203110-kzgdkll" data-type="NodeCodeBlock" updated="20210525153317" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">let xs = [1, 2, 3, 4, 5];
+let ys: [i32; 30] = [3; 30]; //长度 30,全部初始化为3
+println!("rust 数组 {:?} / {:?}", xs, ys);
+</div>
+      </div>
+<div id="20210530153718-xlqksxx" data-node-id="20210530153718-xlqksxx" data-type="NodeHeading" updated="20210530153733" data-subtype="h4" class="h4">
+      <div>一些内置的实用类型
+</div>
+    </div>
+<div id="20210530153639-h7pze5p" data-node-id="20210530153639-h7pze5p" data-type="NodeParagraph" updated="20210530153704" class="p">Map : 
+<span data-type="code"></span>
+<span data-type="code">std::collections::HashMap</span>
+ , 
+</div>
+<div id="20210530130358-uof44mw" data-node-id="20210530130358-uof44mw" data-type="NodeHeading" updated="20210530130409" data-subtype="h4" class="h4">
+      <div>vector 
+</div>
+    </div>
+<div id="20210526203130-cmk56l1" data-node-id="20210526203130-cmk56l1" data-type="NodeParagraph" updated="20210526203133" class="p">vector 类型是标准库提供的一个 
+<span data-type="strong">允许</span>
+ 增长和缩小长度的类似数组的集合类型
+</div>
+<div id="20210530130415-7ssf10q" data-node-id="20210530130415-7ssf10q" data-type="NodeCodeBlock" updated="20210530154422" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">let v: Vec<i32> = Vec::new();
+let v = vec![1, 2, 3];
+let v100 = &v[100]; // 这里当索引处没有对应值的时候会 panic
+let v100 = v.get(100); // 这里返回的是 Option 💚
+</div>
+      </div>
+<div id="20210529210705-ycg7j6a" data-node-id="20210529210705-ycg7j6a" data-type="NodeHeading" updated="20210529210711" data-subtype="h4" class="h4">
+      <div>枚举
+</div>
+    </div>
+<div id="20210529210713-8r2t3oq" data-node-id="20210529210713-8r2t3oq" data-type="NodeCodeBlock" updated="20210529211017" class="code-block" name="rust 枚举">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">#[derive(Debug)] // 不需要 println 就不需要加这个
+enum IpAddrKind {
+    V4,
+    V6,
+}
+fn main() {
+    println!(
+        "{:?} {:?}",
+        (|ip: IpAddrKind| ip)(IpAddrKind::V4),
+        IpAddrKind::V6
+    );
+}</div>
+      </div>
+<div id="20210530115630-xu4ncez" data-node-id="20210530115630-xu4ncez" data-type="NodeCodeBlock" updated="20210530115740" class="code-block" name="rust 枚举结构体">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">enum IpAddr {
+    V4(String),
+    V6(String),
+}
+</div>
+      </div>
+<div id="20210530123443-sd6txxt" data-node-id="20210530123443-sd6txxt" data-type="NodeParagraph" updated="20210530123552" class="p">对于 
+<span data-type="block-ref"     data-subtype="s"     data-id="20201209223148-9rpztgo">
+          <a href="./../../record/每日总结/2020/12月.html#20201209223148-9rpztgo">null 问题</a>
+  </span>
+ rust 中有 Option 枚举以及泛型，
+</div>
+<div id="20210530123438-shs9a8m" data-node-id="20210530123438-shs9a8m" data-type="NodeCodeBlock" updated="20210530154843" class="code-block" name="rust 枚举结构体">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">enum Option<T> { // 比 null 更好的选择
+    Some(T),
+    None,
+}
+</div>
+      </div>
+<div id="20210603191827-78vk76g" data-node-id="20210603191827-78vk76g" data-type="NodeHeading" updated="20210603191833" data-subtype="h3" class="h3">
+      <div><a href="https://kaisery.github.io/trpl-zh-cn/ch13-02-iterators.html">迭代器</a>
+</div>
+    </div>
+<div id="20210603191834-bdkadh5" data-node-id="20210603191834-bdkadh5" data-type="NodeBlockquote" updated="20210603191925" class="bq">
+<div id="20210603191922-ehun0s1" data-node-id="20210603191922-ehun0s1" data-type="NodeParagraph" updated="20210603191924" class="p">迭代器都实现了一个叫做 
+<span data-type="code">Iterator</span>
+ 的定义于标准库的 trait。
+</div>
+</div>
+<div id="20210603191925-9ev18iu" data-node-id="20210603191925-9ev18iu" data-type="NodeParagraph" updated="20210603191925" class="p"></div>
+<div id="20210530123420-5dx3rjn" data-node-id="20210530123420-5dx3rjn" data-type="NodeHeading" updated="20210530154722" data-subtype="h3" class="h3">
+      <div>一些内置的工具类型
+</div>
+    </div>
+<div id="20210530154952-l4z4rqp" data-node-id="20210530154952-l4z4rqp" data-type="NodeBlockquote" updated="20210530155021" class="bq">
+<div id="20210530154953-gqnpu4e" data-node-id="20210530154953-gqnpu4e" data-type="NodeParagraph" updated="20210530155021" class="p">这些都在 prelude 中，不需要额外的命名空间指定
+</div>
+</div>
+<div id="20210530154723-c9bfres" data-node-id="20210530154723-c9bfres" data-type="NodeCodeBlock" updated="20210530155951" class="code-block" name="rust Result">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">enum Result<T, E> { // 用来抛出可恢复错误
+    Ok(T),
+    Err(E),
+}
+let r: Result<i32, i32> = Result::Err(1);
+r.unwrap(); // 在 r 匹配 Result::Err() 的时候 panic!
+</div>
+      </div>
+<div id="20210530154915-v9s6p97" data-node-id="20210530154915-v9s6p97" data-type="NodeCodeBlock" updated="20210530154843" class="code-block" name="rust 枚举结构体">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">enum Option<T> { // 比 null 更好的选择
+    Some(T),
+    None,
+}
+</div>
+      </div>
+<div id="20210526203515-ycrvnbd" data-node-id="20210526203515-ycrvnbd" data-type="NodeHeading" updated="20210526203523" data-subtype="h3" class="h3">
+      <div>Rust 控制流
+</div>
+    </div>
+<div id="20210525152729-fhkzz51" data-node-id="20210525152729-fhkzz51" data-type="NodeCodeBlock" updated="20210526204558" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">fn main() {
+    let number = 3;
+
+    let number = if number < 5 {
+        println!("condition was true");
+    } else {
+        println!("condition was false");
+    }
+}
+</div>
+      </div>
+<div id="20210526204602-pmsk7nt" data-node-id="20210526204602-pmsk7nt" data-type="NodeCodeBlock" updated="20210526204640" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">fn main() {
+    let number = 3;
+    // 注意！ 这里的语法似乎不支持 return
+    let number = if number < 5 { "4" } else { "7" };
+    println!("{:?}", number);
+}
+</div>
+      </div>
+<div id="20210526204746-qpnsron" data-node-id="20210526204746-qpnsron" data-type="NodeCodeBlock" updated="20210526210145" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">fn main() {
+    let r = loop {
+        println!("loop 可以作为表达式，下面的while不行");
+        break 42;
+    };
+    while r != 0 {
+        break;
+    }
+    for element in (1..r).rev() {
+        println!("从41->1: {}", element);
+    }
+}
+</div>
+      </div>
+<div id="20210530122331-5sxdw4n" data-node-id="20210530122331-5sxdw4n" data-type="NodeHeading" updated="20210530122352" data-subtype="h4" class="h4">
+      <div>math 控制流运算符
+</div>
+    </div>
+<div id="20210530122611-m3z7bph" data-node-id="20210530122611-m3z7bph" data-type="NodeCodeBlock" updated="20210530123059" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">#[derive(Debug)] // 不需要 println 就不需要加这个
+enum IpAddrKind {
+    V4,
+    V6(String),
+}
+fn main() {
+    let ip = IpAddrKind::V6("v6 ip".to_owned());
+    let ip_tag = match ip {
+        IpAddrKind::V4 => "v4".to_owned(),
+        IpAddrKind::V6(addr) => addr,
+    };
+    println!("{:?}", ip_tag); // "v6 ip"
+}</div>
+      </div>
+<div id="20210530123721-gbdm2jw" data-node-id="20210530123721-gbdm2jw" data-type="NodeHeading" updated="20210530123747" data-subtype="h4" class="h4">
+      <div>if let 简单控制流
+</div>
+    </div>
+<div id="20210530124113-a5d21nl" data-node-id="20210530124113-a5d21nl" data-type="NodeCodeBlock" updated="20210530124113" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">fn main() {
+    let some_u8_value = Some(0u8);
+    if let Some(3) = some_u8_value {
+        println!("three");
+    }
+}</div>
+      </div>
+<div id="20210530154206-1yk04nt" data-node-id="20210530154206-1yk04nt" data-type="NodeHeading" updated="20210530154231" data-subtype="h4" class="h4">
+      <div>错误 panic!
+</div>
+    </div>
+<div id="20210530154232-115bpfm" data-node-id="20210530154232-115bpfm" data-type="NodeCodeBlock" updated="20210530155156" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">panic!("") // 抛出一个不可恢复的错误
+</div>
+      </div>
+<div id="20210530154217-a9wccu0" data-node-id="20210530154217-a9wccu0" data-type="NodeList" updated="20210530161001" data-subtype="u" class="list"><div id="20210530160230-n72fzr7" data-node-id="20210530160230-n72fzr7" data-type="NodeListItem" updated="20210530161001" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210530160230-36ipusk" data-node-id="20210530160230-36ipusk" data-type="NodeParagraph" class="p"><span data-type="block-ref"     data-subtype="d"     data-id="20210530154723-c9bfres">
+          <a href="./../../读书笔记/rust/崮生的rust速览.html#20210530154723-c9bfres">rust Result</a>
+  </span>
+</div>
+<div id="20210530160231-tdinnpj" data-node-id="20210530160231-tdinnpj" data-type="NodeList" updated="20210530161001" data-subtype="u" class="list"><div id="20210530160230-z0d9ny3" data-node-id="20210530160230-z0d9ny3" data-type="NodeListItem" updated="20210530161001" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210530160231-0vg5q3g" data-node-id="20210530160231-0vg5q3g" data-type="NodeParagraph" updated="20210530161001" class="p"><a href="https://kaisery.github.io/trpl-zh-cn/ch09-02-recoverable-errors-with-result.html#%E4%BC%A0%E6%92%AD%E9%94%99%E8%AF%AF%E7%9A%84%E7%AE%80%E5%86%99-%E8%BF%90%E7%AE%97%E7%AC%A6">传播错误的简写：? 运算符</a>
+  放在函数调用括号的后面 , 当函数调用的返回值是 
+<span data-type="code"></span>
+<span data-type="code">Result::Err</span>
+ 的时候直接 return 这个 err
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="20210530160207-t9dzz1m" data-node-id="20210530160207-t9dzz1m" data-type="NodeHeading" updated="20210530161317" data-subtype="h3" class="h3">
+      <div>泛型
+</div>
+    </div>
+<div id="20210530161600-nucfka0" data-node-id="20210530161600-nucfka0" data-type="NodeParagraph" updated="20210530161600" class="p"><a href="https://kaisery.github.io/trpl-zh-cn/ch10-01-syntax.html#%E6%B3%9B%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">泛型数据类型</a>
+</div>
+<div id="20210530161604-0a6kgpz" data-node-id="20210530161604-0a6kgpz" data-type="NodeCodeBlock" updated="20210530161916" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">struct Point<T> {
+    x: T,
+    y: T,
+}
+</div>
+      </div>
+<div id="20210603173927-ce6vvt9" data-node-id="20210603173927-ce6vvt9" data-type="NodeParagraph" updated="20210603173950" class="p"><span data-type="block-ref"     data-subtype="d"     data-id="20210530164300-1n6lofd">
+          <a href="./../../读书笔记/rust/崮生的rust速览.html#20210530164300-1n6lofd">生命周期</a>
+  </span>
+ 
+<a href="https://kaisery.github.io/trpl-zh-cn/ch10-03-lifetime-syntax.html#:~:text=%E6%98%AF%E5%BF%85%E9%A1%BB%E7%9A%84%E3%80%82-,%E5%9B%A0%E4%B8%BA%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E4%B9%9F%E6%98%AF%E6%B3%9B%E5%9E%8B,-%EF%BC%8C%E6%89%80%E4%BB%A5%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">也是泛型</a>
+</div>
+<div id="20210530161825-6nfbphq" data-node-id="20210530161825-6nfbphq" data-type="NodeHeading" updated="20210530163343" data-subtype="h3" class="h3">
+      <div><a href="https://kaisery.github.io/trpl-zh-cn/ch10-02-traits.html">trait / </a>
+ 
+<span data-type="block-ref"     data-subtype="s"     data-id="20210530163219-dzs7bf9">
+          <a href="./../../读书笔记/rust/崮生的rust速览.html#20210530163219-dzs7bf9">泛型约束</a>
+  </span>
+</div>
+    </div>
+<div id="20210530161840-q5e82rg" data-node-id="20210530161840-q5e82rg" data-type="NodeParagraph" updated="20210530162232" class="p" style="color: var(--b3-card-info-color);background-color: var(--b3-card-info-background);">rust 中通过 trait 来定义共享的行为 （我理解成约束）
+</div>
+<div id="20210530162234-iy0z2ev" data-node-id="20210530162234-iy0z2ev" data-type="NodeCodeBlock" updated="20210530163752" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">pub trait Summary {// 声明一个 trait 「Summary」
+    fn summarize(&self) -> String;
+    fn summarize1(&self) -> String { // 可以添加一个默认实现
+        String::from("(Read more...)")
+    }
+}
+
+pub struct Tweet {
+    pub username: String,
+    pub content: String,
+    pub reply: bool,
+    pub retweet: bool,
+}
+impl Summary for Tweet { // 实现 Summary
+    fn summarize(&self) -> String {
+        format!("{}: {}", self.username, self.content)
+    }
+}
+</div>
+      </div>
+<div id="20210530163433-c2r9iqk" data-node-id="20210530163433-c2r9iqk" data-type="NodeHeading" updated="20210530163433" data-subtype="h4" class="h4">
+      <div><a href="https://kaisery.github.io/trpl-zh-cn/ch10-02-traits.html#trait-bound-%E8%AF%AD%E6%B3%95">Trait Bound 语法</a>
+</div>
+    </div>
+<div id="20210530163219-dzs7bf9" data-node-id="20210530163219-dzs7bf9" data-type="NodeCodeBlock" updated="20210530163831" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">pub fn notify(item: impl Summary)  -> impl Summary { // 函数参数以及返回值 约束！
+    println!("Breaking news! {}", item.summarize());
+}
+pub fn notify(item: impl Summary + Display) {} // 指定多个约束
+
+pub fn notify<T: Summary>(item: T) { // 泛型约束
+    println!("Breaking news! {}", item.summarize());
+}
+fn some_function<T, U>(t: T, u: U) -> i32
+    where T: Display + Clone, // 指定多个约束 的语法糖
+          U: Clone + Debug
+{}
+</div>
+      </div>
+<div id="20210526210153-7csnz3i" data-node-id="20210526210153-7csnz3i" data-type="NodeHeading" updated="20210530163529" data-subtype="h3" class="h3">
+      <div><a href="https://kaisery.github.io/trpl-zh-cn/ch04-01-what-is-ownership.html#%E6%89%80%E6%9C%89%E6%9D%83%E8%A7%84%E5%88%99">Rust 所有权</a>
+ （
+<span data-type="strong">很重要</span>
+）
+</div>
+    </div>
+<div id="20210526210204-9patef0" data-node-id="20210526210204-9patef0" data-type="NodeBlockquote" updated="20210526210216" class="bq">
+<div id="20210526210216-ktxgcfk" data-node-id="20210526210216-ktxgcfk" data-type="NodeParagraph" updated="20210526210217" class="p">所有权（系统）是 Rust 最为与众不同的特性，它让 Rust 无需垃圾回收（garbage collector）即可保障内存安全。因此，理解 Rust 中所有权如何工作是十分重要的。
+</div>
+</div>
+<div id="20210526210835-aw504yp" data-node-id="20210526210835-aw504yp" data-type="NodeHeading" updated="20210526210835" data-subtype="h4" class="h4">
+      <div><a href="https://kaisery.github.io/trpl-zh-cn/ch04-01-what-is-ownership.html#所有权规则">所有权规则</a>
+</div>
+    </div>
+<div id="20210526210835-294ynq8" data-node-id="20210526210835-294ynq8" data-type="NodeParagraph" updated="20210526210835" class="p">首先，让我们看一下所有权的规则。当我们通过举例说明时，请谨记这些规则：
+</div>
+<div id="20210526210835-7git155" data-node-id="20210526210835-7git155" data-type="NodeBlockquote" updated="20210526210835" class="bq">
+<div id="20210526210835-29lmton" data-node-id="20210526210835-29lmton" data-type="NodeList" updated="20210526210835" data-subtype="o" class="list"><div id="20210526210835-074p0xu" data-node-id="20210526210835-074p0xu" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1.">
+      <div class="protyle-action">
+        1.
+      </div>
+      <div id="20210526210835-y8q8tt4" data-node-id="20210526210835-y8q8tt4" data-type="NodeParagraph" class="p">Rust 中的每一个值都有一个被称为其 
+<span data-type="strong">所有者</span>
+ （ 
+<span data-type="em">owner</span>
+ ）的变量。
+</div>
+
+    </div>
+<div id="20210526210835-7duhm20" data-node-id="20210526210835-7duhm20" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2.">
+      <div class="protyle-action">
+        2.
+      </div>
+      <div id="20210526210835-9c7nhxa" data-node-id="20210526210835-9c7nhxa" data-type="NodeParagraph" class="p">值在任一时刻有且只有一个所有者。
+</div>
+
+    </div>
+<div id="20210526210835-11flyu3" data-node-id="20210526210835-11flyu3" data-type="NodeListItem" updated="20210526210835" data-subtype="o" class="li" data-marker="3.">
+      <div class="protyle-action">
+        3.
+      </div>
+      <div id="20210526210835-82q4l9u" data-node-id="20210526210835-82q4l9u" data-type="NodeParagraph" updated="20210526210835" class="p">当所有者（变量）离开作用域，这个值将被丢弃。
+</div>
+
+    </div>
+</div>
+</div>
+<div id="20210526212107-1br1z70" data-node-id="20210526212107-1br1z70" data-type="NodeCodeBlock" updated="20210526214006" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">fn main() {
+    let s1 = String::from("hello");
+    let s2 = s1; // 这里将 s1 的值给了 s2, 然后 s1 就不可访问了。这种行为叫做 move
+
+    let s1 = takes_ownership(s2); //s2 的所有权交给了 takes_ownership，所以下面就不能再使用 s2 了
+    let s1_len = calculate_length(&s1); // 这里通过引用的方式使用 s1 ,s1 的所有权还在
+    println!("{} {}", s1, s1_len);
+
+    fn takes_ownership(some_string: String) -> String {
+        println!("{}", some_string);
+        return some_string;
+    }
+    fn calculate_length(s: &String) -> usize {
+        return s.len();
+    }
+}
+</div>
+      </div>
+<div id="20210526214025-dwsncqc" data-node-id="20210526214025-dwsncqc" data-type="NodeParagraph" updated="20210526214151" class="p"><a href="https://kaisery.github.io/trpl-zh-cn/ch04-02-references-and-borrowing.html#可变引用">可变引用</a>
+ ，使用 
+<span data-type="code"></span>
+<span data-type="code">&amp;s</span>
+ 获得的值是无法修改的，需要使用 
+<span data-type="code"></span>
+<span data-type="code">&amp;mut s</span>
+ 。
+</div>
+<div id="20210526214245-lzbjqbw" data-node-id="20210526214245-lzbjqbw" data-type="NodeBlockquote" updated="20210526214808" class="bq">
+<div id="20210526214246-x9u0vph" data-node-id="20210526214246-x9u0vph" data-type="NodeParagraph" updated="20210526214405" class="p">可变引用有一个很大的限制：
+</div>
+<div id="20210526214359-ceuge4e" data-node-id="20210526214359-ceuge4e" data-type="NodeList" updated="20210526214808" data-subtype="u" class="list"><div id="20210526214400-lwnfuog" data-node-id="20210526214400-lwnfuog" data-type="NodeListItem" updated="20210526214808" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210526214400-2ydz319" data-node-id="20210526214400-2ydz319" data-type="NodeParagraph" updated="20210526214808" class="p">在特定作用域中的特定数据只能有一个可变引用。（不可变引用可以有多个）
+</div>
+
+    </div>
+<div id="20210526214408-6piqlxl" data-node-id="20210526214408-6piqlxl" data-type="NodeListItem" updated="20210526214808" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210526214408-k3zjhv9" data-node-id="20210526214408-k3zjhv9" data-type="NodeParagraph" updated="20210526214808" class="p">可变引用与不可变引只能选一个
+</div>
+
+    </div>
+</div>
+</div>
+<div id="20210526214250-bxz3h39" data-node-id="20210526214250-bxz3h39" data-type="NodeParagraph" updated="20210529202755" class="p"><a href="https://kaisery.github.io/trpl-zh-cn/ch04-03-slices.html">Slices - Rust 程序设计语言 简体中文版 (kaisery.github.io)</a>
+</div>
+<div id="20210530164300-1n6lofd" data-node-id="20210530164300-1n6lofd" data-type="NodeHeading" updated="20210530164332" data-subtype="h3" class="h3">
+      <div><a href="https://kaisery.github.io/trpl-zh-cn/ch10-03-lifetime-syntax.html">生命周期</a>
+</div>
+    </div>
+<div id="20210603163745-2dugozs" data-node-id="20210603163745-2dugozs" data-type="NodeBlockquote" updated="20210603171637" class="bq">
+<div id="20210603163746-aenpv3c" data-node-id="20210603163746-aenpv3c" data-type="NodeParagraph" updated="20210603171637" class="p">Rust 中的每一个引用都有其  
+<span data-type="strong">生命周期</span>
+ （ 
+<span data-type="em">lifetime</span>
+ ），也就是引用保持有效的作用域。
+</div>
+</div>
+<div id="20210530164333-c3mozjy" data-node-id="20210530164333-c3mozjy" data-type="NodeCodeBlock" updated="20210530165322" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          rust
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">&'a i32     // 带有显式生命周期的引用
+&'a mut i32 // 带有显式生命周期的可变引用
+</div>
+      </div>
+<div id="20210530164309-nfuv7ve" data-node-id="20210530164309-nfuv7ve" data-type="NodeList" updated="20210603170000" data-subtype="u" class="list"><div id="20210603170000-wlvm7x9" data-node-id="20210603170000-wlvm7x9" data-type="NodeListItem" updated="20210603170000" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210603170000-dntj4kq" data-node-id="20210603170000-dntj4kq" data-type="NodeParagraph" updated="20210603170000" class="p"><a href="https://kaisery.github.io/trpl-zh-cn/ch10-03-lifetime-syntax.html#:~:text=%E5%BC%95%E7%94%A8%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%BF%85%E9%A1%BB%E6%98%AF%E4%B8%A4%E4%B8%AA%E5%8F%82%E6%95%B0%E4%B8%AD%E8%BE%83%E7%9F%AD%E7%9A%84%E9%82%A3%E4%B8%AA%E3%80%82">引用的生命周期必须是两个参数中较短的那个。</a>
+</div>
+
+    </div>
+<div id="20210603171847-wu5ecet" data-node-id="20210603171847-wu5ecet" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210603171847-s436tw4" data-node-id="20210603171847-s436tw4" data-type="NodeParagraph" updated="20210603171900" class="p"><a href="https://kaisery.github.io/trpl-zh-cn/ch10-03-lifetime-syntax.html#:~:text=%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9C%81%E7%95%A5%E8%A7%84%E5%88%99%EF%BC%88lifetime%20elision%20rules%EF%BC%89%E3%80%82">生命周期省略规则 （ lifetime elision rules ）。</a>
+</div>
+
+    </div>
+<div id="20210603172114-bshu0ik" data-node-id="20210603172114-bshu0ik" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210603172114-lvqtbhz" data-node-id="20210603172114-lvqtbhz" data-type="NodeParagraph" updated="20210603172145" class="p"><a href="https://kaisery.github.io/trpl-zh-cn/ch10-03-lifetime-syntax.html#%E9%9D%99%E6%80%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">静态生命周期</a>
+ 
+<span data-type="code">'static</span>
+ 在整个程序运行期间都存活
+</div>
+
+    </div>
+</div>
+<div id="20210530124457-3sjiatf" data-node-id="20210530124457-3sjiatf" data-type="NodeHeading" updated="20210530124504" data-subtype="h3" class="h3">
+      <div><a href="https://kaisery.github.io/trpl-zh-cn/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html">项目管理</a>
+</div>
+    </div>
+<div id="20210530124504-hyaxdq5" data-node-id="20210530124504-hyaxdq5" data-type="NodeList" updated="20210530130146" data-subtype="u" class="list"><div id="20210530125240-4pvecdh" data-node-id="20210530125240-4pvecdh" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210530125240-p57c9ih" data-node-id="20210530125240-p57c9ih" data-type="NodeParagraph" updated="20210530125251" class="p">crate 、 super
+</div>
+<div id="20210530125257-e1gublw" data-node-id="20210530125257-e1gublw" data-type="NodeList" data-subtype="u" class="list"><div id="20210530125257-t7jwp8o" data-node-id="20210530125257-t7jwp8o" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210530125257-1k7ted2" data-node-id="20210530125257-1k7ted2" data-type="NodeParagraph" updated="20210530125259" class="p">pub
+</div>
+<div id="20210530125604-4wmuzkb" data-node-id="20210530125604-4wmuzkb" data-type="NodeList" data-subtype="u" class="list"><div id="20210530125603-o4sgw82" data-node-id="20210530125603-o4sgw82" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210530125603-8nvtldv" data-node-id="20210530125603-8nvtldv" data-type="NodeParagraph" updated="20210530125626" class="p">pub use / 重导出
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210530125252-bibgooz" data-node-id="20210530125252-bibgooz" data-type="NodeListItem" updated="20210530130014" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210530125252-vui8m1n" data-node-id="20210530125252-vui8m1n" data-type="NodeParagraph" updated="20210530125255" class="p">use
+</div>
+<div id="20210530125521-wsxu3lf" data-node-id="20210530125521-wsxu3lf" data-type="NodeList" updated="20210530130014" data-subtype="u" class="list"><div id="20210530125521-aud6acw" data-node-id="20210530125521-aud6acw" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210530125521-gxwkrzn" data-node-id="20210530125521-gxwkrzn" data-type="NodeParagraph" updated="20210530125522" class="p">as
+</div>
+
+    </div>
+<div id="20210530125759-xre98bk" data-node-id="20210530125759-xre98bk" data-type="NodeListItem" updated="20210530130014" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210530125759-k4ubmhm" data-node-id="20210530125759-k4ubmhm" data-type="NodeParagraph" updated="20210530130014" class="p">嵌套路径从一个模块导入多个 
+<span data-type="code"></span>
+<span data-type="code">use std::{self,cmp::Ordering, io};</span>
+ , 这里的 
+<span data-type="code"></span>
+<span data-type="code">self == std</span>
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210530125641-ad62tv3" data-node-id="20210530125641-ad62tv3" data-type="NodeListItem" updated="20210530125712" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210530125644-7hm89di" data-node-id="20210530125644-7hm89di" data-type="NodeParagraph" updated="20210530125712" class="p"><a href="https://kaisery.github.io/trpl-zh-cn/ch07-04-bringing-paths-into-scope-with-the-use-keyword.html#%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8%E5%8C%85">使用外部包</a>
+ 
+<span data-type="code"></span>
+<span data-type="code">[dependencies]</span>
+</div>
+
+    </div>
+<div id="20210530125651-u4rcyiy" data-node-id="20210530125651-u4rcyiy" data-type="NodeListItem" updated="20210530130146" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210530125651-bemn30r" data-node-id="20210530125651-bemn30r" data-type="NodeParagraph" updated="20210530130146" class="p">glob 运算符 
+<span data-type="code"></span>
+<span data-type="code">use std::collections::*;</span>
+ 将 
+<span data-type="code"></span>
+<span data-type="code">use std::collections</span>
+ 下的公有项全部引入作用域，
+<span data-type="strong">看上去就是不应该随便用的</span>
+</div>
+
+    </div>
+</div>
+<div id="20210603185951-01l4rxg" data-node-id="20210603185951-01l4rxg" data-type="NodeParagraph" updated="20210603185951" class="p"></div>
+<div id="20201227175011-irbq7gh" data-node-id="20201227175011-irbq7gh" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+学习资料
+</div>
+    </div>
+<div id="20201227175756-u614xcs" data-node-id="20201227175756-u614xcs" data-type="NodeParagraph" class="p"><a href="https://kaisery.github.io/trpl-zh-cn/">Rust 程序设计语言 简体中文版</a>
+</div>
+<div id="20210521150803-xiph9r7" data-node-id="20210521150803-xiph9r7" data-type="NodeHeading" updated="20210521150815" data-subtype="h3" class="h3">
+      <div>Rust 嵌入式
+</div>
+    </div>
+<div id="20210521151133-mjmbaen" data-node-id="20210521151133-mjmbaen" data-type="NodeList" updated="20210521152135" data-subtype="u" class="list"><div id="20210521152606-5yjfjel" data-node-id="20210521152606-5yjfjel" data-type="NodeListItem" updated="20210525114007" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210521152606-d9q2m7t" data-node-id="20210521152606-d9q2m7t" data-type="NodeParagraph" updated="20210521152614" class="p"><a href="https://www.rust-lang.org/zh-CN/what/embedded">嵌入式设备 - Rust 程序设计语言 (rust-lang.org)</a>
+</div>
+<div id="20210524142201-6jsdj0k" data-node-id="20210524142201-6jsdj0k" data-type="NodeList" updated="20210525114007" data-subtype="u" class="list"><div id="20210524142200-nn90u2c" data-node-id="20210524142200-nn90u2c" data-type="NodeListItem" updated="20210525114007" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524142200-beuxyhb" data-node-id="20210524142200-beuxyhb" data-type="NodeParagraph" class="p"><a href="https://docs.rust-embedded.org/discovery/">从零开始学习嵌入式</a>
+</div>
+<div id="20210524142203-y8pzhkb" data-node-id="20210524142203-y8pzhkb" data-type="NodeList" updated="20210525114007" data-subtype="u" class="list"><div id="20210524142203-sdonri0" data-node-id="20210524142203-sdonri0" data-type="NodeListItem" updated="20210524142217" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210524142203-ecpvn4l" data-node-id="20210524142203-ecpvn4l" data-type="NodeParagraph" updated="20210524142217" class="p"><span data-type="block-ref"     data-subtype="d"     data-id="20210524142217-v3z91to">
+          <a href="./../../other/从零开始学习嵌入式-尝试.html#20210524142217-v3z91to">从零开始学习嵌入式-尝试</a>
+  </span>
+</div>
+
+    </div>
+<div id="20210525111748-toasda3" data-node-id="20210525111748-toasda3" data-type="NodeListItem" updated="20210525114007" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210525111748-o33bw18" data-node-id="20210525111748-o33bw18" data-type="NodeParagraph" updated="20210525113219" class="p"><a href="https://dev.to/rubberduck/debugging-rust-arm-cortexm-programs-with-visual-studio-code-336h">Debugging Rust ARM CortexM Programs with Visual Studio Code - DEV Community</a>
+ 🎉
+</div>
+<div id="20210525112055-k5e8kan" data-node-id="20210525112055-k5e8kan" data-type="NodeList" updated="20210525114007" data-subtype="u" class="list"><div id="20210525113342-q0kubz9" data-node-id="20210525113342-q0kubz9" data-type="NodeListItem" updated="20210525113342" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210525113342-0llbvab" data-node-id="20210525113342-0llbvab" data-type="NodeParagraph" updated="20210525113417" class="p"><span data-type="tag">网页备份</span>
+ 
+<a href="assets/Debugging_Rust_ARM_CortexM_Programs_with_Visual_Studio_Code_-_DEV_Community_2021_5_25_上午11_32_45-20210525113300-giw0rfj.html">Debugging_Rust_ARM_CortexM_Programs_with_Visual_Studio_Code_-_DEV_Community_2021_5_25_上午11_32_45.html</a>
+</div>
+
+    </div>
+<div id="20210525112055-xwks8qs" data-node-id="20210525112055-xwks8qs" data-type="NodeListItem" updated="20210525113342" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210525112055-e6kams4" data-node-id="20210525112055-e6kams4" data-type="NodeParagraph" updated="20210525112300" class="p">这篇文章中有讲怎么在 vscode 中直接 debug 的，成功了❤
+</div>
+
+    </div>
+<div id="20210525112131-um1qvde" data-node-id="20210525112131-um1qvde" data-type="NodeListItem" updated="20210525114007" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210525112131-667fc4v" data-node-id="20210525112131-667fc4v" data-type="NodeParagraph" updated="20210525114007" class="p">在 
+<span data-type="block-ref"     data-subtype="d"     data-id="20210521151500-39dgart">
+          <a href="./../../读书笔记/rust/崮生的rust速览.html#20210521151500-39dgart">Rust 嵌入式开发环境搭建指南 (二)：日常除虫</a>
+  </span>
+ 一文中也有讲怎么在 vscode 中 debug，但该文所用微处理器不同，我按照他的配置稍加改动也没有成功（应该是我太菜了）。
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20210521151134-gm16d9o" data-node-id="20210521151134-gm16d9o" data-type="NodeListItem" updated="20210521152135" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210521151134-9mf7fel" data-node-id="20210521151134-9mf7fel" data-type="NodeParagraph" updated="20210521152036" class="p"><a href="https://www.zhihu.com/column/embedded-rust">Rust 嵌入式开发 - 知乎专栏</a>
+</div>
+<div id="20210521151225-8v5abnp" data-node-id="20210521151225-8v5abnp" data-type="NodeList" updated="20210521152135" data-subtype="u" class="list"><div id="20210521151219-3u3dlgv" data-node-id="20210521151219-3u3dlgv" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210521151219-urp8re5" data-node-id="20210521151219-urp8re5" data-type="NodeParagraph" class="p"><a href="https://zhuanlan.zhihu.com/p/51733085">Rust 嵌入式开发环境搭建指南 (一)：让世界闪烁吧</a>
+</div>
+
+    </div>
+<div id="20210521151500-vpx6034" data-node-id="20210521151500-vpx6034" data-type="NodeListItem" updated="20210521152135" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210521151500-39dgart" data-node-id="20210521151500-39dgart" data-type="NodeParagraph" updated="20210521152135" class="p"><a href="https://zhuanlan.zhihu.com/p/51872048">Rust 嵌入式开发环境搭建指南 (二)：日常除虫</a>
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="20210526212812-43n00eg" data-node-id="20210526212812-43n00eg" data-type="NodeHeading" updated="20210530152912" data-subtype="h2" class="h2">
+      <div>最佳实践
+</div>
+    </div>
+<div id="20210530152912-19bys8a" data-node-id="20210530152912-19bys8a" data-type="NodeList" updated="20210530153551" data-subtype="u" class="list"><div id="20210530152914-2g2sf6n" data-node-id="20210530152914-2g2sf6n" data-type="NodeListItem" updated="20210530153551" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210530152914-kzdukxi" data-node-id="20210530152914-kzdukxi" data-type="NodeParagraph" updated="20210530153329" class="p">字符串
+</div>
+<div id="20210530153332-492wuin" data-node-id="20210530153332-492wuin" data-type="NodeList" updated="20210530153551" data-subtype="u" class="list"><div id="20210530153332-fuilet5" data-node-id="20210530153332-fuilet5" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210530153332-lwpee6w" data-node-id="20210530153332-lwpee6w" data-type="NodeParagraph" class="p">拼接 
+<span data-type="code">format!(&quot;{}-{}-{}&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</span>
+ 
+</div>
+
+    </div>
+<div id="20210530153335-o7f0so8" data-node-id="20210530153335-o7f0so8" data-type="NodeListItem" updated="20210530153551" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210530153335-dz3d8e8" data-node-id="20210530153335-dz3d8e8" data-type="NodeParagraph" updated="20210530153551" class="p">分割、获取标量list 
+<span data-type="code">&quot;नमस्ते&quot;.chars()</span>
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="20210525113305-89noy1g" data-node-id="20210525113305-89noy1g" data-type="NodeHeading" updated="20210526212726" data-subtype="h2" class="h2">
+      <div>闲评
+</div>
+    </div>
+<div id="20210526212726-a7kyi2o" data-node-id="20210526212726-a7kyi2o" data-type="NodeList" updated="20210530153324" data-subtype="u" class="list"><div id="20210526212953-dp76vbd" data-node-id="20210526212953-dp76vbd" data-type="NodeListItem" updated="20210526213210" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210526212953-hfgkn5z" data-node-id="20210526212953-hfgkn5z" data-type="NodeParagraph" updated="20210526213210" class="p">Rust 的 
+<a href="https://kaisery.github.io/trpl-zh-cn/ch03-01-variables-and-mutability.html#%E9%9A%90%E8%97%8Fshadowing">Shadowing 特性</a>
+ 可能是为了弥补一个函数调用就将堆上的数据释放了，而如果通过 return 将所有权转移出来，这个时候如果没有 shadowing 特性命名会让人非常头疼
+</div>
+
+    </div>
+<div id="20210530153110-14eo9lk" data-node-id="20210530153110-14eo9lk" data-type="NodeListItem" updated="20210530153324" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210530153111-ivwfmiv" data-node-id="20210530153111-ivwfmiv" data-type="NodeParagraph" updated="20210530153324" class="p">这里讲的真好， string 确实是个很复杂的东西  
+<a href="https://kaisery.github.io/trpl-zh-cn/ch08-02-strings.html#%E5%AD%97%E8%8A%82%E6%A0%87%E9%87%8F%E5%80%BC%E5%92%8C%E5%AD%97%E5%BD%A2%E7%B0%87%E5%A4%A9%E5%91%90">字节、标量值和字形簇！天呐！</a>
+</div>
+
+    </div>
+</div>
+<div id="20210530152927-05yua0c" data-node-id="20210530152927-05yua0c" data-type="NodeParagraph" updated="20210530152927" class="p"></div>
+
+
+        </div>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+        <footer>
+<p style="text-align:center;margin:15px 0;">
+  技术支持：
+  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+docsearch({
+appId: "UBOM0V691R",
+apiKey: "0c572ae8b8611d29477570967f44c3cf",
+indexName: "shenzilong",
+insights: true, // Optional, automatically send insights when user interacts with search results
+container: '#search',
+debug: false // Set debug to true if you want to inspect the modal
+});
+</script>
+      </body>
+    </html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>tailwindcss</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div id="search"></div>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201104153359-jkol7s4" data-node-id="20201104153359-jkol7s4" data-type="NodeDocument" updated="20210116104540" data-subtype="h1" class="h1" alias="tailwind.css" name="tailwind" title="tailwindcss" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20210116104540-yz5mu0s" data-node-id="20210116104540-yz5mu0s" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210116104540-4at6eio" data-node-id="20210116104540-4at6eio" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210204110422-3qacw1t" data-node-id="20210204110422-3qacw1t" data-type="NodeParagraph" class="p">pubdate:2019-11-22 11:08:21
+</div>
+
+    </div>
+<div id="20210116104540-lsnd1y5" data-node-id="20210116104540-lsnd1y5" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210204110422-3krk6z0" data-node-id="20210204110422-3krk6z0" data-type="NodeParagraph" class="p">tags:css,tailwindcss
+</div>
+
+    </div>
+</div>
+<div id="20210521142715-qlk65d3" data-node-id="20210521142715-qlk65d3" data-type="NodeThematicBreak" class="hr"><div></div></div>
+<div id="20210116104540-rxcjz2f" data-node-id="20210116104540-rxcjz2f" data-type="NodeParagraph" class="p"><a href="https://tailwindcss.com/">tailwindcss 官网</a>
+ 
+<span data-type="block-ref"     data-subtype="s"     data-id="20210120134541-yvifakc">
+          <a href="./../../record/环境/uni/uni-app最佳实践.html#20210120134541-yvifakc"> 在微信中使用 tailwindcss</a>
+  </span>
+</div>
+<div id="20210116104540-amxp902" data-node-id="20210116104540-amxp902" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+为什么用 tailwindcss
+</div>
+    </div>
+<div id="20210116104540-512wwel" data-node-id="20210116104540-512wwel" data-type="NodeParagraph" class="p">一开始是在
+<a href="https://zhuanlan.zhihu.com/p/88616149">现代 Web 开发的现状与未来（JSDC 2019 演讲全文）</a>
+这里看到的(这篇文感觉讲的相当好)，然后就去了解了一下
+</div>
+<div id="20210116104540-mdrfqo9" data-node-id="20210116104540-mdrfqo9" data-type="NodeParagraph" class="p">一开始的时候觉得这都什么鬼，感觉写的很丑陋。 但写了一阵子之后... 真香了，其实使用这个还是相当于手写样式，但就减少了很多的重复
+</div>
+<div id="20210116104540-switwve" data-node-id="20210116104540-switwve" data-type="NodeParagraph" class="p">之前我写样式都是，HTML 中一堆 .content .header .card .body .footer .left .right 之类的，然后 scss 文件中也是这些各种嵌套，即便使用了 mixin 但还是感觉很多冗余，有些东西感觉提取一个 mixin 没必要，但确实又由两三个地方有点重复
+</div>
+<div id="20210116104540-4jftyyn" data-node-id="20210116104540-4jftyyn" data-type="NodeParagraph" class="p">这就让人感觉有点不爽。
+</div>
+<div id="20210116104540-1umie93" data-node-id="20210116104540-1umie93" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+怎么用 tailwindcss
+</div>
+    </div>
+<div id="20210116104540-0o70p2w" data-node-id="20210116104540-0o70p2w" data-type="NodeBlockquote" class="bq">
+<div id="20210116104540-v673dhu" data-node-id="20210116104540-v673dhu" data-type="NodeParagraph" class="p">演习场 ↓ 展示官网的一些例子，你也可以手动改一下试试效果
+</div>
+</div>
+<div id="20210116104540-kholmax" data-node-id="20210116104540-kholmax" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          html{run}
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false"><div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+  <strong class="font-bold">这是官网的一个例子</strong>
+  <span class="block sm:inline">地址在 https://tailwindcss.com/components/alerts/</span>
+  <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+    <svg
+      class="fill-current h-6 w-6 text-red-500"
+      role="button"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+    >
+      <title>Close</title>
+      <path
+        d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"
+      />
+    </svg>
+  </span>
+</div>
+
+<div class="bg-indigo-900 text-center py-4 lg:px-4">
+  <div
+    class="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
+    role="alert"
+  >
+    <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3"
+      >New</span
+    >
+    <span class="font-semibold mr-2 text-left flex-auto"
+      >Get the coolest t-shirts from our brand new store</span
+    >
+    <svg
+      class="fill-current opacity-75 h-4 w-4"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+    >
+      <path
+        d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"
+      />
+    </svg>
+  </div>
+</div>
+</div>
+      </div>
+<div id="20210116104540-kau7kf3" data-node-id="20210116104540-kau7kf3" data-type="NodeParagraph" class="p">可以看到这里完全没有直接的写 CSS，但稍微了解一下类名，很容易的就可以了解它的意思。
+</div>
+<div id="20210116104540-f410k48" data-node-id="20210116104540-f410k48" data-type="NodeHeading" data-subtype="h3" class="h3">
+      <div>
+那么到底怎么用
+</div>
+    </div>
+<div id="20210116104540-o10n108" data-node-id="20210116104540-o10n108" data-type="NodeParagraph" class="p">首先进入 
+<a href="https://tailwindcss.com/components">tailwindcss 官网</a>
+ 然后看最顶上的搜索框，你要改变什么样式就直接搜，例如 border 这类的
+</div>
+<div id="20210116104540-p97wa1s" data-node-id="20210116104540-p97wa1s" data-type="NodeParagraph" class="p">其次(搜索一个之后)看右边，这里可以跳到响应和伪类可以看着加一些 hover 之类的效果，其次就是 Customizing 了，定制，靠这个定制可以覆盖它原有的样式，添加新的样式
+</div>
+<div id="20210116104540-ebz3k62" data-node-id="20210116104540-ebz3k62" data-type="NodeBlockquote" class="bq">
+<div id="20210116104540-eef9iih" data-node-id="20210116104540-eef9iih" data-type="NodeParagraph" class="p">这是我写的一个定制的例子
+</div>
+</div>
+<div id="20210116104540-3oq25eh" data-node-id="20210116104540-3oq25eh" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          javascript
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">module.exports = {
+  theme: {
+    /** 扩展原来的配置，冲突了的以扩展的为准，如果直接写在theme里面会覆盖导致没有默认配置 */
+    extend: {
+      colors: {
+        /** 黑色，重色 顶栏 */ dark: "#1b1b1b",
+        /** 背景色 */ bg: "rgba(237, 237, 237)",
+        /** 背景色 245 浅灰 */ 245: "rgba(245, 245, 245)",
+        /** 警告浅色 */ "warning-light": "#ffe8ea",
+        /** 警告 重色 */ "warning-heavy": "#f5222d",
+        /** 字 黑色 基础色 */ black: "#333",
+        /** 字 灰色 */ gray9: "#999",
+        /** 字 灰色 666 */ gray6: "#666",
+        /** fff 最白色 */ fff: "#fff",
+      },
+      height: {
+        sm: "14px",
+        md: "16px",
+        lg: "24px",
+        xl: "48px",
+      },
+      /** 自定义间距 最高 100 px  */
+      spacing: (() => {
+        const spacing = {};
+        for (let i = 0; i < 100; i++) {
+          spacing[i] = `${i}px`;
+        }
+        return spacing;
+      })(),
+      /** 字体大小 */
+      fontSize: (() => {
+        const size = {};
+        for (let i = 0; i < 50; i++) {
+          size[i] = `${i}px`;
+        }
+        Object.assign(size, {
+          sm: "14px",
+          base: "16px",
+          lg: "24px",
+          xl: "48px",
+        });
+        return size;
+      })(),
+      /** 字体间距 */
+      letterSpacing: (() => {
+        const spacing = {};
+        for (let i = 0; i < 30; i++) {
+          spacing[i] = `${i}px`;
+        }
+        return spacing;
+      })(),
+    },
+  },
+};
+</div>
+      </div>
+<div id="20210521142716-69gd1fs" data-node-id="20210521142716-69gd1fs" data-type="NodeBlockQueryEmbed" data-type="NodeBlockquote" class="bq">
+      
+
+<div id="20210120134813-p1riay6" data-node-id="20210120134813-p1riay6" data-type="NodeHeading" updated="20210717104919" data-subtype="h2" class="h2">
+      <div>2020-4-17 
+<span data-type="block-ref"     data-subtype="d"     data-id="20201104153359-jkol7s4">
+          <a href="./../../读书笔记/tailwindcss/tailwindcss.html#20201104153359-jkol7s4">tailwind</a>
+  </span>
+  对于小程序按钮样式的影响
+</div>
+    </div>
+
+
+
+    </div>
+<div id="20210204110422-04aw4s1" data-node-id="20210204110422-04aw4s1" data-type="NodeParagraph" updated="20210204110422" class="p"><span data-type="block-ref"     data-subtype="s"     data-id="20210120134541-yvifakc">
+          <a href="./../../record/环境/uni/uni-app最佳实践.html#20210120134541-yvifakc">uniapp 中关于 tailwindCSS 的应用</a>
+  </span>
+</div>
+<div id="20210204110422-vkp7pi0" data-node-id="20210204110422-vkp7pi0" data-type="NodeParagraph" class="p"></div>
+<div id="20210204110422-wqn4rlj" data-node-id="20210204110422-wqn4rlj" data-type="NodeParagraph" class="p"></div>
+<div id="20210204110422-lz3mqs1" data-node-id="20210204110422-lz3mqs1" data-type="NodeParagraph" class="p"></div>
+
+
+        </div>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+        <footer>
+<p style="text-align:center;margin:15px 0;">
+  技术支持：
+  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+docsearch({
+appId: "UBOM0V691R",
+apiKey: "0c572ae8b8611d29477570967f44c3cf",
+indexName: "shenzilong",
+insights: true, // Optional, automatically send insights when user interacts with search results
+container: '#search',
+debug: false // Set debug to true if you want to inspect the modal
+});
+</script>
+      </body>
+    </html>

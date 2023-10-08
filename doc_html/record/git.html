@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+    <html
+      lang="zh_CN"
+      data-theme-mode="light"
+      data-light-theme="daylight"
+      data-dark-theme="midnight"
+    >
+      <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="baseStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          id="themeDefaultStyle"
+          href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"
+        />
+
+        <title>git</title>
+        <style>
+          body {
+            background-color: var(--b3-theme-background);
+            color: var(--b3-theme-on-background);
+          }
+          .b3-typography,
+          .protyle-wysiwyg,
+          .protyle-title {
+            font-size: 16px !important;
+          }
+          .b3-typography code:not(.hljs),
+          .protyle-wysiwyg span[data-type~="code"] {
+            font-variant-ligatures: normal;
+          }
+          .li > .protyle-action {
+            height: 34px;
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5,
+          .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {
+            line-height: 34px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action:after {
+            height: 16px;
+            width: 16px;
+            margin: -8px 0 0 -8px;
+          }
+          .protyle-wysiwyg [data-node-id].li > .protyle-action svg {
+            height: 14px;
+          }
+          .protyle-wysiwyg [data-node-id].li:before {
+            height: calc(100% - 34px);
+            top: 34px;
+          }
+          .protyle-wysiwyg [data-node-id] [spellcheck] {
+            min-height: 26px;
+          }
+          .protyle-wysiwyg [data-node-id] {
+          }
+          .protyle-wysiwyg .li {
+            min-height: 34px;
+          }
+          .protyle-gutters button svg {
+            height: 26px;
+          }
+          .protyle-wysiwyg img.emoji,
+          .b3-typography img.emoji {
+            width: 18px;
+          }
+          .protyle-wysiwyg .h1 img.emoji,
+          .b3-typography h1 img.emoji {
+            width: 35px;
+          }
+          .protyle-wysiwyg .h2 img.emoji,
+          .b3-typography h2 img.emoji {
+            width: 31px;
+          }
+          .protyle-wysiwyg .h3 img.emoji,
+          .b3-typography h3 img.emoji {
+            width: 27px;
+          }
+          .protyle-wysiwyg .h4 img.emoji,
+          .b3-typography h4 img.emoji {
+            width: 25px;
+          }
+          .protyle-wysiwyg .h5 img.emoji,
+          .b3-typography h5 img.emoji {
+            width: 22px;
+          }
+          .protyle-wysiwyg .h6 img.emoji,
+          .b3-typography h6 img.emoji {
+            width: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div id="search"></div>
+        <div
+          class="protyle-wysiwyg protyle-wysiwyg--attr"
+          style="max-width: 800px;margin: 0 auto;"
+          id="preview"
+        >
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201104153359-es0bj7h" data-node-id="20201104153359-es0bj7h" data-type="NodeDocument" updated="20210521182941" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201104153359-es0bj7h&quot;,&quot;startId&quot;:&quot;20201224110723-nkrqoh9&quot;,&quot;endId&quot;:&quot;20201224110723-qlazi6v&quot;,&quot;scrollTop&quot;:1492,&quot;focusId&quot;:&quot;20210309093454-nnydf5g&quot;,&quot;focusStart&quot;:11,&quot;focusEnd&quot;:11&#125;" title="git" type="doc">
+      <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 25vh;undefined"/>
+      
+</div>
+<div id="20201224110723-nkrqoh9" data-node-id="20201224110723-nkrqoh9" data-type="NodeHeading" updated="20210309093857" data-subtype="h1" class="h1">
+      <div>
+崮生的 git 速览
+</div>
+    </div>
+<div id="20201224110723-wxrkjvm" data-node-id="20201224110723-wxrkjvm" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20201224110723-tpkeliu" data-node-id="20201224110723-tpkeliu" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210309093454-nocq8dk" data-node-id="20210309093454-nocq8dk" data-type="NodeParagraph" class="p">pubdate: 2019-03-08 11:00:44
+</div>
+
+    </div>
+<div id="20201224110723-4u3jgfp" data-node-id="20201224110723-4u3jgfp" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210309093454-x21ub2w" data-node-id="20210309093454-x21ub2w" data-type="NodeParagraph" class="p">tags : Git
+</div>
+
+    </div>
+</div>
+<div id="20210521142712-375dh9b" data-node-id="20210521142712-375dh9b" data-type="NodeThematicBreak" class="hr"><div></div></div>
+<div id="20201224110723-8836696" data-node-id="20201224110723-8836696" data-type="NodeParagraph" updated="20210309095651" class="p"><a href="https://todebug.com/Tips/">git 免密码</a>
+</div>
+<div id="20210521142715-thz2pnk" data-node-id="20210521142715-thz2pnk" data-type="NodeBlockQueryEmbed" data-type="NodeBlockquote" class="bq">
+      
+
+<div id="20210309095605-04ylhvl" data-node-id="20210309095605-04ylhvl" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20210309095605-r765q34" data-node-id="20210309095605-r765q34" data-type="NodeParagraph" class="p">git 仅拉取最新代码的方法： 
+<span data-type="code">git clone --depth=1 仓库地址</span>
+ ，可有效节约下载时间与磁盘占用
+</div>
+
+    </div>
+
+
+
+    </div>
+<div id="20210309095647-6wahu2m" data-node-id="20210309095647-6wahu2m" data-type="NodeParagraph" class="p"></div>
+<div id="20201224110723-w4cbzk4" data-node-id="20201224110723-w4cbzk4" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+查看谁更改了 my_file 中的内容和时间
+</div>
+    </div>
+<div id="20201224110723-yf6ueuy" data-node-id="20201224110723-yf6ueuy" data-type="NodeParagraph" class="p">Git blame
+</div>
+<div id="20201224110723-nus4oxc" data-node-id="20201224110723-nus4oxc" data-type="NodeHeading" updated="20210309093902" data-subtype="h2" class="h2">
+      <div>
+git commit
+</div>
+    </div>
+<div id="20201224110723-dv21ghk" data-node-id="20201224110723-dv21ghk" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+<a href="https://git-scm.com/book/zh/v1/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5">生成公钥</a>
+</div>
+    </div>
+<div id="20201224110723-oidijji" data-node-id="20201224110723-oidijji" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          bash
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">ssh-keygen
+</div>
+      </div>
+<div id="20201224110723-oymwmcb" data-node-id="20201224110723-oymwmcb" data-type="NodeHeading" updated="20210309093905" data-subtype="h2" class="h2">
+      <div>
+git 配置全局的 name 和 email
+</div>
+    </div>
+<div id="20201224110723-yslze9s" data-node-id="20201224110723-yslze9s" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">Git config --global user.name 崮生@台式
+Git config --global user.email admin@shenzilong.cn.combash
+</div>
+      </div>
+<div id="20210309093815-dushxzz" data-node-id="20210309093815-dushxzz" data-type="NodeHeading" updated="20210309094023" data-subtype="h2" class="h2">
+      <div>
+git 设置远程仓库
+</div>
+    </div>
+<div id="20210309094023-fvig73l" data-node-id="20210309094023-fvig73l" data-type="NodeCodeBlock" updated="20210309094216" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          bash
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">git remote add (别名) (仓库地址) #设置远程仓库
+git pull (别名) (分支名)    #从远程仓库拉取代码
+</div>
+      </div>
+<div id="20201104154010-vuigjpy" data-node-id="20201104154010-vuigjpy" data-type="NodeHeading" updated="20210309093910" data-subtype="h2" class="h2">
+      <div>
+git 使用自己的服务器
+</div>
+    </div>
+<div id="20201224110723-njejyky" data-node-id="20201224110723-njejyky" data-type="NodeParagraph" class="p">有时候不太想用第三方的 Git 服务而且就自己使用，这时候就可以搭建一个简单的属于自己的 Git 服务器。由于 Git 很强大所以这个很简单。
+</div>
+<div id="20201224110723-zmdmfhx" data-node-id="20201224110723-zmdmfhx" data-type="NodeParagraph" class="p">首先在服务器上初始化一个 Git 库
+</div>
+<div id="20201224110723-oe7j34l" data-node-id="20201224110723-oe7j34l" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          bash
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">git --bare init
+</div>
+      </div>
+<div id="20201224110723-mg1vqgd" data-node-id="20201224110723-mg1vqgd" data-type="NodeParagraph" class="p">如果是在/root/test/目录中初始化的
+</div>
+<div id="20201224110723-cee5gdr" data-node-id="20201224110723-cee5gdr" data-type="NodeParagraph" updated="20210521182941" class="p">在其它地方拉取代码可以直接通过 SSH 连接拉取，需要已经配置好了公钥
+</div>
+<div id="20201224110723-h22qrgd" data-node-id="20201224110723-h22qrgd" data-type="NodeCodeBlock" updated="20210521182925" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          bash
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">git clone ssh://root用户名@服务器ip/root/test 
+</div>
+      </div>
+<div id="20201224110723-8qxs5lv" data-node-id="20201224110723-8qxs5lv" data-type="NodeParagraph" class="p">这里有一个小坑就是你提交代码的时候他会报错，这是因为服务上代码正在 master 分支，你在提交到 master 就不可以。所以可以在服务器上新建一个 serve 分支然后切换过去，再提交就没问题了。
+</div>
+<div id="20201224110723-k931kto" data-node-id="20201224110723-k931kto" data-type="NodeParagraph" class="p">服务器端要更新代码就合并一下 master 分支即可
+</div>
+<div id="20201224110723-5zc2aoe" data-node-id="20201224110723-5zc2aoe" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+<a href="https://segmentfault.com/a/1190000011294144">git 推送到多个分支</a>
+</div>
+    </div>
+<div id="20201224110723-ljsvrky" data-node-id="20201224110723-ljsvrky" data-type="NodeHeading" data-subtype="h2" class="h2">
+      <div>
+GitHub 学习教程
+</div>
+    </div>
+<div id="20201224110723-qlazi6v" data-node-id="20201224110723-qlazi6v" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20201224110723-hqsgkmy" data-node-id="20201224110723-hqsgkmy" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
+      <div class="protyle-action">
+        1
+      </div>
+      <div id="20210309093454-ajpkckw" data-node-id="20210309093454-ajpkckw" data-type="NodeParagraph" class="p">分配 Assignees 💚
+</div>
+
+    </div>
+<div id="20201224110723-uqsuuzj" data-node-id="20201224110723-uqsuuzj" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
+      <div class="protyle-action">
+        2
+      </div>
+      <div id="20210309093454-0svb9gy" data-node-id="20210309093454-0svb9gy" data-type="NodeParagraph" class="p">开启 GitHub pages 💚
+</div>
+
+    </div>
+<div id="20201224110723-6aszs19" data-node-id="20201224110723-6aszs19" data-type="NodeListItem" data-subtype="o" class="li" data-marker="3">
+      <div class="protyle-action">
+        3
+      </div>
+      <div id="20210309093454-nnydf5g" data-node-id="20210309093454-nnydf5g" data-type="NodeParagraph" updated="20210309093801" class="p">关闭 issue 💚
+</div>
+
+    </div>
+</div>
+
+
+        </div>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+        <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <script>
+          window.siyuan = {
+            config: {
+              appearance: {
+                mode: 0,
+                codeBlockThemeDark: "base16/dracula",
+                codeBlockThemeLight: "github",
+              },
+              editor: {
+                codeLineWrap: true,
+                codeLigatures: false,
+                plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+                codeSyntaxHighlightLineNum: true,
+                katexMacros: JSON.stringify({}),
+              },
+            },
+            languages: { copy: "复制" },
+          };
+          const previewElement = document.getElementById("preview");
+          Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
+          Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          Protyle.htmlRender(previewElement);
+          Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+          document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+            item.addEventListener("click", (event) => {
+              navigator.clipboard.writeText(
+                item.parentElement.nextElementSibling.textContent.trimEnd(),
+              );
+              event.preventDefault();
+              event.stopPropagation();
+            });
+          });
+        </script>
+        <footer>
+<p style="text-align:center;margin:15px 0;">
+  技术支持：
+  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+docsearch({
+appId: "UBOM0V691R",
+apiKey: "0c572ae8b8611d29477570967f44c3cf",
+indexName: "shenzilong",
+insights: true, // Optional, automatically send insights when user interacts with search results
+container: '#search',
+debug: false // Set debug to true if you want to inspect the modal
+});
+</script>
+      </body>
+    </html>
