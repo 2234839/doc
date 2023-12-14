@@ -1,12 +1,7 @@
-cd D:/code/doc/;
-npm run build;
-scp -r D:/code/doc/.svelte-kit/build root@shenzilong.cn:/root/app/doc/.svelte-kit;
-scp -r D:/code/doc/.svelte-kit/output root@shenzilong.cn:/root/app/doc/.svelte-kit;
+cd D:/code/oceanPress_js/apps/frontend;
+pnpm cli build --config "./store/configs" --output "D:/code/doc/docs"
 
-ssh root@shenzilong.cn '
-cd /root/app/doc;
-git pull;
-pnpm i;
-pm2 reload blog-kit;
-pm2 log blog-kit;
-'
+cd D:/code/doc
+git add .;
+git commit -m "update docs";
+git push;
