@@ -116,7 +116,7 @@
           style="max-width: 800px;margin: 0 auto;"
           id="preview"
         >
-          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201121144434-sbev4ga" data-node-id="20201121144434-sbev4ga" data-type="NodeDocument" updated="20210609090256" data-subtype="h1" class="h1" title="一个简简单单的 TypeScript RPC 解决方案" type="doc"><div id="20201121144434-sbev4ga" data-node-id="20201121144434-sbev4ga" data-type="NodeDocument" updated="20210609090256" data-subtype="h1" class="h1" title="一个简简单单的 TypeScript RPC 解决方案" type="doc" data-type="NodeHeading" class="h1">一个简简单单的 TypeScript RPC 解决方案</div><div id="20210410114147-c1tluk3" data-node-id="20210410114147-c1tluk3" data-type="NodeParagraph" updated="20210410153823" class="p"><span data-type="block-ref"     data-subtype="d"     data-id="20210325155155-2wk7rxv">
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201121144434-sbev4ga" data-node-id="20201121144434-sbev4ga" data-type="NodeDocument" updated="20210609090256" data-subtype="h1" class="h1" type="doc"><div id="20201121144434-sbev4ga" data-node-id="20201121144434-sbev4ga" data-type="NodeDocument" updated="20210609090256" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">一个简简单单的 TypeScript RPC 解决方案</div><div id="20210410114147-c1tluk3" data-node-id="20210410114147-c1tluk3" data-type="NodeParagraph" updated="20210410153823" class="p"><span data-type="block-ref"     data-subtype="d"     data-id="20210325155155-2wk7rxv">
           <a href="./../../tag/文章分享到的地方：.html#20210325155155-2wk7rxv">文章分享到的地方：</a>
   </span>
 ​
@@ -146,14 +146,13 @@
         data-src="./../../assets/20201109143728-hfw4r7v-image.png"
         title=""
         style="undefined"
+        loading="lazy"
       /><span class="protyle-action__title"></span></span
     >
 </div>
-<div id="20230905115155-9om7dk6" data-node-id="20230905115155-9om7dk6" data-type="NodeHeading" updated="20210415103138" data-subtype="h2" class="h2">
-      <div>
+<div id="20230905115155-9om7dk6" data-node-id="20230905115155-9om7dk6" data-type="NodeHeading" updated="20210415103138" data-subtype="h2" class="h2"><div>
 0x00 服务端方法
-</div>
-    </div>
+</div></div>
 <div id="20230905115155-6tii4vn" data-node-id="20230905115155-6tii4vn" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">
@@ -180,11 +179,9 @@ export function currentTime2(toLocaleString: boolean) {
       </div>
 <div id="20230905115155-zdmk94i" data-node-id="20230905115155-zdmk94i" data-type="NodeParagraph" class="p">这里随便写了几个方法
 </div>
-<div id="20230905115155-xlf5w29" data-node-id="20230905115155-xlf5w29" data-type="NodeHeading" updated="20210415103141" data-subtype="h2" class="h2">
-      <div>
+<div id="20230905115155-xlf5w29" data-node-id="20230905115155-xlf5w29" data-type="NodeHeading" updated="20210415103141" data-subtype="h2" class="h2"><div>
 0x01 聚合
-</div>
-    </div>
+</div></div>
 <div id="20230905115155-zt1fooc" data-node-id="20230905115155-zt1fooc" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">
@@ -203,11 +200,9 @@ export * from "./time";
 <span data-type="code">index.ts</span>
  文件将其他文件中的方法聚合起来。
 </div>
-<div id="20230905115155-1u5mkax" data-node-id="20230905115155-1u5mkax" data-type="NodeHeading" updated="20210415103143" data-subtype="h2" class="h2">
-      <div>
+<div id="20230905115155-1u5mkax" data-node-id="20230905115155-1u5mkax" data-type="NodeHeading" updated="20210415103143" data-subtype="h2" class="h2"><div>
 0x02 Remote Procedure Call !
-</div>
-    </div>
+</div></div>
 <div id="20230905115155-43p7imx" data-node-id="20230905115155-43p7imx" data-type="NodeParagraph" class="p">Remote Procedure Call 要说的高大上呢那也有很多可以做的细节，但我们追求简简单单。
 </div>
 <div id="20230905115155-37yttsv" data-node-id="20230905115155-37yttsv" data-type="NodeCodeBlock" class="code-block">
@@ -241,11 +236,9 @@ export async function post(req: any, res: any) {
       </div>
 <div id="20230905115155-ml6f273" data-node-id="20230905115155-ml6f273" data-type="NodeParagraph" class="p">简单的远程调用只需要暴露一个接口让用户可以调用本机方法就行了
 </div>
-<div id="20230905115155-mrbc48u" data-node-id="20230905115155-mrbc48u" data-type="NodeHeading" updated="20210415103146" data-subtype="h2" class="h2">
-      <div>
+<div id="20230905115155-mrbc48u" data-node-id="20230905115155-mrbc48u" data-type="NodeHeading" updated="20210415103146" data-subtype="h2" class="h2"><div>
 0x03 TypeScript ! 🎉
-</div>
-    </div>
+</div></div>
 <div id="20230905115155-hi0wght" data-node-id="20230905115155-hi0wght" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">
@@ -322,11 +315,9 @@ API.currentTime2(true).then((r) => console.log("服务器当前时间本地化",
 </div>
 <div id="20230905115155-kx10yph" data-node-id="20230905115155-kx10yph" data-type="NodeParagraph" class="p">并且通过 API 对象调用对应方法，这里的优点是可以直接跳转到对应函数的源码处。啥类型提示都有，接口文档也没有必要了。
 </div>
-<div id="20210415103149-r8j4car" data-node-id="20210415103149-r8j4car" data-type="NodeHeading" updated="20210415104847" data-subtype="h2" class="h2">
-      <div>
+<div id="20210415103149-r8j4car" data-node-id="20210415103149-r8j4car" data-type="NodeHeading" updated="20210415104847" data-subtype="h2" class="h2"><div>
 0x04 安全性问题
-</div>
-    </div>
+</div></div>
 <div id="20210415104855-4099tkm" data-node-id="20210415104855-4099tkm" data-type="NodeParagraph" updated="20210415104928" class="p">从 github 查看此次修改： 
 <a href="https://github.com/2234839/typescript_RPC_demo/commit/e4e674cdcd16791fbaaf525b7c99c9084d550946">e4e674c</a>
 </div>
@@ -354,6 +345,7 @@ API.currentTime2(true).then((r) => console.log("服务器当前时间本地化",
         data-src="./../../assets/image-20210415104020-terddw3.png"
         title=""
         style="undefined"
+        loading="lazy"
       /><span class="protyle-action__title"></span></span
     >
 </div>
@@ -366,6 +358,7 @@ API.currentTime2(true).then((r) => console.log("服务器当前时间本地化",
         data-src="./../../assets/image-20210415104225-nc4us9j.png"
         title=""
         style="undefined"
+        loading="lazy"
       /><span class="protyle-action__title"></span></span
     >
 </div>
@@ -374,11 +367,9 @@ API.currentTime2(true).then((r) => console.log("服务器当前时间本地化",
  一定成立，于是会删去条件不成立分支的代码，之后再对代码进性依赖分析之类的就不会引入 api.ts 中的代码到前端代码中去了
 </div>
 <div id="20210415104455-rszq85y" data-node-id="20210415104455-rszq85y" data-type="NodeParagraph" class="p"></div>
-<div id="20230905115155-q995vgv" data-node-id="20230905115155-q995vgv" data-type="NodeHeading" updated="20210415104253" data-subtype="h2" class="h2">
-      <div>
+<div id="20230905115155-q995vgv" data-node-id="20230905115155-q995vgv" data-type="NodeHeading" updated="20210415104253" data-subtype="h2" class="h2"><div>
 总结
-</div>
-    </div>
+</div></div>
 <div id="20230905115155-6cmq4se" data-node-id="20230905115155-6cmq4se" data-type="NodeParagraph" class="p">这个
 <span data-type="s">项目</span>
  方法 的重点在于复用了服务端提供接口的类型，并且可以直接跳转过去。
@@ -396,15 +387,14 @@ API.currentTime2(true).then((r) => console.log("服务器当前时间本地化",
         data-src="./../../assets/20201109171018-un3fain-image.png"
         title=""
         style="undefined"
+        loading="lazy"
       /><span class="protyle-action__title"></span></span
     >
 </div>
-<div id="20210410114552-ae38v0j" data-node-id="20210410114552-ae38v0j" data-type="NodeHeading" updated="20210609090256" data-subtype="h2" class="h2">
-      <div><span data-type="block-ref"     data-subtype="d"     data-id="20201127151651-bbzj4xi">
+<div id="20210410114552-ae38v0j" data-node-id="20210410114552-ae38v0j" data-type="NodeHeading" updated="20210609090256" data-subtype="h2" class="h2"><div><span data-type="block-ref"     data-subtype="d"     data-id="20201127151651-bbzj4xi">
           <a href="./../../record/每日总结/2020/doc/uniapp composition-api 中使用 onShow、onLoad 这样的生命周期.html#20201127151651-bbzj4xi">uniapp composition-api 中使用 onShow、onLoad 这样的生命周期</a>
   </span>
-</div>
-    </div>
+</div></div>
 <div id="20210609090256-d8w4uej" data-node-id="20210609090256-d8w4uej" data-type="NodeParagraph" updated="20210609090256" class="p"></div>
 
         </div>

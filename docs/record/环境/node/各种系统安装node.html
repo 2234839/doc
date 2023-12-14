@@ -116,39 +116,14 @@
           style="max-width: 800px;margin: 0 auto;"
           id="preview"
         >
-          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201104153359-3bz18z5" data-node-id="20201104153359-3bz18z5" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" title="各种系统安装node" type="doc"><div id="20201104153359-3bz18z5" data-node-id="20201104153359-3bz18z5" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" title="各种系统安装node" type="doc" data-type="NodeHeading" class="h1">各种系统安装node</div><div id="20210521142713-i0bw9t6" data-node-id="20210521142713-i0bw9t6" data-type="NodeHeading" data-subtype="h1" class="h1">
-      <div>
-各种系统安装 node
-</div>
-    </div>
-<div id="20210521142713-fbn6btx" data-node-id="20210521142713-fbn6btx" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142713-z01sbgx" data-node-id="20210521142713-z01sbgx" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142713-wwqfitb" data-node-id="20210521142713-wwqfitb" data-type="NodeParagraph" class="p">pubdate: 2019-08-14 17:10:11
-</div>
-
-    </div>
-<div id="20210521142713-i7zp13a" data-node-id="20210521142713-i7zp13a" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142713-5a2ie7u" data-node-id="20210521142713-5a2ie7u" data-type="NodeParagraph" class="p">tags : node.js
-</div>
-
-    </div>
-</div>
-<div id="20210521142713-7hlig59" data-node-id="20210521142713-7hlig59" data-type="NodeThematicBreak" class="hr"><div></div></div>
-<div id="20210521142713-y4yse70" data-node-id="20210521142713-y4yse70" data-type="NodeHeading" data-subtype="h2" class="h2">
-      <div>
-<a href="https://segmentfault.com/a/1190000010209661">centos 和 ubuntu</a>
-</div>
-    </div>
-<div id="20210521142713-uio8afr" data-node-id="20210521142713-uio8afr" data-type="NodeParagraph" class="p">CentOS
-</div>
-<div id="20210521142713-5xgxngm" data-node-id="20210521142713-5xgxngm" data-type="NodeParagraph" class="p">运行脚本
-</div>
-<div id="20210521142713-5vw0ggv" data-node-id="20210521142713-5vw0ggv" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201104153359-3bz18z5" data-node-id="20201104153359-3bz18z5" data-type="NodeDocument" updated="20231209155739" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201104153359-3bz18z5&quot;,&quot;startId&quot;:&quot;20231209155630-fmvirop&quot;,&quot;endId&quot;:&quot;20231207095234-5qtalax&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20231207095315-4a8ke1h&quot;,&quot;focusStart&quot;:148,&quot;focusEnd&quot;:148&#125;" type="doc"><div id="20201104153359-3bz18z5" data-node-id="20201104153359-3bz18z5" data-type="NodeDocument" updated="20231209155739" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201104153359-3bz18z5&quot;,&quot;startId&quot;:&quot;20231209155630-fmvirop&quot;,&quot;endId&quot;:&quot;20231207095234-5qtalax&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20231207095315-4a8ke1h&quot;,&quot;focusStart&quot;:148,&quot;focusEnd&quot;:148&#125;" type="doc" data-type="NodeHeading" class="h1">各种系统安装node</div><div id="20231209155630-fmvirop" data-node-id="20231209155630-fmvirop" data-type="NodeHeading" updated="20231209155739" data-subtype="h2" class="h2"><div>官网下载 
+<a href="https://nodejs.org/en/download/">nodejs.org</a>
+ (windows、ubuntu、macOS）
+</div></div>
+<div id="20231207095230-6u13vsy" data-node-id="20231207095230-6u13vsy" data-type="NodeHeading" updated="20231207095355" data-subtype="h2" class="h2"><div>ubuntu 
+<a href="https://deb.nodesource.com">https://deb.nodesource.com/</a>
+</div></div>
+<div id="20231207095315-4a8ke1h" data-node-id="20231207095315-4a8ke1h" data-type="NodeCodeBlock" updated="20231207095327" class="code-block" style="line-height: 22px;">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">
           bash
@@ -158,16 +133,15 @@
             <svg><use xlink:href="#iconCopy"></use></svg>
           </span>
         </div>
-        <div class="hljs" spellcheck="false">curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+        <div class="hljs" spellcheck="false">sudo apt-get update && sudo apt-get install -y ca-certificates curl gnupg
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+NODE_MAJOR=20
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+sudo apt-get update && sudo apt-get install nodejs -y
 </div>
       </div>
-<div id="20210521142713-q8wmxwk" data-node-id="20210521142713-q8wmxwk" data-type="NodeParagraph" class="p">然后运行它提示你要运行的命令
-</div>
-<div id="20210521142713-utzshpn" data-node-id="20210521142713-utzshpn" data-type="NodeHeading" data-subtype="h2" class="h2">
-      <div>
-更新至 node 最新版
-</div>
-    </div>
+<div id="20210521142713-utzshpn" data-node-id="20210521142713-utzshpn" data-type="NodeHeading" updated="20231207095253" data-subtype="h2" class="h2"><div>node 版本管理 (n\nvm)
+</div></div>
 <div id="20210521142713-nihh3ez" data-node-id="20210521142713-nihh3ez" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">
@@ -186,24 +160,7 @@ $ n stable      # 安装稳定版
 $ n lts         # 安装最新的LTS官方版本
 </div>
       </div>
-<div id="20210521142713-gzyd75a" data-node-id="20210521142713-gzyd75a" data-type="NodeHeading" data-subtype="h2" class="h2">
-      <div>
-CentOS
-</div>
-    </div>
-<div id="20210521142713-kpxkyz6" data-node-id="20210521142713-kpxkyz6" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          bash
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
-        </div>
-        <div class="hljs" spellcheck="false">yum install nodejs
-</div>
-      </div>
+<div id="20231207095234-5qtalax" data-node-id="20231207095234-5qtalax" data-type="NodeParagraph" class="p"></div>
 
         </div>
         <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
