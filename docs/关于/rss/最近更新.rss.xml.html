@@ -118,218 +118,201 @@
         >
           <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20231008155907" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;"><div id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20231008155907" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" data-type="NodeHeading" class="h1">最近更新.rss.xml</div><div id="20210606154842-jah9dt8" data-node-id="20210606154842-jah9dt8" data-type="NodeBlockQueryEmbed" updated="20231008155907" style="height: 9183px;" data-type="NodeBlockquote" class="bq">
 
-<div id="20231216155942-ydxkg6v" data-node-id="20231216155942-ydxkg6v" data-type="NodeParagraph" updated="20231216163235" class="p">下面是测试工具的数据，从两个数据来看一个函数实例单实例并发也为1，0.05vcpu的情况下10秒只处理了127个hello world请求。其余4.5万个都被拦截了。
-</div><div id="20231216162520-y3s8ipr" data-node-id="20231216162520-y3s8ipr" data-type="NodeParagraph" updated="20231216163200" class="p">顺便配一个 1vcpu 1G 内存 单实例 200 并发度（最高只能设置200）的测试：
-</div><div id="20231216162551-azhsl9s" data-node-id="20231216162551-azhsl9s" data-type="NodeCodeBlock" updated="20231216163146" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          abap
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
-        </div>
-        <div class="hljs" spellcheck="false">  Reqs/sec      1689.51    1850.40    8723.94
-  Latency      118.41ms    52.92ms      2.21s
-  Latency Distribution
-     50%   106.20ms
-     75%   125.09ms
-     90%   169.06ms
-     95%   186.76ms
-     99%   391.65ms
-  HTTP codes:
-    1xx - 0, 2xx - 17117, 3xx - 0, 4xx - 1, 5xx - 0
-    others - 0
-  Throughput:     1.38MB/s</div>
-      </div><div id="20231216162909-9sq91lo" data-node-id="20231216162909-9sq91lo" data-type="NodeParagraph" class="p"></div><div id="20231216162605-g0w42pf" data-node-id="20231216162605-g0w42pf" data-type="NodeParagraph" updated="20231216162902" class="p">函数计算目前还是不用很担心被人恶意刷出高额账单。但还是建议大家适量配置并发度，做好报警，如果确实是真实用户流量，视情况上调并发即可，像我这种玩票性质的就直接低并发就行了。
-</div><div id="20231216162315-q7kbi5o" data-node-id="20231216162315-q7kbi5o" data-type="NodeHeading" updated="20231216162517" data-subtype="h2" class="h2"><div>阿里云函数计算被刷的可能性测试
-</div></div>
-<div id="20231216155708-syrex9a" data-node-id="20231216155708-syrex9a" data-type="NodeParagraph" updated="20231216155755" class="p">由于一些 oss 被刷几万块钱的惨剧，我将oss的公共读全关了，然后又思考函数计算被刷的可能性
-</div>
-<div id="20231216155756-g3fa8lm" data-node-id="20231216155756-g3fa8lm" data-type="NodeParagraph" updated="20231216155826" class="p">于是设置了并发度上限，进行一次测试。结果如下
-</div>
-<div id="20231216155706-j21ur1k" data-node-id="20231216155706-j21ur1k" data-type="NodeParagraph" updated="20231216155706" class="p">​
-<span data-type="NodeImage" class="img" style="undefined"
-      ><img
-        src="./../../assets/image-20231216155706-cvwoop4.png"
-        data-src="./../../assets/image-20231216155706-cvwoop4.png"
-        title=""
-        style="undefined"
-        loading="lazy"
-      /><span class="protyle-action__title"></span></span
-    >
-​
-</div>
-<div id="20231216155827-xdvtvuc" data-node-id="20231216155827-xdvtvuc" data-type="NodeParagraph" updated="20231216155917" class="p">从测试可以看到函数计算通过流控使得在 10s 内的 4.51 万次请求只成功了大概 0.01万次
-</div>
-<div id="20231216155942-ydxkg6v" data-node-id="20231216155942-ydxkg6v" data-type="NodeParagraph" updated="20231216163235" class="p">下面是测试工具的数据，从两个数据来看一个函数实例单实例并发也为1，0.05vcpu的情况下10秒只处理了127个hello world请求。其余4.5万个都被拦截了。
-</div>
-<div id="20231216155938-oxp060k" data-node-id="20231216155938-oxp060k" data-type="NodeCodeBlock" updated="20231216160025" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          abap
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
-        </div>
-        <div class="hljs" spellcheck="false">Statistics        Avg      Stdev        Max
-  Reqs/sec      4485.25    2199.12    9523.92
-  Latency       44.48ms    92.30ms      2.11s
-  Latency Distribution
-     50%    32.95ms
-     75%    36.26ms
-     90%    41.48ms
-     95%    50.39ms
-     99%   288.46ms
-  HTTP codes:
-    1xx - 0, 2xx - 127, 3xx - 0, 4xx - 44974, 5xx - 0
-    others - 0
-  Throughput:     2.99MB/s
-</div>
+<div id="20231216214101-362obbj" data-node-id="20231216214101-362obbj" data-type="NodeList" updated="20231216214350" data-subtype="u" class="list"><div id="20231216214253-non3vdy" data-node-id="20231216214253-non3vdy" data-type="NodeListItem" updated="20231216214253" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-<div id="20231216162605-g0w42pf" data-node-id="20231216162605-g0w42pf" data-type="NodeParagraph" updated="20231216162902" class="p">函数计算目前还是不用很担心被人恶意刷出高额账单。但还是建议大家适量配置并发度，做好报警，如果确实是真实用户流量，视情况上调并发即可，像我这种玩票性质的就直接低并发就行了。
+      <div id="20231216214253-d2bzk5o" data-node-id="20231216214253-d2bzk5o" data-type="NodeParagraph" updated="20231216214306" class="p">手动测试 feed：
 </div>
-<div id="20231216162520-y3s8ipr" data-node-id="20231216162520-y3s8ipr" data-type="NodeParagraph" updated="20231216163200" class="p">顺便配一个 1vcpu 1G 内存 单实例 200 并发度（最高只能设置200）的测试：
-</div>
-<div id="20231216162551-azhsl9s" data-node-id="20231216162551-azhsl9s" data-type="NodeCodeBlock" updated="20231216163146" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          abap
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
-        </div>
-        <div class="hljs" spellcheck="false">  Reqs/sec      1689.51    1850.40    8723.94
-  Latency      118.41ms    52.92ms      2.21s
-  Latency Distribution
-     50%   106.20ms
-     75%   125.09ms
-     90%   169.06ms
-     95%   186.76ms
-     99%   391.65ms
-  HTTP codes:
-    1xx - 0, 2xx - 17117, 3xx - 0, 4xx - 1, 5xx - 0
-    others - 0
-  Throughput:     1.38MB/s</div>
+<div id="20231216214309-a0c3pbj" data-node-id="20231216214309-a0c3pbj" data-type="NodeList" data-subtype="u" class="list"><div id="20231216214308-zgfo8l7" data-node-id="20231216214308-zgfo8l7" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-<div id="20231216162909-9sq91lo" data-node-id="20231216162909-9sq91lo" data-type="NodeParagraph" class="p"></div><div id="20231216155938-oxp060k" data-node-id="20231216155938-oxp060k" data-type="NodeCodeBlock" updated="20231216160025" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          abap
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
-        </div>
-        <div class="hljs" spellcheck="false">Statistics        Avg      Stdev        Max
-  Reqs/sec      4485.25    2199.12    9523.92
-  Latency       44.48ms    92.30ms      2.11s
-  Latency Distribution
-     50%    32.95ms
-     75%    36.26ms
-     90%    41.48ms
-     95%    50.39ms
-     99%   288.46ms
-  HTTP codes:
-    1xx - 0, 2xx - 127, 3xx - 0, 4xx - 44974, 5xx - 0
-    others - 0
-  Throughput:     2.99MB/s
+      <div id="20231216214308-kgm173q" data-node-id="20231216214308-kgm173q" data-type="NodeParagraph" class="p">feed:https://yifei.me/feed
+
 </div>
-      </div><div id="20231216155827-xdvtvuc" data-node-id="20231216155827-xdvtvuc" data-type="NodeParagraph" updated="20231216155917" class="p">从测试可以看到函数计算通过流控使得在 10s 内的 4.51 万次请求只成功了大概 0.01万次
-</div><div id="20231216155756-g3fa8lm" data-node-id="20231216155756-g3fa8lm" data-type="NodeParagraph" updated="20231216155826" class="p">于是设置了并发度上限，进行一次测试。结果如下
-</div><div id="20231216155708-syrex9a" data-node-id="20231216155708-syrex9a" data-type="NodeParagraph" updated="20231216155755" class="p">由于一些 oss 被刷几万块钱的惨剧，我将oss的公共读全关了，然后又思考函数计算被刷的可能性
-</div><div id="20231216155706-j21ur1k" data-node-id="20231216155706-j21ur1k" data-type="NodeParagraph" updated="20231216155706" class="p">​
-<span data-type="NodeImage" class="img" style="undefined"
-      ><img
-        src="./../../assets/image-20231216155706-cvwoop4.png"
-        data-src="./../../assets/image-20231216155706-cvwoop4.png"
-        title=""
-        style="undefined"
-        loading="lazy"
-      /><span class="protyle-action__title"></span></span
-    >
-​
-</div><div id="20231216120707-ynfl2sm" data-node-id="20231216120707-ynfl2sm" data-type="NodeParagraph" updated="20231216120738" class="p"><a href="https://github.com/egoist/tsup">https://github.com/egoist/tsup</a>
-</div><div id="20231216120737-qsdkc3v" data-node-id="20231216120737-qsdkc3v" data-type="NodeParagraph" class="p"></div><div id="20231216120644-do3r255" data-node-id="20231216120644-do3r255" data-type="NodeParagraph" updated="20231216120725" class="p">​
-<span data-type="code">tsx index.ts</span>
-​
-</div><div id="20210816161947-ls1z28t" data-node-id="20210816161947-ls1z28t" data-type="NodeHeading" updated="20231216120717" data-subtype="h2" class="h2"><div>运行
+
+    </div>
+<div id="20231216214310-amnovxx" data-node-id="20231216214310-amnovxx" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214310-r9eerj1" data-node-id="20231216214310-r9eerj1" data-type="NodeParagraph" class="p">https://www.zhangxinxu.com/wordpress/feed
+
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20231216214312-8eu5nz1" data-node-id="20231216214312-8eu5nz1" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214312-pt5h8u5" data-node-id="20231216214312-pt5h8u5" data-type="NodeParagraph" updated="20231216214319" class="p">添加了对 rss 2.0 的简易支持
+</div>
+
+    </div>
+<div id="20231216214320-3n5f92n" data-node-id="20231216214320-3n5f92n" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214320-y8oo3sg" data-node-id="20231216214320-y8oo3sg" data-type="NodeParagraph" class="p">增强了xss过滤功能
+</div>
+
+    </div>
+<div id="20231216214350-3kavtrd" data-node-id="20231216214350-3kavtrd" data-type="NodeListItem" updated="20231216214350" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214350-ebrkm87" data-node-id="20231216214350-ebrkm87" data-type="NodeParagraph" updated="20231216214350" class="p">插件添加命令 _feedFetch 立刻对所有feed进行一次拉取
+</div>
+
+    </div>
+</div><div id="20231216214350-3kavtrd" data-node-id="20231216214350-3kavtrd" data-type="NodeListItem" updated="20231216214350" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214350-ebrkm87" data-node-id="20231216214350-ebrkm87" data-type="NodeParagraph" updated="20231216214350" class="p">插件添加命令 _feedFetch 立刻对所有feed进行一次拉取
+</div>
+
+    </div><div id="20231216214350-ebrkm87" data-node-id="20231216214350-ebrkm87" data-type="NodeParagraph" updated="20231216214350" class="p">插件添加命令 _feedFetch 立刻对所有feed进行一次拉取
+</div><div id="20231216214320-3n5f92n" data-node-id="20231216214320-3n5f92n" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214320-y8oo3sg" data-node-id="20231216214320-y8oo3sg" data-type="NodeParagraph" class="p">增强了xss过滤功能
+</div>
+
+    </div><div id="20231216214320-y8oo3sg" data-node-id="20231216214320-y8oo3sg" data-type="NodeParagraph" class="p">增强了xss过滤功能
+</div><div id="20231216214312-pt5h8u5" data-node-id="20231216214312-pt5h8u5" data-type="NodeParagraph" updated="20231216214319" class="p">添加了对 rss 2.0 的简易支持
+</div><div id="20231216214312-8eu5nz1" data-node-id="20231216214312-8eu5nz1" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214312-pt5h8u5" data-node-id="20231216214312-pt5h8u5" data-type="NodeParagraph" updated="20231216214319" class="p">添加了对 rss 2.0 的简易支持
+</div>
+
+    </div><div id="20231216214310-amnovxx" data-node-id="20231216214310-amnovxx" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214310-r9eerj1" data-node-id="20231216214310-r9eerj1" data-type="NodeParagraph" class="p">https://www.zhangxinxu.com/wordpress/feed
+
+</div>
+
+    </div><div id="20231216214310-r9eerj1" data-node-id="20231216214310-r9eerj1" data-type="NodeParagraph" class="p">https://www.zhangxinxu.com/wordpress/feed
+
+</div><div id="20231216214309-a0c3pbj" data-node-id="20231216214309-a0c3pbj" data-type="NodeList" data-subtype="u" class="list"><div id="20231216214308-zgfo8l7" data-node-id="20231216214308-zgfo8l7" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214308-kgm173q" data-node-id="20231216214308-kgm173q" data-type="NodeParagraph" class="p">feed:https://yifei.me/feed
+
+</div>
+
+    </div>
+<div id="20231216214310-amnovxx" data-node-id="20231216214310-amnovxx" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214310-r9eerj1" data-node-id="20231216214310-r9eerj1" data-type="NodeParagraph" class="p">https://www.zhangxinxu.com/wordpress/feed
+
+</div>
+
+    </div>
+</div><div id="20231216214308-zgfo8l7" data-node-id="20231216214308-zgfo8l7" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214308-kgm173q" data-node-id="20231216214308-kgm173q" data-type="NodeParagraph" class="p">feed:https://yifei.me/feed
+
+</div>
+
+    </div><div id="20231216214308-kgm173q" data-node-id="20231216214308-kgm173q" data-type="NodeParagraph" class="p">feed:https://yifei.me/feed
+
+</div><div id="20231216214253-d2bzk5o" data-node-id="20231216214253-d2bzk5o" data-type="NodeParagraph" updated="20231216214306" class="p">手动测试 feed：
+</div><div id="20231216214253-non3vdy" data-node-id="20231216214253-non3vdy" data-type="NodeListItem" updated="20231216214253" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214253-d2bzk5o" data-node-id="20231216214253-d2bzk5o" data-type="NodeParagraph" updated="20231216214306" class="p">手动测试 feed：
+</div>
+<div id="20231216214309-a0c3pbj" data-node-id="20231216214309-a0c3pbj" data-type="NodeList" data-subtype="u" class="list"><div id="20231216214308-zgfo8l7" data-node-id="20231216214308-zgfo8l7" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214308-kgm173q" data-node-id="20231216214308-kgm173q" data-type="NodeParagraph" class="p">feed:https://yifei.me/feed
+
+</div>
+
+    </div>
+<div id="20231216214310-amnovxx" data-node-id="20231216214310-amnovxx" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214310-r9eerj1" data-node-id="20231216214310-r9eerj1" data-type="NodeParagraph" class="p">https://www.zhangxinxu.com/wordpress/feed
+
+</div>
+
+    </div>
+</div>
+
+    </div><div id="20231216214047-0lzdb37" data-node-id="20231216214047-0lzdb37" data-type="NodeHeading" updated="20231216214101" data-subtype="h3" class="h3"><div>2023-12-16 21:40:55
 </div></div>
-<div id="20231216120644-do3r255" data-node-id="20231216120644-do3r255" data-type="NodeParagraph" updated="20231216120725" class="p">​
-<span data-type="code">tsx index.ts</span>
-​
-</div><div id="20231216120654-uiw656p" data-node-id="20231216120654-uiw656p" data-type="NodeHeading" updated="20231216120716" data-subtype="h2" class="h2"><div>打包
-</div></div>
-<div id="20231216120707-ynfl2sm" data-node-id="20231216120707-ynfl2sm" data-type="NodeParagraph" updated="20231216120738" class="p"><a href="https://github.com/egoist/tsup">https://github.com/egoist/tsup</a>
+<div id="20231216214101-362obbj" data-node-id="20231216214101-362obbj" data-type="NodeList" updated="20231216214350" data-subtype="u" class="list"><div id="20231216214253-non3vdy" data-node-id="20231216214253-non3vdy" data-type="NodeListItem" updated="20231216214253" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214253-d2bzk5o" data-node-id="20231216214253-d2bzk5o" data-type="NodeParagraph" updated="20231216214306" class="p">手动测试 feed：
 </div>
-<div id="20231216120737-qsdkc3v" data-node-id="20231216120737-qsdkc3v" data-type="NodeParagraph" class="p"></div><div id="20231216115405-ylrnx74" data-node-id="20231216115405-ylrnx74" data-type="NodeCodeBlock" updated="20231216115423" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          css
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
-        </div>
-        <div class="hljs" spellcheck="false">> bombardier -c 200 -d 10s -l http://ya.ru
-Bombarding http://ya.ru for 10s using 200 connections
-[=========================================================================] 10s Done!
-Statistics        Avg      Stdev        Max
-  Reqs/sec      6607.00     524.56       7109
-  Latency       29.86ms     5.36ms   305.02ms
-  Latency Distribution
-     50%    28.00ms
-     75%    32.00ms
-     90%    34.00ms
-     99%    48.00ms
-  HTTP codes:
-    1xx - 0, 2xx - 0, 3xx - 66561, 4xx - 0, 5xx - 0
-    others - 5
-  Errors:
-    dialing to the given TCP address timed out - 5
-  Throughput:     3.06MB/s
+<div id="20231216214309-a0c3pbj" data-node-id="20231216214309-a0c3pbj" data-type="NodeList" data-subtype="u" class="list"><div id="20231216214308-zgfo8l7" data-node-id="20231216214308-zgfo8l7" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214308-kgm173q" data-node-id="20231216214308-kgm173q" data-type="NodeParagraph" class="p">feed:https://yifei.me/feed
+
 </div>
-      </div><div id="20231216115216-s7wqfrm" data-node-id="20231216115216-s7wqfrm" data-type="NodeParagraph" updated="20231216115220" class="p"><a href="https://github.com/codesenberg/bombardier">https://github.com/codesenberg/bombardier</a>
-</div><div id="20210608233914-iw4kr2h" data-node-id="20210608233914-iw4kr2h" data-type="NodeHeading" updated="20231216115216" data-subtype="h2" class="h2"><div>网站服务基准速度测试
-</div></div>
-<div id="20231216115216-s7wqfrm" data-node-id="20231216115216-s7wqfrm" data-type="NodeParagraph" updated="20231216115220" class="p"><a href="https://github.com/codesenberg/bombardier">https://github.com/codesenberg/bombardier</a>
+
+    </div>
+<div id="20231216214310-amnovxx" data-node-id="20231216214310-amnovxx" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214310-r9eerj1" data-node-id="20231216214310-r9eerj1" data-type="NodeParagraph" class="p">https://www.zhangxinxu.com/wordpress/feed
+
 </div>
-<div id="20231216115405-ylrnx74" data-node-id="20231216115405-ylrnx74" data-type="NodeCodeBlock" updated="20231216115423" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          css
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
-        </div>
-        <div class="hljs" spellcheck="false">> bombardier -c 200 -d 10s -l http://ya.ru
-Bombarding http://ya.ru for 10s using 200 connections
-[=========================================================================] 10s Done!
-Statistics        Avg      Stdev        Max
-  Reqs/sec      6607.00     524.56       7109
-  Latency       29.86ms     5.36ms   305.02ms
-  Latency Distribution
-     50%    28.00ms
-     75%    32.00ms
-     90%    34.00ms
-     99%    48.00ms
-  HTTP codes:
-    1xx - 0, 2xx - 0, 3xx - 66561, 4xx - 0, 5xx - 0
-    others - 5
-  Errors:
-    dialing to the given TCP address timed out - 5
-  Throughput:     3.06MB/s
+
+    </div>
 </div>
-      </div><div id="20231216115153-31ybole" data-node-id="20231216115153-31ybole" data-type="NodeParagraph" updated="20231216115153" class="p"></div><div id="20231216115152-1upf0jk" data-node-id="20231216115152-1upf0jk" data-type="NodeParagraph" class="p"></div><div id="20231214140642-96iz8jo" data-node-id="20231214140642-96iz8jo" data-type="NodeList" updated="20231215204008" data-subtype="o" class="list"><div id="20231214140710-qyhixqi" data-node-id="20231214140710-qyhixqi" data-type="NodeListItem" updated="20231215110345" data-subtype="o" class="li" data-marker="1.">
+
+    </div>
+<div id="20231216214312-8eu5nz1" data-node-id="20231216214312-8eu5nz1" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214312-pt5h8u5" data-node-id="20231216214312-pt5h8u5" data-type="NodeParagraph" updated="20231216214319" class="p">添加了对 rss 2.0 的简易支持
+</div>
+
+    </div>
+<div id="20231216214320-3n5f92n" data-node-id="20231216214320-3n5f92n" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214320-y8oo3sg" data-node-id="20231216214320-y8oo3sg" data-type="NodeParagraph" class="p">增强了xss过滤功能
+</div>
+
+    </div>
+<div id="20231216214350-3kavtrd" data-node-id="20231216214350-3kavtrd" data-type="NodeListItem" updated="20231216214350" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216214350-ebrkm87" data-node-id="20231216214350-ebrkm87" data-type="NodeParagraph" updated="20231216214350" class="p">插件添加命令 _feedFetch 立刻对所有feed进行一次拉取
+</div>
+
+    </div>
+</div><div id="20231216214039-fyz9zv2" data-node-id="20231216214039-fyz9zv2" data-type="NodeHeading" updated="20231216214047" data-subtype="h2" class="h2"><div>更新日志
+</div></div><div id="20231216214038-s2o6h60" data-node-id="20231216214038-s2o6h60" data-type="NodeParagraph" class="p"></div><div id="20231214140642-96iz8jo" data-node-id="20231214140642-96iz8jo" data-type="NodeList" updated="20231216214032" data-subtype="o" class="list"><div id="20231214140710-qyhixqi" data-node-id="20231214140710-qyhixqi" data-type="NodeListItem" updated="20231215110345" data-subtype="o" class="li" data-marker="1.">
       <div class="protyle-action">
         1.
       </div>
@@ -339,13 +322,13 @@ Statistics        Avg      Stdev        Max
 </div>
 
     </div>
-<div id="20231214140801-8h69m0m" data-node-id="20231214140801-8h69m0m" data-type="NodeListItem" updated="20231215204008" data-subtype="o" class="li" data-marker="2.">
+<div id="20231214140801-8h69m0m" data-node-id="20231214140801-8h69m0m" data-type="NodeListItem" updated="20231216214032" data-subtype="o" class="li" data-marker="2.">
       <div class="protyle-action">
         2.
       </div>
       <div id="20231214140801-ch9094x" data-node-id="20231214140801-ch9094x" data-type="NodeParagraph" updated="20231215204008" class="p">该容器块内再创建一个容器块 (假设叫做列表X)
 </div>
-<div id="20231215113156-1dwwfa4" data-node-id="20231215113156-1dwwfa4" data-type="NodeList" updated="20231215204007" data-subtype="o" class="list"><div id="20231215113156-ynoelys" data-node-id="20231215113156-ynoelys" data-type="NodeListItem" updated="20231215204005" data-subtype="o" class="li" data-marker="1.">
+<div id="20231215113156-1dwwfa4" data-node-id="20231215113156-1dwwfa4" data-type="NodeList" updated="20231216214032" data-subtype="o" class="list"><div id="20231215113156-ynoelys" data-node-id="20231215113156-ynoelys" data-type="NodeListItem" updated="20231215204005" data-subtype="o" class="li" data-marker="1.">
       <div class="protyle-action">
         1.
       </div>
@@ -367,7 +350,7 @@ feed
 </div>
 
     </div>
-<div id="20231215113335-c06rvn4" data-node-id="20231215113335-c06rvn4" data-type="NodeListItem" updated="20231215202313" data-subtype="o" class="li" data-marker="3.">
+<div id="20231215113335-c06rvn4" data-node-id="20231215113335-c06rvn4" data-type="NodeListItem" updated="20231216214032" data-subtype="o" class="li" data-marker="3.">
       <div class="protyle-action">
         3.
       </div>
@@ -377,7 +360,7 @@ feed
 </div>
 <div id="20231215202254-yhphw4e" data-node-id="20231215202254-yhphw4e" data-type="NodeParagraph" updated="20231215202313" class="p">简单来说 feed 和 cron 应该是同一个列表中的不同的列表项
 </div>
-<div id="20231215113359-kb7or4b" data-node-id="20231215113359-kb7or4b" data-type="NodeList" updated="20231215122253" data-subtype="u" class="list"><div id="20231215113405-kbvru6h" data-node-id="20231215113405-kbvru6h" data-type="NodeListItem" updated="20231215113412" data-subtype="u" class="li" data-marker="*">
+<div id="20231215113359-kb7or4b" data-node-id="20231215113359-kb7or4b" data-type="NodeList" updated="20231216214032" data-subtype="u" class="list"><div id="20231215113405-kbvru6h" data-node-id="20231215113405-kbvru6h" data-type="NodeListItem" updated="20231215113412" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
@@ -386,7 +369,7 @@ feed
 </div>
 
     </div>
-<div id="20231215113422-xqe2q98" data-node-id="20231215113422-xqe2q98" data-type="NodeListItem" updated="20231215122253" data-subtype="u" class="li" data-marker="*">
+<div id="20231215113422-xqe2q98" data-node-id="20231215113422-xqe2q98" data-type="NodeListItem" updated="20231216214032" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
@@ -394,23 +377,13 @@ feed
 <span data-type="code">1 20 * * *</span>
 ​​​​  需要注意的是，上方链接后面不可有其他文字，会全部当做url
 </div>
-<div id="20231215122035-6yhzmi6" data-node-id="20231215122035-6yhzmi6" data-type="NodeList" updated="20231215122253" data-subtype="u" class="list"><div id="20231215122039-298b10l" data-node-id="20231215122039-298b10l" data-type="NodeListItem" updated="20231215122253" data-subtype="u" class="li" data-marker="*">
+<div id="20231215122035-6yhzmi6" data-node-id="20231215122035-6yhzmi6" data-type="NodeList" updated="20231216214032" data-subtype="u" class="list"><div id="20231215122039-298b10l" data-node-id="20231215122039-298b10l" data-type="NodeListItem" updated="20231216214032" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20231215122039-cm7emk8" data-node-id="20231215122039-cm7emk8" data-type="NodeParagraph" updated="20231215122253" class="p">此属性是可选的，你可以不显式声明，插件会采取默认值 
+      <div id="20231215122039-cm7emk8" data-node-id="20231215122039-cm7emk8" data-type="NodeParagraph" updated="20231216214032" class="p">此属性是可选的，插件会采取默认值 
 <span data-type="code">1 * * * *</span>
-​​​​ 每小时的第一分钟进行一次检查
-</div>
-
-    </div>
-<div id="20231215122032-4m5vxyf" data-node-id="20231215122032-4m5vxyf" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215122032-5nhp3v6" data-node-id="20231215122032-5nhp3v6" data-type="NodeParagraph" class="p">此处需要使用行内
-代码
-来输入cron表达式，因为和思源的语法有冲突，
+​ 每小时的第一分钟进行一次检查，
 <span data-type="block-ref"     data-subtype="s"     data-id="20231215113645-6pphd6k">
           <a href="./../../想法/siyuan_feed插件.html#20231215113645-6pphd6k">表达式语法如下</a>
   </span>
@@ -570,13 +543,13 @@ WHERE subquery.markdown LIKE '* [ ] #%'
 </div>
 
     </div>
-</div><div id="20231214140801-8h69m0m" data-node-id="20231214140801-8h69m0m" data-type="NodeListItem" updated="20231215204008" data-subtype="o" class="li" data-marker="2.">
+</div><div id="20231214140801-8h69m0m" data-node-id="20231214140801-8h69m0m" data-type="NodeListItem" updated="20231216214032" data-subtype="o" class="li" data-marker="2.">
       <div class="protyle-action">
         2.
       </div>
       <div id="20231214140801-ch9094x" data-node-id="20231214140801-ch9094x" data-type="NodeParagraph" updated="20231215204008" class="p">该容器块内再创建一个容器块 (假设叫做列表X)
 </div>
-<div id="20231215113156-1dwwfa4" data-node-id="20231215113156-1dwwfa4" data-type="NodeList" updated="20231215204007" data-subtype="o" class="list"><div id="20231215113156-ynoelys" data-node-id="20231215113156-ynoelys" data-type="NodeListItem" updated="20231215204005" data-subtype="o" class="li" data-marker="1.">
+<div id="20231215113156-1dwwfa4" data-node-id="20231215113156-1dwwfa4" data-type="NodeList" updated="20231216214032" data-subtype="o" class="list"><div id="20231215113156-ynoelys" data-node-id="20231215113156-ynoelys" data-type="NodeListItem" updated="20231215204005" data-subtype="o" class="li" data-marker="1.">
       <div class="protyle-action">
         1.
       </div>
@@ -598,7 +571,7 @@ feed
 </div>
 
     </div>
-<div id="20231215113335-c06rvn4" data-node-id="20231215113335-c06rvn4" data-type="NodeListItem" updated="20231215202313" data-subtype="o" class="li" data-marker="3.">
+<div id="20231215113335-c06rvn4" data-node-id="20231215113335-c06rvn4" data-type="NodeListItem" updated="20231216214032" data-subtype="o" class="li" data-marker="3.">
       <div class="protyle-action">
         3.
       </div>
@@ -608,7 +581,7 @@ feed
 </div>
 <div id="20231215202254-yhphw4e" data-node-id="20231215202254-yhphw4e" data-type="NodeParagraph" updated="20231215202313" class="p">简单来说 feed 和 cron 应该是同一个列表中的不同的列表项
 </div>
-<div id="20231215113359-kb7or4b" data-node-id="20231215113359-kb7or4b" data-type="NodeList" updated="20231215122253" data-subtype="u" class="list"><div id="20231215113405-kbvru6h" data-node-id="20231215113405-kbvru6h" data-type="NodeListItem" updated="20231215113412" data-subtype="u" class="li" data-marker="*">
+<div id="20231215113359-kb7or4b" data-node-id="20231215113359-kb7or4b" data-type="NodeList" updated="20231216214032" data-subtype="u" class="list"><div id="20231215113405-kbvru6h" data-node-id="20231215113405-kbvru6h" data-type="NodeListItem" updated="20231215113412" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
@@ -617,7 +590,7 @@ feed
 </div>
 
     </div>
-<div id="20231215113422-xqe2q98" data-node-id="20231215113422-xqe2q98" data-type="NodeListItem" updated="20231215122253" data-subtype="u" class="li" data-marker="*">
+<div id="20231215113422-xqe2q98" data-node-id="20231215113422-xqe2q98" data-type="NodeListItem" updated="20231216214032" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
@@ -625,23 +598,13 @@ feed
 <span data-type="code">1 20 * * *</span>
 ​​​​  需要注意的是，上方链接后面不可有其他文字，会全部当做url
 </div>
-<div id="20231215122035-6yhzmi6" data-node-id="20231215122035-6yhzmi6" data-type="NodeList" updated="20231215122253" data-subtype="u" class="list"><div id="20231215122039-298b10l" data-node-id="20231215122039-298b10l" data-type="NodeListItem" updated="20231215122253" data-subtype="u" class="li" data-marker="*">
+<div id="20231215122035-6yhzmi6" data-node-id="20231215122035-6yhzmi6" data-type="NodeList" updated="20231216214032" data-subtype="u" class="list"><div id="20231215122039-298b10l" data-node-id="20231215122039-298b10l" data-type="NodeListItem" updated="20231216214032" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20231215122039-cm7emk8" data-node-id="20231215122039-cm7emk8" data-type="NodeParagraph" updated="20231215122253" class="p">此属性是可选的，你可以不显式声明，插件会采取默认值 
+      <div id="20231215122039-cm7emk8" data-node-id="20231215122039-cm7emk8" data-type="NodeParagraph" updated="20231216214032" class="p">此属性是可选的，插件会采取默认值 
 <span data-type="code">1 * * * *</span>
-​​​​ 每小时的第一分钟进行一次检查
-</div>
-
-    </div>
-<div id="20231215122032-4m5vxyf" data-node-id="20231215122032-4m5vxyf" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215122032-5nhp3v6" data-node-id="20231215122032-5nhp3v6" data-type="NodeParagraph" class="p">此处需要使用行内
-代码
-来输入cron表达式，因为和思源的语法有冲突，
+​ 每小时的第一分钟进行一次检查，
 <span data-type="block-ref"     data-subtype="s"     data-id="20231215113645-6pphd6k">
           <a href="./../../想法/siyuan_feed插件.html#20231215113645-6pphd6k">表达式语法如下</a>
   </span>
@@ -683,8 +646,7 @@ feed
     </div>
 </div>
 
-    </div><div id="20231214140801-ch9094x" data-node-id="20231214140801-ch9094x" data-type="NodeParagraph" updated="20231215204008" class="p">该容器块内再创建一个容器块 (假设叫做列表X)
-</div><div id="20231215113156-1dwwfa4" data-node-id="20231215113156-1dwwfa4" data-type="NodeList" updated="20231215204007" data-subtype="o" class="list"><div id="20231215113156-ynoelys" data-node-id="20231215113156-ynoelys" data-type="NodeListItem" updated="20231215204005" data-subtype="o" class="li" data-marker="1.">
+    </div><div id="20231215113156-1dwwfa4" data-node-id="20231215113156-1dwwfa4" data-type="NodeList" updated="20231216214032" data-subtype="o" class="list"><div id="20231215113156-ynoelys" data-node-id="20231215113156-ynoelys" data-type="NodeListItem" updated="20231215204005" data-subtype="o" class="li" data-marker="1.">
       <div class="protyle-action">
         1.
       </div>
@@ -706,7 +668,7 @@ feed
 </div>
 
     </div>
-<div id="20231215113335-c06rvn4" data-node-id="20231215113335-c06rvn4" data-type="NodeListItem" updated="20231215202313" data-subtype="o" class="li" data-marker="3.">
+<div id="20231215113335-c06rvn4" data-node-id="20231215113335-c06rvn4" data-type="NodeListItem" updated="20231216214032" data-subtype="o" class="li" data-marker="3.">
       <div class="protyle-action">
         3.
       </div>
@@ -716,7 +678,7 @@ feed
 </div>
 <div id="20231215202254-yhphw4e" data-node-id="20231215202254-yhphw4e" data-type="NodeParagraph" updated="20231215202313" class="p">简单来说 feed 和 cron 应该是同一个列表中的不同的列表项
 </div>
-<div id="20231215113359-kb7or4b" data-node-id="20231215113359-kb7or4b" data-type="NodeList" updated="20231215122253" data-subtype="u" class="list"><div id="20231215113405-kbvru6h" data-node-id="20231215113405-kbvru6h" data-type="NodeListItem" updated="20231215113412" data-subtype="u" class="li" data-marker="*">
+<div id="20231215113359-kb7or4b" data-node-id="20231215113359-kb7or4b" data-type="NodeList" updated="20231216214032" data-subtype="u" class="list"><div id="20231215113405-kbvru6h" data-node-id="20231215113405-kbvru6h" data-type="NodeListItem" updated="20231215113412" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
@@ -725,7 +687,7 @@ feed
 </div>
 
     </div>
-<div id="20231215113422-xqe2q98" data-node-id="20231215113422-xqe2q98" data-type="NodeListItem" updated="20231215122253" data-subtype="u" class="li" data-marker="*">
+<div id="20231215113422-xqe2q98" data-node-id="20231215113422-xqe2q98" data-type="NodeListItem" updated="20231216214032" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
@@ -733,23 +695,13 @@ feed
 <span data-type="code">1 20 * * *</span>
 ​​​​  需要注意的是，上方链接后面不可有其他文字，会全部当做url
 </div>
-<div id="20231215122035-6yhzmi6" data-node-id="20231215122035-6yhzmi6" data-type="NodeList" updated="20231215122253" data-subtype="u" class="list"><div id="20231215122039-298b10l" data-node-id="20231215122039-298b10l" data-type="NodeListItem" updated="20231215122253" data-subtype="u" class="li" data-marker="*">
+<div id="20231215122035-6yhzmi6" data-node-id="20231215122035-6yhzmi6" data-type="NodeList" updated="20231216214032" data-subtype="u" class="list"><div id="20231215122039-298b10l" data-node-id="20231215122039-298b10l" data-type="NodeListItem" updated="20231216214032" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20231215122039-cm7emk8" data-node-id="20231215122039-cm7emk8" data-type="NodeParagraph" updated="20231215122253" class="p">此属性是可选的，你可以不显式声明，插件会采取默认值 
+      <div id="20231215122039-cm7emk8" data-node-id="20231215122039-cm7emk8" data-type="NodeParagraph" updated="20231216214032" class="p">此属性是可选的，插件会采取默认值 
 <span data-type="code">1 * * * *</span>
-​​​​ 每小时的第一分钟进行一次检查
-</div>
-
-    </div>
-<div id="20231215122032-4m5vxyf" data-node-id="20231215122032-4m5vxyf" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215122032-5nhp3v6" data-node-id="20231215122032-5nhp3v6" data-type="NodeParagraph" class="p">此处需要使用行内
-代码
-来输入cron表达式，因为和思源的语法有冲突，
+​ 每小时的第一分钟进行一次检查，
 <span data-type="block-ref"     data-subtype="s"     data-id="20231215113645-6pphd6k">
           <a href="./../../想法/siyuan_feed插件.html#20231215113645-6pphd6k">表达式语法如下</a>
   </span>
@@ -789,128 +741,7 @@ feed
 </div>
 
     </div>
-</div><div id="20231215113247-lw6346y" data-node-id="20231215113247-lw6346y" data-type="NodeListItem" updated="20231215204007" data-subtype="o" class="li" data-marker="2.">
-      <div class="protyle-action">
-        2.
-      </div>
-      <div id="20231215113247-m5z2aqw" data-node-id="20231215113247-m5z2aqw" data-type="NodeParagraph" updated="20231215204007" class="p">列表X内的以 
-<span data-type="code">cron:</span>
-​​​​​ 开头的子块声明什么时候对该链接进行更新检查
-</div>
-
-    </div><div id="20231215113247-m5z2aqw" data-node-id="20231215113247-m5z2aqw" data-type="NodeParagraph" updated="20231215204007" class="p">列表X内的以 
-<span data-type="code">cron:</span>
-​​​​​ 开头的子块声明什么时候对该链接进行更新检查
-</div><div id="20231215113156-ynoelys" data-node-id="20231215113156-ynoelys" data-type="NodeListItem" updated="20231215204005" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20231215113156-2ixitpe" data-node-id="20231215113156-2ixitpe" data-type="NodeParagraph" updated="20231215204005" class="p">列表X内的以 
-<span data-type="code">feed:</span>
-​​​​​ 开头的子块声明了 
-feed
- 的链接地址
-</div>
-
-    </div><div id="20231215113156-2ixitpe" data-node-id="20231215113156-2ixitpe" data-type="NodeParagraph" updated="20231215204005" class="p">列表X内的以 
-<span data-type="code">feed:</span>
-​​​​​ 开头的子块声明了 
-feed
- 的链接地址
-</div><div id="20231215140457-q7io7yd" data-node-id="20231215140457-q7io7yd" data-type="NodeList" updated="20231215202729" data-subtype="u" class="list" bookmark="feed"><div id="20231215202548-hu05zak" data-node-id="20231215202548-hu05zak" data-type="NodeListItem" updated="20231215202709" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215202548-ellyd6b" data-node-id="20231215202548-ellyd6b" data-type="NodeList" updated="20231215202709" data-subtype="u" class="list"><div id="20231215202609-j7kg7x8" data-node-id="20231215202609-j7kg7x8" data-type="NodeListItem" updated="20231215202609" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215202609-pk7rrf2" data-node-id="20231215202609-pk7rrf2" data-type="NodeParagraph" updated="20231215202615" class="p">feed:url
-</div>
-
-    </div>
-<div id="20231215202616-t8qkxqe" data-node-id="20231215202616-t8qkxqe" data-type="NodeListItem" updated="20231215202709" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215202616-m0zfxzh" data-node-id="20231215202616-m0zfxzh" data-type="NodeParagraph" updated="20231215202709" class="p">cron:1 * * * *
-</div>
-
-    </div>
-</div>
-
-    </div>
-<div id="20231215202623-ws4zry6" data-node-id="20231215202623-ws4zry6" data-type="NodeListItem" updated="20231215202729" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215202623-gykfwb7" data-node-id="20231215202623-gykfwb7" data-type="NodeParagraph" updated="20231215202729" class="p">然后博客链接会被加载到这
-</div>
-
-    </div>
-</div><div id="20231215202623-ws4zry6" data-node-id="20231215202623-ws4zry6" data-type="NodeListItem" updated="20231215202729" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215202623-gykfwb7" data-node-id="20231215202623-gykfwb7" data-type="NodeParagraph" updated="20231215202729" class="p">然后博客链接会被加载到这
-</div>
-
-    </div><div id="20231215202623-gykfwb7" data-node-id="20231215202623-gykfwb7" data-type="NodeParagraph" updated="20231215202729" class="p">然后博客链接会被加载到这
-</div><div id="20231215202548-hu05zak" data-node-id="20231215202548-hu05zak" data-type="NodeListItem" updated="20231215202709" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215202548-ellyd6b" data-node-id="20231215202548-ellyd6b" data-type="NodeList" updated="20231215202709" data-subtype="u" class="list"><div id="20231215202609-j7kg7x8" data-node-id="20231215202609-j7kg7x8" data-type="NodeListItem" updated="20231215202609" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215202609-pk7rrf2" data-node-id="20231215202609-pk7rrf2" data-type="NodeParagraph" updated="20231215202615" class="p">feed:url
-</div>
-
-    </div>
-<div id="20231215202616-t8qkxqe" data-node-id="20231215202616-t8qkxqe" data-type="NodeListItem" updated="20231215202709" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215202616-m0zfxzh" data-node-id="20231215202616-m0zfxzh" data-type="NodeParagraph" updated="20231215202709" class="p">cron:1 * * * *
-</div>
-
-    </div>
-</div>
-
-    </div><div id="20231215202548-ellyd6b" data-node-id="20231215202548-ellyd6b" data-type="NodeList" updated="20231215202709" data-subtype="u" class="list"><div id="20231215202609-j7kg7x8" data-node-id="20231215202609-j7kg7x8" data-type="NodeListItem" updated="20231215202609" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215202609-pk7rrf2" data-node-id="20231215202609-pk7rrf2" data-type="NodeParagraph" updated="20231215202615" class="p">feed:url
-</div>
-
-    </div>
-<div id="20231215202616-t8qkxqe" data-node-id="20231215202616-t8qkxqe" data-type="NodeListItem" updated="20231215202709" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215202616-m0zfxzh" data-node-id="20231215202616-m0zfxzh" data-type="NodeParagraph" updated="20231215202709" class="p">cron:1 * * * *
-</div>
-
-    </div>
-</div><div id="20231215202616-t8qkxqe" data-node-id="20231215202616-t8qkxqe" data-type="NodeListItem" updated="20231215202709" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215202616-m0zfxzh" data-node-id="20231215202616-m0zfxzh" data-type="NodeParagraph" updated="20231215202709" class="p">cron:1 * * * *
-</div>
-
-    </div><div id="20231215202616-m0zfxzh" data-node-id="20231215202616-m0zfxzh" data-type="NodeParagraph" updated="20231215202709" class="p">cron:1 * * * *
-</div><div id="20231215202708-np1z91t" data-node-id="20231215202708-np1z91t" data-type="NodeParagraph" class="p"></div><div id="20231215202609-pk7rrf2" data-node-id="20231215202609-pk7rrf2" data-type="NodeParagraph" updated="20231215202615" class="p">feed:url
-</div><div id="20231215202609-j7kg7x8" data-node-id="20231215202609-j7kg7x8" data-type="NodeListItem" updated="20231215202609" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215202609-pk7rrf2" data-node-id="20231215202609-pk7rrf2" data-type="NodeParagraph" updated="20231215202615" class="p">feed:url
-</div>
-
-    </div><div id="20231215113335-c06rvn4" data-node-id="20231215113335-c06rvn4" data-type="NodeListItem" updated="20231215202313" data-subtype="o" class="li" data-marker="3.">
+</div><div id="20231215113335-c06rvn4" data-node-id="20231215113335-c06rvn4" data-type="NodeListItem" updated="20231216214032" data-subtype="o" class="li" data-marker="3.">
       <div class="protyle-action">
         3.
       </div>
@@ -920,7 +751,7 @@ feed
 </div>
 <div id="20231215202254-yhphw4e" data-node-id="20231215202254-yhphw4e" data-type="NodeParagraph" updated="20231215202313" class="p">简单来说 feed 和 cron 应该是同一个列表中的不同的列表项
 </div>
-<div id="20231215113359-kb7or4b" data-node-id="20231215113359-kb7or4b" data-type="NodeList" updated="20231215122253" data-subtype="u" class="list"><div id="20231215113405-kbvru6h" data-node-id="20231215113405-kbvru6h" data-type="NodeListItem" updated="20231215113412" data-subtype="u" class="li" data-marker="*">
+<div id="20231215113359-kb7or4b" data-node-id="20231215113359-kb7or4b" data-type="NodeList" updated="20231216214032" data-subtype="u" class="list"><div id="20231215113405-kbvru6h" data-node-id="20231215113405-kbvru6h" data-type="NodeListItem" updated="20231215113412" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
@@ -929,7 +760,7 @@ feed
 </div>
 
     </div>
-<div id="20231215113422-xqe2q98" data-node-id="20231215113422-xqe2q98" data-type="NodeListItem" updated="20231215122253" data-subtype="u" class="li" data-marker="*">
+<div id="20231215113422-xqe2q98" data-node-id="20231215113422-xqe2q98" data-type="NodeListItem" updated="20231216214032" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
@@ -937,23 +768,13 @@ feed
 <span data-type="code">1 20 * * *</span>
 ​​​​  需要注意的是，上方链接后面不可有其他文字，会全部当做url
 </div>
-<div id="20231215122035-6yhzmi6" data-node-id="20231215122035-6yhzmi6" data-type="NodeList" updated="20231215122253" data-subtype="u" class="list"><div id="20231215122039-298b10l" data-node-id="20231215122039-298b10l" data-type="NodeListItem" updated="20231215122253" data-subtype="u" class="li" data-marker="*">
+<div id="20231215122035-6yhzmi6" data-node-id="20231215122035-6yhzmi6" data-type="NodeList" updated="20231216214032" data-subtype="u" class="list"><div id="20231215122039-298b10l" data-node-id="20231215122039-298b10l" data-type="NodeListItem" updated="20231216214032" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20231215122039-cm7emk8" data-node-id="20231215122039-cm7emk8" data-type="NodeParagraph" updated="20231215122253" class="p">此属性是可选的，你可以不显式声明，插件会采取默认值 
+      <div id="20231215122039-cm7emk8" data-node-id="20231215122039-cm7emk8" data-type="NodeParagraph" updated="20231216214032" class="p">此属性是可选的，插件会采取默认值 
 <span data-type="code">1 * * * *</span>
-​​​​ 每小时的第一分钟进行一次检查
-</div>
-
-    </div>
-<div id="20231215122032-4m5vxyf" data-node-id="20231215122032-4m5vxyf" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215122032-5nhp3v6" data-node-id="20231215122032-5nhp3v6" data-type="NodeParagraph" class="p">此处需要使用行内
-代码
-来输入cron表达式，因为和思源的语法有冲突，
+​ 每小时的第一分钟进行一次检查，
 <span data-type="block-ref"     data-subtype="s"     data-id="20231215113645-6pphd6k">
           <a href="./../../想法/siyuan_feed插件.html#20231215113645-6pphd6k">表达式语法如下</a>
   </span>
@@ -992,362 +813,501 @@ feed
     </div>
 </div>
 
-    </div><div id="20231215202254-yhphw4e" data-node-id="20231215202254-yhphw4e" data-type="NodeParagraph" updated="20231215202313" class="p">简单来说 feed 和 cron 应该是同一个列表中的不同的列表项
-</div><div id="20231215110241-rxvypcv" data-node-id="20231215110241-rxvypcv" data-type="NodeList" updated="20231215183046" data-subtype="t" class="list"><div id="20231215110241-4errow4" data-node-id="20231215110241-4errow4" data-type="NodeListItem" updated="20231215183046" data-subtype="t" class="li protyle-task--done " data-marker="*">
+    </div><div id="20231215113359-kb7or4b" data-node-id="20231215113359-kb7or4b" data-type="NodeList" updated="20231216214032" data-subtype="u" class="list"><div id="20231215113405-kbvru6h" data-node-id="20231215113405-kbvru6h" data-type="NodeListItem" updated="20231215113412" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231215113405-x9mtdrf" data-node-id="20231215113405-x9mtdrf" data-type="NodeParagraph" updated="20231215113412" class="p">feed
+:http://www.ruanyifeng.com/blog/atom.xml
+</div>
+
+    </div>
+<div id="20231215113422-xqe2q98" data-node-id="20231215113422-xqe2q98" data-type="NodeListItem" updated="20231216214032" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231215113422-3pkdqpy" data-node-id="20231215113422-3pkdqpy" data-type="NodeParagraph" updated="20231215122032" class="p">cron:
+<span data-type="code">1 20 * * *</span>
+​​​​  需要注意的是，上方链接后面不可有其他文字，会全部当做url
+</div>
+<div id="20231215122035-6yhzmi6" data-node-id="20231215122035-6yhzmi6" data-type="NodeList" updated="20231216214032" data-subtype="u" class="list"><div id="20231215122039-298b10l" data-node-id="20231215122039-298b10l" data-type="NodeListItem" updated="20231216214032" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231215122039-cm7emk8" data-node-id="20231215122039-cm7emk8" data-type="NodeParagraph" updated="20231216214032" class="p">此属性是可选的，插件会采取默认值 
+<span data-type="code">1 * * * *</span>
+​ 每小时的第一分钟进行一次检查，
+<span data-type="block-ref"     data-subtype="s"     data-id="20231215113645-6pphd6k">
+          <a href="./../../想法/siyuan_feed插件.html#20231215113645-6pphd6k">表达式语法如下</a>
+  </span>
+</div>
+
+    </div>
+</div>
+
+    </div>
+<div id="20231215113645-6pphd6k" data-node-id="20231215113645-6pphd6k" data-type="NodeListItem" updated="20231215115416" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231215113645-gf1i5a1" data-node-id="20231215113645-gf1i5a1" data-type="NodeCodeBlock" updated="20231215115416" class="code-block" style="line-height: 22px;">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">
+          bash
+          </span>
+            <span class="fn__flex-1"></span>
+            <span class="protyle-icon protyle-icon--only protyle-action__copy">
+            <svg><use xlink:href="#iconCopy"></use></svg>
+          </span>
+        </div>
+        <div class="hljs" spellcheck="false">* * * * *
+| | | | |
+| | | | +----- 星期几 (1 - 7) (星期天为 7)
+| | | +------- 月份 (1 - 12)
+| | +--------- 日期 (1 - 31)
+| +----------- 小时 (0 - 23)
++------------- 分钟 (0 - 59)
+
+注意！！这个 cron 表达式仅支持数字和*表达，不支持更高级的特性
+</div>
+      </div>
+
+    </div>
+</div><div id="20231215113422-xqe2q98" data-node-id="20231215113422-xqe2q98" data-type="NodeListItem" updated="20231216214032" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231215113422-3pkdqpy" data-node-id="20231215113422-3pkdqpy" data-type="NodeParagraph" updated="20231215122032" class="p">cron:
+<span data-type="code">1 20 * * *</span>
+​​​​  需要注意的是，上方链接后面不可有其他文字，会全部当做url
+</div>
+<div id="20231215122035-6yhzmi6" data-node-id="20231215122035-6yhzmi6" data-type="NodeList" updated="20231216214032" data-subtype="u" class="list"><div id="20231215122039-298b10l" data-node-id="20231215122039-298b10l" data-type="NodeListItem" updated="20231216214032" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231215122039-cm7emk8" data-node-id="20231215122039-cm7emk8" data-type="NodeParagraph" updated="20231216214032" class="p">此属性是可选的，插件会采取默认值 
+<span data-type="code">1 * * * *</span>
+​ 每小时的第一分钟进行一次检查，
+<span data-type="block-ref"     data-subtype="s"     data-id="20231215113645-6pphd6k">
+          <a href="./../../想法/siyuan_feed插件.html#20231215113645-6pphd6k">表达式语法如下</a>
+  </span>
+</div>
+
+    </div>
+</div>
+
+    </div><div id="20231215122035-6yhzmi6" data-node-id="20231215122035-6yhzmi6" data-type="NodeList" updated="20231216214032" data-subtype="u" class="list"><div id="20231215122039-298b10l" data-node-id="20231215122039-298b10l" data-type="NodeListItem" updated="20231216214032" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231215122039-cm7emk8" data-node-id="20231215122039-cm7emk8" data-type="NodeParagraph" updated="20231216214032" class="p">此属性是可选的，插件会采取默认值 
+<span data-type="code">1 * * * *</span>
+​ 每小时的第一分钟进行一次检查，
+<span data-type="block-ref"     data-subtype="s"     data-id="20231215113645-6pphd6k">
+          <a href="./../../想法/siyuan_feed插件.html#20231215113645-6pphd6k">表达式语法如下</a>
+  </span>
+</div>
+
+    </div>
+</div><div id="20231215122039-298b10l" data-node-id="20231215122039-298b10l" data-type="NodeListItem" updated="20231216214032" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231215122039-cm7emk8" data-node-id="20231215122039-cm7emk8" data-type="NodeParagraph" updated="20231216214032" class="p">此属性是可选的，插件会采取默认值 
+<span data-type="code">1 * * * *</span>
+​ 每小时的第一分钟进行一次检查，
+<span data-type="block-ref"     data-subtype="s"     data-id="20231215113645-6pphd6k">
+          <a href="./../../想法/siyuan_feed插件.html#20231215113645-6pphd6k">表达式语法如下</a>
+  </span>
+</div>
+
+    </div><div id="20231215122039-cm7emk8" data-node-id="20231215122039-cm7emk8" data-type="NodeParagraph" updated="20231216214032" class="p">此属性是可选的，插件会采取默认值 
+<span data-type="code">1 * * * *</span>
+​ 每小时的第一分钟进行一次检查，
+<span data-type="block-ref"     data-subtype="s"     data-id="20231215113645-6pphd6k">
+          <a href="./../../想法/siyuan_feed插件.html#20231215113645-6pphd6k">表达式语法如下</a>
+  </span>
+</div><div id="20231216213941-n9f00tt" data-node-id="20231216213941-n9f00tt" data-type="NodeList" updated="20231216213941" data-subtype="t" class="list"><div id="20231216213941-nn4nw89" data-node-id="20231216213941-nn4nw89" data-type="NodeListItem" updated="20231216213941" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
       </div>
       
-<div id="20231215110241-dm1xol3" data-node-id="20231215110241-dm1xol3" data-type="NodeHeading" updated="20231215110241" data-subtype="h6" class="h6"><div><a href="http://www.ruanyifeng.com/blog/2023/12/weekly-issue-282.html">科技爱好者周刊（第 282 期）：电动皮卡 Cybertruck 的 48V 供电</a>
+<div id="20231216213941-fbnjsu4" data-node-id="20231216213941-fbnjsu4" data-type="NodeHeading" updated="20231216213941" data-subtype="h6" class="h6"><div><a href="https://yifei.me/note/2428">FastAPI 中的依赖注入和插件系统</a>
 </div></div>
-<div id="20231215110241-61erlqu" data-node-id="20231215110241-61erlqu" data-type="NodeList" updated="20231215110241" data-subtype="u" class="list"><div id="20231215110241-nrbrlod" data-node-id="20231215110241-nrbrlod" data-type="NodeListItem" updated="20231215110241" data-subtype="u" class="li" data-marker="*">
+<div id="20231216213941-nlk4vc3" data-node-id="20231216213941-nlk4vc3" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-mrn9b74" data-node-id="20231216213941-mrn9b74" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20231215110241-vd05ez0" data-node-id="20231215110241-vd05ez0" data-type="NodeParagraph" updated="20231215110241" class="p">published:
-2023
--12-15T00:15:00Z
+      <div id="20231216213941-e0vsubp" data-node-id="20231216213941-e0vsubp" data-type="NodeParagraph" updated="20231216213941" class="p">published:Sat, 23 Apr 2022 01:06:29 GMT
 </div>
 
     </div>
-<div id="20231215110241-ratmp9f" data-node-id="20231215110241-ratmp9f" data-type="NodeListItem" updated="20231215110241" data-subtype="u" class="li" data-marker="*">
+</div>
+<div id="20231216213941-kau7y63" data-node-id="20231216213941-kau7y63" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-znrzszi" data-node-id="20231216213941-znrzszi" data-type="NodeParagraph" updated="20231216213941" class="p">依赖注入用于把一些可复用的逻辑抽离出来，减少代码重复。例如，返回列表的 API 中都会用到 page和 page_size 这几个参数，那么可以创建一个依赖来包含这两个参数。还可以使用依赖来做插件，如在依赖中做一些 Token 的验证等等。所以，在 FastAPI 中，不需要插件系统，只要把要复用的...
+</div>
+</div>
+
+    </div>
+</div><div id="20231216213941-nn4nw89" data-node-id="20231216213941-nn4nw89" data-type="NodeListItem" updated="20231216213941" data-subtype="t" class="li" data-marker="*">
       <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215110241-35kqtel" data-node-id="20231215110241-35kqtel" data-type="NodeParagraph" updated="20231215110241" class="p">updated:
-2023
--12-15T00:30:24Z
-</div>
-
-    </div>
-</div>
-<div id="20231215110241-phijnc7" data-node-id="20231215110241-phijnc7" data-type="NodeBlockquote" updated="20231215154801" class="bq">
-<div id="20231215110241-ep76mlj" data-node-id="20231215110241-ep76mlj" data-type="NodeParagraph" updated="20231215110241" class="p">这里记录每周值得分享的科技内容，周五发布。...
-</div>
-</div>
-<div id="20231215154801-092yq9b" data-node-id="20231215154801-092yq9b" data-type="NodeBlockquote" updated="20231215155056" class="bq" style="background-color: var(--b3-font-background2);">
-<div id="20231215154804-ehhu97o" data-node-id="20231215154804-ehhu97o" data-type="NodeParagraph" updated="20231215154821" class="p">免费 ai 文生图 
-<a href="https://imagine.meta.com/">https://imagine.meta.com/</a>
-</div>
-<div id="20231215155030-6rqffas" data-node-id="20231215155030-6rqffas" data-type="NodeParagraph" updated="20231215155056" class="p">开源 gpt 安卓客户端 
-<a href="https://github.com/Skythinker616/gpt-assistant-android#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">https://github.com/Skythinker616/gpt-assistant-android</a>
-</div>
-</div>
-
-    </div>
-</div><div id="20231215110241-4errow4" data-node-id="20231215110241-4errow4" data-type="NodeListItem" updated="20231215183046" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
+        <svg><use xlink:href="#iconUncheck"></use></svg>
       </div>
       
-<div id="20231215110241-dm1xol3" data-node-id="20231215110241-dm1xol3" data-type="NodeHeading" updated="20231215110241" data-subtype="h6" class="h6"><div><a href="http://www.ruanyifeng.com/blog/2023/12/weekly-issue-282.html">科技爱好者周刊（第 282 期）：电动皮卡 Cybertruck 的 48V 供电</a>
+<div id="20231216213941-fbnjsu4" data-node-id="20231216213941-fbnjsu4" data-type="NodeHeading" updated="20231216213941" data-subtype="h6" class="h6"><div><a href="https://yifei.me/note/2428">FastAPI 中的依赖注入和插件系统</a>
 </div></div>
-<div id="20231215110241-61erlqu" data-node-id="20231215110241-61erlqu" data-type="NodeList" updated="20231215110241" data-subtype="u" class="list"><div id="20231215110241-nrbrlod" data-node-id="20231215110241-nrbrlod" data-type="NodeListItem" updated="20231215110241" data-subtype="u" class="li" data-marker="*">
+<div id="20231216213941-nlk4vc3" data-node-id="20231216213941-nlk4vc3" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-mrn9b74" data-node-id="20231216213941-mrn9b74" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20231215110241-vd05ez0" data-node-id="20231215110241-vd05ez0" data-type="NodeParagraph" updated="20231215110241" class="p">published:
-2023
--12-15T00:15:00Z
-</div>
-
-    </div>
-<div id="20231215110241-ratmp9f" data-node-id="20231215110241-ratmp9f" data-type="NodeListItem" updated="20231215110241" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215110241-35kqtel" data-node-id="20231215110241-35kqtel" data-type="NodeParagraph" updated="20231215110241" class="p">updated:
-2023
--12-15T00:30:24Z
+      <div id="20231216213941-e0vsubp" data-node-id="20231216213941-e0vsubp" data-type="NodeParagraph" updated="20231216213941" class="p">published:Sat, 23 Apr 2022 01:06:29 GMT
 </div>
 
     </div>
 </div>
-<div id="20231215110241-phijnc7" data-node-id="20231215110241-phijnc7" data-type="NodeBlockquote" updated="20231215154801" class="bq">
-<div id="20231215110241-ep76mlj" data-node-id="20231215110241-ep76mlj" data-type="NodeParagraph" updated="20231215110241" class="p">这里记录每周值得分享的科技内容，周五发布。...
-</div>
-</div>
-<div id="20231215154801-092yq9b" data-node-id="20231215154801-092yq9b" data-type="NodeBlockquote" updated="20231215155056" class="bq" style="background-color: var(--b3-font-background2);">
-<div id="20231215154804-ehhu97o" data-node-id="20231215154804-ehhu97o" data-type="NodeParagraph" updated="20231215154821" class="p">免费 ai 文生图 
-<a href="https://imagine.meta.com/">https://imagine.meta.com/</a>
-</div>
-<div id="20231215155030-6rqffas" data-node-id="20231215155030-6rqffas" data-type="NodeParagraph" updated="20231215155056" class="p">开源 gpt 安卓客户端 
-<a href="https://github.com/Skythinker616/gpt-assistant-android#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">https://github.com/Skythinker616/gpt-assistant-android</a>
+<div id="20231216213941-kau7y63" data-node-id="20231216213941-kau7y63" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-znrzszi" data-node-id="20231216213941-znrzszi" data-type="NodeParagraph" updated="20231216213941" class="p">依赖注入用于把一些可复用的逻辑抽离出来，减少代码重复。例如，返回列表的 API 中都会用到 page和 page_size 这几个参数，那么可以创建一个依赖来包含这两个参数。还可以使用依赖来做插件，如在依赖中做一些 Token 的验证等等。所以，在 FastAPI 中，不需要插件系统，只要把要复用的...
 </div>
 </div>
 
-    </div><div id="20201228124011-7u6mxer" data-node-id="20201228124011-7u6mxer" data-type="NodeBlockquote" updated="20231215182538" class="bq">
-<div id="20201228124011-jqlx9b1" data-node-id="20201228124011-jqlx9b1" data-type="NodeParagraph" updated="20231215182538" class="p">致良知 心口一致 知行合一
-</div>
-</div><div id="20201228124011-jqlx9b1" data-node-id="20201228124011-jqlx9b1" data-type="NodeParagraph" updated="20231215182538" class="p">致良知 心口一致 知行合一
-</div><div id="20230918135512-i9whpbn" data-node-id="20230918135512-i9whpbn" data-type="NodeList" updated="20231215182240" data-subtype="u" class="list"><div id="20231215182127-9eonp0z" data-node-id="20231215182127-9eonp0z" data-type="NodeListItem" updated="20231215182240" data-subtype="u" class="li" data-marker="*">
+    </div><div id="20231216213941-fbnjsu4" data-node-id="20231216213941-fbnjsu4" data-type="NodeHeading" updated="20231216213941" data-subtype="h6" class="h6"><div><a href="https://yifei.me/note/2428">FastAPI 中的依赖注入和插件系统</a>
+</div></div>
+<div id="20231216213941-nlk4vc3" data-node-id="20231216213941-nlk4vc3" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-mrn9b74" data-node-id="20231216213941-mrn9b74" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20231215182127-8xks0rq" data-node-id="20231215182127-8xks0rq" data-type="NodeParagraph" updated="20231215182146" class="p">修复题图未居中全部显示
-</div>
-<div id="20231215182223-40m0v1p" data-node-id="20231215182223-40m0v1p" data-type="NodeParagraph" updated="20231215182240" class="p">题图贴顶，布满
-</div>
-<div id="20231215182147-t6xt3x8" data-node-id="20231215182147-t6xt3x8" data-type="NodeCodeBlock" updated="20231215182206" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          css
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
-        </div>
-        <div class="hljs" spellcheck="false">background-size: cover;
-background-position: center center;
-</div>
-      </div>
-
-    </div>
-<div id="20231215181658-ntd49u5" data-node-id="20231215181658-ntd49u5" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215181658-urgf41o" data-node-id="20231215181658-urgf41o" data-type="NodeParagraph" updated="20231215181729" class="p">题图似乎没有被计入资源引用，导致不会进行复制
-</div>
-
-    </div>
-<div id="20230921215527-xnd8utt" data-node-id="20230921215527-xnd8utt" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20230921215527-e3o08t3" data-node-id="20230921215527-e3o08t3" data-type="NodeParagraph" updated="20230921215531" class="p">顶端导航链接
-</div>
-<div id="20231215181810-mhcecr8" data-node-id="20231215181810-mhcecr8" data-type="NodeList" data-subtype="u" class="list"><div id="20231010182055-pp9028d" data-node-id="20231010182055-pp9028d" data-type="NodeListItem" updated="20231010182110" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231010182055-wgo5qh9" data-node-id="20231010182055-wgo5qh9" data-type="NodeParagraph" updated="20231215181807" class="p">为嵌入块导航链接
+      <div id="20231216213941-e0vsubp" data-node-id="20231216213941-e0vsubp" data-type="NodeParagraph" updated="20231216213941" class="p">published:Sat, 23 Apr 2022 01:06:29 GMT
 </div>
 
     </div>
 </div>
-
-    </div>
-<div id="20230921204113-ronajeq" data-node-id="20230921204113-ronajeq" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20230921204113-cw1rku6" data-node-id="20230921204113-cw1rku6" data-type="NodeParagraph" class="p">memo显示
+<div id="20231216213941-kau7y63" data-node-id="20231216213941-kau7y63" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-znrzszi" data-node-id="20231216213941-znrzszi" data-type="NodeParagraph" updated="20231216213941" class="p">依赖注入用于把一些可复用的逻辑抽离出来，减少代码重复。例如，返回列表的 API 中都会用到 page和 page_size 这几个参数，那么可以创建一个依赖来包含这两个参数。还可以使用依赖来做插件，如在依赖中做一些 Token 的验证等等。所以，在 FastAPI 中，不需要插件系统，只要把要复用的...
 </div>
-
-    </div>
-<div id="20230921204138-c4d3y1x" data-node-id="20230921204138-c4d3y1x" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+</div><div id="20231216213941-nlk4vc3" data-node-id="20231216213941-nlk4vc3" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-mrn9b74" data-node-id="20231216213941-mrn9b74" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20230921204138-7ll43l8" data-node-id="20230921204138-7ll43l8" data-type="NodeParagraph" updated="20230922230004" class="p">反链功能
+      <div id="20231216213941-e0vsubp" data-node-id="20231216213941-e0vsubp" data-type="NodeParagraph" updated="20231216213941" class="p">published:Sat, 23 Apr 2022 01:06:29 GMT
 </div>
 
     </div>
-<div id="20230922230023-mbr9jsc" data-node-id="20230922230023-mbr9jsc" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+</div><div id="20231216213941-mrn9b74" data-node-id="20231216213941-mrn9b74" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20230922230023-13fvf79" data-node-id="20230922230023-13fvf79" data-type="NodeParagraph" class="p">空文档的子文档列表
+      <div id="20231216213941-e0vsubp" data-node-id="20231216213941-e0vsubp" data-type="NodeParagraph" updated="20231216213941" class="p">published:Sat, 23 Apr 2022 01:06:29 GMT
 </div>
 
-    </div>
-<div id="20231005180733-3zlrbh2" data-node-id="20231005180733-3zlrbh2" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+    </div><div id="20231216213941-e0vsubp" data-node-id="20231216213941-e0vsubp" data-type="NodeParagraph" updated="20231216213941" class="p">published:Sat, 23 Apr 2022 01:06:29 GMT
+</div><div id="20231216213941-kau7y63" data-node-id="20231216213941-kau7y63" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-znrzszi" data-node-id="20231216213941-znrzszi" data-type="NodeParagraph" updated="20231216213941" class="p">依赖注入用于把一些可复用的逻辑抽离出来，减少代码重复。例如，返回列表的 API 中都会用到 page和 page_size 这几个参数，那么可以创建一个依赖来包含这两个参数。还可以使用依赖来做插件，如在依赖中做一些 Token 的验证等等。所以，在 FastAPI 中，不需要插件系统，只要把要复用的...
+</div>
+</div><div id="20231216213941-znrzszi" data-node-id="20231216213941-znrzszi" data-type="NodeParagraph" updated="20231216213941" class="p">依赖注入用于把一些可复用的逻辑抽离出来，减少代码重复。例如，返回列表的 API 中都会用到 page和 page_size 这几个参数，那么可以创建一个依赖来包含这两个参数。还可以使用依赖来做插件，如在依赖中做一些 Token 的验证等等。所以，在 FastAPI 中，不需要插件系统，只要把要复用的...
+</div><div id="20231216213941-y1pdhtm" data-node-id="20231216213941-y1pdhtm" data-type="NodeList" updated="20231216213941" data-subtype="t" class="list"><div id="20231216213941-gdus1wd" data-node-id="20231216213941-gdus1wd" data-type="NodeListItem" updated="20231216213941" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      
+<div id="20231216213941-rmwwwu2" data-node-id="20231216213941-rmwwwu2" data-type="NodeHeading" updated="20231216213941" data-subtype="h6" class="h6"><div><a href="https://yifei.me/note/2947">使用 multipass+autok3s 快速搭建本地 k3s 集群</a>
+</div></div>
+<div id="20231216213941-gpjty0f" data-node-id="20231216213941-gpjty0f" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-d6fzajf" data-node-id="20231216213941-d6fzajf" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20231005180733-rtd1bsc" data-node-id="20231005180733-rtd1bsc" data-type="NodeParagraph" updated="20231005180745" class="p"><span data-type="block-ref"     data-subtype="d"     data-id="20230916192515-c8i46eu">
-          <a href="./../../想法/项目/OceanPress_js.html#20230916192515-c8i46eu">支持 RSS，例如:最近更新.rss、推荐阅读.rss</a>
-  </span>
-</div>
-
-    </div>
-<div id="20231008163918-fvziqgq" data-node-id="20231008163918-fvziqgq" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231008163918-cswlkx8" data-node-id="20231008163918-cswlkx8" data-type="NodeParagraph" updated="20231008163931" class="p">数据库渲染（等稳定了再说）
-</div>
-
-    </div>
-<div id="20231008172424-5cec5bn" data-node-id="20231008172424-5cec5bn" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231008172424-1ydcsl8" data-node-id="20231008172424-1ydcsl8" data-type="NodeParagraph" updated="20231215181753" class="p">优化html结构：修改li、ul 等的渲染实现，使其复制到其他编辑器依然能够正常解析
-</div>
-
-    </div>
-<div id="20231008174730-iqwly3i" data-node-id="20231008174730-iqwly3i" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231008174730-n8cimf1" data-node-id="20231008174730-n8cimf1" data-type="NodeParagraph" updated="20231010181304" class="p">浮窗功能 
-</div>
-
-    </div>
-<div id="20231009124838-dfjhy7m" data-node-id="20231009124838-dfjhy7m" data-type="NodeListItem" updated="20231009124838" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231009124838-kb21r49" data-node-id="20231009124838-kb21r49" data-type="NodeParagraph" updated="20231009124838" class="p"><span data-type="block-ref"     data-subtype="d"     data-id="20230916192555-d0tonxe">
-          <a href="./../../想法/项目/OceanPress_js.html#20230916192555-d0tonxe">基于块id的永久链接</a>
-  </span>
-</div>
-
-    </div>
-<div id="20231010182033-deadpmu" data-node-id="20231010182033-deadpmu" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231010182033-bpoicya" data-node-id="20231010182033-bpoicya" data-type="NodeParagraph" updated="20231010182043" class="p">为标题块提供可复制的链接指向
-</div>
-
-    </div>
-</div><div id="20231215182127-9eonp0z" data-node-id="20231215182127-9eonp0z" data-type="NodeListItem" updated="20231215182240" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215182127-8xks0rq" data-node-id="20231215182127-8xks0rq" data-type="NodeParagraph" updated="20231215182146" class="p">修复题图未居中全部显示
-</div>
-<div id="20231215182223-40m0v1p" data-node-id="20231215182223-40m0v1p" data-type="NodeParagraph" updated="20231215182240" class="p">题图贴顶，布满
-</div>
-<div id="20231215182147-t6xt3x8" data-node-id="20231215182147-t6xt3x8" data-type="NodeCodeBlock" updated="20231215182206" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          css
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
-        </div>
-        <div class="hljs" spellcheck="false">background-size: cover;
-background-position: center center;
-</div>
-      </div>
-
-    </div><div id="20231215182223-40m0v1p" data-node-id="20231215182223-40m0v1p" data-type="NodeParagraph" updated="20231215182240" class="p">题图贴顶，布满
-</div><div id="20231215182147-t6xt3x8" data-node-id="20231215182147-t6xt3x8" data-type="NodeCodeBlock" updated="20231215182206" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          css
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
-        </div>
-        <div class="hljs" spellcheck="false">background-size: cover;
-background-position: center center;
-</div>
-      </div><div id="20231215182127-8xks0rq" data-node-id="20231215182127-8xks0rq" data-type="NodeParagraph" updated="20231215182146" class="p">修复题图未居中全部显示
-</div><div id="20231215181810-mhcecr8" data-node-id="20231215181810-mhcecr8" data-type="NodeList" data-subtype="u" class="list"><div id="20231010182055-pp9028d" data-node-id="20231010182055-pp9028d" data-type="NodeListItem" updated="20231010182110" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231010182055-wgo5qh9" data-node-id="20231010182055-wgo5qh9" data-type="NodeParagraph" updated="20231215181807" class="p">为嵌入块导航链接
-</div>
-
-    </div>
-</div><div id="20231010182055-wgo5qh9" data-node-id="20231010182055-wgo5qh9" data-type="NodeParagraph" updated="20231215181807" class="p">为嵌入块导航链接
-</div><div id="20231008172424-1ydcsl8" data-node-id="20231008172424-1ydcsl8" data-type="NodeParagraph" updated="20231215181753" class="p">优化html结构：修改li、ul 等的渲染实现，使其复制到其他编辑器依然能够正常解析
-</div><div id="20231215181658-urgf41o" data-node-id="20231215181658-urgf41o" data-type="NodeParagraph" updated="20231215181729" class="p">题图似乎没有被计入资源引用，导致不会进行复制
-</div><div id="20231215181658-ntd49u5" data-node-id="20231215181658-ntd49u5" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215181658-urgf41o" data-node-id="20231215181658-urgf41o" data-type="NodeParagraph" updated="20231215181729" class="p">题图似乎没有被计入资源引用，导致不会进行复制
-</div>
-
-    </div><div id="20231214115546-6gv6uwm" data-node-id="20231214115546-6gv6uwm" data-type="NodeList" updated="20231215180510" data-subtype="u" class="list"><div id="20231215180419-3kg3ika" data-node-id="20231215180419-3kg3ika" data-type="NodeListItem" updated="20231215180510" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215180419-c4friy0" data-node-id="20231215180419-c4friy0" data-type="NodeParagraph" updated="20231215180510" class="p">为我个人的笔记公布站点，非盈利、不提供互动、评论等功能，纯静态站点。
-</div>
-
-    </div>
-<div id="20231214115629-0fcwiak" data-node-id="20231214115629-0fcwiak" data-type="NodeListItem" updated="20231214115629" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231214115629-h0av1x2" data-node-id="20231214115629-h0av1x2" data-type="NodeParagraph" updated="20231214115922" class="p">本站
-托管于 github pages 服务，理论上github不改变政策则我的这些文章将能够一直存在下去。
-</div>
-
-    </div>
-<div id="20231214115800-woys3y1" data-node-id="20231214115800-woys3y1" data-type="NodeListItem" updated="20231214115950" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231214115800-h45l65t" data-node-id="20231214115800-h45l65t" data-type="NodeParagraph" updated="20231214115840" class="p">域名经过了 icp 备案，于
-阿里
-云注册，使用 cloudfare 对 github pages 进行代理。
-</div>
-<div id="20231214115931-1bj92wi" data-node-id="20231214115931-1bj92wi" data-type="NodeList" updated="20231214115950" data-subtype="u" class="list"><div id="20231214115931-5esvuwu" data-node-id="20231214115931-5esvuwu" data-type="NodeListItem" updated="20231214115950" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231214115931-d4x9j9b" data-node-id="20231214115931-d4x9j9b" data-type="NodeParagraph" updated="20231214115950" class="p">所以国内访问会很慢
+      <div id="20231216213941-tur94yu" data-node-id="20231216213941-tur94yu" data-type="NodeParagraph" updated="20231216213941" class="p">published:Thu, 28 Apr 2022 03:56:40 GMT
 </div>
 
     </div>
 </div>
+<div id="20231216213941-fd79rv6" data-node-id="20231216213941-fd79rv6" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-uxr33rz" data-node-id="20231216213941-uxr33rz" data-type="NodeParagraph" updated="20231216213941" class="p">最近要迁移一个老服务到 kubernetes 上，自然需要在本地先测试好，然后再部署到生产集群中。然而 Docker Desktop 性能实在太差，而且已经不再免费了，所以研究了下其他工具，遂有本文。用到的工具multipass 是 Ubuntu 背后的厂商 Canonical 推出的一款虚拟机工具...
+</div>
+</div>
 
     </div>
-</div><div id="20231215180419-3kg3ika" data-node-id="20231215180419-3kg3ika" data-type="NodeListItem" updated="20231215180510" data-subtype="u" class="li" data-marker="*">
+</div><div id="20231216213941-gdus1wd" data-node-id="20231216213941-gdus1wd" data-type="NodeListItem" updated="20231216213941" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      
+<div id="20231216213941-rmwwwu2" data-node-id="20231216213941-rmwwwu2" data-type="NodeHeading" updated="20231216213941" data-subtype="h6" class="h6"><div><a href="https://yifei.me/note/2947">使用 multipass+autok3s 快速搭建本地 k3s 集群</a>
+</div></div>
+<div id="20231216213941-gpjty0f" data-node-id="20231216213941-gpjty0f" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-d6fzajf" data-node-id="20231216213941-d6fzajf" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20231215180419-c4friy0" data-node-id="20231215180419-c4friy0" data-type="NodeParagraph" updated="20231215180510" class="p">为我个人的笔记公布站点，非盈利、不提供互动、评论等功能，纯静态站点。
+      <div id="20231216213941-tur94yu" data-node-id="20231216213941-tur94yu" data-type="NodeParagraph" updated="20231216213941" class="p">published:Thu, 28 Apr 2022 03:56:40 GMT
 </div>
 
-    </div><div id="20231215180419-c4friy0" data-node-id="20231215180419-c4friy0" data-type="NodeParagraph" updated="20231215180510" class="p">为我个人的笔记公布站点，非盈利、不提供互动、评论等功能，纯静态站点。
-</div><div id="20231215180031-qdr70ci" data-node-id="20231215180031-qdr70ci" data-type="NodeParagraph" updated="20231215180154" class="p"><a href="https://github.com/2234839/web-font">webfont</a>
-</div><div id="20231215180139-wqco2po" data-node-id="20231215180139-wqco2po" data-type="NodeParagraph" class="p"></div><div id="20231215180024-0l4swt5" data-node-id="20231215180024-0l4swt5" data-type="NodeParagraph" updated="20231215180030" class="p"><span data-type="block-ref"     data-subtype="d"     data-id="20231214112450-ndy3t2e">
-          <a href="./../../想法/siyuan_feed插件.html#20231214112450-ndy3t2e">siyuan_feed插件</a>
-  </span>
-</div><div id="20210620093104-g9vrha5" data-node-id="20210620093104-g9vrha5" data-type="NodeParagraph" updated="20231215180024" class="p"><span data-type="block-ref"     data-subtype="d"     data-id="20230905170531-6q68jov">
-          <a href="./../../想法/项目/OceanPress_js.html#20230905170531-6q68jov">OceanPress_js</a>
-  </span>
-</div><div id="20231008141711-q70yscl" data-node-id="20231008141711-q70yscl" data-type="NodeListItem" updated="20231215175811" data-subtype="o" class="li" data-marker="2.">
+    </div>
+</div>
+<div id="20231216213941-fd79rv6" data-node-id="20231216213941-fd79rv6" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-uxr33rz" data-node-id="20231216213941-uxr33rz" data-type="NodeParagraph" updated="20231216213941" class="p">最近要迁移一个老服务到 kubernetes 上，自然需要在本地先测试好，然后再部署到生产集群中。然而 Docker Desktop 性能实在太差，而且已经不再免费了，所以研究了下其他工具，遂有本文。用到的工具multipass 是 Ubuntu 背后的厂商 Canonical 推出的一款虚拟机工具...
+</div>
+</div>
+
+    </div><div id="20231216213941-rmwwwu2" data-node-id="20231216213941-rmwwwu2" data-type="NodeHeading" updated="20231216213941" data-subtype="h6" class="h6"><div><a href="https://yifei.me/note/2947">使用 multipass+autok3s 快速搭建本地 k3s 集群</a>
+</div></div>
+<div id="20231216213941-gpjty0f" data-node-id="20231216213941-gpjty0f" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-d6fzajf" data-node-id="20231216213941-d6fzajf" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
-        2.
+        <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20231008141711-zw97aa2" data-node-id="20231008141711-zw97aa2" data-type="NodeParagraph" updated="20231215175811" class="p"><span data-type="strong">短期工作协议（预付费）：</span>
-<span data-type="strong"><a href="https://afdian.net/item/d613eb929b2f11eea5e352540025c377">https://afdian.net/item/d613eb929b2f11eea5e352540025c377</a></span>
-
-​​​
-<span data-type="NodeImage" class="img" style="undefined"
-      ><img
-        src="./../../assets/image-20231215175747-kwwitjg.png"
-        data-src="./../../assets/image-20231215175747-kwwitjg.png"
-        title=""
-        style="undefined"
-        loading="lazy"
-      /><span class="protyle-action__title"></span></span
-    >
-​
-
+      <div id="20231216213941-tur94yu" data-node-id="20231216213941-tur94yu" data-type="NodeParagraph" updated="20231216213941" class="p">published:Thu, 28 Apr 2022 03:56:40 GMT
 </div>
 
-    </div><div id="20231008141711-zw97aa2" data-node-id="20231008141711-zw97aa2" data-type="NodeParagraph" updated="20231215175811" class="p"><span data-type="strong">短期工作协议（预付费）：</span>
-<span data-type="strong"><a href="https://afdian.net/item/d613eb929b2f11eea5e352540025c377">https://afdian.net/item/d613eb929b2f11eea5e352540025c377</a></span>
+    </div>
+</div>
+<div id="20231216213941-fd79rv6" data-node-id="20231216213941-fd79rv6" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-uxr33rz" data-node-id="20231216213941-uxr33rz" data-type="NodeParagraph" updated="20231216213941" class="p">最近要迁移一个老服务到 kubernetes 上，自然需要在本地先测试好，然后再部署到生产集群中。然而 Docker Desktop 性能实在太差，而且已经不再免费了，所以研究了下其他工具，遂有本文。用到的工具multipass 是 Ubuntu 背后的厂商 Canonical 推出的一款虚拟机工具...
+</div>
+</div><div id="20231216213941-gpjty0f" data-node-id="20231216213941-gpjty0f" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-d6fzajf" data-node-id="20231216213941-d6fzajf" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216213941-tur94yu" data-node-id="20231216213941-tur94yu" data-type="NodeParagraph" updated="20231216213941" class="p">published:Thu, 28 Apr 2022 03:56:40 GMT
+</div>
 
-​​​
-<span data-type="NodeImage" class="img" style="undefined"
-      ><img
-        src="./../../assets/image-20231215175747-kwwitjg.png"
-        data-src="./../../assets/image-20231215175747-kwwitjg.png"
-        title=""
-        style="undefined"
-        loading="lazy"
-      /><span class="protyle-action__title"></span></span
-    >
-​
+    </div>
+</div><div id="20231216213941-d6fzajf" data-node-id="20231216213941-d6fzajf" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216213941-tur94yu" data-node-id="20231216213941-tur94yu" data-type="NodeParagraph" updated="20231216213941" class="p">published:Thu, 28 Apr 2022 03:56:40 GMT
+</div>
 
+    </div><div id="20231216213941-tur94yu" data-node-id="20231216213941-tur94yu" data-type="NodeParagraph" updated="20231216213941" class="p">published:Thu, 28 Apr 2022 03:56:40 GMT
+</div><div id="20231216213941-fd79rv6" data-node-id="20231216213941-fd79rv6" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-uxr33rz" data-node-id="20231216213941-uxr33rz" data-type="NodeParagraph" updated="20231216213941" class="p">最近要迁移一个老服务到 kubernetes 上，自然需要在本地先测试好，然后再部署到生产集群中。然而 Docker Desktop 性能实在太差，而且已经不再免费了，所以研究了下其他工具，遂有本文。用到的工具multipass 是 Ubuntu 背后的厂商 Canonical 推出的一款虚拟机工具...
+</div>
+</div><div id="20231216213941-uxr33rz" data-node-id="20231216213941-uxr33rz" data-type="NodeParagraph" updated="20231216213941" class="p">最近要迁移一个老服务到 kubernetes 上，自然需要在本地先测试好，然后再部署到生产集群中。然而 Docker Desktop 性能实在太差，而且已经不再免费了，所以研究了下其他工具，遂有本文。用到的工具multipass 是 Ubuntu 背后的厂商 Canonical 推出的一款虚拟机工具...
+</div><div id="20231216213941-0lmzq7m" data-node-id="20231216213941-0lmzq7m" data-type="NodeList" updated="20231216213941" data-subtype="t" class="list"><div id="20231216213941-r4z3sdh" data-node-id="20231216213941-r4z3sdh" data-type="NodeListItem" updated="20231216213941" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      
+<div id="20231216213941-tsdwrr5" data-node-id="20231216213941-tsdwrr5" data-type="NodeHeading" updated="20231216213941" data-subtype="h6" class="h6"><div><a href="https://yifei.me/note/2918">Kubernetes is boring enough for me</a>
+</div></div>
+<div id="20231216213941-sx7ljrt" data-node-id="20231216213941-sx7ljrt" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-s8hacq0" data-node-id="20231216213941-s8hacq0" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216213941-u2rc3lg" data-node-id="20231216213941-u2rc3lg" data-type="NodeParagraph" updated="20231216213941" class="p">published:Mon, 23 May 2022 01:44:05 GMT
+</div>
+
+    </div>
+</div>
+<div id="20231216213941-wuuyt6p" data-node-id="20231216213941-wuuyt6p" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-bgwx4l2" data-node-id="20231216213941-bgwx4l2" data-type="NodeParagraph" updated="20231216213941" class="p">Kubernetes is the new normal. Everyone knows and understands kubernetes, it's the defaultoption for now. Rolling out your own infra would be more expe...
+</div>
+</div>
+
+    </div>
+</div><div id="20231216213941-r4z3sdh" data-node-id="20231216213941-r4z3sdh" data-type="NodeListItem" updated="20231216213941" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      
+<div id="20231216213941-tsdwrr5" data-node-id="20231216213941-tsdwrr5" data-type="NodeHeading" updated="20231216213941" data-subtype="h6" class="h6"><div><a href="https://yifei.me/note/2918">Kubernetes is boring enough for me</a>
+</div></div>
+<div id="20231216213941-sx7ljrt" data-node-id="20231216213941-sx7ljrt" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-s8hacq0" data-node-id="20231216213941-s8hacq0" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216213941-u2rc3lg" data-node-id="20231216213941-u2rc3lg" data-type="NodeParagraph" updated="20231216213941" class="p">published:Mon, 23 May 2022 01:44:05 GMT
+</div>
+
+    </div>
+</div>
+<div id="20231216213941-wuuyt6p" data-node-id="20231216213941-wuuyt6p" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-bgwx4l2" data-node-id="20231216213941-bgwx4l2" data-type="NodeParagraph" updated="20231216213941" class="p">Kubernetes is the new normal. Everyone knows and understands kubernetes, it's the defaultoption for now. Rolling out your own infra would be more expe...
+</div>
+</div>
+
+    </div><div id="20231216213941-tsdwrr5" data-node-id="20231216213941-tsdwrr5" data-type="NodeHeading" updated="20231216213941" data-subtype="h6" class="h6"><div><a href="https://yifei.me/note/2918">Kubernetes is boring enough for me</a>
+</div></div>
+<div id="20231216213941-sx7ljrt" data-node-id="20231216213941-sx7ljrt" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-s8hacq0" data-node-id="20231216213941-s8hacq0" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216213941-u2rc3lg" data-node-id="20231216213941-u2rc3lg" data-type="NodeParagraph" updated="20231216213941" class="p">published:Mon, 23 May 2022 01:44:05 GMT
+</div>
+
+    </div>
+</div>
+<div id="20231216213941-wuuyt6p" data-node-id="20231216213941-wuuyt6p" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-bgwx4l2" data-node-id="20231216213941-bgwx4l2" data-type="NodeParagraph" updated="20231216213941" class="p">Kubernetes is the new normal. Everyone knows and understands kubernetes, it's the defaultoption for now. Rolling out your own infra would be more expe...
+</div>
+</div><div id="20231216213941-sx7ljrt" data-node-id="20231216213941-sx7ljrt" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-s8hacq0" data-node-id="20231216213941-s8hacq0" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216213941-u2rc3lg" data-node-id="20231216213941-u2rc3lg" data-type="NodeParagraph" updated="20231216213941" class="p">published:Mon, 23 May 2022 01:44:05 GMT
+</div>
+
+    </div>
+</div><div id="20231216213941-s8hacq0" data-node-id="20231216213941-s8hacq0" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216213941-u2rc3lg" data-node-id="20231216213941-u2rc3lg" data-type="NodeParagraph" updated="20231216213941" class="p">published:Mon, 23 May 2022 01:44:05 GMT
+</div>
+
+    </div><div id="20231216213941-u2rc3lg" data-node-id="20231216213941-u2rc3lg" data-type="NodeParagraph" updated="20231216213941" class="p">published:Mon, 23 May 2022 01:44:05 GMT
+</div><div id="20231216213941-wuuyt6p" data-node-id="20231216213941-wuuyt6p" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-bgwx4l2" data-node-id="20231216213941-bgwx4l2" data-type="NodeParagraph" updated="20231216213941" class="p">Kubernetes is the new normal. Everyone knows and understands kubernetes, it's the defaultoption for now. Rolling out your own infra would be more expe...
+</div>
+</div><div id="20231216213941-bgwx4l2" data-node-id="20231216213941-bgwx4l2" data-type="NodeParagraph" updated="20231216213941" class="p">Kubernetes is the new normal. Everyone knows and understands kubernetes, it's the defaultoption for now. Rolling out your own infra would be more expe...
+</div><div id="20231216213941-gb1qpks" data-node-id="20231216213941-gb1qpks" data-type="NodeList" updated="20231216213941" data-subtype="t" class="list"><div id="20231216213941-u3iqnq2" data-node-id="20231216213941-u3iqnq2" data-type="NodeListItem" updated="20231216213941" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      
+<div id="20231216213941-yde9fh7" data-node-id="20231216213941-yde9fh7" data-type="NodeHeading" updated="20231216213941" data-subtype="h6" class="h6"><div><a href="https://yifei.me/note/2258">迁移并升级 Elasticsearch 5.5 到 6.8</a>
+</div></div>
+<div id="20231216213941-aaexcwx" data-node-id="20231216213941-aaexcwx" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-u60htez" data-node-id="20231216213941-u60htez" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216213941-bac90fn" data-node-id="20231216213941-bac90fn" data-type="NodeParagraph" updated="20231216213941" class="p">published:Mon, 23 May 2022 01:44:05 GMT
+</div>
+
+    </div>
+</div>
+<div id="20231216213941-8rdflht" data-node-id="20231216213941-8rdflht" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-f9mddyj" data-node-id="20231216213941-f9mddyj" data-type="NodeParagraph" updated="20231216213941" class="p">最近需要把一个 ES 5.5 的集群迁移到 K8S 上，因为目标环境中只有 ES 7 集群，所以在迁移过程中还需要升级下索引的版本。不过最终只升级到了 6.8。开始看到了一个 reindex 的 API，想着直接从老集群 reindex 过去就好了，结果发现不行。直接reindex 会丢掉类型信息。...
+</div>
+</div>
+
+    </div>
+</div><div id="20231216213941-u3iqnq2" data-node-id="20231216213941-u3iqnq2" data-type="NodeListItem" updated="20231216213941" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      
+<div id="20231216213941-yde9fh7" data-node-id="20231216213941-yde9fh7" data-type="NodeHeading" updated="20231216213941" data-subtype="h6" class="h6"><div><a href="https://yifei.me/note/2258">迁移并升级 Elasticsearch 5.5 到 6.8</a>
+</div></div>
+<div id="20231216213941-aaexcwx" data-node-id="20231216213941-aaexcwx" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-u60htez" data-node-id="20231216213941-u60htez" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216213941-bac90fn" data-node-id="20231216213941-bac90fn" data-type="NodeParagraph" updated="20231216213941" class="p">published:Mon, 23 May 2022 01:44:05 GMT
+</div>
+
+    </div>
+</div>
+<div id="20231216213941-8rdflht" data-node-id="20231216213941-8rdflht" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-f9mddyj" data-node-id="20231216213941-f9mddyj" data-type="NodeParagraph" updated="20231216213941" class="p">最近需要把一个 ES 5.5 的集群迁移到 K8S 上，因为目标环境中只有 ES 7 集群，所以在迁移过程中还需要升级下索引的版本。不过最终只升级到了 6.8。开始看到了一个 reindex 的 API，想着直接从老集群 reindex 过去就好了，结果发现不行。直接reindex 会丢掉类型信息。...
+</div>
+</div>
+
+    </div><div id="20231216213941-yde9fh7" data-node-id="20231216213941-yde9fh7" data-type="NodeHeading" updated="20231216213941" data-subtype="h6" class="h6"><div><a href="https://yifei.me/note/2258">迁移并升级 Elasticsearch 5.5 到 6.8</a>
+</div></div>
+<div id="20231216213941-aaexcwx" data-node-id="20231216213941-aaexcwx" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-u60htez" data-node-id="20231216213941-u60htez" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216213941-bac90fn" data-node-id="20231216213941-bac90fn" data-type="NodeParagraph" updated="20231216213941" class="p">published:Mon, 23 May 2022 01:44:05 GMT
+</div>
+
+    </div>
+</div>
+<div id="20231216213941-8rdflht" data-node-id="20231216213941-8rdflht" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-f9mddyj" data-node-id="20231216213941-f9mddyj" data-type="NodeParagraph" updated="20231216213941" class="p">最近需要把一个 ES 5.5 的集群迁移到 K8S 上，因为目标环境中只有 ES 7 集群，所以在迁移过程中还需要升级下索引的版本。不过最终只升级到了 6.8。开始看到了一个 reindex 的 API，想着直接从老集群 reindex 过去就好了，结果发现不行。直接reindex 会丢掉类型信息。...
+</div>
+</div><div id="20231216213941-aaexcwx" data-node-id="20231216213941-aaexcwx" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-u60htez" data-node-id="20231216213941-u60htez" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216213941-bac90fn" data-node-id="20231216213941-bac90fn" data-type="NodeParagraph" updated="20231216213941" class="p">published:Mon, 23 May 2022 01:44:05 GMT
+</div>
+
+    </div>
+</div><div id="20231216213941-u60htez" data-node-id="20231216213941-u60htez" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216213941-bac90fn" data-node-id="20231216213941-bac90fn" data-type="NodeParagraph" updated="20231216213941" class="p">published:Mon, 23 May 2022 01:44:05 GMT
+</div>
+
+    </div><div id="20231216213941-bac90fn" data-node-id="20231216213941-bac90fn" data-type="NodeParagraph" updated="20231216213941" class="p">published:Mon, 23 May 2022 01:44:05 GMT
+</div><div id="20231216213941-8rdflht" data-node-id="20231216213941-8rdflht" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-f9mddyj" data-node-id="20231216213941-f9mddyj" data-type="NodeParagraph" updated="20231216213941" class="p">最近需要把一个 ES 5.5 的集群迁移到 K8S 上，因为目标环境中只有 ES 7 集群，所以在迁移过程中还需要升级下索引的版本。不过最终只升级到了 6.8。开始看到了一个 reindex 的 API，想着直接从老集群 reindex 过去就好了，结果发现不行。直接reindex 会丢掉类型信息。...
+</div>
+</div><div id="20231216213941-f9mddyj" data-node-id="20231216213941-f9mddyj" data-type="NodeParagraph" updated="20231216213941" class="p">最近需要把一个 ES 5.5 的集群迁移到 K8S 上，因为目标环境中只有 ES 7 集群，所以在迁移过程中还需要升级下索引的版本。不过最终只升级到了 6.8。开始看到了一个 reindex 的 API，想着直接从老集群 reindex 过去就好了，结果发现不行。直接reindex 会丢掉类型信息。...
+</div><div id="20231216213941-5sthb10" data-node-id="20231216213941-5sthb10" data-type="NodeList" updated="20231216213941" data-subtype="t" class="list"><div id="20231216213941-3eqafcq" data-node-id="20231216213941-3eqafcq" data-type="NodeListItem" updated="20231216213941" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      
+<div id="20231216213941-ffk85og" data-node-id="20231216213941-ffk85og" data-type="NodeHeading" updated="20231216213941" data-subtype="h6" class="h6"><div><a href="https://yifei.me/note/2951">和风车决斗的堂吉诃德</a>
+</div></div>
+<div id="20231216213941-hw5gijz" data-node-id="20231216213941-hw5gijz" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-yz3ud8o" data-node-id="20231216213941-yz3ud8o" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216213941-crp5bzq" data-node-id="20231216213941-crp5bzq" data-type="NodeParagraph" updated="20231216213941" class="p">published:Mon, 23 May 2022 15:41:15 GMT
+</div>
+
+    </div>
+</div>
+<div id="20231216213941-c4qabvi" data-node-id="20231216213941-c4qabvi" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-3hz9kfb" data-node-id="20231216213941-3hz9kfb" data-type="NodeParagraph" updated="20231216213941" class="p">今天不谈论代码了，写代码也救不了中国人。我们知道一个病毒的传播能力可以用 R0 来表示，即每个患者传染的新患者的数量。我们又知道，社会上除了占大多数的遵纪守法好公民，还有目无法纪的奸商、涣散烂漫的小市民和一小撮玩忽职守的领导干部。因此，当局制定的政策的传达效力是有限的，我们只能指望其中的好公民去 1...
+</div>
+</div>
+
+    </div>
+</div><div id="20231216213941-3eqafcq" data-node-id="20231216213941-3eqafcq" data-type="NodeListItem" updated="20231216213941" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      
+<div id="20231216213941-ffk85og" data-node-id="20231216213941-ffk85og" data-type="NodeHeading" updated="20231216213941" data-subtype="h6" class="h6"><div><a href="https://yifei.me/note/2951">和风车决斗的堂吉诃德</a>
+</div></div>
+<div id="20231216213941-hw5gijz" data-node-id="20231216213941-hw5gijz" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-yz3ud8o" data-node-id="20231216213941-yz3ud8o" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216213941-crp5bzq" data-node-id="20231216213941-crp5bzq" data-type="NodeParagraph" updated="20231216213941" class="p">published:Mon, 23 May 2022 15:41:15 GMT
+</div>
+
+    </div>
+</div>
+<div id="20231216213941-c4qabvi" data-node-id="20231216213941-c4qabvi" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-3hz9kfb" data-node-id="20231216213941-3hz9kfb" data-type="NodeParagraph" updated="20231216213941" class="p">今天不谈论代码了，写代码也救不了中国人。我们知道一个病毒的传播能力可以用 R0 来表示，即每个患者传染的新患者的数量。我们又知道，社会上除了占大多数的遵纪守法好公民，还有目无法纪的奸商、涣散烂漫的小市民和一小撮玩忽职守的领导干部。因此，当局制定的政策的传达效力是有限的，我们只能指望其中的好公民去 1...
+</div>
+</div>
+
+    </div><div id="20231216213941-ffk85og" data-node-id="20231216213941-ffk85og" data-type="NodeHeading" updated="20231216213941" data-subtype="h6" class="h6"><div><a href="https://yifei.me/note/2951">和风车决斗的堂吉诃德</a>
+</div></div>
+<div id="20231216213941-hw5gijz" data-node-id="20231216213941-hw5gijz" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-yz3ud8o" data-node-id="20231216213941-yz3ud8o" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216213941-crp5bzq" data-node-id="20231216213941-crp5bzq" data-type="NodeParagraph" updated="20231216213941" class="p">published:Mon, 23 May 2022 15:41:15 GMT
+</div>
+
+    </div>
+</div>
+<div id="20231216213941-c4qabvi" data-node-id="20231216213941-c4qabvi" data-type="NodeBlockquote" updated="20231216213941" class="bq">
+<div id="20231216213941-3hz9kfb" data-node-id="20231216213941-3hz9kfb" data-type="NodeParagraph" updated="20231216213941" class="p">今天不谈论代码了，写代码也救不了中国人。我们知道一个病毒的传播能力可以用 R0 来表示，即每个患者传染的新患者的数量。我们又知道，社会上除了占大多数的遵纪守法好公民，还有目无法纪的奸商、涣散烂漫的小市民和一小撮玩忽职守的领导干部。因此，当局制定的政策的传达效力是有限的，我们只能指望其中的好公民去 1...
+</div>
+</div><div id="20231216213941-hw5gijz" data-node-id="20231216213941-hw5gijz" data-type="NodeList" updated="20231216213941" data-subtype="u" class="list"><div id="20231216213941-yz3ud8o" data-node-id="20231216213941-yz3ud8o" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216213941-crp5bzq" data-node-id="20231216213941-crp5bzq" data-type="NodeParagraph" updated="20231216213941" class="p">published:Mon, 23 May 2022 15:41:15 GMT
+</div>
+
+    </div>
+</div><div id="20231216213941-yz3ud8o" data-node-id="20231216213941-yz3ud8o" data-type="NodeListItem" updated="20231216213941" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231216213941-crp5bzq" data-node-id="20231216213941-crp5bzq" data-type="NodeParagraph" updated="20231216213941" class="p">published:Mon, 23 May 2022 15:41:15 GMT
+</div>
+
+    </div><div id="20231216213941-crp5bzq" data-node-id="20231216213941-crp5bzq" data-type="NodeParagraph" updated="20231216213941" class="p">published:Mon, 23 May 2022 15:41:15 GMT
 </div>
 
 
