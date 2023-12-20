@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<html
-  lang="zh_CN"
-  data-theme-mode="light"
-  data-light-theme="daylight"
-  data-dark-theme="midnight"
->
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
   
   <meta charset="utf-8" />
@@ -14,15 +9,21 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
-  <link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    return true
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
   <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/oceanpress.css"/>
-
   <title>go语法学习</title>
 </head>
 <body>
   
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-    <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201110231008-4kvyoy9" data-node-id="20201110231008-4kvyoy9" data-type="NodeDocument" updated="20210522114105" data-subtype="h1" class="h1" type="doc"><div id="20201110231008-4kvyoy9" data-node-id="20201110231008-4kvyoy9" data-type="NodeDocument" updated="20210522114105" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">go语法学习</div><div id="20201110231020-zdgkdst" data-node-id="20201110231020-zdgkdst" data-type="NodeHeading" updated="20210422124315" data-subtype="h1" class="h1"><div>
+  <div style="min-height: 150px;" id="20201110231008-4kvyoy9" data-node-id="20201110231008-4kvyoy9" data-type="NodeDocument" updated="20210522114105" data-subtype="h1" class="h1" type="doc"></div><div id="20201110231008-4kvyoy9" data-node-id="20201110231008-4kvyoy9" data-type="NodeDocument" updated="20210522114105" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">go语法学习</div><div id="20201110231020-zdgkdst" data-node-id="20201110231020-zdgkdst" data-type="NodeHeading" updated="20210422124315" data-subtype="h1" class="h1"><div>
 崮生的 go 速览
 </div></div>
 <div id="20210422122331-v3mvknq" data-node-id="20210422122331-v3mvknq" data-type="NodeParagraph" updated="20210422124318" class="p">我打算先从这开始了解 go 的语法 
@@ -42,13 +43,8 @@
 </div></div>
 <div id="20210422124026-1oxneyf" data-node-id="20210422124026-1oxneyf" data-type="NodeCodeBlock" updated="20210422124811" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          go
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">go</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">var firstName string  // 声明一个名为 firstName 的 string 类型变量
 var firstName, lastName string // 声明同类型的多个变量
@@ -77,13 +73,8 @@ func main() {
 </div></div>
 <div id="20210422122331-1d7h22s" data-node-id="20210422122331-1d7h22s" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          go
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">go</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">bool
 string
@@ -114,13 +105,8 @@ complex64 complex128
 </div>
 <div id="20210422122331-rdzoo8w" data-node-id="20210422122331-rdzoo8w" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          go
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">go</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">var integer16 int16 = 127
 var integer32 int32 = 32767
@@ -132,13 +118,8 @@ println(int32(integer16) + integer32)
 </div></div>
 <div id="20210422130712-8j6pdsz" data-node-id="20210422130712-8j6pdsz" data-type="NodeCodeBlock" updated="20210422131442" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          go
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">go</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">func sum(int1 int, int2 int) (int, int) { // go 可以返回多个值
     return int1 + int2, int1
@@ -183,13 +164,8 @@ func main() {
 </div>
 <div id="20210422122331-tt5t3a8" data-node-id="20210422122331-tt5t3a8" data-type="NodeCodeBlock" updated="20210422132256" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          go
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">go</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">func main() {
     var p *int
@@ -213,13 +189,8 @@ func sum(int1 *int, int2 int) (int, int) {
 </div></div>
 <div id="20210422133544-jfoo84x" data-node-id="20210422133544-jfoo84x" data-type="NodeCodeBlock" updated="20210522114105" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          go
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">go</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">go mod init github.com/用户名/模块名 // 在模块目录下执行此命令创建模块的描述文件
 go get github.com/88250/lute@master //更新模块到最新
@@ -227,13 +198,8 @@ go get github.com/88250/lute@master //更新模块到最新
       </div>
 <div id="20210422132416-79lfxkm" data-node-id="20210422132416-79lfxkm" data-type="NodeCodeBlock" updated="20210422132454" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          go
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">go</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">package test // 声明当前代码属于 test 包
 
@@ -250,13 +216,8 @@ var Version = "1.0"
 </div></div>
 <div id="20210422141433-0imo5a4" data-node-id="20210422141433-0imo5a4" data-type="NodeCodeBlock" updated="20210422142703" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          go
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">go</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">package main
 
@@ -311,13 +272,8 @@ func main() {
 </div></div>
 <div id="20210422142841-lrfpjte" data-node-id="20210422142841-lrfpjte" data-type="NodeCodeBlock" updated="20210422143150" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          go
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">go</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">package main
 
@@ -348,13 +304,8 @@ func main() {
 </div></div>
 <div id="20210425100557-iixw7jm" data-node-id="20210425100557-iixw7jm" data-type="NodeCodeBlock" updated="20210425100602" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          go
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">go</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">var a [3]int // 数组，必须声明类型与长度
 // 数组初始化方式 1
@@ -368,13 +319,8 @@ q := [...]int{1, 2, 3}
 </div></div>
 <div id="20210422122331-afo2lcm" data-node-id="20210422122331-afo2lcm" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language"></span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">go run main.go
 </div>
@@ -394,7 +340,7 @@ q := [...]int{1, 2, 3}
     window.siyuan = {
       config: {
         appearance: {
-          mode: 0,
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -408,17 +354,19 @@ q := [...]int{1, 2, 3}
       },
       languages: { copy: "复制" },
     };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
-    Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
-    Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
     Protyle.htmlRender(previewElement);
-    Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+    Protyle.plantumlRender(previewElement, cdn);
     document.querySelectorAll(".protyle-action__copy").forEach((item) => {
       item.addEventListener("click", (event) => {
         navigator.clipboard.writeText(

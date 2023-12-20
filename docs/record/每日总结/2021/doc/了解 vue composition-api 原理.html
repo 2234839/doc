@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<html
-  lang="zh_CN"
-  data-theme-mode="light"
-  data-light-theme="daylight"
-  data-dark-theme="midnight"
->
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
   
   <meta charset="utf-8" />
@@ -14,15 +9,21 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
-  <link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    return true
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
   <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/oceanpress.css"/>
-
   <title>了解 vue composition-api 原理</title>
 </head>
 <body>
   
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-    <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210609090557-nrhc2to" data-node-id="20210609090557-nrhc2to" data-type="NodeDocument" updated="20210611163128" data-subtype="h1" class="h1" type="doc"><div id="20210609090557-nrhc2to" data-node-id="20210609090557-nrhc2to" data-type="NodeDocument" updated="20210611163128" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">了解 vue composition-api 原理</div><div id="20210611163112-e6oslzy" data-node-id="20210611163112-e6oslzy" data-type="NodeHeading" updated="20210611163115" data-subtype="h2" class="h2"><div>watch
+  <div style="min-height: 150px;" id="20210609090557-nrhc2to" data-node-id="20210609090557-nrhc2to" data-type="NodeDocument" updated="20210611163128" data-subtype="h1" class="h1" type="doc"></div><div id="20210609090557-nrhc2to" data-node-id="20210609090557-nrhc2to" data-type="NodeDocument" updated="20210611163128" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">了解 vue composition-api 原理</div><div id="20210611163112-e6oslzy" data-node-id="20210611163112-e6oslzy" data-type="NodeHeading" updated="20210611163115" data-subtype="h2" class="h2"><div>watch
 </div></div>
 <div id="20210607182256-gt31i7x" data-node-id="20210607182256-gt31i7x" data-type="NodeParagraph" updated="20210609090816" class="p">我对 composition-api 中的 watch 的实现一直很好奇，它到底怎么知道我里面依赖了哪些变量？
 </div>
@@ -30,13 +31,8 @@
 </div>
 <div id="20210609091104-hhd3n2i" data-node-id="20210609091104-hhd3n2i" data-type="NodeCodeBlock" updated="20210609094957" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          js
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">js</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">import {watchEffect, ref } from "vue"
 const msg = ref("后撤步!")
@@ -62,13 +58,8 @@ setTimeout(()=>{
 </div>
 <div id="20210609095724-8q31ott" data-node-id="20210609095724-8q31ott" data-type="NodeCodeBlock" updated="20210609102744" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          ts
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">ts</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">const t = Date.now()
 watchEffect(()=>{
@@ -104,13 +95,8 @@ setTimeout(()=>{
 </div>
 <div id="20210609092122-vmw02bh" data-node-id="20210609092122-vmw02bh" data-type="NodeCodeBlock" updated="20210609092459" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          js
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">js</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">const a = ()=>{
   console.log(msg)
@@ -150,13 +136,8 @@ const cb = ()=>{
 </div>
 <div id="20210609093107-9tybf53" data-node-id="20210609093107-9tybf53" data-type="NodeCodeBlock" updated="20210609095202" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          ts
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">ts</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">export function watchEffect(
   effect: WatchEffect,
@@ -174,13 +155,8 @@ const cb = ()=>{
 </div>
 <div id="20210609091020-zwb4kqr" data-node-id="20210609091020-zwb4kqr" data-type="NodeCodeBlock" updated="20210609100844" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          ts
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">ts</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">function createWatcher(
   vm: ComponentInstance,
@@ -230,7 +206,7 @@ const cb = ()=>{
     window.siyuan = {
       config: {
         appearance: {
-          mode: 0,
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -244,17 +220,19 @@ const cb = ()=>{
       },
       languages: { copy: "复制" },
     };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
-    Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
-    Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
     Protyle.htmlRender(previewElement);
-    Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+    Protyle.plantumlRender(previewElement, cdn);
     document.querySelectorAll(".protyle-action__copy").forEach((item) => {
       item.addEventListener("click", (event) => {
         navigator.clipboard.writeText(

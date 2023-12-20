@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<html
-  lang="zh_CN"
-  data-theme-mode="light"
-  data-light-theme="daylight"
-  data-dark-theme="midnight"
->
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
   
   <meta charset="utf-8" />
@@ -14,15 +9,21 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
-  <link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    return true
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
   <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/oceanpress.css"/>
-
   <title>思源笔记</title>
 </head>
 <body>
   
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-    <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201104155455-awawq0n" data-node-id="20201104155455-awawq0n" data-type="NodeDocument" updated="20230922172739" data-subtype="h1" class="h1" memo="这个页面内包含了很多测试用的内容" scroll="&#123;&quot;rootId&quot;:&quot;20201104155455-awawq0n&quot;,&quot;startId&quot;:&quot;20230921213319-hw3ad4m&quot;,&quot;endId&quot;:&quot;20230922172723-qm8wb40&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20230921213319-hw3ad4m&quot;,&quot;focusStart&quot;:51,&quot;focusEnd&quot;:51,&quot;zoomInId&quot;:&quot;20230921213319-hw3ad4m&quot;&#125;" title-img="background-color: #026873;background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%),linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%),linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%),linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);background-size: 13px, 29px, 37px, 53px;" type="doc"><div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 16vh;background-color: #026873;background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%),linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%),linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%),linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);background-size: 13px, 29px, 37px, 53px;"/></div><div id="20201104155455-awawq0n" data-node-id="20201104155455-awawq0n" data-type="NodeDocument" updated="20230922172739" data-subtype="h1" class="h1" memo="这个页面内包含了很多测试用的内容" scroll="&#123;&quot;rootId&quot;:&quot;20201104155455-awawq0n&quot;,&quot;startId&quot;:&quot;20230921213319-hw3ad4m&quot;,&quot;endId&quot;:&quot;20230922172723-qm8wb40&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20230921213319-hw3ad4m&quot;,&quot;focusStart&quot;:51,&quot;focusEnd&quot;:51,&quot;zoomInId&quot;:&quot;20230921213319-hw3ad4m&quot;&#125;" title-img="background-color: #026873;background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%),linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%),linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%),linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);background-size: 13px, 29px, 37px, 53px;" type="doc" data-type="NodeHeading" class="h1">思源笔记</div><div id="20201125120429-wccr64p" data-node-id="20201125120429-wccr64p" data-type="NodeParagraph" class="p"><a href="https://github.com/siyuan-note/siyuan">思源代码库</a>
+  <div style="min-height: 150px;" id="20201104155455-awawq0n" data-node-id="20201104155455-awawq0n" data-type="NodeDocument" updated="20230922172739" data-subtype="h1" class="h1" memo="这个页面内包含了很多测试用的内容" scroll="&#123;&quot;rootId&quot;:&quot;20201104155455-awawq0n&quot;,&quot;startId&quot;:&quot;20230921213319-hw3ad4m&quot;,&quot;endId&quot;:&quot;20230922172723-qm8wb40&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20230921213319-hw3ad4m&quot;,&quot;focusStart&quot;:51,&quot;focusEnd&quot;:51,&quot;zoomInId&quot;:&quot;20230921213319-hw3ad4m&quot;&#125;" title-img="background-color: #026873;background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%),linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%),linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%),linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);background-size: 13px, 29px, 37px, 53px;" type="doc"><div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 16vh;background-color: #026873;background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%),linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%),linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%),linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);background-size: 13px, 29px, 37px, 53px;"/></div></div><div id="20201104155455-awawq0n" data-node-id="20201104155455-awawq0n" data-type="NodeDocument" updated="20230922172739" data-subtype="h1" class="h1" memo="这个页面内包含了很多测试用的内容" scroll="&#123;&quot;rootId&quot;:&quot;20201104155455-awawq0n&quot;,&quot;startId&quot;:&quot;20230921213319-hw3ad4m&quot;,&quot;endId&quot;:&quot;20230922172723-qm8wb40&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20230921213319-hw3ad4m&quot;,&quot;focusStart&quot;:51,&quot;focusEnd&quot;:51,&quot;zoomInId&quot;:&quot;20230921213319-hw3ad4m&quot;&#125;" title-img="background-color: #026873;background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%),linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%),linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%),linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);background-size: 13px, 29px, 37px, 53px;" type="doc" data-type="NodeHeading" class="h1">思源笔记</div><div id="20201125120429-wccr64p" data-node-id="20201125120429-wccr64p" data-type="NodeParagraph" class="p"><a href="https://github.com/siyuan-note/siyuan">思源代码库</a>
 </div>
 <div id="20210209130024-fggewdd" data-node-id="20210209130024-fggewdd" data-type="NodeParagraph" updated="20210523204652" class="p"><span data-type="block-ref"     data-subtype="d"     data-id="20201121142503-ivwtfzg">
           <a href="./../想法/项目/OceanPress.html#20201121142503-ivwtfzg">OceanPress</a>
@@ -84,13 +85,8 @@
 </div>
 <div id="20201125120429-bylt3e6" data-node-id="20201125120429-bylt3e6" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          javascript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">lute.SetKramdownIAL(true); // 不将块id {: id="20201105110148-yqza4sm"} 渲染为文本
 lute.SetKramdownIALIDRenderName("data-block-id"); // 将块 id 赋值给元素的data-block-id
@@ -223,13 +219,8 @@ lute.SetKramdownIALIDRenderName("data-block-id"); // 将块 id 赋值给元素�
     </div>
 <div id="20201125120429-8c3ecc0" data-node-id="20201125120429-8c3ecc0" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          javascript {run}
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">javascript {run}</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">console.log(3333)
 </div>
@@ -565,7 +556,7 @@ O
     window.siyuan = {
       config: {
         appearance: {
-          mode: 0,
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -579,17 +570,19 @@ O
       },
       languages: { copy: "复制" },
     };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
-    Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
-    Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
     Protyle.htmlRender(previewElement);
-    Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+    Protyle.plantumlRender(previewElement, cdn);
     document.querySelectorAll(".protyle-action__copy").forEach((item) => {
       item.addEventListener("click", (event) => {
         navigator.clipboard.writeText(

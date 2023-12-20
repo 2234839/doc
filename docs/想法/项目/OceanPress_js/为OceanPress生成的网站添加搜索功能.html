@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<html
-  lang="zh_CN"
-  data-theme-mode="light"
-  data-light-theme="daylight"
-  data-dark-theme="midnight"
->
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
   
   <meta charset="utf-8" />
@@ -14,15 +9,21 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
-  <link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    return true
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
   <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/oceanpress.css"/>
-
   <title>为OceanPress生成的网站添加搜索功能</title>
 </head>
 <body>
   
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-    <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20231005185546-0mj4dt8" data-node-id="20231005185546-0mj4dt8" data-type="NodeDocument" updated="20231005190903" data-subtype="h1" class="h1" custom-liandi-articleId="1696504169188"><div id="20231005185546-0mj4dt8" data-node-id="20231005185546-0mj4dt8" data-type="NodeDocument" updated="20231005190903" data-subtype="h1" class="h1" custom-liandi-articleId="1696504169188" data-type="NodeHeading" class="h1">为OceanPress生成的网站添加搜索功能</div><div id="20231005185608-bbz475n" data-node-id="20231005185608-bbz475n" data-type="NodeParagraph" updated="20231005185646" class="p">目前（2023年10月5日）OceanPress还没有支持搜索功能的打算
+  <div style="min-height: 150px;" id="20231005185546-0mj4dt8" data-node-id="20231005185546-0mj4dt8" data-type="NodeDocument" updated="20231005190903" data-subtype="h1" class="h1" custom-liandi-articleId="1696504169188"></div><div id="20231005185546-0mj4dt8" data-node-id="20231005185546-0mj4dt8" data-type="NodeDocument" updated="20231005190903" data-subtype="h1" class="h1" custom-liandi-articleId="1696504169188" data-type="NodeHeading" class="h1">为OceanPress生成的网站添加搜索功能</div><div id="20231005185608-bbz475n" data-node-id="20231005185608-bbz475n" data-type="NodeParagraph" updated="20231005185646" class="p">目前（2023年10月5日）OceanPress还没有支持搜索功能的打算
 </div>
 <div id="20231005185646-r8mf7o2" data-node-id="20231005185646-r8mf7o2" data-type="NodeParagraph" updated="20231005185710" class="p">但是，对于静态的文档网站早已有了通用的解决方案
 </div>
@@ -43,13 +44,8 @@
 </div>
 <div id="20231005190224-zqa6dps" data-node-id="20231005190224-zqa6dps" data-type="NodeCodeBlock" updated="20231005190252" class="code-block" style="line-height: 22px;">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          bash
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">bash</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">CSS
 Copy this snippet at the end of the HTML <head>tag
@@ -112,7 +108,7 @@ debug: false // Set debug to true if you want to inspect the modal
     window.siyuan = {
       config: {
         appearance: {
-          mode: 0,
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -126,17 +122,19 @@ debug: false // Set debug to true if you want to inspect the modal
       },
       languages: { copy: "复制" },
     };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
-    Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
-    Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
     Protyle.htmlRender(previewElement);
-    Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+    Protyle.plantumlRender(previewElement, cdn);
     document.querySelectorAll(".protyle-action__copy").forEach((item) => {
       item.addEventListener("click", (event) => {
         navigator.clipboard.writeText(

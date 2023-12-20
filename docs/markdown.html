@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<html
-  lang="zh_CN"
-  data-theme-mode="light"
-  data-light-theme="daylight"
-  data-dark-theme="midnight"
->
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
   
   <meta charset="utf-8" />
@@ -14,15 +9,21 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
-  <link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    return true
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
   <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/oceanpress.css"/>
-
   <title>markdown</title>
 </head>
 <body>
   
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-    <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201104153359-sk9a3yg" data-node-id="20201104153359-sk9a3yg" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc"><div id="20201104153359-sk9a3yg" data-node-id="20201104153359-sk9a3yg" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">markdown</div><div id="20210521142711-42gy7k4" data-node-id="20210521142711-42gy7k4" data-type="NodeHeading" data-subtype="h1" class="h1"><div>
+  <div style="min-height: 150px;" id="20201104153359-sk9a3yg" data-node-id="20201104153359-sk9a3yg" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc"></div><div id="20201104153359-sk9a3yg" data-node-id="20201104153359-sk9a3yg" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">markdown</div><div id="20210521142711-42gy7k4" data-node-id="20210521142711-42gy7k4" data-type="NodeHeading" data-subtype="h1" class="h1"><div>
 Markdown 学习
 </div></div>
 <div id="20210521142711-l0ww7nk" data-node-id="20210521142711-l0ww7nk" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142711-uunlkpw" data-node-id="20210521142711-uunlkpw" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
@@ -59,13 +60,8 @@ Markdown 学习
 </div></div>
 <div id="20210521142711-1t6r8gx" data-node-id="20210521142711-1t6r8gx" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          html{run}
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">html{run}</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false"><table>
   <tr>
@@ -124,13 +120,8 @@ Markdown 学习
 </div>
 <div id="20210521142711-9jp7805" data-node-id="20210521142711-9jp7805" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          html
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">html</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">* Red * Green * Blue
 </div>
@@ -145,13 +136,8 @@ Markdown 学习
 </div></div>
 <div id="20210521142711-8hs2llj" data-node-id="20210521142711-8hs2llj" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          mermaid{run}
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">mermaid{run}</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">stateDiagram
 
@@ -200,13 +186,8 @@ end note
 </div></div>
 <div id="20210521142711-fqwxsbv" data-node-id="20210521142711-fqwxsbv" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          mermaid{run}
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">mermaid{run}</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">sequenceDiagram
 # 定义参与者 通过as语法提供标识符
@@ -229,7 +210,7 @@ J-->>Alice: Great!
     window.siyuan = {
       config: {
         appearance: {
-          mode: 0,
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -243,17 +224,19 @@ J-->>Alice: Great!
       },
       languages: { copy: "复制" },
     };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
-    Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
-    Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
     Protyle.htmlRender(previewElement);
-    Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+    Protyle.plantumlRender(previewElement, cdn);
     document.querySelectorAll(".protyle-action__copy").forEach((item) => {
       item.addEventListener("click", (event) => {
         navigator.clipboard.writeText(

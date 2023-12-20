@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<html
-  lang="zh_CN"
-  data-theme-mode="light"
-  data-light-theme="daylight"
-  data-dark-theme="midnight"
->
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
   
   <meta charset="utf-8" />
@@ -14,15 +9,21 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
-  <link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    return true
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
   <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/oceanpress.css"/>
-
   <title>uniapp composition-api 中使用 onShow、onLoad 这样的生命周期</title>
 </head>
 <body>
   
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-    <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201127151651-bbzj4xi" data-node-id="20201127151651-bbzj4xi" data-type="NodeDocument" updated="20201127151651" data-subtype="h1" class="h1" type="doc"><div id="20201127151651-bbzj4xi" data-node-id="20201127151651-bbzj4xi" data-type="NodeDocument" updated="20201127151651" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">uniapp composition-api 中使用 onShow、onLoad 这样的生命周期</div><div id="20201127152845-o17ia6d" data-node-id="20201127152845-o17ia6d" data-type="NodeParagraph" class="p"><a href="https://ask.dcloud.net.cn/article/38160"><span data-type="tag">分享/dcloud</span></a>
+  <div style="min-height: 150px;" id="20201127151651-bbzj4xi" data-node-id="20201127151651-bbzj4xi" data-type="NodeDocument" updated="20201127151651" data-subtype="h1" class="h1" type="doc"></div><div id="20201127151651-bbzj4xi" data-node-id="20201127151651-bbzj4xi" data-type="NodeDocument" updated="20201127151651" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">uniapp composition-api 中使用 onShow、onLoad 这样的生命周期</div><div id="20201127152845-o17ia6d" data-node-id="20201127152845-o17ia6d" data-type="NodeParagraph" class="p"><a href="https://ask.dcloud.net.cn/article/38160"><span data-type="tag">分享/dcloud</span></a>
 </div>
 <div id="20201127151742-gcxrggb" data-node-id="20201127151742-gcxrggb" data-type="NodeParagraph" class="p">我的思路是使用 mixin 得知 onShow 被触发后去回调 setup 中 onShow 设置的函数
 </div>
@@ -30,13 +31,8 @@
 </div>
 <div id="20201127151955-i4cz1pt" data-node-id="20201127151955-i4cz1pt" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          typescript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">typescript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false"> setup(props, ctx) {
     onLoad((...arg: any) => {
@@ -49,13 +45,8 @@
 </div>
 <div id="20201127152107-xelqoht" data-node-id="20201127152107-xelqoht" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          javascript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false"> export default Vue.extend({
     mpType: "app",
@@ -67,13 +58,8 @@
 </div>
 <div id="20201127152134-xfge91j" data-node-id="20201127152134-xfge91j" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          typescript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">typescript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">import { defineComponent, getCurrentInstance } from "@vue/composition-api";
 import Vue from "vue";
@@ -127,13 +113,8 @@ function onFunWarp(name: string) {
 </div>
 <div id="20201130101344-1ie5rkn" data-node-id="20201130101344-1ie5rkn" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language"></span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">"editor.stopRenderingLineAfter" : -1
 </div>
@@ -152,7 +133,7 @@ function onFunWarp(name: string) {
     window.siyuan = {
       config: {
         appearance: {
-          mode: 0,
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -166,17 +147,19 @@ function onFunWarp(name: string) {
       },
       languages: { copy: "复制" },
     };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
-    Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
-    Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
     Protyle.htmlRender(previewElement);
-    Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+    Protyle.plantumlRender(previewElement, cdn);
     document.querySelectorAll(".protyle-action__copy").forEach((item) => {
       item.addEventListener("click", (event) => {
         navigator.clipboard.writeText(

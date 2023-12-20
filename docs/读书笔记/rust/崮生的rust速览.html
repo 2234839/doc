@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<html
-  lang="zh_CN"
-  data-theme-mode="light"
-  data-light-theme="daylight"
-  data-dark-theme="midnight"
->
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
   
   <meta charset="utf-8" />
@@ -14,15 +9,21 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
-  <link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    return true
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
   <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/oceanpress.css"/>
-
   <title>崮生的rust速览</title>
 </head>
 <body>
   
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-    <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201227173912-l5o79dn" data-node-id="20201227173912-l5o79dn" data-type="NodeDocument" updated="20210530153551" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201227173912-l5o79dn&quot;,&quot;startId&quot;:&quot;20210526203934-08vd4jl&quot;,&quot;endId&quot;:&quot;20210530122611-m3z7bph&quot;,&quot;scrollTop&quot;:684,&quot;focusId&quot;:&quot;20210526203332-c7y8jvz&quot;,&quot;focusStart&quot;:7,&quot;focusEnd&quot;:7&#125;" type="doc"><div id="20201227173912-l5o79dn" data-node-id="20201227173912-l5o79dn" data-type="NodeDocument" updated="20210530153551" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201227173912-l5o79dn&quot;,&quot;startId&quot;:&quot;20210526203934-08vd4jl&quot;,&quot;endId&quot;:&quot;20210530122611-m3z7bph&quot;,&quot;scrollTop&quot;:684,&quot;focusId&quot;:&quot;20210526203332-c7y8jvz&quot;,&quot;focusStart&quot;:7,&quot;focusEnd&quot;:7&#125;" type="doc" data-type="NodeHeading" class="h1">崮生的rust速览</div><div id="20210526203934-08vd4jl" data-node-id="20210526203934-08vd4jl" data-type="NodeParagraph" updated="20210526204026" class="p" style="color: var(--b3-card-info-color);background-color: var(--b3-card-info-background);"><span data-type="block-ref"     data-subtype="d"     data-id="20210526203700-iclp3d7">
+  <div style="min-height: 150px;" id="20201227173912-l5o79dn" data-node-id="20201227173912-l5o79dn" data-type="NodeDocument" updated="20210530153551" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201227173912-l5o79dn&quot;,&quot;startId&quot;:&quot;20210526203934-08vd4jl&quot;,&quot;endId&quot;:&quot;20210530122611-m3z7bph&quot;,&quot;scrollTop&quot;:684,&quot;focusId&quot;:&quot;20210526203332-c7y8jvz&quot;,&quot;focusStart&quot;:7,&quot;focusEnd&quot;:7&#125;" type="doc"></div><div id="20201227173912-l5o79dn" data-node-id="20201227173912-l5o79dn" data-type="NodeDocument" updated="20210530153551" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201227173912-l5o79dn&quot;,&quot;startId&quot;:&quot;20210526203934-08vd4jl&quot;,&quot;endId&quot;:&quot;20210530122611-m3z7bph&quot;,&quot;scrollTop&quot;:684,&quot;focusId&quot;:&quot;20210526203332-c7y8jvz&quot;,&quot;focusStart&quot;:7,&quot;focusEnd&quot;:7&#125;" type="doc" data-type="NodeHeading" class="h1">崮生的rust速览</div><div id="20210526203934-08vd4jl" data-node-id="20210526203934-08vd4jl" data-type="NodeParagraph" updated="20210526204026" class="p" style="color: var(--b3-card-info-color);background-color: var(--b3-card-info-background);"><span data-type="block-ref"     data-subtype="d"     data-id="20210526203700-iclp3d7">
           <a href="./../../other/速览系列.html#20210526203700-iclp3d7">速览系列</a>
   </span>
  
@@ -106,13 +107,8 @@ Cargo：Rust 的构建工具和包管理器
 </div></div>
 <div id="20201227175010-0i6gs1q" data-node-id="20201227175010-0i6gs1q" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language"></span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">hello-rust
 |- Cargo.toml
@@ -131,13 +127,8 @@ Cargo：Rust 的构建工具和包管理器
 </div></div>
 <div id="20210525150513-rn396dr" data-node-id="20210525150513-rn396dr" data-type="NodeCodeBlock" updated="20210525151253" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">// rust 打印 log 方案，
 println!("{:?}+{1:#?}, {} + {1} = {2:?}", 1, 2, 3);
@@ -145,13 +136,8 @@ println!("{:?}+{1:#?}, {} + {1} = {2:?}", 1, 2, 3);
       </div>
 <div id="20210525141904-8rtreg7" data-node-id="20210525141904-8rtreg7" data-type="NodeCodeBlock" updated="20210525151409" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">println!("rust 字面量 数值 {},{1},{2},{3}", 1, 1_i8, 1_i16, 1_u16);
 println!("rust 字面量 数值 {},{1},{2},{3}", 1, 0x1, 0o1, 0b1);
@@ -161,13 +147,8 @@ println!("rust 字面量 数值 {},{1},{2},{3}", 1, 0x1, 0o1, 0b1);
 </div></div>
 <div id="20210525152722-u5vivxk" data-node-id="20210525152722-u5vivxk" data-type="NodeCodeBlock" updated="20210603190328" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">fn main() {
     fn add1(x: i32) -> i32 {
@@ -183,13 +164,8 @@ println!("rust 字面量 数值 {},{1},{2},{3}", 1, 0x1, 0o1, 0b1);
 </div>
 <div id="20210603190315-dm8o52c" data-node-id="20210603190315-dm8o52c" data-type="NodeCodeBlock" updated="20210603191526" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">// rust 的 lambda，两个竖线所包裹的就是参数，后面是函数体，可以用花括号（代码块）来添加多条语句
 let add3 = |w: i32| w + 3;
@@ -200,13 +176,8 @@ println!("{:?} {:?}", add1(6), add3(6))
 </div></div>
 <div id="20210603191512-jcpwhk2" data-node-id="20210603191512-jcpwhk2" data-type="NodeCodeBlock" updated="20210603191620" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">let equal_to_x = move |z| z == x; // 这里不使用 move 的话，下面还可以继续访问 x 的
 </div>
@@ -215,13 +186,8 @@ println!("{:?} {:?}", add1(6), add3(6))
 </div></div>
 <div id="20210525151458-ni6rt8s" data-node-id="20210525151458-ni6rt8s" data-type="NodeCodeBlock" updated="20210529210540" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">fn main() {
     #[derive(Debug)] // 不需要 println 就不需要加这个
@@ -259,13 +225,8 @@ println!("{:?} {:?}", add1(6), add3(6))
       </div>
 <div id="20210525151420-njv2ngn" data-node-id="20210525151420-njv2ngn" data-type="NodeCodeBlock" updated="20210525151709" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">println!("rust 元组 {:?} / {:?}", (1, 1_i8), (0, false, 1, true, (0, 1)));
 // > rust 元组 (1, 1) / (0, false, 1, true, (0, 1)) 
@@ -273,13 +234,8 @@ println!("{:?} {:?}", add1(6), add3(6))
       </div>
 <div id="20210529203110-kzgdkll" data-node-id="20210529203110-kzgdkll" data-type="NodeCodeBlock" updated="20210525153317" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">let xs = [1, 2, 3, 4, 5];
 let ys: [i32; 30] = [3; 30]; //长度 30,全部初始化为3
@@ -301,13 +257,8 @@ println!("rust 数组 {:?} / {:?}", xs, ys);
 </div>
 <div id="20210530130415-7ssf10q" data-node-id="20210530130415-7ssf10q" data-type="NodeCodeBlock" updated="20210530154422" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">let v: Vec<i32> = Vec::new();
 let v = vec![1, 2, 3];
@@ -319,13 +270,8 @@ let v100 = v.get(100); // 这里返回的是 Option 💚
 </div></div>
 <div id="20210529210713-8r2t3oq" data-node-id="20210529210713-8r2t3oq" data-type="NodeCodeBlock" updated="20210529211017" class="code-block" name="rust 枚举">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">#[derive(Debug)] // 不需要 println 就不需要加这个
 enum IpAddrKind {
@@ -342,13 +288,8 @@ fn main() {
       </div>
 <div id="20210530115630-xu4ncez" data-node-id="20210530115630-xu4ncez" data-type="NodeCodeBlock" updated="20210530115740" class="code-block" name="rust 枚举结构体">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">enum IpAddr {
     V4(String),
@@ -364,13 +305,8 @@ fn main() {
 </div>
 <div id="20210530123438-shs9a8m" data-node-id="20210530123438-shs9a8m" data-type="NodeCodeBlock" updated="20210530154843" class="code-block" name="rust 枚举结构体">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">enum Option<T> { // 比 null 更好的选择
     Some(T),
@@ -395,13 +331,8 @@ fn main() {
 </div>
 <div id="20210530154723-c9bfres" data-node-id="20210530154723-c9bfres" data-type="NodeCodeBlock" updated="20210530155951" class="code-block" name="rust Result">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">enum Result<T, E> { // 用来抛出可恢复错误
     Ok(T),
@@ -413,13 +344,8 @@ r.unwrap(); // 在 r 匹配 Result::Err() 的时候 panic!
       </div>
 <div id="20210530154915-v9s6p97" data-node-id="20210530154915-v9s6p97" data-type="NodeCodeBlock" updated="20210530154843" class="code-block" name="rust 枚举结构体">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">enum Option<T> { // 比 null 更好的选择
     Some(T),
@@ -431,13 +357,8 @@ r.unwrap(); // 在 r 匹配 Result::Err() 的时候 panic!
 </div></div>
 <div id="20210525152729-fhkzz51" data-node-id="20210525152729-fhkzz51" data-type="NodeCodeBlock" updated="20210526204558" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">fn main() {
     let number = 3;
@@ -452,13 +373,8 @@ r.unwrap(); // 在 r 匹配 Result::Err() 的时候 panic!
       </div>
 <div id="20210526204602-pmsk7nt" data-node-id="20210526204602-pmsk7nt" data-type="NodeCodeBlock" updated="20210526204640" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">fn main() {
     let number = 3;
@@ -470,13 +386,8 @@ r.unwrap(); // 在 r 匹配 Result::Err() 的时候 panic!
       </div>
 <div id="20210526204746-qpnsron" data-node-id="20210526204746-qpnsron" data-type="NodeCodeBlock" updated="20210526210145" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">fn main() {
     let r = loop {
@@ -496,13 +407,8 @@ r.unwrap(); // 在 r 匹配 Result::Err() 的时候 panic!
 </div></div>
 <div id="20210530122611-m3z7bph" data-node-id="20210530122611-m3z7bph" data-type="NodeCodeBlock" updated="20210530123059" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">#[derive(Debug)] // 不需要 println 就不需要加这个
 enum IpAddrKind {
@@ -522,13 +428,8 @@ fn main() {
 </div></div>
 <div id="20210530124113-a5d21nl" data-node-id="20210530124113-a5d21nl" data-type="NodeCodeBlock" updated="20210530124113" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">fn main() {
     let some_u8_value = Some(0u8);
@@ -541,13 +442,8 @@ fn main() {
 </div></div>
 <div id="20210530154232-115bpfm" data-node-id="20210530154232-115bpfm" data-type="NodeCodeBlock" updated="20210530155156" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">panic!("") // 抛出一个不可恢复的错误
 </div>
@@ -582,13 +478,8 @@ fn main() {
 </div>
 <div id="20210530161604-0a6kgpz" data-node-id="20210530161604-0a6kgpz" data-type="NodeCodeBlock" updated="20210530161916" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">struct Point<T> {
     x: T,
@@ -612,13 +503,8 @@ fn main() {
 </div>
 <div id="20210530162234-iy0z2ev" data-node-id="20210530162234-iy0z2ev" data-type="NodeCodeBlock" updated="20210530163752" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">pub trait Summary {// 声明一个 trait 「Summary」
     fn summarize(&self) -> String;
@@ -644,13 +530,8 @@ impl Summary for Tweet { // 实现 Summary
 </div></div>
 <div id="20210530163219-dzs7bf9" data-node-id="20210530163219-dzs7bf9" data-type="NodeCodeBlock" updated="20210530163831" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">pub fn notify(item: impl Summary)  -> impl Summary { // 函数参数以及返回值 约束！
     println!("Breaking news! {}", item.summarize());
@@ -712,13 +593,8 @@ fn some_function<T, U>(t: T, u: U) -> i32
 </div>
 <div id="20210526212107-1br1z70" data-node-id="20210526212107-1br1z70" data-type="NodeCodeBlock" updated="20210526214006" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language"></span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">fn main() {
     let s1 = String::from("hello");
@@ -782,13 +658,8 @@ fn some_function<T, U>(t: T, u: U) -> i32
 </div>
 <div id="20210530164333-c3mozjy" data-node-id="20210530164333-c3mozjy" data-type="NodeCodeBlock" updated="20210530165322" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          rust
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">rust</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">&'a i32     // 带有显式生命周期的引用
 &'a mut i32 // 带有显式生命周期的可变引用
@@ -1072,7 +943,7 @@ fn some_function<T, U>(t: T, u: U) -> i32
     window.siyuan = {
       config: {
         appearance: {
-          mode: 0,
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -1086,17 +957,19 @@ fn some_function<T, U>(t: T, u: U) -> i32
       },
       languages: { copy: "复制" },
     };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
-    Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
-    Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
     Protyle.htmlRender(previewElement);
-    Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+    Protyle.plantumlRender(previewElement, cdn);
     document.querySelectorAll(".protyle-action__copy").forEach((item) => {
       item.addEventListener("click", (event) => {
         navigator.clipboard.writeText(

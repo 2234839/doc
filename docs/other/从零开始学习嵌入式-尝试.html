@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<html
-  lang="zh_CN"
-  data-theme-mode="light"
-  data-light-theme="daylight"
-  data-dark-theme="midnight"
->
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
   
   <meta charset="utf-8" />
@@ -14,15 +9,21 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
-  <link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    return true
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
   <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/oceanpress.css"/>
-
   <title>从零开始学习嵌入式-尝试</title>
 </head>
 <body>
   
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-    <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210524142217-v3z91to" data-node-id="20210524142217-v3z91to" data-type="NodeDocument" updated="20231209110059" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210524142217-v3z91to&quot;,&quot;startId&quot;:&quot;20210524142217-50zhpxz&quot;,&quot;endId&quot;:&quot;20230929092417-hll3jeb&quot;,&quot;scrollTop&quot;:2100,&quot;focusId&quot;:&quot;20230929144100-jtcwh6p&quot;,&quot;focusStart&quot;:73,&quot;focusEnd&quot;:73&#125;"><div id="20210524142217-v3z91to" data-node-id="20210524142217-v3z91to" data-type="NodeDocument" updated="20231209110059" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210524142217-v3z91to&quot;,&quot;startId&quot;:&quot;20210524142217-50zhpxz&quot;,&quot;endId&quot;:&quot;20230929092417-hll3jeb&quot;,&quot;scrollTop&quot;:2100,&quot;focusId&quot;:&quot;20230929144100-jtcwh6p&quot;,&quot;focusStart&quot;:73,&quot;focusEnd&quot;:73&#125;" data-type="NodeHeading" class="h1">从零开始学习嵌入式-尝试</div><div id="20210524142217-50zhpxz" data-node-id="20210524142217-50zhpxz" data-type="NodeParagraph" updated="20210525113711" class="p">相关资料： 
+  <div style="min-height: 150px;" id="20210524142217-v3z91to" data-node-id="20210524142217-v3z91to" data-type="NodeDocument" updated="20231209110059" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210524142217-v3z91to&quot;,&quot;startId&quot;:&quot;20210524142217-50zhpxz&quot;,&quot;endId&quot;:&quot;20230929092417-hll3jeb&quot;,&quot;scrollTop&quot;:2100,&quot;focusId&quot;:&quot;20230929144100-jtcwh6p&quot;,&quot;focusStart&quot;:73,&quot;focusEnd&quot;:73&#125;"></div><div id="20210524142217-v3z91to" data-node-id="20210524142217-v3z91to" data-type="NodeDocument" updated="20231209110059" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210524142217-v3z91to&quot;,&quot;startId&quot;:&quot;20210524142217-50zhpxz&quot;,&quot;endId&quot;:&quot;20230929092417-hll3jeb&quot;,&quot;scrollTop&quot;:2100,&quot;focusId&quot;:&quot;20230929144100-jtcwh6p&quot;,&quot;focusStart&quot;:73,&quot;focusEnd&quot;:73&#125;" data-type="NodeHeading" class="h1">从零开始学习嵌入式-尝试</div><div id="20210524142217-50zhpxz" data-node-id="20210524142217-50zhpxz" data-type="NodeParagraph" updated="20210525113711" class="p">相关资料： 
 <span data-type="block-ref"     data-subtype="d"     data-id="20210524142200-beuxyhb">
           <a href="./../读书笔记/rust/崮生的rust速览.html#20210524142200-beuxyhb">从零开始学习嵌入式</a>
   </span>
@@ -117,13 +118,8 @@
 </div>
 <div id="20210524143258-phy03jo" data-node-id="20210524143258-phy03jo" data-type="NodeCodeBlock" updated="20210524143310" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          bash
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">bash</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">cargo install cargo-binutils
 rustup component add llvm-tools-preview
@@ -194,13 +190,8 @@ rustup component add llvm-tools-preview
       </div>
       <div id="20210524170555-tjdllrx" data-node-id="20210524170555-tjdllrx" data-type="NodeCodeBlock" updated="20230929200457" class="code-block" style="line-height: 22px;">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          bash
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">bash</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">openocd -s C:\share\scripts -f interface/stlink-v2-1.cfg -f target/stm32f3x.cfg
 </div>
@@ -419,13 +410,8 @@ go
       </div>
       <div id="20210524170555-tjdllrx" data-node-id="20210524170555-tjdllrx" data-type="NodeCodeBlock" updated="20230929200457" class="code-block" style="line-height: 22px;">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          bash
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">bash</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">openocd -s C:\share\scripts -f interface/stlink-v2-1.cfg -f target/stm32f3x.cfg
 </div>
@@ -439,13 +425,8 @@ go
 </div>
 <div id="20230929200534-bx4f0re" data-node-id="20230929200534-bx4f0re" data-type="NodeCodeBlock" updated="20230929200559" class="code-block" style="line-height: 22px;">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          bash
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">bash</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false"> # both
 itmdump -F -f itm.txt
@@ -522,13 +503,8 @@ itmdump -F -f itm.txt
 </div>
 <div id="20210528201619-nna5n7w" data-node-id="20210528201619-nna5n7w" data-type="NodeCodeBlock" updated="20210528212750" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          å¯å­å¨
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">å¯å­å¨</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">0b1100000000000000_1111000000000000
 //                 这后面的是pe15~pe0 的高电平控制
@@ -543,13 +519,8 @@ itmdump -F -f itm.txt
 </div>
 <div id="20210529154613-o8n1z6l" data-node-id="20210529154613-o8n1z6l" data-type="NodeCodeBlock" updated="20210529154628" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          bash
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">bash</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">WARNING: interface/stlink-v2-1.cfg is deprecated, please switch to interface/stlink.cfg
 Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
@@ -700,7 +671,7 @@ Error: init mode failed (unable to connect to the target)</div>
     window.siyuan = {
       config: {
         appearance: {
-          mode: 0,
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -714,17 +685,19 @@ Error: init mode failed (unable to connect to the target)</div>
       },
       languages: { copy: "复制" },
     };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
-    Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
-    Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
     Protyle.htmlRender(previewElement);
-    Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+    Protyle.plantumlRender(previewElement, cdn);
     document.querySelectorAll(".protyle-action__copy").forEach((item) => {
       item.addEventListener("click", (event) => {
         navigator.clipboard.writeText(

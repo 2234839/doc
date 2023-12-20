@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<html
-  lang="zh_CN"
-  data-theme-mode="light"
-  data-light-theme="daylight"
-  data-dark-theme="midnight"
->
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
   
   <meta charset="utf-8" />
@@ -14,15 +9,21 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
-  <link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    return true
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
   <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/oceanpress.css"/>
-
   <title>siyuan_feed插件</title>
 </head>
 <body>
   
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-    <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20231214112450-ndy3t2e" data-node-id="20231214112450-ndy3t2e" data-type="NodeDocument" updated="20231216214350" data-subtype="h1" class="h1" custom-sy-readonly="false"><div id="20231214112450-ndy3t2e" data-node-id="20231214112450-ndy3t2e" data-type="NodeDocument" updated="20231216214350" data-subtype="h1" class="h1" custom-sy-readonly="false" data-type="NodeHeading" class="h1">siyuan_feed插件</div><div id="20231214112450-bcfp96k" data-node-id="20231214112450-bcfp96k" data-type="NodeList" updated="20231216214729" data-subtype="u" class="list"><div id="20231214112550-lydowr4" data-node-id="20231214112550-lydowr4" data-type="NodeListItem" updated="20231214112550" data-subtype="u" class="li" data-marker="*">
+  <div style="min-height: 150px;" id="20231214112450-ndy3t2e" data-node-id="20231214112450-ndy3t2e" data-type="NodeDocument" updated="20231216214350" data-subtype="h1" class="h1" custom-sy-readonly="false"></div><div id="20231214112450-ndy3t2e" data-node-id="20231214112450-ndy3t2e" data-type="NodeDocument" updated="20231216214350" data-subtype="h1" class="h1" custom-sy-readonly="false" data-type="NodeHeading" class="h1">siyuan_feed插件</div><div id="20231214112450-bcfp96k" data-node-id="20231214112450-bcfp96k" data-type="NodeList" updated="20231216214729" data-subtype="u" class="list"><div id="20231214112550-lydowr4" data-node-id="20231214112550-lydowr4" data-type="NodeListItem" updated="20231214112550" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
@@ -63,13 +64,8 @@ rss
 </div>
 <div id="20231217165435-39jzewl" data-node-id="20231217165435-39jzewl" data-type="NodeCodeBlock" updated="20231217165435" class="code-block" style="line-height: 22px;">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          md
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">md</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">## 阮一峰的网络日志  (手动在这个标题上添加书签：feed)
 
@@ -243,13 +239,8 @@ feed
       </div>
       <div id="20231215113645-gf1i5a1" data-node-id="20231215113645-gf1i5a1" data-type="NodeCodeBlock" updated="20231215115416" class="code-block" style="line-height: 22px;">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          bash
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">bash</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">* * * * *
 | | | | |
@@ -334,13 +325,8 @@ feed
       </div>
       <div id="20231215143125-bzhkoka" data-node-id="20231215143125-bzhkoka" data-type="NodeCodeBlock" updated="20231216220331" class="code-block" style="line-height: 22px;">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          sql
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">sql</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">SELECT *
       FROM (
@@ -547,7 +533,7 @@ feed
     window.siyuan = {
       config: {
         appearance: {
-          mode: 0,
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -561,17 +547,19 @@ feed
       },
       languages: { copy: "复制" },
     };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
-    Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
-    Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
     Protyle.htmlRender(previewElement);
-    Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+    Protyle.plantumlRender(previewElement, cdn);
     document.querySelectorAll(".protyle-action__copy").forEach((item) => {
       item.addEventListener("click", (event) => {
         navigator.clipboard.writeText(

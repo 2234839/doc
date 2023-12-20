@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<html
-  lang="zh_CN"
-  data-theme-mode="light"
-  data-light-theme="daylight"
-  data-dark-theme="midnight"
->
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
   
   <meta charset="utf-8" />
@@ -14,25 +9,26 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
-  <link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    return true
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
   <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/oceanpress.css"/>
-
   <title>关于前端组件数据交互的思考</title>
 </head>
 <body>
   
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-    <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20230914195323-trjref1" data-node-id="20230914195323-trjref1" data-type="NodeDocument" updated="20230914200806" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20230914195323-trjref1&quot;,&quot;startId&quot;:&quot;20230914195341-ut9g30n&quot;,&quot;endId&quot;:&quot;20230914200752-kpdyidc&quot;,&quot;scrollTop&quot;:0&#125;"><div id="20230914195323-trjref1" data-node-id="20230914195323-trjref1" data-type="NodeDocument" updated="20230914200806" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20230914195323-trjref1&quot;,&quot;startId&quot;:&quot;20230914195341-ut9g30n&quot;,&quot;endId&quot;:&quot;20230914200752-kpdyidc&quot;,&quot;scrollTop&quot;:0&#125;" data-type="NodeHeading" class="h1">关于前端组件数据交互的思考</div><div id="20230914195341-ut9g30n" data-node-id="20230914195341-ut9g30n" data-type="NodeParagraph" class="p">现在vue的数据交互方式是通过attribute来给组件传递参数以及接收结果
+  <div style="min-height: 150px;" id="20230914195323-trjref1" data-node-id="20230914195323-trjref1" data-type="NodeDocument" updated="20230914200806" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20230914195323-trjref1&quot;,&quot;startId&quot;:&quot;20230914195341-ut9g30n&quot;,&quot;endId&quot;:&quot;20230914200752-kpdyidc&quot;,&quot;scrollTop&quot;:0&#125;"></div><div id="20230914195323-trjref1" data-node-id="20230914195323-trjref1" data-type="NodeDocument" updated="20230914200806" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20230914195323-trjref1&quot;,&quot;startId&quot;:&quot;20230914195341-ut9g30n&quot;,&quot;endId&quot;:&quot;20230914200752-kpdyidc&quot;,&quot;scrollTop&quot;:0&#125;" data-type="NodeHeading" class="h1">关于前端组件数据交互的思考</div><div id="20230914195341-ut9g30n" data-node-id="20230914195341-ut9g30n" data-type="NodeParagraph" class="p">现在vue的数据交互方式是通过attribute来给组件传递参数以及接收结果
 </div>
 <div id="20230914195509-orli9aa" data-node-id="20230914195509-orli9aa" data-type="NodeCodeBlock" updated="20230914200149" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          html
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">html</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false"><script>
   const data = 0
@@ -45,13 +41,8 @@
 </div>
 <div id="20230914200003-3wm0plz" data-node-id="20230914200003-3wm0plz" data-type="NodeCodeBlock" updated="20230914200330" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          html
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">html</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false"><script>
   const data = 0
@@ -65,13 +56,8 @@
 </div>
 <div id="20230914200602-3o4w48o" data-node-id="20230914200602-3o4w48o" data-type="NodeCodeBlock" updated="20230914200716" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          html
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">html</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false"><script>
   const data = 0
@@ -94,7 +80,7 @@
     window.siyuan = {
       config: {
         appearance: {
-          mode: 0,
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -108,17 +94,19 @@
       },
       languages: { copy: "复制" },
     };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
-    Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
-    Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
     Protyle.htmlRender(previewElement);
-    Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+    Protyle.plantumlRender(previewElement, cdn);
     document.querySelectorAll(".protyle-action__copy").forEach((item) => {
       item.addEventListener("click", (event) => {
         navigator.clipboard.writeText(

@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<html
-  lang="zh_CN"
-  data-theme-mode="light"
-  data-light-theme="daylight"
-  data-dark-theme="midnight"
->
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
   
   <meta charset="utf-8" />
@@ -14,15 +9,21 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
-  <link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    return true
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
   <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/oceanpress.css"/>
-
   <title>11月</title>
 </head>
 <body>
   
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-    <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201105164945-ukz3aft" data-node-id="20201105164945-ukz3aft" data-type="NodeDocument" updated="20231209110521" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201105164945-ukz3aft&quot;,&quot;startId&quot;:&quot;20201121144434-yhcbzvf&quot;,&quot;endId&quot;:&quot;20201121144434-k066v3c&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20201121144434-yhcbzvf&quot;,&quot;focusStart&quot;:8,&quot;focusEnd&quot;:8&#125;" type="doc"><div id="20201105164945-ukz3aft" data-node-id="20201105164945-ukz3aft" data-type="NodeDocument" updated="20231209110521" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201105164945-ukz3aft&quot;,&quot;startId&quot;:&quot;20201121144434-yhcbzvf&quot;,&quot;endId&quot;:&quot;20201121144434-k066v3c&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20201121144434-yhcbzvf&quot;,&quot;focusStart&quot;:8,&quot;focusEnd&quot;:8&#125;" type="doc" data-type="NodeHeading" class="h1">11月</div><div id="20201121144434-yhcbzvf" data-node-id="20201121144434-yhcbzvf" data-type="NodeHeading" updated="20231209110521" data-subtype="h1" class="h1"><div>2020/11 
+  <div style="min-height: 150px;" id="20201105164945-ukz3aft" data-node-id="20201105164945-ukz3aft" data-type="NodeDocument" updated="20231209110521" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201105164945-ukz3aft&quot;,&quot;startId&quot;:&quot;20201121144434-yhcbzvf&quot;,&quot;endId&quot;:&quot;20201121144434-k066v3c&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20201121144434-yhcbzvf&quot;,&quot;focusStart&quot;:8,&quot;focusEnd&quot;:8&#125;" type="doc"></div><div id="20201105164945-ukz3aft" data-node-id="20201105164945-ukz3aft" data-type="NodeDocument" updated="20231209110521" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201105164945-ukz3aft&quot;,&quot;startId&quot;:&quot;20201121144434-yhcbzvf&quot;,&quot;endId&quot;:&quot;20201121144434-k066v3c&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20201121144434-yhcbzvf&quot;,&quot;focusStart&quot;:8,&quot;focusEnd&quot;:8&#125;" type="doc" data-type="NodeHeading" class="h1">11月</div><div id="20201121144434-yhcbzvf" data-node-id="20201121144434-yhcbzvf" data-type="NodeHeading" updated="20231209110521" data-subtype="h1" class="h1"><div>2020/11 
 </div></div>
 <div id="20210410111356-ho62xfm" data-node-id="20210410111356-ho62xfm" data-type="NodeThematicBreak" class="hr"><div></div></div>
 <div id="20201121144434-jwxv78h" data-node-id="20201121144434-jwxv78h" data-type="NodeParagraph" updated="20210623110447" class="p">今天（2020/11/5）将文档改成了基于
@@ -147,13 +148,8 @@
 </div></div>
 <div id="20201121144434-tqfcfol" data-node-id="20201121144434-tqfcfol" data-type="NodeCodeBlock" class="code-block" parent-fold="1">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          typescript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">typescript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">// apis/time.ts
 export function currentTime() {
@@ -176,13 +172,8 @@ export function currentTime2(toLocaleString: boolean) {
 </div></div>
 <div id="20201121144434-v6a2q4u" data-node-id="20201121144434-v6a2q4u" data-type="NodeCodeBlock" class="code-block" parent-fold="1">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          typescript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">typescript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">// apis/index.ts
 export * from "./time";
@@ -199,13 +190,8 @@ export * from "./time";
 </div>
 <div id="20201121144434-llith0o" data-node-id="20201121144434-llith0o" data-type="NodeCodeBlock" class="code-block" parent-fold="1">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          typescript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">typescript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">// router/rpc.ts
 import * as apis from "../apis";
@@ -233,13 +219,8 @@ export async function post(req: any, res: any) {
 </div></div>
 <div id="20201121144434-to5lrnx" data-node-id="20201121144434-to5lrnx" data-type="NodeCodeBlock" class="code-block" parent-fold="1">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          typescript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">typescript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">//  rpc.ts
 /** ═════════🏳‍🌈 超轻量级的远程调用，完备的类型提示！ 🏳‍🌈═════════  */
@@ -339,13 +320,8 @@ API.currentTime2(true).then((r) => console.log("服务器当前时间本地化",
 </div></div>
 <div id="20201121144434-idlpfk1" data-node-id="20201121144434-idlpfk1" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          typescript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">typescript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">/** 数组求和 */
 export function ArraySum<T>(arr: T[], f: (el: T) => number) {
@@ -358,13 +334,8 @@ export function ArraySum<T>(arr: T[], f: (el: T) => number) {
 </div></div>
 <div id="20201121144434-rrz8gbs" data-node-id="20201121144434-rrz8gbs" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          typescript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">typescript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">/** 数组去重
  * 1. 可以设置函数来决定什么样算重复
@@ -399,13 +370,8 @@ export function Array去重<T>(
 </div></div>
 <div id="20201121144434-ekt6aqd" data-node-id="20201121144434-ekt6aqd" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          typescript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">typescript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">/** 从数组中随机取 n 个元素 */
 export function sampleSize<T>([...arr]: T[], n = 1) {
@@ -448,13 +414,8 @@ export function sampleSize<T>([...arr]: T[], n = 1) {
 </div></div>
 <div id="20201121144434-crj1v0i" data-node-id="20201121144434-crj1v0i" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          typescript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">typescript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">/** 求两个数组的编辑距离 */
 export function minDistance<T>(l1: T[], l2: T[], equal?: (i1: number, i2: number) => boolean): number {
@@ -653,13 +614,8 @@ uniapp 体积优化秘技
 </div>
 <div id="20201127102055-x8lr93u" data-node-id="20201127102055-x8lr93u" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          javascript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">import("!!raw-loader!../pages.json").then((r) => {
   console.log("[r]", r);
@@ -676,7 +632,7 @@ uniapp 体积优化秘技
     window.siyuan = {
       config: {
         appearance: {
-          mode: 0,
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -690,17 +646,19 @@ uniapp 体积优化秘技
       },
       languages: { copy: "复制" },
     };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
-    Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
-    Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
     Protyle.htmlRender(previewElement);
-    Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+    Protyle.plantumlRender(previewElement, cdn);
     document.querySelectorAll(".protyle-action__copy").forEach((item) => {
       item.addEventListener("click", (event) => {
         navigator.clipboard.writeText(

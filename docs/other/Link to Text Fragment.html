@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<html
-  lang="zh_CN"
-  data-theme-mode="light"
-  data-light-theme="daylight"
-  data-dark-theme="midnight"
->
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
   
   <meta charset="utf-8" />
@@ -14,15 +9,21 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
-  <link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    return true
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
   <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/oceanpress.css"/>
-
   <title>Link to Text Fragment</title>
 </head>
 <body>
   
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-    <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20210321142309-wn4sd7t" data-node-id="20210321142309-wn4sd7t" data-type="NodeDocument" updated="20210321153815" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210321142309-wn4sd7t&quot;,&quot;startId&quot;:&quot;20210321143054-jm3iuzp&quot;,&quot;endId&quot;:&quot;20210321152425-4v60llf&quot;,&quot;scrollTop&quot;:200,&quot;focusId&quot;:&quot;20210321142638-t0enfaq&quot;,&quot;focusStart&quot;:72,&quot;focusEnd&quot;:72&#125;" type="doc"><div id="20210321142309-wn4sd7t" data-node-id="20210321142309-wn4sd7t" data-type="NodeDocument" updated="20210321153815" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210321142309-wn4sd7t&quot;,&quot;startId&quot;:&quot;20210321143054-jm3iuzp&quot;,&quot;endId&quot;:&quot;20210321152425-4v60llf&quot;,&quot;scrollTop&quot;:200,&quot;focusId&quot;:&quot;20210321142638-t0enfaq&quot;,&quot;focusStart&quot;:72,&quot;focusEnd&quot;:72&#125;" type="doc" data-type="NodeHeading" class="h1">Link to Text Fragment</div><div id="20210321143054-jm3iuzp" data-node-id="20210321143054-jm3iuzp" data-type="NodeBlockquote" updated="20210321153652" class="bq">
+  <div style="min-height: 150px;" id="20210321142309-wn4sd7t" data-node-id="20210321142309-wn4sd7t" data-type="NodeDocument" updated="20210321153815" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210321142309-wn4sd7t&quot;,&quot;startId&quot;:&quot;20210321143054-jm3iuzp&quot;,&quot;endId&quot;:&quot;20210321152425-4v60llf&quot;,&quot;scrollTop&quot;:200,&quot;focusId&quot;:&quot;20210321142638-t0enfaq&quot;,&quot;focusStart&quot;:72,&quot;focusEnd&quot;:72&#125;" type="doc"></div><div id="20210321142309-wn4sd7t" data-node-id="20210321142309-wn4sd7t" data-type="NodeDocument" updated="20210321153815" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210321142309-wn4sd7t&quot;,&quot;startId&quot;:&quot;20210321143054-jm3iuzp&quot;,&quot;endId&quot;:&quot;20210321152425-4v60llf&quot;,&quot;scrollTop&quot;:200,&quot;focusId&quot;:&quot;20210321142638-t0enfaq&quot;,&quot;focusStart&quot;:72,&quot;focusEnd&quot;:72&#125;" type="doc" data-type="NodeHeading" class="h1">Link to Text Fragment</div><div id="20210321143054-jm3iuzp" data-node-id="20210321143054-jm3iuzp" data-type="NodeBlockquote" updated="20210321153652" class="bq">
 <div id="20210321143057-ehuhzwh" data-node-id="20210321143057-ehuhzwh" data-type="NodeParagraph" updated="20210321154131" class="p">链接到指定网页的文本片段
 </div>
 <div id="20210321153635-yd5mtfm" data-node-id="20210321153635-yd5mtfm" data-type="NodeParagraph" updated="20210321153652" class="p"><a href="https://github.com/GoogleChromeLabs/link-to-text-fragment">link-to-text-fragment github repo</a>
@@ -90,13 +91,8 @@
 </div></div>
 <div id="20210321150817-b8evm11" data-node-id="20210321150817-b8evm11" data-type="NodeCodeBlock" updated="20230922212856" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          html
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">html</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false"><a target="_blank" rel="noopener" href="#:~:text=%E7%97%9B%E7%82%B9,-%E6%88%91%E5%88%9A%E5%B0%9D%E8%AF%95%E4%BA%86%E4%B8%80%E4%B8%8B">痛点</a> 
 </div>
@@ -141,7 +137,7 @@
     window.siyuan = {
       config: {
         appearance: {
-          mode: 0,
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -155,17 +151,19 @@
       },
       languages: { copy: "复制" },
     };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
-    Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
-    Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
     Protyle.htmlRender(previewElement);
-    Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+    Protyle.plantumlRender(previewElement, cdn);
     document.querySelectorAll(".protyle-action__copy").forEach((item) => {
       item.addEventListener("click", (event) => {
         navigator.clipboard.writeText(

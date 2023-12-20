@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<html
-  lang="zh_CN"
-  data-theme-mode="light"
-  data-light-theme="daylight"
-  data-dark-theme="midnight"
->
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
   
   <meta charset="utf-8" />
@@ -14,15 +9,21 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
-  <link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/daylight/theme.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    return true
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
   <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/appearance/oceanpress.css"/>
-
   <title>12月</title>
 </head>
 <body>
   
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-    <div class="protyle-background protyle-background--enable" style="min-height: 150px;" id="20201201102932-3rahy0i" data-node-id="20201201102932-3rahy0i" data-type="NodeDocument" updated="20210530120136" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201201102932-3rahy0i&quot;,&quot;startId&quot;:&quot;20210407210503-47qjy9y&quot;,&quot;endId&quot;:&quot;20201227121444-rl4lbpz&quot;,&quot;scrollTop&quot;:4093,&quot;focusId&quot;:&quot;20201227123816-dgiawma&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc"><div id="20201201102932-3rahy0i" data-node-id="20201201102932-3rahy0i" data-type="NodeDocument" updated="20210530120136" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201201102932-3rahy0i&quot;,&quot;startId&quot;:&quot;20210407210503-47qjy9y&quot;,&quot;endId&quot;:&quot;20201227121444-rl4lbpz&quot;,&quot;scrollTop&quot;:4093,&quot;focusId&quot;:&quot;20201227123816-dgiawma&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc" data-type="NodeHeading" class="h1">12月</div><div id="20201201103016-97kh8cd" data-node-id="20201201103016-97kh8cd" data-type="NodeHeading" data-subtype="h1" class="h1"><div>
+  <div style="min-height: 150px;" id="20201201102932-3rahy0i" data-node-id="20201201102932-3rahy0i" data-type="NodeDocument" updated="20210530120136" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201201102932-3rahy0i&quot;,&quot;startId&quot;:&quot;20210407210503-47qjy9y&quot;,&quot;endId&quot;:&quot;20201227121444-rl4lbpz&quot;,&quot;scrollTop&quot;:4093,&quot;focusId&quot;:&quot;20201227123816-dgiawma&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc"></div><div id="20201201102932-3rahy0i" data-node-id="20201201102932-3rahy0i" data-type="NodeDocument" updated="20210530120136" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201201102932-3rahy0i&quot;,&quot;startId&quot;:&quot;20210407210503-47qjy9y&quot;,&quot;endId&quot;:&quot;20201227121444-rl4lbpz&quot;,&quot;scrollTop&quot;:4093,&quot;focusId&quot;:&quot;20201227123816-dgiawma&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc" data-type="NodeHeading" class="h1">12月</div><div id="20201201103016-97kh8cd" data-node-id="20201201103016-97kh8cd" data-type="NodeHeading" data-subtype="h1" class="h1"><div>
 12 月的每日总结
 </div></div>
 <div id="20201201103047-ipkbhog" data-node-id="20201201103047-ipkbhog" data-type="NodeParagraph" class="p">12 月了时间过的真快。....
@@ -47,13 +48,8 @@ QQ 邮箱
 </div>
 <div id="20201201172359-es9ip4w" data-node-id="20201201172359-es9ip4w" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          javascript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">const qAll = (s) => top[1].document.querySelectorAll(s);
 
@@ -93,13 +89,8 @@ setInterval(() => {
 </div>
 <div id="20201202172742-z7rd34y" data-node-id="20201202172742-z7rd34y" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          html
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">html</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false"><svg class="icon" aria-hidden="true">
     <use xlink:href="#icon-xiangxia"></use>
@@ -134,13 +125,8 @@ setInterval(() => {
 </div></div>
 <div id="20201204144146-3m7mqvd" data-node-id="20201204144146-3m7mqvd" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          typescript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">typescript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">const cur = route?.routes?.find((el) => matchPath(location.pathname, el))
 </div>
@@ -160,13 +146,8 @@ typescript enum 获取 key 的类型 type
 </div>
 <div id="20201209154017-boknic8" data-node-id="20201209154017-boknic8" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          typescript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">typescript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">export enum saveStatus {
   editing,
@@ -189,13 +170,8 @@ ts 枚举的零值导致的隐式转换问题
 </div>
 <div id="20201209154238-92ix4if" data-node-id="20201209154238-92ix4if" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          typescript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">typescript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">function test(s?: saveStatus) {
   if (s) {
@@ -259,13 +235,8 @@ ts 枚举的零值导致的隐式转换问题
 </div>
 <div id="20201209155917-v24mf5l" data-node-id="20201209155917-v24mf5l" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          typescript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">typescript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">enum saveStatus {
   editing = 1,
@@ -482,13 +453,8 @@ ts 枚举的零值导致的隐式转换问题
 </div>
 <div id="20210116104651-ny13t3v" data-node-id="20210116104651-ny13t3v" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language"></span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false"><script>
   function dragstart_handler(ev) {
@@ -520,13 +486,8 @@ ts 枚举的零值导致的隐式转换问题
 </div>
 <div id="20210116104651-0dy3s60" data-node-id="20210116104651-0dy3s60" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language"></span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false"><script>
 function dragover_handler(ev) {
@@ -1007,13 +968,8 @@ option 的value`
 </div>
 <div id="20201227141758-zt20og9" data-node-id="20201227141758-zt20og9" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">
-          javascript
-          </span>
-            <span class="fn__flex-1"></span>
-            <span class="protyle-icon protyle-icon--only protyle-action__copy">
-            <svg><use xlink:href="#iconCopy"></use></svg>
-          </span>
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">document.querySelector("#form > div:nth-child(1) > input").value=`你要输入的文本`
 document.querySelector("#form > div:nth-child(2) > textarea").value=`你要输入的文本`
@@ -1155,7 +1111,7 @@ document.querySelector("#dewey").checked=true
     window.siyuan = {
       config: {
         appearance: {
-          mode: 0,
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -1169,17 +1125,19 @@ document.querySelector("#dewey").checked=true
       },
       languages: { copy: "复制" },
     };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
-    Protyle.highlightRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mathRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle", false);
-    Protyle.mermaidRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.flowchartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.graphvizRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.chartRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.mindmapRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
-    Protyle.abcRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
     Protyle.htmlRender(previewElement);
-    Protyle.plantumlRender(previewElement, "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@main/apps/frontend/public/notebook/stage/protyle");
+    Protyle.plantumlRender(previewElement, cdn);
     document.querySelectorAll(".protyle-action__copy").forEach((item) => {
       item.addEventListener("click", (event) => {
         navigator.clipboard.writeText(
