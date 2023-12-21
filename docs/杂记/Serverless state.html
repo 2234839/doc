@@ -22,34 +22,7 @@
 <body>
   
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201231214224-yxqubps" data-node-id="20201231214224-yxqubps" data-type="NodeDocument" updated="20201231214224" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201231214224-yxqubps&quot;,&quot;startId&quot;:&quot;20201231214224-a8w7gcz&quot;,&quot;endId&quot;:&quot;20201231220325-w3q5f6u&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20201231214250-7ca5hx5&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc"></div><div id="20201231214224-yxqubps" data-node-id="20201231214224-yxqubps" data-type="NodeDocument" updated="20201231214224" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201231214224-yxqubps&quot;,&quot;startId&quot;:&quot;20201231214224-a8w7gcz&quot;,&quot;endId&quot;:&quot;20201231220325-w3q5f6u&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20201231214250-7ca5hx5&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc" data-type="NodeHeading" class="h1">Serverless state</div><div id="20201231214224-a8w7gcz" data-node-id="20201231214224-a8w7gcz" data-type="NodeBlockquote" class="bq">
-<div id="20201231214250-7ca5hx5" data-node-id="20201231214250-7ca5hx5" data-type="NodeParagraph" class="p">我想使用 serverless 写一个小应用
-</div>
-<div id="20201231214308-v7ca7ik" data-node-id="20201231214308-v7ca7ik" data-type="NodeParagraph" class="p">那么我的状态放在哪呢？
-</div>
-<div id="20201231214320-epn34g1" data-node-id="20201231214320-epn34g1" data-type="NodeParagraph" class="p">数据库？磁盘？
-</div>
-</div>
-<div id="20201231214348-pjlyx1m" data-node-id="20201231214348-pjlyx1m" data-type="NodeParagraph" class="p">假设我们应用现在有个状态 State1 用来记录访客数量，这个状态存在类似于 oss 这样的云服务上
-</div>
-<div id="20201231220337-o9ck5yx" data-node-id="20201231220337-o9ck5yx" data-type="NodeParagraph" class="p">应用部署到 serverless 平台后调起了两个实例  App1 App2
-</div>
-<div id="20201231220737-kc9prkn" data-node-id="20201231220737-kc9prkn" data-type="NodeParagraph" class="p">App1 启动的时候从 oss 拉取状态得知 
-<span data-type="code">State1 = 60</span>
-</div>
-<div id="20201231220808-3cchj2t" data-node-id="20201231220808-3cchj2t" data-type="NodeParagraph" class="p">App2 启动的时候从 oss 拉取状态得知 
-<span data-type="code">State1 = 63</span>
- (比 App1 晚启动)
-</div>
-<div id="20201231220518-c3wruyn" data-node-id="20201231220518-c3wruyn" data-type="NodeParagraph" class="p">这时实例 App1 App2 同时被访问了，他们都想执行 
-<span data-type="code">State1+=1</span>
- 这样的操作然后保存这个状态到 oss 去
-</div>
-<div id="20201231220933-h3h5013" data-node-id="20201231220933-h3h5013" data-type="NodeParagraph" class="p">要怎么实现这样的逻辑呢？
-</div>
-<div id="20201231220440-rvaz0x6" data-node-id="20201231220440-rvaz0x6" data-type="NodeParagraph" class="p"></div>
-<div id="20201231220325-w3q5f6u" data-node-id="20201231220325-w3q5f6u" data-type="NodeParagraph" class="p"></div>
-
+  <div style="min-height: 150px;" id="20201231214224-yxqubps" data-node-id="20201231214224-yxqubps" data-type="NodeDocument" updated="20201231214224" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201231214224-yxqubps&quot;,&quot;startId&quot;:&quot;20201231214224-a8w7gcz&quot;,&quot;endId&quot;:&quot;20201231220325-w3q5f6u&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20201231214250-7ca5hx5&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc"></div><div id="20201231214224-yxqubps" data-node-id="20201231214224-yxqubps" data-type="NodeDocument" updated="20201231214224" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201231214224-yxqubps&quot;,&quot;startId&quot;:&quot;20201231214224-a8w7gcz&quot;,&quot;endId&quot;:&quot;20201231220325-w3q5f6u&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20201231214250-7ca5hx5&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc" data-type="NodeHeading" class="h1">Serverless state</div><div id="20201231214224-a8w7gcz" data-node-id="20201231214224-a8w7gcz" data-type="NodeBlockquote" class="bq"><div id="20201231214250-7ca5hx5" data-node-id="20201231214250-7ca5hx5" data-type="NodeParagraph" class="p">我想使用 serverless 写一个小应用</div><div id="20201231214308-v7ca7ik" data-node-id="20201231214308-v7ca7ik" data-type="NodeParagraph" class="p">那么我的状态放在哪呢？</div><div id="20201231214320-epn34g1" data-node-id="20201231214320-epn34g1" data-type="NodeParagraph" class="p">数据库？磁盘？</div></div><div id="20201231214348-pjlyx1m" data-node-id="20201231214348-pjlyx1m" data-type="NodeParagraph" class="p">假设我们应用现在有个状态 State1 用来记录访客数量，这个状态存在类似于 oss 这样的云服务上</div><div id="20201231220337-o9ck5yx" data-node-id="20201231220337-o9ck5yx" data-type="NodeParagraph" class="p">应用部署到 serverless 平台后调起了两个实例  App1 App2</div><div id="20201231220737-kc9prkn" data-node-id="20201231220737-kc9prkn" data-type="NodeParagraph" class="p">App1 启动的时候从 oss 拉取状态得知 <span data-type="code">State1 = 60</span></div><div id="20201231220808-3cchj2t" data-node-id="20201231220808-3cchj2t" data-type="NodeParagraph" class="p">App2 启动的时候从 oss 拉取状态得知 <span data-type="code">State1 = 63</span> (比 App1 晚启动)</div><div id="20201231220518-c3wruyn" data-node-id="20201231220518-c3wruyn" data-type="NodeParagraph" class="p">这时实例 App1 App2 同时被访问了，他们都想执行 <span data-type="code">State1+=1</span> 这样的操作然后保存这个状态到 oss 去</div><div id="20201231220933-h3h5013" data-node-id="20201231220933-h3h5013" data-type="NodeParagraph" class="p">要怎么实现这样的逻辑呢？</div><div id="20201231220440-rvaz0x6" data-node-id="20201231220440-rvaz0x6" data-type="NodeParagraph" class="p"></div><div id="20201231220325-w3q5f6u" data-node-id="20201231220325-w3q5f6u" data-type="NodeParagraph" class="p"></div>
   </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>

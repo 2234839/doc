@@ -22,14 +22,7 @@
 <body>
   
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20231216155704-ps1c5yp" data-node-id="20231216155704-ps1c5yp" data-type="NodeDocument" updated="20231216163600" data-subtype="h1" class="h1" custom-dailynote-20231216="20231216"></div><div id="20231216155704-ps1c5yp" data-node-id="20231216155704-ps1c5yp" data-type="NodeDocument" updated="20231216163600" data-subtype="h1" class="h1" custom-dailynote-20231216="20231216" data-type="NodeHeading" class="h1">2023-12-16</div><div id="20231216162315-q7kbi5o" data-node-id="20231216162315-q7kbi5o" data-type="NodeHeading" updated="20231216162517" data-subtype="h2" class="h2"><div>阿里云函数计算被刷的可能性测试
-</div></div>
-<div id="20231216155708-syrex9a" data-node-id="20231216155708-syrex9a" data-type="NodeParagraph" updated="20231216155755" class="p">由于一些 oss 被刷几万块钱的惨剧，我将oss的公共读全关了，然后又思考函数计算被刷的可能性
-</div>
-<div id="20231216155756-g3fa8lm" data-node-id="20231216155756-g3fa8lm" data-type="NodeParagraph" updated="20231216155826" class="p">于是设置了并发度上限，进行一次测试。结果如下
-</div>
-<div id="20231216155706-j21ur1k" data-node-id="20231216155706-j21ur1k" data-type="NodeParagraph" updated="20231216163600" class="p">​
-<span data-type="NodeImage" class="img" style="undefined"
+  <div style="min-height: 150px;" id="20231216155704-ps1c5yp" data-node-id="20231216155704-ps1c5yp" data-type="NodeDocument" updated="20231216163600" data-subtype="h1" class="h1" custom-dailynote-20231216="20231216"></div><div id="20231216155704-ps1c5yp" data-node-id="20231216155704-ps1c5yp" data-type="NodeDocument" updated="20231216163600" data-subtype="h1" class="h1" custom-dailynote-20231216="20231216" data-type="NodeHeading" class="h1">2023-12-16</div><div id="20231216162315-q7kbi5o" data-node-id="20231216162315-q7kbi5o" data-type="NodeHeading" updated="20231216162517" data-subtype="h2" class="h2"><div>阿里云函数计算被刷的可能性测试</div></div><div id="20231216155708-syrex9a" data-node-id="20231216155708-syrex9a" data-type="NodeParagraph" updated="20231216155755" class="p">由于一些 oss 被刷几万块钱的惨剧，我将oss的公共读全关了，然后又思考函数计算被刷的可能性</div><div id="20231216155756-g3fa8lm" data-node-id="20231216155756-g3fa8lm" data-type="NodeParagraph" updated="20231216155826" class="p">于是设置了并发度上限，进行一次测试。结果如下</div><div id="20231216155706-j21ur1k" data-node-id="20231216155706-j21ur1k" data-type="NodeParagraph" updated="20231216163600" class="p">​<span data-type="NodeImage" class="img" style="undefined"
       ><img
         src="./../../../assets/image-20231216155706-cvwoop4.png"
         data-src="./../../../assets/image-20231216155706-cvwoop4.png"
@@ -37,14 +30,7 @@
         style="undefined"
         loading="lazy"
       /><span class="protyle-action__title"></span></span
-    >
-​
-</div>
-<div id="20231216155827-xdvtvuc" data-node-id="20231216155827-xdvtvuc" data-type="NodeParagraph" updated="20231216155917" class="p">从测试可以看到函数计算通过流控使得在 10s 内的 4.51 万次请求只成功了大概 0.01万次
-</div>
-<div id="20231216155942-ydxkg6v" data-node-id="20231216155942-ydxkg6v" data-type="NodeParagraph" updated="20231216163235" class="p">下面是测试工具的数据，从两个数据来看一个函数实例单实例并发也为1，0.05vcpu的情况下10秒只处理了127个hello world请求。其余4.5万个都被拦截了。
-</div>
-<div id="20231216155938-oxp060k" data-node-id="20231216155938-oxp060k" data-type="NodeCodeBlock" updated="20231216160025" class="code-block" style="line-height: 22px;">
+    >​</div><div id="20231216155827-xdvtvuc" data-node-id="20231216155827-xdvtvuc" data-type="NodeParagraph" updated="20231216155917" class="p">从测试可以看到函数计算通过流控使得在 10s 内的 4.51 万次请求只成功了大概 0.01万次</div><div id="20231216155942-ydxkg6v" data-node-id="20231216155942-ydxkg6v" data-type="NodeParagraph" updated="20231216163235" class="p">下面是测试工具的数据，从两个数据来看一个函数实例单实例并发也为1，0.05vcpu的情况下10秒只处理了127个hello world请求。其余4.5万个都被拦截了。</div><div id="20231216155938-oxp060k" data-node-id="20231216155938-oxp060k" data-type="NodeCodeBlock" updated="20231216160025" class="code-block" style="line-height: 22px;">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">abap</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -63,12 +49,7 @@
     others - 0
   Throughput:     2.99MB/s
 </div>
-      </div>
-<div id="20231216162605-g0w42pf" data-node-id="20231216162605-g0w42pf" data-type="NodeParagraph" updated="20231216162902" class="p">函数计算目前还是不用很担心被人恶意刷出高额账单。但还是建议大家适量配置并发度，做好报警，如果确实是真实用户流量，视情况上调并发即可，像我这种玩票性质的就直接低并发就行了。
-</div>
-<div id="20231216162520-y3s8ipr" data-node-id="20231216162520-y3s8ipr" data-type="NodeParagraph" updated="20231216163200" class="p">顺便配一个 1vcpu 1G 内存 单实例 200 并发度（最高只能设置200）的测试：
-</div>
-<div id="20231216162551-azhsl9s" data-node-id="20231216162551-azhsl9s" data-type="NodeCodeBlock" updated="20231216163146" class="code-block" style="line-height: 22px;">
+      </div><div id="20231216162605-g0w42pf" data-node-id="20231216162605-g0w42pf" data-type="NodeParagraph" updated="20231216162902" class="p">函数计算目前还是不用很担心被人恶意刷出高额账单。但还是建议大家适量配置并发度，做好报警，如果确实是真实用户流量，视情况上调并发即可，像我这种玩票性质的就直接低并发就行了。</div><div id="20231216162520-y3s8ipr" data-node-id="20231216162520-y3s8ipr" data-type="NodeParagraph" updated="20231216163200" class="p">顺便配一个 1vcpu 1G 内存 单实例 200 并发度（最高只能设置200）的测试：</div><div id="20231216162551-azhsl9s" data-node-id="20231216162551-azhsl9s" data-type="NodeCodeBlock" updated="20231216163146" class="code-block" style="line-height: 22px;">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">abap</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -85,9 +66,7 @@
     1xx - 0, 2xx - 17117, 3xx - 0, 4xx - 1, 5xx - 0
     others - 0
   Throughput:     1.38MB/s</div>
-      </div>
-<div id="20231216162909-9sq91lo" data-node-id="20231216162909-9sq91lo" data-type="NodeParagraph" class="p"></div>
-
+      </div><div id="20231216162909-9sq91lo" data-node-id="20231216162909-9sq91lo" data-type="NodeParagraph" class="p"></div>
   </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>

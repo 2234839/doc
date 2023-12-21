@@ -22,13 +22,7 @@
 <body>
   
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210609090557-nrhc2to" data-node-id="20210609090557-nrhc2to" data-type="NodeDocument" updated="20210611163128" data-subtype="h1" class="h1" type="doc"></div><div id="20210609090557-nrhc2to" data-node-id="20210609090557-nrhc2to" data-type="NodeDocument" updated="20210611163128" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">了解 vue composition-api 原理</div><div id="20210611163112-e6oslzy" data-node-id="20210611163112-e6oslzy" data-type="NodeHeading" updated="20210611163115" data-subtype="h2" class="h2"><div>watch
-</div></div>
-<div id="20210607182256-gt31i7x" data-node-id="20210607182256-gt31i7x" data-type="NodeParagraph" updated="20210609090816" class="p">我对 composition-api 中的 watch 的实现一直很好奇，它到底怎么知道我里面依赖了哪些变量？
-</div>
-<div id="20210609091346-lmjuqgu" data-node-id="20210609091346-lmjuqgu" data-type="NodeParagraph" updated="20210609091352" class="p">例如下面的代码：
-</div>
-<div id="20210609091104-hhd3n2i" data-node-id="20210609091104-hhd3n2i" data-type="NodeCodeBlock" updated="20210609094957" class="code-block">
+  <div style="min-height: 150px;" id="20210609090557-nrhc2to" data-node-id="20210609090557-nrhc2to" data-type="NodeDocument" updated="20210611163128" data-subtype="h1" class="h1" type="doc"></div><div id="20210609090557-nrhc2to" data-node-id="20210609090557-nrhc2to" data-type="NodeDocument" updated="20210611163128" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">了解 vue composition-api 原理</div><div id="20210611163112-e6oslzy" data-node-id="20210611163112-e6oslzy" data-type="NodeHeading" updated="20210611163115" data-subtype="h2" class="h2"><div>watch</div></div><div id="20210607182256-gt31i7x" data-node-id="20210607182256-gt31i7x" data-type="NodeParagraph" updated="20210609090816" class="p">我对 composition-api 中的 watch 的实现一直很好奇，它到底怎么知道我里面依赖了哪些变量？</div><div id="20210609091346-lmjuqgu" data-node-id="20210609091346-lmjuqgu" data-type="NodeParagraph" updated="20210609091352" class="p">例如下面的代码：</div><div id="20210609091104-hhd3n2i" data-node-id="20210609091104-hhd3n2i" data-type="NodeCodeBlock" updated="20210609094957" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">js</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -42,20 +36,11 @@ setTimeout(()=>{
     msg.value = "7777"
 },1000)
 </div>
-      </div>
-<div id="20210609091356-0vnu9g6" data-node-id="20210609091356-0vnu9g6" data-type="NodeParagraph" updated="20210609095006" class="p">虽然用了这么久的 composition-api 但我从来都不明白 
-<span data-type="code">watchEffect</span>
- 到底是怎么知道 cb 依赖了  msg 的
-</div>
-<div id="20210609091450-7gry6ra" data-node-id="20210609091450-7gry6ra" data-type="NodeParagraph" updated="20210609092324" class="p">我自己猜想的方式有两种：
-</div>
-<div id="20210609091637-6c9pgzr" data-node-id="20210609091637-6c9pgzr" data-type="NodeList" updated="20210609102744" data-subtype="u" class="list"><div id="20210609092328-yusqyqi" data-node-id="20210609092328-yusqyqi" data-type="NodeListItem" updated="20210609102744" data-subtype="u" class="li" data-marker="*">
+      </div><div id="20210609091356-0vnu9g6" data-node-id="20210609091356-0vnu9g6" data-type="NodeParagraph" updated="20210609095006" class="p">虽然用了这么久的 composition-api 但我从来都不明白 <span data-type="code">watchEffect</span> 到底是怎么知道 cb 依赖了  msg 的</div><div id="20210609091450-7gry6ra" data-node-id="20210609091450-7gry6ra" data-type="NodeParagraph" updated="20210609092324" class="p">我自己猜想的方式有两种：</div><div id="20210609091637-6c9pgzr" data-node-id="20210609091637-6c9pgzr" data-type="NodeList" updated="20210609102744" data-subtype="u" class="list"><div id="20210609092328-yusqyqi" data-node-id="20210609092328-yusqyqi" data-type="NodeListItem" updated="20210609102744" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210609092328-368kztn" data-node-id="20210609092328-368kztn" data-type="NodeParagraph" updated="20210609100426" class="p">第一种是直接执行一遍 cb, msg 的 getter 内就能知道 cb 依赖了 msg，但 cb 内如果有 if 之类的逻辑就会漏掉一些变量的依赖
-</div>
-<div id="20210609095724-8q31ott" data-node-id="20210609095724-8q31ott" data-type="NodeCodeBlock" updated="20210609102744" class="code-block">
+      <div id="20210609092328-368kztn" data-node-id="20210609092328-368kztn" data-type="NodeParagraph" updated="20210609100426" class="p">第一种是直接执行一遍 cb, msg 的 getter 内就能知道 cb 依赖了 msg，但 cb 内如果有 if 之类的逻辑就会漏掉一些变量的依赖</div><div id="20210609095724-8q31ott" data-node-id="20210609095724-8q31ott" data-type="NodeCodeBlock" updated="20210609102744" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">ts</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -73,26 +58,12 @@ setTimeout(()=>{
     msg.value = "7777"
 },1000)
 </div>
-      </div>
-<div id="20210609095813-g7yfb9d" data-node-id="20210609095813-g7yfb9d" data-type="NodeParagraph" updated="20210609095929" class="p">像这样的代码在 
-<span data-type="code">1000ms</span>
- 后并不会打印 
-<span data-type="code">msg.value</span>
- 
-</div>
-
-    </div>
-<div id="20210609092331-a5f1j5a" data-node-id="20210609092331-a5f1j5a" data-type="NodeListItem" updated="20210609092629" data-subtype="u" class="li" data-marker="*">
+      </div><div id="20210609095813-g7yfb9d" data-node-id="20210609095813-g7yfb9d" data-type="NodeParagraph" updated="20210609095929" class="p">像这样的代码在 <span data-type="code">1000ms</span> 后并不会打印 <span data-type="code">msg.value</span> </div>
+    </div><div id="20210609092331-a5f1j5a" data-node-id="20210609092331-a5f1j5a" data-type="NodeListItem" updated="20210609092629" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210609092331-mlqvc8e" data-node-id="20210609092331-mlqvc8e" data-type="NodeParagraph" updated="20210609092629" class="p">另一种是获取 cb 的源码来进行分析，执行 
-<span data-type="code">cb.toString()</span>
- 得到 
-<span data-type="code">()=&gt;{ console.log(msg) }</span>
-  就可以看到里面依赖了 msg ，但如果将 cb 改一下
-</div>
-<div id="20210609092122-vmw02bh" data-node-id="20210609092122-vmw02bh" data-type="NodeCodeBlock" updated="20210609092459" class="code-block">
+      <div id="20210609092331-mlqvc8e" data-node-id="20210609092331-mlqvc8e" data-type="NodeParagraph" updated="20210609092629" class="p">另一种是获取 cb 的源码来进行分析，执行 <span data-type="code">cb.toString()</span> 得到 <span data-type="code">()=&gt;{ console.log(msg) }</span>  就可以看到里面依赖了 msg ，但如果将 cb 改一下</div><div id="20210609092122-vmw02bh" data-node-id="20210609092122-vmw02bh" data-type="NodeCodeBlock" updated="20210609092459" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">js</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -104,36 +75,12 @@ const cb = ()=>{
   a()
 } 
 </div>
-      </div>
-<div id="20210609092134-pe09rwe" data-node-id="20210609092134-pe09rwe" data-type="NodeParagraph" updated="20210609092405" class="p">这时候 
-<span data-type="code">cb.toString()</span>
- 得到的是 
-<span data-type="code">()=&gt;{ a() }</span>
- 还是没法知道里面依赖了 msg。
-</div>
-
-    </div>
-</div>
-<div id="20210609092422-q2vkkrm" data-node-id="20210609092422-q2vkkrm" data-type="NodeParagraph" updated="20210609100113" class="p">经过对 
-<span data-type="block-ref"     data-subtype="s"     data-id="20210609095724-8q31ott">
+      </div><div id="20210609092134-pe09rwe" data-node-id="20210609092134-pe09rwe" data-type="NodeParagraph" updated="20210609092405" class="p">这时候 <span data-type="code">cb.toString()</span> 得到的是 <span data-type="code">()=&gt;{ a() }</span> 还是没法知道里面依赖了 msg。</div>
+    </div></div><div id="20210609092422-q2vkkrm" data-node-id="20210609092422-q2vkkrm" data-type="NodeParagraph" updated="20210609100113" class="p">经过对 <span data-type="block-ref"     data-subtype="s"     data-id="20210609095724-8q31ott">
           <a href="./../../../../record/每日总结/2021/doc/了解 vue composition-api 原理.html#20210609095724-8q31ott">此处代码</a>
-  </span>
- 的验证，可以猜测 vue 应该是采用的
-<span data-type="block-ref"     data-subtype="s"     data-id="20210609092328-yusqyqi">
+  </span> 的验证，可以猜测 vue 应该是采用的<span data-type="block-ref"     data-subtype="s"     data-id="20210609092328-yusqyqi">
           <a href="./../../../../record/每日总结/2021/doc/了解 vue composition-api 原理.html#20210609092328-yusqyqi">第一种方案</a>
-  </span>
-，还是去看 
-<a href="https://github.com/vuejs/composition-api">vuejs/composition-api</a>
-  的代码来研究一下吧
-</div>
-<div id="20210609092319-f7tfzyr" data-node-id="20210609092319-f7tfzyr" data-type="NodeHeading" updated="20210609092931" data-subtype="h2" class="h2"><div>正文
-</div></div>
-<div id="20210609092931-xj6xt2l" data-node-id="20210609092931-xj6xt2l" data-type="NodeParagraph" updated="20210609095207" class="p"><span data-type="code">watchEffect</span>
- 的实现在 
-<a href="https://github.com/vuejs/composition-api/blob/d30a45abcc7cda411f97b1987d4fa24765843cf7/src/apis/watch.ts#L368">src/apis/watch.ts#L368</a>
- , 代码如下
-</div>
-<div id="20210609093107-9tybf53" data-node-id="20210609093107-9tybf53" data-type="NodeCodeBlock" updated="20210609095202" class="code-block">
+  </span>，还是去看 <a href="https://github.com/vuejs/composition-api">vuejs/composition-api</a>  的代码来研究一下吧</div><div id="20210609092319-f7tfzyr" data-node-id="20210609092319-f7tfzyr" data-type="NodeHeading" updated="20210609092931" data-subtype="h2" class="h2"><div>正文</div></div><div id="20210609092931-xj6xt2l" data-node-id="20210609092931-xj6xt2l" data-type="NodeParagraph" updated="20210609095207" class="p"><span data-type="code">watchEffect</span> 的实现在 <a href="https://github.com/vuejs/composition-api/blob/d30a45abcc7cda411f97b1987d4fa24765843cf7/src/apis/watch.ts#L368">src/apis/watch.ts#L368</a> , 代码如下</div><div id="20210609093107-9tybf53" data-node-id="20210609093107-9tybf53" data-type="NodeCodeBlock" updated="20210609095202" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">ts</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -147,12 +94,7 @@ const cb = ()=>{
   return createWatcher(vm, effect, null, opts)
 }
 </div>
-      </div>
-<div id="20210609093038-q02fsyj" data-node-id="20210609093038-q02fsyj" data-type="NodeParagraph" updated="20210609094118" class="p">这里没啥好看的，继续看 
-<a href="https://github.com/vuejs/composition-api/blob/d30a45abcc7cda411f97b1987d4fa24765843cf7/src/apis/watch.ts#L205">createWatcher : src/apis/watch.ts#L205</a>
- , 代码如下（精简了代码）
-</div>
-<div id="20210609091020-zwb4kqr" data-node-id="20210609091020-zwb4kqr" data-type="NodeCodeBlock" updated="20210609100844" class="code-block">
+      </div><div id="20210609093038-q02fsyj" data-node-id="20210609093038-q02fsyj" data-type="NodeParagraph" updated="20210609094118" class="p">这里没啥好看的，继续看 <a href="https://github.com/vuejs/composition-api/blob/d30a45abcc7cda411f97b1987d4fa24765843cf7/src/apis/watch.ts#L205">createWatcher : src/apis/watch.ts#L205</a> , 代码如下（精简了代码）</div><div id="20210609091020-zwb4kqr" data-node-id="20210609091020-zwb4kqr" data-type="NodeCodeBlock" updated="20210609100844" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">ts</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -184,19 +126,7 @@ const cb = ()=>{
    })
 }
 </div>
-      </div>
-<div id="20210609100852-sn921id" data-node-id="20210609100852-sn921id" data-type="NodeParagraph" updated="20210609101050" class="p">这里可以看到 16行的 
-<span data-type="code">(source as WatchEffect)(registerCleanup)</span>
- 基本验证了猜测，继续看 
-<a href="https://github.com/vuejs/composition-api/blob/d30a45abcc7cda411f97b1987d4fa24765843cf7/src/apis/watch.ts#L170">createVueWatcher : src/apis/watch.ts#L170</a>
- 
-</div>
-<div id="20210609101048-gej1egg" data-node-id="20210609101048-gej1egg" data-type="NodeParagraph" updated="20210609135802" class="p"><a href="https://www.typescriptlang.org/zh/play?#code/DYUwLgBAJiAOBcEBKIBmAeArgOwNbYHsB3bAPgG0BdCAXgioFgAoAYwOwGdIZYAZASzy0I2EEQgB1EAENcAWWmx0KDDnzEyAGggBlcOgBiOFmH7tSpABQBKZszABPWCGRp0AFVLCA3hABu0sCYIIjuEAC+zKjGpuwQAE5unpZ+odaIKh5e3swQeRCgkAFBLnR+ANy5+YlgmPHYEDlM+S0QHOD+gcEpaY1Vra3FwcJ+-QP5bJyQLABGAlzCPAJ4AHQA5uCWYAAW-By2zeMt-KgQlrPzYNZ9h0cDF3tgK6gE8QCi0izb5zO0XrM2A53fKRW6tcKaMYtDZFLogGyhG7AvI8FawTAcb47PZA5E1OoNIYgKEgsag0FRGJmBpsAC26LAICgWUsMMZ8UQNj+EHc6VcGE8SIm7AWROEbJA8RsY0mCzpDKZKmEiVQKThuJRcGerw+X0sPG5TSOhQgDwWdCWglw602PA1rROZwAhGarkLga7hKJxHowNKwUdLat2n6eNpXfaWqCjq6VtIoFBLFyaNkSfcCPTMIyoCoVmK6BKpZGQfbwvaDXRGGD8fVTRmFTm0MwKawRZBpMq0JYAMwHWXTDt0eVZplJ64p911zgEUArYAENaWaR59VjGsNZdE5sHZgh9z8WkgAhZseGsabuHCADsze0AEYAAxPg57g9Hk-J1Ngi8lYQADhlEUZxAOcF3OH9ggOCEIAAJifB8X3AABJbB2WKU8JyNfIIJAABqXDbwgbt4OsIA">https://www.typescriptlang.org/zh/play?#code/DYUwLgBAJiAOBcEBKIBmAeArgOwNbYHsB3bAPgG0BdCAXgioFgAoAYwOwGdIZYAZASzy0I2EEQgB1EAENcAWWmx0KDDnzEyAGggBlcOgBiOFmH7tSpABQBKZszABPWCGRp0AFVLCA3hABu0sCYIIjuEAC+zKjGpuwQAE5unpZ+odaIKh5e3swQeRCgkAFBLnR+ANy5+YlgmPHYEDlM+S0QHOD+gcEpaY1Vra3FwcJ+-QP5bJyQLABGAlzCPAJ4AHQA5uCWYAAW-By2zeMt-KgQlrPzYNZ9h0cDF3tgK6gE8QCi0izb5zO0XrM2A53fKRW6tcKaMYtDZFLogGyhG7AvI8FawTAcb47PZA5E1OoNIYgKEgsag0FRGJmBpsAC26LAICgWUsMMZ8UQNj+EHc6VcGE8SIm7AWROEbJA8RsY0mCzpDKZKmEiVQKThuJRcGerw+X0sPG5TSOhQgDwWdCWglw602PA1rROZwAhGarkLga7hKJxHowNKwUdLat2n6eNpXfaWqCjq6VtIoFBLFyaNkSfcCPTMIyoCoVmK6BKpZGQfbwvaDXRGGD8fVTRmFTm0MwKawRZBpMq0JYAMwHWXTDt0eVZplJ64p911zgEUArYAENaWaR59VjGsNZdE5sHZgh9z8WkgAhZseGsabuHCADsze0AEYAAxPg57g9Hk-J1Ngi8lYQADhlEUZxAOcF3OH9ggOCEIAAJifB8X3AABJbB2WKU8JyNfIIJAABqXDbwgbt4OsIA</a>
- 
-</div>
-<div id="20210611163123-1u8q1dq" data-node-id="20210611163123-1u8q1dq" data-type="NodeParagraph" updated="20210611163128" class="p">未完待续
-</div>
-
+      </div><div id="20210609100852-sn921id" data-node-id="20210609100852-sn921id" data-type="NodeParagraph" updated="20210609101050" class="p">这里可以看到 16行的 <span data-type="code">(source as WatchEffect)(registerCleanup)</span> 基本验证了猜测，继续看 <a href="https://github.com/vuejs/composition-api/blob/d30a45abcc7cda411f97b1987d4fa24765843cf7/src/apis/watch.ts#L170">createVueWatcher : src/apis/watch.ts#L170</a> </div><div id="20210609101048-gej1egg" data-node-id="20210609101048-gej1egg" data-type="NodeParagraph" updated="20210609135802" class="p"><a href="https://www.typescriptlang.org/zh/play?#code/DYUwLgBAJiAOBcEBKIBmAeArgOwNbYHsB3bAPgG0BdCAXgioFgAoAYwOwGdIZYAZASzy0I2EEQgB1EAENcAWWmx0KDDnzEyAGggBlcOgBiOFmH7tSpABQBKZszABPWCGRp0AFVLCA3hABu0sCYIIjuEAC+zKjGpuwQAE5unpZ+odaIKh5e3swQeRCgkAFBLnR+ANy5+YlgmPHYEDlM+S0QHOD+gcEpaY1Vra3FwcJ+-QP5bJyQLABGAlzCPAJ4AHQA5uCWYAAW-By2zeMt-KgQlrPzYNZ9h0cDF3tgK6gE8QCi0izb5zO0XrM2A53fKRW6tcKaMYtDZFLogGyhG7AvI8FawTAcb47PZA5E1OoNIYgKEgsag0FRGJmBpsAC26LAICgWUsMMZ8UQNj+EHc6VcGE8SIm7AWROEbJA8RsY0mCzpDKZKmEiVQKThuJRcGerw+X0sPG5TSOhQgDwWdCWglw602PA1rROZwAhGarkLga7hKJxHowNKwUdLat2n6eNpXfaWqCjq6VtIoFBLFyaNkSfcCPTMIyoCoVmK6BKpZGQfbwvaDXRGGD8fVTRmFTm0MwKawRZBpMq0JYAMwHWXTDt0eVZplJ64p911zgEUArYAENaWaR59VjGsNZdE5sHZgh9z8WkgAhZseGsabuHCADsze0AEYAAxPg57g9Hk-J1Ngi8lYQADhlEUZxAOcF3OH9ggOCEIAAJifB8X3AABJbB2WKU8JyNfIIJAABqXDbwgbt4OsIA">https://www.typescriptlang.org/zh/play?#code/DYUwLgBAJiAOBcEBKIBmAeArgOwNbYHsB3bAPgG0BdCAXgioFgAoAYwOwGdIZYAZASzy0I2EEQgB1EAENcAWWmx0KDDnzEyAGggBlcOgBiOFmH7tSpABQBKZszABPWCGRp0AFVLCA3hABu0sCYIIjuEAC+zKjGpuwQAE5unpZ+odaIKh5e3swQeRCgkAFBLnR+ANy5+YlgmPHYEDlM+S0QHOD+gcEpaY1Vra3FwcJ+-QP5bJyQLABGAlzCPAJ4AHQA5uCWYAAW-By2zeMt-KgQlrPzYNZ9h0cDF3tgK6gE8QCi0izb5zO0XrM2A53fKRW6tcKaMYtDZFLogGyhG7AvI8FawTAcb47PZA5E1OoNIYgKEgsag0FRGJmBpsAC26LAICgWUsMMZ8UQNj+EHc6VcGE8SIm7AWROEbJA8RsY0mCzpDKZKmEiVQKThuJRcGerw+X0sPG5TSOhQgDwWdCWglw602PA1rROZwAhGarkLga7hKJxHowNKwUdLat2n6eNpXfaWqCjq6VtIoFBLFyaNkSfcCPTMIyoCoVmK6BKpZGQfbwvaDXRGGD8fVTRmFTm0MwKawRZBpMq0JYAMwHWXTDt0eVZplJ64p911zgEUArYAENaWaR59VjGsNZdE5sHZgh9z8WkgAhZseGsabuHCADsze0AEYAAxPg57g9Hk-J1Ngi8lYQADhlEUZxAOcF3OH9ggOCEIAAJifB8X3AABJbB2WKU8JyNfIIJAABqXDbwgbt4OsIA</a> </div><div id="20210611163123-1u8q1dq" data-node-id="20210611163123-1u8q1dq" data-type="NodeParagraph" updated="20210611163128" class="p">未完待续</div>
   </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
