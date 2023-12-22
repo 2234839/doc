@@ -22,7 +22,77 @@
 <body>
   
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20231008155907" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;"></div><div id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20231008155907" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" data-type="NodeHeading" class="h1">最近更新.rss.xml</div><div id="20210606154842-jah9dt8" data-node-id="20210606154842-jah9dt8" data-type="NodeBlockQueryEmbed" updated="20231008155907" style="height: 9183px;" data-type="NodeBlockquote" class="bq"><div id="20231222130701-7a9nzao" data-node-id="20231222130701-7a9nzao" data-type="NodeHeading" updated="20231222131203" data-subtype="h3" class="h3"><div><a href="https://music.163.com/#/song?id=1467948307">青梅逝</a>  <span data-type="text" style="color: var(--b3-font-color1); font-size: 15px;">电影《妙先生》插曲</span></div></div>
+  <div style="min-height: 150px;" id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20231008155907" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;"></div><div id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20231008155907" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" data-type="NodeHeading" class="h1">最近更新.rss.xml</div><div id="20210606154842-jah9dt8" data-node-id="20210606154842-jah9dt8" data-type="NodeBlockQueryEmbed" updated="20231008155907" style="height: 9183px;" data-type="NodeBlockquote" class="bq"><div id="20231216162315-q7kbi5o" data-node-id="20231216162315-q7kbi5o" data-type="NodeHeading" updated="20231222132522" data-subtype="h2" class="h2"><div>阿里云函数计算被刷的可能性测试</div></div>
+<div id="20231216155708-syrex9a" data-node-id="20231216155708-syrex9a" data-type="NodeParagraph" updated="20231216155755" class="p">由于一些 oss 被刷几万块钱的惨剧，我将oss的公共读全关了，然后又思考函数计算被刷的可能性</div>
+<div id="20231216155756-g3fa8lm" data-node-id="20231216155756-g3fa8lm" data-type="NodeParagraph" updated="20231216155826" class="p">于是设置了并发度上限，进行一次测试。结果如下</div>
+<div id="20231216155706-j21ur1k" data-node-id="20231216155706-j21ur1k" data-type="NodeParagraph" updated="20231216163600" class="p">​<span data-type="NodeImage" class="img" style="undefined"
+      ><img
+        src="./../../assets/image-20231216155706-cvwoop4.png"
+        data-src="./../../assets/image-20231216155706-cvwoop4.png"
+        title=""
+        style="undefined"
+        loading="lazy"
+      /><span class="protyle-action__title"></span></span
+    >​</div>
+<div id="20231216155827-xdvtvuc" data-node-id="20231216155827-xdvtvuc" data-type="NodeParagraph" updated="20231216155917" class="p">从测试可以看到函数计算通过流控使得在 10s 内的 4.51 万次请求只成功了大概 0.01万次</div>
+<div id="20231216155942-ydxkg6v" data-node-id="20231216155942-ydxkg6v" data-type="NodeParagraph" updated="20231216163235" class="p">下面是测试工具的数据，从两个数据来看一个函数实例单实例并发也为1，0.05vcpu的情况下10秒只处理了127个hello world请求。其余4.5万个都被拦截了。</div>
+<div id="20231216155938-oxp060k" data-node-id="20231216155938-oxp060k" data-type="NodeCodeBlock" updated="20231216160025" class="code-block" style="line-height: 22px;">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">abap</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">Statistics        Avg      Stdev        Max
+  Reqs/sec      4485.25    2199.12    9523.92
+  Latency       44.48ms    92.30ms      2.11s
+  Latency Distribution
+     50%    32.95ms
+     75%    36.26ms
+     90%    41.48ms
+     95%    50.39ms
+     99%   288.46ms
+  HTTP codes:
+    1xx - 0, 2xx - 127, 3xx - 0, 4xx - 44974, 5xx - 0
+    others - 0
+  Throughput:     2.99MB/s
+</div>
+      </div>
+<div id="20231216162605-g0w42pf" data-node-id="20231216162605-g0w42pf" data-type="NodeParagraph" updated="20231216162902" class="p">函数计算目前还是不用很担心被人恶意刷出高额账单。但还是建议大家适量配置并发度，做好报警，如果确实是真实用户流量，视情况上调并发即可，像我这种玩票性质的就直接低并发就行了。</div>
+<div id="20231216162520-y3s8ipr" data-node-id="20231216162520-y3s8ipr" data-type="NodeParagraph" updated="20231216163200" class="p">顺便配一个 1vcpu 1G 内存 单实例 200 并发度（最高只能设置200）的测试：</div>
+<div id="20231216162551-azhsl9s" data-node-id="20231216162551-azhsl9s" data-type="NodeCodeBlock" updated="20231216163146" class="code-block" style="line-height: 22px;">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">abap</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">  Reqs/sec      1689.51    1850.40    8723.94
+  Latency      118.41ms    52.92ms      2.21s
+  Latency Distribution
+     50%   106.20ms
+     75%   125.09ms
+     90%   169.06ms
+     95%   186.76ms
+     99%   391.65ms
+  HTTP codes:
+    1xx - 0, 2xx - 17117, 3xx - 0, 4xx - 1, 5xx - 0
+    others - 0
+  Throughput:     1.38MB/s</div>
+      </div>
+<div id="20231222132425-qeqd3nx" data-node-id="20231222132425-qeqd3nx" data-type="NodeParagraph" updated="20231222132425" class="p">​<span data-type="NodeImage" class="img" parent-style="width: 505px;" style="width: 495px;" style="width: 505px;"
+      ><img
+        src="./../../assets/Screenshot_2023-12-22-13-22-22-636_com.alibaba.android.rimet-20231222132425-vdpje77.jpg"
+        data-src="./../../assets/Screenshot_2023-12-22-13-22-22-636_com.alibaba.android.rimet-20231222132425-vdpje77.jpg"
+        title=""
+        style="width: 495px;"
+        loading="lazy"
+      /><span class="protyle-action__title"></span></span
+    >​</div><div id="20231222132425-qeqd3nx" data-node-id="20231222132425-qeqd3nx" data-type="NodeParagraph" updated="20231222132425" class="p">​<span data-type="NodeImage" class="img" parent-style="width: 505px;" style="width: 495px;" style="width: 505px;"
+      ><img
+        src="./../../assets/Screenshot_2023-12-22-13-22-22-636_com.alibaba.android.rimet-20231222132425-vdpje77.jpg"
+        data-src="./../../assets/Screenshot_2023-12-22-13-22-22-636_com.alibaba.android.rimet-20231222132425-vdpje77.jpg"
+        title=""
+        style="width: 495px;"
+        loading="lazy"
+      /><span class="protyle-action__title"></span></span
+    >​</div><div id="20231222130701-7a9nzao" data-node-id="20231222130701-7a9nzao" data-type="NodeHeading" updated="20231222131203" data-subtype="h3" class="h3"><div><a href="https://music.163.com/#/song?id=1467948307">青梅逝</a>  <span data-type="text" style="color: var(--b3-font-color1); font-size: 15px;">电影《妙先生》插曲</span></div></div>
  <div id="20231222125920-gpig588" data-node-id="20231222125920-gpig588" data-type="NodeIFrame" updated="20231222130716" class="iframe">
     <div class="iframe-content">
     <iframe sandbox="allow-forms allow-presentation allow-same-origin allow-scripts allow-modals" src="https://music.163.com/outchain/player?type=2&amp;id=1467948307&amp;auto=1&amp;height=66" data-src="" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 561px; height: 86px;"></iframe>
@@ -744,17 +814,7 @@ ORDER BY created DESC
       </div>
       <div id="20231222100419-8s5qhr4" data-node-id="20231222100419-8s5qhr4" data-type="NodeParagraph" updated="20231222100419" class="p">updated:2023-12-22T01:57:40Z</div>
     </div></div><div id="20231222100419-06lz53y" data-node-id="20231222100419-06lz53y" data-type="NodeBlockquote" updated="20231222100419" class="bq"><div id="20231222100419-0tezhmj" data-node-id="20231222100419-0tezhmj" data-type="NodeParagraph" updated="20231222100419" class="p">这里记录每周值得分享的科技内容，周五发布。...</div></div><div id="20231222103812-rzrgr1h" data-node-id="20231222103812-rzrgr1h" data-type="NodeBlockquote" updated="20231222104651" class="bq" style="background-color: var(--b3-font-background7);"><div id="20231222104651-3z6gbpn" data-node-id="20231222104651-3z6gbpn" data-type="NodeParagraph" updated="20231222104651" class="p">基于谷歌ai的对话demo： https://geminiprochat.com/</div></div>
-    </div><div id="20231222104651-3z6gbpn" data-node-id="20231222104651-3z6gbpn" data-type="NodeParagraph" updated="20231222104651" class="p">基于谷歌ai的对话demo： https://geminiprochat.com/</div><div id="20231222103812-rzrgr1h" data-node-id="20231222103812-rzrgr1h" data-type="NodeBlockquote" updated="20231222104651" class="bq" style="background-color: var(--b3-font-background7);"><div id="20231222104651-3z6gbpn" data-node-id="20231222104651-3z6gbpn" data-type="NodeParagraph" updated="20231222104651" class="p">基于谷歌ai的对话demo： https://geminiprochat.com/</div></div><div id="20231221204913-lbmu3bh" data-node-id="20231221204913-lbmu3bh" data-type="NodeList" updated="20231222103118" data-subtype="t" class="list"><div id="20231221204913-98bocgy" data-node-id="20231221204913-98bocgy" data-type="NodeListItem" updated="20231222103118" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <div id="20231221204913-2r5n644" data-node-id="20231221204913-2r5n644" data-type="NodeHeading" updated="20231221204913" data-subtype="h6" class="h6"><div><a href="https://lyn.one/2020/09/09/rust-napi/">用 Rust 和 N-API 开发高性能 Node.js 扩展</a></div></div><div id="20231221204913-3a1cee3" data-node-id="20231221204913-3a1cee3" data-type="NodeList" updated="20231221204913" data-subtype="u" class="list"><div id="20231221204913-lei8piq" data-node-id="20231221204913-lei8piq" data-type="NodeListItem" updated="20231221204913" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231221204913-fnaun0s" data-node-id="20231221204913-fnaun0s" data-type="NodeParagraph" updated="20231221204913" class="p">published:September 11, 2020</div>
-    </div></div><div id="20231221204913-zs622sm" data-node-id="20231221204913-zs622sm" data-type="NodeBlockquote" updated="20231221204913" class="bq"><div id="20231221204913-7gle2b8" data-node-id="20231221204913-7gle2b8" data-type="NodeParagraph" updated="20231221204913" class="p">Node.js native addon，过去和现状 在 Node.js 的历史中，native addon 一直是一个冷门但是重要的领域。无论是前端工程师还是 Node.js 开发，都或多或少的依赖一些 native addon…</div></div>
-    </div></div></div><div id="20210606160324-57c0iql" data-node-id="20210606160324-57c0iql" data-type="NodeParagraph" updated="20230924170522" class="p"></div>
+    </div><div id="20231222104651-3z6gbpn" data-node-id="20231222104651-3z6gbpn" data-type="NodeParagraph" updated="20231222104651" class="p">基于谷歌ai的对话demo： https://geminiprochat.com/</div></div><div id="20210606160324-57c0iql" data-node-id="20210606160324-57c0iql" data-type="NodeParagraph" updated="20230924170522" class="p"></div>
   </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
