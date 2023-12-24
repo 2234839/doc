@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>使用prisma studio链接任何server</title>
+</head>
+<body>
+  
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div style="min-height: 150px;" id="20231224203440-qyuvf3m" data-node-id="20231224203440-qyuvf3m" data-type="NodeDocument" updated="20231224213313" data-subtype="h1" class="h1"></div><div id="20231224203440-qyuvf3m" data-node-id="20231224203440-qyuvf3m" data-type="NodeDocument" updated="20231224213313" data-subtype="h1" class="h1" data-type="NodeHeading" class="h1">使用prisma studio链接任何server</div><div id="20231224203501-wi97b3a" data-node-id="20231224203501-wi97b3a" data-type="NodeParagraph" class="p"></div><div id="20231224203440-ouk2gr1" data-node-id="20231224203440-ouk2gr1" data-type="NodeParagraph" updated="20231224203524" class="p">当我<span data-type="block-ref"     data-subtype="d"     data-id="20231223132619-pult0qj">
+          <a href="./../../工具/prisma/在serverless中使用prisma.html#20231223132619-pult0qj">在serverless中使用prisma</a>
+  </span>成功后</div><div id="20231224203524-5fhgdvy" data-node-id="20231224203524-5fhgdvy" data-type="NodeParagraph" updated="20231224203555" class="p">理所当然的我想让 prisma studio 连接到我位于 serverless 中的服务</div><div id="20231224203556-nidlpik" data-node-id="20231224203556-nidlpik" data-type="NodeParagraph" updated="20231224203916" class="p">当我在互联网搜索 prisma studio remote sqlite 时，我没有找到合适的方案</div><div id="20231224203626-etw3oi3" data-node-id="20231224203626-etw3oi3" data-type="NodeParagraph" updated="20231224203928" class="p">和我同样想法的问题： <a href="https://community.fly.io/t/expose-sqlite-db-to-external-orm-connections/8300">https://community.fly.io/t/expose-sqlite-db-to-external-orm-connections/8300</a></div><div id="20231224203918-b50fokg" data-node-id="20231224203918-b50fokg" data-type="NodeParagraph" updated="20231224203918" class="p"></div><div id="20231224203750-huxw6e8" data-node-id="20231224203750-huxw6e8" data-type="NodeParagraph" updated="20231224204048" class="p">所以我决定自己实现一个，得益于 prisma studio 所使用的api接口之简易，比我想象中花的时间更少（可能一个小时？）</div><div id="20231224204049-ra6113x" data-node-id="20231224204049-ra6113x" data-type="NodeParagraph" updated="20231224204105" class="p">下面分享我的具体做法:</div><div id="20231224204108-fu2of6q" data-node-id="20231224204108-fu2of6q" data-type="NodeParagraph" updated="20231224204108" class="p"></div><div id="20231224204112-5bfs3eg" data-node-id="20231224204112-5bfs3eg" data-type="NodeList" updated="20231224212222" data-subtype="o" class="list"><div id="20231224212222-2crenk3" data-node-id="20231224212222-2crenk3" data-type="NodeListItem" updated="20231224212222" data-subtype="o" class="li" data-marker="1.">
+      <div class="protyle-action">
+        1.
+      </div>
+      <div id="20231224212222-a54xj1c" data-node-id="20231224212222-a54xj1c" data-type="NodeParagraph" updated="20231224212222" class="p">首先，在本地的开发项目中启动 prisma studio</div>
+    </div></div><div id="20231224204147-s0qynof" data-node-id="20231224204147-s0qynof" data-type="NodeParagraph" updated="20231224204147" class="p">​<span data-type="NodeImage" class="img" style="undefined"
+      ><img
+        src="./../../assets/image-20231224204147-1836urr.png"
+        data-src="./../../assets/image-20231224204147-1836urr.png"
+        title=""
+        style="undefined"
+        loading="lazy"
+      /><span class="protyle-action__title"></span></span
+    >​</div><div id="20231224203800-qi14tqq" data-node-id="20231224203800-qi14tqq" data-type="NodeList" updated="20231224212219" data-subtype="o" class="list"><div id="20231224212219-ftgmp2n" data-node-id="20231224212219-ftgmp2n" data-type="NodeListItem" updated="20231224212219" data-subtype="o" class="li" data-marker="2.">
+      <div class="protyle-action">
+        2.
+      </div>
+      <div id="20231224212219-iku9irh" data-node-id="20231224212219-iku9irh" data-type="NodeParagraph" updated="20231224212219" class="p">通过一个小巧的 js 代码片段，将浏览器客户端请求转发到远程服务器</div>
+    </div></div><div id="20231224212936-9ogx5pw" data-node-id="20231224212936-9ogx5pw" data-type="NodeParagraph" updated="20231224212950" class="p"><a href="https://gist.github.com/2234839/b9b3fa6bd20a49b4da884357ce6f9523">https://gist.github.com/2234839/b9b3fa6bd20a49b4da884357ce6f9523</a></div><div id="20231224204236-kuceefg" data-node-id="20231224204236-kuceefg" data-type="NodeCodeBlock" updated="20231224212212" class="code-block" style="line-height: 22px;">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">js</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">// 请求拦截.js
+(() => {
+  const rqwFetch = globalThis.fetch;
+  globalThis.fetch = async (...arg) => {
+    const [url, init] = arg;
+    const payload = JSON.parse(init.body);
+    if (
+      url.toString().endsWith("/api") &&
+      payload.channel === "prisma" &&
+      payload.action === "clientRequest"
+    ) {
+      return rqwFetch("https://shenzilong.cn/studio_server/api", init);
+    } else {
+      return rqwFetch(...arg);
+    }
+  };
+})();
+</div>
+      </div><div id="20231224203519-qxsearh" data-node-id="20231224203519-qxsearh" data-type="NodeList" updated="20231224212239" data-subtype="o" class="list"><div id="20231224212227-0q67xpz" data-node-id="20231224212227-0q67xpz" data-type="NodeListItem" updated="20231224212239" data-subtype="o" class="li" data-marker="3.">
+      <div class="protyle-action">
+        3.
+      </div>
+      <div id="20231224212227-qg3pdo3" data-node-id="20231224212227-qg3pdo3" data-type="NodeParagraph" updated="20231224212239" class="p">然后在后端实现对应的接口</div>
+    </div></div><div id="20231224212249-01nn1r5" data-node-id="20231224212249-01nn1r5" data-type="NodeCodeBlock" updated="20231224212403" class="code-block" style="line-height: 22px;">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">ts</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">app.post(api_path, async (c) => {
+  const req = await c.req.json();
+  const [payload, resHelper] = reqParser(req);
+
+  const r = await execClientRequest(payload.data)
+  return c.json(resHelper(r, null));
+});
+interface queries {
+  schemaHash: string;
+  modelName: "Proxy_api";
+  operation: "count";
+  args?: {
+    take: 100;
+    skip: 0;
+    select: { id: true; Wallet_id: true; Wallet: true; createdAt: true; updatedAt: true };
+  };
+}
+interface payload {
+  data:
+    | {
+        schemaHash: string;
+        operation: "$transaction";
+        queries: queries[];
+      }
+    | queries;
+}
+async function execClientRequest(op: payload["data"]) {
+  if (op.operation == "$transaction") {
+    const { queries } = op;
+    const actions = queries.map(execQueries);
+    const r = await prisma.$transaction(actions);
+    return r;
+  } else if (["findMany", "count", "update"].includes(op.operation)) {
+    return execQueries(op);
+  }
+  function execQueries(op: queries) {
+    return prisma[toLowerCase(op.modelName) as /** 类型欺骗 */ "wallet"][op.operation](op.args);
+  }
+}
+function toLowerCase(str: string): string {
+  return str.toLowerCase();
+}
+function reqParser(req: any) {
+  const { requestId, action, payload } = req;
+  return [
+    payload as payload,
+    (data: any, error: any) => {
+      return {
+        requestId,
+        channel: "-prisma",
+        action,
+        payload: { error, data },
+      };
+    },
+  ] as const;
+}
+</div>
+      </div><div id="20231224213140-fd3lrkz" data-node-id="20231224213140-fd3lrkz" data-type="NodeParagraph" updated="20231224213249" class="p">稍微测了一下增删改查，一点毛病没有，如果我使用过程中遇到其他问题我会更新 gist 中的代码片段</div><div id="20231224213313-9eikfp0" data-node-id="20231224213313-9eikfp0" data-type="NodeBlockQueryEmbed" updated="20231224213313" data-type="NodeBlockquote" class="bq"><div id="20231224212936-9ogx5pw" data-node-id="20231224212936-9ogx5pw" data-type="NodeParagraph" updated="20231224212950" class="p"><a href="https://gist.github.com/2234839/b9b3fa6bd20a49b4da884357ce6f9523">https://gist.github.com/2234839/b9b3fa6bd20a49b4da884357ce6f9523</a></div></div><div id="20231224213135-8riavg1" data-node-id="20231224213135-8riavg1" data-type="NodeParagraph" updated="20231224213135" class="p">​<span data-type="NodeImage" class="img" style="undefined"
+      ><img
+        src="./../../assets/image-20231224213135-gd11un3.png"
+        data-src="./../../assets/image-20231224213135-gd11un3.png"
+        title=""
+        style="undefined"
+        loading="lazy"
+      /><span class="protyle-action__title"></span></span
+    >​</div>
+  </div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <footer>
+<p style="text-align:center;margin:15px 0;">
+  技术支持：
+  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+</p>
+</footer>
+</body>
+</html>
