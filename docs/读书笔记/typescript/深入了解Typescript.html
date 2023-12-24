@@ -8,15 +8,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>深入了解Typescript</title>
 </head>
 <body>
@@ -34,9 +34,9 @@
       <div id="20210521142715-c2r5avz" data-node-id="20210521142715-c2r5avz" data-type="NodeParagraph" class="p">tags:typescript，读书</div>
     </div></div><div id="20210521142715-4wk1ogv" data-node-id="20210521142715-4wk1ogv" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210521142715-f6v851i" data-node-id="20210521142715-f6v851i" data-type="NodeParagraph" class="p"><a href="https://jkchao.github.io/typescript-book-chinese/#why"> 《深入理解 TypeScript 》</a></div><div id="20210521142715-zht28sl" data-node-id="20210521142715-zht28sl" data-type="NodeParagraph" class="p"><a href="https://dev.tencent.com/u/sheng_gu/p/js_util/git/tree/master/ts-type">我写的一个工具模块其中关于类型方面的</a> <a href="https://dev.tencent.com/u/sheng_gu/p/js_util/git/blob/master/adap/cb-promise.ts">我觉得写的还可以的一个方法</a></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -55,7 +55,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

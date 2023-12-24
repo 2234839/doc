@@ -8,15 +8,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>readme</title>
 </head>
 <body>
@@ -34,9 +34,9 @@
       <div id="20210521142715-yfafixc" data-node-id="20210521142715-yfafixc" data-type="NodeParagraph" class="p">tags:vue</div>
     </div></div><div id="20210521142715-x0eeo88" data-node-id="20210521142715-x0eeo88" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20201123170136-gb1ojtf" data-node-id="20201123170136-gb1ojtf" data-type="NodeHeading" data-subtype="h2" class="h2"><div>style</div></div><div id="20201123170136-xm9ju5s" data-node-id="20201123170136-xm9ju5s" data-type="NodeParagraph" class="p"><a href="https://vue-loader-v14.vuejs.org/zh-cn/features/scoped-css.html">关于样式的作用域 可以通过 /deep/ 来让样式在子组件中生效</a></div><div id="20201123170136-abak97o" data-node-id="20201123170136-abak97o" data-type="NodeHeading" data-subtype="h2" class="h2"><div><span data-type="tag">vue</span> 和 ts 一起使用的一些问题</div></div><div id="20201123170136-1s8ftap" data-node-id="20201123170136-1s8ftap" data-type="NodeBlockquote" class="bq"><div id="20201123170136-3o7ebbm" data-node-id="20201123170136-3o7ebbm" data-type="NodeParagraph" class="p">计算属性中报 类型“CombinedVueInstance<Vue, unknown, unknown, unknown, Readonly<Record<never, any>>>”上不存在属性“XXXX”</div></div><div id="20201123170136-cc7ef5m" data-node-id="20201123170136-cc7ef5m" data-type="NodeParagraph" class="p"><span data-type="mark">这个是因为vue要求必须给计算属性中的函数手动标注返回值类型</span></div><div id="20201123170136-xo879vc" data-node-id="20201123170136-xo879vc" data-type="NodeHeading" data-subtype="h2" class="h2"><div>修改属性后没有触发视图或者计算属性等更新</div></div><div id="20201123170136-180dovo" data-node-id="20201123170136-180dovo" data-type="NodeParagraph" class="p">这个多半是因为你修改的对象原本没有这个属性，因为目前 vue 使用 Object.defineProperty 实现数据的响应式，而这个方法不可能监听到任意属性的修改，所以需要先使用 Vue.set 将相关属性设置为响应式。 也许以后 vue 使用 proxy 实现的时候就不用管这个问题了</div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -55,7 +55,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

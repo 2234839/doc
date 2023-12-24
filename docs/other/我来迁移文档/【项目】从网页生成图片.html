@@ -8,15 +8,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>【项目】从网页生成图片</title>
 </head>
 <body>
@@ -91,9 +91,9 @@
     </div><div id="20210523141750-5e0u1k9" data-node-id="20210523141750-5e0u1k9" data-type="NodeParagraph" updated="20210523141750" class="p"><a href="https://www.iloveimg.com/zh-cn/html-to-image">iloveimg</a> ❌</div><div id="20210523141750-zazpasm" data-node-id="20210523141750-zazpasm" data-type="NodeParagraph" updated="20210523141750" class="p">功能不多</div><div id="20210523142301-ly63w51" data-node-id="20210523142301-ly63w51" data-type="NodeParagraph" updated="20210523142301" class="p">
 </div><div id="20210523141750-ukpe7oe" data-node-id="20210523141750-ukpe7oe" data-type="NodeParagraph" updated="20210523141750" class="p">还有一些其他的，和上面两个一样不怎么样，他们仅仅是从网页生成图，没想过这个能用来干什么</div><div id="20210523141750-rdafitw" data-node-id="20210523141750-rdafitw" data-type="NodeParagraph" updated="20210523141750" class="p"><a href="https://developers.google.com/speed/docs/insights/v5/get-started">谷歌页面截图服务</a></div><div id="20210523141750-aad8gzr" data-node-id="20210523141750-aad8gzr" data-type="NodeParagraph" updated="20210523141750" class="p"><a href="https://github.com/fzaninotto/screenshot-as-a-service">https://github.com/fzaninotto/screenshot-as-a-service</a> （一个node.js 的服务，已经实现了我想要的部分功能，如果需要开发一个的话应该要基于这个来做）</div><div id="20210523141750-fa06vxw" data-node-id="20210523141750-fa06vxw" data-type="NodeHeading" updated="20210523141750" data-subtype="h2" class="h2"><div>资源</div></div><div id="20210523141750-rrvx9m0" data-node-id="20210523141750-rrvx9m0" data-type="NodeParagraph" updated="20210523141750" class="p"><a href="https://www.zhihu.com/question/20368029">有哪些在服务器端给网页截图的办法？</a></div><div id="20210523141750-l4a0ovk" data-node-id="20210523141750-l4a0ovk" data-type="NodeParagraph" updated="20210523141750" class="p"><a href="https://github.com/puppeteer/puppeteer">https://github.com/puppeteer/puppeteer</a> 一个无头浏览器</div><div id="20210523142313-rpi7ani" data-node-id="20210523142313-rpi7ani" data-type="NodeParagraph" updated="20210523142313" class="p"></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -112,7 +112,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

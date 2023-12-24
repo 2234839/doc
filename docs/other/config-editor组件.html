@@ -8,15 +8,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>config-editor组件</title>
 </head>
 <body>
@@ -51,9 +51,9 @@
       <div id="20210401175120-2qzkxh9" data-node-id="20210401175120-2qzkxh9" data-type="NodeParagraph" updated="20210401175146" class="p">有公共的配置以及个体的配置</div>
     </div></div><div id="20210401174640-y4l8nty" data-node-id="20210401174640-y4l8nty" data-type="NodeHeading" updated="20210401174735" data-subtype="h2" class="h2"><div>项目相关( 开发中 )</div></div><div id="20210401174655-79v956s" data-node-id="20210401174655-79v956s" data-type="NodeParagraph" updated="20210401175019" class="p"><a href="https://github.com/2234839/vue-demo/tree/master/src/components/config-editor">github repo</a>   在线尝试地址：<a href="https://2234839.github.io/vue-demo/?template_name=Y29uZmlnLWVkaXRvcg%3D%3D">崮生 vue_demo-config_editor (2234839.github.io)</a></div><div id="20210401171808-x2huun8" data-node-id="20210401171808-x2huun8" data-type="NodeParagraph" class="p"></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -72,7 +72,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

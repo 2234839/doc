@@ -8,15 +8,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>关于下一代设计软件的思考</title>
 </head>
 <body>
@@ -48,9 +48,9 @@
       <div id="20210329135448-i3adghb" data-node-id="20210329135448-i3adghb" data-type="NodeParagraph" updated="20210329135717" class="p">出入场动画​出入场动画其实是比较好处理的。但是跟状态相关的就不好处理了，还是得靠代码</div>
     </div></div><div id="20210329135719-q47tmf5" data-node-id="20210329135719-q47tmf5" data-type="NodeParagraph" updated="20210329135801" class="p">崮生: 但这个估计还要很久，到时候这种东西差不多要求 ui 是半个程序员​释颜: 听说 unity 的可视化工具做的不错，可惜我不会 unity​崮生: @释颜 听说他们蓝图很强大​释颜: 我大学 有一门 课学的 【 labview  】，纯靠拖拽来编程​释颜: @崮生 imgcook 做的是 设计软件的插件。像响应式布局 这类设计软件不支持的功能 imgcook 就没法支持了，但这实际上是很常见的开发需求。所以还是有必要另整一个设计软件的。</div><div id="20210329135804-4xt06bn" data-node-id="20210329135804-4xt06bn" data-type="NodeParagraph" updated="20210329135817" class="p">崮生: @释颜 可视化编程让人觉得好上手的原因我觉得是他直接将一些封装的很好地包让初学者就能调用，​而一般上手一个编程语言完全不知道要怎么达到自己的目的。​但比如 python 大家都说适合新手其实就是他优秀方便使用的包多，如果从调包开始教一个人他也许兴趣就有了，​可视化编程做的在我看来就是这样的事​崮生: 然而一般从语法学起...，可视化前期不存在这个枯燥的问题，因为你没法不按语法来[憨笑]</div><div id="20210329135819-t7gyz86" data-node-id="20210329135819-t7gyz86" data-type="NodeParagraph" updated="20210329135821" class="p">崮生: @释颜 那就需要设计来定义什么情况下怎么做​崮生: 这样的设计软件中或许就存在很多状态了，像css中的媒体查询一样的操作​崮生: @释颜 安卓的界面设计或许能某种程度达成​崮生: 安卓开发工具中的那个界面设计工具能指定布局</div><div id="20210329135830-48u9we8" data-node-id="20210329135830-48u9we8" data-type="NodeParagraph" updated="20210329135832" class="p">崮生: 现有设计很少考虑动态内容的影响，例如文字超长该怎么办​崮生: 设计软件​崮生: 它们描述的都是某一状态下的应用模样​崮生: 不将文字，宽高 视作变量的产物​崮生: 所以新的设计软件或许会有类似媒体查询的机制​崮生: 例如匹配这个地方文字长度少于多少是什么效果，大于多少又是什么效果​崮生: 从这里看css 的设计其实很精妙​崮生: 让ui这样做估计会疯[憨笑]​崮生: 到时候可能这里还是交给程序员，ui做的更类似于 美术</div><div id="20210414103510-86z0efa" data-node-id="20210414103510-86z0efa" data-type="NodeParagraph" class="p"></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -69,7 +69,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

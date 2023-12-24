@@ -8,15 +8,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>nico</title>
 </head>
 <body>
@@ -115,9 +115,9 @@ function iconvDecode(str = "") {
 </div>
       </div><div id="20210521142712-8zv390c" data-node-id="20210521142712-8zv390c" data-type="NodeHeading" data-subtype="h2" class="h2"><div>关于一些资源访问不到的问题</div></div><div id="20210521142712-a7utiz0" data-node-id="20210521142712-a7utiz0" data-type="NodeBlockquote" class="bq"><div id="20210521142712-5fh06sm" data-node-id="20210521142712-5fh06sm" data-type="NodeParagraph" class="p">2019-03-26 00:20:46</div></div><div id="20210521142712-iavzova" data-node-id="20210521142712-iavzova" data-type="NodeParagraph" class="p">因为文件名中含有大写字母，而 nico“贴心的”帮你转为小写了下划线_也会被转为-</div><div id="20210521142712-ahmlk0j" data-node-id="20210521142712-ahmlk0j" data-type="NodeHeading" data-subtype="h2" class="h2"><div>nico live reload</div></div><div id="20210521142712-6smaqdd" data-node-id="20210521142712-6smaqdd" data-type="NodeParagraph" class="p">全局安装 socket.io 然后</div><div id="20210521142712-331g9a3" data-node-id="20210521142712-331g9a3" data-type="NodeBlockquote" class="bq"><div id="20210521142712-u6cfqs2" data-node-id="20210521142712-u6cfqs2" data-type="NodeParagraph" class="p">nico server --watch</div></div><div id="20210521142712-t14ncu3" data-node-id="20210521142712-t14ncu3" data-type="NodeParagraph" class="p">就可以了</div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -136,7 +136,7 @@ function iconvDecode(str = "") {
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

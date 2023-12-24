@@ -8,15 +8,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>vue异步数据呈现方案</title>
 </head>
 <body>
@@ -161,9 +161,9 @@ export default defineComponent({
           <a href="./../../杂记/javascript/崮生的编程技巧.html#20210108205107-2ki19h5">input -> tranform -> out</a>
   </span> 结构。这里不需要手动的声明一个状态变量，然后在不同的阶段在去修改这个变量，这样的操作封装在了 <span data-type="code">usePromiseComputed</span> 里面。</div><div id="20210108205536-tqjlcfw" data-node-id="20210108205536-tqjlcfw" data-type="NodeParagraph" class="p">关于 <span data-type="code">usePromiseComputed</span> 的实现可以去这里查看<a href="https://github.com/2234839/vue-demo/blob/master/src/components/promise-loading/lib/vue.composition.api.ts%E2%80%B8">https://github.com/2234839/vue-demo/blob/master/src/components/promise-loading/lib/vue.composition.api.ts</a></div><div id="20210108204631-8uhp6ah" data-node-id="20210108204631-8uhp6ah" data-type="NodeParagraph" class="p">实际上针对业务还加入了两个可选参数 deps 和 dataMergeFun</div><div id="20210108205949-7n8unyc" data-node-id="20210108205949-7n8unyc" data-type="NodeParagraph" class="p">利用 deps 可以显式的声明哪些变量变化的时候重新请求</div><div id="20210108205853-oi776s5" data-node-id="20210108205853-oi776s5" data-type="NodeParagraph" class="p">利用 dataMergeFun 可以非常简单的在上面的代码基础上加入请求结果翻页功能</div><div id="20210108211113-zzjd4bs" data-node-id="20210108211113-zzjd4bs" data-type="NodeParagraph" class="p"></div><div id="20210108211113-0ohcwin" data-node-id="20210108211113-0ohcwin" data-type="NodeParagraph" class="p"></div><div id="20210108211114-qnvbopo" data-node-id="20210108211114-qnvbopo" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210108211114-qmqmu2e" data-node-id="20210108211114-qmqmu2e" data-type="NodeParagraph" class="p">文章分享到的地方：<a href="https://zhuanlan.zhihu.com/p/342926723">知乎</a>  <a href="https://segmentfault.com/a/1190000038900780">思否</a></div><div id="20210108211135-cinwe5f" data-node-id="20210108211135-cinwe5f" data-type="NodeParagraph" class="p"></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -182,7 +182,7 @@ export default defineComponent({
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);
