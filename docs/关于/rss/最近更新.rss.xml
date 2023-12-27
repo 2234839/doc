@@ -5,7 +5,25 @@
 <link></link>
 <description></description>
 <atom:link href="https://shenzilong.cn/关于/rss/最近更新.rss.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>2023-12-27T08:00:50.311Z</lastBuildDate>
+<lastBuildDate>2023-12-27T08:04:00.789Z</lastBuildDate>
+<item>
+  <title>崮生精选.rss.xml</title>
+  <link>https://shenzilong.cn/关于/rss/崮生精选.rss.xml.html</link>
+  <description></description>
+  <pubDate>2023-12-27T08:03:54.000Z</pubDate>
+</item>
+<item>
+  <title>使用prisma studio链接任何server</title>
+  <link>https://shenzilong.cn/工具/prisma/使用prisma studio链接任何server.html</link>
+  <description></description>
+  <pubDate>2023-12-24T13:42:44.000Z</pubDate>
+</item>
+<item>
+  <title>siyuan_feed插件</title>
+  <link>https://shenzilong.cn/想法/siyuan_feed插件.html</link>
+  <description></description>
+  <pubDate>2023-12-26T23:23:06.000Z</pubDate>
+</item>
 <item>
   <title>OceanPress_js</title>
   <link>https://shenzilong.cn/想法/项目/OceanPress_js.html</link>
@@ -13,16 +31,22 @@
   <pubDate>2023-12-27T07:59:56.000Z</pubDate>
 </item>
 <item>
+  <title>崮生精选</title>
+  <link>https://shenzilong.cn/文集/feed/崮生精选.html</link>
+  <description></description>
+  <pubDate>2023-12-27T08:02:37.000Z</pubDate>
+</item>
+<item>
+  <title>feed</title>
+  <link>https://shenzilong.cn/文集/feed.html</link>
+  <description></description>
+  <pubDate>2023-12-27T08:02:06.000Z</pubDate>
+</item>
+<item>
   <title>崮生的rust速览</title>
   <link>https://shenzilong.cn/读书笔记/rust/崮生的rust速览.html</link>
   <description></description>
   <pubDate>2023-12-27T07:54:11.000Z</pubDate>
-</item>
-<item>
-  <title>test-feed</title>
-  <link>https://shenzilong.cn/文集/feed/test-feed.html</link>
-  <description></description>
-  <pubDate>2023-12-27T07:53:13.000Z</pubDate>
 </item>
 <item>
   <title>鑫空间鑫生活</title>
@@ -35,30 +59,6 @@
   <link>https://shenzilong.cn/想法/siyuan_feed插件/思源更新了吗.html</link>
   <description></description>
   <pubDate>2023-12-27T07:43:01.000Z</pubDate>
-</item>
-<item>
-  <title>feed</title>
-  <link>https://shenzilong.cn/文集/feed.html</link>
-  <description></description>
-  <pubDate>2023-12-27T07:42:04.000Z</pubDate>
-</item>
-<item>
-  <title>Untitled</title>
-  <link>https://shenzilong.cn/record/环境/vscode/vscode使用心得/Untitled.html</link>
-  <description></description>
-  <pubDate>2023-12-27T01:13:14.000Z</pubDate>
-</item>
-<item>
-  <title>vscode使用心得</title>
-  <link>https://shenzilong.cn/record/环境/vscode/vscode使用心得.html</link>
-  <description></description>
-  <pubDate>2023-12-27T01:01:07.000Z</pubDate>
-</item>
-<item>
-  <title>dependency</title>
-  <link>https://shenzilong.cn/工具/dependency.html</link>
-  <description></description>
-  <pubDate>2023-12-27T00:38:56.000Z</pubDate>
 </item>
 </channel>
 </rss>
