@@ -1429,10 +1429,6 @@
 <lastmod>2023-10-08</lastmod>
 </url>
 <url>
-<loc>https://shenzilong.cn/读书笔记/rust/崮生的rust速览.html</loc>
-<lastmod>2021-05-30</lastmod>
-</url>
-<url>
 <loc>https://shenzilong.cn/工具/blender.html</loc>
 <lastmod>2023-11-27</lastmod>
 </url>
@@ -1601,10 +1597,6 @@
 <lastmod>2023-12-27</lastmod>
 </url>
 <url>
-<loc>https://shenzilong.cn/想法/项目/OceanPress_js.html</loc>
-<lastmod>2023-12-27</lastmod>
-</url>
-<url>
 <loc>https://shenzilong.cn/文集/feed.html</loc>
 <lastmod>2023-12-27</lastmod>
 </url>
@@ -1618,6 +1610,14 @@
 </url>
 <url>
 <loc>https://shenzilong.cn/文集/feed/test-feed.html</loc>
+<lastmod>2023-12-27</lastmod>
+</url>
+<url>
+<loc>https://shenzilong.cn/读书笔记/rust/崮生的rust速览.html</loc>
+<lastmod>2023-12-27</lastmod>
+</url>
+<url>
+<loc>https://shenzilong.cn/想法/项目/OceanPress_js.html</loc>
 <lastmod>2023-12-27</lastmod>
 </url>
 
