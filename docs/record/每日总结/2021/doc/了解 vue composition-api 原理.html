@@ -20,7 +20,7 @@
   <title>了解 vue composition-api 原理</title>
 </head>
 <body>
-  <div id="search"/>
+  <div id="search"></div>
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20210609090557-nrhc2to" data-node-id="20210609090557-nrhc2to" data-type="NodeDocument" updated="20210611163128" data-subtype="h1" class="h1" type="doc"></div><div id="20210609090557-nrhc2to" data-node-id="20210609090557-nrhc2to" data-type="NodeDocument" updated="20210611163128" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">了解 vue composition-api 原理</div><div id="20210611163112-e6oslzy" data-node-id="20210611163112-e6oslzy" data-type="NodeHeading" updated="20210611163115" data-subtype="h2" class="h2"><div>watch</div></div><div id="20210607182256-gt31i7x" data-node-id="20210607182256-gt31i7x" data-type="NodeParagraph" updated="20210609090816" class="p">我对 composition-api 中的 watch 的实现一直很好奇，它到底怎么知道我里面依赖了哪些变量？</div><div id="20210609091346-lmjuqgu" data-node-id="20210609091346-lmjuqgu" data-type="NodeParagraph" updated="20210609091352" class="p">例如下面的代码：</div><div id="20210609091104-hhd3n2i" data-node-id="20210609091104-hhd3n2i" data-type="NodeCodeBlock" updated="20210609094957" class="code-block">
         <div class="protyle-action">
