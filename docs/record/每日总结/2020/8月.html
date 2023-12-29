@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
@@ -20,7 +20,7 @@
   <title>8月</title>
 </head>
 <body>
-  
+  <div id="search"/>
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20201104153359-w6wvqcs" data-node-id="20201104153359-w6wvqcs" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc"></div><div id="20201104153359-w6wvqcs" data-node-id="20201104153359-w6wvqcs" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">8月</div><div id="20201229131857-dxzea44" data-node-id="20201229131857-dxzea44" data-type="NodeHeading" data-subtype="h1" class="h1"><div>八月</div></div><div id="20201229104554-kip33gl" data-node-id="20201229104554-kip33gl" data-type="NodeBlockquote" class="bq"><div id="20201229104554-xh2vggc" data-node-id="20201229104554-xh2vggc" data-type="NodeParagraph" class="p">上个月都没在自己的博客写啥，罪过罪过。</div></div><div id="20201229104554-80oqcpg" data-node-id="20201229104554-80oqcpg" data-type="NodeHeading" data-subtype="h2" class="h2"><div>2020-8-6</div></div><div id="20201229104554-ihcx2al" data-node-id="20201229104554-ihcx2al" data-type="NodeHeading" data-subtype="h3" class="h3"><div>js 复制文本到剪贴版</div></div><div id="20201229104554-64gq3fp" data-node-id="20201229104554-64gq3fp" data-type="NodeParagraph" class="p">很简单，copy 既可用，需要注意 <span data-type="strong">copy 函数的调用需在用户点击的回调函数中</span> ，不过你可以在 devTools 中使用 copy 函数尝试效果（<span data-type="s">已经注入本页面全局环境了，你无需再复制执行一次</span> <span data-type="tag">待办/网站升级导致一些功能不可用了，等待更新</span>）</div><div id="20210521142715-uqpbqe9" data-node-id="20210521142715-uqpbqe9" data-type="NodeBlockQueryEmbed" data-type="NodeBlockquote" class="bq"><div id="20201229104554-ctc5b12" data-node-id="20201229104554-ctc5b12" data-type="NodeCodeBlock" updated="20210808100934" class="code-block">
         <div class="protyle-action">
@@ -122,5 +122,16 @@ document.querySelector('.c-test-btn_2').addEventListener("click",()=>{
     <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
 </p>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: UBOM0V691R,
+    apiKey: 0c572ae8b8611d29477570967f44c3cf,
+    indexName: shenzilong,
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
 </body>
 </html>
