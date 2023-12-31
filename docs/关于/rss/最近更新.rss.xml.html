@@ -22,7 +22,119 @@
 <body>
   <div id="search"></div>
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20231008155907" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;"></div><div id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20231008155907" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" data-type="NodeHeading" class="h1">最近更新.rss.xml</div><div id="20210606154842-jah9dt8" data-node-id="20210606154842-jah9dt8" data-type="NodeBlockQueryEmbed" updated="20231008155907" style="height: 9183px;" data-type="NodeBlockquote" class="bq"><div id="20231229141048-a5o7ak0" data-node-id="20231229141048-a5o7ak0" data-type="NodeParagraph" updated="20231229141115" class="p">​<span data-type="NodeImage" class="img" style="undefined"
+  <div style="min-height: 150px;" id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20231008155907" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;"></div><div id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20231008155907" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" data-type="NodeHeading" class="h1">最近更新.rss.xml</div><div id="20210606154842-jah9dt8" data-node-id="20210606154842-jah9dt8" data-type="NodeBlockQueryEmbed" updated="20231008155907" style="height: 9183px;" data-type="NodeBlockquote" class="bq"><div id="20231230103203-62j44fx" data-node-id="20231230103203-62j44fx" data-type="NodeParagraph" updated="20231230103223" class="p">核心只用18行实现</div><div id="20231230090617-h8iprp2" data-node-id="20231230090617-h8iprp2" data-type="NodeCodeBlock" updated="20231230103157" class="code-block" style="line-height: 22px;">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">ts</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">// 最小中间件实现,接收一个函数 handel 作为最终执行的函数，当执行 runMiddlewareHandel 时等价于执行 Handel
+// 通过 use 注册中间件，类似于洋葱路由,先注册的先执行
+type FuncMiddlewares<Handel extends (...args: any[]) => any> = ((ctx: Parameters<Handel>, next: Handel) => ReturnType<Handel>)
+class middlewareRunner<Handel extends (...args: any[]) => any>{
+    middlewares: FuncMiddlewares<Handel>[] = []
+    constructor(public handel: Handel) { }
+    use(middleware: FuncMiddlewares<Handel>) { this.middlewares.push(middleware) }
+    runMiddlewareHandel(...ctx: Parameters<typeof this.handel>) {
+        let index = 0
+        const next = ((...ctx2: Parameters<Handel>) => {
+            const middleware = this.middlewares[index]
+            index++
+            if (middleware === undefined) {
+                return this.handel.call(this, ...ctx2)
+            }
+            return middleware(ctx2, next)
+        }) as Handel
+        return next.call(this, ...ctx)
+    }
+}
+
+// 最终处理事物的函数
+async function handel(a: number) {
+    return (a + 1)
+}
+// 某个中间件
+const middlewareA: FuncMiddlewares<typeof handel> = async (ctx, next) => {
+    // 处理上下文
+    const newCtx = ctx.map(v => v + v)
+    // 让其他中间件继续处理
+    const value = await next(newCtx[0])
+    // 处理返回值
+    return value + 1
+}
+const m = new middlewareRunner(handel)
+m.use(middlewareA) // 4
+m.runMiddlewareHandel(1).then(console.log)
+</div>
+      </div><div id="20231230090632-uilmt9x" data-node-id="20231230090632-uilmt9x" data-type="NodeParagraph" updated="20231230090756" class="p">尝试了一下实现中间件，运行那块的函数是请教 <span data-type="block-ref"     data-subtype="d"     data-id="20231215143612-kg51jqj">
+          <a href="./../../工具/chatGPT.html#20231215143612-kg51jqj">chatGPT</a>
+  </span> 得到的，自己之前想的一团乱麻，结果如此简洁。</div><div id="20210410102225-6zjko0k" data-node-id="20210410102225-6zjko0k" data-type="NodeTable" updated="20231229144638" class="table" colgroup="|">
+    <div>
+      <table spellcheck="false">
+        <colgroup>
+        <col /><col />
+        </colgroup>
+        <thead><tr><td>方案名</td><td>评价</td></tr></thead>
+        <tbody>
+        <tr><td><a href="https://github.com/meilisearch/meilisearch">meilisearch</a></td><td>​<span data-type="NodeImage" class="img" parent-style="width: 81px;" style="width: 71px;" style="width: 81px;"
+      ><img
+        src="https://img.shields.io/github/stars/meilisearch/meilisearch"
+        data-src="https://img.shields.io/github/stars/meilisearch/meilisearch"
+        title=""
+        style="width: 71px;"
+        loading="lazy"
+      /><span class="protyle-action__title"></span></span
+    >中文友好的搜索引擎，rust编写的，提供了云服务，自己搭建难度也不是很大</td></tr>
+<tr><td><a href="https://github.com/olivernn/lunr.js">lunr.js</a></td><td>​<span data-type="NodeImage" class="img" style="undefined"
+      ><img
+        src="https://img.shields.io/github/stars/olivernn/lunr.js"
+        data-src="https://img.shields.io/github/stars/olivernn/lunr.js"
+        title=""
+        style="undefined"
+        loading="lazy"
+      /><span class="protyle-action__title"></span></span
+    >​纯 js 实现的搜索库，用在纯静态站点应该是个不错的选择</td></tr>
+<tr><td><a href="https://github.com/tinysearch/tinysearch">tinysearch</a></td><td>​<span data-type="NodeImage" class="img" style="undefined"
+      ><img
+        src="https://img.shields.io/github/stars/tinysearch/tinysearch"
+        data-src="https://img.shields.io/github/stars/tinysearch/tinysearch"
+        title=""
+        style="undefined"
+        loading="lazy"
+      /><span class="protyle-action__title"></span></span
+    >​</td></tr>
+<tr><td><a href="https://github.com/cloudcannon/pagefind">pagefind</a></td><td>​<span data-type="NodeImage" class="img" parent-style="width: 81px;" style="width: 71px;" style="width: 81px;"
+      ><img
+        src="https://img.shields.io/github/stars/cloudcannon/pagefind"
+        data-src="https://img.shields.io/github/stars/cloudcannon/pagefind"
+        title=""
+        style="width: 71px;"
+        loading="lazy"
+      /><span class="protyle-action__title"></span></span
+    >​</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div><div id="20231229144453-v3xbnyv" data-node-id="20231229144453-v3xbnyv" data-type="NodeBlockquote" updated="20231229144517" class="bq"><div id="20231229144454-xwv7cn5" data-node-id="20231229144454-xwv7cn5" data-type="NodeParagraph" updated="20231229144517" class="p"><span data-type="block-ref"     data-subtype="d"     data-id="20210122234859-v457hqz">
+          <a href="./../../record/文本处理/搜索/站内搜索方案.html#20210122234859-v457hqz">站内搜索方案</a>
+  </span></div></div><div id="20231229144454-xwv7cn5" data-node-id="20231229144454-xwv7cn5" data-type="NodeParagraph" updated="20231229144517" class="p"><span data-type="block-ref"     data-subtype="d"     data-id="20210122234859-v457hqz">
+          <a href="./../../record/文本处理/搜索/站内搜索方案.html#20210122234859-v457hqz">站内搜索方案</a>
+  </span></div><div id="20210122234859-hrc1i16" data-node-id="20210122234859-hrc1i16" data-type="NodeTable" updated="20231229144440" class="table" colgroup="|">
+    <div>
+      <table spellcheck="false">
+        <colgroup>
+        <col /><col />
+        </colgroup>
+        <thead><tr><td>方案名</td><td>评价</td></tr></thead>
+        <tbody>
+        <tr><td><a href="https://www.algolia.com">algolia</a></td><td>体验也不错，vue.js tailwind 都在用<br>我的网站就是使用这个 <span data-type="block-ref"     data-subtype="s"     data-id="20231005185546-0mj4dt8">
+          <a href="./../../想法/项目/OceanPress_js/为OceanPress生成的网站添加搜索功能.html#20231005185546-0mj4dt8">为OceanPress生成的网站添加搜索功能</a>
+  </span><br></td></tr>
+<tr><td><a href="https://kalasearch.cn/">卡拉搜索</a></td><td>看起来貌似很不错，不过到现在为止（2021/1/22）还只是面向企业</td></tr>
+<tr><td><a href="https://www.sitesearch360.com/">sitesearch360</a></td><td>使用起来非常简单，容易上手而且效果也不错。<br>免费版 150 个的页面限制，每月 1000 的搜索量限制</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div><div id="20231229144202-aknwb9v" data-node-id="20231229144202-aknwb9v" data-type="NodeParagraph" class="p"></div><div id="20231229141048-a5o7ak0" data-node-id="20231229141048-a5o7ak0" data-type="NodeParagraph" updated="20231229141754" class="p">​<span data-type="NodeImage" class="img" style="undefined"
       ><img
         src="https://github.com/2234839/doc/actions/workflows/pages/pages-build-deployment/badge.svg"
         data-src="https://github.com/2234839/doc/actions/workflows/pages/pages-build-deployment/badge.svg"
@@ -515,84 +627,7 @@
           <a href="./../../工具/prisma/使用prisma studio链接任何server.html#20231224203440-qyuvf3m">使用prisma studio链接任何server</a>
   </span></div><div id="20210608142906-m0rc579" data-node-id="20210608142906-m0rc579" data-type="NodeParagraph" updated="20231227160329" class="p"><span data-type="block-ref"     data-subtype="d"     data-id="20231214112450-ndy3t2e">
           <a href="./../../想法/siyuan_feed插件.html#20231214112450-ndy3t2e">siyuan_feed插件</a>
-  </span></div><div id="20231227160251-jd9ec31" data-node-id="20231227160251-jd9ec31" data-type="NodeParagraph" updated="20231227160308" class="p"><span data-type="block-ref"     data-subtype="d"     data-id="20230905170531-6q68jov">
-          <a href="./../../想法/项目/OceanPress_js.html#20230905170531-6q68jov">OceanPress_js</a>
-  </span></div><div id="20231227155313-1fnute9" data-node-id="20231227155313-1fnute9" data-type="NodeList" updated="20231227160237" data-subtype="t" class="list"><div id="20231227155313-yk2nduh" data-node-id="20231227155313-yk2nduh" data-type="NodeListItem" updated="20231227160237" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <div id="20231227155313-6f49hkz" data-node-id="20231227155313-6f49hkz" data-type="NodeHeading" updated="20231227155313" data-subtype="h6" class="h6"><div><a href="https://shenzilong.cn/读书笔记/rust/崮生的rust速览">崮生的rust速览</a></div></div><div id="20231227155313-fwcssx8" data-node-id="20231227155313-fwcssx8" data-type="NodeList" updated="20231227155313" data-subtype="u" class="list"><div id="20231227155313-o3qvmaa" data-node-id="20231227155313-o3qvmaa" data-type="NodeListItem" updated="20231227155313" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231227155313-szekwu0" data-node-id="20231227155313-szekwu0" data-type="NodeParagraph" updated="20231227155313" class="p">published:2021-05-30T07:35:51.000Z</div>
-    </div></div>
-    </div></div><div id="20231227155313-yk2nduh" data-node-id="20231227155313-yk2nduh" data-type="NodeListItem" updated="20231227160237" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <div id="20231227155313-6f49hkz" data-node-id="20231227155313-6f49hkz" data-type="NodeHeading" updated="20231227155313" data-subtype="h6" class="h6"><div><a href="https://shenzilong.cn/读书笔记/rust/崮生的rust速览">崮生的rust速览</a></div></div><div id="20231227155313-fwcssx8" data-node-id="20231227155313-fwcssx8" data-type="NodeList" updated="20231227155313" data-subtype="u" class="list"><div id="20231227155313-o3qvmaa" data-node-id="20231227155313-o3qvmaa" data-type="NodeListItem" updated="20231227155313" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231227155313-szekwu0" data-node-id="20231227155313-szekwu0" data-type="NodeParagraph" updated="20231227155313" class="p">published:2021-05-30T07:35:51.000Z</div>
-    </div></div>
-    </div><div id="20231227155313-b4bp2a7" data-node-id="20231227155313-b4bp2a7" data-type="NodeList" updated="20231227160236" data-subtype="t" class="list"><div id="20231227155313-6vc3azq" data-node-id="20231227155313-6vc3azq" data-type="NodeListItem" updated="20231227160236" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <div id="20231227155313-vfzy29b" data-node-id="20231227155313-vfzy29b" data-type="NodeHeading" updated="20231227155313" data-subtype="h6" class="h6"><div><a href="https://shenzilong.cn/other/鸿蒙到底是啥">鸿蒙到底是啥</a></div></div><div id="20231227155313-i36mfs6" data-node-id="20231227155313-i36mfs6" data-type="NodeList" updated="20231227155313" data-subtype="u" class="list"><div id="20231227155313-s338e6j" data-node-id="20231227155313-s338e6j" data-type="NodeListItem" updated="20231227155313" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231227155313-8xtrwrk" data-node-id="20231227155313-8xtrwrk" data-type="NodeParagraph" updated="20231227155313" class="p">published:2021-06-07T07:20:04.000Z</div>
-    </div></div>
-    </div></div><div id="20231227155313-6vc3azq" data-node-id="20231227155313-6vc3azq" data-type="NodeListItem" updated="20231227160236" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <div id="20231227155313-vfzy29b" data-node-id="20231227155313-vfzy29b" data-type="NodeHeading" updated="20231227155313" data-subtype="h6" class="h6"><div><a href="https://shenzilong.cn/other/鸿蒙到底是啥">鸿蒙到底是啥</a></div></div><div id="20231227155313-i36mfs6" data-node-id="20231227155313-i36mfs6" data-type="NodeList" updated="20231227155313" data-subtype="u" class="list"><div id="20231227155313-s338e6j" data-node-id="20231227155313-s338e6j" data-type="NodeListItem" updated="20231227155313" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231227155313-8xtrwrk" data-node-id="20231227155313-8xtrwrk" data-type="NodeParagraph" updated="20231227155313" class="p">published:2021-06-07T07:20:04.000Z</div>
-    </div></div>
-    </div><div id="20231227155313-mwowi4k" data-node-id="20231227155313-mwowi4k" data-type="NodeList" updated="20231227160235" data-subtype="t" class="list"><div id="20231227155313-r4fgd1k" data-node-id="20231227155313-r4fgd1k" data-type="NodeListItem" updated="20231227160235" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <div id="20231227155313-k1mjbe8" data-node-id="20231227155313-k1mjbe8" data-type="NodeHeading" updated="20231227155313" data-subtype="h6" class="h6"><div><a href="https://shenzilong.cn/想法/项目/OceanPress">OceanPress</a></div></div><div id="20231227155313-iw36yxr" data-node-id="20231227155313-iw36yxr" data-type="NodeList" updated="20231227155313" data-subtype="u" class="list"><div id="20231227155313-sgenn8u" data-node-id="20231227155313-sgenn8u" data-type="NodeListItem" updated="20231227155313" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231227155313-fql97x5" data-node-id="20231227155313-fql97x5" data-type="NodeParagraph" updated="20231227155313" class="p">published:2023-10-10T10:16:24.000Z</div>
-    </div></div>
-    </div></div><div id="20231227155313-r4fgd1k" data-node-id="20231227155313-r4fgd1k" data-type="NodeListItem" updated="20231227160235" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <div id="20231227155313-k1mjbe8" data-node-id="20231227155313-k1mjbe8" data-type="NodeHeading" updated="20231227155313" data-subtype="h6" class="h6"><div><a href="https://shenzilong.cn/想法/项目/OceanPress">OceanPress</a></div></div><div id="20231227155313-iw36yxr" data-node-id="20231227155313-iw36yxr" data-type="NodeList" updated="20231227155313" data-subtype="u" class="list"><div id="20231227155313-sgenn8u" data-node-id="20231227155313-sgenn8u" data-type="NodeListItem" updated="20231227155313" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231227155313-fql97x5" data-node-id="20231227155313-fql97x5" data-type="NodeParagraph" updated="20231227155313" class="p">published:2023-10-10T10:16:24.000Z</div>
-    </div></div>
-    </div><div id="20231227154225-5muzzxs" data-node-id="20231227154225-5muzzxs" data-type="NodeList" updated="20231227160232" data-subtype="u" class="list"><div id="20231227154225-7qjgpo1" data-node-id="20231227154225-7qjgpo1" data-type="NodeListItem" updated="20231227160232" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231227154225-g24vlsz" data-node-id="20231227154225-g24vlsz" data-type="NodeParagraph" updated="20231227160232" class="p">feed:https://shenzilong.cn/关于/rss/崮生精选.rss.xml</div>
-    </div><div id="20231227154225-rzc0dzb" data-node-id="20231227154225-rzc0dzb" data-type="NodeListItem" updated="20231227154225" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231227154225-ws68q1d" data-node-id="20231227154225-ws68q1d" data-type="NodeParagraph" updated="20231227154225" class="p">cron:8 * * * 5  每到周五隔一小时检查一次</div>
-    </div><div id="20231227154225-kzttl6h" data-node-id="20231227154225-kzttl6h" data-type="NodeListItem" updated="20231227154251" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231227154225-t9qdmpv" data-node-id="20231227154225-t9qdmpv" data-type="NodeParagraph" updated="20231227154251" class="p">blog:<a href="https://shenzilong.cn">https://shenzilong.cn</a></div>
-    </div></div></div><div id="20210606160324-57c0iql" data-node-id="20210606160324-57c0iql" data-type="NodeParagraph" updated="20230924170522" class="p"></div>
+  </span></div></div><div id="20210606160324-57c0iql" data-node-id="20210606160324-57c0iql" data-type="NodeParagraph" updated="20230924170522" class="p"></div>
   </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
