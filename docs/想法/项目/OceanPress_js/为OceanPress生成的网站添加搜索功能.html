@@ -22,22 +22,30 @@
 <body>
   <div id="search"></div>
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20231005185546-0mj4dt8" data-node-id="20231005185546-0mj4dt8" data-type="NodeDocument" updated="20231229144517" data-subtype="h1" class="h1" custom-liandi-articleId="1696504169188"></div><div id="20231005185546-0mj4dt8" data-node-id="20231005185546-0mj4dt8" data-type="NodeDocument" updated="20231229144517" data-subtype="h1" class="h1" custom-liandi-articleId="1696504169188" data-type="NodeHeading" class="h1">为OceanPress生成的网站添加搜索功能</div><div id="20231229144453-v3xbnyv" data-node-id="20231229144453-v3xbnyv" data-type="NodeBlockquote" updated="20231229144517" class="bq"><div id="20231229144454-xwv7cn5" data-node-id="20231229144454-xwv7cn5" data-type="NodeParagraph" updated="20231229144517" class="p"><span data-type="block-ref"     data-subtype="d"     data-id="20210122234859-v457hqz">
+  <div style="min-height: 150px;" id="20231005185546-0mj4dt8" data-node-id="20231005185546-0mj4dt8" data-type="NodeDocument" updated="20240101172753" data-subtype="h1" class="h1" custom-liandi-articleId="1696504169188"></div><div id="20231005185546-0mj4dt8" data-node-id="20231005185546-0mj4dt8" data-type="NodeDocument" updated="20240101172753" data-subtype="h1" class="h1" custom-liandi-articleId="1696504169188" data-type="NodeHeading" class="h1">为OceanPress生成的网站添加搜索功能</div><div id="20231229144453-v3xbnyv" data-node-id="20231229144453-v3xbnyv" data-type="NodeBlockquote" updated="20231229144517" class="bq"><div id="20231229144454-xwv7cn5" data-node-id="20231229144454-xwv7cn5" data-type="NodeParagraph" updated="20231229144517" class="p"><span data-type="block-ref"     data-subtype="d"     data-id="20210122234859-v457hqz">
           <a href="./../../../record/文本处理/搜索/站内搜索方案.html#20210122234859-v457hqz">站内搜索方案</a>
   </span></div></div><div id="20231005185608-bbz475n" data-node-id="20231005185608-bbz475n" data-type="NodeParagraph" updated="20231229133125" class="p">目前（2023年10月5日）<span data-type="block-ref"     data-subtype="d"     data-id="20230905170531-6q68jov">
           <a href="./../../../想法/项目/OceanPress_js.html#20230905170531-6q68jov">OceanPress_js</a>
-  </span> 还没有直接支持搜索功能的打算</div><div id="20231005185646-r8mf7o2" data-node-id="20231005185646-r8mf7o2" data-type="NodeParagraph" updated="20231005185710" class="p">但是，对于静态的文档网站早已有了通用的解决方案</div><div id="20231005185546-ac4kbkk" data-node-id="20231005185546-ac4kbkk" data-type="NodeParagraph" updated="20231005185821" class="p">Algolia 可以说是这方面的老大了，vue.js 官网使用的就是他。</div><div id="20231005185822-0gecxpv" data-node-id="20231005185822-0gecxpv" data-type="NodeParagraph" updated="20231229131929" class="p">他的 DocSearch 对于开源项目文档博客是可以免费申请的</div><div id="20231005190025-9jrid5r" data-node-id="20231005190025-9jrid5r" data-type="NodeParagraph" updated="20231005190030" class="p"><a href="./../../../assets/什么是文档搜索？ _ Algolia 的文档搜索 2023_10_5 18_59_59-20231005190025-1bbd2vr.html">什么是文档搜索？ _ Algolia 的文档搜索 (2023_10_5 18_59_59).html</a></div> <div id="20231005190027-jhw5hd3" data-node-id="20231005190027-jhw5hd3" data-type="NodeIFrame" updated="20231005190033" class="iframe">
+  </span> 还没有直接支持搜索功能的打算</div><div id="20231005185646-r8mf7o2" data-node-id="20231005185646-r8mf7o2" data-type="NodeParagraph" updated="20231005185710" class="p">但是，对于静态的文档网站早已有了通用的解决方案</div><div id="20240101170943-s5mf3dl" data-node-id="20240101170943-s5mf3dl" data-type="NodeHeading" updated="20240101170959" data-subtype="h2" class="h2"><div>algolia docSearch</div></div><div id="20231005185546-ac4kbkk" data-node-id="20231005185546-ac4kbkk" data-type="NodeParagraph" updated="20231005185821" class="p">Algolia 可以说是这方面的老大了，vue.js 官网使用的就是他。</div><div id="20231005185822-0gecxpv" data-node-id="20231005185822-0gecxpv" data-type="NodeParagraph" updated="20231229131929" class="p">他的 DocSearch 对于开源项目文档博客是可以免费申请的</div><div id="20240101171115-sfg56g2" data-node-id="20240101171115-sfg56g2" data-type="NodeParagraph" updated="20240101171141" class="p">​<span data-type="NodeImage" class="img" parent-style="width: 636px;" style="width: 626px;" style="width: 636px;"
+      ><img
+        src="./../../../assets/image-20240101171115-ofh7196.png"
+        data-src="./../../../assets/image-20240101171115-ofh7196.png"
+        title="algolia docSearch 清单"
+        style="width: 626px;"
+        loading="lazy"
+      /><span class="protyle-action__title">algolia docSearch 清单</span></span
+    >​</div><div id="20231005190025-9jrid5r" data-node-id="20231005190025-9jrid5r" data-type="NodeParagraph" updated="20231005190030" class="p"><a href="./../../../assets/什么是文档搜索？ _ Algolia 的文档搜索 2023_10_5 18_59_59-20231005190025-1bbd2vr.html">什么是文档搜索？ _ Algolia 的文档搜索 (2023_10_5 18_59_59).html</a></div> <div id="20231005190027-jhw5hd3" data-node-id="20231005190027-jhw5hd3" data-type="NodeIFrame" updated="20231005190033" class="iframe">
     <div class="iframe-content">
     <iframe sandbox="allow-forms allow-presentation allow-same-origin allow-scripts allow-modals" src="./../../../assets/什么是文档搜索？ _ Algolia 的文档搜索 2023_10_5 18_59_59-20231005190025-1bbd2vr.html" data-src="" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 869px; height: 254px;"></iframe>
     </div>
-  </div><div id="20231005190045-itl65gz" data-node-id="20231005190045-itl65gz" data-type="NodeParagraph" updated="20231229131730" class="p">当申请通过之后Algolia会发送一条邮件过来，将其中的代码添加到OceanPress的配置中</div><div id="20231005190504-h8bvv0k" data-node-id="20231005190504-h8bvv0k" data-type="NodeParagraph" updated="20231005190504" class="p">​<span data-type="NodeImage" class="img" parent-style="width: 580px;" style="width: 570px;" style="width: 580px;"
+  </div><div id="20231005190045-itl65gz" data-node-id="20231005190045-itl65gz" data-type="NodeParagraph" updated="20231229131730" class="p">当申请通过之后Algolia会发送一条邮件过来，将其中的代码添加到OceanPress的配置中</div><div id="20231005190504-h8bvv0k" data-node-id="20231005190504-h8bvv0k" data-type="NodeParagraph" updated="20240101172753" class="p">​<span data-type="NodeImage" class="img" parent-style="width: 580px;" style="width: 570px;" style="width: 580px;"
       ><img
         src="./../../../assets/image-20231005190504-fozwlt1.png"
         data-src="./../../../assets/image-20231005190504-fozwlt1.png"
-        title=""
+        title="配置代码块"
         style="width: 570px;"
         loading="lazy"
-      /><span class="protyle-action__title"></span></span
+      /><span class="protyle-action__title">配置代码块</span></span
     >​</div><div id="20231005190538-4849l0w" data-node-id="20231005190538-4849l0w" data-type="NodeParagraph" updated="20231005190639" class="p">注意：还需要添加一个div用来存放搜索框，以及修改aferBody中的 container 配置指向该div</div><div id="20231005190734-khnodb0" data-node-id="20231005190734-khnodb0" data-type="NodeParagraph" updated="20231005190734" class="p">​<span data-type="NodeImage" class="img" parent-style="width: 751px;" style="width: 741px;" style="width: 751px;"
       ><img
         src="./../../../assets/image-20231005190734-hhtq39q.png"

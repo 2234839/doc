@@ -5,7 +5,31 @@
 <link></link>
 <description></description>
 <atom:link href="https://shenzilong.cn/关于/rss/最近更新.rss.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>2023-12-31T09:21:12.404Z</lastBuildDate>
+<lastBuildDate>2024-01-01T09:37:17.060Z</lastBuildDate>
+<item>
+  <title>自建meilisearch搜索</title>
+  <link>https://shenzilong.cn/想法/项目/OceanPress_js/自建meilisearch搜索.html</link>
+  <description></description>
+  <pubDate>2024-01-01T09:36:41.000Z</pubDate>
+</item>
+<item>
+  <title>雇佣崮生</title>
+  <link>https://shenzilong.cn/关于/崮生_子虚/雇佣崮生.html</link>
+  <description></description>
+  <pubDate>2023-12-22T06:34:55.000Z</pubDate>
+</item>
+<item>
+  <title>OceanPress_js</title>
+  <link>https://shenzilong.cn/想法/项目/OceanPress_js.html</link>
+  <description></description>
+  <pubDate>2024-01-01T09:35:12.000Z</pubDate>
+</item>
+<item>
+  <title>为OceanPress生成的网站添加搜索功能</title>
+  <link>https://shenzilong.cn/想法/项目/OceanPress_js/为OceanPress生成的网站添加搜索功能.html</link>
+  <description></description>
+  <pubDate>2024-01-01T09:27:53.000Z</pubDate>
+</item>
 <item>
   <title>2023-12-30</title>
   <link>https://shenzilong.cn/record/每日总结/2023/2023-12-30.html</link>
@@ -23,12 +47,6 @@
   <link>https://shenzilong.cn/record/文本处理/搜索/站内搜索方案.html</link>
   <description></description>
   <pubDate>2023-12-29T06:46:38.000Z</pubDate>
-</item>
-<item>
-  <title>为OceanPress生成的网站添加搜索功能</title>
-  <link>https://shenzilong.cn/想法/项目/OceanPress_js/为OceanPress生成的网站添加搜索功能.html</link>
-  <description></description>
-  <pubDate>2023-12-29T06:45:17.000Z</pubDate>
 </item>
 <item>
   <title>index</title>
@@ -67,12 +85,6 @@
   <pubDate>2023-12-29T05:45:57.000Z</pubDate>
 </item>
 <item>
-  <title>OceanPress_js</title>
-  <link>https://shenzilong.cn/想法/项目/OceanPress_js.html</link>
-  <description></description>
-  <pubDate>2023-12-27T10:57:26.000Z</pubDate>
-</item>
-<item>
   <title>鑫空间鑫生活</title>
   <link>https://shenzilong.cn/文集/feed/鑫空间鑫生活.html</link>
   <description></description>
@@ -89,18 +101,6 @@
   <link>https://shenzilong.cn/文集/feed/崮生精选.html</link>
   <description></description>
   <pubDate>2023-12-28T04:40:46.000Z</pubDate>
-</item>
-<item>
-  <title>崮生精选.rss.xml</title>
-  <link>https://shenzilong.cn/关于/rss/崮生精选.rss.xml.html</link>
-  <description></description>
-  <pubDate>2023-12-27T08:03:54.000Z</pubDate>
-</item>
-<item>
-  <title>使用prisma studio链接任何server</title>
-  <link>https://shenzilong.cn/工具/prisma/使用prisma studio链接任何server.html</link>
-  <description></description>
-  <pubDate>2023-12-24T13:42:44.000Z</pubDate>
 </item>
 </channel>
 </rss>

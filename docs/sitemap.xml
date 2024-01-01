@@ -1137,10 +1137,6 @@
 <lastmod>2023-12-27</lastmod>
 </url>
 <url>
-<loc>https://shenzilong.cn/想法/项目/OceanPress_js.html</loc>
-<lastmod>2023-12-27</lastmod>
-</url>
-<url>
 <loc>https://shenzilong.cn/文集/feed/崮生精选.html</loc>
 <lastmod>2023-12-28</lastmod>
 </url>
@@ -1226,10 +1222,6 @@
 </url>
 <url>
 <loc>https://shenzilong.cn/index.html</loc>
-<lastmod>2023-12-29</lastmod>
-</url>
-<url>
-<loc>https://shenzilong.cn/想法/项目/OceanPress_js/为OceanPress生成的网站添加搜索功能.html</loc>
 <lastmod>2023-12-29</lastmod>
 </url>
 <url>
@@ -1427,6 +1419,18 @@
 <url>
 <loc>https://shenzilong.cn/record/每日总结/2023/2023-12-30.html</loc>
 <lastmod>2023-12-30</lastmod>
+</url>
+<url>
+<loc>https://shenzilong.cn/想法/项目/OceanPress_js/为OceanPress生成的网站添加搜索功能.html</loc>
+<lastmod>2024-01-01</lastmod>
+</url>
+<url>
+<loc>https://shenzilong.cn/想法/项目/OceanPress_js.html</loc>
+<lastmod>2024-01-01</lastmod>
+</url>
+<url>
+<loc>https://shenzilong.cn/想法/项目/OceanPress_js/自建meilisearch搜索.html</loc>
+<lastmod>2024-01-01</lastmod>
 </url>
 
 </urlset>
