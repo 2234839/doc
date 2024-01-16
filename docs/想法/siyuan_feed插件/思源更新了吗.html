@@ -22,31 +22,26 @@
 <body>
   <div id="search"></div>
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20231221203731-tlrovzq" data-node-id="20231221203731-tlrovzq" data-type="NodeDocument" updated="20240113144130" data-subtype="h1" class="h1" bookmark="feed" custom-sy-readonly="false"></div><div id="20231221203731-tlrovzq" data-node-id="20231221203731-tlrovzq" data-type="NodeDocument" updated="20240113144130" data-subtype="h1" class="h1" bookmark="feed" custom-sy-readonly="false" data-type="NodeHeading" class="h1">思源更新了吗</div><div id="20231221203923-j9nya01" data-node-id="20231221203923-j9nya01" data-type="NodeList" updated="20231222105809" data-subtype="u" class="list"><div id="20231221203923-r0uq4dm" data-node-id="20231221203923-r0uq4dm" data-type="NodeListItem" updated="20231221210249" data-subtype="u" class="li" data-marker="*">
+  <div style="min-height: 150px;" id="20231221203731-tlrovzq" data-node-id="20231221203731-tlrovzq" data-type="NodeDocument" updated="20240116184849" data-subtype="h1" class="h1" bookmark="feed" custom-avs="20240116165928-3khrsq8,20240116172536-ey5y089" custom-sy-readonly="false"></div><div id="20231221203731-tlrovzq" data-node-id="20231221203731-tlrovzq" data-type="NodeDocument" updated="20240116184849" data-subtype="h1" class="h1" bookmark="feed" custom-avs="20240116165928-3khrsq8,20240116172536-ey5y089" custom-sy-readonly="false" data-type="NodeHeading" class="h1">思源更新了吗</div><div id="20231221203923-j9nya01" data-node-id="20231221203923-j9nya01" data-type="NodeList" updated="20240116184849" data-subtype="u" class="list"><div id="20231221203923-r0uq4dm" data-node-id="20231221203923-r0uq4dm" data-type="NodeListItem" updated="20240116184410" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20231221203923-2kolm4t" data-node-id="20231221203923-2kolm4t" data-type="NodeParagraph" updated="20231221210249" class="p">feed:https://ld246.com/member/siyuan/articles</div>
+      <div id="20231221203923-2kolm4t" data-node-id="20231221203923-2kolm4t" data-type="NodeParagraph" updated="20240116184410" class="p">feed:</div>
     </div><div id="20231221203923-0xgfuar" data-node-id="20231221203923-0xgfuar" data-type="NodeListItem" updated="20231222105809" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
       <div id="20231221203923-o6l3nip" data-node-id="20231221203923-o6l3nip" data-type="NodeParagraph" updated="20231222105809" class="p">blog:<a href="https://ld246.com/member/siyuan/articles">https://ld246.com/member/siyuan/articles</a></div>
-    </div><div id="20231221203923-l7nc21g" data-node-id="20231221203923-l7nc21g" data-type="NodeListItem" updated="20231221203923" data-subtype="u" class="li" data-marker="*">
+    </div><div id="20231221203923-493bhmc" data-node-id="20231221203923-493bhmc" data-type="NodeListItem" updated="20240116184849" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20231221203923-s1ltb6a" data-node-id="20231221203923-s1ltb6a" data-type="NodeParagraph" updated="20231221203923" class="p">cron:1 20 * * 1</div>
-    </div><div id="20231221203923-493bhmc" data-node-id="20231221203923-493bhmc" data-type="NodeListItem" updated="20231221211846" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231221203923-kcskwh2" data-node-id="20231221203923-kcskwh2" data-type="NodeParagraph" updated="20231221203923" class="p">customParse:</div><div id="20231221203923-y1z6re7" data-node-id="20231221203923-y1z6re7" data-type="NodeCodeBlock" updated="20231221211846" class="code-block" style="line-height: 22px;">
+      <div id="20231221203923-kcskwh2" data-node-id="20231221203923-kcskwh2" data-type="NodeParagraph" updated="20231221203923" class="p">customParse:</div><div id="20231221203923-y1z6re7" data-node-id="20231221203923-y1z6re7" data-type="NodeCodeBlock" updated="20240116184849" class="code-block" style="line-height: 22px;">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">js</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
-        <div class="hljs" spellcheck="false">async (attr, resText, { xssDefend, elText }) => {
+        <div class="hljs" spellcheck="false">async (feedDoc, resText, { xssDefend, elText }) => {
 // resText 是利用思源api获取的不用担心跨域，但这里你也可以使用 fetch 获取数据，不过小心跨域
   const parser = new DOMParser();
   const dom = parser.parseFromString(resText, "text/html");
@@ -68,6 +63,16 @@
 };
 </div>
       </div>
+    </div></div><div id="20240116170115-67hpaae" data-node-id="20240116170115-67hpaae" data-type="NodeList" updated="20240116170202" data-subtype="t" class="list"><div id="20240116170115-d1fvvm7" data-node-id="20240116170115-d1fvvm7" data-type="NodeListItem" updated="20240116170202" data-subtype="t" class="li protyle-task--done " data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconCheck"></use></svg>
+      </div>
+      <div id="20240116170115-50z6rfm" data-node-id="20240116170115-50z6rfm" data-type="NodeHeading" updated="20240116170115" data-subtype="h6" class="h6"><div><a href="https://ld246.com/article/1705377759673">思源笔记 v2.12.3 发布，支持配置忽略搜索结果                                </a></div></div><div id="20240116170115-hz0uchx" data-node-id="20240116170115-hz0uchx" data-type="NodeList" updated="20240116170115" data-subtype="u" class="list"><div id="20240116170115-je3sfez" data-node-id="20240116170115-je3sfez" data-type="NodeListItem" updated="20240116170115" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240116170115-btedsii" data-node-id="20240116170115-btedsii" data-type="NodeParagraph" updated="20240116170115" class="p">published:2024-01-16 12:02</div>
+    </div></div>
     </div></div><div id="20240113141300-c7ns099" data-node-id="20240113141300-c7ns099" data-type="NodeList" updated="20240113144130" data-subtype="t" class="list"><div id="20240113141300-aq4y051" data-node-id="20240113141300-aq4y051" data-type="NodeListItem" updated="20240113144130" data-subtype="t" class="li protyle-task--done " data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconCheck"></use></svg>
