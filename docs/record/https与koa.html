@@ -22,33 +22,68 @@
 <body>
   <div id="search"></div>
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201104153359-5sr0lpx" data-node-id="20201104153359-5sr0lpx" data-type="NodeDocument" updated="20210818112551" data-subtype="h1" class="h1" type="doc"></div><div id="20201104153359-5sr0lpx" data-node-id="20201104153359-5sr0lpx" data-type="NodeDocument" updated="20210818112551" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">https与koa</div><div id="20210521142712-chels3q" data-node-id="20210521142712-chels3q" data-type="NodeHeading" data-subtype="h1" class="h1"><div>node 使用 koa 搭建 https 网站</div></div><div id="20210521142712-yijn9w4" data-node-id="20210521142712-yijn9w4" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142712-rima1l4" data-node-id="20210521142712-rima1l4" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+  <div style="min-height: 150px;" id="20201104153359-5sr0lpx" data-node-id="20201104153359-5sr0lpx" data-type="NodeDocument" updated="20210818112551" data-subtype="h1" class="h1" type="doc"></div><div id="20201104153359-5sr0lpx" data-node-id="20201104153359-5sr0lpx" data-type="NodeDocument" updated="20210818112551" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">https与koa</div><div id="20210521142712-chels3q" data-node-id="20210521142712-chels3q" data-type="NodeHeading" data-subtype="h1" class="h1">
+node 使用 koa 搭建 https 网站
+</div>
+<div id="20210521142712-yijn9w4" data-node-id="20210521142712-yijn9w4" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142712-rima1l4" data-node-id="20210521142712-rima1l4" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142712-ndhziov" data-node-id="20210521142712-ndhziov" data-type="NodeParagraph" class="p">pubdate: 2019-03-09 18:17:32</div>
-    </div><div id="20210521142712-5clcgqv" data-node-id="20210521142712-5clcgqv" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div id="20210521142712-ndhziov" data-node-id="20210521142712-ndhziov" data-type="NodeParagraph" class="p">pubdate: 2019-03-09 18:17:32
+</div>
+
+    </div>
+<div id="20210521142712-5clcgqv" data-node-id="20210521142712-5clcgqv" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142712-5mbwkar" data-node-id="20210521142712-5mbwkar" data-type="NodeParagraph" class="p">tags : 服务器，https，网站建设，koa</div>
-    </div></div><div id="20210521142712-7ft3e9r" data-node-id="20210521142712-7ft3e9r" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210521142712-wcd2rwy" data-node-id="20210521142712-wcd2rwy" data-type="NodeParagraph" updated="20210818112533" class="p"><span data-type="NodeImage" class="img" style="undefined"
-      ><img
-        src="./../assets/https与koa不安全-20210818112533-01kdqwb.png"
-        data-src="./../assets/https与koa不安全-20210818112533-01kdqwb.png"
-        title="扎心"
-        style="undefined"
-        loading="lazy"
-      /><span class="protyle-action__title">扎心</span></span
-    ></div><div id="20210521142712-sp2r9r7" data-node-id="20210521142712-sp2r9r7" data-type="NodeParagraph" class="p">看着这个标识有点碍眼于是决定搭建一个 https 的站点来练练手</div><div id="20210521142712-cp9kitk" data-node-id="20210521142712-cp9kitk" data-type="NodeHeading" data-subtype="h2" class="h2"><div>ssl 证书</div></div><div id="20210521142712-17pn1bn" data-node-id="20210521142712-17pn1bn" data-type="NodeParagraph" class="p">这个很容易，去阿里云申请一个免费的 ssl 证书</div><div id="20210521142712-xddq3t6" data-node-id="20210521142712-xddq3t6" data-type="NodeParagraph" updated="20210818112551" class="p"><span data-type="NodeImage" class="img" style="undefined"
-      ><img
-        src="./../assets/ssl证书-20210818112551-24t5z62.png"
-        data-src="./../assets/ssl证书-20210818112551-24t5z62.png"
-        title=""
-        style="undefined"
-        loading="lazy"
-      /><span class="protyle-action__title"></span></span
-    ></div><div id="20210521142712-b0idvrj" data-node-id="20210521142712-b0idvrj" data-type="NodeParagraph" class="p">然后下载下来。​得到了一个 key 文件和一个 pem 文件。</div><div id="20210521142712-uv3a8wv" data-node-id="20210521142712-uv3a8wv" data-type="NodeHeading" data-subtype="h2" class="h2"><div>创建 https 服务器</div></div><div id="20210521142712-p9nz19f" data-node-id="20210521142712-p9nz19f" data-type="NodeParagraph" class="p">这一步也十分简单​读取 key 文件和 pem 文件构造出指定键名的对象​然后用 https 模块创建 server 传入 options 和 koa 的处理函数</div><div id="20210521142712-aqv9d2s" data-node-id="20210521142712-aqv9d2s" data-type="NodeCodeBlock" class="code-block">
+      <div id="20210521142712-5mbwkar" data-node-id="20210521142712-5mbwkar" data-type="NodeParagraph" class="p">tags : 服务器，https，网站建设，koa
+</div>
+
+    </div>
+</div>
+<div id="20210521142712-7ft3e9r" data-node-id="20210521142712-7ft3e9r" data-type="NodeThematicBreak" class="hr"><div></div></div>
+<div id="20210521142712-wcd2rwy" data-node-id="20210521142712-wcd2rwy" data-type="NodeParagraph" updated="20210818112533" class="p"><span data-type="NodeImage" class="img" style="">
+<img
+  src="./../assets/https与koa不安全-20210818112533-01kdqwb.png"
+  data-src="./../assets/https与koa不安全-20210818112533-01kdqwb.png"
+  title="扎心"
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title">扎心</span></span>
+</div>
+<div id="20210521142712-sp2r9r7" data-node-id="20210521142712-sp2r9r7" data-type="NodeParagraph" class="p">看着这个标识有点碍眼于是决定搭建一个 https 的站点来练练手
+</div>
+<div id="20210521142712-cp9kitk" data-node-id="20210521142712-cp9kitk" data-type="NodeHeading" data-subtype="h2" class="h2">
+ssl 证书
+</div>
+<div id="20210521142712-17pn1bn" data-node-id="20210521142712-17pn1bn" data-type="NodeParagraph" class="p">这个很容易，去阿里云申请一个免费的 ssl 证书
+</div>
+<div id="20210521142712-xddq3t6" data-node-id="20210521142712-xddq3t6" data-type="NodeParagraph" updated="20210818112551" class="p"><span data-type="NodeImage" class="img" style="">
+<img
+  src="./../assets/ssl证书-20210818112551-24t5z62.png"
+  data-src="./../assets/ssl证书-20210818112551-24t5z62.png"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>
+</div>
+<div id="20210521142712-b0idvrj" data-node-id="20210521142712-b0idvrj" data-type="NodeParagraph" class="p">然后下载下来。
+​
+得到了一个 key 文件和一个 pem 文件。
+</div>
+<div id="20210521142712-uv3a8wv" data-node-id="20210521142712-uv3a8wv" data-type="NodeHeading" data-subtype="h2" class="h2">
+创建 https 服务器
+</div>
+<div id="20210521142712-p9nz19f" data-node-id="20210521142712-p9nz19f" data-type="NodeParagraph" class="p">这一步也十分简单
+​
+读取 key 文件和 pem 文件构造出指定键名的对象
+​
+然后用 https 模块创建 server 传入 options 和 koa 的处理函数
+</div>
+<div id="20210521142712-aqv9d2s" data-node-id="20210521142712-aqv9d2s" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">javascript</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -61,7 +96,10 @@
 http.createServer(app.callback()).listen(80);
 https.createServer(options,app.callback()).listen(443);
 </div>
-      </div><div id="20210521142712-oxfknji" data-node-id="20210521142712-oxfknji" data-type="NodeParagraph" class="p">就大功告成了。</div>
+      </div>
+<div id="20210521142712-oxfknji" data-node-id="20210521142712-oxfknji" data-type="NodeParagraph" class="p">就大功告成了。
+</div>
+
   </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>

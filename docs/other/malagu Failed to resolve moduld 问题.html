@@ -22,7 +22,9 @@
 <body>
   <div id="search"></div>
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210820105114-4lrg7mt" data-node-id="20210820105114-4lrg7mt" data-type="NodeDocument" updated="20210821053953" data-subtype="h1" class="h1"></div><div id="20210820105114-4lrg7mt" data-node-id="20210820105114-4lrg7mt" data-type="NodeDocument" updated="20210821053953" data-subtype="h1" class="h1" data-type="NodeHeading" class="h1">malagu Failed to resolve moduld 问题</div><div id="20210820105114-cv29u11" data-node-id="20210820105114-cv29u11" data-type="NodeParagraph" updated="20210820105141" class="p">部分报错信息</div><div id="20210820105141-06xsvdb" data-node-id="20210820105141-06xsvdb" data-type="NodeCodeBlock" updated="20210820105144" class="code-block">
+  <div style="min-height: 150px;" id="20210820105114-4lrg7mt" data-node-id="20210820105114-4lrg7mt" data-type="NodeDocument" updated="20210821053953" data-subtype="h1" class="h1"></div><div id="20210820105114-4lrg7mt" data-node-id="20210820105114-4lrg7mt" data-type="NodeDocument" updated="20210821053953" data-subtype="h1" class="h1" data-type="NodeHeading" class="h1">malagu Failed to resolve moduld 问题</div><div id="20210820105114-cv29u11" data-node-id="20210820105114-cv29u11" data-type="NodeParagraph" updated="20210820105141" class="p">部分报错信息
+</div>
+<div id="20210820105141-06xsvdb" data-node-id="20210820105141-06xsvdb" data-type="NodeCodeBlock" updated="20210820105144" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">log</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -36,31 +38,51 @@ Failed to resolve module: loglevel
 Failed to resolve module: process
 Failed to resolve module: reflect-metadata
 Failed to resolve module: setimmediate</div>
-      </div><div id="20210820105146-6johg1v" data-node-id="20210820105146-6johg1v" data-type="NodeParagraph" updated="20210820105217" class="p">根据经验确定这应该是 malagu 加载模块的部分不兼容 pnpm 的树状结构所致</div><div id="20210820105221-6wm5ujy" data-node-id="20210820105221-6wm5ujy" data-type="NodeParagraph" updated="20210820105250" class="p"><span data-type="NodeImage" class="img" parent-style="max-width: 1008px;" style="max-width: 1008px;"
-      ><img
-        src="./../assets/image-20210820105250-rwrx0nk.png"
-        data-src="./../assets/image-20210820105250-rwrx0nk.png"
-        title="查阅代码后所定位到的报错代码"
-        style="undefined"
-        loading="lazy"
-      /><span class="protyle-action__title">查阅代码后所定位到的报错代码</span></span
-    ></div><div id="20210820124638-bbdyk11" data-node-id="20210820124638-bbdyk11" data-type="NodeHeading" updated="20210820124645" data-subtype="h2" class="h2"><div>依赖版本不一致</div></div><div id="20210821053910-q7ep2dc" data-node-id="20210821053910-q7ep2dc" data-type="NodeParagraph" updated="20210821053948" class="p" style="color: var(--b3-card-warning-color);background-color: var(--b3-card-warning-background);">放弃修改 malagu 项目本身使用 pnpm 了，需要改的地方太多了，对项目又不太熟悉</div><div id="20210820124645-x9m9ehh" data-node-id="20210820124645-x9m9ehh" data-type="NodeParagraph" updated="20210820124941" class="p">考虑：有些库可能就是需要旧版本的，但在 malagu 内所维护的 package 应该要尽量保持一致（共用的第三方包仅在工作空间中声明，利用工作空间存在 node_modules 以及 require 在找包的时候会一级一级往上找），对于需要旧版本的再单独在 package.json 中声明</div><div id="20210820105314-rhjdhlt" data-node-id="20210820105314-rhjdhlt" data-type="NodeParagraph" updated="20210820124954" class="p">例如：typescript 版本不一致（有些是旧版本），解决方案：在工作空间中安装最新版 ts<span data-type="NodeImage" class="img" style="undefined"
-      ><img
-        src="./../assets/image-20210820123909-j3s8opn.png"
-        data-src="./../assets/image-20210820123909-j3s8opn.png"
-        title=""
-        style="undefined"
-        loading="lazy"
-      /><span class="protyle-action__title"></span></span
-    ></div><div id="20210820124630-bp9o5zb" data-node-id="20210820124630-bp9o5zb" data-type="NodeParagraph" updated="20210820130243" class="p">例如：多个 package依赖同一个包，同步版本会比较繁琐，就可以选择装在工作空间那一层</div><div id="20210820130046-07irit8" data-node-id="20210820130046-07irit8" data-type="NodeParagraph" updated="20210820130047" class="p"><span data-type="NodeImage" class="img" style="undefined"
-      ><img
-        src="./../assets/image-20210820130047-j86jxx1.png"
-        data-src="./../assets/image-20210820130047-j86jxx1.png"
-        title=""
-        style="undefined"
-        loading="lazy"
-      /><span class="protyle-action__title"></span></span
-    ></div><div id="20210821053953-gtjw8l9" data-node-id="20210821053953-gtjw8l9" data-type="NodeParagraph" updated="20210821053953" class="p"></div>
+      </div>
+<div id="20210820105146-6johg1v" data-node-id="20210820105146-6johg1v" data-type="NodeParagraph" updated="20210820105217" class="p">根据经验确定这应该是 malagu 加载模块的部分不兼容 pnpm 的树状结构所致
+</div>
+<div id="20210820105221-6wm5ujy" data-node-id="20210820105221-6wm5ujy" data-type="NodeParagraph" updated="20210820105250" class="p"><span data-type="NodeImage" class="img" parent-style="max-width: 1008px;" style="max-width: 1008px;">
+<img
+  src="./../assets/image-20210820105250-rwrx0nk.png"
+  data-src="./../assets/image-20210820105250-rwrx0nk.png"
+  title="查阅代码后所定位到的报错代码"
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title">查阅代码后所定位到的报错代码</span></span>
+
+</div>
+<div id="20210820124638-bbdyk11" data-node-id="20210820124638-bbdyk11" data-type="NodeHeading" updated="20210820124645" data-subtype="h2" class="h2">依赖版本不一致
+</div>
+<div id="20210821053910-q7ep2dc" data-node-id="20210821053910-q7ep2dc" data-type="NodeParagraph" updated="20210821053948" class="p" style="color: var(--b3-card-warning-color);background-color: var(--b3-card-warning-background);">放弃修改 malagu 项目本身使用 pnpm 了，需要改的地方太多了，对项目又不太熟悉
+</div>
+<div id="20210820124645-x9m9ehh" data-node-id="20210820124645-x9m9ehh" data-type="NodeParagraph" updated="20210820124941" class="p">考虑：有些库可能就是需要旧版本的，但在 malagu 内所维护的 package 应该要尽量保持一致（共用的第三方包仅在工作空间中声明，利用工作空间存在 node_modules 以及 require 在找包的时候会一级一级往上找），对于需要旧版本的再单独在 package.json 中声明
+</div>
+<div id="20210820105314-rhjdhlt" data-node-id="20210820105314-rhjdhlt" data-type="NodeParagraph" updated="20210820124954" class="p">例如：typescript 版本不一致（有些是旧版本），解决方案：在工作空间中安装最新版 ts
+<span data-type="NodeImage" class="img" style="">
+<img
+  src="./../assets/image-20210820123909-j3s8opn.png"
+  data-src="./../assets/image-20210820123909-j3s8opn.png"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>
+</div>
+<div id="20210820124630-bp9o5zb" data-node-id="20210820124630-bp9o5zb" data-type="NodeParagraph" updated="20210820130243" class="p">例如：多个 package依赖同一个包，同步版本会比较繁琐，就可以选择装在工作空间那一层
+</div>
+<div id="20210820130046-07irit8" data-node-id="20210820130046-07irit8" data-type="NodeParagraph" updated="20210820130047" class="p"><span data-type="NodeImage" class="img" style="">
+<img
+  src="./../assets/image-20210820130047-j86jxx1.png"
+  data-src="./../assets/image-20210820130047-j86jxx1.png"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>
+</div>
+<div id="20210821053953-gtjw8l9" data-node-id="20210821053953-gtjw8l9" data-type="NodeParagraph" updated="20210821053953" class="p"></div>
+
   </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
