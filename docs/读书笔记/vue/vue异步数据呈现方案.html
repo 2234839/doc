@@ -22,171 +22,92 @@
 <body>
   <div id="search"></div>
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210108200154-2j8bhxv" data-node-id="20210108200154-2j8bhxv" data-type="NodeDocument" updated="20231209123901" data-subtype="h1" class="h1" type="doc"></div><div id="20210108200154-2j8bhxv" data-node-id="20210108200154-2j8bhxv" data-type="NodeDocument" updated="20231209123901" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">vue异步数据呈现方案</div><div id="20210108205622-uzauzyw" data-node-id="20210108205622-uzauzyw" data-type="NodeParagraph" updated="20231209123901" class="p">​
-<a href="https://2234839.github.io/vue-demo/?template_name=promise-loading">demo 地址</a>
-  
-<a href="https://github.com/2234839/vue-demo/tree/master/src/components/promise-loading">源码地址</a>
-</div>
-<div id="20210108200404-gckt5vm" data-node-id="20210108200404-gckt5vm" data-type="NodeHeading" data-subtype="h2" class="h2">
-起因
-</div>
-<div id="20210108200527-8xw00z6" data-node-id="20210108200527-8xw00z6" data-type="NodeParagraph" class="p">当我领会到 
-<span data-type="block-ref" data-subtype="s" data-id="20201231154951-w78fwxr"><a href="./../../杂记/javascript/崮生的编程技巧.html#20201231154951-w78fwxr">写程序的重点在于处理好输入与输出之后</a></span>
- 再来写一个搜索组件的时候我关于loading 的思考如下
-</div>
-<div id="20210108201119-ve0re41" data-node-id="20210108201119-ve0re41" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108201203-2sozhbf" data-node-id="20210108201203-2sozhbf" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+  <div style="min-height: 150px;" id="20210108200154-2j8bhxv" data-node-id="20210108200154-2j8bhxv" data-type="NodeDocument" updated="20231209123901" data-subtype="h1" class="h1" type="doc"></div><h1 id="20210108200154-2j8bhxv" data-node-id="20210108200154-2j8bhxv" data-type="NodeDocument" updated="20231209123901" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">vue异步数据呈现方案</h1><div id="20210108205622-uzauzyw" data-node-id="20210108205622-uzauzyw" data-type="NodeParagraph" updated="20231209123901" class="p"><div spellcheck="false">​<a href="https://2234839.github.io/vue-demo/?template_name=promise-loading">demo 地址</a>  <a href="https://github.com/2234839/vue-demo/tree/master/src/components/promise-loading">源码地址</a></div></div><h2 id="20210108200404-gckt5vm" data-node-id="20210108200404-gckt5vm" data-type="NodeHeading" data-subtype="h2" class="h2">起因</h2><div id="20210108200527-8xw00z6" data-node-id="20210108200527-8xw00z6" data-type="NodeParagraph" class="p"><div spellcheck="false">当我领会到 <span data-type="block-ref" data-subtype="s" data-id="20201231154951-w78fwxr"><a href="./../../杂记/javascript/崮生的编程技巧.html#20201231154951-w78fwxr">写程序的重点在于处理好输入与输出之后</a></span> 再来写一个搜索组件的时候我关于loading 的思考如下</div></div><div id="20210108201119-ve0re41" data-node-id="20210108201119-ve0re41" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108201203-2sozhbf" data-node-id="20210108201203-2sozhbf" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142715-v807erv" data-node-id="20210521142715-v807erv" data-type="NodeParagraph" class="p">什么时候显示 loading ？
-</div>
-<div id="20210108201210-3b0vlvz" data-node-id="20210108201210-3b0vlvz" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108201210-5oc3fwr" data-node-id="20210108201210-5oc3fwr" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div id="20210521142715-v807erv" data-node-id="20210521142715-v807erv" data-type="NodeParagraph" class="p"><div spellcheck="false">什么时候显示 loading ？</div></div><div id="20210108201210-3b0vlvz" data-node-id="20210108201210-3b0vlvz" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108201210-5oc3fwr" data-node-id="20210108201210-5oc3fwr" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142715-t9j3zqs" data-node-id="20210521142715-t9j3zqs" data-type="NodeParagraph" class="p">请求发起后还没有到达的这一段时间
-</div>
-
-    </div>
-</div>
-
-    </div>
-<div id="20210108201212-q7uc93z" data-node-id="20210108201212-q7uc93z" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div id="20210521142715-t9j3zqs" data-node-id="20210521142715-t9j3zqs" data-type="NodeParagraph" class="p"><div spellcheck="false">请求发起后还没有到达的这一段时间</div></div>
+    </div></div>
+    </div><div id="20210108201212-q7uc93z" data-node-id="20210108201212-q7uc93z" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142715-qwdij5i" data-node-id="20210521142715-qwdij5i" data-type="NodeParagraph" class="p">怎么控制视图在这段时间内显示 loading ？
-</div>
-<div id="20210108201244-4ejp1da" data-node-id="20210108201244-4ejp1da" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108201244-cjk5fsa" data-node-id="20210108201244-cjk5fsa" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div id="20210521142715-qwdij5i" data-node-id="20210521142715-qwdij5i" data-type="NodeParagraph" class="p"><div spellcheck="false">怎么控制视图在这段时间内显示 loading ？</div></div><div id="20210108201244-4ejp1da" data-node-id="20210108201244-4ejp1da" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108201244-cjk5fsa" data-node-id="20210108201244-cjk5fsa" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142715-8w49u6k" data-node-id="20210521142715-8w49u6k" data-type="NodeParagraph" class="p">使用一个变量来控制
-</div>
-
-    </div>
-</div>
-
-    </div>
-<div id="20210108201300-dnh8d84" data-node-id="20210108201300-dnh8d84" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div id="20210521142715-8w49u6k" data-node-id="20210521142715-8w49u6k" data-type="NodeParagraph" class="p"><div spellcheck="false">使用一个变量来控制</div></div>
+    </div></div>
+    </div><div id="20210108201300-dnh8d84" data-node-id="20210108201300-dnh8d84" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142715-6dqjhci" data-node-id="20210521142715-6dqjhci" data-type="NodeParagraph" class="p">那这个变量属于输入吗？
-</div>
-<div id="20210108201315-xtmi4e7" data-node-id="20210108201315-xtmi4e7" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108201315-6441hb1" data-node-id="20210108201315-6441hb1" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div id="20210521142715-6dqjhci" data-node-id="20210521142715-6dqjhci" data-type="NodeParagraph" class="p"><div spellcheck="false">那这个变量属于输入吗？</div></div><div id="20210108201315-xtmi4e7" data-node-id="20210108201315-xtmi4e7" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108201315-6441hb1" data-node-id="20210108201315-6441hb1" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142715-bvtg0gy" data-node-id="20210521142715-bvtg0gy" data-type="NodeParagraph" class="p">不算，他是一个输出，这个搜索组件的输入只有一个: 
-<span data-type="code">searchText</span>
-</div>
-
-    </div>
-</div>
-
-    </div>
-<div id="20210108201424-6km7fy7" data-node-id="20210108201424-6km7fy7" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div id="20210521142715-bvtg0gy" data-node-id="20210521142715-bvtg0gy" data-type="NodeParagraph" class="p"><div spellcheck="false">不算，他是一个输出，这个搜索组件的输入只有一个: <span data-type="code">searchText</span></div></div>
+    </div></div>
+    </div><div id="20210108201424-6km7fy7" data-node-id="20210108201424-6km7fy7" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142715-b9zhaz1" data-node-id="20210521142715-b9zhaz1" data-type="NodeParagraph" class="p">这个输出的相关的 input、 transform 怎么样的？
-</div>
-<div id="20210108201457-67ycdhi" data-node-id="20210108201457-67ycdhi" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108201454-0sr4exy" data-node-id="20210108201454-0sr4exy" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div id="20210521142715-b9zhaz1" data-node-id="20210521142715-b9zhaz1" data-type="NodeParagraph" class="p"><div spellcheck="false">这个输出的相关的 input、 transform 怎么样的？</div></div><div id="20210108201457-67ycdhi" data-node-id="20210108201457-67ycdhi" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108201454-0sr4exy" data-node-id="20210108201454-0sr4exy" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142715-ood2p3g" data-node-id="20210521142715-ood2p3g" data-type="NodeParagraph" class="p">input:searchText -> transform:异步请求 -> output:loading 状态
-</div>
-
-    </div>
-</div>
-
-    </div>
-<div id="20210108202413-8s04uhd" data-node-id="20210108202413-8s04uhd" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div id="20210521142715-ood2p3g" data-node-id="20210521142715-ood2p3g" data-type="NodeParagraph" class="p"><div spellcheck="false">input:searchText -> transform:异步请求 -> output:loading 状态</div></div>
+    </div></div>
+    </div><div id="20210108202413-8s04uhd" data-node-id="20210108202413-8s04uhd" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142715-ywr171j" data-node-id="20210521142715-ywr171j" data-type="NodeParagraph" class="p">怎么实现这样的一个 transform？
-</div>
-<div id="20210108202450-aobuwwx" data-node-id="20210108202450-aobuwwx" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108202450-gq4pmi3" data-node-id="20210108202450-gq4pmi3" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div id="20210521142715-ywr171j" data-node-id="20210521142715-ywr171j" data-type="NodeParagraph" class="p"><div spellcheck="false">怎么实现这样的一个 transform？</div></div><div id="20210108202450-aobuwwx" data-node-id="20210108202450-aobuwwx" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108202450-gq4pmi3" data-node-id="20210108202450-gq4pmi3" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142715-3zhd01v" data-node-id="20210521142715-3zhd01v" data-type="NodeParagraph" class="p">这个transform需要立即的返回状态，没有状态页面上无法确定 loading 怎么显示
-</div>
-<div id="20210108203304-6r9ex88" data-node-id="20210108203304-6r9ex88" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108203303-5il0agt" data-node-id="20210108203303-5il0agt" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div id="20210521142715-3zhd01v" data-node-id="20210521142715-3zhd01v" data-type="NodeParagraph" class="p"><div spellcheck="false">这个transform需要立即的返回状态，没有状态页面上无法确定 loading 怎么显示</div></div><div id="20210108203304-6r9ex88" data-node-id="20210108203304-6r9ex88" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108203303-5il0agt" data-node-id="20210108203303-5il0agt" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142715-yq4tv7j" data-node-id="20210521142715-yq4tv7j" data-type="NodeParagraph" class="p">想到了 promise to object
-</div>
-
-    </div>
-</div>
-
-    </div>
-<div id="20210108202836-xutkbpb" data-node-id="20210108202836-xutkbpb" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div id="20210521142715-yq4tv7j" data-node-id="20210521142715-yq4tv7j" data-type="NodeParagraph" class="p"><div spellcheck="false">想到了 promise to object</div></div>
+    </div></div>
+    </div><div id="20210108202836-xutkbpb" data-node-id="20210108202836-xutkbpb" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142715-md680ag" data-node-id="20210521142715-md680ag" data-type="NodeParagraph" class="p">这个transform需要持续的返回新状态。loading一开始必然是显示，如果之后不返回新状态就没办法关闭了
-</div>
-<div id="20210108203325-ler12v4" data-node-id="20210108203325-ler12v4" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108203325-vkplme7" data-node-id="20210108203325-vkplme7" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div id="20210521142715-md680ag" data-node-id="20210521142715-md680ag" data-type="NodeParagraph" class="p"><div spellcheck="false">这个transform需要持续的返回新状态。loading一开始必然是显示，如果之后不返回新状态就没办法关闭了</div></div><div id="20210108203325-ler12v4" data-node-id="20210108203325-ler12v4" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108203325-vkplme7" data-node-id="20210108203325-vkplme7" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142715-4dfyabx" data-node-id="20210521142715-4dfyabx" data-type="NodeParagraph" class="p">想到了 vue 的计算属性
-</div>
-
-    </div>
-<div id="20210108203341-xeesm88" data-node-id="20210108203341-xeesm88" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div id="20210521142715-4dfyabx" data-node-id="20210521142715-4dfyabx" data-type="NodeParagraph" class="p"><div spellcheck="false">想到了 vue 的计算属性</div></div>
+    </div><div id="20210108203341-xeesm88" data-node-id="20210108203341-xeesm88" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142715-9rn54pv" data-node-id="20210521142715-9rn54pv" data-type="NodeParagraph" class="p">想到了事件机制
-</div>
-
-    </div>
-</div>
-
-    </div>
-<div id="20210108203110-m8wzdc2" data-node-id="20210108203110-m8wzdc2" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div id="20210521142715-9rn54pv" data-node-id="20210521142715-9rn54pv" data-type="NodeParagraph" class="p"><div spellcheck="false">想到了事件机制</div></div>
+    </div></div>
+    </div><div id="20210108203110-m8wzdc2" data-node-id="20210108203110-m8wzdc2" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142715-sae75so" data-node-id="20210521142715-sae75so" data-type="NodeParagraph" class="p">这个transform还需要返回异步请求的结果。
-</div>
-<div id="20210108203401-cg1upu3" data-node-id="20210108203401-cg1upu3" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108203401-h142urn" data-node-id="20210108203401-h142urn" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div id="20210521142715-sae75so" data-node-id="20210521142715-sae75so" data-type="NodeParagraph" class="p"><div spellcheck="false">这个transform还需要返回异步请求的结果。</div></div><div id="20210108203401-cg1upu3" data-node-id="20210108203401-cg1upu3" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210108203401-h142urn" data-node-id="20210108203401-h142urn" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142715-b0hksly" data-node-id="20210521142715-b0hksly" data-type="NodeParagraph" class="p">object 中新增一个 data 字段用来放结果，还可以有一个 error 字段
-</div>
-
-    </div>
-</div>
-
-    </div>
-<div id="20210108203557-ul4sp7e" data-node-id="20210108203557-ul4sp7e" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div id="20210521142715-b0hksly" data-node-id="20210521142715-b0hksly" data-type="NodeParagraph" class="p"><div spellcheck="false">object 中新增一个 data 字段用来放结果，还可以有一个 error 字段</div></div>
+    </div></div>
+    </div><div id="20210108203557-ul4sp7e" data-node-id="20210108203557-ul4sp7e" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142715-8rh9zg1" data-node-id="20210521142715-8rh9zg1" data-type="NodeParagraph" class="p">所以这个 transform 可以当 input 改变时返回一个 object 并且在 依据input发起的异步请求成功或者结束后修改之前返回的 object
-</div>
-
-    </div>
-</div>
-
-    </div>
-</div>
-<div id="20210108203800-scc83pz" data-node-id="20210108203800-scc83pz" data-type="NodeParagraph" class="p"></div>
-<div id="20210108203755-m61498o" data-node-id="20210108203755-m61498o" data-type="NodeParagraph" class="p">然后就是在 vue 中实现这样的一个思路
-</div>
-<div id="20210108203812-ai3qcn7" data-node-id="20210108203812-ai3qcn7" data-type="NodeHeading" data-subtype="h2" class="h2">
-应用的代码长啥样
-</div>
-<div id="20210108203828-llve3wd" data-node-id="20210108203828-llve3wd" data-type="NodeCodeBlock" class="code-block">
+      <div id="20210521142715-8rh9zg1" data-node-id="20210521142715-8rh9zg1" data-type="NodeParagraph" class="p"><div spellcheck="false">所以这个 transform 可以当 input 改变时返回一个 object 并且在 依据input发起的异步请求成功或者结束后修改之前返回的 object</div></div>
+    </div></div>
+    </div></div><div id="20210108203800-scc83pz" data-node-id="20210108203800-scc83pz" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20210108203755-m61498o" data-node-id="20210108203755-m61498o" data-type="NodeParagraph" class="p"><div spellcheck="false">然后就是在 vue 中实现这样的一个思路</div></div><h2 id="20210108203812-ai3qcn7" data-node-id="20210108203812-ai3qcn7" data-type="NodeHeading" data-subtype="h2" class="h2">应用的代码长啥样</h2><div id="20210108203828-llve3wd" data-node-id="20210108203828-llve3wd" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">typescript</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -209,22 +130,7 @@ export default defineComponent({
   },
 });
 </div>
-      </div>
-<div id="20210108203818-0e1qh1q" data-node-id="20210108203818-0e1qh1q" data-type="NodeParagraph" class="p">这里的 
-<span data-type="code">usePromiseComputed</span>
- 就是之前思考的 transform ，他返回了一个 
-<span data-type="code">ref(object)</span>
- 然后当  
-<span data-type="code">searchText</span>
-发生变化时会重新执行查询请求
-<span data-type="code">searchApi(searchText.value);</span>
- , 当查询请求结束的时候他会修改之前返回的  
-<span data-type="code">ref(object)</span>
-</div>
-<div id="20210108201144-d9u6a5a" data-node-id="20210108201144-d9u6a5a" data-type="NodeHeading" data-subtype="h3" class="h3">
-在模板中
-</div>
-<div id="20210108204436-ac9jg52" data-node-id="20210108204436-ac9jg52" data-type="NodeCodeBlock" class="code-block">
+      </div><div id="20210108203818-0e1qh1q" data-node-id="20210108203818-0e1qh1q" data-type="NodeParagraph" class="p"><div spellcheck="false">这里的 <span data-type="code">usePromiseComputed</span> 就是之前思考的 transform ，他返回了一个 <span data-type="code">ref(object)</span> 然后当  <span data-type="code">searchText</span>发生变化时会重新执行查询请求<span data-type="code">searchApi(searchText.value);</span> , 当查询请求结束的时候他会修改之前返回的  <span data-type="code">ref(object)</span></div></div><h3 id="20210108201144-d9u6a5a" data-node-id="20210108201144-d9u6a5a" data-type="NodeHeading" data-subtype="h3" class="h3">在模板中</h3><div id="20210108204436-ac9jg52" data-node-id="20210108204436-ac9jg52" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">html</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -245,44 +151,7 @@ export default defineComponent({
   
 </template>
 </div>
-      </div>
-<div id="20210108204517-89451yw" data-node-id="20210108204517-89451yw" data-type="NodeParagraph" class="p">在这里可以看出来 
-<span data-type="code">usePromiseComputed</span>
- 返回的结果其中的五个字段，三个状态字段也就是
-<span data-type="block-ref" data-subtype="s" data-id="20210108201244-4ejp1da"><a href="./../../读书笔记/vue/vue异步数据呈现方案.html#20210108201244-4ejp1da">前文中提到的控制loading的那个变量</a></span>
- 两个
-<span data-type="block-ref" data-subtype="s" data-id="20210108203401-cg1upu3"><a href="./../../读书笔记/vue/vue异步数据呈现方案.html#20210108203401-cg1upu3">结果字段</a></span>
-</div>
-<div id="20210108205558-97zie2c" data-node-id="20210108205558-97zie2c" data-type="NodeHeading" data-subtype="h2" class="h2">
-总结
-</div>
-<div id="20210108204840-9bzd53x" data-node-id="20210108204840-9bzd53x" data-type="NodeParagraph" class="p">就上面的代码而言是一个极简 
-<span data-type="block-ref" data-subtype="d" data-id="20210108205107-2ki19h5"><a href="./../../杂记/javascript/崮生的编程技巧.html#20210108205107-2ki19h5">input -> tranform -> out</a></span>
- 结构。这里不需要手动的声明一个状态变量，然后在不同的阶段在去修改这个变量，这样的操作封装在了 
-<span data-type="code">usePromiseComputed</span>
- 里面。
-</div>
-<div id="20210108205536-tqjlcfw" data-node-id="20210108205536-tqjlcfw" data-type="NodeParagraph" class="p">关于 
-<span data-type="code">usePromiseComputed</span>
- 的实现可以去这里查看
-<a href="https://github.com/2234839/vue-demo/blob/master/src/components/promise-loading/lib/vue.composition.api.ts%E2%80%B8">https://github.com/2234839/vue-demo/blob/master/src/components/promise-loading/lib/vue.composition.api.ts</a>
-</div>
-<div id="20210108204631-8uhp6ah" data-node-id="20210108204631-8uhp6ah" data-type="NodeParagraph" class="p">实际上针对业务还加入了两个可选参数 deps 和 dataMergeFun
-</div>
-<div id="20210108205949-7n8unyc" data-node-id="20210108205949-7n8unyc" data-type="NodeParagraph" class="p">利用 deps 可以显式的声明哪些变量变化的时候重新请求
-</div>
-<div id="20210108205853-oi776s5" data-node-id="20210108205853-oi776s5" data-type="NodeParagraph" class="p">利用 dataMergeFun 可以非常简单的在上面的代码基础上加入请求结果翻页功能
-</div>
-<div id="20210108211113-zzjd4bs" data-node-id="20210108211113-zzjd4bs" data-type="NodeParagraph" class="p"></div>
-<div id="20210108211113-0ohcwin" data-node-id="20210108211113-0ohcwin" data-type="NodeParagraph" class="p"></div>
-<div id="20210108211114-qnvbopo" data-node-id="20210108211114-qnvbopo" data-type="NodeThematicBreak" class="hr"><div></div></div>
-<div id="20210108211114-qmqmu2e" data-node-id="20210108211114-qmqmu2e" data-type="NodeParagraph" class="p">文章分享到的地方：
-<a href="https://zhuanlan.zhihu.com/p/342926723">知乎</a>
-  
-<a href="https://segmentfault.com/a/1190000038900780">思否</a>
-</div>
-<div id="20210108211135-cinwe5f" data-node-id="20210108211135-cinwe5f" data-type="NodeParagraph" class="p"></div>
-
+      </div><div id="20210108204517-89451yw" data-node-id="20210108204517-89451yw" data-type="NodeParagraph" class="p"><div spellcheck="false">在这里可以看出来 <span data-type="code">usePromiseComputed</span> 返回的结果其中的五个字段，三个状态字段也就是<span data-type="block-ref" data-subtype="s" data-id="20210108201244-4ejp1da"><a href="./../../读书笔记/vue/vue异步数据呈现方案.html#20210108201244-4ejp1da">前文中提到的控制loading的那个变量</a></span> 两个<span data-type="block-ref" data-subtype="s" data-id="20210108203401-cg1upu3"><a href="./../../读书笔记/vue/vue异步数据呈现方案.html#20210108203401-cg1upu3">结果字段</a></span></div></div><h2 id="20210108205558-97zie2c" data-node-id="20210108205558-97zie2c" data-type="NodeHeading" data-subtype="h2" class="h2">总结</h2><div id="20210108204840-9bzd53x" data-node-id="20210108204840-9bzd53x" data-type="NodeParagraph" class="p"><div spellcheck="false">就上面的代码而言是一个极简 <span data-type="block-ref" data-subtype="d" data-id="20210108205107-2ki19h5"><a href="./../../杂记/javascript/崮生的编程技巧.html#20210108205107-2ki19h5">input -> tranform -> out</a></span> 结构。这里不需要手动的声明一个状态变量，然后在不同的阶段在去修改这个变量，这样的操作封装在了 <span data-type="code">usePromiseComputed</span> 里面。</div></div><div id="20210108205536-tqjlcfw" data-node-id="20210108205536-tqjlcfw" data-type="NodeParagraph" class="p"><div spellcheck="false">关于 <span data-type="code">usePromiseComputed</span> 的实现可以去这里查看<a href="https://github.com/2234839/vue-demo/blob/master/src/components/promise-loading/lib/vue.composition.api.ts%E2%80%B8">https://github.com/2234839/vue-demo/blob/master/src/components/promise-loading/lib/vue.composition.api.ts</a></div></div><div id="20210108204631-8uhp6ah" data-node-id="20210108204631-8uhp6ah" data-type="NodeParagraph" class="p"><div spellcheck="false">实际上针对业务还加入了两个可选参数 deps 和 dataMergeFun</div></div><div id="20210108205949-7n8unyc" data-node-id="20210108205949-7n8unyc" data-type="NodeParagraph" class="p"><div spellcheck="false">利用 deps 可以显式的声明哪些变量变化的时候重新请求</div></div><div id="20210108205853-oi776s5" data-node-id="20210108205853-oi776s5" data-type="NodeParagraph" class="p"><div spellcheck="false">利用 dataMergeFun 可以非常简单的在上面的代码基础上加入请求结果翻页功能</div></div><div id="20210108211113-zzjd4bs" data-node-id="20210108211113-zzjd4bs" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20210108211113-0ohcwin" data-node-id="20210108211113-0ohcwin" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20210108211114-qnvbopo" data-node-id="20210108211114-qnvbopo" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210108211114-qmqmu2e" data-node-id="20210108211114-qmqmu2e" data-type="NodeParagraph" class="p"><div spellcheck="false">文章分享到的地方：<a href="https://zhuanlan.zhihu.com/p/342926723">知乎</a>  <a href="https://segmentfault.com/a/1190000038900780">思否</a></div></div><div id="20210108211135-cinwe5f" data-node-id="20210108211135-cinwe5f" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
   </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>

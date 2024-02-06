@@ -22,28 +22,7 @@
 <body>
   <div id="search"></div>
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210505154756-xqznmxz" data-node-id="20210505154756-xqznmxz" data-type="NodeDocument" updated="20210505154756" data-subtype="h1" class="h1" type="doc"></div><div id="20210505154756-xqznmxz" data-node-id="20210505154756-xqznmxz" data-type="NodeDocument" updated="20210505154756" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">Aliyun Linux 17.1安装 zerotier 失败</div><div id="20210505155206-ajlid62" data-node-id="20210505155206-ajlid62" data-type="NodeHeading" updated="20210505155209" data-subtype="h2" class="h2">
-分析
-</div>
-<div id="20210505154928-4tmahzn" data-node-id="20210505154928-4tmahzn" data-type="NodeParagraph" updated="20210505155206" class="p">主要错误是 
-<span data-type="code">http://download.zerotier.com/redhat/el/17.01/repodata/repomd.xml: [Errno 14] HTTP Error 404 - Not Found</span>
- 
-<span data-type="block-ref" data-subtype="d" data-id="20210505154759-540e2ii"><a href="./../other/Aliyun Linux 17.1安装 zerotier 失败.html#20210505154759-540e2ii">具体报错信息</a></span>
-</div>
-<div id="20210505155020-ai67wj2" data-node-id="20210505155020-ai67wj2" data-type="NodeParagraph" updated="20210505155345" class="p">通过查看 
-<a href="http://download.zerotier.com/redhat/el/">http://download.zerotier.com/redhat/el/</a>
- 可知应该是 
-<span data-type="code">curl -s https://install.zerotier.com | sudo bash</span>
- 命令内依赖了系统版本这个数据，但由于我使用的是 Aliyun Linux 17.1 所以他找不到相关的信息
-</div>
-<div id="20210505155153-q1codxb" data-node-id="20210505155153-q1codxb" data-type="NodeHeading" updated="20210505155213" data-subtype="h2" class="h2">
-解决
-</div>
-<div id="20210505155213-8tljdzm" data-node-id="20210505155213-8tljdzm" data-type="NodeParagraph" updated="20210505155227" class="p">手动下载 
-<a href="https://install.zerotier.com">https://install.zerotier.com</a>
- 这里的脚本，
-</div>
-<div id="20210505155347-mizdx7m" data-node-id="20210505155347-mizdx7m" data-type="NodeParagraph" class="p"><span data-type="NodeImage" class="img" style="">
+  <div style="min-height: 150px;" id="20210505154756-xqznmxz" data-node-id="20210505154756-xqznmxz" data-type="NodeDocument" updated="20210505154756" data-subtype="h1" class="h1" type="doc"></div><h1 id="20210505154756-xqznmxz" data-node-id="20210505154756-xqznmxz" data-type="NodeDocument" updated="20210505154756" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">Aliyun Linux 17.1安装 zerotier 失败</h1><h2 id="20210505155206-ajlid62" data-node-id="20210505155206-ajlid62" data-type="NodeHeading" updated="20210505155209" data-subtype="h2" class="h2">分析</h2><div id="20210505154928-4tmahzn" data-node-id="20210505154928-4tmahzn" data-type="NodeParagraph" updated="20210505155206" class="p"><div spellcheck="false">主要错误是 <span data-type="code">http://download.zerotier.com/redhat/el/17.01/repodata/repomd.xml: [Errno 14] HTTP Error 404 - Not Found</span> <span data-type="block-ref" data-subtype="d" data-id="20210505154759-540e2ii"><a href="./../other/Aliyun Linux 17.1安装 zerotier 失败.html#20210505154759-540e2ii">具体报错信息</a></span></div></div><div id="20210505155020-ai67wj2" data-node-id="20210505155020-ai67wj2" data-type="NodeParagraph" updated="20210505155345" class="p"><div spellcheck="false">通过查看 <a href="http://download.zerotier.com/redhat/el/">http://download.zerotier.com/redhat/el/</a> 可知应该是 <span data-type="code">curl -s https://install.zerotier.com | sudo bash</span> 命令内依赖了系统版本这个数据，但由于我使用的是 Aliyun Linux 17.1 所以他找不到相关的信息</div></div><h2 id="20210505155153-q1codxb" data-node-id="20210505155153-q1codxb" data-type="NodeHeading" updated="20210505155213" data-subtype="h2" class="h2">解决</h2><div id="20210505155213-8tljdzm" data-node-id="20210505155213-8tljdzm" data-type="NodeParagraph" updated="20210505155227" class="p"><div spellcheck="false">手动下载 <a href="https://install.zerotier.com">https://install.zerotier.com</a> 这里的脚本，</div></div><div id="20210505155347-mizdx7m" data-node-id="20210505155347-mizdx7m" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
 <img
   src="./../assets/image-20210505155335-tfblnfv.png"
   data-src="./../assets/image-20210505155335-tfblnfv.png"
@@ -51,16 +30,7 @@
   style=""
   loading="lazy"
 />
-<span class="protyle-action__title"></span></span>
-</div>
-<div id="20210505154920-qope8vf" data-node-id="20210505154920-qope8vf" data-type="NodeParagraph" updated="20210505155438" class="p">这里有一个 
-<span data-type="code">$releaserver</span>
- 基本验证了 
-<span data-type="block-ref" data-subtype="s" data-id="20210505155020-ai67wj2"><a href="./../other/Aliyun Linux 17.1安装 zerotier 失败.html#20210505155020-ai67wj2">这里的推测</a></span>
-</div>
-<div id="20210505155459-ptpajb6" data-node-id="20210505155459-ptpajb6" data-type="NodeParagraph" updated="20210505155521" class="p">我改成下图这样后再手动执行脚本安装成功了
-</div>
-<div id="20210505155441-bj32bpn" data-node-id="20210505155441-bj32bpn" data-type="NodeParagraph" updated="20210505155456" class="p"><span data-type="NodeImage" class="img" style="">
+<span class="protyle-action__title"></span></span></div></div><div id="20210505154920-qope8vf" data-node-id="20210505154920-qope8vf" data-type="NodeParagraph" updated="20210505155438" class="p"><div spellcheck="false">这里有一个 <span data-type="code">$releaserver</span> 基本验证了 <span data-type="block-ref" data-subtype="s" data-id="20210505155020-ai67wj2"><a href="./../other/Aliyun Linux 17.1安装 zerotier 失败.html#20210505155020-ai67wj2">这里的推测</a></span></div></div><div id="20210505155459-ptpajb6" data-node-id="20210505155459-ptpajb6" data-type="NodeParagraph" updated="20210505155521" class="p"><div spellcheck="false">我改成下图这样后再手动执行脚本安装成功了</div></div><div id="20210505155441-bj32bpn" data-node-id="20210505155441-bj32bpn" data-type="NodeParagraph" updated="20210505155456" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
 <img
   src="./../assets/image-20210505155456-8059lsd.png"
   data-src="./../assets/image-20210505155456-8059lsd.png"
@@ -68,86 +38,7 @@
   style=""
   loading="lazy"
 />
-<span class="protyle-action__title"></span></span>
-</div>
-<div id="20210505154759-540e2ii" data-node-id="20210505154759-540e2ii" data-type="NodeHeading" updated="20210505154925" data-subtype="h2" class="h2">
-具体报错信息
-</div>
-<div id="20210505154906-ts25cfg" data-node-id="20210505154906-ts25cfg" data-type="NodeParagraph" updated="20210505154910" class="p">curl -s https://install.zerotier.com | sudo bash
-</div>
-<div id="20210505154904-s7tlcf7" data-node-id="20210505154904-s7tlcf7" data-type="NodeParagraph" updated="20210505154906" class="p">*** ZeroTier One Quick Install for Unix-like Systems
-</div>
-<div id="20210505154904-vrrz10f" data-node-id="20210505154904-vrrz10f" data-type="NodeParagraph" class="p">*** Tested distributions and architectures:
-​
-***   MacOS (10.7+) on x86_64 (just installs ZeroTier One.pkg)
-​
-***   Debian (7+) on x86_64, x86, arm, and arm64
-​
-***   RedHat/CentOS (6+) on x86_64 and x86
-​
-***   Fedora (16+) on x86_64 and x86
-​
-***   SuSE (12+) on x86_64 and x86
-​
-***   Mint (18+) on x86_64, x86, arm, and arm64
-</div>
-<div id="20210505154904-hgjp95p" data-node-id="20210505154904-hgjp95p" data-type="NodeParagraph" class="p">*** Please report problems to contact@zerotier.com and we will try to fix.
-</div>
-<div id="20210505154904-dnlp2ns" data-node-id="20210505154904-dnlp2ns" data-type="NodeParagraph" class="p">*** Detecting Linux Distribution
-</div>
-<div id="20210505154904-snyg9gr" data-node-id="20210505154904-snyg9gr" data-type="NodeParagraph" class="p">*** Found RHEL/CentOS, creating /etc/yum.repos.d/zerotier.repo
-</div>
-<div id="20210505154904-h3c7889" data-node-id="20210505154904-h3c7889" data-type="NodeParagraph" class="p">*** Installing zerotier-one package...
-​
-已加载插件：fastestmirror, langpacks
-​
-Repository base is listed more than once in the configuration
-​
-Repository updates is listed more than once in the configuration
-​
-Repository extras is listed more than once in the configuration
-​
-Repository base is listed more than once in the configuration
-​
-Repository updates is listed more than once in the configuration
-​
-Repository extras is listed more than once in the configuration
-​
-base                                                                                 | 3.1 kB  00:00:00
-​
-docker-ce-stable                                                                     | 3.5 kB  00:00:00
-​
-epel                                                                                 | 4.7 kB  00:00:00
-​
-extras                                                                               | 2.5 kB  00:00:00
-​
-mongodb-org-3.4                                                                      | 2.5 kB  00:00:00
-​
-mysql-connectors-community                                                           | 2.6 kB  00:00:00
-​
-mysql-tools-community                                                                | 2.6 kB  00:00:00
-​
-mysql57-community                                                                    | 2.6 kB  00:00:00
-​
-updates                                                                              | 2.5 kB  00:00:00
-</div>
-<div id="20210505154937-sgaxsqj" data-node-id="20210505154937-sgaxsqj" data-type="NodeParagraph" updated="20210505154954" class="p">http://download.zerotier.com/redhat/el/17.01/repodata/repomd.xml: [Errno 14] HTTP Error 404 - Not Found
-​
-正在尝试其它镜像。
-​
-To address this issue please refer to the below knowledge base article
-</div>
-<div id="20210505154904-fpdsuml" data-node-id="20210505154904-fpdsuml" data-type="NodeParagraph" class="p">https://access.redhat.com/articles/1320623
-</div>
-<div id="20210505154904-s4ikmss" data-node-id="20210505154904-s4ikmss" data-type="NodeParagraph" class="p">If above article doesn't help to resolve this issue please create a bug on https://www.aliyun.com/
-</div>
-<div id="20210505154904-pt0j37y" data-node-id="20210505154904-pt0j37y" data-type="NodeParagraph" class="p">One of the configured repositories failed (ZeroTier, Inc. RPM Release Repository),
-​
-and yum doesn't have enough cached data to continue. At this point the only
-​
-safe thing yum can do is fail. There are a few ways to work "fix" this:
-</div>
-<div id="20210505154904-wwc2jwb" data-node-id="20210505154904-wwc2jwb" data-type="NodeCodeBlock" class="code-block">
+<span class="protyle-action__title"></span></span></div></div><h2 id="20210505154759-540e2ii" data-node-id="20210505154759-540e2ii" data-type="NodeHeading" updated="20210505154925" data-subtype="h2" class="h2">具体报错信息</h2><div id="20210505154906-ts25cfg" data-node-id="20210505154906-ts25cfg" data-type="NodeParagraph" updated="20210505154910" class="p"><div spellcheck="false">curl -s https://install.zerotier.com | sudo bash</div></div><div id="20210505154904-s7tlcf7" data-node-id="20210505154904-s7tlcf7" data-type="NodeParagraph" updated="20210505154906" class="p"><div spellcheck="false">*** ZeroTier One Quick Install for Unix-like Systems</div></div><div id="20210505154904-vrrz10f" data-node-id="20210505154904-vrrz10f" data-type="NodeParagraph" class="p"><div spellcheck="false">*** Tested distributions and architectures:​***   MacOS (10.7+) on x86_64 (just installs ZeroTier One.pkg)​***   Debian (7+) on x86_64, x86, arm, and arm64​***   RedHat/CentOS (6+) on x86_64 and x86​***   Fedora (16+) on x86_64 and x86​***   SuSE (12+) on x86_64 and x86​***   Mint (18+) on x86_64, x86, arm, and arm64</div></div><div id="20210505154904-hgjp95p" data-node-id="20210505154904-hgjp95p" data-type="NodeParagraph" class="p"><div spellcheck="false">*** Please report problems to contact@zerotier.com and we will try to fix.</div></div><div id="20210505154904-dnlp2ns" data-node-id="20210505154904-dnlp2ns" data-type="NodeParagraph" class="p"><div spellcheck="false">*** Detecting Linux Distribution</div></div><div id="20210505154904-snyg9gr" data-node-id="20210505154904-snyg9gr" data-type="NodeParagraph" class="p"><div spellcheck="false">*** Found RHEL/CentOS, creating /etc/yum.repos.d/zerotier.repo</div></div><div id="20210505154904-h3c7889" data-node-id="20210505154904-h3c7889" data-type="NodeParagraph" class="p"><div spellcheck="false">*** Installing zerotier-one package...​已加载插件：fastestmirror, langpacks​Repository base is listed more than once in the configuration​Repository updates is listed more than once in the configuration​Repository extras is listed more than once in the configuration​Repository base is listed more than once in the configuration​Repository updates is listed more than once in the configuration​Repository extras is listed more than once in the configuration​base                                                                                 | 3.1 kB  00:00:00​docker-ce-stable                                                                     | 3.5 kB  00:00:00​epel                                                                                 | 4.7 kB  00:00:00​extras                                                                               | 2.5 kB  00:00:00​mongodb-org-3.4                                                                      | 2.5 kB  00:00:00​mysql-connectors-community                                                           | 2.6 kB  00:00:00​mysql-tools-community                                                                | 2.6 kB  00:00:00​mysql57-community                                                                    | 2.6 kB  00:00:00​updates                                                                              | 2.5 kB  00:00:00</div></div><div id="20210505154937-sgaxsqj" data-node-id="20210505154937-sgaxsqj" data-type="NodeParagraph" updated="20210505154954" class="p"><div spellcheck="false">http://download.zerotier.com/redhat/el/17.01/repodata/repomd.xml: [Errno 14] HTTP Error 404 - Not Found​正在尝试其它镜像。​To address this issue please refer to the below knowledge base article</div></div><div id="20210505154904-fpdsuml" data-node-id="20210505154904-fpdsuml" data-type="NodeParagraph" class="p"><div spellcheck="false">https://access.redhat.com/articles/1320623</div></div><div id="20210505154904-s4ikmss" data-node-id="20210505154904-s4ikmss" data-type="NodeParagraph" class="p"><div spellcheck="false">If above article doesn't help to resolve this issue please create a bug on https://www.aliyun.com/</div></div><div id="20210505154904-pt0j37y" data-node-id="20210505154904-pt0j37y" data-type="NodeParagraph" class="p"><div spellcheck="false">One of the configured repositories failed (ZeroTier, Inc. RPM Release Repository),​and yum doesn't have enough cached data to continue. At this point the only​safe thing yum can do is fail. There are a few ways to work "fix" this:</div></div><div id="20210505154904-wwc2jwb" data-node-id="20210505154904-wwc2jwb" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language"></span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -178,18 +69,7 @@ safe thing yum can do is fail. There are a few ways to work "fix" this:
 
         yum-config-manager --save --setopt=zerotier.skip_if_unavailable=true
 </div>
-      </div>
-<div id="20210505154904-n2co8mw" data-node-id="20210505154904-n2co8mw" data-type="NodeParagraph" class="p">failure: repodata/repomd.xml from zerotier: [Errno 256] No more mirrors to try.
-​
-http://download.zerotier.com/redhat/el/17.01/repodata/repomd.xml: [Errno 14] HTTP Error 404 - Not Found
-</div>
-<div id="20210505154904-n6767yu" data-node-id="20210505154904-n6767yu" data-type="NodeParagraph" class="p">*** Package installation failed! Unfortunately there may not be a package
-​
-*** for your architecture or distribution. For the source go to:
-​
-*** https://github.com/zerotier/ZeroTierOne
-</div>
-
+      </div><div id="20210505154904-n2co8mw" data-node-id="20210505154904-n2co8mw" data-type="NodeParagraph" class="p"><div spellcheck="false">failure: repodata/repomd.xml from zerotier: [Errno 256] No more mirrors to try.​http://download.zerotier.com/redhat/el/17.01/repodata/repomd.xml: [Errno 14] HTTP Error 404 - Not Found</div></div><div id="20210505154904-n6767yu" data-node-id="20210505154904-n6767yu" data-type="NodeParagraph" class="p"><div spellcheck="false">*** Package installation failed! Unfortunately there may not be a package​*** for your architecture or distribution. For the source go to:​*** https://github.com/zerotier/ZeroTierOne</div></div>
   </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>

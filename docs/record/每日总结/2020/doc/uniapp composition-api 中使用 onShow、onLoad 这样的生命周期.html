@@ -22,13 +22,7 @@
 <body>
   <div id="search"></div>
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201127151651-bbzj4xi" data-node-id="20201127151651-bbzj4xi" data-type="NodeDocument" updated="20201127151651" data-subtype="h1" class="h1" type="doc"></div><div id="20201127151651-bbzj4xi" data-node-id="20201127151651-bbzj4xi" data-type="NodeDocument" updated="20201127151651" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">uniapp composition-api 中使用 onShow、onLoad 这样的生命周期</div><div id="20201127152845-o17ia6d" data-node-id="20201127152845-o17ia6d" data-type="NodeParagraph" class="p"><a href="https://ask.dcloud.net.cn/article/38160"><span data-type="tag">分享/dcloud</span></a>
-</div>
-<div id="20201127151742-gcxrggb" data-node-id="20201127151742-gcxrggb" data-type="NodeParagraph" class="p">我的思路是使用 mixin 得知 onShow 被触发后去回调 setup 中 onShow 设置的函数
-</div>
-<div id="20201127151906-x2yi9ly" data-node-id="20201127151906-x2yi9ly" data-type="NodeParagraph" class="p">setup 中的代码会是这样的
-</div>
-<div id="20201127151955-i4cz1pt" data-node-id="20201127151955-i4cz1pt" data-type="NodeCodeBlock" class="code-block">
+  <div style="min-height: 150px;" id="20201127151651-bbzj4xi" data-node-id="20201127151651-bbzj4xi" data-type="NodeDocument" updated="20201127151651" data-subtype="h1" class="h1" type="doc"></div><h1 id="20201127151651-bbzj4xi" data-node-id="20201127151651-bbzj4xi" data-type="NodeDocument" updated="20201127151651" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">uniapp composition-api 中使用 onShow、onLoad 这样的生命周期</h1><div id="20201127152845-o17ia6d" data-node-id="20201127152845-o17ia6d" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://ask.dcloud.net.cn/article/38160"><span data-type="tag">分享/dcloud</span></a></div></div><div id="20201127151742-gcxrggb" data-node-id="20201127151742-gcxrggb" data-type="NodeParagraph" class="p"><div spellcheck="false">我的思路是使用 mixin 得知 onShow 被触发后去回调 setup 中 onShow 设置的函数</div></div><div id="20201127151906-x2yi9ly" data-node-id="20201127151906-x2yi9ly" data-type="NodeParagraph" class="p"><div spellcheck="false">setup 中的代码会是这样的</div></div><div id="20201127151955-i4cz1pt" data-node-id="20201127151955-i4cz1pt" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">typescript</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -39,10 +33,7 @@
     });
   },
 </div>
-      </div>
-<div id="20201127152006-zq2ydn7" data-node-id="20201127152006-zq2ydn7" data-type="NodeParagraph" class="p">在 app.vue 中 mixin
-</div>
-<div id="20201127152107-xelqoht" data-node-id="20201127152107-xelqoht" data-type="NodeCodeBlock" class="code-block">
+      </div><div id="20201127152006-zq2ydn7" data-node-id="20201127152006-zq2ydn7" data-type="NodeParagraph" class="p"><div spellcheck="false">在 app.vue 中 mixin</div></div><div id="20201127152107-xelqoht" data-node-id="20201127152107-xelqoht" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">javascript</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -52,10 +43,7 @@
     mixins: [vueLifeCycleMixin],
   });
 </div>
-      </div>
-<div id="20201127152114-mbabupj" data-node-id="20201127152114-mbabupj" data-type="NodeParagraph" class="p">vueLifeCycleMixin 的具体实现
-</div>
-<div id="20201127152134-xfge91j" data-node-id="20201127152134-xfge91j" data-type="NodeCodeBlock" class="code-block">
+      </div><div id="20201127152114-mbabupj" data-node-id="20201127152114-mbabupj" data-type="NodeParagraph" class="p"><div spellcheck="false">vueLifeCycleMixin 的具体实现</div></div><div id="20201127152134-xfge91j" data-node-id="20201127152134-xfge91j" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">typescript</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -97,33 +85,14 @@ function onFunWarp(name: string) {
   };
 }
 </div>
-      </div>
-<div id="20210410111356-q24w2ji" data-node-id="20210410111356-q24w2ji" data-type="NodeThematicBreak" class="hr"><div></div></div>
-<div id="20201128143048-59ylr2a" data-node-id="20201128143048-59ylr2a" data-type="NodeParagraph" class="p"><span data-type="tag">uniapp/坑</span>
- 未确定是否是企业微信小程序的问题，自定义组件内部 emit tap 事件，外部再 
-<span data-type="code"> &lt;c-btn @tap=&quot;test()&quot;​&gt;&lt;/c-btn&gt;</span>
- test 会被执行两次。在微信开发工具中没有此问题
-</div>
-<div id="20210410111356-no29whr" data-node-id="20210410111356-no29whr" data-type="NodeThematicBreak" class="hr"><div></div></div>
-<div id="20201130101451-16spsn7" data-node-id="20201130101451-16spsn7" data-type="NodeParagraph" class="p"><span data-type="tag">vscode</span>
- 在超出最大列宽（ 10000 ）后不再显示的
-<a href="https://stackoverflow.com/questions/50862347/how-to-show-full-long-line-in-visual-studio-code-word-wrap-off/50863170#50863170">解决办法</a>
- 在 vscode 的设置中添加
-</div>
-<div id="20201130101344-1ie5rkn" data-node-id="20201130101344-1ie5rkn" data-type="NodeCodeBlock" class="code-block">
+      </div><div id="20210410111356-q24w2ji" data-node-id="20210410111356-q24w2ji" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20201128143048-59ylr2a" data-node-id="20201128143048-59ylr2a" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="tag">uniapp/坑</span> 未确定是否是企业微信小程序的问题，自定义组件内部 emit tap 事件，外部再 <span data-type="code"> &lt;c-btn @tap=&quot;test()&quot;​&gt;&lt;/c-btn&gt;</span> test 会被执行两次。在微信开发工具中没有此问题</div></div><div id="20210410111356-no29whr" data-node-id="20210410111356-no29whr" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20201130101451-16spsn7" data-node-id="20201130101451-16spsn7" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="tag">vscode</span> 在超出最大列宽（ 10000 ）后不再显示的<a href="https://stackoverflow.com/questions/50862347/how-to-show-full-long-line-in-visual-studio-code-word-wrap-off/50863170#50863170">解决办法</a> 在 vscode 的设置中添加</div></div><div id="20201130101344-1ie5rkn" data-node-id="20201130101344-1ie5rkn" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language"></span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
         <div class="hljs" spellcheck="false">"editor.stopRenderingLineAfter" : -1
 </div>
-      </div>
-<div id="20201130101437-hayrn4c" data-node-id="20201130101437-hayrn4c" data-type="NodeParagraph" class="p">他默认超出10000后只显示
-<span data-type="code">...</span>
- 这个做的说实话有点问题，而且设置中没有可以可视化配置的地方
-</div>
-<div id="20210410111920-naa1v0l" data-node-id="20210410111920-naa1v0l" data-type="NodeParagraph" class="p"></div>
-
+      </div><div id="20201130101437-hayrn4c" data-node-id="20201130101437-hayrn4c" data-type="NodeParagraph" class="p"><div spellcheck="false">他默认超出10000后只显示<span data-type="code">...</span> 这个做的说实话有点问题，而且设置中没有可以可视化配置的地方</div></div><div id="20210410111920-naa1v0l" data-node-id="20210410111920-naa1v0l" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
   </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>

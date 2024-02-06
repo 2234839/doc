@@ -22,10 +22,7 @@
 <body>
   <div id="search"></div>
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201228124011-2gj12qd" data-node-id="20201228124011-2gj12qd" data-type="NodeDocument" updated="20210607114821" data-subtype="h1" class="h1" type="doc"></div><div id="20201228124011-2gj12qd" data-node-id="20201228124011-2gj12qd" data-type="NodeDocument" updated="20210607114821" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">代码编写规范</div><div id="20201228124011-g6uhtxm" data-node-id="20201228124011-g6uhtxm" data-type="NodeHeading" data-subtype="h1" class="h1">
-注释
-</div>
-<div id="20201228124011-oib2yel" data-node-id="20201228124011-oib2yel" data-type="NodeCodeBlock" class="code-block">
+  <div style="min-height: 150px;" id="20201228124011-2gj12qd" data-node-id="20201228124011-2gj12qd" data-type="NodeDocument" updated="20210607114821" data-subtype="h1" class="h1" type="doc"></div><h1 id="20201228124011-2gj12qd" data-node-id="20201228124011-2gj12qd" data-type="NodeDocument" updated="20210607114821" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">代码编写规范</h1><h1 id="20201228124011-g6uhtxm" data-node-id="20201228124011-g6uhtxm" data-type="NodeHeading" data-subtype="h1" class="h1">注释</h1><div id="20201228124011-oib2yel" data-node-id="20201228124011-oib2yel" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">typescript</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -33,61 +30,32 @@
         <div class="hljs" spellcheck="false">/** 对于变量（函数也是）的描述一律采用这种方式，因为可以享受到jsdoc提供的悬浮提示功能,把鼠标放在下面的a上面试试 */
 var a = 1;
 </div>
-      </div>
-<div id="20201228124011-8b155xl" data-node-id="20201228124011-8b155xl" data-type="NodeHeading" data-subtype="h1" class="h1">
-CSS
-</div>
-<div id="20201228124011-7zwngp6" data-node-id="20201228124011-7zwngp6" data-type="NodeHeading" data-subtype="h2" class="h2">
-class
-</div>
-<div id="20201228124011-ryyjwcy" data-node-id="20201228124011-ryyjwcy" data-type="NodeParagraph" class="p"><a href="../record/每日总结/2020/3月.html#2020-3-24">来源</a>
-</div>
-<div id="20201228124011-ztvzn6s" data-node-id="20201228124011-ztvzn6s" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20201228124011-klh1b9d" data-node-id="20201228124011-klh1b9d" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
+      </div><h1 id="20201228124011-8b155xl" data-node-id="20201228124011-8b155xl" data-type="NodeHeading" data-subtype="h1" class="h1">CSS</h1><h2 id="20201228124011-7zwngp6" data-node-id="20201228124011-7zwngp6" data-type="NodeHeading" data-subtype="h2" class="h2">class</h2><div id="20201228124011-ryyjwcy" data-node-id="20201228124011-ryyjwcy" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="../record/每日总结/2020/3月.html#2020-3-24">来源</a></div></div><div id="20201228124011-ztvzn6s" data-node-id="20201228124011-ztvzn6s" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20201228124011-klh1b9d" data-node-id="20201228124011-klh1b9d" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
       <div class="protyle-action">
         1
       </div>
-      <div id="20210201210201-r9ik5v9" data-node-id="20210201210201-r9ik5v9" data-type="NodeParagraph" class="p">写 CSS 的一些思考
-</div>
-<div id="20201228124011-8qeqd2k" data-node-id="20201228124011-8qeqd2k" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20201228124011-mydc5nz" data-node-id="20201228124011-mydc5nz" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
+      <div id="20210201210201-r9ik5v9" data-node-id="20210201210201-r9ik5v9" data-type="NodeParagraph" class="p"><div spellcheck="false">写 CSS 的一些思考</div></div><div id="20201228124011-8qeqd2k" data-node-id="20201228124011-8qeqd2k" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20201228124011-mydc5nz" data-node-id="20201228124011-mydc5nz" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
       <div class="protyle-action">
         1
       </div>
-      <div id="20210201210201-l9ij2tb" data-node-id="20210201210201-l9ij2tb" data-type="NodeParagraph" class="p">关于命名，所有强耦合的类名应当加前缀以做区分，例如「c-」。使用「-」分割层次，例如「c-header」，单词之间使用「
-_
-
-」分隔例如 「c-header-top_left_avatar」。 、
-</div>
-
-    </div>
-<div id="20201228124011-kf7uy41" data-node-id="20201228124011-kf7uy41" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
+      <div id="20210201210201-l9ij2tb" data-node-id="20210201210201-l9ij2tb" data-type="NodeParagraph" class="p"><div spellcheck="false">关于命名，所有强耦合的类名应当加前缀以做区分，例如「c-」。使用「-」分割层次，例如「c-header」，单词之间使用「_」分隔例如 「c-header-top_left_avatar」。 、</div></div>
+    </div><div id="20201228124011-kf7uy41" data-node-id="20201228124011-kf7uy41" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
       <div class="protyle-action">
         2
       </div>
-      <div id="20210201210201-gnbk1yi" data-node-id="20210201210201-gnbk1yi" data-type="NodeParagraph" class="p">关于 class 属性中类名的排序，因为我一般不使用 id 都是使用 class ，所以用来表示这个元素的类名放在最前，其次是在当前作用域（例如自己划分一个模块，然后这个模块专享的样式），再其次为全局自定义样式，最后是框架提供的样式
-</div>
-
-    </div>
-<div id="20201228124011-gexxa7q" data-node-id="20201228124011-gexxa7q" data-type="NodeListItem" data-subtype="o" class="li" data-marker="3">
+      <div id="20210201210201-gnbk1yi" data-node-id="20210201210201-gnbk1yi" data-type="NodeParagraph" class="p"><div spellcheck="false">关于 class 属性中类名的排序，因为我一般不使用 id 都是使用 class ，所以用来表示这个元素的类名放在最前，其次是在当前作用域（例如自己划分一个模块，然后这个模块专享的样式），再其次为全局自定义样式，最后是框架提供的样式</div></div>
+    </div><div id="20201228124011-gexxa7q" data-node-id="20201228124011-gexxa7q" data-type="NodeListItem" data-subtype="o" class="li" data-marker="3">
       <div class="protyle-action">
         3
       </div>
-      <div id="20210201210201-flto0z1" data-node-id="20210201210201-flto0z1" data-type="NodeParagraph" class="p">scss 的帮助，可以利用 scss 的 「&」符号来更好的划分层级
-</div>
-
-    </div>
-<div id="20201228124011-x29vh46" data-node-id="20201228124011-x29vh46" data-type="NodeListItem" data-subtype="o" class="li" data-marker="4">
+      <div id="20210201210201-flto0z1" data-node-id="20210201210201-flto0z1" data-type="NodeParagraph" class="p"><div spellcheck="false">scss 的帮助，可以利用 scss 的 「&」符号来更好的划分层级</div></div>
+    </div><div id="20201228124011-x29vh46" data-node-id="20201228124011-x29vh46" data-type="NodeListItem" data-subtype="o" class="li" data-marker="4">
       <div class="protyle-action">
         4
       </div>
-      <div id="20210201210201-26s9wz8" data-node-id="20210201210201-26s9wz8" data-type="NodeParagraph" class="p">表状态的可以放在最后使用「-」放在名字前面，例如 -selector，状态类不应该有自身的样式。
-</div>
-
-    </div>
-</div>
-
-    </div>
-</div>
-
+      <div id="20210201210201-26s9wz8" data-node-id="20210201210201-26s9wz8" data-type="NodeParagraph" class="p"><div spellcheck="false">表状态的可以放在最后使用「-」放在名字前面，例如 -selector，状态类不应该有自身的样式。</div></div>
+    </div></div>
+    </div></div>
   </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>

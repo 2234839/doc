@@ -22,53 +22,17 @@
 <body>
   <div id="search"></div>
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201104153359-3hiw1pt" data-node-id="20201104153359-3hiw1pt" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc"></div><div id="20201104153359-3hiw1pt" data-node-id="20201104153359-3hiw1pt" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">装饰器详解</div><div id="20210521142713-ps1znq1" data-node-id="20210521142713-ps1znq1" data-type="NodeHeading" data-subtype="h1" class="h1">
-装饰器详解
-</div>
-<div id="20210521142713-ahnqc07" data-node-id="20210521142713-ahnqc07" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142713-u62f5dk" data-node-id="20210521142713-u62f5dk" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+  <div style="min-height: 150px;" id="20201104153359-3hiw1pt" data-node-id="20201104153359-3hiw1pt" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc"></div><h1 id="20201104153359-3hiw1pt" data-node-id="20201104153359-3hiw1pt" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">装饰器详解</h1><h1 id="20210521142713-ps1znq1" data-node-id="20210521142713-ps1znq1" data-type="NodeHeading" data-subtype="h1" class="h1">装饰器详解</h1><div id="20210521142713-ahnqc07" data-node-id="20210521142713-ahnqc07" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142713-u62f5dk" data-node-id="20210521142713-u62f5dk" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142713-92aprtf" data-node-id="20210521142713-92aprtf" data-type="NodeParagraph" class="p">pubdate: 2019-06-04 09:24:26
-</div>
-
-    </div>
-<div id="20210521142713-vkqnjdp" data-node-id="20210521142713-vkqnjdp" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+      <div id="20210521142713-92aprtf" data-node-id="20210521142713-92aprtf" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate: 2019-06-04 09:24:26</div></div>
+    </div><div id="20210521142713-vkqnjdp" data-node-id="20210521142713-vkqnjdp" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20210521142713-d410qvd" data-node-id="20210521142713-d410qvd" data-type="NodeParagraph" class="p">tags : javscript,typescript
-</div>
-
-    </div>
-</div>
-<div id="20210521142713-ze1ph62" data-node-id="20210521142713-ze1ph62" data-type="NodeParagraph" class="p">目前原生 js 中还不能使用装饰器，所以要依靠 typescript 来实现
-</div>
-<div id="20210521142713-wlf1bua" data-node-id="20210521142713-wlf1bua" data-type="NodeThematicBreak" class="hr"><div></div></div>
-<div id="20210521142713-dpvnc18" data-node-id="20210521142713-dpvnc18" data-type="NodeParagraph" class="p"><a href="https://www.tslang.cn/docs/handbook/decorators.html">typescript 装饰器文档</a>
-</div>
-<div id="20210521142713-m6exo1c" data-node-id="20210521142713-m6exo1c" data-type="NodeHeading" data-subtype="h2" class="h2">
-装饰器可以用到哪里
-</div>
-<div id="20210521142713-d3pm074" data-node-id="20210521142713-d3pm074" data-type="NodeParagraph" class="p">装饰器是一种特殊类型的声明，它能够被附加到类声明，方法， 访问符，属性或参数上。 装饰器使用 @expression 这种形式，expression 求值后必须为一个函数，它会在运行时被调用，被装饰的声明信息做为参数传入。
-</div>
-<div id="20210521142713-blwcdju" data-node-id="20210521142713-blwcdju" data-type="NodeHeading" data-subtype="h2" class="h2">
-装饰器应用顺序
-</div>
-<div id="20210521142713-isyikbb" data-node-id="20210521142713-isyikbb" data-type="NodeParagraph" class="p">1.参数装饰器，然后依次是方法装饰器，访问符装饰器，或属性装饰器应用到每个实例成员。
-​
-2.参数装饰器，然后依次是方法装饰器，访问符装饰器，或属性装饰器应用到每个静态成员。
-​
-3.参数装饰器应用到构造函数。
-​
-4.类装饰器应用到类。
-</div>
-<div id="20210521142713-36iu8r4" data-node-id="20210521142713-36iu8r4" data-type="NodeHeading" data-subtype="h2" class="h2">
-方法装饰器
-</div>
-<div id="20210521142713-26po3ef" data-node-id="20210521142713-26po3ef" data-type="NodeParagraph" class="p">在类的方法上应用装饰器 装饰器函数可以接收到三个参数 这个函数返回的对象会作为属性描述符
-</div>
-<div id="20210521142713-w8dxhud" data-node-id="20210521142713-w8dxhud" data-type="NodeCodeBlock" class="code-block">
+      <div id="20210521142713-d410qvd" data-node-id="20210521142713-d410qvd" data-type="NodeParagraph" class="p"><div spellcheck="false">tags : javscript,typescript</div></div>
+    </div></div><div id="20210521142713-ze1ph62" data-node-id="20210521142713-ze1ph62" data-type="NodeParagraph" class="p"><div spellcheck="false">目前原生 js 中还不能使用装饰器，所以要依靠 typescript 来实现</div></div><div id="20210521142713-wlf1bua" data-node-id="20210521142713-wlf1bua" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210521142713-dpvnc18" data-node-id="20210521142713-dpvnc18" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://www.tslang.cn/docs/handbook/decorators.html">typescript 装饰器文档</a></div></div><h2 id="20210521142713-m6exo1c" data-node-id="20210521142713-m6exo1c" data-type="NodeHeading" data-subtype="h2" class="h2">装饰器可以用到哪里</h2><div id="20210521142713-d3pm074" data-node-id="20210521142713-d3pm074" data-type="NodeParagraph" class="p"><div spellcheck="false">装饰器是一种特殊类型的声明，它能够被附加到类声明，方法， 访问符，属性或参数上。 装饰器使用 @expression 这种形式，expression 求值后必须为一个函数，它会在运行时被调用，被装饰的声明信息做为参数传入。</div></div><h2 id="20210521142713-blwcdju" data-node-id="20210521142713-blwcdju" data-type="NodeHeading" data-subtype="h2" class="h2">装饰器应用顺序</h2><div id="20210521142713-isyikbb" data-node-id="20210521142713-isyikbb" data-type="NodeParagraph" class="p"><div spellcheck="false">1.参数装饰器，然后依次是方法装饰器，访问符装饰器，或属性装饰器应用到每个实例成员。​2.参数装饰器，然后依次是方法装饰器，访问符装饰器，或属性装饰器应用到每个静态成员。​3.参数装饰器应用到构造函数。​4.类装饰器应用到类。</div></div><h2 id="20210521142713-36iu8r4" data-node-id="20210521142713-36iu8r4" data-type="NodeHeading" data-subtype="h2" class="h2">方法装饰器</h2><div id="20210521142713-26po3ef" data-node-id="20210521142713-26po3ef" data-type="NodeParagraph" class="p"><div spellcheck="false">在类的方法上应用装饰器 装饰器函数可以接收到三个参数 这个函数返回的对象会作为属性描述符</div></div><div id="20210521142713-w8dxhud" data-node-id="20210521142713-w8dxhud" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">typescript</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -77,13 +41,7 @@
         descriptor.enumerable = value;
 };
 </div>
-      </div>
-<div id="20210521142713-2v2gbqz" data-node-id="20210521142713-2v2gbqz" data-type="NodeParagraph" class="p">targe 是类，propertyKey 就是方法的名字，descriptor 是属性描述符，主要就是通过修改属性描述符来实现自己想要装饰的功能
-</div>
-<div id="20210521142713-xhrdiy3" data-node-id="20210521142713-xhrdiy3" data-type="NodeHeading" data-subtype="h3" class="h3">
-应用方法原有逻辑然后修改返回结果，对传入的参数进行处理
-</div>
-<div id="20210521142713-bj6vqb8" data-node-id="20210521142713-bj6vqb8" data-type="NodeCodeBlock" class="code-block">
+      </div><div id="20210521142713-2v2gbqz" data-node-id="20210521142713-2v2gbqz" data-type="NodeParagraph" class="p"><div spellcheck="false">targe 是类，propertyKey 就是方法的名字，descriptor 是属性描述符，主要就是通过修改属性描述符来实现自己想要装饰的功能</div></div><h3 id="20210521142713-xhrdiy3" data-node-id="20210521142713-xhrdiy3" data-type="NodeHeading" data-subtype="h3" class="h3">应用方法原有逻辑然后修改返回结果，对传入的参数进行处理</h3><div id="20210521142713-bj6vqb8" data-node-id="20210521142713-bj6vqb8" data-type="NodeCodeBlock" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">typescript</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -106,7 +64,6 @@
 };
 </div>
       </div>
-
   </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
