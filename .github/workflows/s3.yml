@@ -3,6 +3,8 @@ on: push
 
 jobs:
   upload:
+    environment:
+      name: Production
     runs-on: ubuntu-latest
     env:
       ACCESSKEY: ${{ secrets.ACCESSKEY }}
