@@ -22,8 +22,7 @@ uploadDirToS3(remotePath,localRepoPath);
 // 读取本地git仓库的内容并上传到S3存储桶（增量上传）
 async function uploadDirToS3(s3Dir: string, localDir: string) {
     const files = await fs.readdir(localDir);
-
-    for (const name of files) {
+    await Promise.all(files.map(async name=>{
         const s3Path = `${s3Dir}/${name}`
         const localPath = `${localDir}/${name}`
         const fileStat = await fs.stat(localPath)
@@ -44,5 +43,5 @@ async function uploadDirToS3(s3Dir: string, localDir: string) {
                 console.log("跳过", s3Path);
             }
         }
-    }
+    })) 
 };
