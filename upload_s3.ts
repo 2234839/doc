@@ -1,6 +1,7 @@
 import * as Minio from 'minio';
 import fs from "fs/promises"
 
+console.log(JSON.stringify(process.env));
 
 const minioClient = new Minio.Client({
     endPoint: process.env.ENDPOINT!,
