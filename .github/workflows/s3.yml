@@ -4,6 +4,11 @@ on: push
 jobs:
   upload:
     runs-on: ubuntu-latest
+    env:
+      ACCESSKEY: ${{ secrets.ACCESSKEY }}
+      ENDPOINT: ${{ secrets.ENDPOINT }}
+      SECRETKEY: ${{ secrets.SECRETKEY }}
+
     steps:
     - uses: actions/checkout@v2
     - name: Setup Node.js
