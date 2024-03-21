@@ -5,72 +5,48 @@
 <link></link>
 <description></description>
 <atom:link href="https://shenzilong.cn/关于/rss/最近更新.rss.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>2024-02-06T09:20:09.984Z</lastBuildDate>
+<lastBuildDate>2024-03-21T08:56:14.568Z</lastBuildDate>
 <item>
-  <title>siyuan_feed插件</title>
-  <link>https://shenzilong.cn/想法/siyuan_feed插件.html</link>
+  <title>OceanPress_js</title>
+  <link>https://shenzilong.cn/想法/项目/OceanPress_js.html</link>
   <description></description>
-  <pubDate>2024-02-06T09:19:29.000Z</pubDate>
+  <pubDate>2024-03-21T08:14:43.000Z</pubDate>
 </item>
 <item>
-  <title>阮一峰的网络日志</title>
-  <link>https://shenzilong.cn/文集/feed/阮一峰的网络日志.html</link>
+  <title>espruino</title>
+  <link>https://shenzilong.cn/daily note/2024/03/espruino.html</link>
   <description></description>
-  <pubDate>2024-02-06T09:09:04.000Z</pubDate>
+  <pubDate>2024-03-21T07:50:32.000Z</pubDate>
 </item>
 <item>
   <title>鑫空间鑫生活</title>
   <link>https://shenzilong.cn/文集/feed/鑫空间鑫生活.html</link>
   <description></description>
-  <pubDate>2024-02-06T09:08:59.000Z</pubDate>
+  <pubDate>2024-03-20T16:08:34.000Z</pubDate>
 </item>
 <item>
-  <title>开发最佳实践</title>
-  <link>https://shenzilong.cn/工具/开发最佳实践.html</link>
+  <title>阮一峰的网络日志</title>
+  <link>https://shenzilong.cn/文集/feed/阮一峰的网络日志.html</link>
   <description></description>
-  <pubDate>2024-02-02T08:21:40.000Z</pubDate>
+  <pubDate>2024-03-20T16:08:31.000Z</pubDate>
 </item>
 <item>
-  <title>vscode</title>
-  <link>https://shenzilong.cn/record/环境/vscode.html</link>
+  <title>OpenSCAD</title>
+  <link>https://shenzilong.cn/daily note/2024/03/2024-03-20/OpenSCAD.html</link>
   <description></description>
-  <pubDate>2021-08-16T08:19:45.000Z</pubDate>
+  <pubDate>2024-03-20T09:11:34.000Z</pubDate>
 </item>
 <item>
-  <title>typescript</title>
-  <link>https://shenzilong.cn/读书笔记/typescript.html</link>
+  <title>2024-03-20</title>
+  <link>https://shenzilong.cn/daily note/2024/03/2024-03-20.html</link>
   <description></description>
-  <pubDate>2024-01-25T05:10:59.000Z</pubDate>
+  <pubDate>2024-03-20T09:10:47.000Z</pubDate>
 </item>
 <item>
-  <title>OceanPress_js</title>
-  <link>https://shenzilong.cn/想法/项目/OceanPress_js.html</link>
+  <title>求职简历</title>
+  <link>https://shenzilong.cn/关于/崮生_子虚/求职简历.html</link>
   <description></description>
-  <pubDate>2024-02-02T04:01:54.000Z</pubDate>
-</item>
-<item>
-  <title>OceanPress</title>
-  <link>https://shenzilong.cn/想法/项目/OceanPress.html</link>
-  <description></description>
-  <pubDate>2023-10-10T10:16:24.000Z</pubDate>
-</item>
-<item>
-  <title>SiYuan serverless</title>
-  <link>https://shenzilong.cn/想法/项目/SiYuan serverless.html</link>
-  <description></description>
-  <pubDate>2024-01-14T02:51:32.000Z</pubDate>
-</item>
-<item>
-  <title>2024-01-27</title>
-  <link>https://shenzilong.cn/daily note/2024/01/2024-01-27.html</link>
-  <description></description>
-  <pubDate>2024-01-27T10:31:33.000Z</pubDate>
-</item>
-<item>
-  <title>daily note</title>
-  <link>https://shenzilong.cn/daily note.html</link>
-  <description></description>
-  <pubDate>2024-01-27T10:26:39.000Z</pubDate>
+  <pubDate>2024-03-19T04:06:12.000Z</pubDate>
 </item>
 </channel>
 </rss>

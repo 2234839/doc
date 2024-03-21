@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>2024-03-12</title>
+</head>
+<body>
+  <div id="search"></div>
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div style="min-height: 150px;" id="20240312184126-t452mq4" data-node-id="20240312184126-t452mq4" data-type="NodeDocument" updated="20240312223906" data-subtype="h1" class="h1" custom-dailynote-20240312="20240312"></div><h1 id="20240312184126-t452mq4" data-node-id="20240312184126-t452mq4" data-type="NodeDocument" updated="20240312223906" data-subtype="h1" class="h1" custom-dailynote-20240312="20240312" data-type="NodeHeading" class="h1">2024-03-12</h1><h2 id="20240312184126-b7nbrd2" data-node-id="20240312184126-b7nbrd2" data-type="NodeHeading" updated="20240312184206" data-subtype="h2" class="h2">leafletjs 地图</h2><div id="20240312184133-0fi112d" data-node-id="20240312184133-0fi112d" data-type="NodeParagraph" updated="20240312184248" class="p"><div spellcheck="false">​<span data-type="tag">开源项目</span>​  <a href="http://github.com/Leaflet/Leaflet">http://github.com/Leaflet/Leaflet</a> ，<a href="https://leafletjs.com/reference.html">文档</a></div></div><h2 id="20240312184230-jahqdc7" data-node-id="20240312184230-jahqdc7" data-type="NodeHeading" updated="20240312210803" data-subtype="h2" class="h2">ubuntu ssh.cloudstudio.net: Permission denied (publickey).</h2><div id="20240312210804-3rlh9fd" data-node-id="20240312210804-3rlh9fd" data-type="NodeParagraph" updated="20240312212459" class="p"><div spellcheck="false">之前在 windows 上直接就可以连接，但在ubuntu上却失败了.</div></div><div id="20240312212500-4yjmgc7" data-node-id="20240312212500-4yjmgc7" data-type="NodeParagraph" updated="20240312212549" class="p"><div spellcheck="false">和官方联系的过程学到一招， <span data-type="code">-vvvv</span>​ 参数可以 debug ssh 连接过程</div></div><div id="20240312211616-tcmn3z7" data-node-id="20240312211616-tcmn3z7" data-type="NodeCodeBlock" updated="20240312212457" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">yaml</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">gs@box:~$ ssh -vvvv xxxx-xxx@xxx.ssh.cloudstudio.net
+OpenSSH_9.3p1 Ubuntu-1ubuntu3.2, OpenSSL 3.0.10 1 Aug 2023
+...省略大量日志...
+debug2: we did not send a packet, disable method
+debug1: No more authentication methods to try.
+xxx-xxx@xxx.ssh.cloudstudio.net: Permission denied (publickey).
+</div>
+      </div><div id="20240312213114-5twj0kd" data-node-id="20240312213114-5twj0kd" data-type="NodeParagraph" updated="20240312214905" class="p"><div spellcheck="false">最后是 <span data-type="code">ssh-keygen -t ed25519</span>​  重新生成了一个就好了，是我这ssh版本太老了。</div></div><div id="20240312214913-3ktxhso" data-node-id="20240312214913-3ktxhso" data-type="NodeParagraph" updated="20240312214935" class="p"><div spellcheck="false">后来我升级了一下 ssh 然后重新 ssh-keygen 也可以连接成功</div></div><h1 id="20240312211912-86ek6ls" data-node-id="20240312211912-86ek6ls" data-type="NodeHeading" updated="20240312212619" data-subtype="h1" class="h1"><a href="https://ld246.com/article/1710249541292">发现用思源作为云剪贴板也挺好用的</a></h1><div id="20240312211912-e8oe911" data-node-id="20240312211912-e8oe911" data-type="NodeParagraph" updated="20240312212619" class="p"><div spellcheck="false">手动点击同步速度也够快，就是手机端目前还不太好分享，需要将图片在浏览器中打开然后才能借助浏览器进行分享。</div></div><div id="20240312211912-qifehyx" data-node-id="20240312211912-qifehyx" data-type="NodeParagraph" updated="20240312212619" class="p"><div spellcheck="false">希望思源早日完善分享功能。</div></div><h1 id="20240312212620-62wwwg3" data-node-id="20240312212620-62wwwg3" data-type="NodeHeading" updated="20240312222000" data-subtype="h1" class="h1">[vite] Internal server error: Cannot read properties of undefined (reading 'send')</h1><div id="20240312222419-ouae5tl" data-node-id="20240312222419-ouae5tl" data-type="NodeCodeBlock" updated="20240312222000" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">log</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">[vite] Internal server error: Cannot read properties of undefined (reading 'send')
+  Plugin: @tailwindcss/vite:scan
+</div>
+      </div><div id="20240312221954-3u3dynx" data-node-id="20240312221954-3u3dynx" data-type="NodeParagraph" updated="20240312222727" class="p"><div spellcheck="false">我是在使用 tailwindcss <span data-type="code">4.0.0-alpha.8</span>​ 时遇到的这个问题，因为我的 vite 版本太低了是四点几， 没有实现 hot.send api ，所以hmr时就会报上面这个错误。手动升级到 <span data-type="code">^5.1.6</span>​ 就好了。</div></div><h1 id="20240312222001-eol92xs" data-node-id="20240312222001-eol92xs" data-type="NodeHeading" updated="20240312224055" data-subtype="h1" class="h1">Subresource_Integrity 子资源完整性校验</h1><div id="20240312223834-s6ykzud" data-node-id="20240312223834-s6ykzud" data-type="NodeParagraph" updated="20240312224055" class="p"><div spellcheck="false"><a href="https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity">https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</a></div></div><div id="20240312223818-1s9w1u3" data-node-id="20240312223818-1s9w1u3" data-type="NodeBlockquote" updated="20240312223906" class="bq"><div id="20240312223906-4iov4r7" data-node-id="20240312223906-4iov4r7" data-type="NodeParagraph" updated="20240312223906" class="p"><div spellcheck="false">使用 <a href="https://developer.mozilla.org/en-US/docs/Glossary/CDN">内容交付网络 (CDN) </a>托管在多个站点之间共享的脚本和样式表等文件可以提高站点性能并节省带宽。    然而，使用 CDN 也存在风险，因为如果攻击者获得了 CDN 的控制权，则攻击者可以将任意恶意内容注入到 CDN  上的文件中（或完全替换文件），从而也可能攻击所有获取该内容的网站。来自该 CDN 的文件。</div></div><div id="20240312223906-3hyi0tg" data-node-id="20240312223906-3hyi0tg" data-type="NodeParagraph" updated="20240312223906" class="p"><div spellcheck="false">子资源完整性使您能够减轻此类攻击的一些风险，方法是确保您的 Web 应用程序或 Web 文档（从 CDN 或任何地方）获取的文件在第三方未向这些文件中注入任何其他内容的情况下进行交付 —并且没有对这些文件进行任何其他任何更改。</div></div></div>
+  </div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <footer>
+<p style="text-align:center;margin:15px 0;">
+  技术支持：
+  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+</body>
+</html>

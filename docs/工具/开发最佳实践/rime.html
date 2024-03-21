@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>rime</title>
+</head>
+<body>
+  <div id="search"></div>
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div style="min-height: 150px;" id="20240311141906-ne5uqtm" data-node-id="20240311141906-ne5uqtm" data-type="NodeDocument" updated="20240316115404" data-subtype="h1" class="h1"></div><h1 id="20240311141906-ne5uqtm" data-node-id="20240311141906-ne5uqtm" data-type="NodeDocument" updated="20240316115404" data-subtype="h1" class="h1" data-type="NodeHeading" class="h1">rime</h1><div id="20240316114046-ln657b2" data-node-id="20240316114046-ln657b2" data-type="NodeParagraph" updated="20240316114103" class="p"><div spellcheck="false">ubuntu安装rime ： https://www.cnblogs.com/keatonlao/p/12983158.html</div></div><div id="20240316114226-nf994qx" data-node-id="20240316114226-nf994qx" data-type="NodeCodeBlock" updated="20240316115132" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">shell</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">sudo apt-get install ibus-rime
+# 安装双拼
+sudo apt-get install rime-data-double-pinyin
+# 
+ibus restart
+# Ubuntu 22.04版本设置输入法在设置->-键盘->输入源->加号->汉语->中文（Rime）
+</div>
+      </div><h2 id="20240311141906-g8vm9mz" data-node-id="20240311141906-g8vm9mz" data-type="NodeHeading" updated="20240311141918" data-subtype="h2" class="h2">自定义配置</h2><div id="20240311141918-iqk5hbs" data-node-id="20240311141918-iqk5hbs" data-type="NodeParagraph" updated="20240311141957" class="p"><div spellcheck="false">rime输入法较为极客，他的ui界面基本上配置不了什么东西。</div></div><div id="20240311141959-tv6e65l" data-node-id="20240311141959-tv6e65l" data-type="NodeParagraph" updated="20240311142153" class="p"><div spellcheck="false">需要修改对应的文件才能进行配置（以 ubuntu 为例该配置文件位于：/home/用户名/.config/ibus/rime/default.custom.yaml）</div></div><div id="20240311142242-52ehuln" data-node-id="20240311142242-52ehuln" data-type="NodeParagraph" updated="20240311142351" class="p"><div spellcheck="false">下面是我的配置，可以看出来这个 custom.yaml 文件就是简单的 patch 覆盖 default.yaml 中的选项</div></div><div id="20240311142353-q7f778c" data-node-id="20240311142353-q7f778c" data-type="NodeParagraph" updated="20240311142408" class="p"><div spellcheck="false">我主要定制了如下</div></div><div id="20240311142246-s826fh9" data-node-id="20240311142246-s826fh9" data-type="NodeList" updated="20240316115404" data-subtype="u" class="list"><div id="20240311142257-tm8n1nu" data-node-id="20240311142257-tm8n1nu" data-type="NodeListItem" updated="20240316115404" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240311142257-2z8ghek" data-node-id="20240311142257-2z8ghek" data-type="NodeParagraph" updated="20240316115404" class="p"><div spellcheck="false">从rime默认的繁体配置为简体</div></div>
+    </div><div id="20240311142429-4585580" data-node-id="20240311142429-4585580" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240311142429-p3k4grs" data-node-id="20240311142429-p3k4grs" data-type="NodeParagraph" updated="20240311142449" class="p"><div spellcheck="false">采用双拼（需要另外的命令安装双拼功能）</div></div>
+    </div><div id="20240311142453-dtud3wc" data-node-id="20240311142453-dtud3wc" data-type="NodeListItem" updated="20240311142652" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240311142453-mm4hyqe" data-node-id="20240311142453-mm4hyqe" data-type="NodeParagraph" updated="20240311142652" class="p"><div spellcheck="false">屏蔽 <span data-type="kbd">ctrl</span>​ + <span data-type="kbd">`</span>​ （grave）快捷键（和 vscode 冲突了）</div></div>
+    </div></div><div id="20240311142154-s1hb4el" data-node-id="20240311142154-s1hb4el" data-type="NodeCodeBlock" updated="20240311142236" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">yaml</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">patch:
+    schema_list:
+        - schema: luna_pinyin_simp # 简化字模式
+        - schema: double_pinyin_flypy # 小鹤双拼  
+    switcher:
+        caption: 〔方案選單〕
+        hotkeys:
+            # - Control+grave #grave = ` 
+            - Control+Shift+grave
+            - F4
+        save_options:
+            - full_shape
+            - ascii_punct
+            - simplification
+            - extended_charset
+            - zh_hant
+            - zh_hans
+            - zh_hant_tw
+        fold_options: true
+        abbreviate_options: true
+        option_list_separator: '／'
+</div>
+      </div><div id="20240311142027-g3eer6a" data-node-id="20240311142027-g3eer6a" data-type="NodeParagraph" updated="20240311142837" class="p"><div spellcheck="false">然后点击状态栏的 rime 图标点击部署即可。<span data-type="NodeImage" class="img" style="">
+<img
+  src="./../../assets/image-20240311142755-r4ja9v9.png"
+  data-src="./../../assets/image-20240311142755-r4ja9v9.png"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div><div id="20240312183640-1wme1ss" data-node-id="20240312183640-1wme1ss" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
+  </div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <footer>
+<p style="text-align:center;margin:15px 0;">
+  技术支持：
+  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+</body>
+</html>

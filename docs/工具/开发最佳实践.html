@@ -22,7 +22,7 @@
 <body>
   <div id="search"></div>
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20231214205132-uvaysrt" data-node-id="20231214205132-uvaysrt" data-type="NodeDocument" updated="20240202162140" data-subtype="h1" class="h1"></div><h1 id="20231214205132-uvaysrt" data-node-id="20231214205132-uvaysrt" data-type="NodeDocument" updated="20240202162140" data-subtype="h1" class="h1" data-type="NodeHeading" class="h1">开发最佳实践</h1><div id="20240202152518-mwgs2sd" data-node-id="20240202152518-mwgs2sd" data-type="NodeBlockquote" updated="20240202152945" class="bq"><div id="20240202152938-wqa2lws" data-node-id="20240202152938-wqa2lws" data-type="NodeParagraph" updated="20240202152945" class="p"><div spellcheck="false">仅代表我个人看法</div></div></div><div id="20240202152525-db7srgj" data-node-id="20240202152525-db7srgj" data-type="NodeList" updated="20240202152949" data-subtype="u" class="list"><div id="20240202152949-04ibqlo" data-node-id="20240202152949-04ibqlo" data-type="NodeListItem" updated="20240202152949" data-subtype="u" class="li" data-marker="*">
+  <div style="min-height: 150px;" id="20231214205132-uvaysrt" data-node-id="20231214205132-uvaysrt" data-type="NodeDocument" updated="20240317162534" data-subtype="h1" class="h1"></div><h1 id="20231214205132-uvaysrt" data-node-id="20231214205132-uvaysrt" data-type="NodeDocument" updated="20240317162534" data-subtype="h1" class="h1" data-type="NodeHeading" class="h1">开发最佳实践</h1><div id="20240202152518-mwgs2sd" data-node-id="20240202152518-mwgs2sd" data-type="NodeBlockquote" updated="20240311142907" class="bq"><div id="20240202152938-wqa2lws" data-node-id="20240202152938-wqa2lws" data-type="NodeParagraph" updated="20240311142907" class="p"><div spellcheck="false">仅仅是我认为的</div></div></div><div id="20240202152525-db7srgj" data-node-id="20240202152525-db7srgj" data-type="NodeList" updated="20240202152949" data-subtype="u" class="list"><div id="20240202152949-04ibqlo" data-node-id="20240202152949-04ibqlo" data-type="NodeListItem" updated="20240202152949" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
@@ -32,11 +32,11 @@
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
       <div id="20240202153004-qy4a81o" data-node-id="20240202153004-qy4a81o" data-type="NodeParagraph" updated="20240202153004" class="p"><div spellcheck="false">编辑器： <span data-type="block-ref" data-subtype="d" data-id="20210816161945-sc79cz2"><a href="./../record/环境/vscode.html#20210816161945-sc79cz2">vscode</a></span></div></div>
-    </div></div><div id="20231220132646-ladqay8" data-node-id="20231220132646-ladqay8" data-type="NodeList" updated="20240202162140" data-subtype="u" class="list"><div id="20240202152725-uyhzju9" data-node-id="20240202152725-uyhzju9" data-type="NodeListItem" updated="20240202162140" data-subtype="u" class="li" data-marker="*">
+    </div></div><div id="20231220132646-ladqay8" data-node-id="20231220132646-ladqay8" data-type="NodeList" updated="20240317162534" data-subtype="u" class="list"><div id="20240202152725-uyhzju9" data-node-id="20240202152725-uyhzju9" data-type="NodeListItem" updated="20240317162534" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20240202152725-yi3iaf6" data-node-id="20240202152725-yi3iaf6" data-type="NodeParagraph" updated="20240202162140" class="p"><div spellcheck="false">ci/cd ： <a href="https://developer.github.com/actions/">github actions</a> , <a href="https://github.com/nektos/act">nektos/act - 在本地运行 github actions</a></div></div><div id="20240202152726-9ccirm9" data-node-id="20240202152726-9ccirm9" data-type="NodeParagraph" updated="20240202153449" class="p"><div spellcheck="false">我惯用的命令:</div></div><div id="20240202152744-uv84i4z" data-node-id="20240202152744-uv84i4z" data-type="NodeCodeBlock" updated="20240202154156" class="code-block" style="line-height: 22px;">
+      <div id="20240202152725-yi3iaf6" data-node-id="20240202152725-yi3iaf6" data-type="NodeParagraph" updated="20240202162140" class="p"><div spellcheck="false">ci/cd ： <a href="https://developer.github.com/actions/">github actions</a> , <a href="https://github.com/nektos/act">nektos/act - 在本地运行 github actions</a></div></div><div id="20240202152726-9ccirm9" data-node-id="20240202152726-9ccirm9" data-type="NodeParagraph" updated="20240202153449" class="p"><div spellcheck="false">我惯用的命令:</div></div><div id="20240202152744-uv84i4z" data-node-id="20240202152744-uv84i4z" data-type="NodeCodeBlock" updated="20240317162534" class="code-block" style="line-height: 22px;">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">bash</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -47,13 +47,24 @@
  # 将当前工作目录绑定到容器内，而非复制到容器内（actions脚本可以直接操作外界文件）
  -b\
  # 配置网络代理
- --env HTTP_PROXY=http://12.0.0.1:7777 --env HTTPS_PROXY=http://12.0.0.1:7777</div>
+ --env HTTP_PROXY=http://127.0.0.1:7777 --env HTTPS_PROXY=http://127.0.0.1:7777
+</div>
       </div><div id="20240202153404-8hwddmc" data-node-id="20240202153404-8hwddmc" data-type="NodeParagraph" updated="20240202153408" class="p"><div spellcheck="false"></div></div>
-    </div></div><div id="20240202152720-dd9reiq" data-node-id="20240202152720-dd9reiq" data-type="NodeList" updated="20240202160915" data-subtype="u" class="list"><div id="20240202160853-oy0os14" data-node-id="20240202160853-oy0os14" data-type="NodeListItem" updated="20240202160915" data-subtype="u" class="li" data-marker="*">
+    </div></div><div id="20240202152720-dd9reiq" data-node-id="20240202152720-dd9reiq" data-type="NodeList" updated="20240312224040" data-subtype="u" class="list"><div id="20240202160853-oy0os14" data-node-id="20240202160853-oy0os14" data-type="NodeListItem" updated="20240311141906" data-subtype="u" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-      <div id="20240202160853-bbgtghu" data-node-id="20240202160853-bbgtghu" data-type="NodeParagraph" updated="20240202160915" class="p"><div spellcheck="false">输入法 ： rime </div></div>
+      <div id="20240202160853-bbgtghu" data-node-id="20240202160853-bbgtghu" data-type="NodeParagraph" updated="20240311141906" class="p"><div spellcheck="false">输入法 ： <span data-type="block-ref" data-subtype="d" data-id="20240311141906-ne5uqtm"><a href="./../工具/开发最佳实践/rime.html#20240311141906-ne5uqtm">rime</a></span></div></div>
+    </div><div id="20240312223938-zsakjqm" data-node-id="20240312223938-zsakjqm" data-type="NodeListItem" updated="20240312224040" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240312223938-nx9buhy" data-node-id="20240312223938-nx9buhy" data-type="NodeParagraph" updated="20240312223942" class="p"><div spellcheck="false">html</div></div><div id="20240312223943-vca1lge" data-node-id="20240312223943-vca1lge" data-type="NodeList" updated="20240312224040" data-subtype="u" class="list"><div id="20240312223943-0lp87f8" data-node-id="20240312223943-0lp87f8" data-type="NodeListItem" updated="20240312224040" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240312223943-pfqa88p" data-node-id="20240312223943-pfqa88p" data-type="NodeParagraph" updated="20240312224040" class="p"><div spellcheck="false">所有不安全引用应当采用 <span data-type="block-ref" data-subtype="d" data-id="20240312222001-eol92xs"><a href="./../daily note/2024/03/2024-03-12.html#20240312222001-eol92xs">Subresource_Integrity 子资源完整性校验</a></span></div></div>
+    </div></div>
     </div></div><div id="20240202152642-9skbb3l" data-node-id="20240202152642-9skbb3l" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
   </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
