@@ -81,10 +81,6 @@
 <lastmod>2021-03-26</lastmod>
 </url>
 <url>
-<loc>https://shenzilong.cn/other/思源畅想-任意应用输入框内块引用.html</loc>
-<lastmod>2021-03-25</lastmod>
-</url>
-<url>
 <loc>https://shenzilong.cn/other/promise reolve 两次后才结束（伪）.html</loc>
 <lastmod>2021-03-03</lastmod>
 </url>
@@ -561,16 +557,8 @@
 <lastmod>2021-08-16</lastmod>
 </url>
 <url>
-<loc>https://shenzilong.cn/record/环境/uni/uni-app最佳实践.html</loc>
-<lastmod>2023-12-21</lastmod>
-</url>
-<url>
 <loc>https://shenzilong.cn/record/环境/阿里云函数计算.html</loc>
 <lastmod>2023-12-22</lastmod>
-</url>
-<url>
-<loc>https://shenzilong.cn/record/环境/uni/uni-app数据传递的坑.html</loc>
-<lastmod>2021-01-22</lastmod>
 </url>
 <url>
 <loc>https://shenzilong.cn/record/环境/阿里云函数计算/README.html</loc>
@@ -631,10 +619,6 @@
 <url>
 <loc>https://shenzilong.cn/record/文本处理/搜索.html</loc>
 <lastmod>2021-08-16</lastmod>
-</url>
-<url>
-<loc>https://shenzilong.cn/record/网络讨论/Edge浏览器并没有保存网页的功能，依托脚本能解决吗？ - 知乎.html</loc>
-<lastmod>2021-06-11</lastmod>
 </url>
 <url>
 <loc>https://shenzilong.cn/record/每日总结/2020/7月.html</loc>
@@ -1321,10 +1305,6 @@
 <lastmod>2021-07-13</lastmod>
 </url>
 <url>
-<loc>https://shenzilong.cn/读书笔记/typescript/一个简简单单的 TypeScript RPC 解决方案.html</loc>
-<lastmod>2021-06-09</lastmod>
-</url>
-<url>
 <loc>https://shenzilong.cn/读书笔记/前端开发杂记/ajax.html</loc>
 <lastmod>2021-08-18</lastmod>
 </url>
@@ -1713,18 +1693,6 @@
 <lastmod>2024-03-21</lastmod>
 </url>
 <url>
-<loc>https://shenzilong.cn/other/思源图表小白教程.html</loc>
-<lastmod>2021-08-24</lastmod>
-</url>
-<url>
-<loc>https://shenzilong.cn/other/TypeScript 有什么用？.html</loc>
-<lastmod>2021-07-22</lastmod>
-</url>
-<url>
-<loc>https://shenzilong.cn/other/网络请求的调试方法.html</loc>
-<lastmod>2021-07-16</lastmod>
-</url>
-<url>
 <loc>https://shenzilong.cn/关于/文档聚合.html</loc>
 <lastmod>2021-08-16</lastmod>
 </url>
@@ -1739,6 +1707,38 @@
 <url>
 <loc>https://shenzilong.cn/关于/文档聚合/闲评.html</loc>
 <lastmod>2023-09-19</lastmod>
+</url>
+<url>
+<loc>https://shenzilong.cn/other/网络请求的调试方法.html</loc>
+<lastmod>2024-03-21</lastmod>
+</url>
+<url>
+<loc>https://shenzilong.cn/other/TypeScript 有什么用？.html</loc>
+<lastmod>2024-03-21</lastmod>
+</url>
+<url>
+<loc>https://shenzilong.cn/record/网络讨论/Edge浏览器并没有保存网页的功能，依托脚本能解决吗？ - 知乎.html</loc>
+<lastmod>2024-03-21</lastmod>
+</url>
+<url>
+<loc>https://shenzilong.cn/record/环境/uni/uni-app数据传递的坑.html</loc>
+<lastmod>2024-03-21</lastmod>
+</url>
+<url>
+<loc>https://shenzilong.cn/other/思源畅想-任意应用输入框内块引用.html</loc>
+<lastmod>2024-03-21</lastmod>
+</url>
+<url>
+<loc>https://shenzilong.cn/record/环境/uni/uni-app最佳实践.html</loc>
+<lastmod>2024-03-21</lastmod>
+</url>
+<url>
+<loc>https://shenzilong.cn/读书笔记/typescript/一个简简单单的 TypeScript RPC 解决方案.html</loc>
+<lastmod>2024-03-21</lastmod>
+</url>
+<url>
+<loc>https://shenzilong.cn/other/思源图表小白教程.html</loc>
+<lastmod>2024-03-21</lastmod>
 </url>
 
 </urlset>
