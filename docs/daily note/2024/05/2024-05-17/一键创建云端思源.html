@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>一键创建云端思源</title>
+</head>
+<body>
+  <div id="search"></div>
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div style="min-height: 150px;" id="20240517155301-464yodt" data-node-id="20240517155301-464yodt" data-type="NodeDocument" updated="20240517184525" data-subtype="h1" class="h1" custom-liandi-articleId="1715941942720" type="doc"></div><h1 id="20240517155301-464yodt" data-node-id="20240517155301-464yodt" data-type="NodeDocument" updated="20240517184525" data-subtype="h1" class="h1" custom-liandi-articleId="1715941942720" type="doc" data-type="NodeHeading" class="h1">一键创建云端思源</h1><div id="20240517184509-8v62rx6" data-node-id="20240517184509-8v62rx6" data-type="NodeParagraph" updated="20240517184525" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 509px;" style="width: 499px;" style="width: 509px;">
+<img
+  src="./../../../../assets/image-20240517184509-3itwxv8.png"
+  data-src="./../../../../assets/image-20240517184509-3itwxv8.png"
+  title=""
+  style="width: 499px;"
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div><div id="20240517180710-29ktidg" data-node-id="20240517180710-29ktidg" data-type="NodeParagraph" updated="20240517183143" class="p"><div spellcheck="false">在四个月前我创建了 <a href="https://github.com/2234839/siyuan_serverless">https://github.com/2234839/siyuan_serverless</a> 项目 （求star</div></div><div id="20240517180724-9sxunl4" data-node-id="20240517180724-9sxunl4" data-type="NodeParagraph" updated="20240517180738" class="p"><div spellcheck="false">最近发现腾讯这个云端ide有点搞头。</div></div><div id="20240517180740-jy7dfpr" data-node-id="20240517180740-jy7dfpr" data-type="NodeParagraph" updated="20240517180804" class="p"><div spellcheck="false">它这个空间和一般的 serverless 的区别在于他是持久化的，都只能使用http通信，所以到了之前创建的项目大显身手的时候了。</div></div><h2 id="20240517155403-d4k3cw4" data-node-id="20240517155403-d4k3cw4" data-type="NodeHeading" updated="20240517183131" data-subtype="h2" class="h2">1. 点击下方按钮（没有帐号的随便选一个）</h2><div id="20240517181836-p8jbkrv" data-node-id="20240517181836-p8jbkrv" data-type="NodeParagraph" updated="20240517181857" class="p"><div spellcheck="false">ide.cloud.tencent.com: <span data-type="NodeImage" class="img" style="">
+<img
+  src="https://camo.githubusercontent.com/f092ffde5fb5d54c29ee6f018dd9f8926490850dd11dedc94be95c2ba04e2c0a/68747470733a2f2f63732d7265732e636f64656875622e636e2f636f6d6d6f6e2f6173736574732f69636f6e2d62616467652e737667"
+  data-src="https://camo.githubusercontent.com/f092ffde5fb5d54c29ee6f018dd9f8926490850dd11dedc94be95c2ba04e2c0a/68747470733a2f2f63732d7265732e636f64656875622e636e2f636f6d6d6f6e2f6173736574732f69636f6e2d62616467652e737667"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span><a href="https://ide.cloud.tencent.com/templates/52xp20mfy0w">https://ide.cloud.tencent.com/templates/52xp20mfy0w</a></div></div><div id="20240517181836-gsnoyo9" data-node-id="20240517181836-gsnoyo9" data-type="NodeParagraph" updated="20240517181836" class="p"><div spellcheck="false">cloudstudio.net: <span data-type="NodeImage" class="img" style="">
+<img
+  src="https://camo.githubusercontent.com/f092ffde5fb5d54c29ee6f018dd9f8926490850dd11dedc94be95c2ba04e2c0a/68747470733a2f2f63732d7265732e636f64656875622e636e2f636f6d6d6f6e2f6173736574732f69636f6e2d62616467652e737667"
+  data-src="https://camo.githubusercontent.com/f092ffde5fb5d54c29ee6f018dd9f8926490850dd11dedc94be95c2ba04e2c0a/68747470733a2f2f63732d7265732e636f64656875622e636e2f636f6d6d6f6e2f6173736574732f69636f6e2d62616467652e737667"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span><a href="https://cloudstudio.net/templates/52xvcorqps0">https://cloudstudio.net/templates/52xvcorqps0</a></div></div><div id="20240517181925-dydn4qm" data-node-id="20240517181925-dydn4qm" data-type="NodeParagraph" updated="20240517181940" class="p"><div spellcheck="false">点击新建工作空间<span data-type="NodeImage" class="img" parent-style="width: 378px;" style="width: 368px;" style="width: 378px;">
+<img
+  src="./../../../../assets/image-20240517181925-rlujvo8.png"
+  data-src="./../../../../assets/image-20240517181925-rlujvo8.png"
+  title=""
+  style="width: 368px;"
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div><div id="20240517181947-kl5jeke" data-node-id="20240517181947-kl5jeke" data-type="NodeParagraph" updated="20240517182053" class="p"><div spellcheck="false">等待....  , 加载好后会自动运行程序，右下角弹出这两个提示就可以使用了。</div></div><div id="20240517182032-o091yrg" data-node-id="20240517182032-o091yrg" data-type="NodeParagraph" updated="20240517182032" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 534px;" style="width: 524px;" style="width: 534px;">
+<img
+  src="./../../../../assets/image-20240517182032-xombu6h.png"
+  data-src="./../../../../assets/image-20240517182032-xombu6h.png"
+  title=""
+  style="width: 524px;"
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div><div id="20240517182133-tuw5zgf" data-node-id="20240517182133-tuw5zgf" data-type="NodeParagraph" updated="20240517182227" class="p"><div spellcheck="false">直接点击端口为 6806 的‘打开浏览器’</div></div><div id="20240517181950-6nyyc84" data-node-id="20240517181950-6nyyc84" data-type="NodeParagraph" updated="20240517182441" class="p"><div spellcheck="false">authorization code默认为 test，可以自行修改，配置在 <span data-type="code">bash_boot.sh</span>​ 文件中</div></div><div id="20240517182734-xtg2nco" data-node-id="20240517182734-xtg2nco" data-type="NodeParagraph" updated="20240517182824" class="p"><div spellcheck="false">如果程序关闭了，在终端输入<span data-type="code">bash ./bash_boot.sh</span>​ 回车运行即可</div></div><div id="20240517182806-jrf0nsc" data-node-id="20240517182806-jrf0nsc" data-type="NodeParagraph" updated="20240517183106" class="p"><div spellcheck="false">大家可以尝试右方的连接 <a href="https://oeikdx-pmcqfk-6806.preview.myide.io/stage/build/desktop/?r=ooyf0wg">https://oeikdx-pmcqfk-6806.preview.myide.io/stage/build/desktop/?r=ooyf0wg</a> ，如果进不去的话说明我这边关闭了。鉴权码为 <span data-type="code">test</span>​ </div></div><div id="20240517182443-d9hchlt" data-node-id="20240517182443-d9hchlt" data-type="NodeParagraph" updated="20240517183131" class="p"><div spellcheck="false">上面创建的是2c4g，每个月腾讯只给了3000分钟的免费额度，可以自行<a href="https://github.com/2234839/siyuan_serverless"> fork我的仓库</a>，然后创建一个1c2g的免费空间。</div></div><div id="20240517155359-px7e3l4" data-node-id="20240517155359-px7e3l4" data-type="NodeParagraph" updated="20240517155359" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 450px;" style="width: 440px;" style="width: 450px;">
+<img
+  src="./../../../../assets/image-20240517155359-98civql.png"
+  data-src="./../../../../assets/image-20240517155359-98civql.png"
+  title=""
+  style="width: 440px;"
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div>
+  </div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <footer>
+<p style="text-align:center;margin:15px 0;">
+  技术支持：
+  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+</body>
+</html>
