@@ -1,17 +1,17 @@
 {
-    "name": "doc",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-      "upload": "tsx ./upload_s3.ts"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-      "@types/node": "^20.11.28",
-      "minio": "^7.1.3",
-      "tsx": "^4.7.1"
-    }
+  "name": "doc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "upload": "tsx ./upload_s3.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^20.14.0",
+    "minio": "^7.1.3",
+    "tsx": "^4.11.2"
   }
+}

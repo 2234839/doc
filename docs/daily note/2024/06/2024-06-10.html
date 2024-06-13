@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>2024-06-10</title>
+</head>
+<body>
+  <div id="search"></div>
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div style="min-height: 150px;" id="20240610093138-us9xcv0" data-node-id="20240610093138-us9xcv0" data-type="NodeDocument" updated="20240610101803" data-subtype="h1" class="h1" custom-dailynote-20240610="20240610" type="doc"></div><h1 id="20240610093138-us9xcv0" data-node-id="20240610093138-us9xcv0" data-type="NodeDocument" updated="20240610101803" data-subtype="h1" class="h1" custom-dailynote-20240610="20240610" type="doc" data-type="NodeHeading" class="h1">2024-06-10</h1><h2 id="20240610093230-rt55sfp" data-node-id="20240610093230-rt55sfp" data-type="NodeHeading" updated="20240610101803" data-subtype="h2" class="h2">1panel 设置网站root目录</h2><div id="20240610093240-ubiwgxy" data-node-id="20240610093240-ubiwgxy" data-type="NodeParagraph" updated="20240610093301" class="p"><div spellcheck="false"><a href="https://github.com/1Panel-dev/1Panel/issues/2783#issuecomment-2157017465">https://github.com/1Panel-dev/1Panel/issues/2783#issuecomment-2157017465</a></div></div><div id="20240610093212-hbkwa68" data-node-id="20240610093212-hbkwa68" data-type="NodeParagraph" updated="20240610093237" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+<img
+  src="./../../../assets/image-20240610093212-79yh0c6.png"
+  data-src="./../../../assets/image-20240610093212-79yh0c6.png"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div><div id="20240610093154-xunkbp5" data-node-id="20240610093154-xunkbp5" data-type="NodeParagraph" updated="20240610093237" class="p"><div spellcheck="false">我通过编辑 compose 文件来实现指定域名到某个文件目录，供大家参考</div></div><div id="20240610093154-h3s4n69" data-node-id="20240610093154-h3s4n69" data-type="NodeCodeBlock" updated="20240610093237" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">yaml</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">services:
+    openresty:
+        container_name: ${CONTAINER_NAME}
+        deploy:
+            resources:
+                limits:
+                    cpus: ${CPUS}
+                    memory: ${MEMORY_LIMIT}
+        image: 1panel/openresty:1.21.4.3-3-1-focal
+        labels:
+            createdBy: Apps
+        network_mode: host
+        restart: always
+        volumes:
+            - ./conf/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+            - ./conf/fastcgi_params:/usr/local/openresty/nginx/conf/fastcgi_params
+            - ./conf/fastcgi-php.conf:/usr/local/openresty/nginx/conf/fastcgi-php.conf
+            - ./log:/var/log/nginx
+            - ./conf/conf.d:/usr/local/openresty/nginx/conf/conf.d/
+            - ./www:/www
+            - ./root:/usr/share/nginx/html
+            - /etc/localtime:/etc/localtime
+            - ./1pwaf/data:/usr/local/openresty/1pwaf/data
+            - /本机目录:/www/sites/站点域名/index
+</div>
+      </div><h2 id="20240610100154-fh2w4um" data-node-id="20240610100154-fh2w4um" data-type="NodeHeading" updated="20240610101803" data-subtype="h2" class="h2">cloudreve 迁移至 1panel 应用</h2><div id="20240610100223-676bq5m" data-node-id="20240610100223-676bq5m" data-type="NodeParagraph" updated="20240610100543" class="p"><div spellcheck="false">可以参考我下面的 compose 配置，其中 /jfs/app/cloudreve 是我旧数据存储地，值得注意的是cloudreve 即便修改了存储策略中的路径，但之前上传的文件还是会访问之前的路径，所以需要添加对应的路径覆盖，在我这里就是<span data-type="code">/jfs/app/cloudreve/uploads:/jfs/uploads</span>​ 这个配置，<span data-type="code">/jfs/uploads</span>​ 是我之前的本地存储路径，我后来修改存储路径为  <span data-type="code">cloudreve/uploads</span>​ 了，但为了兼容还是要映射到 <span data-type="code">/jfs/uploads</span>​</div></div><div id="20240610100212-o4u7ejt" data-node-id="20240610100212-o4u7ejt" data-type="NodeCodeBlock" updated="20240610100210" class="code-block" style="line-height: 22px;">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">yaml</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">networks:
+    1panel-network:
+        external: true
+services:
+    cloudreve:
+        container_name: ${CONTAINER_NAME}
+        deploy:
+            resources:
+                limits:
+                    cpus: ${CPUS}
+                    memory: ${MEMORY_LIMIT}
+        image: cloudreve/cloudreve:3.8.3
+        labels:
+            createdBy: Apps
+        networks:
+            - 1panel-network
+        ports:
+            - ${HOST_IP}:${PANEL_APP_PORT_HTTP}:5212
+        restart: always
+        volumes:
+            - /jfs/app/cloudreve/uploads:/cloudreve/uploads
+            - /jfs/app/cloudreve/uploads:/jfs/uploads
+            - /jfs/app/cloudreve:/data
+            - /jfs/app/cloudreve/conf.ini:/cloudreve/conf.ini
+            - /jfs/app/cloudreve/cloudreve.db:/cloudreve/cloudreve.db
+            - /jfs/app/cloudreve/avatar:/cloudreve/avatar
+
+</div>
+      </div><h2 id="20240610101746-v5rgcu1" data-node-id="20240610101746-v5rgcu1" data-type="NodeHeading" updated="20240610101803" data-subtype="h2" class="h2">linux 磁盘分析工具，类似 SpaceSniffer</h2><div id="20240610101756-uakhifa" data-node-id="20240610101756-uakhifa" data-type="NodeParagraph" updated="20240610101801" class="p"><div spellcheck="false">可以使用 ncdu</div></div><div id="20240610101803-5nyhvim" data-node-id="20240610101803-5nyhvim" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
+  </div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <footer>
+<p style="text-align:center;margin:15px 0;">
+  技术支持：
+  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+</body>
+</html>

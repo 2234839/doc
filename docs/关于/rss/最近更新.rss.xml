@@ -5,72 +5,48 @@
 <link></link>
 <description></description>
 <atom:link href="https://shenzilong.cn/关于/rss/最近更新.rss.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>2024-06-03T09:02:56.780Z</lastBuildDate>
+<lastBuildDate>2024-06-13T14:00:44.377Z</lastBuildDate>
 <item>
-  <title>开发最佳实践</title>
-  <link>https://shenzilong.cn/工具/开发最佳实践.html</link>
+  <title>2024-06-13</title>
+  <link>https://shenzilong.cn/daily note/2024/06/2024-06-13.html</link>
   <description></description>
-  <pubDate>2024-06-03T08:12:43.000Z</pubDate>
-</item>
-<item>
-  <title>一个视频说清整个英语语法体系(重塑你的语法认知框架)-笔记</title>
-  <link>https://shenzilong.cn/other/一个视频说清整个英语语法体系(重塑你的语法认知框架)-笔记.html</link>
-  <description></description>
-  <pubDate>2021-03-13T10:58:53.000Z</pubDate>
-</item>
-<item>
-  <title>深入了解Typescript</title>
-  <link>https://shenzilong.cn/读书笔记/typescript/深入了解Typescript.html</link>
-  <description></description>
-  <pubDate>2020-11-04T07:33:59.000Z</pubDate>
-</item>
-<item>
-  <title>崮生产品使用协议</title>
-  <link>https://shenzilong.cn/关于/崮生产品使用协议.html</link>
-  <description></description>
-  <pubDate>2024-05-31T04:39:19.000Z</pubDate>
-</item>
-<item>
-  <title>test</title>
-  <link>https://shenzilong.cn/index/test.html</link>
-  <description></description>
-  <pubDate>2024-05-30T10:31:22.000Z</pubDate>
+  <pubDate>2024-06-13T12:38:40.000Z</pubDate>
 </item>
 <item>
   <title>OceanPress插件</title>
   <link>https://shenzilong.cn/想法/项目/OceanPress_js/OceanPress插件.html</link>
   <description></description>
-  <pubDate>2024-05-29T04:04:10.000Z</pubDate>
+  <pubDate>2024-06-13T12:31:16.000Z</pubDate>
 </item>
 <item>
   <title>OceanPress_js</title>
   <link>https://shenzilong.cn/想法/项目/OceanPress_js.html</link>
   <description></description>
-  <pubDate>2024-03-21T08:14:43.000Z</pubDate>
+  <pubDate>2024-06-12T10:05:17.000Z</pubDate>
 </item>
 <item>
-  <title>siyuan expression 插件</title>
-  <link>https://shenzilong.cn/other/我的开源项目/siyuan expression 插件.html</link>
+  <title>OceanPress插件实现完美ocr v0.3.6</title>
+  <link>https://shenzilong.cn/想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件实现完美ocr v0.3.6.html</link>
   <description></description>
-  <pubDate>2024-05-26T12:07:40.000Z</pubDate>
+  <pubDate>2024-06-13T12:29:15.000Z</pubDate>
 </item>
 <item>
-  <title>rime</title>
-  <link>https://shenzilong.cn/工具/开发最佳实践/rime.html</link>
+  <title>更新日志</title>
+  <link>https://shenzilong.cn/想法/项目/OceanPress_js/OceanPress插件/更新日志.html</link>
   <description></description>
-  <pubDate>2024-05-22T16:42:00.000Z</pubDate>
+  <pubDate>2024-06-13T12:30:30.000Z</pubDate>
 </item>
 <item>
-  <title>2024-05-17</title>
-  <link>https://shenzilong.cn/daily note/2024/05/2024-05-17.html</link>
+  <title>OceanPress插件支持手机端ocr文本识别 v0.3.7</title>
+  <link>https://shenzilong.cn/想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件支持手机端ocr文本识别 v0.3.7.html</link>
   <description></description>
-  <pubDate>2024-05-20T10:53:32.000Z</pubDate>
+  <pubDate>2024-06-13T12:31:30.000Z</pubDate>
 </item>
 <item>
-  <title>llrt</title>
-  <link>https://shenzilong.cn/daily note/2024/05/2024-05-18/llrt.html</link>
+  <title>鑫空间鑫生活</title>
+  <link>https://shenzilong.cn/文集/feed/鑫空间鑫生活.html</link>
   <description></description>
-  <pubDate>2024-05-19T13:01:16.000Z</pubDate>
+  <pubDate>2024-06-13T12:08:54.000Z</pubDate>
 </item>
 </channel>
 </rss>
