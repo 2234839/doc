@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>通过 iframe 引用思源的 block</title>
+</head>
+<body>
+  <div id="search"></div>
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div style="min-height: 150px;" id="20240622103850-90v98k8" data-node-id="20240622103850-90v98k8" data-type="NodeDocument" updated="20240622142623" data-subtype="h1" class="h1" custom-liandi-articleId="1719037595523" type="doc"></div><h1 id="20240622103850-90v98k8" data-node-id="20240622103850-90v98k8" data-type="NodeDocument" updated="20240622142623" data-subtype="h1" class="h1" custom-liandi-articleId="1719037595523" type="doc" data-type="NodeHeading" class="h1">通过 iframe 引用思源的 block</h1><div id="20240622103906-o7gvbew" data-node-id="20240622103906-o7gvbew" data-type="NodeParagraph" updated="20240622103938" class="p"><div spellcheck="false">现在思源更新了发布模式，通过发布模式访问思源内容可以设置不用鉴权。</div></div><div id="20240622103939-e6bpc3q" data-node-id="20240622103939-e6bpc3q" data-type="NodeParagraph" updated="20240622104028" class="p"><div spellcheck="false">但直接嵌入 ip:6806 是一个完整的编辑页面，现在我只需要引用他的一个 block 该如何做呢？</div></div><div id="20240622114943-2p667zt" data-node-id="20240622114943-2p667zt" data-type="NodeParagraph" updated="20240622115034" class="p"><div spellcheck="false">注意到思源的弹出块面板代码在这里： <a href="https://github.com/2234839/siyuan/blob/6efa948859ef5971a32f42402ed7185a2b4bb519/app/src/plugin/index.ts#L365">window.siyuan.blockPanels.push(new BlockPanel(</a></div></div><div id="20240622115035-ugtpc2k" data-node-id="20240622115035-ugtpc2k" data-type="NodeParagraph" updated="20240622141900" class="p"><div spellcheck="false">插件可以直接调用，所以我决定使用插件实现接受 url 参数 blockId 然后弹出一个块面板，并且让窗口只显示此块面板,实现代码位于： <a href="https://github.com/2234839/OceanPress_siyuan_plugin/blob/6d470c08857390e2ae056ba0322989898b9ee998/src/sy2video-plugin-siyuan/index.ts#L11-L15">this.addFloatLayer({</a></div></div><div id="20240622142040-u09dlin" data-node-id="20240622142040-u09dlin" data-type="NodeParagraph" updated="20240622142402" class="p"><div spellcheck="false">安装 <a href="https://github.com/2234839/sy2video-plugin-siyuan">2234839/sy2video-plugin-siyuan</a> 插件后开启发布模式就可以通过 url 参数来让页面只显示指定的块</div></div><div id="20240622142124-pgl82d1" data-node-id="20240622142124-pgl82d1" data-type="NodeList" updated="20240622142347" data-subtype="u" class="list"><div id="20240622142124-y0v1fqj" data-node-id="20240622142124-y0v1fqj" data-type="NodeListItem" updated="20240622142124" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240622142124-ba3gz6s" data-node-id="20240622142124-ba3gz6s" data-type="NodeParagraph" updated="20240622142132" class="p"><div spellcheck="false">需要配置url参数：
+block_show (有此参数则功能生效)
+block_id
+例如：http://127.0.0.1:6806/stage/build/desktop/?block_show=1&block_id=20240621163257-fp4jwg8</div></div>
+    </div></div><div id="20240622142218-pi05nuy" data-node-id="20240622142218-pi05nuy" data-type="NodeParagraph" updated="20240622142347" class="p"><div spellcheck="false">效果： <span data-type="NodeImage" class="img" style="">
+<img
+  src="./../../../assets/image-20240622142221-5j7pm35.png"
+  data-src="./../../../assets/image-20240622142221-5j7pm35.png"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div><h2 id="20240622114402-smi42e9" data-node-id="20240622114402-smi42e9" data-type="NodeHeading" updated="20240622142431" data-subtype="h2" class="h2">失败的尝试</h2><div id="20240622104028-ukrkwuy" data-node-id="20240622104028-ukrkwuy" data-type="NodeParagraph" updated="20240622142431" class="p"><div spellcheck="false">注意到思源本身提供了一个在新窗口打开块的功能：<span data-type="block-ref" data-subtype="s" data-id="20240622103906-o7gvbew"><a href="./../../../想法/项目/sy2video/通过 iframe 引用思源的 block.html#20240622103906-o7gvbew">test</a></span></div></div><div id="20240622104218-lkefsl0" data-node-id="20240622104218-lkefsl0" data-type="NodeParagraph" updated="20240622114415" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 651px;" style="width: 641px;" style="width: 651px;">
+<img
+  src="./../../../assets/image-20240622104218-9gzxaet.png"
+  data-src="./../../../assets/image-20240622104218-9gzxaet.png"
+  title=""
+  style="width: 641px;"
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div><div id="20240622104224-5e99np9" data-node-id="20240622104224-5e99np9" data-type="NodeParagraph" updated="20240622114415" class="p"><div spellcheck="false">这个打开的效果已经很接近了，那么如何通过iframe 引用这个页面呢</div></div><div id="20240622103753-vmex6zc" data-node-id="20240622103753-vmex6zc" data-type="NodeParagraph" updated="20240622114415" class="p"><div spellcheck="false">首先在思源源码找到该页面的url规范 <a href="https://github.com/2234839/siyuan/blob/6efa948859ef5971a32f42402ed7185a2b4bb519/app/src/window/openNewWindow.ts#L63">url: </a><a href="https://github.com/2234839/siyuan/blob/6efa948859ef5971a32f42402ed7185a2b4bb519/app/src/window/openNewWindow.ts#L63"><span data-type="code">${window.location.protocol}//${window.location.host}/stage/build/app/window.html?v=${Constants.SIYUAN_VERSION}&amp;json=${encodeURIComponent(JSON.stringify(json))}</span></a>​</div></div><div id="20240622105533-0tjah9c" data-node-id="20240622105533-0tjah9c" data-type="NodeParagraph" updated="20240622142030" class="p"><div spellcheck="false">使用<a href="https://www.typescriptlang.org/play/?#code/MYewdgzgLgBAwuaBDMUIwLwwN4FgBQAkAMoCSAmgKoCCAcgPoBqAogEpkDytAXDAER8ANAUJwAQvQDizACr1icVhwAyy3n2AAjALQBzAKZRtEYACcQAGwtCR4qbPrVV6rXsPakVvgQC+BUJCwmiAAHqQAJpj8AEwADNEAjLEAHAkAbOkJAJwALLHaAF4gibogCd74AdAw5iBQEVF8cdF5aYnpAMzRAKxp2gCeIAW6VgC2FVVBFiDAANYR3NCmAJZguo3NrdGJsTmJydoWs-oAZhAWsRX+iLAAVhDgvCj9UXhEUMtQFvrqNkThM1IAV+wiIAAdVrwTp4IPpQYQkMAPgA3H4wKCmACucJEq2QYGAaL4MiQmj+CKRy0e-BJZPhwAAFssLOFTPowLw3oRCGA6vpgiB5uFeMEwuF4YRNNM5gsYFKZkKJbV6sKaiA6hEJaMQOEiQB3foQZYG3Tkwh4qAoQnqZjhT4gUxmxEfanKhoYD1y6VCmAAfngNxQaAAdHZpHIFEpVDBeAhAkGIKGJOHHKoRH58D4ANwEa6QSz6YPTXQAClzRAABgB6KsJaIAdmDsSbwYS3DSyViaSryAMVc0mOZ4SrSDBYKretWAL1wYZUFGFl9yIwABJsHH8SGyFQ6Ew2JxaD4AGT3cCr7Ds0C6yisUgIUZg8DsqAlgBSxC4waWq10yxO-RLU8wAASmAnwKwIYCgA">这里的代码</a>来生成对应链接不可行， windows.html 里面的代码依赖了 electron 环境</div></div><div id="20240622114351-3wxj4no" data-node-id="20240622114351-3wxj4no" data-type="NodeParagraph" updated="20240622114415" class="p"><div spellcheck="false"></div></div><div id="20240622114351-w1hgk8i" data-node-id="20240622114351-w1hgk8i" data-type="NodeParagraph" updated="20240622114415" class="p"><div spellcheck="false"></div></div><div id="20240622100531-x939o37" data-node-id="20240622100531-x939o37" data-type="NodeParagraph" updated="20240622114415" class="p"><div spellcheck="false"></div></div>
+  </div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <footer>
+<p style="text-align:center;margin:15px 0;">
+  技术支持：
+  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+</body>
+</html>
