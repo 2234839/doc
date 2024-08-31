@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>expr 支持图表等其他块的映射</title>
+</head>
+<body>
+  <div id="search"></div>
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div style="min-height: 150px;" id="20240808092621-2rdw83w" data-node-id="20240808092621-2rdw83w" data-type="NodeDocument" updated="20240818115506" data-subtype="h1" class="h1" custom-liandi-articleId="1723082183967" type="doc"></div><h1 id="20240808092621-2rdw83w" data-node-id="20240808092621-2rdw83w" data-type="NodeDocument" updated="20240818115506" data-subtype="h1" class="h1" custom-liandi-articleId="1723082183967" type="doc" data-type="NodeHeading" class="h1">expr 支持图表等其他块的映射</h1><div id="20240808092649-2hbvmlq" data-node-id="20240808092649-2hbvmlq" data-type="NodeParagraph" updated="20240808092728" class="p"><div spellcheck="false">以前写过 <span data-type="block-ref" data-subtype="d" data-id="20210824162114-vaqmnda"><a href="./../../../other/思源图表小白教程.html#20210824162114-vaqmnda">思源图表小白教程</a></span> ，对图表功能不熟悉的可以先阅读一下。</div></div><div id="20240808092729-ztu9zpf" data-node-id="20240808092729-ztu9zpf" data-type="NodeParagraph" updated="20240808093542" class="p"><div spellcheck="false">下面是一个引用块内包裹了一个图表块：</div></div><div id="20240808092645-mqc976g" data-node-id="20240808092645-mqc976g" data-type="NodeBlockquote" updated="20240808092645" class="bq"><div id="20240808092645-7leeodx" data-node-id="20240808092645-7leeodx" data-type="NodeCodeBlock" updated="20240808092645" data-subtype="echarts" class="render-node" data-content="{
+  &amp;quot;xAxis&amp;quot;: {
+    &amp;quot;type&amp;quot;: &amp;quot;category&amp;quot;,
+    &amp;quot;boundaryGap&amp;quot;: false,
+    &amp;quot;data&amp;quot;: [
+      &amp;quot;Mon&amp;quot;, &amp;quot;Tue&amp;quot;, &amp;quot;Wed&amp;quot;, &amp;quot;Thu&amp;quot;, &amp;quot;Fri&amp;quot;, &amp;quot;Sat&amp;quot;, &amp;quot;Sun&amp;quot;
+    ]
+  },
+  &amp;quot;yAxis&amp;quot;: {
+    &amp;quot;type&amp;quot;: &amp;quot;value&amp;quot;
+  },
+  &amp;quot;series&amp;quot;: [
+    { 
+        &amp;quot;data&amp;quot;: [ 820, 932, 901, 934, 1290, 1330, 1320 ],
+      &amp;quot;type&amp;quot;: &amp;quot;line&amp;quot;,
+      &amp;quot;areaStyle&amp;quot;: {}
+    }
+  ]
+}">
+        <div spin="1"></div>
+        <div class="protyle-attr" contenteditable="false"></div>
+      </div></div><div id="20240808093544-ujxt7xt" data-node-id="20240808093544-ujxt7xt" data-type="NodeParagraph" updated="20240808093629" class="p"><div spellcheck="false">通过  <a href="https://github.com/siyuan-note/siyuan/blob/master/API_zh_CN.md#%E8%8E%B7%E5%8F%96%E5%9D%97-kramdown-%E6%BA%90%E7%A0%81">获取块 kramdown 源码</a> 接口可以得到它的 kramdown 源码如下：</div></div><div id="20240808093629-y1q8may" data-node-id="20240808093629-y1q8may" data-type="NodeCodeBlock" updated="20240808093712" class="code-block" style="line-height: 22px;">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">md</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">> ‍```echarts
+> {
+>   "xAxis": {
+>     "type": "category",
+>     "boundaryGap": false,
+>     "data": [
+>       "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"
+>     ]
+>   },
+>   "yAxis": {
+>     "type": "value"
+>   },
+>   "series": [
+>     { 
+>         "data": [ 820, 932, 901, 934, 1290, 1330, 1320 ],
+>       "type": "line",
+>       "areaStyle": {}
+>     }
+>   ]
+> }
+> ‍```
+> {: id="20240808092645-7leeodx" updated="20240808092645"}
+>
+{: id="20240808092645-mqc976g" updated="20240808092645"}
+</div>
+      </div><div id="20240808093612-k1pstw5" data-node-id="20240808093612-k1pstw5" data-type="NodeParagraph" updated="20240808100635" class="p"><div spellcheck="false">那么理论上来说只要 expr 的结果是输出以上内容（除去最后一行，这行是 expr 块的属性，表达式插件会自动添加），那么思源就会显示图表了，想要动态的数据图表只需要在 expr 中动态读取数据并构造对应的图表 json 即可</div></div><div id="20240808094133-iwda8ve" data-node-id="20240808094133-iwda8ve" data-type="NodeParagraph" updated="20240808094308" class="p"><div spellcheck="false">现在新建一个 expr 块如下， expr 值填写为上面 kramdown 源码去除最后一行的 js 文本字符串，果然正常渲染出了下面的图表</div></div><div id="20240808094156-w3mpa1p" data-node-id="20240808094156-w3mpa1p" data-type="NodeCodeBlock" updated="20240808094221" class="code-block" style="line-height: 22px;">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">text</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false"> "> ‍‍```echarts\n> {\n>   \"xAxis\": {\n>     \"type\": \"category\",\n>     \"boundaryGap\": false,\n>     \"data\": [\n>       \"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\", \"Sun\"\n>     ]\n>   },\n>   \"yAxis\": {\n>     \"type\": \"value\"\n>   },\n>   \"series\": [\n>     { \n>         \"data\": [ 820, 932, 901, 934, 1290, 1330, 1320 ],\n>       \"type\": \"line\",\n>       \"areaStyle\": {}\n>     }\n>   ]\n> }\n> ‍‍```\n> {: id=\"20240808092645-7leeodx\" updated=\"20240808092645\"}\n>}"
+</div>
+      </div><div id="20240808093944-kvaqkp7" data-node-id="20240808093944-kvaqkp7" data-type="NodeBlockquote" updated="20240818115505" class="bq" custom-expr=" &quot;&gt; ```echarts\n&gt; &#123;\n&gt;   \&quot;xAxis\&quot;: &#123;\n&gt;     \&quot;type\&quot;: \&quot;category\&quot;,\n&gt;     \&quot;boundaryGap\&quot;: false,\n&gt;     \&quot;data\&quot;: [\n&gt;       \&quot;Mon\&quot;, \&quot;Tue\&quot;, \&quot;Wed\&quot;, \&quot;Thu\&quot;, \&quot;Fri\&quot;, \&quot;Sat\&quot;, \&quot;Sun\&quot;\n&gt;     ]\n&gt;   &#125;,\n&gt;   \&quot;yAxis\&quot;: &#123;\n&gt;     \&quot;type\&quot;: \&quot;value\&quot;\n&gt;   &#125;,\n&gt;   \&quot;series\&quot;: [\n&gt;     &#123; \n&gt;         \&quot;data\&quot;: [ 820, 932, 901, 934, 1290, 1330, 1320 ],\n&gt;       \&quot;type\&quot;: \&quot;line\&quot;,\n&gt;       \&quot;areaStyle\&quot;: &#123;&#125;\n&gt;     &#125;\n&gt;   ]\n&gt; &#125;\n&gt; ```\n&gt; &#123;: id=\&quot;20240808092645-7leeodx\&quot; updated=\&quot;20240808092645\&quot;&#125;\n&gt;&quot;" custom-expr-value="&gt; ```echarts_esc_newline_&gt; &#123;_esc_newline_&gt;   &quot;xAxis&quot;: &#123;_esc_newline_&gt;     &quot;type&quot;: &quot;category&quot;,_esc_newline_&gt;     &quot;boundaryGap&quot;: false,_esc_newline_&gt;     &quot;data&quot;: [_esc_newline_&gt;       &quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;_esc_newline_&gt;     ]_esc_newline_&gt;   &#125;,_esc_newline_&gt;   &quot;yAxis&quot;: &#123;_esc_newline_&gt;     &quot;type&quot;: &quot;value&quot;_esc_newline_&gt;   &#125;,_esc_newline_&gt;   &quot;series&quot;: [_esc_newline_&gt;     &#123; _esc_newline_&gt;         &quot;data&quot;: [ 820, 932, 901, 934, 1290, 1330, 1320 ],_esc_newline_&gt;       &quot;type&quot;: &quot;line&quot;,_esc_newline_&gt;       &quot;areaStyle&quot;: &#123;&#125;_esc_newline_&gt;     &#125;_esc_newline_&gt;   ]_esc_newline_&gt; &#125;_esc_newline_&gt; ```_esc_newline_&gt; &#123;: id=&quot;20240808092645-7leeodx&quot; updated=&quot;20240808092645&quot;&#125;_esc_newline_&gt;"><div id="20240818115505-dv0b1x7" data-node-id="20240818115505-dv0b1x7" data-type="NodeCodeBlock" updated="20240808092645" data-subtype="echarts" class="render-node" data-content="{
+  &quot;xAxis&quot;: {
+    &quot;type&quot;: &quot;category&quot;,
+    &quot;boundaryGap&quot;: false,
+    &quot;data&quot;: [
+      &quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;
+    ]
+  },
+  &quot;yAxis&quot;: {
+    &quot;type&quot;: &quot;value&quot;
+  },
+  &quot;series&quot;: [
+    { 
+        &quot;data&quot;: [ 820, 932, 901, 934, 1290, 1330, 1320 ],
+      &quot;type&quot;: &quot;line&quot;,
+      &quot;areaStyle&quot;: {}
+    }
+  ]
+}">
+        <div spin="1"></div>
+        <div class="protyle-attr" contenteditable="false"></div>
+      </div></div><div id="20240808094309-f4ykxpg" data-node-id="20240808094309-f4ykxpg" data-type="NodeParagraph" updated="20240808094309" class="p"><div spellcheck="false"></div></div><div id="20240808094320-b172n91" data-node-id="20240808094320-b172n91" data-type="NodeParagraph" updated="20240808094342" class="p"><div spellcheck="false">接下来我给出一个根据其他块数据进行动态渲染图表的样例</div></div><div id="20240808094343-w872er6" data-node-id="20240808094343-w872er6" data-type="NodeParagraph" updated="20240808094510" class="p"><div spellcheck="false">假设有数据 a , 一个表达式块内含一个数值：</div></div><div id="20240808094354-xiq54n9" data-node-id="20240808094354-xiq54n9" data-type="NodeParagraph" updated="20240818115505" class="p" custom-expr="2" custom-expr-value="2"><div spellcheck="false">2</div></div><div id="20240808094546-hbff62j" data-node-id="20240808094546-hbff62j" data-type="NodeParagraph" updated="20240808094634" class="p"><div spellcheck="false">现在使用如下js 读取该块的数据作为图表的第一个点的值，expr 代码如下：</div></div><div id="20240808094635-ws04qkw" data-node-id="20240808094635-ws04qkw" data-type="NodeCodeBlock" updated="20240808095022" class="code-block" style="line-height: 22px;">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">js</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">const data_a = (await expr.exprEvalByID("20240808094354-xiq54n9")) * 3
+
+return `> \`\`\`echarts
+> {
+>   "xAxis": {
+>     "type": "category",
+>     "boundaryGap": false,
+>     "data": [
+>       "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"
+>     ]
+>   },
+>   "yAxis": {
+>     "type": "value"
+>   },
+>   "series": [
+>     { 
+>         "data": [ ${data_a}, 932, 901, 934, 1290, 1330, 1320 ],
+>       "type": "line",
+>       "areaStyle": {}
+>     }
+>   ]
+> }
+> \`\`\`
+> {: id="20240808092645-7leeodx" updated="20240808092645"}
+>`
+</div>
+      </div><div id="20240808095051-ilwomdt" data-node-id="20240808095051-ilwomdt" data-type="NodeParagraph" updated="20240808095309" class="p"><div spellcheck="false">可以看到下面图表的第一个数据点和上面的 expr 块的数值（123）关联了起来， 现在只要修改上面的 expr 块的数值，下面的图标就会在切换页签之后自动更新</div></div><div id="20240808094525-hjmfusi" data-node-id="20240808094525-hjmfusi" data-type="NodeBlockquote" updated="20240818115506" class="bq" custom-expr="const data_a = (await expr.exprEvalByID(&quot;20240808094354-xiq54n9&quot;)) * 3_esc_newline__esc_newline_return `&gt; \`\`\`echarts_esc_newline_&gt; &#123;_esc_newline_&gt;   &quot;xAxis&quot;: &#123;_esc_newline_&gt;     &quot;type&quot;: &quot;category&quot;,_esc_newline_&gt;     &quot;boundaryGap&quot;: false,_esc_newline_&gt;     &quot;data&quot;: [_esc_newline_&gt;       &quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;_esc_newline_&gt;     ]_esc_newline_&gt;   &#125;,_esc_newline_&gt;   &quot;yAxis&quot;: &#123;_esc_newline_&gt;     &quot;type&quot;: &quot;value&quot;_esc_newline_&gt;   &#125;,_esc_newline_&gt;   &quot;series&quot;: [_esc_newline_&gt;     &#123; _esc_newline_&gt;         &quot;data&quot;: [ $&#123;data_a&#125;, 932, 901, 934, 1290, 1330, 1320 ],_esc_newline_&gt;       &quot;type&quot;: &quot;line&quot;,_esc_newline_&gt;       &quot;areaStyle&quot;: &#123;&#125;_esc_newline_&gt;     &#125;_esc_newline_&gt;   ]_esc_newline_&gt; &#125;_esc_newline_&gt; \`\`\`_esc_newline_&gt; &#123;: id=&quot;20240808092645-7leeodx&quot; updated=&quot;20240808092645&quot;&#125;_esc_newline_&gt;`_esc_newline_" custom-expr-value="&gt; ```echarts_esc_newline_&gt; &#123;_esc_newline_&gt;   &quot;xAxis&quot;: &#123;_esc_newline_&gt;     &quot;type&quot;: &quot;category&quot;,_esc_newline_&gt;     &quot;boundaryGap&quot;: false,_esc_newline_&gt;     &quot;data&quot;: [_esc_newline_&gt;       &quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;_esc_newline_&gt;     ]_esc_newline_&gt;   &#125;,_esc_newline_&gt;   &quot;yAxis&quot;: &#123;_esc_newline_&gt;     &quot;type&quot;: &quot;value&quot;_esc_newline_&gt;   &#125;,_esc_newline_&gt;   &quot;series&quot;: [_esc_newline_&gt;     &#123; _esc_newline_&gt;         &quot;data&quot;: [ 6, 932, 901, 934, 1290, 1330, 1320 ],_esc_newline_&gt;       &quot;type&quot;: &quot;line&quot;,_esc_newline_&gt;       &quot;areaStyle&quot;: &#123;&#125;_esc_newline_&gt;     &#125;_esc_newline_&gt;   ]_esc_newline_&gt; &#125;_esc_newline_&gt; ```_esc_newline_&gt; &#123;: id=&quot;20240808092645-7leeodx&quot; updated=&quot;20240808092645&quot;&#125;_esc_newline_&gt;"><div id="20240818115635-0xf5sgo" data-node-id="20240818115635-0xf5sgo" data-type="NodeCodeBlock" updated="20240808092645" data-subtype="echarts" class="render-node" data-content="{
+  &quot;xAxis&quot;: {
+    &quot;type&quot;: &quot;category&quot;,
+    &quot;boundaryGap&quot;: false,
+    &quot;data&quot;: [
+      &quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;
+    ]
+  },
+  &quot;yAxis&quot;: {
+    &quot;type&quot;: &quot;value&quot;
+  },
+  &quot;series&quot;: [
+    { 
+        &quot;data&quot;: [ 6, 932, 901, 934, 1290, 1330, 1320 ],
+      &quot;type&quot;: &quot;line&quot;,
+      &quot;areaStyle&quot;: {}
+    }
+  ]
+}">
+        <div spin="1"></div>
+        <div class="protyle-attr" contenteditable="false"></div>
+      </div></div><div id="20240808095310-2dkiv5i" data-node-id="20240808095310-2dkiv5i" data-type="NodeParagraph" updated="20240808095310" class="p"><div spellcheck="false"></div></div><div id="20240808095312-beyqkhk" data-node-id="20240808095312-beyqkhk" data-type="NodeParagraph" updated="20240808095515" class="p"><div spellcheck="false">如果需要从思源的数据库或者 table ，或其他什么地方获取数据生成图表也可以这样做，改改 js 就行了，如果你对 js 不熟悉的话而又需要一些动态图表功能的话可以雇佣我来提供技术支持：  <a href="https://afdian.com/a/llej0">https://afdian.com/a/llej0</a></div></div><div id="20240808095516-m0yz4mf" data-node-id="20240808095516-m0yz4mf" data-type="NodeParagraph" updated="20240808095614" class="p"><div spellcheck="false">另外如果您已经安装了expr插件的话，并不需要更新插件，因为这个功能是从一开始就支持的，只是我现在才有空写教程</div></div>
+  </div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <footer>
+<p style="text-align:center;margin:15px 0;">
+  技术支持：
+  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+</body>
+</html>

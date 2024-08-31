@@ -5,132 +5,84 @@
 <link></link>
 <description></description>
 <atom:link href="https://shenzilong.cn/关于/rss/最近更新.rss.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>2024-06-23T03:16:29.630Z</lastBuildDate>
+<lastBuildDate>2024-08-31T07:31:53.872Z</lastBuildDate>
 <item>
-  <title>sy2video</title>
-  <link>https://shenzilong.cn/想法/项目/sy2video.html</link>
+  <title>如何实现一个小体积的js docker镜像</title>
+  <link>https://shenzilong.cn/record/如何实现一个小体积的js docker镜像.html</link>
   <description></description>
-  <pubDate>2024-06-23T03:15:57.000Z</pubDate>
+  <pubDate>2024-08-31T07:23:55.000Z</pubDate>
 </item>
 <item>
-  <title>思源笔记文本转语音</title>
-  <link>https://shenzilong.cn/想法/项目/sy2video/思源笔记文本转语音.html</link>
+  <title>webfont</title>
+  <link>https://shenzilong.cn/other/我的开源项目/webfont.html</link>
   <description></description>
-  <pubDate>2024-06-23T03:09:05.000Z</pubDate>
+  <pubDate>2024-08-18T03:57:49.000Z</pubDate>
 </item>
 <item>
-  <title>2024-06-14</title>
-  <link>https://shenzilong.cn/daily note/2024/06/2024-06-14.html</link>
+  <title>expr 支持图表等其他块的映射</title>
+  <link>https://shenzilong.cn/other/我的开源项目/siyuan expression 插件/expr 支持图表等其他块的映射.html</link>
   <description></description>
-  <pubDate>2024-06-22T09:19:34.000Z</pubDate>
+  <pubDate>2024-08-18T03:55:06.000Z</pubDate>
 </item>
 <item>
-  <title>通过 iframe 引用思源的 block</title>
-  <link>https://shenzilong.cn/想法/项目/sy2video/通过 iframe 引用思源的 block.html</link>
+  <title>我的开源项目</title>
+  <link>https://shenzilong.cn/other/我的开源项目.html</link>
   <description></description>
-  <pubDate>2024-06-22T06:26:23.000Z</pubDate>
+  <pubDate>2024-08-18T03:55:23.000Z</pubDate>
 </item>
 <item>
-  <title>test</title>
-  <link>https://shenzilong.cn/index/test.html</link>
+  <title>v0.0.12 expr表达式插件支持引用其他表达式计算结果</title>
+  <link>https://shenzilong.cn/other/我的开源项目/siyuan expression 插件/更新记录/v0.0.12 expr表达式插件支持引用其他表达式计算结果.html</link>
   <description></description>
-  <pubDate>2024-06-22T02:30:58.000Z</pubDate>
-</item>
-<item>
-  <title>在思源笔记中直接复制图片上的文字</title>
-  <link>https://shenzilong.cn/杂记/在思源笔记中直接复制图片上的文字.html</link>
-  <description></description>
-  <pubDate>2024-06-20T10:54:38.000Z</pubDate>
-</item>
-<item>
-  <title>08</title>
-  <link>https://shenzilong.cn/杂记/子虚云游记/08.html</link>
-  <description></description>
-  <pubDate>2024-06-20T05:07:19.000Z</pubDate>
-</item>
-<item>
-  <title>2024-06-19</title>
-  <link>https://shenzilong.cn/daily note/2024/06/2024-06-19.html</link>
-  <description></description>
-  <pubDate>2024-06-19T14:17:27.000Z</pubDate>
-</item>
-<item>
-  <title>支持使用umi-ocr进行图片识别 v0.3.10</title>
-  <link>https://shenzilong.cn/想法/项目/OceanPress_js/OceanPress插件/更新日志/支持使用umi-ocr进行图片识别 v0.3.10.html</link>
-  <description></description>
-  <pubDate>2024-06-19T07:59:07.000Z</pubDate>
-</item>
-<item>
-  <title>更新日志</title>
-  <link>https://shenzilong.cn/想法/项目/OceanPress_js/OceanPress插件/更新日志.html</link>
-  <description></description>
-  <pubDate>2024-06-19T07:59:00.000Z</pubDate>
-</item>
-<item>
-  <title>OceanPress插件支持tif文件渲染 v0.3.8</title>
-  <link>https://shenzilong.cn/想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件支持tif文件渲染 v0.3.8.html</link>
-  <description></description>
-  <pubDate>2024-06-15T04:01:19.000Z</pubDate>
+  <pubDate>2024-08-18T03:55:06.000Z</pubDate>
 </item>
 <item>
   <title>expr test</title>
   <link>https://shenzilong.cn/other/我的开源项目/siyuan expression 插件/expr test.html</link>
   <description></description>
-  <pubDate>2024-06-19T06:02:37.000Z</pubDate>
+  <pubDate>2024-08-18T03:55:05.000Z</pubDate>
 </item>
 <item>
-  <title>OceanPress插件实现完美ocr v0.3.6</title>
-  <link>https://shenzilong.cn/想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件实现完美ocr v0.3.6.html</link>
+  <title>espruino</title>
+  <link>https://shenzilong.cn/daily note/2024/03/espruino.html</link>
   <description></description>
-  <pubDate>2024-06-19T03:21:23.000Z</pubDate>
+  <pubDate>2024-08-15T02:09:15.000Z</pubDate>
 </item>
 <item>
-  <title>6月</title>
-  <link>https://shenzilong.cn/record/每日总结/2021/6月.html</link>
+  <title>toolkit-plugin-siyuan</title>
+  <link>https://shenzilong.cn/想法/项目/toolkit-plugin-siyuan.html</link>
   <description></description>
-  <pubDate>2024-06-19T02:37:27.000Z</pubDate>
+  <pubDate>2024-08-15T02:05:55.000Z</pubDate>
 </item>
 <item>
-  <title>鸿蒙到底是啥</title>
-  <link>https://shenzilong.cn/other/鸿蒙到底是啥.html</link>
+  <title>思源简单冲突对比</title>
+  <link>https://shenzilong.cn/想法/项目/toolkit-plugin-siyuan/思源简单冲突对比.html</link>
   <description></description>
-  <pubDate>2021-06-07T07:20:04.000Z</pubDate>
+  <pubDate>2024-08-15T02:05:45.000Z</pubDate>
 </item>
 <item>
-  <title>Typescript函数返回类型怎样根据传入参数值的不同而改变？ - 知乎</title>
-  <link>https://shenzilong.cn/record/每日总结/2021/6月/Typescript函数返回类型怎样根据传入参数值的不同而改变？ - 知乎.html</link>
+  <title>各种系统安装node</title>
+  <link>https://shenzilong.cn/record/环境/node/各种系统安装node.html</link>
   <description></description>
-  <pubDate>2024-06-19T02:37:11.000Z</pubDate>
+  <pubDate>2024-08-13T01:54:53.000Z</pubDate>
 </item>
 <item>
-  <title>了解 vue composition-api 原理</title>
-  <link>https://shenzilong.cn/record/每日总结/2021/doc/了解 vue composition-api 原理.html</link>
+  <title>思源标签排序功能</title>
+  <link>https://shenzilong.cn/想法/项目/思源标签排序功能.html</link>
   <description></description>
-  <pubDate>2021-06-11T08:31:28.000Z</pubDate>
+  <pubDate>2024-08-12T10:01:02.000Z</pubDate>
 </item>
 <item>
-  <title>Edge浏览器并没有保存网页的功能，依托脚本能解决吗？ - 知乎</title>
-  <link>https://shenzilong.cn/record/网络讨论/Edge浏览器并没有保存网页的功能，依托脚本能解决吗？ - 知乎.html</link>
+  <title>Ajax-hook</title>
+  <link>https://shenzilong.cn/other/Ajax-hook.html</link>
   <description></description>
-  <pubDate>2024-03-21T09:16:58.000Z</pubDate>
+  <pubDate>2024-08-12T04:38:36.000Z</pubDate>
 </item>
 <item>
-  <title>singleFile</title>
-  <link>https://shenzilong.cn/工具/singleFile.html</link>
+  <title>深入了解Typescript</title>
+  <link>https://shenzilong.cn/读书笔记/typescript/深入了解Typescript.html</link>
   <description></description>
-  <pubDate>2023-10-08T11:07:41.000Z</pubDate>
-</item>
-<item>
-  <title>Tag</title>
-  <link>https://shenzilong.cn/record/Tag.html</link>
-  <description></description>
-  <pubDate>2023-12-22T06:28:36.000Z</pubDate>
-</item>
-<item>
-  <title>查典式学习法</title>
-  <link>https://shenzilong.cn/想法/项目/查典式学习法.html</link>
-  <description></description>
-  <pubDate>2021-07-01T10:12:21.000Z</pubDate>
+  <pubDate>2024-08-11T07:26:22.000Z</pubDate>
 </item>
 </channel>
 </rss>
