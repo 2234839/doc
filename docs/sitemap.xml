@@ -1697,10 +1697,6 @@
 <lastmod>2024-07-18</lastmod>
 </url>
 <url>
-<loc>https://shenzilong.cn/index.html</loc>
-<lastmod>2024-06-13</lastmod>
-</url>
-<url>
 <loc>https://shenzilong.cn/daily note/2024/01/2024-01-27.html</loc>
 <lastmod>2024-03-11</lastmod>
 </url>
@@ -1949,8 +1945,16 @@
 <lastmod>2021-05-21</lastmod>
 </url>
 <url>
-<loc>https://shenzilong.cn/record/如何实现一个小体积的js docker镜像.html</loc>
+<loc>https://shenzilong.cn/index.html</loc>
 <lastmod>2024-08-31</lastmod>
+</url>
+<url>
+<loc>https://shenzilong.cn/record/如何实现一个小体积的js docker镜像.html</loc>
+<lastmod>2024-09-01</lastmod>
+</url>
+<url>
+<loc>https://shenzilong.cn/record/How I Created a 3.78MB Docker Image for a JavaScript Service.html</loc>
+<lastmod>2024-09-01</lastmod>
 </url>
 
 </urlset>

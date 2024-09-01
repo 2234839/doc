@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>How I Created a 3.78MB Docker Image for a JavaScript Service</title>
+</head>
+<body>
+  <div id="search"></div>
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div style="min-height: 150px;" id="20240901095218-n4gomty" data-node-id="20240901095218-n4gomty" data-type="NodeDocument" updated="20240901095403" data-subtype="h1" class="h1" type="doc"></div><h1 id="20240901095218-n4gomty" data-node-id="20240901095218-n4gomty" data-type="NodeDocument" updated="20240901095403" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">How I Created a 3.78MB Docker Image for a JavaScript Service</h1><div id="20240901095309-h2cp0r2" data-node-id="20240901095309-h2cp0r2" data-type="NodeParagraph" updated="20240901095403" class="p"><div spellcheck="false">Here’s a translation of <span data-type="block-ref" data-subtype="s" data-id="20240831144820-s0ruk7h"><a href="./../record/如何实现一个小体积的js docker镜像.html#20240831144820-s0ruk7h">your article</a></span> into English, tailored for an audience in the English-speaking world:</div></div><div id="20240901095309-jldu7cg" data-node-id="20240901095309-jldu7cg" data-type="NodeThematicBreak" updated="20240901095309" class="hr"><div></div></div><div id="20240901095309-fvjzgbq" data-node-id="20240901095309-fvjzgbq" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">On the server side, JavaScript is typically run using Node.js. Besides Node, other popular runtimes include Bun and Deno.</div></div><div id="20240901095309-hrs5jau" data-node-id="20240901095309-hrs5jau" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">However, all three of these runtimes come with a considerable package size. Even in their most minimal configurations, they still exceed 50MB. In this article, I’m going to share how I managed to migrate a service initially developed with Node.js to a Docker image that’s only 3.78MB in size.</div></div><div id="20240901095309-oxjd6xc" data-node-id="20240901095309-oxjd6xc" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+<img
+  src="./../assets/image-20240831145324-mzsh9nq.png"
+  data-src="./../assets/image-20240831145324-mzsh9nq.png"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div><div id="20240901095309-om7i0cr" data-node-id="20240901095309-om7i0cr" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false"><a href="https://hub.docker.com/layers/llej0/web-font/latest/images/sha256-ebb8bb18d33844f27ca02d632c2ebf584435fffae28be2c9416baa86a8de45be?context=repo">Check out the Docker image on Docker Hub</a></div></div><h2 id="20240901095309-d801vae" data-node-id="20240901095309-d801vae" data-type="NodeHeading" updated="20240901095309" data-subtype="h2" class="h2">Choosing a JavaScript Runtime (<a href="https://github.com/awslabs/llrt">llrt</a>)</h2><div id="20240901095309-4cnu73c" data-node-id="20240901095309-4cnu73c" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">To achieve such a small Docker image, Node.js is no longer a viable option. The most popular lightweight JavaScript runtime that fits the bill is <a href="https://github.com/quickjs-zh/QuickJS">QuickJS</a>.</div></div><div id="20240901095309-ipw6fe2" data-node-id="20240901095309-ipw6fe2" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">The project I was migrating is a font trimming tool called <a href="https://github.com/2234839/web-font">web-font</a>, which involves not only pure JavaScript but also file I/O and HTTP server APIs. QuickJS, being a pure interpreter, lacks these APIs.</div></div><div id="20240901095309-n3su11g" data-node-id="20240901095309-n3su11g" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">Among the more mature micro JavaScript runtimes based on QuickJS are <a href="https://github.com/saghul/txiki.js">txiki.js</a> and <a href="https://github.com/awslabs/llrt">llrt</a>. After some experimentation, I found that llrt runs perfectly in Docker, whereas txiki.js proved to be less convenient (the compiled <span data-type="code">tjs</span>​ still depends on other libraries).</div></div><div id="20240901095309-m8ewy5z" data-node-id="20240901095309-m8ewy5z" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">So, I decided to use llrt as the runtime.</div></div><h2 id="20240901095309-rjobqig" data-node-id="20240901095309-rjobqig" data-type="NodeHeading" updated="20240901095309" data-subtype="h2" class="h2">Challenges in the Migration</h2><div id="20240901095309-vsbens2" data-node-id="20240901095309-vsbens2" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">The main challenge was that llrt doesn’t provide an HTTP module (neither does txiki.js), but luckily, it does offer a net module.</div></div><div id="20240901095309-607vj4v" data-node-id="20240901095309-607vj4v" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">So, I hand-crafted a <a href="https://github.com/2234839/web-font/blob/new/backend/server/tcp_server.ts">basic HTTP server</a> and an onion routing <a href="https://github.com/2234839/web-font/blob/new/backend/server/server.ts">server.ts</a> based on <span data-type="code">net.createServer</span>​.</div></div><div id="20240901095309-jyh0xkg" data-node-id="20240901095309-jyh0xkg" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">During this process, I also discovered a CPU usage anomaly in llrt: <a href="https://github.com/awslabs/llrt/issues/546">https://github.com/awslabs/llrt/issues/546</a>.</div></div><h2 id="20240901095309-1sxrf4j" data-node-id="20240901095309-1sxrf4j" data-type="NodeHeading" updated="20240901095309" data-subtype="h2" class="h2">Building the Tiny Docker Image</h2><h3 id="20240901095309-8xc95hi" data-node-id="20240901095309-8xc95hi" data-type="NodeHeading" updated="20240901095309" data-subtype="h3" class="h3">1. Code Packaging</h3><div id="20240901095309-ve33b45" data-node-id="20240901095309-ve33b45" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">I used tsup to bundle the TypeScript source code into a single JavaScript file.</div></div><div id="20240901095309-lk3krkg" data-node-id="20240901095309-lk3krkg" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">Then, I used the llrt <span data-type="code">compile</span>​ command to compile the JavaScript file into a <span data-type="code">.lrt</span>​ file, which further reduced the size by about 30%.</div></div><h3 id="20240901095309-o9hkqbs" data-node-id="20240901095309-o9hkqbs" data-type="NodeHeading" updated="20240901095309" data-subtype="h3" class="h3">2. Dockerfile</h3><div id="20240901095309-b0m8qyq" data-node-id="20240901095309-b0m8qyq" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">Thanks to llrt, I could avoid any external dependencies and use <span data-type="code">FROM scratch</span>​ to achieve the smallest possible Docker image size.</div></div><div id="20240901095309-22vewob" data-node-id="20240901095309-22vewob" data-type="NodeCodeBlock" updated="20240901095309" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">dockerfile</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">FROM scratch
+WORKDIR /home/
+COPY dist_backend/app.lrt /home/app.lrt
+COPY llrt /home/llrt
+COPY dist/ /home/dist/
+CMD ["/home/llrt", "/home/app.lrt"]
+</div>
+      </div><div id="20240901095309-kyij683" data-node-id="20240901095309-kyij683" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">After Docker’s compression, I ended up with a Docker image of just 3.78MB.</div></div><h2 id="20240901095309-yoc4spl" data-node-id="20240901095309-yoc4spl" data-type="NodeHeading" updated="20240901095309" data-subtype="h2" class="h2">Performance Considerations</h2><div id="20240901095309-xvt6vi6" data-node-id="20240901095309-xvt6vi6" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">llrt’s runtime speed is significantly slower than Node.js; in my scenario, it’s about twice as slow. The garbage collection (GC) speed is also much slower.</div></div><div id="20240901095309-fxt0ajb" data-node-id="20240901095309-fxt0ajb" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">However, the initial memory footprint and startup speed are far superior to Node.js.</div></div><div id="20240901095309-qztfu55" data-node-id="20240901095309-qztfu55" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">Given the current limitations of llrt, it’s easy to encounter issues, so unless you urgently need to reduce the memory footprint or cold start speed of your JavaScript application, or you’re just curious like me, I’d still recommend sticking with Node.js for most use cases.</div></div><div id="20240901095309-dm2sodf" data-node-id="20240901095309-dm2sodf" data-type="NodeThematicBreak" updated="20240901095309" class="hr"><div></div></div><div id="20240901095309-9qwqkga" data-node-id="20240901095309-9qwqkga" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">This translation should resonate well with an English-speaking audience, providing clear insights into your process while making it accessible for readers on platforms like Reddit or other tech forums.</div></div>
+  </div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <footer>
+<p style="text-align:center;margin:15px 0;">
+  技术支持：
+  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+</body>
+</html>
