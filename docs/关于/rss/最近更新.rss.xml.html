@@ -1,178 +1,387 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>最近更新.rss.xml</title>
 </head>
 <body>
-  <div id="search"></div>
+  
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc"></div><h1 id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc" data-type="NodeHeading" class="h1">最近更新.rss.xml</h1><div id="20210606154842-jah9dt8" data-node-id="20210606154842-jah9dt8" data-type="NodeBlockQueryEmbed" updated="20240619103229" style="height: 9998px;" data-type="NodeBlockquote" class="bq"><div id="20240901095309-h2cp0r2" data-node-id="20240901095309-h2cp0r2" data-type="NodeParagraph" updated="20240901095403" class="p"><div spellcheck="false">Here’s a translation of <span data-type="block-ref" data-subtype="s" data-id="20240831144820-s0ruk7h"><a href="./../../record/如何实现一个小体积的js docker镜像.html#20240831144820-s0ruk7h">your article</a></span> into English, tailored for an audience in the English-speaking world:</div></div><div id="20240901095309-fvjzgbq" data-node-id="20240901095309-fvjzgbq" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">On the server side, JavaScript is typically run using Node.js. Besides Node, other popular runtimes include Bun and Deno.</div></div><div id="20240901095309-hrs5jau" data-node-id="20240901095309-hrs5jau" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">However, all three of these runtimes come with a considerable package size. Even in their most minimal configurations, they still exceed 50MB. In this article, I’m going to share how I managed to migrate a service initially developed with Node.js to a Docker image that’s only 3.78MB in size.</div></div><div id="20240901095309-oxjd6xc" data-node-id="20240901095309-oxjd6xc" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <div style="min-height: 150px;" id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc"></div><h1 id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc" data-type="NodeHeading" class="h1">最近更新.rss.xml</h1><div id="20210606154842-jah9dt8" data-node-id="20210606154842-jah9dt8" data-type="NodeBlockQueryEmbed" updated="20240619103229" style="height: 9998px;" data-type="NodeBlockquote" class="bq"><h2 id="20230925200255-2wopdto" data-node-id="20230925200255-2wopdto" data-type="NodeHeading" updated="20241227142830" data-subtype="h2" class="h2"><span data-type="block-ref" data-subtype="d" data-id="20201104153359-jpxsqye"><a href="./../../关于/崮生_子虚.html#20201104153359-jpxsqye">崮生_子虚</a></span> <span data-type="text" style="font-size: 14px; background-color: var(--b3-font-background4);">关于我</span></h2>
+<div id="20240613222044-pt2tr8x" data-node-id="20240613222044-pt2tr8x" data-type="NodeBlockQueryEmbed" updated="20240613222044" data-type="NodeBlockquote" class="bq"><div id="20240613221811-3bfzxph" data-node-id="20240613221811-3bfzxph" data-type="NodeSuperBlock" updated="20241227142204" class="sb" data-sb-layout="col"><div id="20231008141711-zw97aa2" data-node-id="20231008141711-zw97aa2" data-type="NodeParagraph" updated="20241227142204" class="p"><div spellcheck="false"><span data-type="strong">短期工作协议（预付费）：</span><span data-type="strong"><a href="https://afdian.com/item/d613eb929b2f11eea5e352540025c377">爱发电购买</a></span>
+提供我所有技能来解决你的问题，一份时长为1小时。
+我是偏前端的全栈开发，也可以为你提供更通用的其他技能，建议先和我沟通在购买。
+当我全力在思考或者着手解决问题时是一小时，如果期间不需要我消耗精力的话我不会计算进时间。
+支持未用完的额度返还。</div></div><div id="20241227142144-hzs4dg7" data-node-id="20241227142144-hzs4dg7" data-type="NodeParagraph" updated="20241227142144" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
 <img
-  src="./../../assets/image-20240831145324-mzsh9nq.png"
-  data-src="./../../assets/image-20240831145324-mzsh9nq.png"
+  src="./../../assets/image-20241227142144-23es2av.png"
+  data-src="./../../assets/image-20241227142144-23es2av.png"
   title=""
   style=""
   loading="lazy"
 />
-<span class="protyle-action__title"></span></span>​</div></div><div id="20240901095309-om7i0cr" data-node-id="20240901095309-om7i0cr" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false"><a href="https://hub.docker.com/layers/llej0/web-font/latest/images/sha256-ebb8bb18d33844f27ca02d632c2ebf584435fffae28be2c9416baa86a8de45be?context=repo">Check out the Docker image on Docker Hub</a></div></div><h2 id="20240901095309-d801vae" data-node-id="20240901095309-d801vae" data-type="NodeHeading" updated="20240901095309" data-subtype="h2" class="h2">Choosing a JavaScript Runtime (<a href="https://github.com/awslabs/llrt">llrt</a>)</h2>
-<div id="20240901095309-4cnu73c" data-node-id="20240901095309-4cnu73c" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">To achieve such a small Docker image, Node.js is no longer a viable option. The most popular lightweight JavaScript runtime that fits the bill is <a href="https://github.com/quickjs-zh/QuickJS">QuickJS</a>.</div></div>
-<div id="20240901095309-ipw6fe2" data-node-id="20240901095309-ipw6fe2" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">The project I was migrating is a font trimming tool called <a href="https://github.com/2234839/web-font">web-font</a>, which involves not only pure JavaScript but also file I/O and HTTP server APIs. QuickJS, being a pure interpreter, lacks these APIs.</div></div>
-<div id="20240901095309-n3su11g" data-node-id="20240901095309-n3su11g" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">Among the more mature micro JavaScript runtimes based on QuickJS are <a href="https://github.com/saghul/txiki.js">txiki.js</a> and <a href="https://github.com/awslabs/llrt">llrt</a>. After some experimentation, I found that llrt runs perfectly in Docker, whereas txiki.js proved to be less convenient (the compiled <span data-type="code">tjs</span>​ still depends on other libraries).</div></div>
-<div id="20240901095309-m8ewy5z" data-node-id="20240901095309-m8ewy5z" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">So, I decided to use llrt as the runtime.</div></div><div id="20240901095309-4cnu73c" data-node-id="20240901095309-4cnu73c" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">To achieve such a small Docker image, Node.js is no longer a viable option. The most popular lightweight JavaScript runtime that fits the bill is <a href="https://github.com/quickjs-zh/QuickJS">QuickJS</a>.</div></div><div id="20240901095309-ipw6fe2" data-node-id="20240901095309-ipw6fe2" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">The project I was migrating is a font trimming tool called <a href="https://github.com/2234839/web-font">web-font</a>, which involves not only pure JavaScript but also file I/O and HTTP server APIs. QuickJS, being a pure interpreter, lacks these APIs.</div></div><div id="20240901095309-n3su11g" data-node-id="20240901095309-n3su11g" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">Among the more mature micro JavaScript runtimes based on QuickJS are <a href="https://github.com/saghul/txiki.js">txiki.js</a> and <a href="https://github.com/awslabs/llrt">llrt</a>. After some experimentation, I found that llrt runs perfectly in Docker, whereas txiki.js proved to be less convenient (the compiled <span data-type="code">tjs</span>​ still depends on other libraries).</div></div><div id="20240901095309-m8ewy5z" data-node-id="20240901095309-m8ewy5z" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">So, I decided to use llrt as the runtime.</div></div><h2 id="20240901095309-rjobqig" data-node-id="20240901095309-rjobqig" data-type="NodeHeading" updated="20240901095309" data-subtype="h2" class="h2">Challenges in the Migration</h2>
-<div id="20240901095309-vsbens2" data-node-id="20240901095309-vsbens2" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">The main challenge was that llrt doesn’t provide an HTTP module (neither does txiki.js), but luckily, it does offer a net module.</div></div>
-<div id="20240901095309-607vj4v" data-node-id="20240901095309-607vj4v" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">So, I hand-crafted a <a href="https://github.com/2234839/web-font/blob/new/backend/server/tcp_server.ts">basic HTTP server</a> and an onion routing <a href="https://github.com/2234839/web-font/blob/new/backend/server/server.ts">server.ts</a> based on <span data-type="code">net.createServer</span>​.</div></div>
-<div id="20240901095309-jyh0xkg" data-node-id="20240901095309-jyh0xkg" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">During this process, I also discovered a CPU usage anomaly in llrt: <a href="https://github.com/awslabs/llrt/issues/546">https://github.com/awslabs/llrt/issues/546</a>.</div></div><div id="20240901095309-vsbens2" data-node-id="20240901095309-vsbens2" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">The main challenge was that llrt doesn’t provide an HTTP module (neither does txiki.js), but luckily, it does offer a net module.</div></div><div id="20240901095309-607vj4v" data-node-id="20240901095309-607vj4v" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">So, I hand-crafted a <a href="https://github.com/2234839/web-font/blob/new/backend/server/tcp_server.ts">basic HTTP server</a> and an onion routing <a href="https://github.com/2234839/web-font/blob/new/backend/server/server.ts">server.ts</a> based on <span data-type="code">net.createServer</span>​.</div></div><div id="20240901095309-jyh0xkg" data-node-id="20240901095309-jyh0xkg" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">During this process, I also discovered a CPU usage anomaly in llrt: <a href="https://github.com/awslabs/llrt/issues/546">https://github.com/awslabs/llrt/issues/546</a>.</div></div><h2 id="20240901095309-1sxrf4j" data-node-id="20240901095309-1sxrf4j" data-type="NodeHeading" updated="20240901095309" data-subtype="h2" class="h2">Building the Tiny Docker Image</h2><h3 id="20240901095309-8xc95hi" data-node-id="20240901095309-8xc95hi" data-type="NodeHeading" updated="20240901095309" data-subtype="h3" class="h3">1. Code Packaging</h3>
-<div id="20240901095309-ve33b45" data-node-id="20240901095309-ve33b45" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">I used tsup to bundle the TypeScript source code into a single JavaScript file.</div></div>
-<div id="20240901095309-lk3krkg" data-node-id="20240901095309-lk3krkg" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">Then, I used the llrt <span data-type="code">compile</span>​ command to compile the JavaScript file into a <span data-type="code">.lrt</span>​ file, which further reduced the size by about 30%.</div></div><div id="20240901095309-ve33b45" data-node-id="20240901095309-ve33b45" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">I used tsup to bundle the TypeScript source code into a single JavaScript file.</div></div><div id="20240901095309-lk3krkg" data-node-id="20240901095309-lk3krkg" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">Then, I used the llrt <span data-type="code">compile</span>​ command to compile the JavaScript file into a <span data-type="code">.lrt</span>​ file, which further reduced the size by about 30%.</div></div><h3 id="20240901095309-o9hkqbs" data-node-id="20240901095309-o9hkqbs" data-type="NodeHeading" updated="20240901095309" data-subtype="h3" class="h3">2. Dockerfile</h3>
-<div id="20240901095309-b0m8qyq" data-node-id="20240901095309-b0m8qyq" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">Thanks to llrt, I could avoid any external dependencies and use <span data-type="code">FROM scratch</span>​ to achieve the smallest possible Docker image size.</div></div>
-<div id="20240901095309-22vewob" data-node-id="20240901095309-22vewob" data-type="NodeCodeBlock" updated="20240901095309" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">dockerfile</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">FROM scratch
-WORKDIR /home/
-COPY dist_backend/app.lrt /home/app.lrt
-COPY llrt /home/llrt
-COPY dist/ /home/dist/
-CMD ["/home/llrt", "/home/app.lrt"]
-</div>
-      </div>
-<div id="20240901095309-kyij683" data-node-id="20240901095309-kyij683" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">After Docker’s compression, I ended up with a Docker image of just 3.78MB.</div></div><div id="20240901095309-b0m8qyq" data-node-id="20240901095309-b0m8qyq" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">Thanks to llrt, I could avoid any external dependencies and use <span data-type="code">FROM scratch</span>​ to achieve the smallest possible Docker image size.</div></div><div id="20240901095309-22vewob" data-node-id="20240901095309-22vewob" data-type="NodeCodeBlock" updated="20240901095309" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">dockerfile</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">FROM scratch
-WORKDIR /home/
-COPY dist_backend/app.lrt /home/app.lrt
-COPY llrt /home/llrt
-COPY dist/ /home/dist/
-CMD ["/home/llrt", "/home/app.lrt"]
-</div>
-      </div><div id="20240901095309-kyij683" data-node-id="20240901095309-kyij683" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">After Docker’s compression, I ended up with a Docker image of just 3.78MB.</div></div><h2 id="20240901095309-yoc4spl" data-node-id="20240901095309-yoc4spl" data-type="NodeHeading" updated="20240901095309" data-subtype="h2" class="h2">Performance Considerations</h2>
-<div id="20240901095309-xvt6vi6" data-node-id="20240901095309-xvt6vi6" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">llrt’s runtime speed is significantly slower than Node.js; in my scenario, it’s about twice as slow. The garbage collection (GC) speed is also much slower.</div></div>
-<div id="20240901095309-fxt0ajb" data-node-id="20240901095309-fxt0ajb" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">However, the initial memory footprint and startup speed are far superior to Node.js.</div></div>
-<div id="20240901095309-qztfu55" data-node-id="20240901095309-qztfu55" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">Given the current limitations of llrt, it’s easy to encounter issues, so unless you urgently need to reduce the memory footprint or cold start speed of your JavaScript application, or you’re just curious like me, I’d still recommend sticking with Node.js for most use cases.</div></div>
-<div id="20240901095309-dm2sodf" data-node-id="20240901095309-dm2sodf" data-type="NodeThematicBreak" updated="20240901095309" class="hr"><div></div></div>
-<div id="20240901095309-9qwqkga" data-node-id="20240901095309-9qwqkga" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">This translation should resonate well with an English-speaking audience, providing clear insights into your process while making it accessible for readers on platforms like Reddit or other tech forums.</div></div><div id="20240901095309-xvt6vi6" data-node-id="20240901095309-xvt6vi6" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">llrt’s runtime speed is significantly slower than Node.js; in my scenario, it’s about twice as slow. The garbage collection (GC) speed is also much slower.</div></div><div id="20240901095309-fxt0ajb" data-node-id="20240901095309-fxt0ajb" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">However, the initial memory footprint and startup speed are far superior to Node.js.</div></div><div id="20240901095309-qztfu55" data-node-id="20240901095309-qztfu55" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">Given the current limitations of llrt, it’s easy to encounter issues, so unless you urgently need to reduce the memory footprint or cold start speed of your JavaScript application, or you’re just curious like me, I’d still recommend sticking with Node.js for most use cases.</div></div><div id="20240901095309-dm2sodf" data-node-id="20240901095309-dm2sodf" data-type="NodeThematicBreak" updated="20240901095309" class="hr"><div></div></div><div id="20240901095309-9qwqkga" data-node-id="20240901095309-9qwqkga" data-type="NodeParagraph" updated="20240901095309" class="p"><div spellcheck="false">This translation should resonate well with an English-speaking audience, providing clear insights into your process while making it accessible for readers on platforms like Reddit or other tech forums.</div></div><div id="20240901095309-jldu7cg" data-node-id="20240901095309-jldu7cg" data-type="NodeThematicBreak" updated="20240901095309" class="hr"><div></div></div><div id="20240901095204-8hmbdcb" data-node-id="20240901095204-8hmbdcb" data-type="NodeParagraph" updated="20240901095227" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20240901095218-n4gomty"><a href="./../../record/How I Created a 3.78MB Docker Image for a JavaScript Service.html#20240901095218-n4gomty">How I Created a 3.78MB Docker Image for a JavaScript Service</a></span></div></div><div id="20240831145324-4hncekq" data-node-id="20240831145324-4hncekq" data-type="NodeParagraph" updated="20240901093154" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 632px;" style="width: 622px;" style="width: 632px;">
+<span class="protyle-action__title"></span></span>​</div></div></div></div>
+<div id="20240613222214-xxazxgf" data-node-id="20240613222214-xxazxgf" data-type="NodeThematicBreak" class="hr"><div></div></div>
+<div id="20241227142830-y8b0uqk" data-node-id="20241227142830-y8b0uqk" data-type="NodeBlockQueryEmbed" updated="20241227142830" data-type="NodeBlockquote" class="bq"><div id="20201228124104-plq36wk" data-node-id="20201228124104-plq36wk" data-type="NodeParagraph" updated="20231008140823" class="p"><div spellcheck="false">你可以称呼我为 <span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">崮生</span> 或 <span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">子虚</span> ，很高兴遇见你 ✨。</div></div><div id="20240118124312-a3t2gb7" data-node-id="20240118124312-a3t2gb7" data-type="NodeParagraph" updated="20240613221450" class="p"><div spellcheck="false"><a href="欢迎来 discord 聊天">欢迎进入 discord  进行交流</a>  qq群：706761641 （心栈空间）</div></div><div id="20231215171324-g4d4s4f" data-node-id="20231215171324-g4d4s4f" data-type="NodeParagraph" updated="20231215171606" class="p"><div spellcheck="false">电圈发帖联系：<a href="https://afdian.net/group/7d1f72f4afaa11eba9cf52540025c377">崮生-茶舍</a></div></div><div id="20201228124011-zi24w2k" data-node-id="20201228124011-zi24w2k" data-type="NodeParagraph" updated="20231215171607" class="p"><div spellcheck="false">邮件联系： <a href="mailto:admin@shenzilong.cn">邮箱 : admin@shenzilong.cn</a></div></div><div id="20231215171437-c48kkqs" data-node-id="20231215171437-c48kkqs" data-type="NodeParagraph" updated="20231215171608" class="p"><div spellcheck="false">微信联系：微信号是 <span data-type="code">ext_00</span>​ (用户名是 崮生_子虚)</div></div><div id="20231215171551-301yvy6" data-node-id="20231215171551-301yvy6" data-type="NodeParagraph" updated="20241227142729" class="p"><div spellcheck="false">	<span data-type="s">值得注意的是：（已经恢复这两个软件的使用了）</span><span data-type="NodeImage" class="img" parent-style="width: 396px;" style="width: 386px;" style="width: 396px;">
 <img
-  src="./../../assets/image-20240831145324-mzsh9nq.png"
-  data-src="./../../assets/image-20240831145324-mzsh9nq.png"
+  src="./../../assets/Screenshot_2023-12-15-17-17-19-795_com.tencent.mm-edit-20231215171809-xr9ht4h.jpg"
+  data-src="./../../assets/Screenshot_2023-12-15-17-17-19-795_com.tencent.mm-edit-20231215171809-xr9ht4h.jpg"
   title=""
-  style="width: 622px;"
+  style="width: 386px;"
   loading="lazy"
 />
-<span class="protyle-action__title"></span></span>​</div></div><h2 id="20231214134136-9zq5juf" data-node-id="20231214134136-9zq5juf" data-type="NodeHeading" updated="20240831155502" data-subtype="h2" class="h2">最近实践</h2>
-<div id="20240831155455-urwiuan" data-node-id="20240831155455-urwiuan" data-type="NodeParagraph" updated="20240831155502" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20240831144820-s0ruk7h"><a href="./../../record/如何实现一个小体积的js docker镜像.html#20240831144820-s0ruk7h">如何实现一个小体积的js docker镜像</a></span></div></div>
-<div id="20240613220138-gof5tz9" data-node-id="20240613220138-gof5tz9" data-type="NodeParagraph" updated="20240613220144" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20240612161400-q3nlr71"><a href="./../../想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件实现完美ocr v0.3.6.html#20240612161400-q3nlr71">OceanPress插件实现完美ocr v0.3.6</a></span></div></div>
-<div id="20231214134145-ofocg0i" data-node-id="20231214134145-ofocg0i" data-type="NodeParagraph" updated="20240517225616" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20231214112450-ndy3t2e"><a href="./../../想法/siyuan_feed插件.html#20231214112450-ndy3t2e">siyuan_feed插件</a></span></div></div>
-<div id="20231214134205-ec6yvih" data-node-id="20231214134205-ec6yvih" data-type="NodeParagraph" updated="20240517225616" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20230905170531-6q68jov"><a href="./../../想法/项目/OceanPress_js.html#20230905170531-6q68jov">OceanPress_js</a></span></div></div>
-<div id="20231222130724-vixhahq" data-node-id="20231222130724-vixhahq" data-type="NodeBlockQueryEmbed" updated="20240517225616" name="今日推歌" style="height: 136px;" data-type="NodeBlockquote" class="bq"> <div id="20231222125920-gpig588" data-node-id="20231222125920-gpig588" data-type="NodeIFrame" updated="20231222130716" class="iframe">
+<span class="protyle-action__title"></span></span>​</div></div><div id="20231215171403-uwbs8u0" data-node-id="20231215171403-uwbs8u0" data-type="NodeParagraph" updated="20240613222306" class="p"><div spellcheck="false">所以更建议您使用<span data-type="block-ref" data-subtype="s" data-id="20201228124011-zi24w2k"><a href="./../../关于/崮生_子虚/子虚的联系方式.html#20201228124011-zi24w2k">邮件</a></span>或<span data-type="block-ref" data-subtype="s" data-id="20231215171324-g4d4s4f"><a href="./../../关于/崮生_子虚/子虚的联系方式.html#20231215171324-g4d4s4f">电圈</a></span>的方式。</div></div><div id="20240613222307-4tbjllf" data-node-id="20240613222307-4tbjllf" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div><div id="20241227142830-y8b0uqk" data-node-id="20241227142830-y8b0uqk" data-type="NodeBlockQueryEmbed" updated="20241227142830" data-type="NodeBlockquote" class="bq"><div id="20201228124104-plq36wk" data-node-id="20201228124104-plq36wk" data-type="NodeParagraph" updated="20231008140823" class="p"><div spellcheck="false">你可以称呼我为 <span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">崮生</span> 或 <span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">子虚</span> ，很高兴遇见你 ✨。</div></div><div id="20240118124312-a3t2gb7" data-node-id="20240118124312-a3t2gb7" data-type="NodeParagraph" updated="20240613221450" class="p"><div spellcheck="false"><a href="欢迎来 discord 聊天">欢迎进入 discord  进行交流</a>  qq群：706761641 （心栈空间）</div></div><div id="20231215171324-g4d4s4f" data-node-id="20231215171324-g4d4s4f" data-type="NodeParagraph" updated="20231215171606" class="p"><div spellcheck="false">电圈发帖联系：<a href="https://afdian.net/group/7d1f72f4afaa11eba9cf52540025c377">崮生-茶舍</a></div></div><div id="20201228124011-zi24w2k" data-node-id="20201228124011-zi24w2k" data-type="NodeParagraph" updated="20231215171607" class="p"><div spellcheck="false">邮件联系： <a href="mailto:admin@shenzilong.cn">邮箱 : admin@shenzilong.cn</a></div></div><div id="20231215171437-c48kkqs" data-node-id="20231215171437-c48kkqs" data-type="NodeParagraph" updated="20231215171608" class="p"><div spellcheck="false">微信联系：微信号是 <span data-type="code">ext_00</span>​ (用户名是 崮生_子虚)</div></div><div id="20231215171551-301yvy6" data-node-id="20231215171551-301yvy6" data-type="NodeParagraph" updated="20241227142729" class="p"><div spellcheck="false">	<span data-type="s">值得注意的是：（已经恢复这两个软件的使用了）</span><span data-type="NodeImage" class="img" parent-style="width: 396px;" style="width: 386px;" style="width: 396px;">
+<img
+  src="./../../assets/Screenshot_2023-12-15-17-17-19-795_com.tencent.mm-edit-20231215171809-xr9ht4h.jpg"
+  data-src="./../../assets/Screenshot_2023-12-15-17-17-19-795_com.tencent.mm-edit-20231215171809-xr9ht4h.jpg"
+  title=""
+  style="width: 386px;"
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div><div id="20231215171403-uwbs8u0" data-node-id="20231215171403-uwbs8u0" data-type="NodeParagraph" updated="20240613222306" class="p"><div spellcheck="false">所以更建议您使用<span data-type="block-ref" data-subtype="s" data-id="20201228124011-zi24w2k"><a href="./../../关于/崮生_子虚/子虚的联系方式.html#20201228124011-zi24w2k">邮件</a></span>或<span data-type="block-ref" data-subtype="s" data-id="20231215171324-g4d4s4f"><a href="./../../关于/崮生_子虚/子虚的联系方式.html#20231215171324-g4d4s4f">电圈</a></span>的方式。</div></div><div id="20240613222307-4tbjllf" data-node-id="20240613222307-4tbjllf" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div><div id="20231215171551-301yvy6" data-node-id="20231215171551-301yvy6" data-type="NodeParagraph" updated="20241227142729" class="p"><div spellcheck="false">	<span data-type="s">值得注意的是：（已经恢复这两个软件的使用了）</span><span data-type="NodeImage" class="img" parent-style="width: 396px;" style="width: 386px;" style="width: 396px;">
+<img
+  src="./../../assets/Screenshot_2023-12-15-17-17-19-795_com.tencent.mm-edit-20231215171809-xr9ht4h.jpg"
+  data-src="./../../assets/Screenshot_2023-12-15-17-17-19-795_com.tencent.mm-edit-20231215171809-xr9ht4h.jpg"
+  title=""
+  style="width: 386px;"
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div><div id="20241227142715-k1r15lj" data-node-id="20241227142715-k1r15lj" data-type="NodeParagraph" updated="20231229141754" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+<img
+  src="https://github.com/2234839/doc/actions/workflows/pages/pages-build-deployment/badge.svg"
+  data-src="https://github.com/2234839/doc/actions/workflows/pages/pages-build-deployment/badge.svg"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div><h2 id="20241227142715-261m6sb" data-node-id="20241227142715-261m6sb" data-type="NodeHeading" updated="20241022155634" data-subtype="h2" class="h2">最近实践</h2>
+<div id="20241227142715-5rhdggo" data-node-id="20241227142715-5rhdggo" data-type="NodeParagraph" updated="20241022155634" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20241022155634-9i70eo4"><a href="./../../index/我的软件资源清单.html#20241022155634-9i70eo4">我的软件资源清单</a></span></div></div>
+<div id="20241227142715-kw308qc" data-node-id="20241227142715-kw308qc" data-type="NodeParagraph" updated="20240831155502" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20240831144820-s0ruk7h"><a href="./../../record/如何实现一个小体积的js docker镜像.html#20240831144820-s0ruk7h">如何实现一个小体积的js docker镜像</a></span></div></div>
+<div id="20241227142715-hl3c3p8" data-node-id="20241227142715-hl3c3p8" data-type="NodeParagraph" updated="20240613220144" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20240612161400-q3nlr71"><a href="./../../想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件实现完美ocr v0.3.6.html#20240612161400-q3nlr71">OceanPress插件实现完美ocr v0.3.6</a></span></div></div>
+<div id="20241227142715-l65wegf" data-node-id="20241227142715-l65wegf" data-type="NodeParagraph" updated="20240517225616" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20231214112450-ndy3t2e"><a href="./../../想法/siyuan_feed插件.html#20231214112450-ndy3t2e">siyuan_feed插件</a></span></div></div>
+<div id="20241227142715-zm3bwc1" data-node-id="20241227142715-zm3bwc1" data-type="NodeParagraph" updated="20240517225616" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20230905170531-6q68jov"><a href="./../../想法/项目/OceanPress_js.html#20230905170531-6q68jov">OceanPress_js</a></span></div></div>
+<div id="20241227142715-13jva13" data-node-id="20241227142715-13jva13" data-type="NodeBlockQueryEmbed" updated="20240517225616" name="今日推歌" style="height: 136px;" data-type="NodeBlockquote" class="bq"> <div id="20231222125920-gpig588" data-node-id="20231222125920-gpig588" data-type="NodeIFrame" updated="20231222130716" class="iframe">
     <div class="iframe-content">
     <iframe sandbox="allow-forms allow-presentation allow-same-origin allow-scripts allow-modals" src="https://music.163.com/outchain/player?type=2&amp;id=1467948307&amp;auto=1&amp;height=66" data-src="" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 561px; height: 86px;"></iframe>
     </div>
-  </div></div><div id="20240831155455-urwiuan" data-node-id="20240831155455-urwiuan" data-type="NodeParagraph" updated="20240831155502" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20240831144820-s0ruk7h"><a href="./../../record/如何实现一个小体积的js docker镜像.html#20240831144820-s0ruk7h">如何实现一个小体积的js docker镜像</a></span></div></div><h2 id="20240831151810-wcm9b6a" data-node-id="20240831151810-wcm9b6a" data-type="NodeHeading" updated="20240831152355" data-subtype="h2" class="h2">使用情况</h2>
-<div id="20240831151816-je4r9a3" data-node-id="20240831151816-je4r9a3" data-type="NodeParagraph" updated="20240831151915" class="p"><div spellcheck="false">llrt 的运行速度比 node 还是慢了许多，在我这个场景下它比 node 要慢上两倍，gc 的运行速度也要慢许多。</div></div>
-<div id="20240831152323-smkt5hr" data-node-id="20240831152323-smkt5hr" data-type="NodeParagraph" updated="20240831152355" class="p"><div spellcheck="false">但初始内存占用和启动速度是碾压 node 的。</div></div>
-<div id="20240831151915-jffhsdl" data-node-id="20240831151915-jffhsdl" data-type="NodeParagraph" updated="20240831152258" class="p"><div spellcheck="false">由于运行时还不是特别完善的问题，很容易踩坑，所以除非你急需压缩 js 的运行内存占用/冷启动速度或者和我一样就是想要这么做，还是建议直接使用 node 吧。</div></div>
-<div id="20240831152226-k6hu20d" data-node-id="20240831152226-k6hu20d" data-type="NodeParagraph" updated="20240831152226" class="p"><div spellcheck="false"></div></div><div id="20240831152323-smkt5hr" data-node-id="20240831152323-smkt5hr" data-type="NodeParagraph" updated="20240831152355" class="p"><div spellcheck="false">但初始内存占用和启动速度是碾压 node 的。</div></div><div id="20240831151915-jffhsdl" data-node-id="20240831151915-jffhsdl" data-type="NodeParagraph" updated="20240831152258" class="p"><div spellcheck="false">由于运行时还不是特别完善的问题，很容易踩坑，所以除非你急需压缩 js 的运行内存占用/冷启动速度或者和我一样就是想要这么做，还是建议直接使用 node 吧。</div></div><div id="20240831152226-k6hu20d" data-node-id="20240831152226-k6hu20d" data-type="NodeParagraph" updated="20240831152226" class="p"><div spellcheck="false"></div></div><div id="20240831151816-je4r9a3" data-node-id="20240831151816-je4r9a3" data-type="NodeParagraph" updated="20240831151915" class="p"><div spellcheck="false">llrt 的运行速度比 node 还是慢了许多，在我这个场景下它比 node 要慢上两倍，gc 的运行速度也要慢许多。</div></div><h3 id="20240831151442-rhwwudj" data-node-id="20240831151442-rhwwudj" data-type="NodeHeading" updated="20240831151811" data-subtype="h3" class="h3">2. Dockerfile</h3>
-<div id="20240831151500-5cumea7" data-node-id="20240831151500-5cumea7" data-type="NodeParagraph" updated="20240831151643" class="p"><div spellcheck="false">得益于 llrt ，可以不用依赖任何环境，直接使用 <span data-type="code">FROM scratch</span>​ 来得到最小的docker镜像体积</div></div>
-<div id="20240831151644-nqlvb9k" data-node-id="20240831151644-nqlvb9k" data-type="NodeCodeBlock" updated="20240831151701" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">dockerfile</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">FROM scratch
-WORKDIR /home/
-COPY dist_backend/app.lrt /home/app.lrt
-COPY llrt /home/llrt
-COPY dist/ /home/dist/
-CMD ["/home/llrt", "/home/app.lrt"]
-</div>
+  </div></div><div id="20241227142715-5rhdggo" data-node-id="20241227142715-5rhdggo" data-type="NodeParagraph" updated="20241022155634" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20241022155634-9i70eo4"><a href="./../../index/我的软件资源清单.html#20241022155634-9i70eo4">我的软件资源清单</a></span></div></div><div id="20241227142715-kw308qc" data-node-id="20241227142715-kw308qc" data-type="NodeParagraph" updated="20240831155502" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20240831144820-s0ruk7h"><a href="./../../record/如何实现一个小体积的js docker镜像.html#20240831144820-s0ruk7h">如何实现一个小体积的js docker镜像</a></span></div></div><div id="20241227142715-hl3c3p8" data-node-id="20241227142715-hl3c3p8" data-type="NodeParagraph" updated="20240613220144" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20240612161400-q3nlr71"><a href="./../../想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件实现完美ocr v0.3.6.html#20240612161400-q3nlr71">OceanPress插件实现完美ocr v0.3.6</a></span></div></div><div id="20241227142715-l65wegf" data-node-id="20241227142715-l65wegf" data-type="NodeParagraph" updated="20240517225616" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20231214112450-ndy3t2e"><a href="./../../想法/siyuan_feed插件.html#20231214112450-ndy3t2e">siyuan_feed插件</a></span></div></div><div id="20241227142715-zm3bwc1" data-node-id="20241227142715-zm3bwc1" data-type="NodeParagraph" updated="20240517225616" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20230905170531-6q68jov"><a href="./../../想法/项目/OceanPress_js.html#20230905170531-6q68jov">OceanPress_js</a></span></div></div><div id="20241227142715-13jva13" data-node-id="20241227142715-13jva13" data-type="NodeBlockQueryEmbed" updated="20240517225616" name="今日推歌" style="height: 136px;" data-type="NodeBlockquote" class="bq"> <div id="20231222125920-gpig588" data-node-id="20231222125920-gpig588" data-type="NodeIFrame" updated="20231222130716" class="iframe">
+    <div class="iframe-content">
+    <iframe sandbox="allow-forms allow-presentation allow-same-origin allow-scripts allow-modals" src="https://music.163.com/outchain/player?type=2&amp;id=1467948307&amp;auto=1&amp;height=66" data-src="" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 561px; height: 86px;"></iframe>
+    </div>
+  </div></div><h2 id="20241227142715-7rp6lb8" data-node-id="20241227142715-7rp6lb8" data-type="NodeHeading" updated="20240613222214" data-subtype="h2" class="h2">推广</h2>
+<div id="20241227142715-m552d3p" data-node-id="20241227142715-m552d3p" data-type="NodeBlockQueryEmbed" updated="20231228164018" data-type="NodeBlockquote" class="bq"><div id="20231215143631-v8j1bfp" data-node-id="20231215143631-v8j1bfp" data-type="NodeParagraph" updated="20240113165745" class="p"><div spellcheck="false">此处推荐一个 chat gpt key 购买网站 - <a href="https://console.closeai-asia.com/r/18680">https://console.closeai-asia.com/</a></div></div></div>
+<div id="20241227142715-3az9vqs" data-node-id="20241227142715-3az9vqs" data-type="NodeParagraph" updated="20240118124346" class="p"><div spellcheck="false">我关注的一些优秀的博客： <span data-type="block-ref" data-subtype="d" data-id="20231215121826-vrlq40n"><a href="./../../文集/feed.html#20231215121826-vrlq40n">feed</a></span></div></div><div id="20241227142715-m552d3p" data-node-id="20241227142715-m552d3p" data-type="NodeBlockQueryEmbed" updated="20231228164018" data-type="NodeBlockquote" class="bq"><div id="20231215143631-v8j1bfp" data-node-id="20231215143631-v8j1bfp" data-type="NodeParagraph" updated="20240113165745" class="p"><div spellcheck="false">此处推荐一个 chat gpt key 购买网站 - <a href="https://console.closeai-asia.com/r/18680">https://console.closeai-asia.com/</a></div></div></div><div id="20241227142715-3az9vqs" data-node-id="20241227142715-3az9vqs" data-type="NodeParagraph" updated="20240118124346" class="p"><div spellcheck="false">我关注的一些优秀的博客： <span data-type="block-ref" data-subtype="d" data-id="20231215121826-vrlq40n"><a href="./../../文集/feed.html#20231215121826-vrlq40n">feed</a></span></div></div><h2 id="20241227142715-514rrgf" data-node-id="20241227142715-514rrgf" data-type="NodeHeading" updated="20240613222214" data-subtype="h2" class="h2">关于此站点 <a href="https://shenzilong.cn/">shenzilong.cn</a></h2>
+<div id="20241227142715-u0xi8x6" data-node-id="20241227142715-u0xi8x6" data-type="NodeList" updated="20231217065307" data-subtype="u" class="list"><div id="20241227142715-1d5lvn7" data-node-id="20241227142715-1d5lvn7" data-type="NodeListItem" updated="20231217065406" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
       </div>
-<div id="20240831151702-kcntpeu" data-node-id="20240831151702-kcntpeu" data-type="NodeParagraph" updated="20240831151803" class="p"><div spellcheck="false">再经过 docker 的压缩后就得到了 3.78MB 这个数字。</div></div><div id="20240831151702-kcntpeu" data-node-id="20240831151702-kcntpeu" data-type="NodeParagraph" updated="20240831151803" class="p"><div spellcheck="false">再经过 docker 的压缩后就得到了 3.78MB 这个数字。</div></div><div id="20240831151644-nqlvb9k" data-node-id="20240831151644-nqlvb9k" data-type="NodeCodeBlock" updated="20240831151701" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">dockerfile</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">FROM scratch
-WORKDIR /home/
-COPY dist_backend/app.lrt /home/app.lrt
-COPY llrt /home/llrt
-COPY dist/ /home/dist/
-CMD ["/home/llrt", "/home/app.lrt"]
-</div>
-      </div><div id="20240831151500-5cumea7" data-node-id="20240831151500-5cumea7" data-type="NodeParagraph" updated="20240831151643" class="p"><div spellcheck="false">得益于 llrt ，可以不用依赖任何环境，直接使用 <span data-type="code">FROM scratch</span>​ 来得到最小的docker镜像体积</div></div><h2 id="20240831151238-gl82fhw" data-node-id="20240831151238-gl82fhw" data-type="NodeHeading" updated="20240831151446" data-subtype="h2" class="h2">打包微小体积的 docker 镜像</h2><h3 id="20240831151315-ovhm3h0" data-node-id="20240831151315-ovhm3h0" data-type="NodeHeading" updated="20240831151446" data-subtype="h3" class="h3">1. 代码打包</h3>
-<div id="20240831151325-7een63u" data-node-id="20240831151325-7een63u" data-type="NodeParagraph" updated="20240831151351" class="p"><div spellcheck="false">这方面我使用的是 tsup 将 ts 源码打包为一个 js 文件。</div></div>
-<div id="20240831151351-7po9zwn" data-node-id="20240831151351-7po9zwn" data-type="NodeParagraph" updated="20240831151441" class="p"><div spellcheck="false">然后使用 llrt compile 命令将 js 文件编译为 .lrt 文件（这一步也能减少差不多 30%的体积）</div></div><div id="20240831151351-7po9zwn" data-node-id="20240831151351-7po9zwn" data-type="NodeParagraph" updated="20240831151441" class="p"><div spellcheck="false">然后使用 llrt compile 命令将 js 文件编译为 .lrt 文件（这一步也能减少差不多 30%的体积）</div></div><div id="20240831151325-7een63u" data-node-id="20240831151325-7een63u" data-type="NodeParagraph" updated="20240831151351" class="p"><div spellcheck="false">这方面我使用的是 tsup 将 ts 源码打包为一个 js 文件。</div></div><h2 id="20240831150202-ugmw1np" data-node-id="20240831150202-ugmw1np" data-type="NodeHeading" updated="20240831151238" data-subtype="h2" class="h2">迁移遇到的问题</h2>
-<div id="20240831150309-jctqw3s" data-node-id="20240831150309-jctqw3s" data-type="NodeParagraph" updated="20240831151233" class="p"><div spellcheck="false">主要问题是 llrt 没有提供 http 模块（tixiki.js 也是）, 幸运的是它提供了 net 模块</div></div>
-<div id="20240831150650-8pkxgt8" data-node-id="20240831150650-8pkxgt8" data-type="NodeParagraph" updated="20240831150831" class="p"><div spellcheck="false">所以我基于 net.createServer 手搓了一个<a href="https://github.com/2234839/web-font/blob/new/backend/server/tcp_server.ts">简易 http 服务</a>和洋葱路由 <a href="https://github.com/2234839/web-font/blob/new/backend/server/server.ts">server.ts</a> 。</div></div>
-<div id="20240831150814-tlatlw8" data-node-id="20240831150814-tlatlw8" data-type="NodeParagraph" updated="20240831151031" class="p"><div spellcheck="false">这期间还发现了 llrt 一个  cpu 占用异常：<a href="https://github.com/awslabs/llrt/issues/546">https://github.com/awslabs/llrt/issues/546</a></div></div><div id="20240831150309-jctqw3s" data-node-id="20240831150309-jctqw3s" data-type="NodeParagraph" updated="20240831151233" class="p"><div spellcheck="false">主要问题是 llrt 没有提供 http 模块（tixiki.js 也是）, 幸运的是它提供了 net 模块</div></div><div id="20240831150814-tlatlw8" data-node-id="20240831150814-tlatlw8" data-type="NodeParagraph" updated="20240831151031" class="p"><div spellcheck="false">这期间还发现了 llrt 一个  cpu 占用异常：<a href="https://github.com/awslabs/llrt/issues/546">https://github.com/awslabs/llrt/issues/546</a></div></div><div id="20240831150650-8pkxgt8" data-node-id="20240831150650-8pkxgt8" data-type="NodeParagraph" updated="20240831150831" class="p"><div spellcheck="false">所以我基于 net.createServer 手搓了一个<a href="https://github.com/2234839/web-font/blob/new/backend/server/tcp_server.ts">简易 http 服务</a>和洋葱路由 <a href="https://github.com/2234839/web-font/blob/new/backend/server/server.ts">server.ts</a> 。</div></div><h2 id="20240831150235-v0favn7" data-node-id="20240831150235-v0favn7" data-type="NodeHeading" updated="20240831150359" data-subtype="h2" class="h2">选择 js 运行时 （<a href="https://github.com/awslabs/llrt">llrt</a>）</h2>
-<div id="20240831145355-rmiaq5z" data-node-id="20240831145355-rmiaq5z" data-type="NodeParagraph" updated="20240831145555" class="p"><div spellcheck="false">要实现这么小的镜像肯定不能再使用 node 这种等级的 js 运行时了，现在最流行的轻量级 js 运行时可以锁定为 <a href="https://github.com/quickjs-zh/QuickJS">QuickJS</a></div></div>
-<div id="20240831145555-duuyp6p" data-node-id="20240831145555-duuyp6p" data-type="NodeParagraph" updated="20240831145843" class="p"><div spellcheck="false">我要迁移的项目是我之前写的一个字体裁剪工具  <a href="https://github.com/2234839/web-font">web-font</a> , 它除了纯 js 的部分外还涉及到文件读写和 http server 部分的 api ，QuickJS 作为纯粹的解释器是没有这方面的 api 的。</div></div>
-<div id="20240831145844-incy3ww" data-node-id="20240831145844-incy3ww" data-type="NodeParagraph" updated="20240831150123" class="p"><div spellcheck="false">现有的比较成熟的基于 QuickJS 实现的微型 js 运行时有 <a href="https://github.com/saghul/txiki.js">txiki.js</a> 和 <a href="https://github.com/awslabs/llrt">llrt</a> , 经过实践发现 llrt 可以完美运行在 docker 中 ，txiki.js 则没那么方便 （按照文档编译出来的 tjs 还会依赖其他库）</div></div>
-<div id="20240831150126-8lrwkb5" data-node-id="20240831150126-8lrwkb5" data-type="NodeParagraph" updated="20240831150202" class="p"><div spellcheck="false">所以我选择使用 llrt 来作为运行时。</div></div><div id="20240831150126-8lrwkb5" data-node-id="20240831150126-8lrwkb5" data-type="NodeParagraph" updated="20240831150202" class="p"><div spellcheck="false">所以我选择使用 llrt 来作为运行时。</div></div><div id="20240831145844-incy3ww" data-node-id="20240831145844-incy3ww" data-type="NodeParagraph" updated="20240831150123" class="p"><div spellcheck="false">现有的比较成熟的基于 QuickJS 实现的微型 js 运行时有 <a href="https://github.com/saghul/txiki.js">txiki.js</a> 和 <a href="https://github.com/awslabs/llrt">llrt</a> , 经过实践发现 llrt 可以完美运行在 docker 中 ，txiki.js 则没那么方便 （按照文档编译出来的 tjs 还会依赖其他库）</div></div><div id="20240831145555-duuyp6p" data-node-id="20240831145555-duuyp6p" data-type="NodeParagraph" updated="20240831145843" class="p"><div spellcheck="false">我要迁移的项目是我之前写的一个字体裁剪工具  <a href="https://github.com/2234839/web-font">web-font</a> , 它除了纯 js 的部分外还涉及到文件读写和 http server 部分的 api ，QuickJS 作为纯粹的解释器是没有这方面的 api 的。</div></div><div id="20240831145355-rmiaq5z" data-node-id="20240831145355-rmiaq5z" data-type="NodeParagraph" updated="20240831145555" class="p"><div spellcheck="false">要实现这么小的镜像肯定不能再使用 node 这种等级的 js 运行时了，现在最流行的轻量级 js 运行时可以锁定为 <a href="https://github.com/quickjs-zh/QuickJS">QuickJS</a></div></div><div id="20240831145328-hdr2r92" data-node-id="20240831145328-hdr2r92" data-type="NodeParagraph" updated="20240831145352" class="p"><div spellcheck="false"><a href="https://hub.docker.com/layers/llej0/web-font/latest/images/sha256-ebb8bb18d33844f27ca02d632c2ebf584435fffae28be2c9416baa86a8de45be?context=repo">https://hub.docker.com/layers/llej0/web-font/latest</a></div></div><div id="20240831144928-35sg08q" data-node-id="20240831144928-35sg08q" data-type="NodeParagraph" updated="20240831145306" class="p"><div spellcheck="false">但这三个运行时的打包体积都不小，在精简的情况下也在 50 mb 以上，我在这里记录一下我是如何将一个原来使用 node 开发的服务迁移为 3.78MB 的 docker 镜像。</div></div><div id="20240831144820-k5k4jjf" data-node-id="20240831144820-k5k4jjf" data-type="NodeParagraph" updated="20240831144927" class="p"><div spellcheck="false">在服务端一般使用 node 来运行 js ，除了 node 外流行的还有 bun/deno。</div></div><h2 id="20240818115630-dorzf4t" data-node-id="20240818115630-dorzf4t" data-type="NodeHeading" updated="20240818115749" data-subtype="h2" class="h2">重构实现</h2>
-<div id="20240818115642-g0u3fpc" data-node-id="20240818115642-g0u3fpc" data-type="NodeParagraph" updated="20240818115713" class="p"><div spellcheck="false">我看上了 llrt 的小体积，于是实现了一版支持llrt 的</div></div>
-<div id="20240818115714-3dlgkdz" data-node-id="20240818115714-3dlgkdz" data-type="NodeParagraph" updated="20240818115730" class="p"><div spellcheck="false">在速度方面，比node慢了足足一倍</div></div>
-<div id="20240818115749-nnjzgg3" data-node-id="20240818115749-nnjzgg3" data-type="NodeParagraph" updated="20240818115749" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 472px;" style="width: 462px;" style="width: 472px;">
+      <div id="20241227142715-i6i843t" data-node-id="20241227142715-i6i843t" data-type="NodeParagraph" updated="20231215180510" class="p"><div spellcheck="false">为我个人的笔记公布站点，非盈利、不提供互动、评论等功能，纯静态站点。</div></div>
+    </div><div id="20241227142715-l53e7xx" data-node-id="20241227142715-l53e7xx" data-type="NodeListItem" updated="20231217065307" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241227142715-2ar6o7a" data-node-id="20241227142715-2ar6o7a" data-type="NodeParagraph" updated="20231217065307" class="p"><div spellcheck="false">域名经过了 icp 备案，使用 cloudfare 对 github pages 进行代理。</div></div>
+    </div><div id="20241227142715-xqs40nv" data-node-id="20241227142715-xqs40nv" data-type="NodeListItem" updated="20240111180114" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241227142715-xnbuthc" data-node-id="20241227142715-xnbuthc" data-type="NodeParagraph" updated="20240111180114" class="p"><div spellcheck="false">我没有添加 广告、跟踪、数据统计、cookie、埋点相关功能（algolia、cloudfare、github pages、jsdelivr、笔记内包含的第三方链接，可能存在基于访问的统计）</div></div>
+    </div></div><div id="20241227142715-u0xi8x6" data-node-id="20241227142715-u0xi8x6" data-type="NodeList" updated="20231217065307" data-subtype="u" class="list"><div id="20241227142715-1d5lvn7" data-node-id="20241227142715-1d5lvn7" data-type="NodeListItem" updated="20231217065406" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241227142715-i6i843t" data-node-id="20241227142715-i6i843t" data-type="NodeParagraph" updated="20231215180510" class="p"><div spellcheck="false">为我个人的笔记公布站点，非盈利、不提供互动、评论等功能，纯静态站点。</div></div>
+    </div><div id="20241227142715-l53e7xx" data-node-id="20241227142715-l53e7xx" data-type="NodeListItem" updated="20231217065307" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241227142715-2ar6o7a" data-node-id="20241227142715-2ar6o7a" data-type="NodeParagraph" updated="20231217065307" class="p"><div spellcheck="false">域名经过了 icp 备案，使用 cloudfare 对 github pages 进行代理。</div></div>
+    </div><div id="20241227142715-xqs40nv" data-node-id="20241227142715-xqs40nv" data-type="NodeListItem" updated="20240111180114" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241227142715-xnbuthc" data-node-id="20241227142715-xnbuthc" data-type="NodeParagraph" updated="20240111180114" class="p"><div spellcheck="false">我没有添加 广告、跟踪、数据统计、cookie、埋点相关功能（algolia、cloudfare、github pages、jsdelivr、笔记内包含的第三方链接，可能存在基于访问的统计）</div></div>
+    </div></div><div id="20241227142715-1d5lvn7" data-node-id="20241227142715-1d5lvn7" data-type="NodeListItem" updated="20231217065406" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241227142715-i6i843t" data-node-id="20241227142715-i6i843t" data-type="NodeParagraph" updated="20231215180510" class="p"><div spellcheck="false">为我个人的笔记公布站点，非盈利、不提供互动、评论等功能，纯静态站点。</div></div>
+    </div><div id="20241227142715-i6i843t" data-node-id="20241227142715-i6i843t" data-type="NodeParagraph" updated="20231215180510" class="p"><div spellcheck="false">为我个人的笔记公布站点，非盈利、不提供互动、评论等功能，纯静态站点。</div></div><div id="20241227142715-l53e7xx" data-node-id="20241227142715-l53e7xx" data-type="NodeListItem" updated="20231217065307" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241227142715-2ar6o7a" data-node-id="20241227142715-2ar6o7a" data-type="NodeParagraph" updated="20231217065307" class="p"><div spellcheck="false">域名经过了 icp 备案，使用 cloudfare 对 github pages 进行代理。</div></div>
+    </div><div id="20241227142715-2ar6o7a" data-node-id="20241227142715-2ar6o7a" data-type="NodeParagraph" updated="20231217065307" class="p"><div spellcheck="false">域名经过了 icp 备案，使用 cloudfare 对 github pages 进行代理。</div></div><div id="20241227142715-xqs40nv" data-node-id="20241227142715-xqs40nv" data-type="NodeListItem" updated="20240111180114" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241227142715-xnbuthc" data-node-id="20241227142715-xnbuthc" data-type="NodeParagraph" updated="20240111180114" class="p"><div spellcheck="false">我没有添加 广告、跟踪、数据统计、cookie、埋点相关功能（algolia、cloudfare、github pages、jsdelivr、笔记内包含的第三方链接，可能存在基于访问的统计）</div></div>
+    </div><div id="20241227142715-xnbuthc" data-node-id="20241227142715-xnbuthc" data-type="NodeParagraph" updated="20240111180114" class="p"><div spellcheck="false">我没有添加 广告、跟踪、数据统计、cookie、埋点相关功能（algolia、cloudfare、github pages、jsdelivr、笔记内包含的第三方链接，可能存在基于访问的统计）</div></div><h2 id="20241227142715-mrnvo8q" data-node-id="20241227142715-mrnvo8q" data-type="NodeHeading" updated="20240901101043" data-subtype="h2" class="h2"><span data-type="block-ref" data-subtype="d" data-id="20201104153359-jpxsqye"><a href="./../../关于/崮生_子虚.html#20201104153359-jpxsqye">崮生_子虚</a></span> <span data-type="text" style="font-size: 14px; background-color: var(--b3-font-background4);">关于我</span></h2>
+<div id="20241227142715-40m6qbv" data-node-id="20241227142715-40m6qbv" data-type="NodeBlockQueryEmbed" updated="20240613222044" data-type="NodeBlockquote" class="bq"><div id="20240613221811-3bfzxph" data-node-id="20240613221811-3bfzxph" data-type="NodeSuperBlock" updated="20241227142204" class="sb" data-sb-layout="col"><div id="20231008141711-zw97aa2" data-node-id="20231008141711-zw97aa2" data-type="NodeParagraph" updated="20241227142204" class="p"><div spellcheck="false"><span data-type="strong">短期工作协议（预付费）：</span><span data-type="strong"><a href="https://afdian.com/item/d613eb929b2f11eea5e352540025c377">爱发电购买</a></span>
+提供我所有技能来解决你的问题，一份时长为1小时。
+我是偏前端的全栈开发，也可以为你提供更通用的其他技能，建议先和我沟通在购买。
+当我全力在思考或者着手解决问题时是一小时，如果期间不需要我消耗精力的话我不会计算进时间。
+支持未用完的额度返还。</div></div><div id="20241227142144-hzs4dg7" data-node-id="20241227142144-hzs4dg7" data-type="NodeParagraph" updated="20241227142144" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
 <img
-  src="./../../assets/image-20240818115749-2tn66zl.png"
-  data-src="./../../assets/image-20240818115749-2tn66zl.png"
+  src="./../../assets/image-20241227142144-23es2av.png"
+  data-src="./../../assets/image-20241227142144-23es2av.png"
   title=""
-  style="width: 462px;"
+  style=""
   loading="lazy"
 />
-<span class="protyle-action__title"></span></span>​</div></div><div id="20240818115749-nnjzgg3" data-node-id="20240818115749-nnjzgg3" data-type="NodeParagraph" updated="20240818115749" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 472px;" style="width: 462px;" style="width: 472px;">
+<span class="protyle-action__title"></span></span>​</div></div></div></div>
+<div id="20241227142715-3akcfru" data-node-id="20241227142715-3akcfru" data-type="NodeThematicBreak" class="hr"><div></div></div>
+<div id="20241227142715-skm4tls" data-node-id="20241227142715-skm4tls" data-type="NodeBlockQueryEmbed" updated="20240117155316" data-type="NodeBlockquote" class="bq"><div id="20240118124312-a3t2gb7" data-node-id="20240118124312-a3t2gb7" data-type="NodeParagraph" updated="20240613221450" class="p"><div spellcheck="false"><a href="欢迎来 discord 聊天">欢迎进入 discord  进行交流</a>  qq群：706761641 （心栈空间）</div></div></div>
+<div id="20241227142715-5nwcqnx" data-node-id="20241227142715-5nwcqnx" data-type="NodeParagraph" updated="20240901101043" class="p"><div spellcheck="false"></div></div><div id="20241227142715-40m6qbv" data-node-id="20241227142715-40m6qbv" data-type="NodeBlockQueryEmbed" updated="20240613222044" data-type="NodeBlockquote" class="bq"><div id="20240613221811-3bfzxph" data-node-id="20240613221811-3bfzxph" data-type="NodeSuperBlock" updated="20241227142204" class="sb" data-sb-layout="col"><div id="20231008141711-zw97aa2" data-node-id="20231008141711-zw97aa2" data-type="NodeParagraph" updated="20241227142204" class="p"><div spellcheck="false"><span data-type="strong">短期工作协议（预付费）：</span><span data-type="strong"><a href="https://afdian.com/item/d613eb929b2f11eea5e352540025c377">爱发电购买</a></span>
+提供我所有技能来解决你的问题，一份时长为1小时。
+我是偏前端的全栈开发，也可以为你提供更通用的其他技能，建议先和我沟通在购买。
+当我全力在思考或者着手解决问题时是一小时，如果期间不需要我消耗精力的话我不会计算进时间。
+支持未用完的额度返还。</div></div><div id="20241227142144-hzs4dg7" data-node-id="20241227142144-hzs4dg7" data-type="NodeParagraph" updated="20241227142144" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
 <img
-  src="./../../assets/image-20240818115749-2tn66zl.png"
-  data-src="./../../assets/image-20240818115749-2tn66zl.png"
+  src="./../../assets/image-20241227142144-23es2av.png"
+  data-src="./../../assets/image-20241227142144-23es2av.png"
   title=""
-  style="width: 462px;"
+  style=""
   loading="lazy"
 />
-<span class="protyle-action__title"></span></span>​</div></div><div id="20240818115714-3dlgkdz" data-node-id="20240818115714-3dlgkdz" data-type="NodeParagraph" updated="20240818115730" class="p"><div spellcheck="false">在速度方面，比node慢了足足一倍</div></div><div id="20240818115642-g0u3fpc" data-node-id="20240818115642-g0u3fpc" data-type="NodeParagraph" updated="20240818115713" class="p"><div spellcheck="false">我看上了 llrt 的小体积，于是实现了一版支持llrt 的</div></div><div id="20240818115635-0xf5sgo" data-node-id="20240818115635-0xf5sgo" data-type="NodeCodeBlock" updated="20240808092645" data-subtype="echarts" class="render-node" data-content="{
-  &quot;xAxis&quot;: {
-    &quot;type&quot;: &quot;category&quot;,
-    &quot;boundaryGap&quot;: false,
-    &quot;data&quot;: [
-      &quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;
-    ]
-  },
-  &quot;yAxis&quot;: {
-    &quot;type&quot;: &quot;value&quot;
-  },
-  &quot;series&quot;: [
-    { 
-        &quot;data&quot;: [ 6, 932, 901, 934, 1290, 1330, 1320 ],
-      &quot;type&quot;: &quot;line&quot;,
-      &quot;areaStyle&quot;: {}
-    }
-  ]
-}">
-        <div spin="1"></div>
-        <div class="protyle-attr" contenteditable="false"></div>
-      </div><div id="20240818115629-lai7b71" data-node-id="20240818115629-lai7b71" data-type="NodeParagraph" updated="20240818115629" class="p"><div spellcheck="false"><a href="https://github.com/2234839/web-font">webfont</a></div></div></div><div id="20210606160324-57c0iql" data-node-id="20210606160324-57c0iql" data-type="NodeParagraph" updated="20230924170522" class="p"><div spellcheck="false"></div></div>
+<span class="protyle-action__title"></span></span>​</div></div></div></div><div id="20241227142715-3akcfru" data-node-id="20241227142715-3akcfru" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20241227142715-skm4tls" data-node-id="20241227142715-skm4tls" data-type="NodeBlockQueryEmbed" updated="20240117155316" data-type="NodeBlockquote" class="bq"><div id="20240118124312-a3t2gb7" data-node-id="20240118124312-a3t2gb7" data-type="NodeParagraph" updated="20240613221450" class="p"><div spellcheck="false"><a href="欢迎来 discord 聊天">欢迎进入 discord  进行交流</a>  qq群：706761641 （心栈空间）</div></div></div><div id="20241227142715-5nwcqnx" data-node-id="20241227142715-5nwcqnx" data-type="NodeParagraph" updated="20240901101043" class="p"><div spellcheck="false"></div></div><h2 id="20241227142305-g5225eu" data-node-id="20241227142305-g5225eu" data-type="NodeHeading" updated="20241227142316" data-subtype="h2" class="h2">购买技术支持-通过咸鱼平台</h2>
+<div id="20230922211504-uw3okk6" data-node-id="20230922211504-uw3okk6" data-type="NodeSuperBlock" updated="20241227142247" class="sb" data-sb-layout="row"><div id="20210106101438-w5idnkw" data-node-id="20210106101438-w5idnkw" data-type="NodeParagraph" updated="20230922211505" class="p"><div spellcheck="false">总之非常感谢。✨</div></div><div id="20230922211454-67q69hl" data-node-id="20230922211454-67q69hl" data-type="NodeParagraph" updated="20230922211501" class="p"><div spellcheck="false">人生就是这样</div></div><div id="20230922211511-k93rnou" data-node-id="20230922211511-k93rnou" data-type="NodeParagraph" updated="20230922211513" class="p"><div spellcheck="false">不快</div></div><div id="20230922211514-5cyo35l" data-node-id="20230922211514-5cyo35l" data-type="NodeParagraph" updated="20230922211516" class="p"><div spellcheck="false">也不慢</div></div><div id="20230922211516-dtaceji" data-node-id="20230922211516-dtaceji" data-type="NodeParagraph" updated="20230922211526" class="p"><div spellcheck="false">想要突破</div></div><div id="20230922211526-je81xlb" data-node-id="20230922211526-je81xlb" data-type="NodeParagraph" updated="20230922211529" class="p"><div spellcheck="false">又不敢</div></div><div id="20230922211537-hij4dve" data-node-id="20230922211537-hij4dve" data-type="NodeParagraph" updated="20230922211547" class="p"><div spellcheck="false">不做</div></div><div id="20230922211548-dje2g44" data-node-id="20230922211548-dje2g44" data-type="NodeParagraph" updated="20230922211554" class="p"><div spellcheck="false">就不会失败</div></div><div id="20230922211554-dfs3t40" data-node-id="20230922211554-dfs3t40" data-type="NodeParagraph" updated="20230922211559" class="p"><div spellcheck="false">但也不会成功</div></div></div>
+<div id="20210201210213-emskbr7" data-node-id="20210201210213-emskbr7" data-type="NodeParagraph" updated="20240111175937" class="p"><div spellcheck="false"></div></div><h2 id="20210106101307-5vr9bqf" data-node-id="20210106101307-5vr9bqf" data-type="NodeHeading" updated="20241227142305" data-subtype="h2" class="h2"><a href="https://afdian.com/@llej0">赞赏-通过爱发电平台</a></h2><div id="20230922211504-uw3okk6" data-node-id="20230922211504-uw3okk6" data-type="NodeSuperBlock" updated="20241227142247" class="sb" data-sb-layout="row"><div id="20210106101438-w5idnkw" data-node-id="20210106101438-w5idnkw" data-type="NodeParagraph" updated="20230922211505" class="p"><div spellcheck="false">总之非常感谢。✨</div></div><div id="20230922211454-67q69hl" data-node-id="20230922211454-67q69hl" data-type="NodeParagraph" updated="20230922211501" class="p"><div spellcheck="false">人生就是这样</div></div><div id="20230922211511-k93rnou" data-node-id="20230922211511-k93rnou" data-type="NodeParagraph" updated="20230922211513" class="p"><div spellcheck="false">不快</div></div><div id="20230922211514-5cyo35l" data-node-id="20230922211514-5cyo35l" data-type="NodeParagraph" updated="20230922211516" class="p"><div spellcheck="false">也不慢</div></div><div id="20230922211516-dtaceji" data-node-id="20230922211516-dtaceji" data-type="NodeParagraph" updated="20230922211526" class="p"><div spellcheck="false">想要突破</div></div><div id="20230922211526-je81xlb" data-node-id="20230922211526-je81xlb" data-type="NodeParagraph" updated="20230922211529" class="p"><div spellcheck="false">又不敢</div></div><div id="20230922211537-hij4dve" data-node-id="20230922211537-hij4dve" data-type="NodeParagraph" updated="20230922211547" class="p"><div spellcheck="false">不做</div></div><div id="20230922211548-dje2g44" data-node-id="20230922211548-dje2g44" data-type="NodeParagraph" updated="20230922211554" class="p"><div spellcheck="false">就不会失败</div></div><div id="20230922211554-dfs3t40" data-node-id="20230922211554-dfs3t40" data-type="NodeParagraph" updated="20230922211559" class="p"><div spellcheck="false">但也不会成功</div></div></div><div id="20231008141102-oj81jce" data-node-id="20231008141102-oj81jce" data-type="NodeList" updated="20241227142204" data-subtype="o" class="list"><div id="20231008141106-t6xyf69" data-node-id="20231008141106-t6xyf69" data-type="NodeListItem" updated="20231215171313" data-subtype="o" class="li" data-marker="1.">
+      <div class="protyle-action">
+        1.
+      </div>
+      <div id="20231008141106-yw3ut44" data-node-id="20231008141106-yw3ut44" data-type="NodeParagraph" updated="20231008142450" class="p"><div spellcheck="false"><span data-type="strong">中长期工作协议</span></div></div><div id="20231008141533-h2e8t22" data-node-id="20231008141533-h2e8t22" data-type="NodeList" updated="20231215171313" data-subtype="u" class="list"><div id="20231008141524-qpgeeau" data-node-id="20231008141524-qpgeeau" data-type="NodeListItem" updated="20231215171313" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20231008141524-30kjwq5" data-node-id="20231008141524-30kjwq5" data-type="NodeParagraph" updated="20231215171313" class="p"><div spellcheck="false">每日为您工作固定时长</div></div>
+    </div></div>
+    </div><div id="20231008141711-q70yscl" data-node-id="20231008141711-q70yscl" data-type="NodeListItem" updated="20241227142204" data-subtype="o" class="li" data-marker="2.">
+      <div class="protyle-action">
+        2.
+      </div>
+      <div id="20240613221811-3bfzxph" data-node-id="20240613221811-3bfzxph" data-type="NodeSuperBlock" updated="20241227142204" class="sb" data-sb-layout="col"><div id="20231008141711-zw97aa2" data-node-id="20231008141711-zw97aa2" data-type="NodeParagraph" updated="20241227142204" class="p"><div spellcheck="false"><span data-type="strong">短期工作协议（预付费）：</span><span data-type="strong"><a href="https://afdian.com/item/d613eb929b2f11eea5e352540025c377">爱发电购买</a></span>
+提供我所有技能来解决你的问题，一份时长为1小时。
+我是偏前端的全栈开发，也可以为你提供更通用的其他技能，建议先和我沟通在购买。
+当我全力在思考或者着手解决问题时是一小时，如果期间不需要我消耗精力的话我不会计算进时间。
+支持未用完的额度返还。</div></div><div id="20241227142144-hzs4dg7" data-node-id="20241227142144-hzs4dg7" data-type="NodeParagraph" updated="20241227142144" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+<img
+  src="./../../assets/image-20241227142144-23es2av.png"
+  data-src="./../../assets/image-20241227142144-23es2av.png"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div></div>
+    </div></div><div id="20231008141711-q70yscl" data-node-id="20231008141711-q70yscl" data-type="NodeListItem" updated="20241227142204" data-subtype="o" class="li" data-marker="2.">
+      <div class="protyle-action">
+        2.
+      </div>
+      <div id="20240613221811-3bfzxph" data-node-id="20240613221811-3bfzxph" data-type="NodeSuperBlock" updated="20241227142204" class="sb" data-sb-layout="col"><div id="20231008141711-zw97aa2" data-node-id="20231008141711-zw97aa2" data-type="NodeParagraph" updated="20241227142204" class="p"><div spellcheck="false"><span data-type="strong">短期工作协议（预付费）：</span><span data-type="strong"><a href="https://afdian.com/item/d613eb929b2f11eea5e352540025c377">爱发电购买</a></span>
+提供我所有技能来解决你的问题，一份时长为1小时。
+我是偏前端的全栈开发，也可以为你提供更通用的其他技能，建议先和我沟通在购买。
+当我全力在思考或者着手解决问题时是一小时，如果期间不需要我消耗精力的话我不会计算进时间。
+支持未用完的额度返还。</div></div><div id="20241227142144-hzs4dg7" data-node-id="20241227142144-hzs4dg7" data-type="NodeParagraph" updated="20241227142144" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+<img
+  src="./../../assets/image-20241227142144-23es2av.png"
+  data-src="./../../assets/image-20241227142144-23es2av.png"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div></div>
+    </div><div id="20240613221811-3bfzxph" data-node-id="20240613221811-3bfzxph" data-type="NodeSuperBlock" updated="20241227142204" class="sb" data-sb-layout="col"><div id="20231008141711-zw97aa2" data-node-id="20231008141711-zw97aa2" data-type="NodeParagraph" updated="20241227142204" class="p"><div spellcheck="false"><span data-type="strong">短期工作协议（预付费）：</span><span data-type="strong"><a href="https://afdian.com/item/d613eb929b2f11eea5e352540025c377">爱发电购买</a></span>
+提供我所有技能来解决你的问题，一份时长为1小时。
+我是偏前端的全栈开发，也可以为你提供更通用的其他技能，建议先和我沟通在购买。
+当我全力在思考或者着手解决问题时是一小时，如果期间不需要我消耗精力的话我不会计算进时间。
+支持未用完的额度返还。</div></div><div id="20241227142144-hzs4dg7" data-node-id="20241227142144-hzs4dg7" data-type="NodeParagraph" updated="20241227142144" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+<img
+  src="./../../assets/image-20241227142144-23es2av.png"
+  data-src="./../../assets/image-20241227142144-23es2av.png"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div></div><div id="20231008141711-zw97aa2" data-node-id="20231008141711-zw97aa2" data-type="NodeParagraph" updated="20241227142204" class="p"><div spellcheck="false"><span data-type="strong">短期工作协议（预付费）：</span><span data-type="strong"><a href="https://afdian.com/item/d613eb929b2f11eea5e352540025c377">爱发电购买</a></span>
+提供我所有技能来解决你的问题，一份时长为1小时。
+我是偏前端的全栈开发，也可以为你提供更通用的其他技能，建议先和我沟通在购买。
+当我全力在思考或者着手解决问题时是一小时，如果期间不需要我消耗精力的话我不会计算进时间。
+支持未用完的额度返还。</div></div><div id="20241227142144-hzs4dg7" data-node-id="20241227142144-hzs4dg7" data-type="NodeParagraph" updated="20241227142144" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+<img
+  src="./../../assets/image-20241227142144-23es2av.png"
+  data-src="./../../assets/image-20241227142144-23es2av.png"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div><div id="20241226200832-3d5fap5" data-node-id="20241226200832-3d5fap5" data-type="NodeList" updated="20241226200832" data-subtype="t" class="list"><div id="20241226200832-ufe0s2h" data-node-id="20241226200832-ufe0s2h" data-type="NodeListItem" updated="20241226200832" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      <h6 id="20241226200832-g0f9grb" data-node-id="20241226200832-g0f9grb" data-type="NodeHeading" updated="20241226200832" data-subtype="h6" class="h6"><a href="https://www.zhangxinxu.com/wordpress/2024/12/js-word-speach-split-time-calc/">英文单词朗读基于音素预估时长的JS算法</a></h6><div id="20241226200832-kve9eog" data-node-id="20241226200832-kve9eog" data-type="NodeList" updated="20241226200832" data-subtype="u" class="list"><div id="20241226200832-u7t6plz" data-node-id="20241226200832-u7t6plz" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-u24tua7" data-node-id="20241226200832-u24tua7" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Thu, 05 Dec 2024 16:32:44 +0000</div></div>
+    </div></div><div id="20241226200832-b5t1yj6" data-node-id="20241226200832-b5t1yj6" data-type="NodeBlockquote" updated="20241226200832" class="bq"><div id="20241226200832-rs3mx5i" data-node-id="20241226200832-rs3mx5i" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">基于英文单词的发音规则，精准预估TTS语音合成每段内容所占据的时长，以便实现更精准的字幕同步，冷门应用场景，但却是稀缺的算法资源，值得收藏备忘。</div></div></div>
+    </div></div><div id="20241226200832-ufe0s2h" data-node-id="20241226200832-ufe0s2h" data-type="NodeListItem" updated="20241226200832" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      <h6 id="20241226200832-g0f9grb" data-node-id="20241226200832-g0f9grb" data-type="NodeHeading" updated="20241226200832" data-subtype="h6" class="h6"><a href="https://www.zhangxinxu.com/wordpress/2024/12/js-word-speach-split-time-calc/">英文单词朗读基于音素预估时长的JS算法</a></h6><div id="20241226200832-kve9eog" data-node-id="20241226200832-kve9eog" data-type="NodeList" updated="20241226200832" data-subtype="u" class="list"><div id="20241226200832-u7t6plz" data-node-id="20241226200832-u7t6plz" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-u24tua7" data-node-id="20241226200832-u24tua7" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Thu, 05 Dec 2024 16:32:44 +0000</div></div>
+    </div></div><div id="20241226200832-b5t1yj6" data-node-id="20241226200832-b5t1yj6" data-type="NodeBlockquote" updated="20241226200832" class="bq"><div id="20241226200832-rs3mx5i" data-node-id="20241226200832-rs3mx5i" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">基于英文单词的发音规则，精准预估TTS语音合成每段内容所占据的时长，以便实现更精准的字幕同步，冷门应用场景，但却是稀缺的算法资源，值得收藏备忘。</div></div></div>
+    </div><h6 id="20241226200832-g0f9grb" data-node-id="20241226200832-g0f9grb" data-type="NodeHeading" updated="20241226200832" data-subtype="h6" class="h6"><a href="https://www.zhangxinxu.com/wordpress/2024/12/js-word-speach-split-time-calc/">英文单词朗读基于音素预估时长的JS算法</a></h6>
+<div id="20241226200832-kve9eog" data-node-id="20241226200832-kve9eog" data-type="NodeList" updated="20241226200832" data-subtype="u" class="list"><div id="20241226200832-u7t6plz" data-node-id="20241226200832-u7t6plz" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-u24tua7" data-node-id="20241226200832-u24tua7" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Thu, 05 Dec 2024 16:32:44 +0000</div></div>
+    </div></div>
+<div id="20241226200832-b5t1yj6" data-node-id="20241226200832-b5t1yj6" data-type="NodeBlockquote" updated="20241226200832" class="bq"><div id="20241226200832-rs3mx5i" data-node-id="20241226200832-rs3mx5i" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">基于英文单词的发音规则，精准预估TTS语音合成每段内容所占据的时长，以便实现更精准的字幕同步，冷门应用场景，但却是稀缺的算法资源，值得收藏备忘。</div></div></div><div id="20241226200832-kve9eog" data-node-id="20241226200832-kve9eog" data-type="NodeList" updated="20241226200832" data-subtype="u" class="list"><div id="20241226200832-u7t6plz" data-node-id="20241226200832-u7t6plz" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-u24tua7" data-node-id="20241226200832-u24tua7" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Thu, 05 Dec 2024 16:32:44 +0000</div></div>
+    </div></div><div id="20241226200832-u7t6plz" data-node-id="20241226200832-u7t6plz" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-u24tua7" data-node-id="20241226200832-u24tua7" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Thu, 05 Dec 2024 16:32:44 +0000</div></div>
+    </div><div id="20241226200832-u24tua7" data-node-id="20241226200832-u24tua7" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Thu, 05 Dec 2024 16:32:44 +0000</div></div><div id="20241226200832-b5t1yj6" data-node-id="20241226200832-b5t1yj6" data-type="NodeBlockquote" updated="20241226200832" class="bq"><div id="20241226200832-rs3mx5i" data-node-id="20241226200832-rs3mx5i" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">基于英文单词的发音规则，精准预估TTS语音合成每段内容所占据的时长，以便实现更精准的字幕同步，冷门应用场景，但却是稀缺的算法资源，值得收藏备忘。</div></div></div><div id="20241226200832-rs3mx5i" data-node-id="20241226200832-rs3mx5i" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">基于英文单词的发音规则，精准预估TTS语音合成每段内容所占据的时长，以便实现更精准的字幕同步，冷门应用场景，但却是稀缺的算法资源，值得收藏备忘。</div></div><div id="20241226200832-m4usex5" data-node-id="20241226200832-m4usex5" data-type="NodeList" updated="20241226200832" data-subtype="t" class="list"><div id="20241226200832-sv9edxk" data-node-id="20241226200832-sv9edxk" data-type="NodeListItem" updated="20241226200832" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      <h6 id="20241226200832-l2nh4hn" data-node-id="20241226200832-l2nh4hn" data-type="NodeHeading" updated="20241226200832" data-subtype="h6" class="h6"><a href="https://www.zhangxinxu.com/wordpress/2024/12/css-relative-color-from-calc/">全新的CSS相对颜色语法-使用from和calc()</a></h6><div id="20241226200832-uusb8ta" data-node-id="20241226200832-uusb8ta" data-type="NodeList" updated="20241226200832" data-subtype="u" class="list"><div id="20241226200832-n61e0lh" data-node-id="20241226200832-n61e0lh" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-9d7zuwu" data-node-id="20241226200832-9d7zuwu" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Wed, 11 Dec 2024 15:56:35 +0000</div></div>
+    </div></div><div id="20241226200832-qfmx5xi" data-node-id="20241226200832-qfmx5xi" data-type="NodeBlockquote" updated="20241226200832" class="bq"><div id="20241226200832-5wka1ru" data-node-id="20241226200832-5wka1ru" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">本文介绍非常实用的CSS相对颜色语法，可以解构现有颜色，轻松实现相邻色、反色、半透明色等效果，有效减少项目的CSS颜色变量数量。</div></div></div>
+    </div></div><div id="20241226200832-sv9edxk" data-node-id="20241226200832-sv9edxk" data-type="NodeListItem" updated="20241226200832" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      <h6 id="20241226200832-l2nh4hn" data-node-id="20241226200832-l2nh4hn" data-type="NodeHeading" updated="20241226200832" data-subtype="h6" class="h6"><a href="https://www.zhangxinxu.com/wordpress/2024/12/css-relative-color-from-calc/">全新的CSS相对颜色语法-使用from和calc()</a></h6><div id="20241226200832-uusb8ta" data-node-id="20241226200832-uusb8ta" data-type="NodeList" updated="20241226200832" data-subtype="u" class="list"><div id="20241226200832-n61e0lh" data-node-id="20241226200832-n61e0lh" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-9d7zuwu" data-node-id="20241226200832-9d7zuwu" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Wed, 11 Dec 2024 15:56:35 +0000</div></div>
+    </div></div><div id="20241226200832-qfmx5xi" data-node-id="20241226200832-qfmx5xi" data-type="NodeBlockquote" updated="20241226200832" class="bq"><div id="20241226200832-5wka1ru" data-node-id="20241226200832-5wka1ru" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">本文介绍非常实用的CSS相对颜色语法，可以解构现有颜色，轻松实现相邻色、反色、半透明色等效果，有效减少项目的CSS颜色变量数量。</div></div></div>
+    </div><h6 id="20241226200832-l2nh4hn" data-node-id="20241226200832-l2nh4hn" data-type="NodeHeading" updated="20241226200832" data-subtype="h6" class="h6"><a href="https://www.zhangxinxu.com/wordpress/2024/12/css-relative-color-from-calc/">全新的CSS相对颜色语法-使用from和calc()</a></h6>
+<div id="20241226200832-uusb8ta" data-node-id="20241226200832-uusb8ta" data-type="NodeList" updated="20241226200832" data-subtype="u" class="list"><div id="20241226200832-n61e0lh" data-node-id="20241226200832-n61e0lh" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-9d7zuwu" data-node-id="20241226200832-9d7zuwu" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Wed, 11 Dec 2024 15:56:35 +0000</div></div>
+    </div></div>
+<div id="20241226200832-qfmx5xi" data-node-id="20241226200832-qfmx5xi" data-type="NodeBlockquote" updated="20241226200832" class="bq"><div id="20241226200832-5wka1ru" data-node-id="20241226200832-5wka1ru" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">本文介绍非常实用的CSS相对颜色语法，可以解构现有颜色，轻松实现相邻色、反色、半透明色等效果，有效减少项目的CSS颜色变量数量。</div></div></div><div id="20241226200832-uusb8ta" data-node-id="20241226200832-uusb8ta" data-type="NodeList" updated="20241226200832" data-subtype="u" class="list"><div id="20241226200832-n61e0lh" data-node-id="20241226200832-n61e0lh" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-9d7zuwu" data-node-id="20241226200832-9d7zuwu" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Wed, 11 Dec 2024 15:56:35 +0000</div></div>
+    </div></div><div id="20241226200832-n61e0lh" data-node-id="20241226200832-n61e0lh" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-9d7zuwu" data-node-id="20241226200832-9d7zuwu" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Wed, 11 Dec 2024 15:56:35 +0000</div></div>
+    </div><div id="20241226200832-9d7zuwu" data-node-id="20241226200832-9d7zuwu" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Wed, 11 Dec 2024 15:56:35 +0000</div></div><div id="20241226200832-qfmx5xi" data-node-id="20241226200832-qfmx5xi" data-type="NodeBlockquote" updated="20241226200832" class="bq"><div id="20241226200832-5wka1ru" data-node-id="20241226200832-5wka1ru" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">本文介绍非常实用的CSS相对颜色语法，可以解构现有颜色，轻松实现相邻色、反色、半透明色等效果，有效减少项目的CSS颜色变量数量。</div></div></div><div id="20241226200832-5wka1ru" data-node-id="20241226200832-5wka1ru" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">本文介绍非常实用的CSS相对颜色语法，可以解构现有颜色，轻松实现相邻色、反色、半透明色等效果，有效减少项目的CSS颜色变量数量。</div></div><div id="20241226200832-tk6jb2z" data-node-id="20241226200832-tk6jb2z" data-type="NodeList" updated="20241226200832" data-subtype="t" class="list"><div id="20241226200832-m3xyll0" data-node-id="20241226200832-m3xyll0" data-type="NodeListItem" updated="20241226200832" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      <h6 id="20241226200832-7ltrl9a" data-node-id="20241226200832-7ltrl9a" data-type="NodeHeading" updated="20241226200832" data-subtype="h6" class="h6"><a href="https://www.zhangxinxu.com/wordpress/2024/12/js-get-memory-cpu-gpu-battery/">如何使用JS获取系统内存、CPU/GPU、电量等信息</a></h6><div id="20241226200832-27u5pu0" data-node-id="20241226200832-27u5pu0" data-type="NodeList" updated="20241226200832" data-subtype="u" class="list"><div id="20241226200832-e8rg2q0" data-node-id="20241226200832-e8rg2q0" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-k2wh1rr" data-node-id="20241226200832-k2wh1rr" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Sun, 22 Dec 2024 16:31:51 +0000</div></div>
+    </div></div><div id="20241226200832-jql2u97" data-node-id="20241226200832-jql2u97" data-type="NodeBlockquote" updated="20241226200832" class="bq"><div id="20241226200832-b1l88ig" data-node-id="20241226200832-b1l88ig" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">有些前端开发可能还不知道，JavaScript是有能力获取操作系统的内存、CPU/GPU、电量、蓝牙、掉线等信息的。</div></div></div>
+    </div></div><div id="20241226200832-m3xyll0" data-node-id="20241226200832-m3xyll0" data-type="NodeListItem" updated="20241226200832" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      <h6 id="20241226200832-7ltrl9a" data-node-id="20241226200832-7ltrl9a" data-type="NodeHeading" updated="20241226200832" data-subtype="h6" class="h6"><a href="https://www.zhangxinxu.com/wordpress/2024/12/js-get-memory-cpu-gpu-battery/">如何使用JS获取系统内存、CPU/GPU、电量等信息</a></h6><div id="20241226200832-27u5pu0" data-node-id="20241226200832-27u5pu0" data-type="NodeList" updated="20241226200832" data-subtype="u" class="list"><div id="20241226200832-e8rg2q0" data-node-id="20241226200832-e8rg2q0" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-k2wh1rr" data-node-id="20241226200832-k2wh1rr" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Sun, 22 Dec 2024 16:31:51 +0000</div></div>
+    </div></div><div id="20241226200832-jql2u97" data-node-id="20241226200832-jql2u97" data-type="NodeBlockquote" updated="20241226200832" class="bq"><div id="20241226200832-b1l88ig" data-node-id="20241226200832-b1l88ig" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">有些前端开发可能还不知道，JavaScript是有能力获取操作系统的内存、CPU/GPU、电量、蓝牙、掉线等信息的。</div></div></div>
+    </div><h6 id="20241226200832-7ltrl9a" data-node-id="20241226200832-7ltrl9a" data-type="NodeHeading" updated="20241226200832" data-subtype="h6" class="h6"><a href="https://www.zhangxinxu.com/wordpress/2024/12/js-get-memory-cpu-gpu-battery/">如何使用JS获取系统内存、CPU/GPU、电量等信息</a></h6>
+<div id="20241226200832-27u5pu0" data-node-id="20241226200832-27u5pu0" data-type="NodeList" updated="20241226200832" data-subtype="u" class="list"><div id="20241226200832-e8rg2q0" data-node-id="20241226200832-e8rg2q0" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-k2wh1rr" data-node-id="20241226200832-k2wh1rr" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Sun, 22 Dec 2024 16:31:51 +0000</div></div>
+    </div></div>
+<div id="20241226200832-jql2u97" data-node-id="20241226200832-jql2u97" data-type="NodeBlockquote" updated="20241226200832" class="bq"><div id="20241226200832-b1l88ig" data-node-id="20241226200832-b1l88ig" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">有些前端开发可能还不知道，JavaScript是有能力获取操作系统的内存、CPU/GPU、电量、蓝牙、掉线等信息的。</div></div></div><div id="20241226200832-27u5pu0" data-node-id="20241226200832-27u5pu0" data-type="NodeList" updated="20241226200832" data-subtype="u" class="list"><div id="20241226200832-e8rg2q0" data-node-id="20241226200832-e8rg2q0" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-k2wh1rr" data-node-id="20241226200832-k2wh1rr" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Sun, 22 Dec 2024 16:31:51 +0000</div></div>
+    </div></div><div id="20241226200832-e8rg2q0" data-node-id="20241226200832-e8rg2q0" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-k2wh1rr" data-node-id="20241226200832-k2wh1rr" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Sun, 22 Dec 2024 16:31:51 +0000</div></div>
+    </div><div id="20241226200832-k2wh1rr" data-node-id="20241226200832-k2wh1rr" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Sun, 22 Dec 2024 16:31:51 +0000</div></div><div id="20241226200832-jql2u97" data-node-id="20241226200832-jql2u97" data-type="NodeBlockquote" updated="20241226200832" class="bq"><div id="20241226200832-b1l88ig" data-node-id="20241226200832-b1l88ig" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">有些前端开发可能还不知道，JavaScript是有能力获取操作系统的内存、CPU/GPU、电量、蓝牙、掉线等信息的。</div></div></div><div id="20241226200832-b1l88ig" data-node-id="20241226200832-b1l88ig" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">有些前端开发可能还不知道，JavaScript是有能力获取操作系统的内存、CPU/GPU、电量、蓝牙、掉线等信息的。</div></div><div id="20241226200832-5zovc2h" data-node-id="20241226200832-5zovc2h" data-type="NodeList" updated="20241226200832" data-subtype="t" class="list"><div id="20241226200832-cm5hb0n" data-node-id="20241226200832-cm5hb0n" data-type="NodeListItem" updated="20241226200832" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      <h6 id="20241226200832-7n5hkpc" data-node-id="20241226200832-7n5hkpc" data-type="NodeHeading" updated="20241226200832" data-subtype="h6" class="h6"><a href="https://www.zhangxinxu.com/wordpress/2024/12/font-palette-animation-palette-mix/">哇哦，font-palette支持动画和palette-mix()混合函数了</a></h6><div id="20241226200832-jpiejqg" data-node-id="20241226200832-jpiejqg" data-type="NodeList" updated="20241226200832" data-subtype="u" class="list"><div id="20241226200832-45kol1b" data-node-id="20241226200832-45kol1b" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-4pafjf6" data-node-id="20241226200832-4pafjf6" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Wed, 04 Dec 2024 15:39:06 +0000</div></div>
+    </div></div><div id="20241226200832-svgo7zy" data-node-id="20241226200832-svgo7zy" data-type="NodeBlockquote" updated="20241226200832" class="bq"><div id="20241226200832-q68lavx" data-node-id="20241226200832-q68lavx" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">font-palette彩色字体又支持新特性了，一是可以使用palette-mix()实现基础模板的颜色混合，二是支持animation和transition动画了，至此Web字体渲染的表现力更上一层楼。</div></div></div>
+    </div></div><div id="20241226200832-cm5hb0n" data-node-id="20241226200832-cm5hb0n" data-type="NodeListItem" updated="20241226200832" data-subtype="t" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconUncheck"></use></svg>
+      </div>
+      <h6 id="20241226200832-7n5hkpc" data-node-id="20241226200832-7n5hkpc" data-type="NodeHeading" updated="20241226200832" data-subtype="h6" class="h6"><a href="https://www.zhangxinxu.com/wordpress/2024/12/font-palette-animation-palette-mix/">哇哦，font-palette支持动画和palette-mix()混合函数了</a></h6><div id="20241226200832-jpiejqg" data-node-id="20241226200832-jpiejqg" data-type="NodeList" updated="20241226200832" data-subtype="u" class="list"><div id="20241226200832-45kol1b" data-node-id="20241226200832-45kol1b" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-4pafjf6" data-node-id="20241226200832-4pafjf6" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Wed, 04 Dec 2024 15:39:06 +0000</div></div>
+    </div></div><div id="20241226200832-svgo7zy" data-node-id="20241226200832-svgo7zy" data-type="NodeBlockquote" updated="20241226200832" class="bq"><div id="20241226200832-q68lavx" data-node-id="20241226200832-q68lavx" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">font-palette彩色字体又支持新特性了，一是可以使用palette-mix()实现基础模板的颜色混合，二是支持animation和transition动画了，至此Web字体渲染的表现力更上一层楼。</div></div></div>
+    </div><h6 id="20241226200832-7n5hkpc" data-node-id="20241226200832-7n5hkpc" data-type="NodeHeading" updated="20241226200832" data-subtype="h6" class="h6"><a href="https://www.zhangxinxu.com/wordpress/2024/12/font-palette-animation-palette-mix/">哇哦，font-palette支持动画和palette-mix()混合函数了</a></h6>
+<div id="20241226200832-jpiejqg" data-node-id="20241226200832-jpiejqg" data-type="NodeList" updated="20241226200832" data-subtype="u" class="list"><div id="20241226200832-45kol1b" data-node-id="20241226200832-45kol1b" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-4pafjf6" data-node-id="20241226200832-4pafjf6" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Wed, 04 Dec 2024 15:39:06 +0000</div></div>
+    </div></div>
+<div id="20241226200832-svgo7zy" data-node-id="20241226200832-svgo7zy" data-type="NodeBlockquote" updated="20241226200832" class="bq"><div id="20241226200832-q68lavx" data-node-id="20241226200832-q68lavx" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">font-palette彩色字体又支持新特性了，一是可以使用palette-mix()实现基础模板的颜色混合，二是支持animation和transition动画了，至此Web字体渲染的表现力更上一层楼。</div></div></div><div id="20241226200832-jpiejqg" data-node-id="20241226200832-jpiejqg" data-type="NodeList" updated="20241226200832" data-subtype="u" class="list"><div id="20241226200832-45kol1b" data-node-id="20241226200832-45kol1b" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-4pafjf6" data-node-id="20241226200832-4pafjf6" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Wed, 04 Dec 2024 15:39:06 +0000</div></div>
+    </div></div><div id="20241226200832-45kol1b" data-node-id="20241226200832-45kol1b" data-type="NodeListItem" updated="20241226200832" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20241226200832-4pafjf6" data-node-id="20241226200832-4pafjf6" data-type="NodeParagraph" updated="20241226200832" class="p"><div spellcheck="false">published:Wed, 04 Dec 2024 15:39:06 +0000</div></div>
+    </div></div><div id="20210606160324-57c0iql" data-node-id="20210606160324-57c0iql" data-type="NodeParagraph" updated="20230924170522" class="p"><div spellcheck="false"></div></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -191,7 +400,7 @@ CMD ["/home/llrt", "/home/app.lrt"]
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);
@@ -222,16 +431,5 @@ CMD ["/home/llrt", "/home/app.lrt"]
     <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
 </p>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-<script type="text/javascript">
-  docsearch({
-    appId: "UBOM0V691R",
-    apiKey: "0c572ae8b8611d29477570967f44c3cf",
-    indexName: "shenzilong",
-    insights: true, 
-    container: '#search',
-    debug: false
-  });
-</script>
 </body>
 </html>

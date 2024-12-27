@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>expr 支持图表等其他块的映射</title>
 </head>
 <body>
-  <div id="search"></div>
+  
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20240808092621-2rdw83w" data-node-id="20240808092621-2rdw83w" data-type="NodeDocument" updated="20240818115506" data-subtype="h1" class="h1" custom-liandi-articleId="1723082183967" type="doc"></div><h1 id="20240808092621-2rdw83w" data-node-id="20240808092621-2rdw83w" data-type="NodeDocument" updated="20240818115506" data-subtype="h1" class="h1" custom-liandi-articleId="1723082183967" type="doc" data-type="NodeHeading" class="h1">expr 支持图表等其他块的映射</h1><div id="20240808092649-2hbvmlq" data-node-id="20240808092649-2hbvmlq" data-type="NodeParagraph" updated="20240808092728" class="p"><div spellcheck="false">以前写过 <span data-type="block-ref" data-subtype="d" data-id="20210824162114-vaqmnda"><a href="./../../../other/思源图表小白教程.html#20210824162114-vaqmnda">思源图表小白教程</a></span> ，对图表功能不熟悉的可以先阅读一下。</div></div><div id="20240808092729-ztu9zpf" data-node-id="20240808092729-ztu9zpf" data-type="NodeParagraph" updated="20240808093542" class="p"><div spellcheck="false">下面是一个引用块内包裹了一个图表块：</div></div><div id="20240808092645-mqc976g" data-node-id="20240808092645-mqc976g" data-type="NodeBlockquote" updated="20240808092645" class="bq"><div id="20240808092645-7leeodx" data-node-id="20240808092645-7leeodx" data-type="NodeCodeBlock" updated="20240808092645" data-subtype="echarts" class="render-node" data-content="{
   &amp;quot;xAxis&amp;quot;: {
@@ -155,9 +155,9 @@ return `> \`\`\`echarts
         <div class="protyle-attr" contenteditable="false"></div>
       </div></div><div id="20240808095310-2dkiv5i" data-node-id="20240808095310-2dkiv5i" data-type="NodeParagraph" updated="20240808095310" class="p"><div spellcheck="false"></div></div><div id="20240808095312-beyqkhk" data-node-id="20240808095312-beyqkhk" data-type="NodeParagraph" updated="20240808095515" class="p"><div spellcheck="false">如果需要从思源的数据库或者 table ，或其他什么地方获取数据生成图表也可以这样做，改改 js 就行了，如果你对 js 不熟悉的话而又需要一些动态图表功能的话可以雇佣我来提供技术支持：  <a href="https://afdian.com/a/llej0">https://afdian.com/a/llej0</a></div></div><div id="20240808095516-m0yz4mf" data-node-id="20240808095516-m0yz4mf" data-type="NodeParagraph" updated="20240808095614" class="p"><div spellcheck="false">另外如果您已经安装了expr插件的话，并不需要更新插件，因为这个功能是从一开始就支持的，只是我现在才有空写教程</div></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -176,7 +176,7 @@ return `> \`\`\`echarts
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);
@@ -207,16 +207,5 @@ return `> \`\`\`echarts
     <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
 </p>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-<script type="text/javascript">
-  docsearch({
-    appId: "UBOM0V691R",
-    apiKey: "0c572ae8b8611d29477570967f44c3cf",
-    indexName: "shenzilong",
-    insights: true, 
-    container: '#search',
-    debug: false
-  });
-</script>
 </body>
 </html>

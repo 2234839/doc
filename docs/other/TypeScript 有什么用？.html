@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>TypeScript 有什么用？</title>
 </head>
 <body>
-  <div id="search"></div>
+  
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20210722113406-2cw602x" data-node-id="20210722113406-2cw602x" data-type="NodeDocument" updated="20240321171644" data-subtype="h1" class="h1" type="doc"></div><h1 id="20210722113406-2cw602x" data-node-id="20210722113406-2cw602x" data-type="NodeDocument" updated="20240321171644" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">TypeScript 有什么用？</h1><div id="20210722113412-g0avoxg" data-node-id="20210722113412-g0avoxg" data-type="NodeParagraph" updated="20210722113412" class="p"><div spellcheck="false">ts 的大部分作用都不在运行时，而是在编译以及编译之前（编写代码时）</div></div><div id="20210722113412-x7xwhkv" data-node-id="20210722113412-x7xwhkv" data-type="NodeParagraph" updated="20210722113412" class="p"><div spellcheck="false">可以使用他在这两个阶段检测你的代码是否违反了你的意图</div></div><div id="20210722113412-ea5mmjm" data-node-id="20210722113412-ea5mmjm" data-type="NodeParagraph" updated="20210722113412" class="p"><div spellcheck="false">类型系统就是用来表达程序员的一部分意图的</div></div><div id="20210722113412-wzac4ts" data-node-id="20210722113412-wzac4ts" data-type="NodeParagraph" updated="20210722113412" class="p"><div spellcheck="false">在没有类型系统的情况下 写代码想要保证代码是符合意图的正确的代码 经常需要反复的阅读很久之前写的代码，要小心的在心里计算好调用传参是正确无误的（然而一般人的 '心栈' 是十分小而抽象的，所以会很累）</div></div><div id="20210722113412-nsv7ldq" data-node-id="20210722113412-nsv7ldq" data-type="NodeParagraph" updated="20210722113412" class="p"><div spellcheck="false">类型系统可以大大简化以上流程，缺点就是让人表达自己模糊的意图是很痛苦的一件事，在这种情况下人总会倾向于模糊表达而不是深挖自己的意图（例如 anyScript）</div></div><div id="20210722113412-1a0t8zc" data-node-id="20210722113412-1a0t8zc" data-type="NodeParagraph" updated="20210722113412" class="p"><div spellcheck="false">许多程序员与产品的冲突就是来自于这种模糊的意图让双方都感觉不爽</div></div><div id="20210722113412-a0owy5c" data-node-id="20210722113412-a0owy5c" data-type="NodeParagraph" updated="20210722113412" class="p"><div spellcheck="false">一个不愿意深挖一个没有能力深挖</div></div><div id="20210722113414-bgdhgww" data-node-id="20210722113414-bgdhgww" data-type="NodeThematicBreak" updated="20210722113414" class="hr"><div></div></div><div id="20210722113415-zc2fp9j" data-node-id="20210722113415-zc2fp9j" data-type="NodeParagraph" updated="20240321171644" class="p"><div spellcheck="false">​<span data-type="tag">分享/文章</span>​<a href="https://www.zhihu.com/question/473302799/answer/2009581345
 ">TypeScript 有什么用？ - 崮生的回答 - 知乎 </a></div></div><div id="20210722113438-bt9f6z7" data-node-id="20210722113438-bt9f6z7" data-type="NodeParagraph" updated="20210722113438" class="p"><div spellcheck="false"></div></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -46,7 +46,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);
@@ -77,16 +77,5 @@
     <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
 </p>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-<script type="text/javascript">
-  docsearch({
-    appId: "UBOM0V691R",
-    apiKey: "0c572ae8b8611d29477570967f44c3cf",
-    indexName: "shenzilong",
-    insights: true, 
-    container: '#search',
-    debug: false
-  });
-</script>
 </body>
 </html>

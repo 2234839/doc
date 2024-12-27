@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>2024-03-16</title>
 </head>
 <body>
-  <div id="search"></div>
+  
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20240316165101-otrbbbf" data-node-id="20240316165101-otrbbbf" data-type="NodeDocument" updated="20240316185029" data-subtype="h1" class="h1" custom-dailynote-20240316="20240316"></div><h1 id="20240316165101-otrbbbf" data-node-id="20240316165101-otrbbbf" data-type="NodeDocument" updated="20240316185029" data-subtype="h1" class="h1" custom-dailynote-20240316="20240316" data-type="NodeHeading" class="h1">2024-03-16</h1><h2 id="20240316165101-o2p5r81" data-node-id="20240316165101-o2p5r81" data-type="NodeHeading" updated="20240316165110" data-subtype="h2" class="h2">cloudreve 迁移文件</h2><div id="20240316165110-hyshs83" data-node-id="20240316165110-hyshs83" data-type="NodeParagraph" updated="20240316165110" class="p"><div spellcheck="false"></div></div><div id="20240316165111-fohnb0j" data-node-id="20240316165111-fohnb0j" data-type="NodeParagraph" updated="20240316165201" class="p"><div spellcheck="false">首先在物理存储位置（例如磁盘，oss）将一个存储策略中的文件手动复制到另一个存储策略处</div></div><div id="20240316165204-l6hokt9" data-node-id="20240316165204-l6hokt9" data-type="NodeParagraph" updated="20240316165216" class="p"><div spellcheck="false">然后手动更新 cloudreve.db </div></div><div id="20240316165348-r5bf18x" data-node-id="20240316165348-r5bf18x" data-type="NodeParagraph" updated="20240316172212" class="p"><div spellcheck="false">下面是从 oss 迁移到本地存储策略的流程：</div></div><div id="20240316165348-p1zz46m" data-node-id="20240316165348-p1zz46m" data-type="NodeCodeBlock" updated="20240316172316" class="code-block">
         <div class="protyle-action">
@@ -52,9 +52,9 @@ WHERE policy_id = 2;
 </div>
       </div><div id="20240316184958-6wuw2hw" data-node-id="20240316184958-6wuw2hw" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -73,7 +73,7 @@ WHERE policy_id = 2;
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);
@@ -104,16 +104,5 @@ WHERE policy_id = 2;
     <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
 </p>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-<script type="text/javascript">
-  docsearch({
-    appId: "UBOM0V691R",
-    apiKey: "0c572ae8b8611d29477570967f44c3cf",
-    indexName: "shenzilong",
-    insights: true, 
-    container: '#search',
-    debug: false
-  });
-</script>
 </body>
 </html>

@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>自建meilisearch搜索</title>
 </head>
 <body>
-  <div id="search"></div>
+  
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20240101170825-d2e78a0" data-node-id="20240101170825-d2e78a0" data-type="NodeDocument" updated="20240101173641" data-subtype="h1" class="h1"></div><h1 id="20240101170825-d2e78a0" data-node-id="20240101170825-d2e78a0" data-type="NodeDocument" updated="20240101173641" data-subtype="h1" class="h1" data-type="NodeHeading" class="h1">自建meilisearch搜索</h1><div id="20240101170854-ifxn834" data-node-id="20240101170854-ifxn834" data-type="NodeParagraph" updated="20240101171200" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20240101170943-s5mf3dl"><a href="./../../../想法/项目/OceanPress_js/为OceanPress生成的网站添加搜索功能.html#20240101170943-s5mf3dl">algolia docSearch</a></span> 虽然是免费的，但对于网站有一定的要求</div></div><div id="20240101171202-cwr4hzl" data-node-id="20240101171202-cwr4hzl" data-type="NodeBlockQueryEmbed" updated="20240101171202" data-type="NodeBlockquote" class="bq"><div id="20240101171115-sfg56g2" data-node-id="20240101171115-sfg56g2" data-type="NodeParagraph" updated="20240101171141" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 636px;" style="width: 626px;" style="width: 636px;">
+  <div style="min-height: 150px;" id="20240101170825-d2e78a0" data-node-id="20240101170825-d2e78a0" data-type="NodeDocument" updated="20240101173641" data-subtype="h1" class="h1" type="doc"></div><h1 id="20240101170825-d2e78a0" data-node-id="20240101170825-d2e78a0" data-type="NodeDocument" updated="20240101173641" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">自建meilisearch搜索</h1><div id="20240101170854-ifxn834" data-node-id="20240101170854-ifxn834" data-type="NodeParagraph" updated="20240101171200" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20240101170943-s5mf3dl"><a href="./../../../想法/项目/OceanPress_js/为OceanPress生成的网站添加搜索功能.html#20240101170943-s5mf3dl">algolia docSearch</a></span> 虽然是免费的，但对于网站有一定的要求</div></div><div id="20240101171202-cwr4hzl" data-node-id="20240101171202-cwr4hzl" data-type="NodeBlockQueryEmbed" updated="20240101171202" data-type="NodeBlockquote" class="bq"><div id="20240101171115-sfg56g2" data-node-id="20240101171115-sfg56g2" data-type="NodeParagraph" updated="20240101171141" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 636px;" style="width: 626px;" style="width: 636px;">
 <img
   src="./../../../assets/image-20240101171115-ofh7196.png"
   data-src="./../../../assets/image-20240101171115-ofh7196.png"
@@ -46,15 +46,15 @@
   style="width: 514px;"
   loading="lazy"
 />
-<span class="protyle-action__title"></span></span>​</div></div><h2 id="20240101173638-obxtvkm" data-node-id="20240101173638-obxtvkm" data-type="NodeHeading" updated="20240101173641" data-subtype="h2" class="h2">推广</h2><div id="20240101173556-93zoq7f" data-node-id="20240101173556-93zoq7f" data-type="NodeParagraph" updated="20240101173632" class="p"><div spellcheck="false">如果你觉得自行配置很麻烦，不妨雇佣我来完成此工作</div></div><div id="20240101173553-819jnm0" data-node-id="20240101173553-819jnm0" data-type="NodeBlockQueryEmbed" updated="20240101173553" data-type="NodeBlockquote" class="bq"><div id="20231008141711-zw97aa2" data-node-id="20231008141711-zw97aa2" data-type="NodeParagraph" updated="20240613221812" class="p"><div spellcheck="false"><span data-type="strong">短期工作协议（预付费）：</span><span data-type="strong"><a href="https://afdian.net/item/d613eb929b2f11eea5e352540025c377">爱发电购买</a></span>
+<span class="protyle-action__title"></span></span>​</div></div><h2 id="20240101173638-obxtvkm" data-node-id="20240101173638-obxtvkm" data-type="NodeHeading" updated="20240101173641" data-subtype="h2" class="h2">推广</h2><div id="20240101173556-93zoq7f" data-node-id="20240101173556-93zoq7f" data-type="NodeParagraph" updated="20240101173632" class="p"><div spellcheck="false">如果你觉得自行配置很麻烦，不妨雇佣我来完成此工作</div></div><div id="20240101173553-819jnm0" data-node-id="20240101173553-819jnm0" data-type="NodeBlockQueryEmbed" updated="20240101173553" data-type="NodeBlockquote" class="bq"><div id="20231008141711-zw97aa2" data-node-id="20231008141711-zw97aa2" data-type="NodeParagraph" updated="20241227142204" class="p"><div spellcheck="false"><span data-type="strong">短期工作协议（预付费）：</span><span data-type="strong"><a href="https://afdian.com/item/d613eb929b2f11eea5e352540025c377">爱发电购买</a></span>
 提供我所有技能来解决你的问题，一份时长为1小时。
 我是偏前端的全栈开发，也可以为你提供更通用的其他技能，建议先和我沟通在购买。
 当我全力在思考或者着手解决问题时是一小时，如果期间不需要我消耗精力的话我不会计算进时间。
 支持未用完的额度返还。</div></div></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -73,7 +73,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);
@@ -104,16 +104,5 @@
     <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
 </p>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-<script type="text/javascript">
-  docsearch({
-    appId: "UBOM0V691R",
-    apiKey: "0c572ae8b8611d29477570967f44c3cf",
-    indexName: "shenzilong",
-    insights: true, 
-    container: '#search',
-    debug: false
-  });
-</script>
 </body>
 </html>

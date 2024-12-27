@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>llrt</title>
 </head>
 <body>
-  <div id="search"></div>
+  
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20240518231434-d8w3074" data-node-id="20240518231434-d8w3074" data-type="NodeDocument" updated="20240519210116" data-subtype="h1" class="h1" custom-liandi-articleId="1716123691085" type="doc"></div><h1 id="20240518231434-d8w3074" data-node-id="20240518231434-d8w3074" data-type="NodeDocument" updated="20240519210116" data-subtype="h1" class="h1" custom-liandi-articleId="1716123691085" type="doc" data-type="NodeHeading" class="h1">llrt</h1><div id="20240518231435-699e5jk" data-node-id="20240518231435-699e5jk" data-type="NodeParagraph" updated="20240518231534" class="p"><div spellcheck="false">让人感到兴奋的serverless js 运行时：<a href="https://github.com/awslabs/llrt">github.com/awslabs/llrt</a></div></div><div id="20240518231505-ubxbuph" data-node-id="20240518231505-ubxbuph" data-type="NodeParagraph" updated="20240518234059" class="p"><div spellcheck="false">js 用来写一些小的脚本是十分方便与快速的，但每次当我使用js与go比较时我常常为程序所占用的内存而自卑，一个非常简单的js脚本都要占用六七十兆的内存，而我最常接触的思源笔记，它的核心程序是使用go编写的，内存占用也只有七十多兆。</div></div><div id="20240518232215-stqj8qy" data-node-id="20240518232215-stqj8qy" data-type="NodeParagraph" updated="20240518234025" class="p"><div spellcheck="false">现在我发现了 <span data-type="strong">llrt</span> ！ ，现在只要 6MB 不到的内存就可以运行起一个简单的js脚本了。</div></div><div id="20240518232536-wbm5s7q" data-node-id="20240518232536-wbm5s7q" data-type="NodeParagraph" updated="20240519210116" class="p"><div spellcheck="false">它使用 QuickJs 作为引擎， Rust 实现所有 JavaScript API。（目前支持这些api：<a href="https://github.com/awslabs/llrt/blob/main/API.md#buffer">buffer</a> <a href="https://github.com/awslabs/llrt/blob/main/API.md#child_process">child_process</a> <a href="https://github.com/awslabs/llrt/blob/main/API.md#console">console</a> <a href="https://github.com/awslabs/llrt/blob/main/API.md#crypto">crypto</a> <a href="https://github.com/awslabs/llrt/blob/main/API.md#events">events</a> <a href="https://github.com/awslabs/llrt/blob/main/API.md#fetch">fetch</a> <a href="https://github.com/awslabs/llrt/blob/main/API.md#fs">fs</a> <a href="https://github.com/awslabs/llrt/blob/main/API.md#fspromises">fs/promises</a> <a href="https://github.com/awslabs/llrt/blob/main/API.md#hex">hex</a> <a href="https://github.com/awslabs/llrt/blob/main/API.md#module">module</a> <a href="https://github.com/awslabs/llrt/blob/main/API.md#os">os</a> <a href="https://github.com/awslabs/llrt/blob/main/API.md#path">path</a> <a href="https://github.com/awslabs/llrt/blob/main/API.md#timers">timers</a> <a href="https://github.com/awslabs/llrt/blob/main/API.md#url">url</a> <a href="https://github.com/awslabs/llrt/blob/main/API.md#urlsearchparams">URLSearchParams</a> <a href="https://github.com/awslabs/llrt/blob/main/API.md#util">util</a> <a href="https://github.com/awslabs/llrt/blob/main/API.md#uuid">uuid</a> <a href="https://github.com/awslabs/llrt/blob/main/API.md#xml">xml</a> <a href="https://github.com/awslabs/llrt/blob/main/API.md#net">net</a>）</div></div><div id="20240519204202-lrr2nrz" data-node-id="20240519204202-lrr2nrz" data-type="NodeParagraph" updated="20240519204217" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 593px;" style="width: 583px;" style="width: 593px;">
 <img
@@ -57,9 +57,9 @@
 />
 <span class="protyle-action__title"></span></span>​</div></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -78,7 +78,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);
@@ -109,16 +109,5 @@
     <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
 </p>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-<script type="text/javascript">
-  docsearch({
-    appId: "UBOM0V691R",
-    apiKey: "0c572ae8b8611d29477570967f44c3cf",
-    indexName: "shenzilong",
-    insights: true, 
-    container: '#search',
-    debug: false
-  });
-</script>
 </body>
 </html>

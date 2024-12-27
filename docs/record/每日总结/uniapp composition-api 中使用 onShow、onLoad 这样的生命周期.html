@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>uniapp composition-api 中使用 onShow、onLoad 这样的生命周期</title>
+</head>
+<body>
+  
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div style="min-height: 150px;" id="20201127151651-bbzj4xi" data-node-id="20201127151651-bbzj4xi" data-type="NodeDocument" updated="20240624164755" data-subtype="h1" class="h1" type="doc"></div><h1 id="20201127151651-bbzj4xi" data-node-id="20201127151651-bbzj4xi" data-type="NodeDocument" updated="20240624164755" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">uniapp composition-api 中使用 onShow、onLoad 这样的生命周期</h1><div id="20201127152845-o17ia6d" data-node-id="20201127152845-o17ia6d" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://ask.dcloud.net.cn/article/38160"><span data-type="tag">分享/dcloud</span></a></div></div><div id="20201127151742-gcxrggb" data-node-id="20201127151742-gcxrggb" data-type="NodeParagraph" class="p"><div spellcheck="false">我的思路是使用 mixin 得知 onShow 被触发后去回调 setup 中 onShow 设置的函数</div></div><div id="20201127151906-x2yi9ly" data-node-id="20201127151906-x2yi9ly" data-type="NodeParagraph" class="p"><div spellcheck="false">setup 中的代码会是这样的</div></div><div id="20201127151955-i4cz1pt" data-node-id="20201127151955-i4cz1pt" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">typescript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false"> setup(props, ctx) {
+    onLoad((...arg: any) => {
+      console.log("onLoad", arg);
+    });
+  },
+</div>
+      </div><div id="20201127152006-zq2ydn7" data-node-id="20201127152006-zq2ydn7" data-type="NodeParagraph" class="p"><div spellcheck="false">在 app.vue 中 mixin</div></div><div id="20201127152107-xelqoht" data-node-id="20201127152107-xelqoht" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false"> export default Vue.extend({
+    mpType: "app",
+    mixins: [vueLifeCycleMixin],
+  });
+</div>
+      </div><div id="20201127152114-mbabupj" data-node-id="20201127152114-mbabupj" data-type="NodeParagraph" class="p"><div spellcheck="false">vueLifeCycleMixin 的具体实现</div></div><div id="20201127152134-xfge91j" data-node-id="20201127152134-xfge91j" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">typescript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">import { defineComponent, getCurrentInstance } from "@vue/composition-api";
+import Vue from "vue";
+export const vueLifeCycleMixin = Vue.mixin(
+  defineComponent({
+    onLoad: optionsWarp("onLoad"),
+    onShow: optionsWarp("onShow"),
+  }),
+);
+export const onShow = onFunWarp("onShow");
+export const onLoad = onFunWarp("onLoad");
+
+
+function optionsWarp(name: string) {
+  return function (this: any, ...args: any[]) {
+    const field = generateFieldName(name);
+    if (Array.isArray(this[field])) {
+      (this[field] as any).forEach((el: any) => el(...args));
+    }
+  };
+}
+function generateFieldName(name: string) {
+  return `__${name}`;
+}
+function onFunWarp(name: string) {
+  name = generateFieldName(name);
+  return (cb: Function) => {
+    var vm = getCurrentInstance() as any;
+    if (!vm) {
+      return console.warn("读取vm实例失败，请确保在 setup 中执行");
+    }
+    if (!vm[name]) {
+      vm[name] = [];
+    }
+    vm[name].push(cb);
+  };
+}
+</div>
+      </div><div id="20210410111356-q24w2ji" data-node-id="20210410111356-q24w2ji" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20201128143048-59ylr2a" data-node-id="20201128143048-59ylr2a" data-type="NodeParagraph" updated="20240624164721" class="p"><div spellcheck="false">未确定是否是企业微信小程序的问题，自定义组件内部 emit tap 事件，外部再 <span data-type="code"> &lt;c-btn @tap=&quot;test()&quot;&gt;&lt;/c-btn&gt;</span>​ test 会被执行两次。在微信开发工具中没有此问题</div></div><div id="20210410111356-no29whr" data-node-id="20210410111356-no29whr" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20201130101451-16spsn7" data-node-id="20201130101451-16spsn7" data-type="NodeParagraph" updated="20240624164755" class="p"><div spellcheck="false">在超出最大列宽（ 10000 ）后不再显示的<a href="https://stackoverflow.com/questions/50862347/how-to-show-full-long-line-in-visual-studio-code-word-wrap-off/50863170#50863170">解决办法</a> 在 vscode 的设置中添加</div></div><div id="20201130101344-1ie5rkn" data-node-id="20201130101344-1ie5rkn" data-type="NodeCodeBlock" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language"></span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">"editor.stopRenderingLineAfter" : -1
+</div>
+      </div><div id="20201130101437-hayrn4c" data-node-id="20201130101437-hayrn4c" data-type="NodeParagraph" class="p"><div spellcheck="false">他默认超出10000后只显示<span data-type="code">...</span> 这个做的说实话有点问题，而且设置中没有可以可视化配置的地方</div></div><div id="20210410111920-naa1v0l" data-node-id="20210410111920-naa1v0l" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
+  </div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <footer>
+<p style="text-align:center;margin:15px 0;">
+  技术支持：
+  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+</p>
+</footer>
+</body>
+</html>

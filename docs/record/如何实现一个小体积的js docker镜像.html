@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>如何实现一个小体积的js docker镜像</title>
 </head>
 <body>
-  <div id="search"></div>
+  
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20240831144820-s0ruk7h" data-node-id="20240831144820-s0ruk7h" data-type="NodeDocument" updated="20240901095227" data-subtype="h1" class="h1" custom-liandi-articleId="1725089133205" type="doc"></div><h1 id="20240831144820-s0ruk7h" data-node-id="20240831144820-s0ruk7h" data-type="NodeDocument" updated="20240901095227" data-subtype="h1" class="h1" custom-liandi-articleId="1725089133205" type="doc" data-type="NodeHeading" class="h1">如何实现一个小体积的js docker镜像</h1><div id="20240901095204-8hmbdcb" data-node-id="20240901095204-8hmbdcb" data-type="NodeParagraph" updated="20240901095227" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20240901095218-n4gomty"><a href="./../record/How I Created a 3.78MB Docker Image for a JavaScript Service.html#20240901095218-n4gomty">How I Created a 3.78MB Docker Image for a JavaScript Service</a></span></div></div><div id="20240831144820-k5k4jjf" data-node-id="20240831144820-k5k4jjf" data-type="NodeParagraph" updated="20240831144927" class="p"><div spellcheck="false">在服务端一般使用 node 来运行 js ，除了 node 外流行的还有 bun/deno。</div></div><div id="20240831144928-35sg08q" data-node-id="20240831144928-35sg08q" data-type="NodeParagraph" updated="20240831145306" class="p"><div spellcheck="false">但这三个运行时的打包体积都不小，在精简的情况下也在 50 mb 以上，我在这里记录一下我是如何将一个原来使用 node 开发的服务迁移为 3.78MB 的 docker 镜像。</div></div><div id="20240831145324-4hncekq" data-node-id="20240831145324-4hncekq" data-type="NodeParagraph" updated="20240901093154" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 632px;" style="width: 622px;" style="width: 632px;">
 <img
@@ -44,9 +44,9 @@ CMD ["/home/llrt", "/home/app.lrt"]
 </div>
       </div><div id="20240831151702-kcntpeu" data-node-id="20240831151702-kcntpeu" data-type="NodeParagraph" updated="20240831151803" class="p"><div spellcheck="false">再经过 docker 的压缩后就得到了 3.78MB 这个数字。</div></div><h2 id="20240831151810-wcm9b6a" data-node-id="20240831151810-wcm9b6a" data-type="NodeHeading" updated="20240831152355" data-subtype="h2" class="h2">使用情况</h2><div id="20240831151816-je4r9a3" data-node-id="20240831151816-je4r9a3" data-type="NodeParagraph" updated="20240831151915" class="p"><div spellcheck="false">llrt 的运行速度比 node 还是慢了许多，在我这个场景下它比 node 要慢上两倍，gc 的运行速度也要慢许多。</div></div><div id="20240831152323-smkt5hr" data-node-id="20240831152323-smkt5hr" data-type="NodeParagraph" updated="20240831152355" class="p"><div spellcheck="false">但初始内存占用和启动速度是碾压 node 的。</div></div><div id="20240831151915-jffhsdl" data-node-id="20240831151915-jffhsdl" data-type="NodeParagraph" updated="20240831152258" class="p"><div spellcheck="false">由于运行时还不是特别完善的问题，很容易踩坑，所以除非你急需压缩 js 的运行内存占用/冷启动速度或者和我一样就是想要这么做，还是建议直接使用 node 吧。</div></div><div id="20240831152226-k6hu20d" data-node-id="20240831152226-k6hu20d" data-type="NodeParagraph" updated="20240831152226" class="p"><div spellcheck="false"></div></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -65,7 +65,7 @@ CMD ["/home/llrt", "/home/app.lrt"]
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);
@@ -96,16 +96,5 @@ CMD ["/home/llrt", "/home/app.lrt"]
     <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
 </p>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-<script type="text/javascript">
-  docsearch({
-    appId: "UBOM0V691R",
-    apiKey: "0c572ae8b8611d29477570967f44c3cf",
-    indexName: "shenzilong",
-    insights: true, 
-    container: '#search',
-    debug: false
-  });
-</script>
 </body>
 </html>

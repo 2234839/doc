@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>【项目】从网页生成图片</title>
 </head>
 <body>
-  <div id="search"></div>
+  
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20210523141744-xxqoc1c" data-node-id="20210523141744-xxqoc1c" data-type="NodeDocument" updated="20210523142313" data-subtype="h1" class="h1" type="doc"></div><h1 id="20210523141744-xxqoc1c" data-node-id="20210523141744-xxqoc1c" data-type="NodeDocument" updated="20210523142313" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">【项目】从网页生成图片</h1><div id="20210523141750-3kasffa" data-node-id="20210523141750-3kasffa" data-type="NodeParagraph" updated="20210523142017" class="p"><div spellcheck="false">网页截图系统  既访问特定的图片地址会 服务器回去截下来该网页的图片然后返回，还可以通过css选择器来选中其中一部分</div></div><div id="20210523141750-tjtlrir" data-node-id="20210523141750-tjtlrir" data-type="NodeParagraph" updated="20210523141750" class="p"><div spellcheck="false">例子：</div></div><div id="20210523141913-dd41ijg" data-node-id="20210523141913-dd41ijg" data-type="NodeSuperBlock" updated="20210523142035" class="sb" data-sb-layout="col"><div id="20210523141750-dta2jpt" data-node-id="20210523141750-dta2jpt" data-type="NodeParagraph" updated="20210523142035" class="p"><div spellcheck="false">加上css选择器， https://***.com/.png?url=https://shenzilong.cn&cssSelector=.font-QIJIC</div></div><div id="20210523141844-b8zr4nf" data-node-id="20210523141844-b8zr4nf" data-type="NodeParagraph" updated="20210523141854" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
 <img
@@ -56,9 +56,9 @@
 />
 <span class="protyle-action__title"></span></span></div></div></div><div id="20210523141750-5e0u1k9" data-node-id="20210523141750-5e0u1k9" data-type="NodeParagraph" updated="20210523141750" class="p"><div spellcheck="false"><a href="https://www.iloveimg.com/zh-cn/html-to-image">iloveimg</a> ❌</div></div><div id="20210523141750-zazpasm" data-node-id="20210523141750-zazpasm" data-type="NodeParagraph" updated="20210523141750" class="p"><div spellcheck="false">功能不多</div></div><div id="20210523142301-ly63w51" data-node-id="20210523142301-ly63w51" data-type="NodeParagraph" updated="20210523142301" class="p"><div spellcheck="false"></div></div><div id="20210523141750-ukpe7oe" data-node-id="20210523141750-ukpe7oe" data-type="NodeParagraph" updated="20210523141750" class="p"><div spellcheck="false">还有一些其他的，和上面两个一样不怎么样，他们仅仅是从网页生成图，没想过这个能用来干什么</div></div><div id="20210523141750-rdafitw" data-node-id="20210523141750-rdafitw" data-type="NodeParagraph" updated="20210523141750" class="p"><div spellcheck="false"><a href="https://developers.google.com/speed/docs/insights/v5/get-started">谷歌页面截图服务</a></div></div><div id="20210523141750-aad8gzr" data-node-id="20210523141750-aad8gzr" data-type="NodeParagraph" updated="20210523141750" class="p"><div spellcheck="false"><a href="https://github.com/fzaninotto/screenshot-as-a-service">https://github.com/fzaninotto/screenshot-as-a-service</a> （一个node.js 的服务，已经实现了我想要的部分功能，如果需要开发一个的话应该要基于这个来做）</div></div><h2 id="20210523141750-fa06vxw" data-node-id="20210523141750-fa06vxw" data-type="NodeHeading" updated="20210523141750" data-subtype="h2" class="h2">资源</h2><div id="20210523141750-rrvx9m0" data-node-id="20210523141750-rrvx9m0" data-type="NodeParagraph" updated="20210523141750" class="p"><div spellcheck="false"><a href="https://www.zhihu.com/question/20368029">有哪些在服务器端给网页截图的办法？</a></div></div><div id="20210523141750-l4a0ovk" data-node-id="20210523141750-l4a0ovk" data-type="NodeParagraph" updated="20210523141750" class="p"><div spellcheck="false"><a href="https://github.com/puppeteer/puppeteer">https://github.com/puppeteer/puppeteer</a> 一个无头浏览器</div></div><div id="20210523142313-rpi7ani" data-node-id="20210523142313-rpi7ani" data-type="NodeParagraph" updated="20210523142313" class="p"><div spellcheck="false"></div></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -77,7 +77,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);
@@ -108,16 +108,5 @@
     <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
 </p>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-<script type="text/javascript">
-  docsearch({
-    appId: "UBOM0V691R",
-    apiKey: "0c572ae8b8611d29477570967f44c3cf",
-    indexName: "shenzilong",
-    insights: true, 
-    container: '#search',
-    debug: false
-  });
-</script>
 </body>
 </html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>思源再提醒油猴插件</title>
+</head>
+<body>
+  
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div style="min-height: 150px;" id="20241021210626-7njzjnz" data-node-id="20241021210626-7njzjnz" data-type="NodeDocument" updated="20241021211207" data-subtype="h1" class="h1" custom-liandi-articleId="1729516362192" type="doc"></div><h1 id="20241021210626-7njzjnz" data-node-id="20241021210626-7njzjnz" data-type="NodeDocument" updated="20241021211207" data-subtype="h1" class="h1" custom-liandi-articleId="1729516362192" type="doc" data-type="NodeHeading" class="h1">思源再提醒油猴插件</h1><div id="20241021210626-aguo07c" data-node-id="20241021210626-aguo07c" data-type="NodeParagraph" updated="20241021210700" class="p"><div spellcheck="false">终于大力出奇迹的搓出第一个版本了</div></div><div id="20241021210732-xegobup" data-node-id="20241021210732-xegobup" data-type="NodeParagraph" updated="20241021210756" class="p"><div spellcheck="false">脚本地址：<a href="https://greasyfork.org/zh-CN/scripts/513405-%E6%80%9D%E6%BA%90%E5%86%8D%E6%8F%90%E9%86%92">https://greasyfork.org/zh-CN/scripts/513405-思源再提醒</a></div></div><div id="20241021210720-eixep2m" data-node-id="20241021210720-eixep2m" data-type="NodeParagraph" updated="20241021210720" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+<img
+  src="./../../assets/image-20241021210720-hc6tz0u.png"
+  data-src="./../../assets/image-20241021210720-hc6tz0u.png"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div><div id="20241021210722-tolncuj" data-node-id="20241021210722-tolncuj" data-type="NodeParagraph" updated="20241021210816" class="p"><div spellcheck="false">目前主要功能是</div></div><div id="20241021210828-ccxvj8l" data-node-id="20241021210828-ccxvj8l" data-type="NodeList" updated="20241021210829" data-subtype="o" class="list"><div id="20241021210829-nt9xll7" data-node-id="20241021210829-nt9xll7" data-type="NodeListItem" updated="20241021210829" data-subtype="o" class="li" data-marker="1.">
+      <div class="protyle-action">
+        1.
+      </div>
+      <div id="20241021210829-30pxb5g" data-node-id="20241021210829-30pxb5g" data-type="NodeParagraph" updated="20241021210829" class="p"><div spellcheck="false">对于每个页面的地址会进行一次检索</div></div>
+    </div><div id="20241021210830-356idyf" data-node-id="20241021210830-356idyf" data-type="NodeListItem" updated="20241021210830" data-subtype="o" class="li" data-marker="2.">
+      <div class="protyle-action">
+        2.
+      </div>
+      <div id="20241021210830-uk8pq92" data-node-id="20241021210830-uk8pq92" data-type="NodeParagraph" updated="20241021210912" class="p"><div spellcheck="false">对于页面中的每个文本块会进行一次和思源笔记中的标题、名称、别名 进行一次全文匹配</div></div><div id="20241021210912-bn8cduf" data-node-id="20241021210912-bn8cduf" data-type="NodeParagraph" updated="20241021211049" class="p"><div spellcheck="false">然后对该文本块的父级添加下划线样式，最后面添加一个引用数量统计，鼠标移动到数量统计上时展示对应的块
+​<span data-type="NodeImage" class="img" style="">
+<img
+  src="./../../assets/image-20241021211049-nhunj5p.png"
+  data-src="./../../assets/image-20241021211049-nhunj5p.png"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div>
+    </div><div id="20241021211051-tkz7qo4" data-node-id="20241021211051-tkz7qo4" data-type="NodeListItem" updated="20241021211051" data-subtype="o" class="li" data-marker="3.">
+      <div class="protyle-action">
+        3.
+      </div>
+      <div id="20241021211051-t9m1omc" data-node-id="20241021211051-t9m1omc" data-type="NodeParagraph" updated="20241021211114" class="p"><div spellcheck="false">点击后面的 📝emoji 跳转到思源中对应的地方</div></div>
+    </div></div><h2 id="20241021211116-3afec6n" data-node-id="20241021211116-3afec6n" data-type="NodeHeading" updated="20241021211207" data-subtype="h2" class="h2">未来展望</h2><div id="20241021211121-737ms26" data-node-id="20241021211121-737ms26" data-type="NodeParagraph" updated="20241021211207" class="p"><div spellcheck="false">现在的形态其实已经符合我的要求了，问题主要在于文本匹配算法太过暴力，也不够细致，之后想办法优化这个方面</div></div><div id="20241021210816-2o6984a" data-node-id="20241021210816-2o6984a" data-type="NodeParagraph" updated="20241021210832" class="p"><div spellcheck="false"></div></div>
+  </div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <footer>
+<p style="text-align:center;margin:15px 0;">
+  技术支持：
+  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+</p>
+</footer>
+</body>
+</html>
