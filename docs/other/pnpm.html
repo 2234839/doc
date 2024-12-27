@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
@@ -20,7 +21,8 @@
   <title>pnpm</title>
 </head>
 <body>
-  
+    <div id="search"></div>
+
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20210428160117-mmi8zfa" data-node-id="20210428160117-mmi8zfa" data-type="NodeDocument" updated="20210819174922" data-subtype="h1" class="h1" icon="23f1" type="doc"></div><h1 id="20210428160117-mmi8zfa" data-node-id="20210428160117-mmi8zfa" data-type="NodeDocument" updated="20210819174922" data-subtype="h1" class="h1" icon="23f1" type="doc" data-type="NodeHeading" class="h1">pnpm</h1><div id="20210428160531-ze2bkmf" data-node-id="20210428160531-ze2bkmf" data-type="NodeBlockquote" updated="20210819174628" class="bq"><div id="20210428160534-kh2jjbl" data-node-id="20210428160534-kh2jjbl" data-type="NodeParagraph" updated="20210806120143" class="p"><div spellcheck="false">更好的 包管理工具，项目的 node_modules 终于不是黑洞了，在文件树中找对应的包也很轻松</div></div></div><h2 id="20210819174628-yjz0bjj" data-node-id="20210819174628-yjz0bjj" data-type="NodeHeading" updated="20210819174637" data-subtype="h2" class="h2">为什么使用 <span data-type="block-ref" data-subtype="d" data-id="20210428160114-qmt1m0i"><a href="./../record/每日总结/2021/4月.html#20210428160114-qmt1m0i">pnpm</a></span></h2><div id="20210819174639-4fn0ok1" data-node-id="20210819174639-4fn0ok1" data-type="NodeParagraph" updated="20210819174922" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20210428160114-qmt1m0i"><a href="./../record/每日总结/2021/4月.html#20210428160114-qmt1m0i">pnpm</a></span> 采用软链接等技巧使得所有的 npm 包都存放到一起，多个项目使用同一个包只会占用一份空间 ( 逃离 node_modules 黑洞 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染方法 NodeEmoji  pnpm</div>)</div></div><div id="20210819174805-ru0q8lr" data-node-id="20210819174805-ru0q8lr" data-type="NodeParagraph" updated="20210819174854" class="p"><div spellcheck="false">还支持清理总存储中没有被使用的包 : <span data-type="code">pnpm store prune</span> </div></div><h2 id="20210428160120-qasd13f" data-node-id="20210428160120-qasd13f" data-type="NodeHeading" updated="20210428160531" data-subtype="h2" class="h2">workspace</h2><div id="20210428160213-s08xsjg" data-node-id="20210428160213-s08xsjg" data-type="NodeList" updated="20210428161703" data-subtype="u" class="list" data-marker="-"><div id="20210428160239-e9mvqhv" data-node-id="20210428160239-e9mvqhv" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
       <div class="protyle-action">
@@ -91,5 +93,17 @@
     <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
 </p>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
 </body>
 </html>

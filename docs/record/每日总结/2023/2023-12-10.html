@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
@@ -20,7 +21,8 @@
   <title>2023-12-10</title>
 </head>
 <body>
-  
+    <div id="search"></div>
+
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20231210171848-24ne2n1" data-node-id="20231210171848-24ne2n1" data-type="NodeDocument" updated="20231210171908" data-subtype="h1" class="h1" custom-dailynote-20231210="20231210"></div><h1 id="20231210171848-24ne2n1" data-node-id="20231210171848-24ne2n1" data-type="NodeDocument" updated="20231210171908" data-subtype="h1" class="h1" custom-dailynote-20231210="20231210" data-type="NodeHeading" class="h1">2023-12-10</h1><h2 id="20231210171916-v2h750o" data-node-id="20231210171916-v2h750o" data-type="NodeHeading" updated="20231210171934" data-subtype="h2" class="h2">通过ssh在远程服务器上执行命令</h2><div id="20231210171851-0yp7xez" data-node-id="20231210171851-0yp7xez" data-type="NodeParagraph" updated="20231210171851" class="p"><div spellcheck="false">要在远程服务器上执行命令而不让当前终端完全 SSH 连接到远程终端，可以使用 SSH 的 "ssh remotehost command" 语法。这种方式会在远程主机上执行指定的命令，然后返回结果。</div></div><div id="20231210171851-xogq88f" data-node-id="20231210171851-xogq88f" data-type="NodeParagraph" updated="20231210171851" class="p"><div spellcheck="false">以下是如何使用这种方式来执行远程命令的示例：</div></div><div id="20231210171851-1m7mxve" data-node-id="20231210171851-1m7mxve" data-type="NodeCodeBlock" updated="20231210171908" class="code-block" style="line-height: 22px;">
         <div class="protyle-action">
@@ -105,5 +107,17 @@
     <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
 </p>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
 </body>
 </html>

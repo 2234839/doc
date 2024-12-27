@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
@@ -20,7 +21,8 @@
   <title>Aliyun Linux 17.1安装 zerotier 失败</title>
 </head>
 <body>
-  
+    <div id="search"></div>
+
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20210505154756-xqznmxz" data-node-id="20210505154756-xqznmxz" data-type="NodeDocument" updated="20210505154756" data-subtype="h1" class="h1" type="doc"></div><h1 id="20210505154756-xqznmxz" data-node-id="20210505154756-xqznmxz" data-type="NodeDocument" updated="20210505154756" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">Aliyun Linux 17.1安装 zerotier 失败</h1><h2 id="20210505155206-ajlid62" data-node-id="20210505155206-ajlid62" data-type="NodeHeading" updated="20210505155209" data-subtype="h2" class="h2">分析</h2><div id="20210505154928-4tmahzn" data-node-id="20210505154928-4tmahzn" data-type="NodeParagraph" updated="20210505155206" class="p"><div spellcheck="false">主要错误是 <span data-type="code">http://download.zerotier.com/redhat/el/17.01/repodata/repomd.xml: [Errno 14] HTTP Error 404 - Not Found</span> <span data-type="block-ref" data-subtype="d" data-id="20210505154759-540e2ii"><a href="./../other/Aliyun Linux 17.1安装 zerotier 失败.html#20210505154759-540e2ii">具体报错信息</a></span></div></div><div id="20210505155020-ai67wj2" data-node-id="20210505155020-ai67wj2" data-type="NodeParagraph" updated="20210505155345" class="p"><div spellcheck="false">通过查看 <a href="http://download.zerotier.com/redhat/el/">http://download.zerotier.com/redhat/el/</a> 可知应该是 <span data-type="code">curl -s https://install.zerotier.com | sudo bash</span> 命令内依赖了系统版本这个数据，但由于我使用的是 Aliyun Linux 17.1 所以他找不到相关的信息</div></div><h2 id="20210505155153-q1codxb" data-node-id="20210505155153-q1codxb" data-type="NodeHeading" updated="20210505155213" data-subtype="h2" class="h2">解决</h2><div id="20210505155213-8tljdzm" data-node-id="20210505155213-8tljdzm" data-type="NodeParagraph" updated="20210505155227" class="p"><div spellcheck="false">手动下载 <a href="https://install.zerotier.com">https://install.zerotier.com</a> 这里的脚本，</div></div><div id="20210505155347-mizdx7m" data-node-id="20210505155347-mizdx7m" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
 <img
@@ -123,5 +125,17 @@
     <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
 </p>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
 </body>
 </html>

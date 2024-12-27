@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
@@ -20,7 +21,8 @@
   <title>一个简简单单的 TypeScript RPC 解决方案</title>
 </head>
 <body>
-  
+    <div id="search"></div>
+
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20201121144434-sbev4ga" data-node-id="20201121144434-sbev4ga" data-type="NodeDocument" updated="20240321171748" data-subtype="h1" class="h1" type="doc"></div><h1 id="20201121144434-sbev4ga" data-node-id="20201121144434-sbev4ga" data-type="NodeDocument" updated="20240321171748" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">一个简简单单的 TypeScript RPC 解决方案</h1><div id="20210410114147-c1tluk3" data-node-id="20210410114147-c1tluk3" data-type="NodeParagraph" updated="20240321171748" class="p"><div spellcheck="false">​<span data-type="tag">分享/文章</span>​
 <a href="https://zhuanlan.zhihu.com/p/281083041">一个简简单单的 TypeScript RPC 解决方案 - 崮生的文章 - 知乎</a><a href="https://www.zhihu.com/question/345364393/answer/1827394867">在 TypeScript 处理后端API返回的响应数据这一块，你或者所在团队都做了哪些比较好的实践呢？ - 崮生的回答 - 知乎</a></div></div><div id="20210410154327-bahzt0o" data-node-id="20210410154327-bahzt0o" data-type="NodeParagraph" updated="20210410154327" class="p"><div spellcheck="false"></div></div><div id="20230905115155-a1bzkzw" data-node-id="20230905115155-a1bzkzw" data-type="NodeBlockquote" class="bq"><div id="20230905115155-ds83r5g" data-node-id="20230905115155-ds83r5g" data-type="NodeParagraph" class="p"><div spellcheck="false">有时候不需要什么「分布式」，前后端「项目分离」。</div></div><div id="20230905115155-cnlf2cw" data-node-id="20230905115155-cnlf2cw" data-type="NodeParagraph" class="p"><div spellcheck="false">只是想可以方便调用一个接口、不去写接口文档、还有有完善的方法类型提示而已。</div></div><div id="20230905115155-buna54f" data-node-id="20230905115155-buna54f" data-type="NodeParagraph" class="p"><div spellcheck="false">何必那么复杂呢。......</div></div><div id="20230905115155-cy777l4" data-node-id="20230905115155-cy777l4" data-type="NodeParagraph" class="p"><div spellcheck="false">这里提供超轻量级的远程调用，完备的类型提示！</div></div></div><div id="20230905115155-y56ufqk" data-node-id="20230905115155-y56ufqk" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://codesandbox.io/s/github/2234839/typescript_RPC_demo?utm_medium=plugin&file=/src/rpc.ts">codesandbox 体验地址</a> codesandbox 的类型提示还不太行，本地开发是没有问题的</div></div><div id="20230905115155-7oo1goa" data-node-id="20230905115155-7oo1goa" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/2234839/typescript_RPC_demo">demo  github 地址</a></div></div><div id="20230905115155-tef6xdb" data-node-id="20230905115155-tef6xdb" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
@@ -222,5 +224,17 @@ API.currentTime2(true).then((r) => console.log("服务器当前时间本地化",
     <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
 </p>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
 </body>
 </html>

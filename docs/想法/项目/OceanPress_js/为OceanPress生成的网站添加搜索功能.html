@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
@@ -20,7 +21,8 @@
   <title>为OceanPress生成的网站添加搜索功能</title>
 </head>
 <body>
-  
+    <div id="search"></div>
+
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20231005185546-0mj4dt8" data-node-id="20231005185546-0mj4dt8" data-type="NodeDocument" updated="20231005190033" data-subtype="h1" class="h1" custom-liandi-articleId="1696504169188"></div><h1 id="20231005185546-0mj4dt8" data-node-id="20231005185546-0mj4dt8" data-type="NodeDocument" updated="20231005190033" data-subtype="h1" class="h1" custom-liandi-articleId="1696504169188" data-type="NodeHeading" class="h1">为OceanPress生成的网站添加搜索功能</h1><div id="20231005185608-bbz475n" data-node-id="20231005185608-bbz475n" data-type="NodeParagraph" updated="20240118130032" class="p"><div spellcheck="false">目前（2023年10月5日）<span data-type="block-ref" data-subtype="d" data-id="20230905170531-6q68jov"><a href="./../../../想法/项目/OceanPress_js.html#20230905170531-6q68jov">OceanPress_js</a></span> 还没有直接支持搜索功能</div></div><div id="20231005185646-r8mf7o2" data-node-id="20231005185646-r8mf7o2" data-type="NodeParagraph" updated="20240118130051" class="p"><div spellcheck="false">但是，对于静态的文档网站早已有了通用的解决方案： <span data-type="block-ref" data-subtype="d" data-id="20210122234859-v457hqz"><a href="./../../../record/文本处理/搜索/站内搜索方案.html#20210122234859-v457hqz">站内搜索方案</a></span></div></div><h2 id="20240101170943-s5mf3dl" data-node-id="20240101170943-s5mf3dl" data-type="NodeHeading" updated="20240101170959" data-subtype="h2" class="h2">algolia docSearch</h2><div id="20231005185546-ac4kbkk" data-node-id="20231005185546-ac4kbkk" data-type="NodeParagraph" updated="20231005185821" class="p"><div spellcheck="false">Algolia 可以说是这方面的老大了，vue.js 官网使用的就是他。</div></div><div id="20231005185822-0gecxpv" data-node-id="20231005185822-0gecxpv" data-type="NodeParagraph" updated="20231229131929" class="p"><div spellcheck="false">他的 DocSearch 对于开源项目文档博客是可以免费申请的</div></div><div id="20240101171115-sfg56g2" data-node-id="20240101171115-sfg56g2" data-type="NodeParagraph" updated="20240101171141" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 636px;" style="width: 626px;" style="width: 636px;">
 <img
@@ -120,5 +122,17 @@
     <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
 </p>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
 </body>
 </html>
