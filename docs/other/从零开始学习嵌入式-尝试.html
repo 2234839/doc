@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,7 +43,10 @@
   <title>从零开始学习嵌入式-尝试</title>
 </head>
 <body>
-    <div id="search"></div>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20210524142217-v3z91to" data-node-id="20210524142217-v3z91to" data-type="NodeDocument" updated="20231209110059" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210524142217-v3z91to&quot;,&quot;startId&quot;:&quot;20210524142217-50zhpxz&quot;,&quot;endId&quot;:&quot;20230929092417-hll3jeb&quot;,&quot;scrollTop&quot;:2100,&quot;focusId&quot;:&quot;20230929144100-jtcwh6p&quot;,&quot;focusStart&quot;:73,&quot;focusEnd&quot;:73&#125;" type="doc"></div><h1 id="20210524142217-v3z91to" data-node-id="20210524142217-v3z91to" data-type="NodeDocument" updated="20231209110059" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210524142217-v3z91to&quot;,&quot;startId&quot;:&quot;20210524142217-50zhpxz&quot;,&quot;endId&quot;:&quot;20230929092417-hll3jeb&quot;,&quot;scrollTop&quot;:2100,&quot;focusId&quot;:&quot;20230929144100-jtcwh6p&quot;,&quot;focusStart&quot;:73,&quot;focusEnd&quot;:73&#125;" type="doc" data-type="NodeHeading" class="h1">从零开始学习嵌入式-尝试</h1><div id="20210524142217-50zhpxz" data-node-id="20210524142217-50zhpxz" data-type="NodeParagraph" updated="20210525113711" class="p"><div spellcheck="false">相关资料： <span data-type="block-ref" data-subtype="d" data-id="20210524142200-beuxyhb"><a href="./../读书笔记/rust/崮生的rust速览.html#20210524142200-beuxyhb">从零开始学习嵌入式</a></span></div></div><div id="20210524182703-642gbcm" data-node-id="20210524182703-642gbcm" data-type="NodeParagraph" updated="20210524182804" class="p" style="color: var(--b3-card-info-color);background-color: var(--b3-card-info-background);"><div spellcheck="false">我一个完全的 rust/嵌入式 菜鸟成功的跑起来了感觉很欣慰 φ(*￣0￣)</div></div><h2 id="20210524142248-bdjziev" data-node-id="20210524142248-bdjziev" data-type="NodeHeading" updated="20210524142832" data-subtype="h2" class="h2">准备工作</h2><div id="20210524182226-6harhur" data-node-id="20210524182226-6harhur" data-type="NodeSuperBlock" updated="20210524182558" class="sb" data-sb-layout="col"><div id="20210524182206-ewyxn8w" data-node-id="20210524182206-ewyxn8w" data-type="NodeParagraph" updated="20210524182558" class="p"><div spellcheck="false">在淘宝买了一个 STM32F303 DISCOVERY
@@ -351,13 +376,13 @@ Error: init mode failed (unable to connect to the target)</div>
       });
     });
   </script>
-  <footer>
-<p style="text-align:center;margin:15px 0;">
-  技术支持：
-  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
-    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
-    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
-</p>
+  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
 <script type="text/javascript">

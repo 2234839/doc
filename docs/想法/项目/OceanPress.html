@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,7 +43,10 @@
   <title>OceanPress</title>
 </head>
 <body>
-    <div id="search"></div>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20201121142503-ivwtfzg" data-node-id="20201121142503-ivwtfzg" data-type="NodeDocument" updated="20231010181624" data-subtype="h1" class="h1" custom-sy-readonly="true" icon="1f30a" scroll="&#123;&quot;rootId&quot;:&quot;20201121142503-ivwtfzg&quot;,&quot;startId&quot;:&quot;20231005181436-1rms4yd&quot;,&quot;endId&quot;:&quot;20210702202952-n3qmto3&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20231010181624-7ld32ul&quot;,&quot;focusStart&quot;:12,&quot;focusEnd&quot;:12&#125;" title-img="background:linear-gradient(135deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px),linear-gradient(225deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 64px;background-color:#708090;background-size: 64px 128px;" type="doc"><div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 16vh;background:linear-gradient(135deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px),linear-gradient(225deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 64px;background-color:#708090;background-size: 64px 128px;"/><div style="position: absolute;bottom:-10px;left:15px;height: 80px;width: 80px;transition: var(--b3-transition);cursor: pointer;font-size: 68px;line-height: 80px;text-align: center;font-family: var(--b3-font-family-emoji);margin-right: 16px;"> &#x1f30a </div></div></div><h1 id="20201121142503-ivwtfzg" data-node-id="20201121142503-ivwtfzg" data-type="NodeDocument" updated="20231010181624" data-subtype="h1" class="h1" custom-sy-readonly="true" icon="1f30a" scroll="&#123;&quot;rootId&quot;:&quot;20201121142503-ivwtfzg&quot;,&quot;startId&quot;:&quot;20231005181436-1rms4yd&quot;,&quot;endId&quot;:&quot;20210702202952-n3qmto3&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20231010181624-7ld32ul&quot;,&quot;focusStart&quot;:12,&quot;focusEnd&quot;:12&#125;" title-img="background:linear-gradient(135deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px),linear-gradient(225deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 64px;background-color:#708090;background-size: 64px 128px;" type="doc" data-type="NodeHeading" class="h1">OceanPress</h1><div id="20231005181436-1rms4yd" data-node-id="20231005181436-1rms4yd" data-type="NodeParagraph" updated="20231010160625" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background1);"><span data-type="strong" style="background-color: var(--b3-font-background1);">💥本项目已过时，现在应该使用</span></span><span data-type="block-ref text strong" data-subtype="d" data-id="20230905170531-6q68jov"><a href="./../../想法/项目/OceanPress_js.html#20230905170531-6q68jov"><span data-type="text" style="background-color: var(--b3-font-background1);"><span data-type="strong" style="background-color: var(--b3-font-background1);">OceanPress_js</span></span></a></span></div></div><h3 id="20231010181624-7ld32ul" data-node-id="20231010181624-7ld32ul" data-type="NodeHeading" updated="20231010181624" data-subtype="h3" class="h3">为什么从go转为js开发</h3><div id="20231010181624-t0q150q" data-node-id="20231010181624-t0q150q" data-type="NodeParagraph" updated="20231010181624" class="p"><div spellcheck="false">我 js 比 go 更熟练（事实上之前使用go开发完全依赖于我对于心中js实现的翻译），这意味着相同精力下我能够开发出更好的程序，还有我真的很想要直接在浏览器中使用OceanPress</div></div><div id="20231005181503-d93fuax" data-node-id="20231005181503-d93fuax" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210523161027-y2z06cj" data-node-id="20210523161027-y2z06cj" data-type="NodeBlockquote" updated="20210821095200" class="bq" style="background-color: var(--b3-font-background4);"><div id="20210523161030-szswzzr" data-node-id="20210523161030-szswzzr" data-type="NodeParagraph" updated="20210523161121" class="p" style="color: var(--b3-card-info-color);background-color: var(--b3-card-info-background);"><div spellcheck="false">这是一款从 <span data-type="block-ref" data-subtype="d" data-id="20201104155455-awawq0n"><a href="./../../record/思源笔记.html#20201104155455-awawq0n">思源笔记</a></span>本 生成一个静态站点的工具</div></div><div id="20210523161157-ibq3qkf" data-node-id="20210523161157-ibq3qkf" data-type="NodeParagraph" updated="20210523162558" class="p" style="color: var(--b3-card-success-color);background-color: var(--b3-card-success-background);"><div spellcheck="false">这个网站的文章内容就是基于 <span data-type="block-ref" data-subtype="d" data-id="20201121142503-ivwtfzg"><a href="./../../想法/项目/OceanPress.html#20201121142503-ivwtfzg">OceanPress</a></span> 构建的</div></div><div id="20210523161241-n5n8z98" data-node-id="20210523161241-n5n8z98" data-type="NodeParagraph" updated="20210821095200" class="p" style="color: var(--b3-card-info-color);background-color: var(--b3-card-info-background);"><div spellcheck="false"><a href="https://siyuan-note.github.io/oceanpress/OceanPress.html">点击这里查看纯粹由 OceanPress 构建的「思源帮助笔记」的效果</a></div></div></div><h2 id="20210607085942-3uua4pl" data-node-id="20210607085942-3uua4pl" data-type="NodeHeading" updated="20210607085952" data-subtype="h2" class="h2">特性</h2><div id="20210607085952-yoifm0f" data-node-id="20210607085952-yoifm0f" data-type="NodeList" updated="20210823125219" data-subtype="o" class="list"><div id="20210607085958-y217qm6" data-node-id="20210607085958-y217qm6" data-type="NodeListItem" updated="20210607090016" data-subtype="o" class="li" data-marker="1.">
@@ -437,13 +462,13 @@ iframe 得有伺服环境</div></div><div id="20210527113020-w8am9gj" data-node-
       });
     });
   </script>
-  <footer>
-<p style="text-align:center;margin:15px 0;">
-  技术支持：
-  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
-    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
-    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
-</p>
+  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
 <script type="text/javascript">

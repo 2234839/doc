@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,7 +43,10 @@
   <title>espruino</title>
 </head>
 <body>
-    <div id="search"></div>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20240311141820-58ast58" data-node-id="20240311141820-58ast58" data-type="NodeDocument" updated="20240815100915" data-subtype="h1" class="h1" custom-dailynote-20240311="20240311" type="doc"></div><h1 id="20240311141820-58ast58" data-node-id="20240311141820-58ast58" data-type="NodeDocument" updated="20240815100915" data-subtype="h1" class="h1" custom-dailynote-20240311="20240311" type="doc" data-type="NodeHeading" class="h1">espruino</h1><h2 id="20240311143829-ym62q7j" data-node-id="20240311143829-ym62q7j" data-type="NodeHeading" updated="20240311143832" data-subtype="h2" class="h2">前言</h2><div id="20240311143421-3a0ndr2" data-node-id="20240311143421-3a0ndr2" data-type="NodeParagraph" updated="20240311143832" class="p"><div spellcheck="false">之前就想学一点物联网相关的东西 (<span data-type="block-ref" data-subtype="d" data-id="20210524142217-v3z91to"><a href="./../../../other/从零开始学习嵌入式-尝试.html#20210524142217-v3z91to">从零开始学习嵌入式-尝试</a></span>)，但限于知识水平的不足，以及 rust 确实比较复杂，学了一点就没继续了。</div></div><div id="20240311143546-1t1c8sf" data-node-id="20240311143546-1t1c8sf" data-type="NodeParagraph" updated="20240311143832" class="p"><div spellcheck="false">最近了解到了 <a href="https://www.espruino.com/">https://www.espruino.com/ </a> 这是使用 js 来进行编程的物联网平台，我又有信心了，而且据网上消息可以使用 esp8266 的单片机,这款价格只有十几元到二十几元非常便宜却支持 wifi 的板子，实在是给了我很大的期望。</div></div><div id="20240311143804-atawfqp" data-node-id="20240311143804-atawfqp" data-type="NodeParagraph" updated="20240311143826" class="p"><div spellcheck="false">在此记录一下折腾过程吧。</div></div><h2 id="20240311150423-fy1o4zw" data-node-id="20240311150423-fy1o4zw" data-type="NodeHeading" updated="20240815100915" data-subtype="h2" class="h2">开始烧录固件&连接</h2><div id="20240311150505-7an1v0k" data-node-id="20240311150505-7an1v0k" data-type="NodeParagraph" updated="20240318193611" class="p"><div spellcheck="false">esprunio 是需要先将固件写到板子中，然后才可以动态加载 js 代码执行。</div></div><div id="20240317185709-e5p0chg" data-node-id="20240317185709-e5p0chg" data-type="NodeParagraph" updated="20240317185820" class="p"><div spellcheck="false">在刷好固件后自动就配对了，但换电脑就需要重新刷配对一次（<span data-type="tag">todo</span>​ 寻找简单配对的方法）</div></div><div id="20240721142756-0l2q362" data-node-id="20240721142756-0l2q362" data-type="NodeParagraph" updated="20240721144639" class="p"><div spellcheck="false"></div></div><h3 id="20240314195312-0h0qauu" data-node-id="20240314195312-0h0qauu" data-type="NodeHeading" updated="20240815100915" data-subtype="h3" class="h3">esp8266 NodeMcu 烧录与连接</h3><div id="20240314195332-rlp6acx" data-node-id="20240314195332-rlp6acx" data-type="NodeParagraph" updated="20240318193642" class="p"><div spellcheck="false">这块板子足够的便宜，花了12元就买了一块，芯片是 esp12-f ，150Kib ram (<a href="https://segmentfault.com/a/1190000023089715">64KB 的 iRAM，96KB 的 dRAM</a> espruino 中不需要了解这两个的区别，可以理解为有大概120Kib的ram供我们的代码使用，其他空间被 espruino占用了 ) 和 4mb 闪存。</div></div><div id="20240314195353-ozgz6zr" data-node-id="20240314195353-ozgz6zr" data-type="NodeParagraph" updated="20240318125814" class="p"><div spellcheck="false">我追随此教程：<a href="https://auth0.com/blog/javascript-for-microcontrollers-and-iot-part-4/">https://auth0.com/blog/javascript-for-microcontrollers-and-iot-part-4/</a> 以及官网教程 <a href="https://www.espruino.com/ESP8266_Flashing">https://www.espruino.com/ESP8266_Flashing</a></div></div><div id="20240314195406-1xlhr6x" data-node-id="20240314195406-1xlhr6x" data-type="NodeParagraph" updated="20240318125814" class="p"><div spellcheck="false">先安装 esptool  <a href="https://docs.espressif.com/projects/esptool/en/latest/esp32/installation.html#installation">https://docs.espressif.com/projects/esptool/en/latest/esp32/installation.html#installation</a> ，使用了虚拟环境安装，直接安装报错:</div></div><div id="20240314204052-th5h82h" data-node-id="20240314204052-th5h82h" data-type="NodeCodeBlock" updated="20240318125814" class="code-block">
@@ -256,13 +281,13 @@
       });
     });
   </script>
-  <footer>
-<p style="text-align:center;margin:15px 0;">
-  技术支持：
-  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
-    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
-    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
-</p>
+  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
 <script type="text/javascript">

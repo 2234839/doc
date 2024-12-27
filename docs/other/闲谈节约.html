@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,7 +43,10 @@
   <title>闲谈节约</title>
 </head>
 <body>
-    <div id="search"></div>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20210421165200-zklfi5r" data-node-id="20210421165200-zklfi5r" data-type="NodeDocument" updated="20210421165200" data-subtype="h1" class="h1" type="doc"></div><h1 id="20210421165200-zklfi5r" data-node-id="20210421165200-zklfi5r" data-type="NodeDocument" updated="20210421165200" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">闲谈节约</h1><div id="20210421165206-k0buqbp" data-node-id="20210421165206-k0buqbp" data-type="NodeBlockquote" updated="20210421165509" class="bq"><div id="20210421165509-mizz3q6" data-node-id="20210421165509-mizz3q6" data-type="NodeParagraph" class="p"><div spellcheck="false">有许多人表现的很节约，但他们往往只是舍不得花钱，对于免费的事物则大手大脚的浪费</div></div></div><div id="20210421165514-orfs16a" data-node-id="20210421165514-orfs16a" data-type="NodeParagraph" updated="20210421165844" class="p"><div spellcheck="false">下面哪个行为是节约，哪些人是有节约意识的？</div></div><div id="20210421165243-cmxwsgp" data-node-id="20210421165243-cmxwsgp" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20210421165250-r1tx3en" data-node-id="20210421165250-r1tx3en" data-type="NodeListItem" updated="20210421165322" data-subtype="o" class="li" data-marker="1">
@@ -95,13 +120,13 @@
       });
     });
   </script>
-  <footer>
-<p style="text-align:center;margin:15px 0;">
-  技术支持：
-  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
-    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
-    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
-</p>
+  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
 <script type="text/javascript">

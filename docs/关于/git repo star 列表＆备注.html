@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,7 +43,10 @@
   <title>git repo star 列表＆备注</title>
 </head>
 <body>
-    <div id="search"></div>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20210607115110-bw6zi84" data-node-id="20210607115110-bw6zi84" data-type="NodeDocument" updated="20231216115423" data-subtype="h1" class="h1"></div><h1 id="20210607115110-bw6zi84" data-node-id="20210607115110-bw6zi84" data-type="NodeDocument" updated="20231216115423" data-subtype="h1" class="h1" data-type="NodeHeading" class="h1">git repo star 列表＆备注</h1><div id="20210607115110-qikg3re" data-node-id="20210607115110-qikg3re" data-type="NodeBlockquote" updated="20210607115335" class="bq"><div id="20210607115123-0fhbyyz" data-node-id="20210607115123-0fhbyyz" data-type="NodeParagraph" updated="20210607115335" class="p"><div spellcheck="false">star 了之后找又找不到，找到了也不记得当初为啥 star 了，<span data-type="block-ref" data-subtype="s" data-id="20201210141207-j20g9xq"><a href="./../record/每日总结/2020/12月/「收藏吃灰！」的解决方案-再提醒.html#20201210141207-j20g9xq">将收藏这种信息放在其他平台是不靠谱的</a></span></div></div></div><div id="20210626130955-2aha0sj" data-node-id="20210626130955-2aha0sj" data-type="NodeSuperBlock" updated="20210626131011" class="sb" data-sb-layout="col"><div id="20210626130924-0cncyyy" data-node-id="20210626130924-0cncyyy" data-type="NodeParagraph" updated="20210626130931" class="p"><div spellcheck="false"><a href="https://github.com/ianstormtaylor/superstruct">superstruct</a> </div></div><div id="20210626130947-87cqbsy" data-node-id="20210626130947-87cqbsy" data-type="NodeParagraph" updated="20210626131011" class="p"><div spellcheck="false">用来在 js 和 ts 中验证数据结构类型</div></div></div><div id="20210623150120-uf4yhev" data-node-id="20210623150120-uf4yhev" data-type="NodeBlockQueryEmbed" updated="20210623150120" data-type="NodeBlockquote" class="bq"><div id="20210623150042-aaeg83p" data-node-id="20210623150042-aaeg83p" data-type="NodeParagraph" updated="20210623161036" class="p"><div spellcheck="false"><span data-type="tag">好库</span> <a href="https://github.com/xtermjs/xterm.js">xterm.js</a>  A terminal for the web ，用来在网页中实现终端的库</div></div></div><div id="20210607115505-1xeyyj9" data-node-id="20210607115505-1xeyyj9" data-type="NodeSuperBlock" updated="20210607115541" class="sb" data-sb-layout="col"><div id="20210607115451-gjdelba" data-node-id="20210607115451-gjdelba" data-type="NodeParagraph" updated="20210607115541" class="p"><div spellcheck="false"><a href="https://github.com/nocodb/nocodb">nocodb/nocodb</a> 在钉钉看到释言推荐</div></div><div id="20210607115428-s8f2n21" data-node-id="20210607115428-s8f2n21" data-type="NodeBlockQueryEmbed" data-type="NodeBlockquote" class="bq"><div id="20210607103357-sp0aq88" data-node-id="20210607103357-sp0aq88" data-type="NodeListItem" updated="20210607103449" data-subtype="u" class="li" data-marker="*">
@@ -118,13 +143,13 @@ Statistics        Avg      Stdev        Max
       });
     });
   </script>
-  <footer>
-<p style="text-align:center;margin:15px 0;">
-  技术支持：
-  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
-    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
-    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
-</p>
+  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
 <script type="text/javascript">

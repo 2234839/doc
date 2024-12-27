@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,7 +43,10 @@
   <title>思源畅想-任意应用输入框内块引用</title>
 </head>
 <body>
-    <div id="search"></div>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20210325154235-xo42dww" data-node-id="20210325154235-xo42dww" data-type="NodeDocument" updated="20240321171739" data-subtype="h1" class="h1" type="doc"></div><h1 id="20210325154235-xo42dww" data-node-id="20210325154235-xo42dww" data-type="NodeDocument" updated="20240321171739" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">思源畅想-任意应用输入框内块引用</h1><div id="20210410153706-pzpnyef" data-node-id="20210410153706-pzpnyef" data-type="NodeParagraph" updated="20240321171739" class="p"><div spellcheck="false">​<span data-type="tag">分享/文章</span>​ <a href="https://ld246.com/article/1616658417483">思源畅想 - 任意应用输入框内块引用 ld246</a></div></div><h2 id="20210325155354-beump17" data-node-id="20210325155354-beump17" data-type="NodeHeading" updated="20210325155401" data-subtype="h2" class="h2">功能</h2><div id="20210325154243-1anw3ci" data-node-id="20210325154243-1anw3ci" data-type="NodeParagraph" updated="20210325155417" class="p"><div spellcheck="false"><span data-type="tag">想法</span> 或许可以使用类似于 AutoHotkey 这样的工具来监听输入 <span data-type="code">[[</span>​然后弹出和在思源内部使用一样的列表</div></div><div id="20210325154243-8dllnq9" data-node-id="20210325154243-8dllnq9" data-type="NodeParagraph" updated="20210325155415" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
@@ -83,13 +108,13 @@
       });
     });
   </script>
-  <footer>
-<p style="text-align:center;margin:15px 0;">
-  技术支持：
-  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
-    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
-    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
-</p>
+  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
 <script type="text/javascript">

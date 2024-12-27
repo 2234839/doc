@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,7 +43,10 @@
   <title>书法助手</title>
 </head>
 <body>
-    <div id="search"></div>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20241029102540-tqjzjyu" data-node-id="20241029102540-tqjzjyu" data-type="NodeDocument" updated="20241029104209" data-subtype="h1" class="h1" type="doc"></div><h1 id="20241029102540-tqjzjyu" data-node-id="20241029102540-tqjzjyu" data-type="NodeDocument" updated="20241029104209" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">书法助手</h1><div id="20241029102540-e401b26" data-node-id="20241029102540-e401b26" data-type="NodeParagraph" updated="20241029104209" class="p"><div spellcheck="false">这是一个web网站，用户可以上传书法图片，网站通过ocr识别的方式将文字一个一个的切割出来，然后界面是显示一个大的文字，用于辅助用户看清楚笔画，还有一些小的文字是该字之前和之后的，可以通过按钮或者滚动的方式切换上一个下一个文字，要支持选择文字排版方式，例如横排左到右、竖排右到做,请注意横排和竖排应该还要分别支持左到右和右到左</div></div><div id="20241029102828-e0g5d9o" data-node-id="20241029102828-e0g5d9o" data-type="NodeParagraph" updated="20241029102854" class="p"><div spellcheck="false">具体使用方法就是用户上传完图片后，选择排版，就可以一个字一个字的开始临摹。</div></div><div id="20241029102902-npc30sb" data-node-id="20241029102902-npc30sb" data-type="NodeParagraph" updated="20241029103042" class="p"><div spellcheck="false">要使用 vite+typescript+vue+tailwindcss 来实现这个项目</div></div><div id="20241029102932-74x7en4" data-node-id="20241029102932-74x7en4" data-type="NodeParagraph" updated="20241029102948" class="p"><div spellcheck="false">网站面向中文用户，但也应该支持多语言</div></div>
@@ -70,13 +95,13 @@
       });
     });
   </script>
-  <footer>
-<p style="text-align:center;margin:15px 0;">
-  技术支持：
-  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
-    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
-    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
-</p>
+  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
 <script type="text/javascript">

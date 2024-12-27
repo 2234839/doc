@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,7 +43,10 @@
   <title>2023-10-25</title>
 </head>
 <body>
-    <div id="search"></div>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20231025173036-4yu8iku" data-node-id="20231025173036-4yu8iku" data-type="NodeDocument" updated="20231025181721" data-subtype="h1" class="h1"></div><h1 id="20231025173036-4yu8iku" data-node-id="20231025173036-4yu8iku" data-type="NodeDocument" updated="20231025181721" data-subtype="h1" class="h1" data-type="NodeHeading" class="h1">2023-10-25</h1><h1 id="20231025173036-345saz8" data-node-id="20231025173036-345saz8" data-type="NodeHeading" updated="20231025173101" data-subtype="h1" class="h1">语雀</h1><div id="20231025173102-xt78nmz" data-node-id="20231025173102-xt78nmz" data-type="NodeParagraph" updated="20231025173213" class="p"><div spellcheck="false">最近语雀服务停止了挺长时间，由于它是纯云端的笔记，所以等于完全无法使用。</div></div><div id="20231025173214-nszvmw9" data-node-id="20231025173214-nszvmw9" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20231025173214-k6cnpxz" data-node-id="20231025173214-k6cnpxz" data-type="NodeParagraph" updated="20231025181721" class="p"><div spellcheck="false">在很久之前（三四年吧）就经常看到说语雀很好用的，我也因此去尝试过，但没有察觉哪个地方优秀，感觉极为普通，它没有一个可以吸引我的亮点。</div></div><div id="20231025173340-k1n8ifd" data-node-id="20231025173340-k1n8ifd" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20231025173341-j9i36mh" data-node-id="20231025173341-j9i36mh" data-type="NodeParagraph" updated="20231025173556" class="p"><div spellcheck="false">从那时候我开始寻找笔记软件，我之前所使用的是一款基于markdown生成博客站点的工具来记录笔记的。但它并不易于记录，无法激发随时记录的兴趣。</div></div><div id="20231025173556-pi23py4" data-node-id="20231025173556-pi23py4" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20231025173557-6rreqy8" data-node-id="20231025173557-6rreqy8" data-type="NodeParagraph" updated="20231025173711" class="p"><div spellcheck="false">后来发现了wolai，我是从它开始知道双链笔记这个概念的，但他也是纯云端的，我有离线使用的需求，所以继续寻找。</div></div><div id="20231025173711-zynpcqn" data-node-id="20231025173711-zynpcqn" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20231025173714-4tvvrun" data-node-id="20231025173714-4tvvrun" data-type="NodeParagraph" updated="20231025174022" class="p"><div spellcheck="false">然后才是发现了思源，那是它早期的时候，还是采用扩展语法的markdown来存储书籍，如今已经改成使用json来存储了，我为它写过两版生成静态站点的工具（<span data-type="block-ref" data-subtype="d" data-id="20201121142503-ivwtfzg"><a href="./../../../想法/项目/OceanPress.html#20201121142503-ivwtfzg">OceanPress</a></span> 和 <span data-type="block-ref" data-subtype="d" data-id="20230905170531-6q68jov"><a href="./../../../想法/项目/OceanPress_js.html#20230905170531-6q68jov">OceanPress_js</a></span>）用于发布<a href="https://shenzilong.cn">我的笔记</a>。</div></div><div id="20231025174034-h217ia6" data-node-id="20231025174034-h217ia6" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20231025174035-k1i1727" data-node-id="20231025174035-k1i1727" data-type="NodeParagraph" updated="20231025174105" class="p"><div spellcheck="false">我认为文档类或者笔记类一定要支持离线使用，他才具有实用的价值。</div></div>
@@ -70,13 +95,13 @@
       });
     });
   </script>
-  <footer>
-<p style="text-align:center;margin:15px 0;">
-  技术支持：
-  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
-    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
-    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
-</p>
+  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
 <script type="text/javascript">

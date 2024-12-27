@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,7 +43,10 @@
   <title>函数计算域名调试web应用</title>
 </head>
 <body>
-    <div id="search"></div>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20240113150613-7qp57gh" data-node-id="20240113150613-7qp57gh" data-type="NodeDocument" updated="20240113150812" data-subtype="h1" class="h1" custom-custom-Juejin-yaml="---_esc_newline_created: '2024-01-13 15:06:13'_esc_newline_updated: '2024-01-13 15:09:10'_esc_newline_title: 函数计算域名调试web应用_esc_newline_slug: function-calculation-domain-name-debug-web-application-2nd0ia_esc_newline_permalink: siyuan://blocks/20240113150613-7qp57gh_esc_newline_categories: []_esc_newline_---" custom-custom-Zhihu-yaml="---_esc_newline_created: '2024-01-13 15:06:13'_esc_newline_updated: '2024-01-13 15:09:10'_esc_newline_title: 函数计算域名调试web应用_esc_newline_slug: function-calculation-domain-name-debug-web-application-2nd0ia_esc_newline_permalink: siyuan://blocks/20240113150613-7qp57gh_esc_newline_categories: []_esc_newline_---" custom-metaweblog-Cnblogs-yaml="---_esc_newline_created: '2024-01-13 15:06:13'_esc_newline_updated: '2024-01-13 15:09:10'_esc_newline_title: 函数计算域名调试web应用_esc_newline_slug: function-calculation-domain-name-debug-web-application-2nd0ia_esc_newline_permalink: siyuan://blocks/20240113150613-7qp57gh_esc_newline_categories: []_esc_newline_---"></div><h1 id="20240113150613-7qp57gh" data-node-id="20240113150613-7qp57gh" data-type="NodeDocument" updated="20240113150812" data-subtype="h1" class="h1" custom-custom-Juejin-yaml="---_esc_newline_created: '2024-01-13 15:06:13'_esc_newline_updated: '2024-01-13 15:09:10'_esc_newline_title: 函数计算域名调试web应用_esc_newline_slug: function-calculation-domain-name-debug-web-application-2nd0ia_esc_newline_permalink: siyuan://blocks/20240113150613-7qp57gh_esc_newline_categories: []_esc_newline_---" custom-custom-Zhihu-yaml="---_esc_newline_created: '2024-01-13 15:06:13'_esc_newline_updated: '2024-01-13 15:09:10'_esc_newline_title: 函数计算域名调试web应用_esc_newline_slug: function-calculation-domain-name-debug-web-application-2nd0ia_esc_newline_permalink: siyuan://blocks/20240113150613-7qp57gh_esc_newline_categories: []_esc_newline_---" custom-metaweblog-Cnblogs-yaml="---_esc_newline_created: '2024-01-13 15:06:13'_esc_newline_updated: '2024-01-13 15:09:10'_esc_newline_title: 函数计算域名调试web应用_esc_newline_slug: function-calculation-domain-name-debug-web-application-2nd0ia_esc_newline_permalink: siyuan://blocks/20240113150613-7qp57gh_esc_newline_categories: []_esc_newline_---" data-type="NodeHeading" class="h1">函数计算域名调试web应用</h1><div id="20240113150732-gj3b2vk" data-node-id="20240113150732-gj3b2vk" data-type="NodeParagraph" updated="20240113150753" class="p"><div spellcheck="false">如果没有域名的话，可以利用一个小技巧来绕过阿里云对于函数计算域名使用的限制，从而直接使用阿里云的域名进行访问</div></div><div id="20240110184646-kwkcmkz" data-node-id="20240110184646-kwkcmkz" data-type="NodeParagraph" updated="20240113150701" class="p"><div spellcheck="false">先进入如下页面复制公网访问地址</div></div><div id="20240110184641-2bhzmta" data-node-id="20240110184641-2bhzmta" data-type="NodeParagraph" updated="20240113150701" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 843px;" style="width: 833px;" style="width: 843px;">
@@ -86,13 +111,13 @@
       });
     });
   </script>
-  <footer>
-<p style="text-align:center;margin:15px 0;">
-  技术支持：
-  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
-    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
-    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
-</p>
+  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
 <script type="text/javascript">

@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,7 +43,10 @@
   <title>通过 iframe 引用思源的 block</title>
 </head>
 <body>
-    <div id="search"></div>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20240622103850-90v98k8" data-node-id="20240622103850-90v98k8" data-type="NodeDocument" updated="20240622142623" data-subtype="h1" class="h1" custom-liandi-articleId="1719037595523" type="doc"></div><h1 id="20240622103850-90v98k8" data-node-id="20240622103850-90v98k8" data-type="NodeDocument" updated="20240622142623" data-subtype="h1" class="h1" custom-liandi-articleId="1719037595523" type="doc" data-type="NodeHeading" class="h1">通过 iframe 引用思源的 block</h1><div id="20240622103906-o7gvbew" data-node-id="20240622103906-o7gvbew" data-type="NodeParagraph" updated="20240622103938" class="p"><div spellcheck="false">现在思源更新了发布模式，通过发布模式访问思源内容可以设置不用鉴权。</div></div><div id="20240622103939-e6bpc3q" data-node-id="20240622103939-e6bpc3q" data-type="NodeParagraph" updated="20240622104028" class="p"><div spellcheck="false">但直接嵌入 ip:6806 是一个完整的编辑页面，现在我只需要引用他的一个 block 该如何做呢？</div></div><div id="20240622114943-2p667zt" data-node-id="20240622114943-2p667zt" data-type="NodeParagraph" updated="20240622115034" class="p"><div spellcheck="false">注意到思源的弹出块面板代码在这里： <a href="https://github.com/2234839/siyuan/blob/6efa948859ef5971a32f42402ed7185a2b4bb519/app/src/plugin/index.ts#L365">window.siyuan.blockPanels.push(new BlockPanel(</a></div></div><div id="20240622115035-ugtpc2k" data-node-id="20240622115035-ugtpc2k" data-type="NodeParagraph" updated="20240622141900" class="p"><div spellcheck="false">插件可以直接调用，所以我决定使用插件实现接受 url 参数 blockId 然后弹出一个块面板，并且让窗口只显示此块面板,实现代码位于： <a href="https://github.com/2234839/OceanPress_siyuan_plugin/blob/6d470c08857390e2ae056ba0322989898b9ee998/src/sy2video-plugin-siyuan/index.ts#L11-L15">this.addFloatLayer({</a></div></div><div id="20240622142040-u09dlin" data-node-id="20240622142040-u09dlin" data-type="NodeParagraph" updated="20240622142402" class="p"><div spellcheck="false">安装 <a href="https://github.com/2234839/sy2video-plugin-siyuan">2234839/sy2video-plugin-siyuan</a> 插件后开启发布模式就可以通过 url 参数来让页面只显示指定的块</div></div><div id="20240622142124-pgl82d1" data-node-id="20240622142124-pgl82d1" data-type="NodeList" updated="20240622142347" data-subtype="u" class="list"><div id="20240622142124-y0v1fqj" data-node-id="20240622142124-y0v1fqj" data-type="NodeListItem" updated="20240622142124" data-subtype="u" class="li" data-marker="*">
@@ -94,13 +119,13 @@ block_id
       });
     });
   </script>
-  <footer>
-<p style="text-align:center;margin:15px 0;">
-  技术支持：
-  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
-    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
-    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
-</p>
+  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
 <script type="text/javascript">

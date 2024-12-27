@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,7 +43,10 @@
   <title>uni-app数据传递的坑</title>
 </head>
 <body>
-    <div id="search"></div>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20210122232307-u074mii" data-node-id="20210122232307-u074mii" data-type="NodeDocument" updated="20240624164703" data-subtype="h1" class="h1" type="doc"></div><h1 id="20210122232307-u074mii" data-node-id="20210122232307-u074mii" data-type="NodeDocument" updated="20240624164703" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">uni-app数据传递的坑</h1><div id="20210122232809-myke87v" data-node-id="20210122232809-myke87v" data-type="NodeParagraph" updated="20240321171732" class="p"><div spellcheck="false">​<span data-type="tag">分享/文章</span>​  <a href="https://www.zhihu.com/question/440696975/answer/1692446028">为什么没有使用的computed属性也会被调用getter方法呢? - 崮生的回答 - 知乎</a></div></div><div id="20210410154203-9aj00ce" data-node-id="20210410154203-9aj00ce" data-type="NodeParagraph" updated="20210410154203" class="p"><div spellcheck="false"></div></div><h2 id="20210122232322-nvudi39" data-node-id="20210122232322-nvudi39" data-type="NodeHeading" updated="20240624164703" data-subtype="h2" class="h2"><a href="https://www.zhihu.com/question/440696975/answer/1692446028">为什么没有使用的computed属性也会被调用getter方法呢?</a> </h2><div id="20210122232321-oe2sfsc" data-node-id="20210122232321-oe2sfsc" data-type="NodeParagraph" updated="20240624164703" class="p"><div spellcheck="false">因为你使用的是 uniapp , 而 uniapp 内部会读取计算属性然后交给微信的，这里就实际上使用了该计算属性。</div></div><div id="20210122232321-jydux21" data-node-id="20210122232321-jydux21" data-type="NodeParagraph" updated="20240624164703" class="p"><div spellcheck="false">你可以用微信开发者工具看一下调试器中的AppData，里面肯定有 fullname 的值。</div></div><div id="20210122232321-ojpbqz1" data-node-id="20210122232321-ojpbqz1" data-type="NodeParagraph" updated="20240624164703" class="p"><div spellcheck="false">这里是 uniapp 的一个比较大的坑，主要是在于他会使用类似于 <span data-type="code">JSON.parse(JSON.stringify(vue组件暴露给模板的属性))</span> 这样的方式来将 vue的数据同步到微信小程序的视图层（计算属性这里 uniapp 理论上可以优化掉的，但他没有做）</div></div><div id="20210122232321-dkq4i14" data-node-id="20210122232321-dkq4i14" data-type="NodeParagraph" updated="20240624164703" class="p"><div spellcheck="false">这里还会造成 vue 中 是 undefined 微信开发者工具那边查看到的是 null 因为 json 的规范中没有 undefined , 我个人的经验是这一个<span data-type="block-ref" data-subtype="s" data-id="20210122232321-ojpbqz1"><a href="./../../../record/环境/uni/uni-app数据传递的坑.html#20210122232321-ojpbqz1">数据传递的流程</a></span>造成了 uniapp 使用者相当多的困惑，但只要明白了这点就也还好。</div></div><div id="20210122232809-tlz6qph" data-node-id="20210122232809-tlz6qph" data-type="NodeThematicBreak" updated="20240624164703" class="hr"><div></div></div><div id="20210410114751-ut07tix" data-node-id="20210410114751-ut07tix" data-type="NodeParagraph" updated="20240624164703" class="p"><div spellcheck="false"></div></div>
@@ -70,13 +95,13 @@
       });
     });
   </script>
-  <footer>
-<p style="text-align:center;margin:15px 0;">
-  技术支持：
-  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a>|
-    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
-    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
-</p>
+  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
 <script type="text/javascript">
