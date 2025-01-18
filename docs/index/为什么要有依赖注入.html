@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>为什么要有依赖注入</title>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div style="min-height: 150px;" id="20250101095839-ec2nkqw" data-node-id="20250101095839-ec2nkqw" data-type="NodeDocument" updated="20250118095317" data-subtype="h1" class="h1" type="doc"></div><h1 id="20250101095839-ec2nkqw" data-node-id="20250101095839-ec2nkqw" data-type="NodeDocument" updated="20250118095317" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">为什么要有依赖注入</h1><div id="20250118095259-sp1sj04" data-node-id="20250118095259-sp1sj04" data-type="NodeParagraph" updated="20250118095301" class="p"><div spellcheck="false">​<span data-type="tag">note</span>​ 突然想明白了为什么要有依赖注入了：这里只讨论在组合优于继承的这种情况下
+一定会有许多的函数组合情况，而且还会有函数组合的组合，这样实质上形成了一个函数之间的依赖链路。</div></div><div id="20250118095307-zyh4bd0" data-node-id="20250118095307-zyh4bd0" data-type="NodeParagraph" updated="20250118095307" class="p"><div spellcheck="false">如果是直接在代码中硬编码对应的函数组合的话，我要实现一个新的高阶组合他和原来的高阶组合的唯一区别只是一个基础函数的实现不一致，那我基本需要重新复制一遍原来的组合代码，然后修改其中一个调用</div></div><div id="20250118095308-mb5k0ea" data-node-id="20250118095308-mb5k0ea" data-type="NodeParagraph" updated="20250118095308" class="p"><div spellcheck="false">如果要想复用原来的高阶组合，而只是修改其中对于该基础函数的替换的话，要么将该函数作为参数传递（这个传递链路可能很长），而依赖注入就是为了解决这个问题而存在的。</div></div><div id="20250118095308-a1p4pu2" data-node-id="20250118095308-a1p4pu2" data-type="NodeParagraph" updated="20250118095308" class="p"><div spellcheck="false">有了依赖注入，只需要在编写代码的时候就通过依赖注入来调用函数，后续的替换就十分的方便了。</div></div>
+  </div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>
