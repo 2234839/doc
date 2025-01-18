@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>对于依赖注入的思考</title>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div style="min-height: 150px;" id="20250101095839-ec2nkqw" data-node-id="20250101095839-ec2nkqw" data-type="NodeDocument" updated="20250118152542" data-subtype="h1" class="h1" type="doc"></div><h1 id="20250101095839-ec2nkqw" data-node-id="20250101095839-ec2nkqw" data-type="NodeDocument" updated="20250118152542" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">对于依赖注入的思考</h1><div id="20250118095259-sp1sj04" data-node-id="20250118095259-sp1sj04" data-type="NodeParagraph" updated="20250118095301" class="p"><div spellcheck="false">​<span data-type="tag">note</span>​ 突然想明白了为什么要有依赖注入了：这里只讨论在组合优于继承的这种情况下
+一定会有许多的函数组合情况，而且还会有函数组合的组合，这样实质上形成了一个函数之间的依赖链路。</div></div><div id="20250118095307-zyh4bd0" data-node-id="20250118095307-zyh4bd0" data-type="NodeParagraph" updated="20250118095307" class="p"><div spellcheck="false">如果是直接在代码中硬编码对应的函数组合的话，我要实现一个新的高阶组合他和原来的高阶组合的唯一区别只是一个基础函数的实现不一致，那我基本需要重新复制一遍原来的组合代码，然后修改其中一个调用</div></div><div id="20250118095308-mb5k0ea" data-node-id="20250118095308-mb5k0ea" data-type="NodeParagraph" updated="20250118095308" class="p"><div spellcheck="false">如果要想复用原来的高阶组合，而只是修改其中对于该基础函数的替换的话，要么将该函数作为参数传递（这个传递链路可能很长），而依赖注入就是为了解决这个问题而存在的。</div></div><div id="20250118095308-a1p4pu2" data-node-id="20250118095308-a1p4pu2" data-type="NodeParagraph" updated="20250118095308" class="p"><div spellcheck="false">有了依赖注入，只需要在编写代码的时候就通过依赖注入来调用函数，后续的替换就十分的方便了。</div></div><h2 id="20250118145748-mdazo8x" data-node-id="20250118145748-mdazo8x" data-type="NodeHeading" updated="20250118152542" data-subtype="h2" class="h2">如何实现依赖注入</h2><div id="20250118145804-2w4i85r" data-node-id="20250118145804-2w4i85r" data-type="NodeBlockquote" updated="20250118151636" class="bq"><div id="20250118145923-m73x2wj" data-node-id="20250118145923-m73x2wj" data-type="NodeParagraph" updated="20250118151636" class="p"><div spellcheck="false"> 依赖注入基于链表的。js 的原型链就可以认为是一种依赖注入</div></div></div><div id="20250118150631-9itym3k" data-node-id="20250118150631-9itym3k" data-type="NodeParagraph" updated="20250118150721" class="p"><div spellcheck="false">只要实现  <span data-type="code">inject</span>​ 和 <span data-type="code">provide</span>​ 这两个函数就可以了</div></div><div id="20250118150915-1nq5n6h" data-node-id="20250118150915-1nq5n6h" data-type="NodeParagraph" updated="20250118150915" class="p"><div spellcheck="false">​<span data-type="code">provide</span>​ 实现 ：接受一个 key 和 value ， 将这两个参数和当前节点相绑定</div></div><div id="20250118145859-iavce6x" data-node-id="20250118145859-iavce6x" data-type="NodeParagraph" updated="20250118150805" class="p"><div spellcheck="false">​<span data-type="code">inject</span>​ 实现 ：接受一个 key， 在任意一个节点，沿父级一直向上通过 key 查询对应的注入的值，找到了就返回，没有就找父级的父级。</div></div><div id="20250118150923-f49irk2" data-node-id="20250118150923-f49irk2" data-type="NodeParagraph" updated="20250118151117" class="p"><div spellcheck="false"> <span data-type="code">inject</span>​ 的实现基本和 js 对象基于原型链查找属性值的实现方式是一样的。所以我说 <span data-type="u">js 的原型链就可以认为是一种依赖注入</span></div></div><div id="20250118151216-92pm35y" data-node-id="20250118151216-92pm35y" data-type="NodeParagraph" updated="20250118151216" class="p"><div spellcheck="false"></div></div><div id="20250118151129-cin1h7f" data-node-id="20250118151129-cin1h7f" data-type="NodeParagraph" updated="20250118151653" class="p"><div spellcheck="false">这两个概念还是很好理解的，事实上最难理解的是<span data-type="u">基于链表</span>这个东西。</div></div><div id="20250118151223-iha2itp" data-node-id="20250118151223-iha2itp" data-type="NodeParagraph" updated="20250118152108" class="p"><div spellcheck="false">比如 vue 中的依赖注入系统，这里的链表是组件树中，将组件理解为节点，然后一直查找上一层组件，一直到顶层，其中经过的所有节点就是一个链表，基于这个链表，最末端的节点，可以获取他的任意一个父级节点 <span data-type="code">provide</span>​ 的值，并且在 key 相同的情况下 <span data-type="code">inject </span>​的是离他最近的一个节点 <span data-type="code">provide </span>​的值</div></div><div id="20250118152116-tqoedqs" data-node-id="20250118152116-tqoedqs" data-type="NodeParagraph" updated="20250118152116" class="p"><div spellcheck="false"></div></div><div id="20250118151512-ri2sa98" data-node-id="20250118151512-ri2sa98" data-type="NodeParagraph" updated="20250118152147" class="p"><div spellcheck="false">但如果我们要以函数为节点，以函数调用栈作为链表来实现一个依赖注入系统可行吗？</div></div><div id="20250118152147-qg5w3yl" data-node-id="20250118152147-qg5w3yl" data-type="NodeParagraph" updated="20250118152542" class="p"><div spellcheck="false">答案是可以但又不可以，因为在浏览器中是受限的，只能基于 <span data-type="block-ref" data-subtype="d" data-id="20210409090637-h0drlqf"><a href="./../other/zone.js.html#20210409090637-h0drlqf">zone.js</a></span> 来实现（存在缺陷）</div></div><div id="20250118152542-8zqiwju" data-node-id="20250118152542-8zqiwju" data-type="NodeParagraph" updated="20250118152542" class="p"><div spellcheck="false"> <span data-type="block-ref" data-subtype="d" data-id="20210608231606-cw5th69"><a href="./../other/zone.js.html#20210608231606-cw5th69">在 node.js 的环境下可以选择使用 Async hooks 来达成同样的目的</a></span></div></div><div id="20250118152451-nr2s2sa" data-node-id="20250118152451-nr2s2sa" data-type="NodeParagraph" updated="20250118152507" class="p"><div spellcheck="false"></div></div><div id="20250118151410-96jq6k7" data-node-id="20250118151410-96jq6k7" data-type="NodeParagraph" updated="20250118151410" class="p"><div spellcheck="false"></div></div><div id="20250118151121-08ngole" data-node-id="20250118151121-08ngole" data-type="NodeParagraph" updated="20250118151121" class="p"><div spellcheck="false"></div></div>
+  </div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>

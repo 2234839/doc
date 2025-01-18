@@ -49,7 +49,22 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc"></div><h1 id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc" data-type="NodeHeading" class="h1">最近更新.rss.xml</h1><div id="20210606154842-jah9dt8" data-node-id="20210606154842-jah9dt8" data-type="NodeBlockQueryEmbed" updated="20240619103229" style="height: 9998px;" data-type="NodeBlockquote" class="bq"><div id="20250118095308-mb5k0ea" data-node-id="20250118095308-mb5k0ea" data-type="NodeParagraph" updated="20250118095308" class="p"><div spellcheck="false">如果要想复用原来的高阶组合，而只是修改其中对于该基础函数的替换的话，要么将该函数作为参数传递（这个传递链路可能很长），而依赖注入就是为了解决这个问题而存在的。</div></div><div id="20250118095308-a1p4pu2" data-node-id="20250118095308-a1p4pu2" data-type="NodeParagraph" updated="20250118095308" class="p"><div spellcheck="false">有了依赖注入，只需要在编写代码的时候就通过依赖注入来调用函数，后续的替换就十分的方便了。</div></div><div id="20250118095307-zyh4bd0" data-node-id="20250118095307-zyh4bd0" data-type="NodeParagraph" updated="20250118095307" class="p"><div spellcheck="false">如果是直接在代码中硬编码对应的函数组合的话，我要实现一个新的高阶组合他和原来的高阶组合的唯一区别只是一个基础函数的实现不一致，那我基本需要重新复制一遍原来的组合代码，然后修改其中一个调用</div></div><div id="20250118095259-sp1sj04" data-node-id="20250118095259-sp1sj04" data-type="NodeParagraph" updated="20250118095301" class="p"><div spellcheck="false">​<span data-type="tag">note</span>​ 突然想明白了为什么要有依赖注入了：这里只讨论在组合优于继承的这种情况下
+  <div style="min-height: 150px;" id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc"></div><h1 id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc" data-type="NodeHeading" class="h1">最近更新.rss.xml</h1><div id="20210606154842-jah9dt8" data-node-id="20210606154842-jah9dt8" data-type="NodeBlockQueryEmbed" updated="20240619103229" style="height: 9998px;" data-type="NodeBlockquote" class="bq"><h2 id="20250118145748-mdazo8x" data-node-id="20250118145748-mdazo8x" data-type="NodeHeading" updated="20250118152542" data-subtype="h2" class="h2">如何实现依赖注入</h2>
+<div id="20250118145804-2w4i85r" data-node-id="20250118145804-2w4i85r" data-type="NodeBlockquote" updated="20250118151636" class="bq"><div id="20250118145923-m73x2wj" data-node-id="20250118145923-m73x2wj" data-type="NodeParagraph" updated="20250118151636" class="p"><div spellcheck="false"> 依赖注入基于链表的。js 的原型链就可以认为是一种依赖注入</div></div></div>
+<div id="20250118150631-9itym3k" data-node-id="20250118150631-9itym3k" data-type="NodeParagraph" updated="20250118150721" class="p"><div spellcheck="false">只要实现  <span data-type="code">inject</span>​ 和 <span data-type="code">provide</span>​ 这两个函数就可以了</div></div>
+<div id="20250118150915-1nq5n6h" data-node-id="20250118150915-1nq5n6h" data-type="NodeParagraph" updated="20250118150915" class="p"><div spellcheck="false">​<span data-type="code">provide</span>​ 实现 ：接受一个 key 和 value ， 将这两个参数和当前节点相绑定</div></div>
+<div id="20250118145859-iavce6x" data-node-id="20250118145859-iavce6x" data-type="NodeParagraph" updated="20250118150805" class="p"><div spellcheck="false">​<span data-type="code">inject</span>​ 实现 ：接受一个 key， 在任意一个节点，沿父级一直向上通过 key 查询对应的注入的值，找到了就返回，没有就找父级的父级。</div></div>
+<div id="20250118150923-f49irk2" data-node-id="20250118150923-f49irk2" data-type="NodeParagraph" updated="20250118151117" class="p"><div spellcheck="false"> <span data-type="code">inject</span>​ 的实现基本和 js 对象基于原型链查找属性值的实现方式是一样的。所以我说 <span data-type="u">js 的原型链就可以认为是一种依赖注入</span></div></div>
+<div id="20250118151216-92pm35y" data-node-id="20250118151216-92pm35y" data-type="NodeParagraph" updated="20250118151216" class="p"><div spellcheck="false"></div></div>
+<div id="20250118151129-cin1h7f" data-node-id="20250118151129-cin1h7f" data-type="NodeParagraph" updated="20250118151653" class="p"><div spellcheck="false">这两个概念还是很好理解的，事实上最难理解的是<span data-type="u">基于链表</span>这个东西。</div></div>
+<div id="20250118151223-iha2itp" data-node-id="20250118151223-iha2itp" data-type="NodeParagraph" updated="20250118152108" class="p"><div spellcheck="false">比如 vue 中的依赖注入系统，这里的链表是组件树中，将组件理解为节点，然后一直查找上一层组件，一直到顶层，其中经过的所有节点就是一个链表，基于这个链表，最末端的节点，可以获取他的任意一个父级节点 <span data-type="code">provide</span>​ 的值，并且在 key 相同的情况下 <span data-type="code">inject </span>​的是离他最近的一个节点 <span data-type="code">provide </span>​的值</div></div>
+<div id="20250118152116-tqoedqs" data-node-id="20250118152116-tqoedqs" data-type="NodeParagraph" updated="20250118152116" class="p"><div spellcheck="false"></div></div>
+<div id="20250118151512-ri2sa98" data-node-id="20250118151512-ri2sa98" data-type="NodeParagraph" updated="20250118152147" class="p"><div spellcheck="false">但如果我们要以函数为节点，以函数调用栈作为链表来实现一个依赖注入系统可行吗？</div></div>
+<div id="20250118152147-qg5w3yl" data-node-id="20250118152147-qg5w3yl" data-type="NodeParagraph" updated="20250118152542" class="p"><div spellcheck="false">答案是可以但又不可以，因为在浏览器中是受限的，只能基于 <span data-type="block-ref" data-subtype="d" data-id="20210409090637-h0drlqf"><a href="./../../other/zone.js.html#20210409090637-h0drlqf">zone.js</a></span> 来实现（存在缺陷）</div></div>
+<div id="20250118152542-8zqiwju" data-node-id="20250118152542-8zqiwju" data-type="NodeParagraph" updated="20250118152542" class="p"><div spellcheck="false"> <span data-type="block-ref" data-subtype="d" data-id="20210608231606-cw5th69"><a href="./../../other/zone.js.html#20210608231606-cw5th69">在 node.js 的环境下可以选择使用 Async hooks 来达成同样的目的</a></span></div></div>
+<div id="20250118152451-nr2s2sa" data-node-id="20250118152451-nr2s2sa" data-type="NodeParagraph" updated="20250118152507" class="p"><div spellcheck="false"></div></div>
+<div id="20250118151410-96jq6k7" data-node-id="20250118151410-96jq6k7" data-type="NodeParagraph" updated="20250118151410" class="p"><div spellcheck="false"></div></div>
+<div id="20250118151121-08ngole" data-node-id="20250118151121-08ngole" data-type="NodeParagraph" updated="20250118151121" class="p"><div spellcheck="false"></div></div><div id="20250118152147-qg5w3yl" data-node-id="20250118152147-qg5w3yl" data-type="NodeParagraph" updated="20250118152542" class="p"><div spellcheck="false">答案是可以但又不可以，因为在浏览器中是受限的，只能基于 <span data-type="block-ref" data-subtype="d" data-id="20210409090637-h0drlqf"><a href="./../../other/zone.js.html#20210409090637-h0drlqf">zone.js</a></span> 来实现（存在缺陷）</div></div><div id="20250118152542-8zqiwju" data-node-id="20250118152542-8zqiwju" data-type="NodeParagraph" updated="20250118152542" class="p"><div spellcheck="false"> <span data-type="block-ref" data-subtype="d" data-id="20210608231606-cw5th69"><a href="./../../other/zone.js.html#20210608231606-cw5th69">在 node.js 的环境下可以选择使用 Async hooks 来达成同样的目的</a></span></div></div><div id="20250118152451-nr2s2sa" data-node-id="20250118152451-nr2s2sa" data-type="NodeParagraph" updated="20250118152507" class="p"><div spellcheck="false"></div></div><div id="20250118151512-ri2sa98" data-node-id="20250118151512-ri2sa98" data-type="NodeParagraph" updated="20250118152147" class="p"><div spellcheck="false">但如果我们要以函数为节点，以函数调用栈作为链表来实现一个依赖注入系统可行吗？</div></div><div id="20250118152116-tqoedqs" data-node-id="20250118152116-tqoedqs" data-type="NodeParagraph" updated="20250118152116" class="p"><div spellcheck="false"></div></div><div id="20250118151223-iha2itp" data-node-id="20250118151223-iha2itp" data-type="NodeParagraph" updated="20250118152108" class="p"><div spellcheck="false">比如 vue 中的依赖注入系统，这里的链表是组件树中，将组件理解为节点，然后一直查找上一层组件，一直到顶层，其中经过的所有节点就是一个链表，基于这个链表，最末端的节点，可以获取他的任意一个父级节点 <span data-type="code">provide</span>​ 的值，并且在 key 相同的情况下 <span data-type="code">inject </span>​的是离他最近的一个节点 <span data-type="code">provide </span>​的值</div></div><div id="20250118151129-cin1h7f" data-node-id="20250118151129-cin1h7f" data-type="NodeParagraph" updated="20250118151653" class="p"><div spellcheck="false">这两个概念还是很好理解的，事实上最难理解的是<span data-type="u">基于链表</span>这个东西。</div></div><div id="20250118145804-2w4i85r" data-node-id="20250118145804-2w4i85r" data-type="NodeBlockquote" updated="20250118151636" class="bq"><div id="20250118145923-m73x2wj" data-node-id="20250118145923-m73x2wj" data-type="NodeParagraph" updated="20250118151636" class="p"><div spellcheck="false"> 依赖注入基于链表的。js 的原型链就可以认为是一种依赖注入</div></div></div><div id="20250118145923-m73x2wj" data-node-id="20250118145923-m73x2wj" data-type="NodeParagraph" updated="20250118151636" class="p"><div spellcheck="false"> 依赖注入基于链表的。js 的原型链就可以认为是一种依赖注入</div></div><div id="20250118151410-96jq6k7" data-node-id="20250118151410-96jq6k7" data-type="NodeParagraph" updated="20250118151410" class="p"><div spellcheck="false"></div></div><div id="20250118151216-92pm35y" data-node-id="20250118151216-92pm35y" data-type="NodeParagraph" updated="20250118151216" class="p"><div spellcheck="false"></div></div><div id="20250118151121-08ngole" data-node-id="20250118151121-08ngole" data-type="NodeParagraph" updated="20250118151121" class="p"><div spellcheck="false"></div></div><div id="20250118150923-f49irk2" data-node-id="20250118150923-f49irk2" data-type="NodeParagraph" updated="20250118151117" class="p"><div spellcheck="false"> <span data-type="code">inject</span>​ 的实现基本和 js 对象基于原型链查找属性值的实现方式是一样的。所以我说 <span data-type="u">js 的原型链就可以认为是一种依赖注入</span></div></div><div id="20250118150915-1nq5n6h" data-node-id="20250118150915-1nq5n6h" data-type="NodeParagraph" updated="20250118150915" class="p"><div spellcheck="false">​<span data-type="code">provide</span>​ 实现 ：接受一个 key 和 value ， 将这两个参数和当前节点相绑定</div></div><div id="20250118145859-iavce6x" data-node-id="20250118145859-iavce6x" data-type="NodeParagraph" updated="20250118150805" class="p"><div spellcheck="false">​<span data-type="code">inject</span>​ 实现 ：接受一个 key， 在任意一个节点，沿父级一直向上通过 key 查询对应的注入的值，找到了就返回，没有就找父级的父级。</div></div><div id="20250118150631-9itym3k" data-node-id="20250118150631-9itym3k" data-type="NodeParagraph" updated="20250118150721" class="p"><div spellcheck="false">只要实现  <span data-type="code">inject</span>​ 和 <span data-type="code">provide</span>​ 这两个函数就可以了</div></div><div id="20250118095308-mb5k0ea" data-node-id="20250118095308-mb5k0ea" data-type="NodeParagraph" updated="20250118095308" class="p"><div spellcheck="false">如果要想复用原来的高阶组合，而只是修改其中对于该基础函数的替换的话，要么将该函数作为参数传递（这个传递链路可能很长），而依赖注入就是为了解决这个问题而存在的。</div></div><div id="20250118095308-a1p4pu2" data-node-id="20250118095308-a1p4pu2" data-type="NodeParagraph" updated="20250118095308" class="p"><div spellcheck="false">有了依赖注入，只需要在编写代码的时候就通过依赖注入来调用函数，后续的替换就十分的方便了。</div></div><div id="20250118095307-zyh4bd0" data-node-id="20250118095307-zyh4bd0" data-type="NodeParagraph" updated="20250118095307" class="p"><div spellcheck="false">如果是直接在代码中硬编码对应的函数组合的话，我要实现一个新的高阶组合他和原来的高阶组合的唯一区别只是一个基础函数的实现不一致，那我基本需要重新复制一遍原来的组合代码，然后修改其中一个调用</div></div><div id="20250118095259-sp1sj04" data-node-id="20250118095259-sp1sj04" data-type="NodeParagraph" updated="20250118095301" class="p"><div spellcheck="false">​<span data-type="tag">note</span>​ 突然想明白了为什么要有依赖注入了：这里只讨论在组合优于继承的这种情况下
 一定会有许多的函数组合情况，而且还会有函数组合的组合，这样实质上形成了一个函数之间的依赖链路。</div></div><div id="20250118091844-rqs4lp3" data-node-id="20250118091844-rqs4lp3" data-type="NodeList" updated="20250118092447" data-subtype="t" class="list"><div id="20250118091844-cq6gj6e" data-node-id="20250118091844-cq6gj6e" data-type="NodeListItem" updated="20250118092447" data-subtype="t" class="li" data-marker="*">
       <div class="protyle-action">
         <svg><use xlink:href="#iconUncheck"></use></svg>
@@ -262,160 +277,7 @@
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
       <div id="20250118091844-zjzm0ar" data-node-id="20250118091844-zjzm0ar" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">published:2025-01-17T00:17:52Z</div></div>
-    </div><div id="20250118091844-4w740wc" data-node-id="20250118091844-4w740wc" data-type="NodeBlockquote" updated="20250118091844" class="bq"><div id="20250118091844-nz2b99w" data-node-id="20250118091844-nz2b99w" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">这里记录每周值得分享的科技内容，周五发布。...</div></div></div><div id="20250116100856-o4zz6hd" data-node-id="20250116100856-o4zz6hd" data-type="NodeList" updated="20250118091835" data-subtype="t" class="list"><div id="20250116100856-w8sp26k" data-node-id="20250116100856-w8sp26k" data-type="NodeListItem" updated="20250118091835" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <h6 id="20250116100856-4qhivuc" data-node-id="20250116100856-4qhivuc" data-type="NodeHeading" updated="20250116100856" data-subtype="h6" class="h6"><a href="http://www.ruanyifeng.com/blog/2025/01/tencent-cloud-copilot.html">AI 搞定微信小程序</a></h6><div id="20250116100856-znmejai" data-node-id="20250116100856-znmejai" data-type="NodeList" updated="20250116100856" data-subtype="u" class="list"><div id="20250116100856-30777q7" data-node-id="20250116100856-30777q7" data-type="NodeListItem" updated="20250116100856" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250116100856-ok1aizy" data-node-id="20250116100856-ok1aizy" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">published:2025-01-16T00:23:18Z</div></div>
-    </div><div id="20250116100856-kjch3v6" data-node-id="20250116100856-kjch3v6" data-type="NodeListItem" updated="20250116100856" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250116100856-9kcr2io" data-node-id="20250116100856-9kcr2io" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">updated:2025-01-16T01:18:18Z</div></div>
-    </div></div><div id="20250116100856-ak5o8jr" data-node-id="20250116100856-ak5o8jr" data-type="NodeBlockquote" updated="20250116100856" class="bq"><div id="20250116100856-mo7dkcl" data-node-id="20250116100856-mo7dkcl" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">一、前言 AI 生成代码，早不是新鲜事了，但是 AI 生成微信小程序，似乎还不多见。...</div></div></div>
-    </div></div><div id="20250116100856-w8sp26k" data-node-id="20250116100856-w8sp26k" data-type="NodeListItem" updated="20250118091835" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <h6 id="20250116100856-4qhivuc" data-node-id="20250116100856-4qhivuc" data-type="NodeHeading" updated="20250116100856" data-subtype="h6" class="h6"><a href="http://www.ruanyifeng.com/blog/2025/01/tencent-cloud-copilot.html">AI 搞定微信小程序</a></h6><div id="20250116100856-znmejai" data-node-id="20250116100856-znmejai" data-type="NodeList" updated="20250116100856" data-subtype="u" class="list"><div id="20250116100856-30777q7" data-node-id="20250116100856-30777q7" data-type="NodeListItem" updated="20250116100856" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250116100856-ok1aizy" data-node-id="20250116100856-ok1aizy" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">published:2025-01-16T00:23:18Z</div></div>
-    </div><div id="20250116100856-kjch3v6" data-node-id="20250116100856-kjch3v6" data-type="NodeListItem" updated="20250116100856" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250116100856-9kcr2io" data-node-id="20250116100856-9kcr2io" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">updated:2025-01-16T01:18:18Z</div></div>
-    </div></div><div id="20250116100856-ak5o8jr" data-node-id="20250116100856-ak5o8jr" data-type="NodeBlockquote" updated="20250116100856" class="bq"><div id="20250116100856-mo7dkcl" data-node-id="20250116100856-mo7dkcl" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">一、前言 AI 生成代码，早不是新鲜事了，但是 AI 生成微信小程序，似乎还不多见。...</div></div></div>
-    </div><div id="20250109090807-t8k2gr2" data-node-id="20250109090807-t8k2gr2" data-type="NodeList" updated="20250118091820" data-subtype="t" class="list"><div id="20250109090807-215jy2c" data-node-id="20250109090807-215jy2c" data-type="NodeListItem" updated="20250118091820" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <h6 id="20250109090807-c359l3y" data-node-id="20250109090807-c359l3y" data-type="NodeHeading" updated="20250109090807" data-subtype="h6" class="h6"><a href="http://www.ruanyifeng.com/blog/2025/01/weekly-issue-332.html">科技爱好者周刊（第 332 期）：西蒙·威利森的年终总结，梁文锋的访谈</a></h6><div id="20250109090807-2nodsug" data-node-id="20250109090807-2nodsug" data-type="NodeList" updated="20250109090807" data-subtype="u" class="list"><div id="20250109090807-ub8u5y5" data-node-id="20250109090807-ub8u5y5" data-type="NodeListItem" updated="20250109090807" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250109090807-xgcqagf" data-node-id="20250109090807-xgcqagf" data-type="NodeParagraph" updated="20250109090807" class="p"><div spellcheck="false">published:2025-01-03T01:10:55Z</div></div>
-    </div><div id="20250109090807-8rnqwiy" data-node-id="20250109090807-8rnqwiy" data-type="NodeListItem" updated="20250109090807" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250109090807-efmhzjn" data-node-id="20250109090807-efmhzjn" data-type="NodeParagraph" updated="20250109090807" class="p"><div spellcheck="false">updated:2025-01-08T03:35:09Z</div></div>
-    </div></div><div id="20250109090807-iss7krc" data-node-id="20250109090807-iss7krc" data-type="NodeBlockquote" updated="20250109090807" class="bq"><div id="20250109090807-o7qqkeg" data-node-id="20250109090807-o7qqkeg" data-type="NodeParagraph" updated="20250109090807" class="p"><div spellcheck="false">这里记录每周值得分享的科技内容，周五发布。...</div></div></div>
-    </div></div><div id="20250109090807-215jy2c" data-node-id="20250109090807-215jy2c" data-type="NodeListItem" updated="20250118091820" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <h6 id="20250109090807-c359l3y" data-node-id="20250109090807-c359l3y" data-type="NodeHeading" updated="20250109090807" data-subtype="h6" class="h6"><a href="http://www.ruanyifeng.com/blog/2025/01/weekly-issue-332.html">科技爱好者周刊（第 332 期）：西蒙·威利森的年终总结，梁文锋的访谈</a></h6><div id="20250109090807-2nodsug" data-node-id="20250109090807-2nodsug" data-type="NodeList" updated="20250109090807" data-subtype="u" class="list"><div id="20250109090807-ub8u5y5" data-node-id="20250109090807-ub8u5y5" data-type="NodeListItem" updated="20250109090807" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250109090807-xgcqagf" data-node-id="20250109090807-xgcqagf" data-type="NodeParagraph" updated="20250109090807" class="p"><div spellcheck="false">published:2025-01-03T01:10:55Z</div></div>
-    </div><div id="20250109090807-8rnqwiy" data-node-id="20250109090807-8rnqwiy" data-type="NodeListItem" updated="20250109090807" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250109090807-efmhzjn" data-node-id="20250109090807-efmhzjn" data-type="NodeParagraph" updated="20250109090807" class="p"><div spellcheck="false">updated:2025-01-08T03:35:09Z</div></div>
-    </div></div><div id="20250109090807-iss7krc" data-node-id="20250109090807-iss7krc" data-type="NodeBlockquote" updated="20250109090807" class="bq"><div id="20250109090807-o7qqkeg" data-node-id="20250109090807-o7qqkeg" data-type="NodeParagraph" updated="20250109090807" class="p"><div spellcheck="false">这里记录每周值得分享的科技内容，周五发布。...</div></div></div>
-    </div><div id="20250116100856-c0sdb18" data-node-id="20250116100856-c0sdb18" data-type="NodeList" updated="20250118091813" data-subtype="t" class="list"><div id="20250116100856-5qjkpt2" data-node-id="20250116100856-5qjkpt2" data-type="NodeListItem" updated="20250118091813" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <h6 id="20250116100856-3guwkpg" data-node-id="20250116100856-3guwkpg" data-type="NodeHeading" updated="20250116100856" data-subtype="h6" class="h6"><a href="http://www.ruanyifeng.com/blog/2025/01/weekly-issue-333.html">科技爱好者周刊（第 333 期）：一切都要支付两次</a></h6><div id="20250116100856-kijmo70" data-node-id="20250116100856-kijmo70" data-type="NodeList" updated="20250116100856" data-subtype="u" class="list"><div id="20250116100856-7ze9sa6" data-node-id="20250116100856-7ze9sa6" data-type="NodeListItem" updated="20250116100856" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250116100856-rgonq7o" data-node-id="20250116100856-rgonq7o" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">published:2025-01-10T00:14:37Z</div></div>
-    </div><div id="20250116100856-lrqs8hb" data-node-id="20250116100856-lrqs8hb" data-type="NodeListItem" updated="20250116100856" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250116100856-d9sp1fg" data-node-id="20250116100856-d9sp1fg" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">updated:2025-01-15T12:51:40Z</div></div>
-    </div></div><div id="20250116100856-k3hgnbk" data-node-id="20250116100856-k3hgnbk" data-type="NodeBlockquote" updated="20250116100856" class="bq"><div id="20250116100856-7hvybrt" data-node-id="20250116100856-7hvybrt" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">这里记录每周值得分享的科技内容，周五发布。...</div></div></div>
-    </div></div><div id="20250116100856-5qjkpt2" data-node-id="20250116100856-5qjkpt2" data-type="NodeListItem" updated="20250118091813" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <h6 id="20250116100856-3guwkpg" data-node-id="20250116100856-3guwkpg" data-type="NodeHeading" updated="20250116100856" data-subtype="h6" class="h6"><a href="http://www.ruanyifeng.com/blog/2025/01/weekly-issue-333.html">科技爱好者周刊（第 333 期）：一切都要支付两次</a></h6><div id="20250116100856-kijmo70" data-node-id="20250116100856-kijmo70" data-type="NodeList" updated="20250116100856" data-subtype="u" class="list"><div id="20250116100856-7ze9sa6" data-node-id="20250116100856-7ze9sa6" data-type="NodeListItem" updated="20250116100856" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250116100856-rgonq7o" data-node-id="20250116100856-rgonq7o" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">published:2025-01-10T00:14:37Z</div></div>
-    </div><div id="20250116100856-lrqs8hb" data-node-id="20250116100856-lrqs8hb" data-type="NodeListItem" updated="20250116100856" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250116100856-d9sp1fg" data-node-id="20250116100856-d9sp1fg" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">updated:2025-01-15T12:51:40Z</div></div>
-    </div></div><div id="20250116100856-k3hgnbk" data-node-id="20250116100856-k3hgnbk" data-type="NodeBlockquote" updated="20250116100856" class="bq"><div id="20250116100856-7hvybrt" data-node-id="20250116100856-7hvybrt" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">这里记录每周值得分享的科技内容，周五发布。...</div></div></div>
-    </div><div id="20250116140155-kcuhbj8" data-node-id="20250116140155-kcuhbj8" data-type="NodeList" updated="20250118091809" data-subtype="t" class="list"><div id="20250116140155-k6tzfbz" data-node-id="20250116140155-k6tzfbz" data-type="NodeListItem" updated="20250118091809" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <h6 id="20250116140155-mfdrkt2" data-node-id="20250116140155-mfdrkt2" data-type="NodeHeading" updated="20250116140155" data-subtype="h6" class="h6"><a href="https://ld246.com/article/1736996683257">思源笔记 v3.1.20 发布，改进细节                                </a></h6><div id="20250116140155-nhm1jjt" data-node-id="20250116140155-nhm1jjt" data-type="NodeList" updated="20250116140155" data-subtype="u" class="list"><div id="20250116140155-5n8capl" data-node-id="20250116140155-5n8capl" data-type="NodeListItem" updated="20250116140155" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250116140155-qj4ac20" data-node-id="20250116140155-qj4ac20" data-type="NodeParagraph" updated="20250116140155" class="p"><div spellcheck="false">published:2025-01-16 11:04</div></div>
-    </div></div>
-    </div></div><div id="20250116140155-k6tzfbz" data-node-id="20250116140155-k6tzfbz" data-type="NodeListItem" updated="20250118091809" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <h6 id="20250116140155-mfdrkt2" data-node-id="20250116140155-mfdrkt2" data-type="NodeHeading" updated="20250116140155" data-subtype="h6" class="h6"><a href="https://ld246.com/article/1736996683257">思源笔记 v3.1.20 发布，改进细节                                </a></h6><div id="20250116140155-nhm1jjt" data-node-id="20250116140155-nhm1jjt" data-type="NodeList" updated="20250116140155" data-subtype="u" class="list"><div id="20250116140155-5n8capl" data-node-id="20250116140155-5n8capl" data-type="NodeListItem" updated="20250116140155" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250116140155-qj4ac20" data-node-id="20250116140155-qj4ac20" data-type="NodeParagraph" updated="20250116140155" class="p"><div spellcheck="false">published:2025-01-16 11:04</div></div>
-    </div></div>
-    </div><h6 id="20250116140155-mfdrkt2" data-node-id="20250116140155-mfdrkt2" data-type="NodeHeading" updated="20250116140155" data-subtype="h6" class="h6"><a href="https://ld246.com/article/1736996683257">思源笔记 v3.1.20 发布，改进细节                                </a></h6>
-<div id="20250116140155-nhm1jjt" data-node-id="20250116140155-nhm1jjt" data-type="NodeList" updated="20250116140155" data-subtype="u" class="list"><div id="20250116140155-5n8capl" data-node-id="20250116140155-5n8capl" data-type="NodeListItem" updated="20250116140155" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250116140155-qj4ac20" data-node-id="20250116140155-qj4ac20" data-type="NodeParagraph" updated="20250116140155" class="p"><div spellcheck="false">published:2025-01-16 11:04</div></div>
-    </div></div><div id="20250116140155-nhm1jjt" data-node-id="20250116140155-nhm1jjt" data-type="NodeList" updated="20250116140155" data-subtype="u" class="list"><div id="20250116140155-5n8capl" data-node-id="20250116140155-5n8capl" data-type="NodeListItem" updated="20250116140155" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250116140155-qj4ac20" data-node-id="20250116140155-qj4ac20" data-type="NodeParagraph" updated="20250116140155" class="p"><div spellcheck="false">published:2025-01-16 11:04</div></div>
-    </div></div><div id="20250116140155-5n8capl" data-node-id="20250116140155-5n8capl" data-type="NodeListItem" updated="20250116140155" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250116140155-qj4ac20" data-node-id="20250116140155-qj4ac20" data-type="NodeParagraph" updated="20250116140155" class="p"><div spellcheck="false">published:2025-01-16 11:04</div></div>
-    </div><div id="20250116140155-qj4ac20" data-node-id="20250116140155-qj4ac20" data-type="NodeParagraph" updated="20250116140155" class="p"><div spellcheck="false">published:2025-01-16 11:04</div></div><h6 id="20250116100856-3guwkpg" data-node-id="20250116100856-3guwkpg" data-type="NodeHeading" updated="20250116100856" data-subtype="h6" class="h6"><a href="http://www.ruanyifeng.com/blog/2025/01/weekly-issue-333.html">科技爱好者周刊（第 333 期）：一切都要支付两次</a></h6>
-<div id="20250116100856-kijmo70" data-node-id="20250116100856-kijmo70" data-type="NodeList" updated="20250116100856" data-subtype="u" class="list"><div id="20250116100856-7ze9sa6" data-node-id="20250116100856-7ze9sa6" data-type="NodeListItem" updated="20250116100856" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250116100856-rgonq7o" data-node-id="20250116100856-rgonq7o" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">published:2025-01-10T00:14:37Z</div></div>
-    </div><div id="20250116100856-lrqs8hb" data-node-id="20250116100856-lrqs8hb" data-type="NodeListItem" updated="20250116100856" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250116100856-d9sp1fg" data-node-id="20250116100856-d9sp1fg" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">updated:2025-01-15T12:51:40Z</div></div>
-    </div></div>
-<div id="20250116100856-k3hgnbk" data-node-id="20250116100856-k3hgnbk" data-type="NodeBlockquote" updated="20250116100856" class="bq"><div id="20250116100856-7hvybrt" data-node-id="20250116100856-7hvybrt" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">这里记录每周值得分享的科技内容，周五发布。...</div></div></div><div id="20250116100856-kijmo70" data-node-id="20250116100856-kijmo70" data-type="NodeList" updated="20250116100856" data-subtype="u" class="list"><div id="20250116100856-7ze9sa6" data-node-id="20250116100856-7ze9sa6" data-type="NodeListItem" updated="20250116100856" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250116100856-rgonq7o" data-node-id="20250116100856-rgonq7o" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">published:2025-01-10T00:14:37Z</div></div>
-    </div><div id="20250116100856-lrqs8hb" data-node-id="20250116100856-lrqs8hb" data-type="NodeListItem" updated="20250116100856" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250116100856-d9sp1fg" data-node-id="20250116100856-d9sp1fg" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">updated:2025-01-15T12:51:40Z</div></div>
-    </div></div><div id="20250116100856-7ze9sa6" data-node-id="20250116100856-7ze9sa6" data-type="NodeListItem" updated="20250116100856" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250116100856-rgonq7o" data-node-id="20250116100856-rgonq7o" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">published:2025-01-10T00:14:37Z</div></div>
-    </div><div id="20250116100856-rgonq7o" data-node-id="20250116100856-rgonq7o" data-type="NodeParagraph" updated="20250116100856" class="p"><div spellcheck="false">published:2025-01-10T00:14:37Z</div></div></div><div id="20210606160324-57c0iql" data-node-id="20210606160324-57c0iql" data-type="NodeParagraph" updated="20230924170522" class="p"><div spellcheck="false"></div></div>
+    </div></div><div id="20210606160324-57c0iql" data-node-id="20210606160324-57c0iql" data-type="NodeParagraph" updated="20230924170522" class="p"><div spellcheck="false"></div></div>
   </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
