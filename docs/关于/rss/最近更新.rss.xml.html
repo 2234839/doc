@@ -49,7 +49,29 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc"></div><h1 id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc" data-type="NodeHeading" class="h1">最近更新.rss.xml</h1><div id="20210606154842-jah9dt8" data-node-id="20210606154842-jah9dt8" data-type="NodeBlockQueryEmbed" updated="20240619103229" style="height: 9998px;" data-type="NodeBlockquote" class="bq"><h3 id="20250120091536-ug5n0mq" data-node-id="20250120091536-ug5n0mq" data-type="NodeHeading" updated="20250120093308" data-subtype="h3" class="h3">Can Dependency Injection Be Implemented Using Functions as Nodes?</h3>
+  <div style="min-height: 150px;" id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc"></div><h1 id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc" data-type="NodeHeading" class="h1">最近更新.rss.xml</h1><div id="20210606154842-jah9dt8" data-node-id="20210606154842-jah9dt8" data-type="NodeBlockQueryEmbed" updated="20240619103229" style="height: 9998px;" data-type="NodeBlockquote" class="bq"><div id="20250120135351-tvf6top" data-node-id="20250120135351-tvf6top" data-type="NodeCodeBlock" updated="20250120140032" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">js</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A(){}
+function baseFn_B(){}
+function higherFn_B(){
+	baseFn_A()
+	//other baseFn ...
+}
+
+function higherFn_C(){
+	higherFn_B()
+	//other baseFn / higherFn ...
+}
+// 这中间还可能有更多层次的这样的套娃
+
+// 上面存在一个依赖链路 higherFn_C>higherFn_B>baseFn_A
+// 如果我要实现一个新的函数 higherFn_C2 ，它和 higherFn_C 唯一的区别就是调用的是 baseFn_B 而非 baseFn_A
+// 我认为依赖注入就是为了更方便的创建 higherFn_C2 而不需要改动特别多的代码
+</div>
+      </div><h3 id="20250120091536-ug5n0mq" data-node-id="20250120091536-ug5n0mq" data-type="NodeHeading" updated="20250120093308" data-subtype="h3" class="h3">Can Dependency Injection Be Implemented Using Functions as Nodes?</h3>
 <div id="20250120091536-46usg9d" data-node-id="20250120091536-46usg9d" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">What if we wanted to treat functions as nodes and use the call stack as the chain to implement a DI system?</div></div>
 <div id="20250120091536-f7ibmca" data-node-id="20250120091536-f7ibmca" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">The answer is both yes and no. In the browser, this approach is limited and can only be implemented using <span data-type="block-ref" data-subtype="d" data-id="20210409090637-h0drlqf"><a href="./../../other/zone.js.html#20210409090637-h0drlqf">zone.js</a></span> (which has its limitations).</div></div>
 <div id="20250120091536-42pjqa9" data-node-id="20250120091536-42pjqa9" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">However, in Node.js, you can use <span data-type="block-ref" data-subtype="d" data-id="20210608231606-cw5th69"><a href="./../../other/zone.js.html#20210608231606-cw5th69">Async hooks</a></span> to achieve a similar goal.</div></div>
@@ -180,17 +202,7 @@
         <svg><use xlink:href="#iconDot"></use></svg>
       </div>
       <div id="20250118091844-6yzp5gr" data-node-id="20250118091844-6yzp5gr" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">updated:2025-01-17T16:42:41Z</div></div>
-    </div><div id="20250118091844-6yzp5gr" data-node-id="20250118091844-6yzp5gr" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">updated:2025-01-17T16:42:41Z</div></div><div id="20250118091844-nz2b99w" data-node-id="20250118091844-nz2b99w" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">这里记录每周值得分享的科技内容，周五发布。...</div></div><div id="20250118091844-v2w43r2" data-node-id="20250118091844-v2w43r2" data-type="NodeList" updated="20250118091844" data-subtype="t" class="list"><div id="20250118091844-pqtzv0j" data-node-id="20250118091844-pqtzv0j" data-type="NodeListItem" updated="20250118091844" data-subtype="t" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconUncheck"></use></svg>
-      </div>
-      <h6 id="20250118091844-4k16hc5" data-node-id="20250118091844-4k16hc5" data-type="NodeHeading" updated="20250118091844" data-subtype="h6" class="h6"><a href="https://www.zhangxinxu.com/wordpress/2025/01/svg-arc-path-circle/">如何手搓SVG半圆弧，手把手教程</a></h6><div id="20250118091844-ttwtt6f" data-node-id="20250118091844-ttwtt6f" data-type="NodeList" updated="20250118091844" data-subtype="u" class="list"><div id="20250118091844-d0innot" data-node-id="20250118091844-d0innot" data-type="NodeListItem" updated="20250118091844" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250118091844-j14bhqz" data-node-id="20250118091844-j14bhqz" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">published:Tue, 14 Jan 2025 15:10:19 +0000</div></div>
-    </div></div><div id="20250118091844-vqv9nue" data-node-id="20250118091844-vqv9nue" data-type="NodeBlockquote" updated="20250118091844" class="bq"><div id="20250118091844-5w1y0k1" data-node-id="20250118091844-5w1y0k1" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">项目中遇到个特殊的圆环图形加动画需求，看我如何使用M...A...圆弧指令手写最终的SVG代码（内含坐标计算JS方法，文字环绕实现等）。</div></div></div>
-    </div></div></div><div id="20210606160324-57c0iql" data-node-id="20210606160324-57c0iql" data-type="NodeParagraph" updated="20230924170522" class="p"><div spellcheck="false"></div></div>
+    </div><div id="20250118091844-6yzp5gr" data-node-id="20250118091844-6yzp5gr" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">updated:2025-01-17T16:42:41Z</div></div><div id="20250118091844-nz2b99w" data-node-id="20250118091844-nz2b99w" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">这里记录每周值得分享的科技内容，周五发布。...</div></div></div><div id="20210606160324-57c0iql" data-node-id="20210606160324-57c0iql" data-type="NodeParagraph" updated="20230924170522" class="p"><div spellcheck="false"></div></div>
   </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
