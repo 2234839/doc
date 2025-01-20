@@ -5,24 +5,24 @@
 <link></link>
 <description></description>
 <atom:link href="https://shenzilong.cn/关于/rss/最近更新.rss.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>2025-01-20T06:09:55.757Z</lastBuildDate>
+<lastBuildDate>2025-01-20T06:16:32.005Z</lastBuildDate>
 <item>
   <title>对于依赖注入的思考</title>
   <link>https://shenzilong.cn/index/对于依赖注入的思考.html</link>
   <description></description>
-  <pubDate>2025-01-20T06:00:32.000Z</pubDate>
-</item>
-<item>
-  <title>Suddenly Realized Why Dependency Injection Is Necessary</title>
-  <link>https://shenzilong.cn/index/对于依赖注入的思考/Suddenly Realized Why Dependency Injection Is Necessary.html</link>
-  <description></description>
-  <pubDate>2025-01-20T01:33:08.000Z</pubDate>
+  <pubDate>2025-01-20T06:15:56.000Z</pubDate>
 </item>
 <item>
   <title>zone.js</title>
   <link>https://shenzilong.cn/other/zone.js.html</link>
   <description></description>
   <pubDate>2021-06-08T15:17:08.000Z</pubDate>
+</item>
+<item>
+  <title>Suddenly Realized Why Dependency Injection Is Necessary</title>
+  <link>https://shenzilong.cn/index/对于依赖注入的思考/Suddenly Realized Why Dependency Injection Is Necessary.html</link>
+  <description></description>
+  <pubDate>2025-01-20T01:33:08.000Z</pubDate>
 </item>
 <item>
   <title>index</title>
