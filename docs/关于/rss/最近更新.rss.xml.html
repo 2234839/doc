@@ -49,160 +49,803 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc"></div><h1 id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc" data-type="NodeHeading" class="h1">最近更新.rss.xml</h1><div id="20210606154842-jah9dt8" data-node-id="20210606154842-jah9dt8" data-type="NodeBlockQueryEmbed" updated="20240619103229" style="height: 9998px;" data-type="NodeBlockquote" class="bq"><h2 id="20250118145748-mdazo8x" data-node-id="20250118145748-mdazo8x" data-type="NodeHeading" updated="20250120141556" data-subtype="h2" class="h2">如何实现依赖注入</h2>
-<div id="20250118145804-2w4i85r" data-node-id="20250118145804-2w4i85r" data-type="NodeBlockquote" updated="20250120141521" class="bq"><div id="20250118145923-m73x2wj" data-node-id="20250118145923-m73x2wj" data-type="NodeParagraph" updated="20250120141521" class="p"><div spellcheck="false"> 依赖注入可以使用链表来理解。js 的原型链就可以认为是一种依赖注入</div></div></div>
-<div id="20250118150631-9itym3k" data-node-id="20250118150631-9itym3k" data-type="NodeParagraph" updated="20250118150721" class="p"><div spellcheck="false">只要实现  <span data-type="code">inject</span>​ 和 <span data-type="code">provide</span>​ 这两个函数就可以了</div></div>
-<div id="20250118150915-1nq5n6h" data-node-id="20250118150915-1nq5n6h" data-type="NodeParagraph" updated="20250118150915" class="p"><div spellcheck="false">​<span data-type="code">provide</span>​ 实现 ：接受一个 key 和 value ， 将这两个参数和当前节点相绑定</div></div>
-<div id="20250118145859-iavce6x" data-node-id="20250118145859-iavce6x" data-type="NodeParagraph" updated="20250118150805" class="p"><div spellcheck="false">​<span data-type="code">inject</span>​ 实现 ：接受一个 key， 在任意一个节点，沿父级一直向上通过 key 查询对应的注入的值，找到了就返回，没有就找父级的父级。</div></div>
-<div id="20250118150923-f49irk2" data-node-id="20250118150923-f49irk2" data-type="NodeParagraph" updated="20250118151117" class="p"><div spellcheck="false"> <span data-type="code">inject</span>​ 的实现基本和 js 对象基于原型链查找属性值的实现方式是一样的。所以我说 <span data-type="u">js 的原型链就可以认为是一种依赖注入</span></div></div>
-<div id="20250118151216-92pm35y" data-node-id="20250118151216-92pm35y" data-type="NodeParagraph" updated="20250118151216" class="p"><div spellcheck="false"></div></div>
-<div id="20250118151129-cin1h7f" data-node-id="20250118151129-cin1h7f" data-type="NodeParagraph" updated="20250120141556" class="p"><div spellcheck="false">如何使用链表来理解呢：</div></div>
-<div id="20250118151223-iha2itp" data-node-id="20250118151223-iha2itp" data-type="NodeParagraph" updated="20250118152108" class="p"><div spellcheck="false">比如 vue 中的依赖注入系统，这里的链表是组件树中，将组件理解为节点，然后一直查找上一层组件，一直到顶层，其中经过的所有节点就是一个链表，基于这个链表，最末端的节点，可以获取他的任意一个父级节点 <span data-type="code">provide</span>​ 的值，并且在 key 相同的情况下 <span data-type="code">inject </span>​的是离他最近的一个节点 <span data-type="code">provide </span>​的值</div></div>
-<div id="20250118152116-tqoedqs" data-node-id="20250118152116-tqoedqs" data-type="NodeParagraph" updated="20250118152116" class="p"><div spellcheck="false"></div></div>
-<div id="20250118151512-ri2sa98" data-node-id="20250118151512-ri2sa98" data-type="NodeParagraph" updated="20250118152147" class="p"><div spellcheck="false">但如果我们要以函数为节点，以函数调用栈作为链表来实现一个依赖注入系统可行吗？</div></div>
-<div id="20250118152147-qg5w3yl" data-node-id="20250118152147-qg5w3yl" data-type="NodeParagraph" updated="20250118152542" class="p"><div spellcheck="false">答案是可以但又不可以，因为在浏览器中是受限的，只能基于 <span data-type="block-ref" data-subtype="d" data-id="20210409090637-h0drlqf"><a href="./../../other/zone.js.html#20210409090637-h0drlqf">zone.js</a></span> 来实现（存在缺陷）</div></div>
-<div id="20250118152542-8zqiwju" data-node-id="20250118152542-8zqiwju" data-type="NodeParagraph" updated="20250118152542" class="p"><div spellcheck="false"> <span data-type="block-ref" data-subtype="d" data-id="20210608231606-cw5th69"><a href="./../../other/zone.js.html#20210608231606-cw5th69">在 node.js 的环境下可以选择使用 Async hooks 来达成同样的目的</a></span></div></div>
-<div id="20250118152451-nr2s2sa" data-node-id="20250118152451-nr2s2sa" data-type="NodeParagraph" updated="20250118152507" class="p"><div spellcheck="false"></div></div>
-<div id="20250118151410-96jq6k7" data-node-id="20250118151410-96jq6k7" data-type="NodeParagraph" updated="20250118151410" class="p"><div spellcheck="false"></div></div>
-<div id="20250118151121-08ngole" data-node-id="20250118151121-08ngole" data-type="NodeParagraph" updated="20250118151121" class="p"><div spellcheck="false"></div></div><div id="20250118151129-cin1h7f" data-node-id="20250118151129-cin1h7f" data-type="NodeParagraph" updated="20250120141556" class="p"><div spellcheck="false">如何使用链表来理解呢：</div></div><div id="20250118145804-2w4i85r" data-node-id="20250118145804-2w4i85r" data-type="NodeBlockquote" updated="20250120141521" class="bq"><div id="20250118145923-m73x2wj" data-node-id="20250118145923-m73x2wj" data-type="NodeParagraph" updated="20250120141521" class="p"><div spellcheck="false"> 依赖注入可以使用链表来理解。js 的原型链就可以认为是一种依赖注入</div></div></div><div id="20250118145923-m73x2wj" data-node-id="20250118145923-m73x2wj" data-type="NodeParagraph" updated="20250120141521" class="p"><div spellcheck="false"> 依赖注入可以使用链表来理解。js 的原型链就可以认为是一种依赖注入</div></div><div id="20250120135351-tvf6top" data-node-id="20250120135351-tvf6top" data-type="NodeCodeBlock" updated="20250120140032" class="code-block">
+  <div style="min-height: 150px;" id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc"></div><h1 id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc" data-type="NodeHeading" class="h1">最近更新.rss.xml</h1><div id="20210606154842-jah9dt8" data-node-id="20210606154842-jah9dt8" data-type="NodeBlockQueryEmbed" updated="20240619103229" style="height: 9998px;" data-type="NodeBlockquote" class="bq"><div id="20250203112552-b92abi2" data-node-id="20250203112552-b92abi2" data-type="NodeParagraph" updated="20250203112819" class="p"><div spellcheck="false">In a previous article titled <span data-type="block-ref" data-subtype="d" data-id="20250120091259-h7hf587"><a href="./../../index/对于依赖注入的思考/Suddenly Realized Why Dependency Injection Is Necessary.html#20250120091259-h7hf587">Suddenly Realized Why Dependency Injection Is Necessary</a></span>, I received a lot of feedback that pointed out significant flaws in my understanding. After some more study, I realized that the issue I was trying to address is not so much about Dependency Injection itself, but is closer to a concept known as <a href="https://overreacted.io/algebraic-effects-for-the-rest-of-us/">Algebraic Effects</a>. Both Dependency Injection and Algebraic Effects aim to solve engineering challenges in programming, such as replacing function implementations without modifying old code.</div></div><div id="20250203112552-tzhlbvp" data-node-id="20250203112552-tzhlbvp" data-type="NodeParagraph" updated="20250203112752" class="p"><div spellcheck="false">此文由 ai 翻译自中文版 <span data-type="block-ref" data-subtype="d" data-id="20250202145716-wvgw7m7"><a href="./../../index/对于依赖注入的思考-二.html#20250202145716-wvgw7m7">对于依赖注入的思考-二</a></span></div></div><div id="20250203112657-l8rbguf" data-node-id="20250203112657-l8rbguf" data-type="NodeParagraph" updated="20250203112708" class="p"><div spellcheck="false">english：<span data-type="block-ref" data-subtype="d" data-id="20250203112550-q97m2ib"><a href="./../../index/对于依赖注入的思考-二/Reflections on Dependency Injection.html#20250203112550-q97m2ib">Reflections on Dependency Injection</a></span></div></div><div id="20250203112649-xu7cmza" data-node-id="20250203112649-xu7cmza" data-type="NodeThematicBreak" updated="20250203112649" class="hr"><div></div></div><div id="20250203112552-ftvqi9c" data-node-id="20250203112552-ftvqi9c" data-type="NodeThematicBreak" updated="20250203112552" class="hr"><div></div></div><h4 id="20250203112552-b2inuaq" data-node-id="20250203112552-b2inuaq" data-type="NodeHeading" updated="20250203112552" data-subtype="h4" class="h4">Example of Dependency Injection:</h4>
+<div id="20250203112552-w5dwvng" data-node-id="20250203112552-w5dwvng" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A() {}
+function baseFn_B() {}
+function higherFn_B() {
+    baseFn_A(); // call baseFn_A in higherFn_B
+}
+
+function higherFn_C() {
+    higherFn_B(); // call higherFn_B
+}
+</div>
+      </div>
+<div id="20250203112552-7riwvxc" data-node-id="20250203112552-7riwvxc" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">The idea is that if I want to create a new function <span data-type="code">higherFn_C2</span>​ that differs from <span data-type="code">higherFn_C</span>​ only in that it calls <span data-type="code">baseFn_B</span>​ instead of <span data-type="code">baseFn_A</span>​, Dependency Injection allows me to achieve this without changing much of the existing code.</div></div><div id="20250203112552-w5dwvng" data-node-id="20250203112552-w5dwvng" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A() {}
+function baseFn_B() {}
+function higherFn_B() {
+    baseFn_A(); // call baseFn_A in higherFn_B
+}
+
+function higherFn_C() {
+    higherFn_B(); // call higherFn_B
+}
+</div>
+      </div><div id="20250203112552-7riwvxc" data-node-id="20250203112552-7riwvxc" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">The idea is that if I want to create a new function <span data-type="code">higherFn_C2</span>​ that differs from <span data-type="code">higherFn_C</span>​ only in that it calls <span data-type="code">baseFn_B</span>​ instead of <span data-type="code">baseFn_A</span>​, Dependency Injection allows me to achieve this without changing much of the existing code.</div></div><h4 id="20250203112552-k5f3g1o" data-node-id="20250203112552-k5f3g1o" data-type="NodeHeading" updated="20250203112552" data-subtype="h4" class="h4">A Key Insight on Context Propagation:</h4>
+<div id="20250203112552-iqyzd2f" data-node-id="20250203112552-iqyzd2f" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">I recently came up with an idea where context is passed using a variable named <span data-type="code">ctx</span>​. It starts as a global <span data-type="code">ctx</span>​, and then branches into a tree for each module and function, where the context is derived from its parent. This is similar to implementing Algebraic Effects and Dependency Injection, as it allows for easy runtime replacement of context variables like replacing a closure in code.</div></div><div id="20250203112552-iqyzd2f" data-node-id="20250203112552-iqyzd2f" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">I recently came up with an idea where context is passed using a variable named <span data-type="code">ctx</span>​. It starts as a global <span data-type="code">ctx</span>​, and then branches into a tree for each module and function, where the context is derived from its parent. This is similar to implementing Algebraic Effects and Dependency Injection, as it allows for easy runtime replacement of context variables like replacing a closure in code.</div></div><h4 id="20250203112552-vvlvdvy" data-node-id="20250203112552-vvlvdvy" data-type="NodeHeading" updated="20250203112552" data-subtype="h4" class="h4">Problems to Solve:</h4>
+<div id="20250203112552-k4o68ue" data-node-id="20250203112552-k4o68ue" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-6w2cfix" data-node-id="20250203112552-6w2cfix" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20250203112552-abrhnj8" data-node-id="20250203112552-abrhnj8" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Changing logic without modifying old code</span>: The challenge is to alter logic without impacting existing code.</div></div>
+    </div></div><div id="20250203112552-k4o68ue" data-node-id="20250203112552-k4o68ue" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-6w2cfix" data-node-id="20250203112552-6w2cfix" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20250203112552-abrhnj8" data-node-id="20250203112552-abrhnj8" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Changing logic without modifying old code</span>: The challenge is to alter logic without impacting existing code.</div></div>
+    </div></div><div id="20250203112552-6w2cfix" data-node-id="20250203112552-6w2cfix" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20250203112552-abrhnj8" data-node-id="20250203112552-abrhnj8" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Changing logic without modifying old code</span>: The challenge is to alter logic without impacting existing code.</div></div>
+    </div><div id="20250203112552-abrhnj8" data-node-id="20250203112552-abrhnj8" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Changing logic without modifying old code</span>: The challenge is to alter logic without impacting existing code.</div></div><h4 id="20250203112552-y9amyk5" data-node-id="20250203112552-y9amyk5" data-type="NodeHeading" updated="20250203112552" data-subtype="h4" class="h4">Solutions Explored:</h4>
+<div id="20250203112552-407hw8s" data-node-id="20250203112552-407hw8s" data-type="NodeList" updated="20250203112552" data-subtype="o" class="list"><div id="20250203112552-h7v613i" data-node-id="20250203112552-h7v613i" data-type="NodeListItem" updated="20250203112552" data-subtype="o" class="li" data-marker="1.">
+      <div class="protyle-action">
+        1.
+      </div>
+      <div id="20250203112552-daa2ozy" data-node-id="20250203112552-daa2ozy" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Passing Parameters</span>:</div></div><div id="20250203112552-v2gqzpl" data-node-id="20250203112552-v2gqzpl" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-wny39e6" data-node-id="20250203112552-wny39e6" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20250203112552-cuqhuox" data-node-id="20250203112552-cuqhuox" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">A simple method is passing functions as parameters, enabling logic changes without altering existing functions.</div></div>
+    </div></div><div id="20250203112552-225axo5" data-node-id="20250203112552-225axo5" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A(op) {
+    return op();
+}
+
+function higherFn_B(op) {
+    baseFn_A(op);
+}
+</div>
+      </div><div id="20250203112552-u29zzo8" data-node-id="20250203112552-u29zzo8" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">This is a straightforward approach to Dependency Injection but becomes cumbersome as the number of parameters increases.</div></div><div id="20250203112552-23wdoav" data-node-id="20250203112552-23wdoav" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A(op, op2, op3) {
+    return [op(), op2(), op3()];
+}
+
+function higherFn_B(op, op2, op3) {
+    baseFn_A(op, op2, op3);
+}
+</div>
+      </div><div id="20250203112552-74rkn3n" data-node-id="20250203112552-74rkn3n" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">Ideally, you want a way to modify only specific parameters without affecting others.</div></div><div id="20250203112552-ivi4h5v" data-node-id="20250203112552-ivi4h5v" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A() {
+    const { op, op2, op3 } = requireFn();
+    return [op(), op2(), op3()];
+}
+
+function higherFn_B() {
+    setRequireFn({ op: () => {} });
+    baseFn_A();
+}
+</div>
+      </div>
+    </div><div id="20250203112552-op0or38" data-node-id="20250203112552-op0or38" data-type="NodeListItem" updated="20250203112552" data-subtype="o" class="li" data-marker="2.">
+      <div class="protyle-action">
+        2.
+      </div>
+      <div id="20250203112552-3erf1pe" data-node-id="20250203112552-3erf1pe" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Continuation Local Storage (CLS)</span>:</div></div><div id="20250203112552-2hbutfk" data-node-id="20250203112552-2hbutfk" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-t227zwy" data-node-id="20250203112552-t227zwy" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20250203112552-6jqfla2" data-node-id="20250203112552-6jqfla2" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">CLS is useful for handling context in asynchronous environments like Node.js, where data needs to persist across asynchronous calls without explicitly passing it through each function.</div></div>
+    </div></div><div id="20250203112552-2hwib5o" data-node-id="20250203112552-2hwib5o" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">const { AsyncLocalStorage } = require('async_hooks');
+const asyncLocalStorage = new AsyncLocalStorage();
+
+function setRequireFn(data) {
+    const store = asyncLocalStorage.getStore() || {};
+    asyncLocalStorage.enterWith({...store, ...data});
+}
+
+function requireFn() {
+    return asyncLocalStorage.getStore() || {};
+}
+</div>
+      </div><div id="20250203112552-xiwel74" data-node-id="20250203112552-xiwel74" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">While this works in Node.js, it is not available in browsers as the <span data-type="code">async_hooks</span>​ module does not exist there.</div></div>
+    </div><div id="20250203112552-ux4ibbq" data-node-id="20250203112552-ux4ibbq" data-type="NodeListItem" updated="20250203112552" data-subtype="o" class="li" data-marker="3.">
+      <div class="protyle-action">
+        3.
+      </div>
+      <div id="20250203112552-srjpbgo" data-node-id="20250203112552-srjpbgo" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Compromise: Passing Context Variables</span>:</div></div><div id="20250203112552-fi3jc27" data-node-id="20250203112552-fi3jc27" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-gj5do8g" data-node-id="20250203112552-gj5do8g" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20250203112552-602koc6" data-node-id="20250203112552-602koc6" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">As a workaround, you can pass a <span data-type="code">ctx</span>​ object explicitly and modify it as needed.</div></div>
+    </div></div><div id="20250203112552-ppq5set" data-node-id="20250203112552-ppq5set" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function createContext() {
+    return {
+        op: () => 'default op logic',
+        op2: () => 'default op2 logic',
+        op3: () => 'default op3 logic',
+        op4: () => 'default op4 logic',
+    };
+}
+
+function baseFn_A(ctx) {
+    const { op, op2, op3, op4 } = ctx;
+    return [op(), op2(), op3(), op4()];
+}
+
+function higherFn_B(ctx) {
+    const newCtx = { ...ctx, op: () => 'New Op logic' };
+    return baseFn_A(newCtx);
+}
+
+function higherFn_C(ctx) {
+    const newCtx = {
+        ...ctx,
+        op: () => 'op result',
+        op2: () => 'op2 result',
+        op3: () => 'op3 result',
+        op4: () => 'op4 result',
+    };
+    return higherFn_B(newCtx);
+}
+</div>
+      </div>
+    </div></div><div id="20250203112552-407hw8s" data-node-id="20250203112552-407hw8s" data-type="NodeList" updated="20250203112552" data-subtype="o" class="list"><div id="20250203112552-h7v613i" data-node-id="20250203112552-h7v613i" data-type="NodeListItem" updated="20250203112552" data-subtype="o" class="li" data-marker="1.">
+      <div class="protyle-action">
+        1.
+      </div>
+      <div id="20250203112552-daa2ozy" data-node-id="20250203112552-daa2ozy" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Passing Parameters</span>:</div></div><div id="20250203112552-v2gqzpl" data-node-id="20250203112552-v2gqzpl" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-wny39e6" data-node-id="20250203112552-wny39e6" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20250203112552-cuqhuox" data-node-id="20250203112552-cuqhuox" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">A simple method is passing functions as parameters, enabling logic changes without altering existing functions.</div></div>
+    </div></div><div id="20250203112552-225axo5" data-node-id="20250203112552-225axo5" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A(op) {
+    return op();
+}
+
+function higherFn_B(op) {
+    baseFn_A(op);
+}
+</div>
+      </div><div id="20250203112552-u29zzo8" data-node-id="20250203112552-u29zzo8" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">This is a straightforward approach to Dependency Injection but becomes cumbersome as the number of parameters increases.</div></div><div id="20250203112552-23wdoav" data-node-id="20250203112552-23wdoav" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A(op, op2, op3) {
+    return [op(), op2(), op3()];
+}
+
+function higherFn_B(op, op2, op3) {
+    baseFn_A(op, op2, op3);
+}
+</div>
+      </div><div id="20250203112552-74rkn3n" data-node-id="20250203112552-74rkn3n" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">Ideally, you want a way to modify only specific parameters without affecting others.</div></div><div id="20250203112552-ivi4h5v" data-node-id="20250203112552-ivi4h5v" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A() {
+    const { op, op2, op3 } = requireFn();
+    return [op(), op2(), op3()];
+}
+
+function higherFn_B() {
+    setRequireFn({ op: () => {} });
+    baseFn_A();
+}
+</div>
+      </div>
+    </div><div id="20250203112552-op0or38" data-node-id="20250203112552-op0or38" data-type="NodeListItem" updated="20250203112552" data-subtype="o" class="li" data-marker="2.">
+      <div class="protyle-action">
+        2.
+      </div>
+      <div id="20250203112552-3erf1pe" data-node-id="20250203112552-3erf1pe" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Continuation Local Storage (CLS)</span>:</div></div><div id="20250203112552-2hbutfk" data-node-id="20250203112552-2hbutfk" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-t227zwy" data-node-id="20250203112552-t227zwy" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20250203112552-6jqfla2" data-node-id="20250203112552-6jqfla2" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">CLS is useful for handling context in asynchronous environments like Node.js, where data needs to persist across asynchronous calls without explicitly passing it through each function.</div></div>
+    </div></div><div id="20250203112552-2hwib5o" data-node-id="20250203112552-2hwib5o" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">const { AsyncLocalStorage } = require('async_hooks');
+const asyncLocalStorage = new AsyncLocalStorage();
+
+function setRequireFn(data) {
+    const store = asyncLocalStorage.getStore() || {};
+    asyncLocalStorage.enterWith({...store, ...data});
+}
+
+function requireFn() {
+    return asyncLocalStorage.getStore() || {};
+}
+</div>
+      </div><div id="20250203112552-xiwel74" data-node-id="20250203112552-xiwel74" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">While this works in Node.js, it is not available in browsers as the <span data-type="code">async_hooks</span>​ module does not exist there.</div></div>
+    </div><div id="20250203112552-ux4ibbq" data-node-id="20250203112552-ux4ibbq" data-type="NodeListItem" updated="20250203112552" data-subtype="o" class="li" data-marker="3.">
+      <div class="protyle-action">
+        3.
+      </div>
+      <div id="20250203112552-srjpbgo" data-node-id="20250203112552-srjpbgo" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Compromise: Passing Context Variables</span>:</div></div><div id="20250203112552-fi3jc27" data-node-id="20250203112552-fi3jc27" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-gj5do8g" data-node-id="20250203112552-gj5do8g" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20250203112552-602koc6" data-node-id="20250203112552-602koc6" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">As a workaround, you can pass a <span data-type="code">ctx</span>​ object explicitly and modify it as needed.</div></div>
+    </div></div><div id="20250203112552-ppq5set" data-node-id="20250203112552-ppq5set" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function createContext() {
+    return {
+        op: () => 'default op logic',
+        op2: () => 'default op2 logic',
+        op3: () => 'default op3 logic',
+        op4: () => 'default op4 logic',
+    };
+}
+
+function baseFn_A(ctx) {
+    const { op, op2, op3, op4 } = ctx;
+    return [op(), op2(), op3(), op4()];
+}
+
+function higherFn_B(ctx) {
+    const newCtx = { ...ctx, op: () => 'New Op logic' };
+    return baseFn_A(newCtx);
+}
+
+function higherFn_C(ctx) {
+    const newCtx = {
+        ...ctx,
+        op: () => 'op result',
+        op2: () => 'op2 result',
+        op3: () => 'op3 result',
+        op4: () => 'op4 result',
+    };
+    return higherFn_B(newCtx);
+}
+</div>
+      </div>
+    </div></div><div id="20250203112552-h7v613i" data-node-id="20250203112552-h7v613i" data-type="NodeListItem" updated="20250203112552" data-subtype="o" class="li" data-marker="1.">
+      <div class="protyle-action">
+        1.
+      </div>
+      <div id="20250203112552-daa2ozy" data-node-id="20250203112552-daa2ozy" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Passing Parameters</span>:</div></div><div id="20250203112552-v2gqzpl" data-node-id="20250203112552-v2gqzpl" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-wny39e6" data-node-id="20250203112552-wny39e6" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20250203112552-cuqhuox" data-node-id="20250203112552-cuqhuox" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">A simple method is passing functions as parameters, enabling logic changes without altering existing functions.</div></div>
+    </div></div><div id="20250203112552-225axo5" data-node-id="20250203112552-225axo5" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A(op) {
+    return op();
+}
+
+function higherFn_B(op) {
+    baseFn_A(op);
+}
+</div>
+      </div><div id="20250203112552-u29zzo8" data-node-id="20250203112552-u29zzo8" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">This is a straightforward approach to Dependency Injection but becomes cumbersome as the number of parameters increases.</div></div><div id="20250203112552-23wdoav" data-node-id="20250203112552-23wdoav" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A(op, op2, op3) {
+    return [op(), op2(), op3()];
+}
+
+function higherFn_B(op, op2, op3) {
+    baseFn_A(op, op2, op3);
+}
+</div>
+      </div><div id="20250203112552-74rkn3n" data-node-id="20250203112552-74rkn3n" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">Ideally, you want a way to modify only specific parameters without affecting others.</div></div><div id="20250203112552-ivi4h5v" data-node-id="20250203112552-ivi4h5v" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A() {
+    const { op, op2, op3 } = requireFn();
+    return [op(), op2(), op3()];
+}
+
+function higherFn_B() {
+    setRequireFn({ op: () => {} });
+    baseFn_A();
+}
+</div>
+      </div>
+    </div><div id="20250203112552-daa2ozy" data-node-id="20250203112552-daa2ozy" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Passing Parameters</span>:</div></div><div id="20250203112552-v2gqzpl" data-node-id="20250203112552-v2gqzpl" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-wny39e6" data-node-id="20250203112552-wny39e6" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20250203112552-cuqhuox" data-node-id="20250203112552-cuqhuox" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">A simple method is passing functions as parameters, enabling logic changes without altering existing functions.</div></div>
+    </div></div><div id="20250203112552-wny39e6" data-node-id="20250203112552-wny39e6" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20250203112552-cuqhuox" data-node-id="20250203112552-cuqhuox" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">A simple method is passing functions as parameters, enabling logic changes without altering existing functions.</div></div>
+    </div><div id="20250203112552-cuqhuox" data-node-id="20250203112552-cuqhuox" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">A simple method is passing functions as parameters, enabling logic changes without altering existing functions.</div></div><div id="20250203112552-225axo5" data-node-id="20250203112552-225axo5" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A(op) {
+    return op();
+}
+
+function higherFn_B(op) {
+    baseFn_A(op);
+}
+</div>
+      </div><div id="20250203112552-u29zzo8" data-node-id="20250203112552-u29zzo8" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">This is a straightforward approach to Dependency Injection but becomes cumbersome as the number of parameters increases.</div></div><div id="20250203112552-23wdoav" data-node-id="20250203112552-23wdoav" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A(op, op2, op3) {
+    return [op(), op2(), op3()];
+}
+
+function higherFn_B(op, op2, op3) {
+    baseFn_A(op, op2, op3);
+}
+</div>
+      </div><div id="20250203112552-74rkn3n" data-node-id="20250203112552-74rkn3n" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">Ideally, you want a way to modify only specific parameters without affecting others.</div></div><div id="20250203112552-ivi4h5v" data-node-id="20250203112552-ivi4h5v" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A() {
+    const { op, op2, op3 } = requireFn();
+    return [op(), op2(), op3()];
+}
+
+function higherFn_B() {
+    setRequireFn({ op: () => {} });
+    baseFn_A();
+}
+</div>
+      </div><div id="20250203112552-op0or38" data-node-id="20250203112552-op0or38" data-type="NodeListItem" updated="20250203112552" data-subtype="o" class="li" data-marker="2.">
+      <div class="protyle-action">
+        2.
+      </div>
+      <div id="20250203112552-3erf1pe" data-node-id="20250203112552-3erf1pe" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Continuation Local Storage (CLS)</span>:</div></div><div id="20250203112552-2hbutfk" data-node-id="20250203112552-2hbutfk" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-t227zwy" data-node-id="20250203112552-t227zwy" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20250203112552-6jqfla2" data-node-id="20250203112552-6jqfla2" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">CLS is useful for handling context in asynchronous environments like Node.js, where data needs to persist across asynchronous calls without explicitly passing it through each function.</div></div>
+    </div></div><div id="20250203112552-2hwib5o" data-node-id="20250203112552-2hwib5o" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">const { AsyncLocalStorage } = require('async_hooks');
+const asyncLocalStorage = new AsyncLocalStorage();
+
+function setRequireFn(data) {
+    const store = asyncLocalStorage.getStore() || {};
+    asyncLocalStorage.enterWith({...store, ...data});
+}
+
+function requireFn() {
+    return asyncLocalStorage.getStore() || {};
+}
+</div>
+      </div><div id="20250203112552-xiwel74" data-node-id="20250203112552-xiwel74" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">While this works in Node.js, it is not available in browsers as the <span data-type="code">async_hooks</span>​ module does not exist there.</div></div>
+    </div><div id="20250203112552-3erf1pe" data-node-id="20250203112552-3erf1pe" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Continuation Local Storage (CLS)</span>:</div></div><div id="20250203112552-2hbutfk" data-node-id="20250203112552-2hbutfk" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-t227zwy" data-node-id="20250203112552-t227zwy" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20250203112552-6jqfla2" data-node-id="20250203112552-6jqfla2" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">CLS is useful for handling context in asynchronous environments like Node.js, where data needs to persist across asynchronous calls without explicitly passing it through each function.</div></div>
+    </div></div><div id="20250203112552-t227zwy" data-node-id="20250203112552-t227zwy" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20250203112552-6jqfla2" data-node-id="20250203112552-6jqfla2" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">CLS is useful for handling context in asynchronous environments like Node.js, where data needs to persist across asynchronous calls without explicitly passing it through each function.</div></div>
+    </div><div id="20250203112552-6jqfla2" data-node-id="20250203112552-6jqfla2" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">CLS is useful for handling context in asynchronous environments like Node.js, where data needs to persist across asynchronous calls without explicitly passing it through each function.</div></div><div id="20250203112552-2hwib5o" data-node-id="20250203112552-2hwib5o" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">const { AsyncLocalStorage } = require('async_hooks');
+const asyncLocalStorage = new AsyncLocalStorage();
+
+function setRequireFn(data) {
+    const store = asyncLocalStorage.getStore() || {};
+    asyncLocalStorage.enterWith({...store, ...data});
+}
+
+function requireFn() {
+    return asyncLocalStorage.getStore() || {};
+}
+</div>
+      </div><div id="20250203112552-xiwel74" data-node-id="20250203112552-xiwel74" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">While this works in Node.js, it is not available in browsers as the <span data-type="code">async_hooks</span>​ module does not exist there.</div></div><div id="20250203112552-ux4ibbq" data-node-id="20250203112552-ux4ibbq" data-type="NodeListItem" updated="20250203112552" data-subtype="o" class="li" data-marker="3.">
+      <div class="protyle-action">
+        3.
+      </div>
+      <div id="20250203112552-srjpbgo" data-node-id="20250203112552-srjpbgo" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Compromise: Passing Context Variables</span>:</div></div><div id="20250203112552-fi3jc27" data-node-id="20250203112552-fi3jc27" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-gj5do8g" data-node-id="20250203112552-gj5do8g" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20250203112552-602koc6" data-node-id="20250203112552-602koc6" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">As a workaround, you can pass a <span data-type="code">ctx</span>​ object explicitly and modify it as needed.</div></div>
+    </div></div><div id="20250203112552-ppq5set" data-node-id="20250203112552-ppq5set" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function createContext() {
+    return {
+        op: () => 'default op logic',
+        op2: () => 'default op2 logic',
+        op3: () => 'default op3 logic',
+        op4: () => 'default op4 logic',
+    };
+}
+
+function baseFn_A(ctx) {
+    const { op, op2, op3, op4 } = ctx;
+    return [op(), op2(), op3(), op4()];
+}
+
+function higherFn_B(ctx) {
+    const newCtx = { ...ctx, op: () => 'New Op logic' };
+    return baseFn_A(newCtx);
+}
+
+function higherFn_C(ctx) {
+    const newCtx = {
+        ...ctx,
+        op: () => 'op result',
+        op2: () => 'op2 result',
+        op3: () => 'op3 result',
+        op4: () => 'op4 result',
+    };
+    return higherFn_B(newCtx);
+}
+</div>
+      </div>
+    </div><div id="20250203112552-srjpbgo" data-node-id="20250203112552-srjpbgo" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Compromise: Passing Context Variables</span>:</div></div><div id="20250203112552-fi3jc27" data-node-id="20250203112552-fi3jc27" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-gj5do8g" data-node-id="20250203112552-gj5do8g" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20250203112552-602koc6" data-node-id="20250203112552-602koc6" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">As a workaround, you can pass a <span data-type="code">ctx</span>​ object explicitly and modify it as needed.</div></div>
+    </div></div><div id="20250203112552-gj5do8g" data-node-id="20250203112552-gj5do8g" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20250203112552-602koc6" data-node-id="20250203112552-602koc6" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">As a workaround, you can pass a <span data-type="code">ctx</span>​ object explicitly and modify it as needed.</div></div>
+    </div><div id="20250203112552-602koc6" data-node-id="20250203112552-602koc6" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">As a workaround, you can pass a <span data-type="code">ctx</span>​ object explicitly and modify it as needed.</div></div><div id="20250203112552-ppq5set" data-node-id="20250203112552-ppq5set" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">javascript</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function createContext() {
+    return {
+        op: () => 'default op logic',
+        op2: () => 'default op2 logic',
+        op3: () => 'default op3 logic',
+        op4: () => 'default op4 logic',
+    };
+}
+
+function baseFn_A(ctx) {
+    const { op, op2, op3, op4 } = ctx;
+    return [op(), op2(), op3(), op4()];
+}
+
+function higherFn_B(ctx) {
+    const newCtx = { ...ctx, op: () => 'New Op logic' };
+    return baseFn_A(newCtx);
+}
+
+function higherFn_C(ctx) {
+    const newCtx = {
+        ...ctx,
+        op: () => 'op result',
+        op2: () => 'op2 result',
+        op3: () => 'op3 result',
+        op4: () => 'op4 result',
+    };
+    return higherFn_B(newCtx);
+}
+</div>
+      </div><h4 id="20250203112552-xj9wlxl" data-node-id="20250203112552-xj9wlxl" data-type="NodeHeading" updated="20250203112552" data-subtype="h4" class="h4">Conclusion:</h4>
+<div id="20250203112552-i43qgtn" data-node-id="20250203112552-i43qgtn" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">This approach allows context to be modified dynamically, offering a cleaner way to achieve Dependency Injection or similar effects in JavaScript. For now, however, there are still limitations in certain environments (like browsers), and more work is needed to generalize these techniques.</div></div><div id="20250203112552-i43qgtn" data-node-id="20250203112552-i43qgtn" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">This approach allows context to be modified dynamically, offering a cleaner way to achieve Dependency Injection or similar effects in JavaScript. For now, however, there are still limitations in certain environments (like browsers), and more work is needed to generalize these techniques.</div></div><h2 id="20250202171635-m6i49zy" data-node-id="20250202171635-m6i49zy" data-type="NodeHeading" updated="20250202174417" data-subtype="h2" class="h2">妥协的办法，传递上下文变量</h2>
+<div id="20250202171725-her8ng9" data-node-id="20250202171725-her8ng9" data-type="NodeParagraph" updated="20250202172600" class="p"><div spellcheck="false">这个算是 <span data-type="block-ref" data-subtype="d" data-id="20250202164415-768ypor"><a href="./../../index/对于依赖注入的思考-二.html#20250202164415-768ypor">最显而易见的：参数传递</a></span> 办法的一种变种。</div></div>
+<div id="20250202172830-12641m7" data-node-id="20250202172830-12641m7" data-type="NodeParagraph" updated="20250202172935" class="p"><div spellcheck="false">这里理论上还可以通过利用 react 所实现的代数效应来实现不传递 ctx 参数（在vue中就是利用 inject ）</div></div>
+<div id="20250202172426-4s1qp1f" data-node-id="20250202172426-4s1qp1f" data-type="NodeCodeBlock" updated="20250202174417" class="code-block">
         <div class="protyle-action">
           <span class="protyle-action--first protyle-action__language">js</span>
           <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
-        <div class="hljs" spellcheck="false">function baseFn_A(){}
-function baseFn_B(){}
-function higherFn_B(){
-	baseFn_A()
-	//other baseFn ...
+        <div class="hljs" spellcheck="false">function createContext() {
+  return {
+    op: () => 'default op logic',
+    op2: () => 'default op2 logic',
+    op3: () => 'default op3 logic',
+    op4: () => 'default op4 logic',
+  };
 }
 
-function higherFn_C(){
-	higherFn_B()
-	//other baseFn / higherFn ...
+function baseFn_A(ctx) {
+  const { op, op2, op3, op4 } = ctx;  // 从传入的上下文中获取操作
+  return [op(), op2(), op3(), op4()];
 }
-// 这中间还可能有更多层次的这样的套娃
 
-// 上面存在一个依赖链路 higherFn_C>higherFn_B>baseFn_A
-// 如果我要实现一个新的函数 higherFn_C2 ，它和 higherFn_C 唯一的区别就是调用的是 baseFn_B 而非 baseFn_A
-// 我认为依赖注入就是为了更方便的创建 higherFn_C2 而不需要改动特别多的代码
+// 高阶函数 B，修改上下文并传递给 baseFn_A
+function higherFn_B(ctx) {
+  const newCtx = { ...ctx, op: () => 'New Op logic' };  // 创建新上下文
+  return baseFn_A(newCtx);  // 将新的上下文传递给 baseFn_A
+}
+// 高阶函数 C，设置完整的上下文数据并传递给 higherFn_B
+function higherFn_C(ctx) {
+  const newCtx = {
+    ...ctx,
+    op: () => 'op result',
+    op2: () => 'op2 result',
+    op3: () => 'op3 result',
+    op4: () => 'op4 result'
+  };
+  return higherFn_B(newCtx);  // 将新的上下文传递给 higherFn_B
+}
+const initialCtx = createContext();  // 创建初始上下文
+console.log(higherFn_C(initialCtx));  // 输出：[ 'New Op logic', 'op2 result', 'op3 result', 'op4 result' ]
 </div>
-      </div><h3 id="20250120091536-ug5n0mq" data-node-id="20250120091536-ug5n0mq" data-type="NodeHeading" updated="20250120093308" data-subtype="h3" class="h3">Can Dependency Injection Be Implemented Using Functions as Nodes?</h3>
-<div id="20250120091536-46usg9d" data-node-id="20250120091536-46usg9d" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">What if we wanted to treat functions as nodes and use the call stack as the chain to implement a DI system?</div></div>
-<div id="20250120091536-f7ibmca" data-node-id="20250120091536-f7ibmca" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">The answer is both yes and no. In the browser, this approach is limited and can only be implemented using <span data-type="block-ref" data-subtype="d" data-id="20210409090637-h0drlqf"><a href="./../../other/zone.js.html#20210409090637-h0drlqf">zone.js</a></span> (which has its limitations).</div></div>
-<div id="20250120091536-42pjqa9" data-node-id="20250120091536-42pjqa9" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">However, in Node.js, you can use <span data-type="block-ref" data-subtype="d" data-id="20210608231606-cw5th69"><a href="./../../other/zone.js.html#20210608231606-cw5th69">Async hooks</a></span> to achieve a similar goal.</div></div>
-<div id="20250120093308-u7t0f1x" data-node-id="20250120093308-u7t0f1x" data-type="NodeParagraph" updated="20250120093308" class="p"><div spellcheck="false"></div></div><div id="20250120093308-u7t0f1x" data-node-id="20250120093308-u7t0f1x" data-type="NodeParagraph" updated="20250120093308" class="p"><div spellcheck="false"></div></div><h2 id="20231214134136-9zq5juf" data-node-id="20231214134136-9zq5juf" data-type="NodeHeading" updated="20250120093111" data-subtype="h2" class="h2">最近实践</h2>
-<div id="20250120093111-67tqec9" data-node-id="20250120093111-67tqec9" data-type="NodeParagraph" updated="20250120093111" class="p"><div spellcheck="false"></div></div>
-<div id="20250101095953-g826rwo" data-node-id="20250101095953-g826rwo" data-type="NodeParagraph" updated="20250101095956" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250101095839-ec2nkqw"><a href="./../../index/对于依赖注入的思考.html#20250101095839-ec2nkqw">对于依赖注入的思考</a></span></div></div>
-<div id="20241228103007-fs2y8vl" data-node-id="20241228103007-fs2y8vl" data-type="NodeParagraph" updated="20241228103034" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20241228103033-h9y9bt3"><a href="./../../index/自动翻译文档：expr插件和aichat插件的组合技.html#20241228103033-h9y9bt3">自动翻译文档：expr插件和aichat插件的组合技</a></span></div></div>
-<div id="20241227155556-drtao0c" data-node-id="20241227155556-drtao0c" data-type="NodeParagraph" updated="20241227155607" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20241227155607-14cuxd5"><a href="./../../index/aiChat-plugin-siyuan.html#20241227155607-14cuxd5">aiChat-plugin-siyuan</a></span></div></div>
-<div id="20241022155619-j3k1ai2" data-node-id="20241022155619-j3k1ai2" data-type="NodeParagraph" updated="20241022155634" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20241022155634-9i70eo4"><a href="./../../index/我的软件资源清单.html#20241022155634-9i70eo4">我的软件资源清单</a></span></div></div>
-<div id="20240831155455-urwiuan" data-node-id="20240831155455-urwiuan" data-type="NodeParagraph" updated="20240831155502" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20240831144820-s0ruk7h"><a href="./../../record/如何实现一个小体积的js docker镜像.html#20240831144820-s0ruk7h">如何实现一个小体积的js docker镜像</a></span></div></div>
-<div id="20240613220138-gof5tz9" data-node-id="20240613220138-gof5tz9" data-type="NodeParagraph" updated="20240613220144" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20240612161400-q3nlr71"><a href="./../../想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件实现完美ocr v0.3.6.html#20240612161400-q3nlr71">OceanPress插件实现完美ocr v0.3.6</a></span></div></div>
-<div id="20231214134145-ofocg0i" data-node-id="20231214134145-ofocg0i" data-type="NodeParagraph" updated="20240517225616" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20231214112450-ndy3t2e"><a href="./../../想法/siyuan_feed插件.html#20231214112450-ndy3t2e">siyuan_feed插件</a></span></div></div>
-<div id="20231214134205-ec6yvih" data-node-id="20231214134205-ec6yvih" data-type="NodeParagraph" updated="20240517225616" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20230905170531-6q68jov"><a href="./../../想法/项目/OceanPress_js.html#20230905170531-6q68jov">OceanPress_js</a></span></div></div>
-<div id="20231222130724-vixhahq" data-node-id="20231222130724-vixhahq" data-type="NodeBlockQueryEmbed" updated="20240517225616" name="今日推歌" style="height: 136px;" data-type="NodeBlockquote" class="bq"> <div id="20231222125920-gpig588" data-node-id="20231222125920-gpig588" data-type="NodeIFrame" updated="20231222130716" class="iframe">
-    <div class="iframe-content">
-    <iframe sandbox="allow-forms allow-presentation allow-same-origin allow-scripts allow-modals" src="https://music.163.com/outchain/player?type=2&amp;id=1467948307&amp;auto=1&amp;height=66" data-src="" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 561px; height: 86px;"></iframe>
-    </div>
-  </div></div><div id="20250120093111-67tqec9" data-node-id="20250120093111-67tqec9" data-type="NodeParagraph" updated="20250120093111" class="p"><div spellcheck="false"></div></div><div id="20250120091556-or2vxrg" data-node-id="20250120091556-or2vxrg" data-type="NodeThematicBreak" updated="20250120091556" class="hr"><div></div></div><div id="20250120091545-tii6i46" data-node-id="20250120091545-tii6i46" data-type="NodeParagraph" updated="20250120091555" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250101095839-ec2nkqw"><a href="./../../index/对于依赖注入的思考.html#20250101095839-ec2nkqw">对于依赖注入的思考</a></span></div></div><div id="20250120091536-gmv98gf" data-node-id="20250120091536-gmv98gf" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">Here, we'll discuss dependency injection (DI) in the context of "composition over inheritance."</div></div><div id="20250120091536-8cae9z4" data-node-id="20250120091536-8cae9z4" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">When adopting composition, there are often many function compositions, and even compositions of compositions. This essentially creates a dependency chain among functions.</div></div><div id="20250120091536-67d1eki" data-node-id="20250120091536-67d1eki" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">If you hard-code the function combinations directly into your code, creating a new higher-order composition that differs from an existing one only in the implementation of a single base function would require duplicating the original composition code and modifying one function call.</div></div><div id="20250120091536-056ld6l" data-node-id="20250120091536-056ld6l" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">If you want to reuse the existing higher-order composition but only replace the base function, you'd either need to pass the function as a parameter (which might involve a long parameter chain) or use dependency injection. DI exists precisely to address this issue.</div></div><div id="20250120091536-k4kvani" data-node-id="20250120091536-k4kvani" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">With DI, you only need to call functions through injected dependencies when writing the code. Later replacements or adjustments become much easier.</div></div><div id="20250120091536-yj1jiz6" data-node-id="20250120091536-yj1jiz6" data-type="NodeThematicBreak" updated="20250120091536" class="hr"><div></div></div><h3 id="20250120091536-zeq1yu4" data-node-id="20250120091536-zeq1yu4" data-type="NodeHeading" updated="20250120091536" data-subtype="h3" class="h3">How to Implement Dependency Injection</h3>
-<div id="20250120091536-0segqi9" data-node-id="20250120091536-0segqi9" data-type="NodeBlockquote" updated="20250120091536" class="bq"><div id="20250120091536-k6itf1p" data-node-id="20250120091536-k6itf1p" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">Dependency injection is fundamentally linked to a chain structure. JavaScript's prototype chain can be considered a form of dependency injection.</div></div></div>
-<div id="20250120091536-jgz3wzc" data-node-id="20250120091536-jgz3wzc" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">To implement DI, you just need two functions: <span data-type="code">inject</span>​ and <span data-type="code">provide</span>​.</div></div>
-<div id="20250120091536-oy2k2yk" data-node-id="20250120091536-oy2k2yk" data-type="NodeList" updated="20250120091536" data-subtype="u" class="list"><div id="20250120091536-s4hywiz" data-node-id="20250120091536-s4hywiz" data-type="NodeListItem" updated="20250120091536" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
+      </div><div id="20250202172426-4s1qp1f" data-node-id="20250202172426-4s1qp1f" data-type="NodeCodeBlock" updated="20250202174417" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">js</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function createContext() {
+  return {
+    op: () => 'default op logic',
+    op2: () => 'default op2 logic',
+    op3: () => 'default op3 logic',
+    op4: () => 'default op4 logic',
+  };
+}
+
+function baseFn_A(ctx) {
+  const { op, op2, op3, op4 } = ctx;  // 从传入的上下文中获取操作
+  return [op(), op2(), op3(), op4()];
+}
+
+// 高阶函数 B，修改上下文并传递给 baseFn_A
+function higherFn_B(ctx) {
+  const newCtx = { ...ctx, op: () => 'New Op logic' };  // 创建新上下文
+  return baseFn_A(newCtx);  // 将新的上下文传递给 baseFn_A
+}
+// 高阶函数 C，设置完整的上下文数据并传递给 higherFn_B
+function higherFn_C(ctx) {
+  const newCtx = {
+    ...ctx,
+    op: () => 'op result',
+    op2: () => 'op2 result',
+    op3: () => 'op3 result',
+    op4: () => 'op4 result'
+  };
+  return higherFn_B(newCtx);  // 将新的上下文传递给 higherFn_B
+}
+const initialCtx = createContext();  // 创建初始上下文
+console.log(higherFn_C(initialCtx));  // 输出：[ 'New Op logic', 'op2 result', 'op3 result', 'op4 result' ]
+</div>
+      </div><div id="20250202153116-gj3p8rj" data-node-id="20250202153116-gj3p8rj" data-type="NodeBlockquote" updated="20250202173537" class="bq"><div id="20250202153117-owh3ap6" data-node-id="20250202153117-owh3ap6" data-type="NodeParagraph" updated="20250202153129" class="p"><div spellcheck="false">上下文传递方法使用一个同名变量ctx，起始于一个全局变量ctx然后从这个全局变量派生出来一棵树，每个模块乃至于函数都会有自己的ctx（从上级ctx 派生），许多需要的方法都是要从这个上下文中来获取</div></div><div id="20250202153129-5u8acis" data-node-id="20250202153129-5u8acis" data-type="NodeParagraph" updated="20250202173537" class="p"><div spellcheck="false">这个是实现一个类似代数效应以及依赖注入的方法<br>也等价于实现了一个可以操作的闭包环境，可以像在编码时替换一个闭包变量的实际指向一样容易的在运行时替换<br>最终就是为了部分的解决表达式问题 https://en.m.wikipedia.org/wiki/Expression_problem  </div></div></div><div id="20250202153129-5u8acis" data-node-id="20250202153129-5u8acis" data-type="NodeParagraph" updated="20250202173537" class="p"><div spellcheck="false">这个是实现一个类似代数效应以及依赖注入的方法<br>也等价于实现了一个可以操作的闭包环境，可以像在编码时替换一个闭包变量的实际指向一样容易的在运行时替换<br>最终就是为了部分的解决表达式问题 https://en.m.wikipedia.org/wiki/Expression_problem  </div></div><div id="20250202172830-12641m7" data-node-id="20250202172830-12641m7" data-type="NodeParagraph" updated="20250202172935" class="p"><div spellcheck="false">这里理论上还可以通过利用 react 所实现的代数效应来实现不传递 ctx 参数（在vue中就是利用 inject ）</div></div><div id="20250202171725-her8ng9" data-node-id="20250202171725-her8ng9" data-type="NodeParagraph" updated="20250202172600" class="p"><div spellcheck="false">这个算是 <span data-type="block-ref" data-subtype="d" data-id="20250202164415-768ypor"><a href="./../../index/对于依赖注入的思考-二.html#20250202164415-768ypor">最显而易见的：参数传递</a></span> 办法的一种变种。</div></div><h2 id="20250202164652-io9ywdn" data-node-id="20250202164652-io9ywdn" data-type="NodeHeading" updated="20250202171635" data-subtype="h2" class="h2">CLS来帮忙</h2>
+<div id="20250202170436-xsqbs5h" data-node-id="20250202170436-xsqbs5h" data-type="NodeBlockquote" updated="20250202170530" class="bq"><div id="20250202170431-2iz1mut" data-node-id="20250202170431-2iz1mut" data-type="NodeParagraph" updated="20250202170431" class="p"><div spellcheck="false"><span data-type="strong">CLS（Continuation Local Storage）</span> 是一种在程序执行过程中，用于存储和传递跨异步操作的上下文数据的机制。在异步编程中，尤其是在像 Node.js 这样的环境中，跨越多个异步操作传递数据变得尤为复杂。CLS 允许你在不同的函数和异步任务中共享一些全局的上下文信息，而无需显式地将它们作为参数传递。CLS 的核心思想是：通过将数据与当前的执行上下文关联，确保在程序的控制流跨越异步边界时，这些数据能够随着控制流一起“传递”，而不需要通过显式的函数调用来传递。</div></div><div id="20250202170502-waoqyvu" data-node-id="20250202170502-waoqyvu" data-type="NodeParagraph" updated="20250202170530" class="p"><div spellcheck="false">在 Node.js 中，<span data-type="code">AsyncLocalStorage</span>​ 提供了一个实现 CLS 的工具，允许在异步操作的生命周期内存储和访问上下文数据。</div></div></div>
+<div id="20250202170436-mhsz4c3" data-node-id="20250202170436-mhsz4c3" data-type="NodeParagraph" updated="20250202170436" class="p"><div spellcheck="false">在 Node.js 中，<span data-type="code">AsyncLocalStorage</span>​ 提供了一个实现 CLS 的工具，它允许你在异步操作的生命周期内存储和访问上下文数据。<span data-type="code">AsyncLocalStorage</span>​ 是基于 <span data-type="code">async_hooks</span>​ 模块构建的，专门设计用于在异步操作之间共享数据。</div></div>
+<div id="20250202170218-8jobxzr" data-node-id="20250202170218-8jobxzr" data-type="NodeParagraph" updated="20250202170240" class="p"><div spellcheck="false">安装了 node 的可以尝试运行以下代码</div></div>
+<div id="20250202165705-nw24iyq" data-node-id="20250202165705-nw24iyq" data-type="NodeCodeBlock" updated="20250202171356" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">js</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">const { AsyncLocalStorage } = require('async_hooks');
+const asyncLocalStorage = new AsyncLocalStorage();
+
+function setRequireFn(data) {
+  const store = asyncLocalStorage.getStore() || {};
+  asyncLocalStorage.enterWith({...store,...data});
+}
+
+function requireFn() {
+  return asyncLocalStorage.getStore() || {};
+}
+
+// -----------------------
+function baseFn_A() {
+  const { op, op2, op3, op4 } = requireFn();
+  return [op(), op2(), op3(), op4()];
+}
+function higherFn_B() {
+  setRequireFn({ op: () => 'New Op logic' });
+  return baseFn_A();
+}
+function higherFn_C() {
+  setRequireFn({
+    op: () => 'op result',
+    op2: () => 'op2 result',
+    op3: () => 'op3 result',
+    op4: () => 'op4 result'
+  });
+  return higherFn_B();
+}
+console.log(higherFn_C());  // 输出：['op result', 'op2 result', 'op3 result', 'op4 result']
+</div>
       </div>
-      <div id="20250120091536-zq8ehbt" data-node-id="20250120091536-zq8ehbt" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">​<span data-type="strong"><span data-type="code">provide</span></span>​: Accepts a <span data-type="code">key</span>​ and <span data-type="code">value</span>​, binding them to the current node.</div></div>
-    </div><div id="20250120091536-a0ys5x1" data-node-id="20250120091536-a0ys5x1" data-type="NodeListItem" updated="20250120091536" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
+<div id="20250202170209-e8t0kv1" data-node-id="20250202170209-e8t0kv1" data-type="NodeParagraph" updated="20250202171634" class="p"><div spellcheck="false">看上去十分的美好了，但是...我之所以喜欢js就是因为代码可以运行在浏览器和node.js ，上面的代码只能支持node.js 但浏览器中是没有 async_hooks 模块的，<a href="https://github.com/orgs/JSCIG/discussions/9">【提案讨论】JavaScript 异步上下文 · JSCIG · Discussion #9 · GitHub</a> 这个提案似乎还遥遥无期。</div></div><div id="20250202170209-e8t0kv1" data-node-id="20250202170209-e8t0kv1" data-type="NodeParagraph" updated="20250202171634" class="p"><div spellcheck="false">看上去十分的美好了，但是...我之所以喜欢js就是因为代码可以运行在浏览器和node.js ，上面的代码只能支持node.js 但浏览器中是没有 async_hooks 模块的，<a href="https://github.com/orgs/JSCIG/discussions/9">【提案讨论】JavaScript 异步上下文 · JSCIG · Discussion #9 · GitHub</a> 这个提案似乎还遥遥无期。</div></div><div id="20250202165705-nw24iyq" data-node-id="20250202165705-nw24iyq" data-type="NodeCodeBlock" updated="20250202171356" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">js</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">const { AsyncLocalStorage } = require('async_hooks');
+const asyncLocalStorage = new AsyncLocalStorage();
+
+function setRequireFn(data) {
+  const store = asyncLocalStorage.getStore() || {};
+  asyncLocalStorage.enterWith({...store,...data});
+}
+
+function requireFn() {
+  return asyncLocalStorage.getStore() || {};
+}
+
+// -----------------------
+function baseFn_A() {
+  const { op, op2, op3, op4 } = requireFn();
+  return [op(), op2(), op3(), op4()];
+}
+function higherFn_B() {
+  setRequireFn({ op: () => 'New Op logic' });
+  return baseFn_A();
+}
+function higherFn_C() {
+  setRequireFn({
+    op: () => 'op result',
+    op2: () => 'op2 result',
+    op3: () => 'op3 result',
+    op4: () => 'op4 result'
+  });
+  return higherFn_B();
+}
+console.log(higherFn_C());  // 输出：['op result', 'op2 result', 'op3 result', 'op4 result']
+</div>
+      </div><div id="20250202170436-xsqbs5h" data-node-id="20250202170436-xsqbs5h" data-type="NodeBlockquote" updated="20250202170530" class="bq"><div id="20250202170431-2iz1mut" data-node-id="20250202170431-2iz1mut" data-type="NodeParagraph" updated="20250202170431" class="p"><div spellcheck="false"><span data-type="strong">CLS（Continuation Local Storage）</span> 是一种在程序执行过程中，用于存储和传递跨异步操作的上下文数据的机制。在异步编程中，尤其是在像 Node.js 这样的环境中，跨越多个异步操作传递数据变得尤为复杂。CLS 允许你在不同的函数和异步任务中共享一些全局的上下文信息，而无需显式地将它们作为参数传递。CLS 的核心思想是：通过将数据与当前的执行上下文关联，确保在程序的控制流跨越异步边界时，这些数据能够随着控制流一起“传递”，而不需要通过显式的函数调用来传递。</div></div><div id="20250202170502-waoqyvu" data-node-id="20250202170502-waoqyvu" data-type="NodeParagraph" updated="20250202170530" class="p"><div spellcheck="false">在 Node.js 中，<span data-type="code">AsyncLocalStorage</span>​ 提供了一个实现 CLS 的工具，允许在异步操作的生命周期内存储和访问上下文数据。</div></div></div><div id="20250202170502-waoqyvu" data-node-id="20250202170502-waoqyvu" data-type="NodeParagraph" updated="20250202170530" class="p"><div spellcheck="false">在 Node.js 中，<span data-type="code">AsyncLocalStorage</span>​ 提供了一个实现 CLS 的工具，允许在异步操作的生命周期内存储和访问上下文数据。</div></div><div id="20250202170436-mhsz4c3" data-node-id="20250202170436-mhsz4c3" data-type="NodeParagraph" updated="20250202170436" class="p"><div spellcheck="false">在 Node.js 中，<span data-type="code">AsyncLocalStorage</span>​ 提供了一个实现 CLS 的工具，它允许你在异步操作的生命周期内存储和访问上下文数据。<span data-type="code">AsyncLocalStorage</span>​ 是基于 <span data-type="code">async_hooks</span>​ 模块构建的，专门设计用于在异步操作之间共享数据。</div></div><div id="20250202170431-2iz1mut" data-node-id="20250202170431-2iz1mut" data-type="NodeParagraph" updated="20250202170431" class="p"><div spellcheck="false"><span data-type="strong">CLS（Continuation Local Storage）</span> 是一种在程序执行过程中，用于存储和传递跨异步操作的上下文数据的机制。在异步编程中，尤其是在像 Node.js 这样的环境中，跨越多个异步操作传递数据变得尤为复杂。CLS 允许你在不同的函数和异步任务中共享一些全局的上下文信息，而无需显式地将它们作为参数传递。CLS 的核心思想是：通过将数据与当前的执行上下文关联，确保在程序的控制流跨越异步边界时，这些数据能够随着控制流一起“传递”，而不需要通过显式的函数调用来传递。</div></div><div id="20250202170218-8jobxzr" data-node-id="20250202170218-8jobxzr" data-type="NodeParagraph" updated="20250202170240" class="p"><div spellcheck="false">安装了 node 的可以尝试运行以下代码</div></div><h2 id="20250202164415-yym259o" data-node-id="20250202164415-yym259o" data-type="NodeHeading" updated="20250202165632" data-subtype="h2" class="h2">寻找解决方案</h2><h3 id="20250202164415-768ypor" data-node-id="20250202164415-768ypor" data-type="NodeHeading" updated="20250202165632" data-subtype="h3" class="h3">最显而易见的：参数传递</h3>
+<div id="20250202164415-wgx74r8" data-node-id="20250202164415-wgx74r8" data-type="NodeParagraph" updated="20250202164415" class="p"><div spellcheck="false">只要在编写旧代码的时候将需要被替换的函数作为参数就行了</div></div>
+<div id="20250202164415-olbr8if" data-node-id="20250202164415-olbr8if" data-type="NodeCodeBlock" updated="20250202164417" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">js</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A(op){
+	return op()，
+}
+function higherFn_B(op){
+	baseFn_A(op)
+}
+</div>
       </div>
-      <div id="20250120091536-7rrgdzy" data-node-id="20250120091536-7rrgdzy" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">​<span data-type="strong"><span data-type="code">inject</span></span>​: Accepts a <span data-type="code">key</span>​. Starting from any node, it traverses up the chain, looking for the <span data-type="code">key</span>​ in the parent nodes. If found, it returns the associated value; otherwise, it continues up the chain until the root node.</div></div>
-    </div></div>
-<div id="20250120091536-ta74pdp" data-node-id="20250120091536-ta74pdp" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">The implementation of <span data-type="code">inject</span>​ is essentially the same as JavaScript's prototype chain mechanism for looking up property values. That's why I say <span data-type="strong">JavaScript's prototype chain can be considered a form of dependency injection</span>.</div></div>
-<div id="20250120091536-xpgw56d" data-node-id="20250120091536-xpgw56d" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">These two concepts are straightforward. In fact, the most challenging part to understand is the idea of <span data-type="strong">&quot;chain-based structures.&quot;</span></div></div>
-<div id="20250120091536-lqdln8q" data-node-id="20250120091536-lqdln8q" data-type="NodeThematicBreak" updated="20250120091536" class="hr"><div></div></div><div id="20250120091536-0segqi9" data-node-id="20250120091536-0segqi9" data-type="NodeBlockquote" updated="20250120091536" class="bq"><div id="20250120091536-k6itf1p" data-node-id="20250120091536-k6itf1p" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">Dependency injection is fundamentally linked to a chain structure. JavaScript's prototype chain can be considered a form of dependency injection.</div></div></div><div id="20250120091536-k6itf1p" data-node-id="20250120091536-k6itf1p" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">Dependency injection is fundamentally linked to a chain structure. JavaScript's prototype chain can be considered a form of dependency injection.</div></div><div id="20250120091536-jgz3wzc" data-node-id="20250120091536-jgz3wzc" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">To implement DI, you just need two functions: <span data-type="code">inject</span>​ and <span data-type="code">provide</span>​.</div></div><div id="20250120091536-oy2k2yk" data-node-id="20250120091536-oy2k2yk" data-type="NodeList" updated="20250120091536" data-subtype="u" class="list"><div id="20250120091536-s4hywiz" data-node-id="20250120091536-s4hywiz" data-type="NodeListItem" updated="20250120091536" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
+<div id="20250202164415-5rw3h5c" data-node-id="20250202164415-5rw3h5c" data-type="NodeParagraph" updated="20250202164415" class="p"><div spellcheck="false">通过传递一个函数，就可以在不修改 higherFn_B 函数代码的前提下（不修改旧代码）来改变旧代码的逻辑了</div></div>
+<div id="20250202164415-nfgrhsj" data-node-id="20250202164415-nfgrhsj" data-type="NodeParagraph" updated="20250202165104" class="p"><div spellcheck="false">这也是最简单的依赖倒置的实践</div></div>
+<div id="20250202164539-fe91mdu" data-node-id="20250202164539-fe91mdu" data-type="NodeParagraph" updated="20250202164746" class="p"><div spellcheck="false">上面这个实现是可行的，但在实际使用中会遇到下面这样的情况，很多层嵌套，很多的参数需要传递</div></div>
+<div id="20250202164316-kbf7lkh" data-node-id="20250202164316-kbf7lkh" data-type="NodeCodeBlock" updated="20250202165223" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">js</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A(op,op2,op3,op4....){
+	return [op()，op2(),op3(),op4()....()]
+}
+function higherFn_B(op,op2,op3,op4....){
+	baseFn_A(op,op2,op3,op4....)
+}
+</div>
       </div>
-      <div id="20250120091536-zq8ehbt" data-node-id="20250120091536-zq8ehbt" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">​<span data-type="strong"><span data-type="code">provide</span></span>​: Accepts a <span data-type="code">key</span>​ and <span data-type="code">value</span>​, binding them to the current node.</div></div>
-    </div><div id="20250120091536-a0ys5x1" data-node-id="20250120091536-a0ys5x1" data-type="NodeListItem" updated="20250120091536" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250120091536-7rrgdzy" data-node-id="20250120091536-7rrgdzy" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">​<span data-type="strong"><span data-type="code">inject</span></span>​: Accepts a <span data-type="code">key</span>​. Starting from any node, it traverses up the chain, looking for the <span data-type="code">key</span>​ in the parent nodes. If found, it returns the associated value; otherwise, it continues up the chain until the root node.</div></div>
-    </div></div><div id="20250120091536-s4hywiz" data-node-id="20250120091536-s4hywiz" data-type="NodeListItem" updated="20250120091536" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250120091536-zq8ehbt" data-node-id="20250120091536-zq8ehbt" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">​<span data-type="strong"><span data-type="code">provide</span></span>​: Accepts a <span data-type="code">key</span>​ and <span data-type="code">value</span>​, binding them to the current node.</div></div>
-    </div><div id="20250120091536-zq8ehbt" data-node-id="20250120091536-zq8ehbt" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">​<span data-type="strong"><span data-type="code">provide</span></span>​: Accepts a <span data-type="code">key</span>​ and <span data-type="code">value</span>​, binding them to the current node.</div></div><div id="20250120091536-a0ys5x1" data-node-id="20250120091536-a0ys5x1" data-type="NodeListItem" updated="20250120091536" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250120091536-7rrgdzy" data-node-id="20250120091536-7rrgdzy" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">​<span data-type="strong"><span data-type="code">inject</span></span>​: Accepts a <span data-type="code">key</span>​. Starting from any node, it traverses up the chain, looking for the <span data-type="code">key</span>​ in the parent nodes. If found, it returns the associated value; otherwise, it continues up the chain until the root node.</div></div>
-    </div><div id="20250120091536-7rrgdzy" data-node-id="20250120091536-7rrgdzy" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">​<span data-type="strong"><span data-type="code">inject</span></span>​: Accepts a <span data-type="code">key</span>​. Starting from any node, it traverses up the chain, looking for the <span data-type="code">key</span>​ in the parent nodes. If found, it returns the associated value; otherwise, it continues up the chain until the root node.</div></div><div id="20250120091536-ta74pdp" data-node-id="20250120091536-ta74pdp" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">The implementation of <span data-type="code">inject</span>​ is essentially the same as JavaScript's prototype chain mechanism for looking up property values. That's why I say <span data-type="strong">JavaScript's prototype chain can be considered a form of dependency injection</span>.</div></div><div id="20250120091536-xpgw56d" data-node-id="20250120091536-xpgw56d" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">These two concepts are straightforward. In fact, the most challenging part to understand is the idea of <span data-type="strong">&quot;chain-based structures.&quot;</span></div></div><div id="20250120091536-lqdln8q" data-node-id="20250120091536-lqdln8q" data-type="NodeThematicBreak" updated="20250120091536" class="hr"><div></div></div><h3 id="20250120091536-4up970o" data-node-id="20250120091536-4up970o" data-type="NodeHeading" updated="20250120091536" data-subtype="h3" class="h3">Example: Vue's Dependency Injection System</h3>
-<div id="20250120091536-1kqkkln" data-node-id="20250120091536-1kqkkln" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">In Vue, the chain structure is based on the component tree. Each component can be viewed as a node, and dependency injection involves traversing up the tree from one component to its parent, continuing until the root. All the nodes along this traversal form a chain. With this chain, the deepest node can access any <span data-type="code">provide</span>​ value from its parent components. If multiple nodes provide values with the same <span data-type="code">key</span>​, the <span data-type="code">inject</span>​ function retrieves the nearest parent node's <span data-type="code">provide</span>​ value.</div></div>
-<div id="20250120091536-f4lj1h9" data-node-id="20250120091536-f4lj1h9" data-type="NodeThematicBreak" updated="20250120091536" class="hr"><div></div></div><div id="20250120091536-1kqkkln" data-node-id="20250120091536-1kqkkln" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">In Vue, the chain structure is based on the component tree. Each component can be viewed as a node, and dependency injection involves traversing up the tree from one component to its parent, continuing until the root. All the nodes along this traversal form a chain. With this chain, the deepest node can access any <span data-type="code">provide</span>​ value from its parent components. If multiple nodes provide values with the same <span data-type="code">key</span>​, the <span data-type="code">inject</span>​ function retrieves the nearest parent node's <span data-type="code">provide</span>​ value.</div></div><div id="20250120091536-f4lj1h9" data-node-id="20250120091536-f4lj1h9" data-type="NodeThematicBreak" updated="20250120091536" class="hr"><div></div></div><div id="20250120091536-46usg9d" data-node-id="20250120091536-46usg9d" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">What if we wanted to treat functions as nodes and use the call stack as the chain to implement a DI system?</div></div><div id="20250120091536-f7ibmca" data-node-id="20250120091536-f7ibmca" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">The answer is both yes and no. In the browser, this approach is limited and can only be implemented using <span data-type="block-ref" data-subtype="d" data-id="20210409090637-h0drlqf"><a href="./../../other/zone.js.html#20210409090637-h0drlqf">zone.js</a></span> (which has its limitations).</div></div><div id="20250120091536-42pjqa9" data-node-id="20250120091536-42pjqa9" data-type="NodeParagraph" updated="20250120091536" class="p"><div spellcheck="false">However, in Node.js, you can use <span data-type="block-ref" data-subtype="d" data-id="20210608231606-cw5th69"><a href="./../../other/zone.js.html#20210608231606-cw5th69">Async hooks</a></span> to achieve a similar goal.</div></div><div id="20250120091302-g3o0ykd" data-node-id="20250120091302-g3o0ykd" data-type="NodeThematicBreak" updated="20250120091302" class="hr"><div></div></div><div id="20250120091243-ox7i8dp" data-node-id="20250120091243-ox7i8dp" data-type="NodeParagraph" updated="20250120091259" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250120091259-h7hf587"><a href="./../../index/对于依赖注入的思考/Suddenly Realized Why Dependency Injection Is Necessary.html#20250120091259-h7hf587">Suddenly Realized Why Dependency Injection Is Necessary</a></span></div></div><div id="20250118152147-qg5w3yl" data-node-id="20250118152147-qg5w3yl" data-type="NodeParagraph" updated="20250118152542" class="p"><div spellcheck="false">答案是可以但又不可以，因为在浏览器中是受限的，只能基于 <span data-type="block-ref" data-subtype="d" data-id="20210409090637-h0drlqf"><a href="./../../other/zone.js.html#20210409090637-h0drlqf">zone.js</a></span> 来实现（存在缺陷）</div></div><div id="20250118152542-8zqiwju" data-node-id="20250118152542-8zqiwju" data-type="NodeParagraph" updated="20250118152542" class="p"><div spellcheck="false"> <span data-type="block-ref" data-subtype="d" data-id="20210608231606-cw5th69"><a href="./../../other/zone.js.html#20210608231606-cw5th69">在 node.js 的环境下可以选择使用 Async hooks 来达成同样的目的</a></span></div></div><div id="20250118152451-nr2s2sa" data-node-id="20250118152451-nr2s2sa" data-type="NodeParagraph" updated="20250118152507" class="p"><div spellcheck="false"></div></div><div id="20250118151512-ri2sa98" data-node-id="20250118151512-ri2sa98" data-type="NodeParagraph" updated="20250118152147" class="p"><div spellcheck="false">但如果我们要以函数为节点，以函数调用栈作为链表来实现一个依赖注入系统可行吗？</div></div><div id="20250118152116-tqoedqs" data-node-id="20250118152116-tqoedqs" data-type="NodeParagraph" updated="20250118152116" class="p"><div spellcheck="false"></div></div><div id="20250118151223-iha2itp" data-node-id="20250118151223-iha2itp" data-type="NodeParagraph" updated="20250118152108" class="p"><div spellcheck="false">比如 vue 中的依赖注入系统，这里的链表是组件树中，将组件理解为节点，然后一直查找上一层组件，一直到顶层，其中经过的所有节点就是一个链表，基于这个链表，最末端的节点，可以获取他的任意一个父级节点 <span data-type="code">provide</span>​ 的值，并且在 key 相同的情况下 <span data-type="code">inject </span>​的是离他最近的一个节点 <span data-type="code">provide </span>​的值</div></div><div id="20250118151410-96jq6k7" data-node-id="20250118151410-96jq6k7" data-type="NodeParagraph" updated="20250118151410" class="p"><div spellcheck="false"></div></div><div id="20250118151216-92pm35y" data-node-id="20250118151216-92pm35y" data-type="NodeParagraph" updated="20250118151216" class="p"><div spellcheck="false"></div></div><div id="20250118151121-08ngole" data-node-id="20250118151121-08ngole" data-type="NodeParagraph" updated="20250118151121" class="p"><div spellcheck="false"></div></div><div id="20250118150923-f49irk2" data-node-id="20250118150923-f49irk2" data-type="NodeParagraph" updated="20250118151117" class="p"><div spellcheck="false"> <span data-type="code">inject</span>​ 的实现基本和 js 对象基于原型链查找属性值的实现方式是一样的。所以我说 <span data-type="u">js 的原型链就可以认为是一种依赖注入</span></div></div><div id="20250118150915-1nq5n6h" data-node-id="20250118150915-1nq5n6h" data-type="NodeParagraph" updated="20250118150915" class="p"><div spellcheck="false">​<span data-type="code">provide</span>​ 实现 ：接受一个 key 和 value ， 将这两个参数和当前节点相绑定</div></div><div id="20250118145859-iavce6x" data-node-id="20250118145859-iavce6x" data-type="NodeParagraph" updated="20250118150805" class="p"><div spellcheck="false">​<span data-type="code">inject</span>​ 实现 ：接受一个 key， 在任意一个节点，沿父级一直向上通过 key 查询对应的注入的值，找到了就返回，没有就找父级的父级。</div></div><div id="20250118150631-9itym3k" data-node-id="20250118150631-9itym3k" data-type="NodeParagraph" updated="20250118150721" class="p"><div spellcheck="false">只要实现  <span data-type="code">inject</span>​ 和 <span data-type="code">provide</span>​ 这两个函数就可以了</div></div><div id="20250118095308-mb5k0ea" data-node-id="20250118095308-mb5k0ea" data-type="NodeParagraph" updated="20250118095308" class="p"><div spellcheck="false">如果要想复用原来的高阶组合，而只是修改其中对于该基础函数的替换的话，要么将该函数作为参数传递（这个传递链路可能很长），而依赖注入就是为了解决这个问题而存在的。</div></div><div id="20250118095308-a1p4pu2" data-node-id="20250118095308-a1p4pu2" data-type="NodeParagraph" updated="20250118095308" class="p"><div spellcheck="false">有了依赖注入，只需要在编写代码的时候就通过依赖注入来调用函数，后续的替换就十分的方便了。</div></div><div id="20250118095307-zyh4bd0" data-node-id="20250118095307-zyh4bd0" data-type="NodeParagraph" updated="20250118095307" class="p"><div spellcheck="false">如果是直接在代码中硬编码对应的函数组合的话，我要实现一个新的高阶组合他和原来的高阶组合的唯一区别只是一个基础函数的实现不一致，那我基本需要重新复制一遍原来的组合代码，然后修改其中一个调用</div></div><div id="20250118095259-sp1sj04" data-node-id="20250118095259-sp1sj04" data-type="NodeParagraph" updated="20250118095301" class="p"><div spellcheck="false">​<span data-type="tag">note</span>​ 突然想明白了为什么要有依赖注入了：这里只讨论在组合优于继承的这种情况下
-一定会有许多的函数组合情况，而且还会有函数组合的组合，这样实质上形成了一个函数之间的依赖链路。</div></div><div id="20250118091844-rqs4lp3" data-node-id="20250118091844-rqs4lp3" data-type="NodeList" updated="20250118092447" data-subtype="t" class="list"><div id="20250118091844-cq6gj6e" data-node-id="20250118091844-cq6gj6e" data-type="NodeListItem" updated="20250118092447" data-subtype="t" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconUncheck"></use></svg>
-      </div>
-      <h6 id="20250118091844-dy4lrpv" data-node-id="20250118091844-dy4lrpv" data-type="NodeHeading" updated="20250118092447" data-subtype="h6" class="h6"><a href="http://www.ruanyifeng.com/blog/2025/01/weekly-issue-334.html">科技爱好者周刊（第 334 期）：年终笔记四则</a></h6><div id="20250118091844-tyw3dxd" data-node-id="20250118091844-tyw3dxd" data-type="NodeList" updated="20250118091844" data-subtype="u" class="list"><div id="20250118091844-2yla4du" data-node-id="20250118091844-2yla4du" data-type="NodeListItem" updated="20250118091844" data-subtype="u" class="li" style="--en-bullet-line-height: 37.600006103515625px;" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250118091844-zjzm0ar" data-node-id="20250118091844-zjzm0ar" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">published:2025-01-17T00:17:52Z</div></div>
-    </div><div id="20250118091844-v88nqvm" data-node-id="20250118091844-v88nqvm" data-type="NodeListItem" updated="20250118091844" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250118091844-6yzp5gr" data-node-id="20250118091844-6yzp5gr" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">updated:2025-01-17T16:42:41Z</div></div>
-    </div></div><div id="20250118091844-4w740wc" data-node-id="20250118091844-4w740wc" data-type="NodeBlockquote" updated="20250118091844" class="bq"><div id="20250118091844-nz2b99w" data-node-id="20250118091844-nz2b99w" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">这里记录每周值得分享的科技内容，周五发布。...</div></div></div><div id="20250118091849-g69289o" data-node-id="20250118091849-g69289o" data-type="NodeParagraph" updated="20250118091937" class="p"><div spellcheck="false"><a href="https://www.xda-developers.com/how-use-laptop-second-monitor/">Wireless Display</a> 将其他电脑作为无线显示器</div></div><div id="20250118092427-9bqf796" data-node-id="20250118092427-9bqf796" data-type="NodeParagraph" updated="20250118092447" class="p"><div spellcheck="false"><a href="https://raphael.app/zh">https://raphael.app/zh</a> 免费 ai 文生图</div></div>
-    </div></div><div id="20250118091844-cq6gj6e" data-node-id="20250118091844-cq6gj6e" data-type="NodeListItem" updated="20250118092447" data-subtype="t" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconUncheck"></use></svg>
-      </div>
-      <h6 id="20250118091844-dy4lrpv" data-node-id="20250118091844-dy4lrpv" data-type="NodeHeading" updated="20250118092447" data-subtype="h6" class="h6"><a href="http://www.ruanyifeng.com/blog/2025/01/weekly-issue-334.html">科技爱好者周刊（第 334 期）：年终笔记四则</a></h6><div id="20250118091844-tyw3dxd" data-node-id="20250118091844-tyw3dxd" data-type="NodeList" updated="20250118091844" data-subtype="u" class="list"><div id="20250118091844-2yla4du" data-node-id="20250118091844-2yla4du" data-type="NodeListItem" updated="20250118091844" data-subtype="u" class="li" style="--en-bullet-line-height: 37.600006103515625px;" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250118091844-zjzm0ar" data-node-id="20250118091844-zjzm0ar" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">published:2025-01-17T00:17:52Z</div></div>
-    </div><div id="20250118091844-v88nqvm" data-node-id="20250118091844-v88nqvm" data-type="NodeListItem" updated="20250118091844" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250118091844-6yzp5gr" data-node-id="20250118091844-6yzp5gr" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">updated:2025-01-17T16:42:41Z</div></div>
-    </div></div><div id="20250118091844-4w740wc" data-node-id="20250118091844-4w740wc" data-type="NodeBlockquote" updated="20250118091844" class="bq"><div id="20250118091844-nz2b99w" data-node-id="20250118091844-nz2b99w" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">这里记录每周值得分享的科技内容，周五发布。...</div></div></div><div id="20250118091849-g69289o" data-node-id="20250118091849-g69289o" data-type="NodeParagraph" updated="20250118091937" class="p"><div spellcheck="false"><a href="https://www.xda-developers.com/how-use-laptop-second-monitor/">Wireless Display</a> 将其他电脑作为无线显示器</div></div><div id="20250118092427-9bqf796" data-node-id="20250118092427-9bqf796" data-type="NodeParagraph" updated="20250118092447" class="p"><div spellcheck="false"><a href="https://raphael.app/zh">https://raphael.app/zh</a> 免费 ai 文生图</div></div>
-    </div><h6 id="20250118091844-dy4lrpv" data-node-id="20250118091844-dy4lrpv" data-type="NodeHeading" updated="20250118092447" data-subtype="h6" class="h6"><a href="http://www.ruanyifeng.com/blog/2025/01/weekly-issue-334.html">科技爱好者周刊（第 334 期）：年终笔记四则</a></h6>
-<div id="20250118091844-tyw3dxd" data-node-id="20250118091844-tyw3dxd" data-type="NodeList" updated="20250118091844" data-subtype="u" class="list"><div id="20250118091844-2yla4du" data-node-id="20250118091844-2yla4du" data-type="NodeListItem" updated="20250118091844" data-subtype="u" class="li" style="--en-bullet-line-height: 37.600006103515625px;" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250118091844-zjzm0ar" data-node-id="20250118091844-zjzm0ar" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">published:2025-01-17T00:17:52Z</div></div>
-    </div><div id="20250118091844-v88nqvm" data-node-id="20250118091844-v88nqvm" data-type="NodeListItem" updated="20250118091844" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250118091844-6yzp5gr" data-node-id="20250118091844-6yzp5gr" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">updated:2025-01-17T16:42:41Z</div></div>
-    </div></div>
-<div id="20250118091844-4w740wc" data-node-id="20250118091844-4w740wc" data-type="NodeBlockquote" updated="20250118091844" class="bq"><div id="20250118091844-nz2b99w" data-node-id="20250118091844-nz2b99w" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">这里记录每周值得分享的科技内容，周五发布。...</div></div></div>
-<div id="20250118091849-g69289o" data-node-id="20250118091849-g69289o" data-type="NodeParagraph" updated="20250118091937" class="p"><div spellcheck="false"><a href="https://www.xda-developers.com/how-use-laptop-second-monitor/">Wireless Display</a> 将其他电脑作为无线显示器</div></div>
-<div id="20250118092427-9bqf796" data-node-id="20250118092427-9bqf796" data-type="NodeParagraph" updated="20250118092447" class="p"><div spellcheck="false"><a href="https://raphael.app/zh">https://raphael.app/zh</a> 免费 ai 文生图</div></div><div id="20250118092427-9bqf796" data-node-id="20250118092427-9bqf796" data-type="NodeParagraph" updated="20250118092447" class="p"><div spellcheck="false"><a href="https://raphael.app/zh">https://raphael.app/zh</a> 免费 ai 文生图</div></div><div id="20250118091849-g69289o" data-node-id="20250118091849-g69289o" data-type="NodeParagraph" updated="20250118091937" class="p"><div spellcheck="false"><a href="https://www.xda-developers.com/how-use-laptop-second-monitor/">Wireless Display</a> 将其他电脑作为无线显示器</div></div><div id="20250118091844-tyw3dxd" data-node-id="20250118091844-tyw3dxd" data-type="NodeList" updated="20250118091844" data-subtype="u" class="list"><div id="20250118091844-2yla4du" data-node-id="20250118091844-2yla4du" data-type="NodeListItem" updated="20250118091844" data-subtype="u" class="li" style="--en-bullet-line-height: 37.600006103515625px;" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250118091844-zjzm0ar" data-node-id="20250118091844-zjzm0ar" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">published:2025-01-17T00:17:52Z</div></div>
-    </div><div id="20250118091844-v88nqvm" data-node-id="20250118091844-v88nqvm" data-type="NodeListItem" updated="20250118091844" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250118091844-6yzp5gr" data-node-id="20250118091844-6yzp5gr" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">updated:2025-01-17T16:42:41Z</div></div>
-    </div></div><div id="20250118091844-zjzm0ar" data-node-id="20250118091844-zjzm0ar" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">published:2025-01-17T00:17:52Z</div></div><div id="20250118091844-v88nqvm" data-node-id="20250118091844-v88nqvm" data-type="NodeListItem" updated="20250118091844" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250118091844-6yzp5gr" data-node-id="20250118091844-6yzp5gr" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">updated:2025-01-17T16:42:41Z</div></div>
-    </div><div id="20250118091844-6yzp5gr" data-node-id="20250118091844-6yzp5gr" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">updated:2025-01-17T16:42:41Z</div></div><div id="20250118091844-nz2b99w" data-node-id="20250118091844-nz2b99w" data-type="NodeParagraph" updated="20250118091844" class="p"><div spellcheck="false">这里记录每周值得分享的科技内容，周五发布。...</div></div></div><div id="20210606160324-57c0iql" data-node-id="20210606160324-57c0iql" data-type="NodeParagraph" updated="20230924170522" class="p"><div spellcheck="false"></div></div>
+<div id="20250202164532-gn2cyys" data-node-id="20250202164532-gn2cyys" data-type="NodeParagraph" updated="20250202165100" class="p"><div spellcheck="false">如果可以做到 baseFn_A 声明需要哪些参数，但中间的传递层可以选择覆盖其中的一些配置，也可以选择不用传递的话就好了，伪代码如下</div></div>
+<div id="20250202164955-54a3g94" data-node-id="20250202164955-54a3g94" data-type="NodeCodeBlock" updated="20250202165608" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">js</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A(){
+	const {op,op2,op3,op4....} = requireFn()
+	return [op()，op2(),op3(),op4()....()]
+}
+function higherFn_B(){
+	// 覆盖 higherFn_C 传递的 op，但不影响op2,op3,op4....
+    setRequireFn({op:()=>{}})
+	baseFn_A()
+}
+function higherFn_C(){
+    setRequireFn({op,op2,op3,op4....})
+	higherFn_B()
+}
+</div>
+      </div><div id="20250202164955-54a3g94" data-node-id="20250202164955-54a3g94" data-type="NodeCodeBlock" updated="20250202165608" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">js</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A(){
+	const {op,op2,op3,op4....} = requireFn()
+	return [op()，op2(),op3(),op4()....()]
+}
+function higherFn_B(){
+	// 覆盖 higherFn_C 传递的 op，但不影响op2,op3,op4....
+    setRequireFn({op:()=>{}})
+	baseFn_A()
+}
+function higherFn_C(){
+    setRequireFn({op,op2,op3,op4....})
+	higherFn_B()
+}
+</div>
+      </div><div id="20250202164316-kbf7lkh" data-node-id="20250202164316-kbf7lkh" data-type="NodeCodeBlock" updated="20250202165223" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">js</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A(op,op2,op3,op4....){
+	return [op()，op2(),op3(),op4()....()]
+}
+function higherFn_B(op,op2,op3,op4....){
+	baseFn_A(op,op2,op3,op4....)
+}
+</div>
+      </div><div id="20250202164415-nfgrhsj" data-node-id="20250202164415-nfgrhsj" data-type="NodeParagraph" updated="20250202165104" class="p"><div spellcheck="false">这也是最简单的依赖倒置的实践</div></div><div id="20250202164532-gn2cyys" data-node-id="20250202164532-gn2cyys" data-type="NodeParagraph" updated="20250202165100" class="p"><div spellcheck="false">如果可以做到 baseFn_A 声明需要哪些参数，但中间的传递层可以选择覆盖其中的一些配置，也可以选择不用传递的话就好了，伪代码如下</div></div><div id="20250202164539-fe91mdu" data-node-id="20250202164539-fe91mdu" data-type="NodeParagraph" updated="20250202164746" class="p"><div spellcheck="false">上面这个实现是可行的，但在实际使用中会遇到下面这样的情况，很多层嵌套，很多的参数需要传递</div></div><div id="20250202164415-olbr8if" data-node-id="20250202164415-olbr8if" data-type="NodeCodeBlock" updated="20250202164417" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">js</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">function baseFn_A(op){
+	return op()，
+}
+function higherFn_B(op){
+	baseFn_A(op)
+}
+</div>
+      </div><h2 id="20250202164415-s8dz9ex" data-node-id="20250202164415-s8dz9ex" data-type="NodeHeading" updated="20250202164415" data-subtype="h2" class="h2">需要解决的问题</h2>
+<div id="20250202164415-rhugj6k" data-node-id="20250202164415-rhugj6k" data-type="NodeParagraph" updated="20250202164415" class="p"><div spellcheck="false"><span data-type="strong">在不修改旧代码的情况下修改他的逻辑</span></div></div></div><div id="20210606160324-57c0iql" data-node-id="20210606160324-57c0iql" data-type="NodeParagraph" updated="20230924170522" class="p"><div spellcheck="false"></div></div>
   </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
