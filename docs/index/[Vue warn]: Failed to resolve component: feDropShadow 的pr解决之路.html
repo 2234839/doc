@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>[Vue warn]: Failed to resolve component: feDropShadow 的pr解决之路</title>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div style="min-height: 150px;" id="20250226150151-nw265i8" data-node-id="20250226150151-nw265i8" data-type="NodeDocument" updated="20250226155640" data-subtype="h1" class="h1" custom-liandi-articleId="1740556610259" type="doc"></div><h1 id="20250226150151-nw265i8" data-node-id="20250226150151-nw265i8" data-type="NodeDocument" updated="20250226155640" data-subtype="h1" class="h1" custom-liandi-articleId="1740556610259" type="doc" data-type="NodeHeading" class="h1">[Vue warn]: Failed to resolve component: feDropShadow 的pr解决之路</h1><h2 id="20250226155553-vi39al4" data-node-id="20250226155553-vi39al4" data-type="NodeHeading" updated="20250226155555" data-subtype="h2" class="h2">[Vue warn]: Failed to resolve component: feDropShadow</h2><div id="20250226150153-xovux2p" data-node-id="20250226150153-xovux2p" data-type="NodeCodeBlock" updated="20250226150221" class="code-block">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">ts</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">[Vue warn]: Failed to resolve component: feDropShadow
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement.
+</div>
+      </div><div id="20250226150153-qyen1ug" data-node-id="20250226150153-qyen1ug" data-type="NodeParagraph" updated="20250226151957" class="p"><div spellcheck="false">刚刚看见了这个警告，但 feDropShadow 应该要被视作原生svg元素的 (<a href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element/feDropShadow">https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element/feDropShadow</a>)，</div></div><div id="20250226150153-nzl3ypr" data-node-id="20250226150153-nzl3ypr" data-type="NodeParagraph" updated="20250226150238" class="p"><div spellcheck="false">按照文档 <a href="https://vuejs.org/api/application#app-config-compileroptions-iscustomelement">https://vuejs.org/api/application#app-config-compileroptions-iscustomelement</a> 中所说的 svg 元素不需要在 app.config.compilerOptions.isCustomElement  中匹配</div></div><h2 id="20250226152001-q9mulu7" data-node-id="20250226152001-q9mulu7" data-type="NodeHeading" updated="20250226152004" data-subtype="h2" class="h2">定位问题</h2><div id="20250226150153-060l6zd" data-node-id="20250226150153-060l6zd" data-type="NodeParagraph" updated="20250226150246" class="p"><div spellcheck="false">我查看 vue 的源码，发现 <a href="https://github1s.com/vuejs/core/blob/main/packages/shared/src/domTagConfig.ts#L18">https://github1s.com/vuejs/core/blob/main/packages/shared/src/domTagConfig.ts#L18</a> 中有定义 <span data-type="code">feDropShadow</span>​ 为 <span data-type="code">SVG_TAGS</span>​</div></div><div id="20250226150246-phkvlp9" data-node-id="20250226150246-phkvlp9" data-type="NodeParagraph" updated="20250226150459" class="p"><div spellcheck="false">然后又查看实际编译的代码如下：对svg的处理和 feDropShadow 不一致，看来问题就在编译这个地方了</div></div><div id="20250226150153-ybkqsjf" data-node-id="20250226150153-ybkqsjf" data-type="NodeParagraph" updated="20250226150153" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+<img
+  src="./../assets/image-20250226145035-lrpular.png"
+  data-src="./../assets/image-20250226145035-lrpular.png"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div><div id="20250226150512-68uwjrq" data-node-id="20250226150512-68uwjrq" data-type="NodeParagraph" updated="20250226150742" class="p"><div spellcheck="false">然后我去 vue  <a href="https://play.vuejs.org/#eNqNU8tu2zAQ/JWFLnEAV1Lt1gdDCdA0Btoe2qLpURdFXElMKS5BUo/C8L93KTtKigRGBB12Z4bc0ZDaR5+MifsOo22UudJK48Gh7wyoQtdXeeRdHl3nOkuOJJfceGyNKjxyB5C5voZSFc6xvLh3pDqPeQSDFL5haLVJuWtQ1o2f2hW3vcThhkbuU0hhnW7giFdSKQY16bDF2Coddm28N9skGYYhHtYx2TpZpWma8ODJHPCTCazcqeaO9/Fo5z4geGvJ3DWFoAFEmLzhCeIvF++5cF7cYi8LL0mfoEoRiXclKbKM2Pq+WKRLOL3xx0uWJE8Tk/9GZsnsh6Pr6ynCZ7FFS062JF3JOn5wpDn+fRDnUUmtkQrtDxOscPpbmJjAFUrR8G3CvO1w+YiXDZZ/XsEf3BiwPPpp0aHtOdOZ84Wt0R/p3d13HLmeyZZEp1h9hvyF00mzx6PsptOCbT/TTW6/toasl7r+7XajR+0ePyoYDcrDpM8jvoOfz3z6k911/GFal+sDpxjWvOH+yskG7MFiBQeoLLVwwcsuwn3mc3AeKio7hwKugmZRFcrhZWD5IKXG3WjI4WI/yw5MnvsrzPUX5ABgIKtElpgXN+DwD/UuISc=">Vue SFC Playground - 示例</a> 中尝试，发现他的编译是正确的，再回头看我的代码发现我是使用的  <span data-type="code">&lt;script setup lang=&quot;tsx&quot;&gt;</span>​ 里面使用的</div></div><div id="20250226150742-cht8ck1" data-node-id="20250226150742-cht8ck1" data-type="NodeParagraph" updated="20250226151206" class="p"><div spellcheck="false">再尝试<a href="https://play.vuejs.org/#eNqFUlGP0zAM/itWX26TRtvbYA9TN4njJgEPgLh7rIR6jdvmSJMoSdeiaf8dJ+3GJNCQ8mB//mx/sX2M3msdHzqMNlFmS8O1A4uu0yAKWW/zyNkhj3a5LJW0Dp7Ruh/3sIXZHLY7mGX2UEMpCmuJWrxYJTqHeQQ9Z64haLlOyWuQ140L7pLcA8f+QQ3kp5DCKl3DiFdcCAKlkr7E0ArpqzbO6U2S9H0f96tYmTpZpmmaUOOgCyBjWNlgkU01HJrJ8z4+GqWfmoKpHpjvuaba7BcZ92RYxx7xwAvHlZygSijF3pRKKEOIqV+KWbqA6cXv5kRJzt2Sq3ZZMunIvLbdPBhhoISR47DVonA4kqdB+kpZchWKFjRxmnXF6/jVKklrOfqEPCpVq7lA81V7sTaPNhAiPlYIofrPAXOmw8UZLxssf/4Df/VL3ZDxzaBFc6B5X2KuMDW6Mbx/+oID2Zdgq1gniH0j+B3DFZDGkfbQSUayr3hB7adWK+O4rJ/tfnAo7flTXqhnngI/j+g2P9z4+h+5q/htyMvliaboc27fdTgfHmTAEQxWcILKqBbuKO3O72y8+UqVnUVGR0+cWVUIi7TcXNK6ucT9oJXF2fFCO/1n83r3EWkA0CsjWJbovy7g9Bs0fCoz">Vue SFC Playground -  新的示例</a> 成功复现了问题，也就是问题出现在了jsx 的编译</div></div><div id="20250226150857-brey9k3" data-node-id="20250226150857-brey9k3" data-type="NodeParagraph" updated="20250226150857" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+<img
+  src="./../assets/image-20250226150857-s7pc56p.png"
+  data-src="./../assets/image-20250226150857-s7pc56p.png"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div><div id="20250226151207-khtaxok" data-node-id="20250226151207-khtaxok" data-type="NodeParagraph" updated="20250226151230" class="p"><div spellcheck="false">继续查看 vue 编译 jsx 代码的项目 <a href="https://github.com/vuejs/babel-plugin-jsx">https://github.com/vuejs/babel-plugin-jsx</a> 的代码</div></div><div id="20250226151353-4cfdox5" data-node-id="20250226151353-4cfdox5" data-type="NodeParagraph" updated="20250226151416" class="p"><div spellcheck="false">定位到判断代码在 <a href="https://github1s.com/vuejs/babel-plugin-jsx/blob/main/packages/babel-plugin-jsx/src/utils.ts">https://github1s.com/vuejs/babel-plugin-jsx/blob/main/packages/babel-plugin-jsx/src/utils.ts</a></div></div><div id="20250226151417-bue80cg" data-node-id="20250226151417-bue80cg" data-type="NodeParagraph" updated="20250226151523" class="p"><div spellcheck="false">其中 <span data-type="code">checkIsComponent</span>​ 的判断逻辑有 <span data-type="code">!svgTags.includes(tag)</span>​</div></div><div id="20250226151524-jlkkhte" data-node-id="20250226151524-jlkkhte" data-type="NodeParagraph" updated="20250226151922" class="p"><div spellcheck="false">svgTas 是引用的一个 npm 库 <a href="https://www.npmjs.com/package/svg-tags">svg-tags</a> （这个项目的最后一次更新是八年前了），还记得前面 vue-core 的代码是自定义了 <span data-type="code">SVG_TAGS</span>​ ，这就是为什么写在 jsx 中和 template 中编译结果不一致的原因了。</div></div><h2 id="20250226151930-1xky7o1" data-node-id="20250226151930-1xky7o1" data-type="NodeHeading" updated="20250226155543" data-subtype="h2" class="h2">解决问题</h2><div id="20250226152011-eat06fb" data-node-id="20250226152011-eat06fb" data-type="NodeParagraph" updated="20250226152503" class="p"><div spellcheck="false">显然的方案是去给 <a href="https://www.npmjs.com/package/svg-tags">svg-tags</a> 提交 pr，查看 pr 列表发现已经有了，如果合并了 <a href="https://github.com/element-io/svg-tags/pull/1/files">Support SVG 2 elements</a> 就可以解决这个问题，但这个 16 年的现在也没有被合并所以我认为还是从  babel-plugin-jsx 下手比较好</div></div><div id="20250226152410-sqg0thq" data-node-id="20250226152410-sqg0thq" data-type="NodeParagraph" updated="20250226155543" class="p"><div spellcheck="false">于是我发起了一个 pr： <a href="https://github.com/vuejs/babel-plugin-jsx/pull/745">https://github.com/vuejs/babel-plugin-jsx/pull/745</a></div></div><div id="20250226155415-unfsh2j" data-node-id="20250226155415-unfsh2j" data-type="NodeParagraph" updated="20250226155415" class="p"><div spellcheck="false"></div></div>
+  </div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>

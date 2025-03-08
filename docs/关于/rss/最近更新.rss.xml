@@ -5,24 +5,90 @@
 <link></link>
 <description></description>
 <atom:link href="https://shenzilong.cn/关于/rss/最近更新.rss.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>2025-02-03T03:31:01.833Z</lastBuildDate>
+<lastBuildDate>2025-03-08T11:39:48.626Z</lastBuildDate>
 <item>
-  <title>Reflections on Dependency Injection</title>
-  <link>https://shenzilong.cn/index/对于依赖注入的思考-二/Reflections on Dependency Injection.html</link>
+  <title>Automatic translation of documents: the combination of expr plugin and aichat plugin technology</title>
+  <link>https://shenzilong.cn/index/自动翻译文档：expr插件和aichat插件的组合技/Automatic translation of documents: the combination of expr plugin and aichat plugin technology.html</link>
   <description></description>
-  <pubDate>2025-02-03T03:28:19.000Z</pubDate>
+  <pubDate>2025-03-08T11:21:18.000Z</pubDate>
 </item>
 <item>
-  <title>Suddenly Realized Why Dependency Injection Is Necessary</title>
-  <link>https://shenzilong.cn/index/对于依赖注入的思考/Suddenly Realized Why Dependency Injection Is Necessary.html</link>
+  <title>OceanPress</title>
+  <link>https://shenzilong.cn/想法/项目/OceanPress.html</link>
   <description></description>
-  <pubDate>2025-01-20T01:33:08.000Z</pubDate>
+  <pubDate>2023-10-10T10:16:24.000Z</pubDate>
 </item>
 <item>
-  <title>对于依赖注入的思考-二</title>
-  <link>https://shenzilong.cn/index/对于依赖注入的思考-二.html</link>
+  <title>自动翻译文档：expr插件和aichat插件的组合技</title>
+  <link>https://shenzilong.cn/index/自动翻译文档：expr插件和aichat插件的组合技.html</link>
   <description></description>
-  <pubDate>2025-02-03T03:27:08.000Z</pubDate>
+  <pubDate>2025-03-08T11:20:39.000Z</pubDate>
+</item>
+<item>
+  <title>ExprTest</title>
+  <link>https://shenzilong.cn/index/test/ExprTest.html</link>
+  <description></description>
+  <pubDate>2025-03-07T01:44:52.000Z</pubDate>
+</item>
+<item>
+  <title>需要翻译的文档</title>
+  <link>https://shenzilong.cn/index/test/ExprTest/需要翻译的文档.html</link>
+  <description></description>
+  <pubDate>2025-03-07T01:44:42.000Z</pubDate>
+</item>
+<item>
+  <title>未命名</title>
+  <link>https://shenzilong.cn/index/test/ExprTest/需要翻译的文档/未命名.html</link>
+  <description></description>
+  <pubDate>2025-03-06T13:44:39.000Z</pubDate>
+</item>
+<item>
+  <title>siyuan expression 插件</title>
+  <link>https://shenzilong.cn/other/我的开源项目/siyuan expression 插件.html</link>
+  <description></description>
+  <pubDate>2025-03-06T12:27:02.000Z</pubDate>
+</item>
+<item>
+  <title>pixpin</title>
+  <link>https://shenzilong.cn/index/我的软件资源清单/pixpin.html</link>
+  <description></description>
+  <pubDate>2025-03-06T01:55:30.000Z</pubDate>
+</item>
+<item>
+  <title>我的软件资源清单</title>
+  <link>https://shenzilong.cn/index/我的软件资源清单.html</link>
+  <description></description>
+  <pubDate>2025-03-06T01:55:18.000Z</pubDate>
+</item>
+<item>
+  <title>act</title>
+  <link>https://shenzilong.cn/工具/开发最佳实践/act.html</link>
+  <description></description>
+  <pubDate>2025-03-06T01:47:16.000Z</pubDate>
+</item>
+<item>
+  <title>开发最佳实践</title>
+  <link>https://shenzilong.cn/工具/开发最佳实践.html</link>
+  <description></description>
+  <pubDate>2025-03-06T01:31:31.000Z</pubDate>
+</item>
+<item>
+  <title>思源更新了吗</title>
+  <link>https://shenzilong.cn/想法/siyuan_feed插件/思源更新了吗.html</link>
+  <description></description>
+  <pubDate>2025-03-05T13:14:19.000Z</pubDate>
+</item>
+<item>
+  <title>阮一峰的网络日志</title>
+  <link>https://shenzilong.cn/文集/feed/阮一峰的网络日志.html</link>
+  <description></description>
+  <pubDate>2025-03-05T13:14:12.000Z</pubDate>
+</item>
+<item>
+  <title>鑫空间鑫生活</title>
+  <link>https://shenzilong.cn/文集/feed/鑫空间鑫生活.html</link>
+  <description></description>
+  <pubDate>2025-03-05T13:14:07.000Z</pubDate>
 </item>
 </channel>
 </rss>
