@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>自动翻译文档-expr插件和aichat插件的组合技</title>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div style="min-height: 150px;" id="20241228103033-h9y9bt3" data-node-id="20241228103033-h9y9bt3" data-type="NodeDocument" updated="20250308194225" data-subtype="h1" class="h1" type="doc"></div><h1 id="20241228103033-h9y9bt3" data-node-id="20241228103033-h9y9bt3" data-type="NodeDocument" updated="20250308194225" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">自动翻译文档-expr插件和aichat插件的组合技</h1><div id="20250308191708-msc9c4g" data-node-id="20250308191708-msc9c4g" data-type="NodeParagraph" updated="20250308191735" class="p"><div spellcheck="false">当前文章的英译版： <span data-type="block-ref" data-subtype="d" data-id="20250308191532-g9hkuca"><a href="./../index/自动翻译文档-expr插件和aichat插件的组合技/Automatic translation of documents.html#20250308191532-g9hkuca">Automatic translation of documents</a></span></div></div><h2 id="20241228103321-j2580bo" data-node-id="20241228103321-j2580bo" data-type="NodeHeading" updated="20241228103539" data-subtype="h2" class="h2">前言</h2><div id="20241228103330-1986rfk" data-node-id="20241228103330-1986rfk" data-type="NodeParagraph" updated="20241228103536" class="p"><div spellcheck="false">我有时候有将文章翻译为英文用于分享到英文互联网的需求，所以现在我可以通过 aichat 插件来使用 ai 帮我翻译文档，然后使用 expr 插件 来自动更新英文笔记，最后使用 <span data-type="block-ref" data-subtype="d" data-id="20201121142503-ivwtfzg"><a href="./../想法/项目/OceanPress.html#20201121142503-ivwtfzg">OceanPress</a></span> 来分享我的笔记，一套连招丝滑完成。</div></div><h2 id="20241228103539-ru8wf4x" data-node-id="20241228103539-ru8wf4x" data-type="NodeHeading" updated="20250308192039" data-subtype="h2" class="h2">实现方式</h2><div id="20241228103033-5meuyig" data-node-id="20241228103033-5meuyig" data-type="NodeList" updated="20250308191344" data-subtype="o" class="list"><div id="20241228103617-xjuylym" data-node-id="20241228103617-xjuylym" data-type="NodeListItem" updated="20250308191340" data-subtype="o" class="li" data-marker="1.">
+      <div class="protyle-action">
+        1.
+      </div>
+      <div id="20241228103617-10ayh0y" data-node-id="20241228103617-10ayh0y" data-type="NodeParagraph" updated="20250308191340" class="p"><div spellcheck="false">安装 expr 插件最新版</div></div>
+    </div><div id="20241228103619-gbx6jem" data-node-id="20241228103619-gbx6jem" data-type="NodeListItem" updated="20250308191344" data-subtype="o" class="li" data-marker="2.">
+      <div class="protyle-action">
+        2.
+      </div>
+      <div id="20241228103619-d0yy0tc" data-node-id="20241228103619-d0yy0tc" data-type="NodeParagraph" updated="20250308191344" class="p"><div spellcheck="false">安装 aichat 插件最新版</div></div>
+    </div></div><div id="20250306204056-lnh3hj6" data-node-id="20250306204056-lnh3hj6" data-type="NodeParagraph" updated="20250306214628" class="p"><div spellcheck="false"></div></div><div id="20250306214629-u9lkg5t" data-node-id="20250306214629-u9lkg5t" data-type="NodeParagraph" updated="20250308191941" class="p"><div spellcheck="false">在需要输出译文的块上添加 expr 属性（ 按住shift键点击块标弹出自定义属性面板 ）
+​<span data-type="NodeImage" class="img" style="">
+<img
+  src="./../assets/image-20250308191859-teuq6k1.png"
+  data-src="./../assets/image-20250308191859-teuq6k1.png"
+  title=""
+  style=""
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div><div id="20250306214641-u2cg1t2" data-node-id="20250306214641-u2cg1t2" data-type="NodeParagraph" updated="20250308191412" class="p"><div spellcheck="false">表达式如下,需要修改其中的 sourceId 为 原文文档的 id （右键对应文档>复制>id）</div></div><div id="20250306214646-p58etpr" data-node-id="20250306214646-p58etpr" data-type="NodeCodeBlock" updated="20250308191421" class="code-block" style="line-height: 22px;">
+        <div class="protyle-action">
+          <span class="protyle-action--first protyle-action__language">js</span>
+          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+        </div>
+        <div class="hljs" spellcheck="false">// 需要被翻译的块(文档)的 id
+const sourceId = '20250306213356-ekvz9w9';
+
+const sourceAttr = await expr.util.api.getBlockAttrs(sourceId);
+// 表达式块的属性
+const blockAttr = await expr.util.api.getBlockAttrs(block.id);
+
+// 只支持英文字母和数字，不支持特殊字符和空格
+const updateFlag = 'custom-ai-translated-updated';
+
+if (sourceAttr.updated === blockAttr[updateFlag]) {
+  // 原文档没有更新，所以表达式块的内容也不需要更新
+  return expr.flag.noOutput;
+} else {
+  const res = await expr.util.api.getBlockKramdown(sourceId);
+  const kramdown = res ? res.kramdown : res;
+  if (!kramdown) {
+    return expr.flag.noOutput;
+  }
+  block.Attr={ [updateFlag]: sourceAttr.updated }
+  return (
+    '{{{row\n' +
+    (await aiChatPlugin.openaiAPI.ai翻译为英文({ openai: aiChatPlugin.openaiAPI.openai }, kramdown))
+      .res +
+    '\n}}}'
+  );
+}
+
+</div>
+      </div><div id="20250308191425-qr0b88i" data-node-id="20250308191425-qr0b88i" data-type="NodeParagraph" updated="20250308191517" class="p"><div spellcheck="false">在翻译之后，如果你更新了原文，对应的译文表达式在特定的时机下会自动同步更新</div></div><div id="20250308191853-zr0zmx7" data-node-id="20250308191853-zr0zmx7" data-type="NodeParagraph" updated="20250308192026" class="p"><div spellcheck="false">正在执行的表达式块会有蓝色边框闪烁</div></div><div id="20250308192039-03ufzwj" data-node-id="20250308192039-03ufzwj" data-type="NodeParagraph" updated="20250308192039" class="p"><div spellcheck="false"></div></div>
+  </div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>
