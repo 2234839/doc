@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-<channel>
-<title></title>
-<link></link>
-<description></description>
-<atom:link href="https://shenzilong.cn/关于/rss/崮生精选.rss.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>2025-03-08T11:43:34.118Z</lastBuildDate>
-<item>
-  <title>SiYuan serverless</title>
-  <link>https://shenzilong.cn/想法/项目/SiYuan serverless.html</link>
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+  <title></title>
+  <link></link>
   <description></description>
-  <pubDate>2024-01-14T02:51:32.000Z</pubDate>
-</item>
+  <atom:link href="https://shenzilong.cn/关于/rss/崮生精选.rss.xml" rel="self" type="application/rss+xml"/>
+  <lastBuildDate>2025-03-14T13:27:00.948Z</lastBuildDate>
+  <item>
+    <title>SiYuan serverless</title>
+    <link>https://shenzilong.cn/想法/项目/SiYuan serverless.html</link>
+    <description></description>
+    <pubDate>2024-01-14T02:51:32.000Z</pubDate>
+  </item>
 <item>
-  <title>OceanPress_js</title>
-  <link>https://shenzilong.cn/想法/项目/OceanPress_js.html</link>
-  <description></description>
-  <pubDate>2025-02-05T05:12:17.000Z</pubDate>
-</item>
+    <title>OceanPress_js</title>
+    <link>https://shenzilong.cn/想法/项目/OceanPress_js.html</link>
+    <description></description>
+    <pubDate>2025-03-09T04:42:38.000Z</pubDate>
+  </item>
 <item>
-  <title>siyuan_feed插件</title>
-  <link>https://shenzilong.cn/想法/siyuan_feed插件.html</link>
-  <description></description>
-  <pubDate>2024-02-06T09:19:29.000Z</pubDate>
-</item>
+    <title>siyuan_feed插件</title>
+    <link>https://shenzilong.cn/想法/siyuan_feed插件.html</link>
+    <description></description>
+    <pubDate>2024-02-06T09:19:29.000Z</pubDate>
+  </item>
 <item>
-  <title>使用prisma studio链接任何server</title>
-  <link>https://shenzilong.cn/工具/prisma/使用prisma studio链接任何server.html</link>
-  <description></description>
-  <pubDate>2023-12-24T13:42:44.000Z</pubDate>
-</item>
-</channel>
-</rss>
+    <title>使用prisma studio链接任何server</title>
+    <link>https://shenzilong.cn/工具/prisma/使用prisma studio链接任何server.html</link>
+    <description></description>
+    <pubDate>2023-12-24T13:42:44.000Z</pubDate>
+  </item>
+  </channel>
+  </rss>

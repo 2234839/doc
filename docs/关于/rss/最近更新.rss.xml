@@ -1,94 +1,196 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-<channel>
-<title></title>
-<link></link>
-<description></description>
-<atom:link href="https://shenzilong.cn/关于/rss/最近更新.rss.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>2025-03-08T11:43:34.220Z</lastBuildDate>
-<item>
-  <title>Automatic translation of documents-the combination of expr plugin and aichat plugin technology</title>
-  <link>https://shenzilong.cn/index/Automatic translation of documents-the combination of expr plugin and aichat plugin technology.html</link>
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+  <title></title>
+  <link></link>
   <description></description>
-  <pubDate>2025-03-08T11:43:37.000Z</pubDate>
-</item>
+  <atom:link href="https://shenzilong.cn/关于/rss/最近更新.rss.xml" rel="self" type="application/rss+xml"/>
+  <lastBuildDate>2025-03-14T13:27:01.153Z</lastBuildDate>
+  <item>
+    <title>OceanPress 支持部署思源笔记到自托管 server</title>
+    <link>https://shenzilong.cn/index/OceanPress 支持部署思源笔记到自托管 server.html</link>
+    <description></description>
+    <pubDate>2025-03-14T13:25:02.000Z</pubDate>
+  </item>
 <item>
-  <title>OceanPress</title>
-  <link>https://shenzilong.cn/想法/项目/OceanPress.html</link>
-  <description></description>
-  <pubDate>2023-10-10T10:16:24.000Z</pubDate>
-</item>
+    <title>index</title>
+    <link>https://shenzilong.cn/index.html</link>
+    <description></description>
+    <pubDate>2025-03-14T13:22:31.000Z</pubDate>
+  </item>
 <item>
-  <title>自动翻译文档-expr插件和aichat插件的组合技</title>
-  <link>https://shenzilong.cn/index/自动翻译文档-expr插件和aichat插件的组合技.html</link>
-  <description></description>
-  <pubDate>2025-03-08T11:42:25.000Z</pubDate>
-</item>
+    <title>怎么发布npm包</title>
+    <link>https://shenzilong.cn/index/怎么发布npm包.html</link>
+    <description></description>
+    <pubDate>2025-03-12T14:55:07.000Z</pubDate>
+  </item>
 <item>
-  <title>ExprTest</title>
-  <link>https://shenzilong.cn/index/test/ExprTest.html</link>
-  <description></description>
-  <pubDate>2025-03-07T01:44:52.000Z</pubDate>
-</item>
+    <title>windows 语音输入</title>
+    <link>https://shenzilong.cn/index/windows 语音输入.html</link>
+    <description></description>
+    <pubDate>2025-03-04T07:02:40.000Z</pubDate>
+  </item>
 <item>
-  <title>需要翻译的文档</title>
-  <link>https://shenzilong.cn/index/test/ExprTest/需要翻译的文档.html</link>
-  <description></description>
-  <pubDate>2025-03-07T01:44:42.000Z</pubDate>
-</item>
+    <title>[Vue warn]: Failed to resolve component: feDropShadow 的pr解决之路</title>
+    <link>https://shenzilong.cn/index/[Vue warn]: Failed to resolve component: feDropShadow 的pr解决之路.html</link>
+    <description></description>
+    <pubDate>2025-02-26T07:56:40.000Z</pubDate>
+  </item>
 <item>
-  <title>未命名</title>
-  <link>https://shenzilong.cn/index/test/ExprTest/需要翻译的文档/未命名.html</link>
-  <description></description>
-  <pubDate>2025-03-06T13:44:39.000Z</pubDate>
-</item>
+    <title>如何评价CSS框架TailwindCSS？</title>
+    <link>https://shenzilong.cn/index/如何评价CSS框架TailwindCSS？.html</link>
+    <description></description>
+    <pubDate>2025-02-26T05:53:28.000Z</pubDate>
+  </item>
 <item>
-  <title>siyuan expression 插件</title>
-  <link>https://shenzilong.cn/other/我的开源项目/siyuan expression 插件.html</link>
-  <description></description>
-  <pubDate>2025-03-06T12:27:02.000Z</pubDate>
-</item>
+    <title>超级棒的remote app</title>
+    <link>https://shenzilong.cn/index/超级棒的remote app.html</link>
+    <description></description>
+    <pubDate>2025-03-08T12:00:43.000Z</pubDate>
+  </item>
 <item>
-  <title>pixpin</title>
-  <link>https://shenzilong.cn/index/我的软件资源清单/pixpin.html</link>
-  <description></description>
-  <pubDate>2025-03-06T01:55:30.000Z</pubDate>
-</item>
+    <title>电子爱好</title>
+    <link>https://shenzilong.cn/index/电子爱好.html</link>
+    <description></description>
+    <pubDate>2025-02-16T06:50:21.000Z</pubDate>
+  </item>
 <item>
-  <title>我的软件资源清单</title>
-  <link>https://shenzilong.cn/index/我的软件资源清单.html</link>
-  <description></description>
-  <pubDate>2025-03-06T01:55:18.000Z</pubDate>
-</item>
+    <title>ai agent学习</title>
+    <link>https://shenzilong.cn/index/ai agent学习.html</link>
+    <description></description>
+    <pubDate>2025-02-12T12:44:07.000Z</pubDate>
+  </item>
 <item>
-  <title>act</title>
-  <link>https://shenzilong.cn/工具/开发最佳实践/act.html</link>
-  <description></description>
-  <pubDate>2025-03-06T01:47:16.000Z</pubDate>
-</item>
+    <title>vscode continue插件支持从思源中搜索文档使用</title>
+    <link>https://shenzilong.cn/index/vscode continue插件支持从思源中搜索文档使用.html</link>
+    <description></description>
+    <pubDate>2025-02-07T02:27:04.000Z</pubDate>
+  </item>
 <item>
-  <title>开发最佳实践</title>
-  <link>https://shenzilong.cn/工具/开发最佳实践.html</link>
-  <description></description>
-  <pubDate>2025-03-06T01:31:31.000Z</pubDate>
-</item>
+    <title>ai测试</title>
+    <link>https://shenzilong.cn/index/ai测试.html</link>
+    <description></description>
+    <pubDate>2025-02-03T11:28:07.000Z</pubDate>
+  </item>
 <item>
-  <title>思源更新了吗</title>
-  <link>https://shenzilong.cn/想法/siyuan_feed插件/思源更新了吗.html</link>
-  <description></description>
-  <pubDate>2025-03-05T13:14:19.000Z</pubDate>
-</item>
+    <title>对于依赖注入的思考-二</title>
+    <link>https://shenzilong.cn/index/对于依赖注入的思考-二.html</link>
+    <description></description>
+    <pubDate>2025-02-24T05:08:11.000Z</pubDate>
+  </item>
 <item>
-  <title>阮一峰的网络日志</title>
-  <link>https://shenzilong.cn/文集/feed/阮一峰的网络日志.html</link>
-  <description></description>
-  <pubDate>2025-03-05T13:14:12.000Z</pubDate>
-</item>
+    <title>对于依赖注入的思考</title>
+    <link>https://shenzilong.cn/index/对于依赖注入的思考.html</link>
+    <description></description>
+    <pubDate>2025-02-02T07:30:10.000Z</pubDate>
+  </item>
 <item>
-  <title>鑫空间鑫生活</title>
-  <link>https://shenzilong.cn/文集/feed/鑫空间鑫生活.html</link>
-  <description></description>
-  <pubDate>2025-03-05T13:14:07.000Z</pubDate>
-</item>
-</channel>
-</rss>
+    <title>自动翻译文档-expr插件和aichat插件的组合技</title>
+    <link>https://shenzilong.cn/index/自动翻译文档-expr插件和aichat插件的组合技.html</link>
+    <description></description>
+    <pubDate>2025-03-08T11:42:25.000Z</pubDate>
+  </item>
+<item>
+    <title>aiChat-plugin-siyuan</title>
+    <link>https://shenzilong.cn/index/aiChat-plugin-siyuan.html</link>
+    <description></description>
+    <pubDate>2025-02-11T12:05:23.000Z</pubDate>
+  </item>
+<item>
+    <title>我的软件资源清单</title>
+    <link>https://shenzilong.cn/index/我的软件资源清单.html</link>
+    <description></description>
+    <pubDate>2025-03-12T02:48:09.000Z</pubDate>
+  </item>
+<item>
+    <title>如何实现一个小体积的js docker镜像</title>
+    <link>https://shenzilong.cn/record/如何实现一个小体积的js docker镜像.html</link>
+    <description></description>
+    <pubDate>2024-09-01T01:52:27.000Z</pubDate>
+  </item>
+<item>
+    <title>OceanPress插件实现完美ocr v0.3.6</title>
+    <link>https://shenzilong.cn/想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件实现完美ocr v0.3.6.html</link>
+    <description></description>
+    <pubDate>2024-06-19T03:21:23.000Z</pubDate>
+  </item>
+<item>
+    <title>siyuan_feed插件</title>
+    <link>https://shenzilong.cn/想法/siyuan_feed插件.html</link>
+    <description></description>
+    <pubDate>2024-02-06T09:19:29.000Z</pubDate>
+  </item>
+<item>
+    <title>OceanPress_js</title>
+    <link>https://shenzilong.cn/想法/项目/OceanPress_js.html</link>
+    <description></description>
+    <pubDate>2025-03-09T04:42:38.000Z</pubDate>
+  </item>
+<item>
+    <title>崮生的歌单</title>
+    <link>https://shenzilong.cn/杂记/崮生的歌单.html</link>
+    <description></description>
+    <pubDate>2023-12-22T05:27:26.000Z</pubDate>
+  </item>
+<item>
+    <title>test</title>
+    <link>https://shenzilong.cn/index/test.html</link>
+    <description></description>
+    <pubDate>2025-03-14T11:01:37.000Z</pubDate>
+  </item>
+<item>
+    <title>continue</title>
+    <link>https://shenzilong.cn/index/我的软件资源清单/continue.html</link>
+    <description></description>
+    <pubDate>2025-03-14T02:29:19.000Z</pubDate>
+  </item>
+<item>
+    <title>崮生61键按键方案</title>
+    <link>https://shenzilong.cn/index/我的软件资源清单/崮生61键按键方案.html</link>
+    <description></description>
+    <pubDate>2025-02-09T07:27:35.000Z</pubDate>
+  </item>
+<item>
+    <title>开发最佳实践</title>
+    <link>https://shenzilong.cn/工具/开发最佳实践.html</link>
+    <description></description>
+    <pubDate>2025-03-12T02:47:44.000Z</pubDate>
+  </item>
+<item>
+    <title>rime</title>
+    <link>https://shenzilong.cn/工具/开发最佳实践/rime.html</link>
+    <description></description>
+    <pubDate>2024-05-22T16:42:00.000Z</pubDate>
+  </item>
+<item>
+    <title>2024-03-12</title>
+    <link>https://shenzilong.cn/daily note/2024/03/2024-03-12.html</link>
+    <description></description>
+    <pubDate>2024-03-12T14:39:06.000Z</pubDate>
+  </item>
+<item>
+    <title>typescript</title>
+    <link>https://shenzilong.cn/读书笔记/typescript.html</link>
+    <description></description>
+    <pubDate>2025-03-12T02:47:00.000Z</pubDate>
+  </item>
+<item>
+    <title>rslib</title>
+    <link>https://shenzilong.cn/工具/开发最佳实践/rslib.html</link>
+    <description></description>
+    <pubDate>2025-02-22T08:51:57.000Z</pubDate>
+  </item>
+<item>
+    <title>llrt</title>
+    <link>https://shenzilong.cn/daily note/2024/05/2024-05-18/llrt.html</link>
+    <description></description>
+    <pubDate>2024-05-19T13:01:16.000Z</pubDate>
+  </item>
+<item>
+    <title>prisma</title>
+    <link>https://shenzilong.cn/工具/prisma.html</link>
+    <description></description>
+    <pubDate>2023-12-26T10:51:14.000Z</pubDate>
+  </item>
+  </channel>
+  </rss>
