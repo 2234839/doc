@@ -5,8 +5,14 @@
   <link></link>
   <description></description>
   <atom:link href="https://shenzilong.cn/关于/rss/最近更新.rss.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>2025-03-15T12:26:46.841Z</lastBuildDate>
+  <lastBuildDate>2025-03-15T13:29:46.551Z</lastBuildDate>
   <item>
+    <title>2023 年更新日志</title>
+    <link>https://shenzilong.cn/想法/项目/OceanPress_js/2023 年更新日志.html</link>
+    <description></description>
+    <pubDate>2025-03-15T12:35:40.000Z</pubDate>
+  </item>
+<item>
     <title>思源笔记</title>
     <link>https://shenzilong.cn/record/思源笔记.html</link>
     <description></description>
@@ -197,30 +203,6 @@
     <link>https://shenzilong.cn/daily note/2024/03/2024-03-12.html</link>
     <description></description>
     <pubDate>2024-03-12T14:39:06.000Z</pubDate>
-  </item>
-<item>
-    <title>typescript</title>
-    <link>https://shenzilong.cn/读书笔记/typescript.html</link>
-    <description></description>
-    <pubDate>2025-03-12T02:47:00.000Z</pubDate>
-  </item>
-<item>
-    <title>rslib</title>
-    <link>https://shenzilong.cn/工具/开发最佳实践/rslib.html</link>
-    <description></description>
-    <pubDate>2025-02-22T08:51:57.000Z</pubDate>
-  </item>
-<item>
-    <title>llrt</title>
-    <link>https://shenzilong.cn/daily note/2024/05/2024-05-18/llrt.html</link>
-    <description></description>
-    <pubDate>2024-05-19T13:01:16.000Z</pubDate>
-  </item>
-<item>
-    <title>prisma</title>
-    <link>https://shenzilong.cn/工具/prisma.html</link>
-    <description></description>
-    <pubDate>2023-12-26T10:51:14.000Z</pubDate>
   </item>
   </channel>
   </rss>
