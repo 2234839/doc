@@ -1,21 +1,20 @@
-import * as Minio from "minio";
-import fs from "fs/promises";
-
+import * as Minio from 'minio';
+import fs from 'fs/promises';
 console.log(process.env.ENDPOINT);
 
 const minioClient = new Minio.Client({
-  endPoint: process.env.ENDPOINT! || "s3.shenzilong.cn",
+  endPoint: process.env.ENDPOINT! || 's3.shenzilong.cn',
   port: 443,
   useSSL: true,
-  accessKey: process.env.ACCESSKEY! || "fadsfDKJFHK323",
-  secretKey: process.env.SECRETKEY! || "dsafakuj2u34ju23__32jk",
+  accessKey: process.env.ACCESSKEY!,
+  secretKey: process.env.SECRETKEY!,
 });
-const BucketName = "myjfs";
+const BucketName = 'myjfs';
 
-const localRepoPath = "./docs";
-const remotePath = "app/docs";
+const localRepoPath = './docs';
+const remotePath = 'app/docs';
 
-const NotFound = Symbol("NotFound");
+const NotFound = Symbol('NotFound');
 
 uploadDirToS3(remotePath, localRepoPath);
 
@@ -31,7 +30,7 @@ async function uploadDirToS3(s3Dir: string, localDir: string) {
         await uploadDirToS3(s3Path, localPath);
       } else {
         const objectStat = await minioClient.statObject(BucketName, s3Path).catch((e: Error) => {
-          if (e.message.includes("Not Found")) {
+          if (e.message.includes('Not Found')) {
             return NotFound;
           }
         });
@@ -42,10 +41,10 @@ async function uploadDirToS3(s3Dir: string, localDir: string) {
           objectStat.size !== fileStat.size
         ) {
           await minioClient.fPutObject(BucketName, s3Path, localPath, {}).then((r) => {
-            console.log("upload：", s3Path, `${(fileStat.size / 1024).toFixed(0)}k`, r);
+            console.log('upload：', s3Path, `${(fileStat.size / 1024).toFixed(0)}k`, r);
           });
         } else {
-          // console.log("跳过", s3Path);
+          console.log('跳过', s3Path);
         }
       }
     }),
