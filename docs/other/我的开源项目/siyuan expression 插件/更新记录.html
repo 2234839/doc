@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>更新记录</title>
 </head>
 <body>
@@ -51,9 +51,9 @@
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20240605121942-px30pq7" data-node-id="20240605121942-px30pq7" data-type="NodeDocument" updated="20241228104302" data-subtype="h1" class="h1" type="doc"></div><h1 id="20240605121942-px30pq7" data-node-id="20240605121942-px30pq7" data-type="NodeDocument" updated="20241228104302" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">更新记录</h1><div id="20241228102555-8tobxr6" data-node-id="20241228102555-8tobxr6" data-type="NodeParagraph" updated="20241228104302" class="p"><div spellcheck="false">v0.0.25: <span data-type="code">支持更新文档块</span>​ ，支持表达式调用 <span data-type="block-ref" data-subtype="d" data-id="20241228103925-nnzn7ey"><a href="./../../../other/我的开源项目/siyuan expression 插件.html#20241228103925-nnzn7ey">expr.util.api</a></span> 对象</div></div><div id="20241228102616-78nohts" data-node-id="20241228102616-78nohts" data-type="NodeParagraph" updated="20241228102617" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20240714093844-u7pdcux"><a href="./../../../other/我的开源项目/siyuan expression 插件/更新记录/v0.0.12 expr表达式插件支持引用其他表达式计算结果.html#20240714093844-u7pdcux">v0.0.12 expr表达式插件支持引用其他表达式计算结果</a></span></div></div><div id="20240612204643-35qidwj" data-node-id="20240612204643-35qidwj" data-type="NodeParagraph" updated="20240613153025" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20240612204758-qbln0jw"><a href="./../../../other/我的开源项目/siyuan expression 插件/更新记录/v0.0.8表达式插件更新.html#20240612204758-qbln0jw">v0.0.8表达式插件更新</a></span></div></div><div id="20240613153025-x27szco" data-node-id="20240613153025-x27szco" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -72,7 +72,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

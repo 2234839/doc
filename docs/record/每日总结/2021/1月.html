@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>1月</title>
 </head>
 <body>
@@ -199,9 +199,9 @@ export function debounce<T extends (...args: any) => any>(fn: T, time: number) {
     </div></div>
     </div></div><div id="20210115103730-zjjjse7" data-node-id="20210115103730-zjjjse7" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20210115103808-12zcrqu"><a href="./../../../other/quark量子计划迷你linux开发版.html#20210115103808-12zcrqu">quark量子计划迷你linux开发版</a></span></div></div><div id="20240113121009-8gtj61d" data-node-id="20240113121009-8gtj61d" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20210521142713-slcc3wt" data-node-id="20210521142713-slcc3wt" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210115201952-hpczmmf" data-node-id="20210115201952-hpczmmf" data-type="NodeParagraph" class="p"><div spellcheck="false">今天给 <span data-type="block-ref" data-subtype="d" data-id="20201121142422-1gk6qv5"><a href="./../../../想法/项目/md2website.html#20201121142422-1gk6qv5">md2website</a></span> 加上了动态内容块渲染的功能（效果： <span data-type="block-ref" data-subtype="d" data-id="20210111192121-rd74g8n"><a href="./../../../关于/文档聚合/日常.html#20210111192121-rd74g8n">日常</a></span> ），期间尝试了很多方案，最终还是使用了 <a href="https://github.com/karalabe/xgo">xgo</a> 这个令人难受的一点在于他要拉取网上的依赖代码，在国内的网络下下载速度令人十分不感动，尤其 lute 的代码库体积超大花了很长时间</div></div><div id="20210521142713-0o10rva" data-node-id="20210521142713-0o10rva" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210117165019-fx122sl" data-node-id="20210117165019-fx122sl" data-type="NodeParagraph" class="p"><div spellcheck="false">QQ 这一波扫描浏览器历史让人害怕<a href="https://www.zhihu.com/question/439768601">【知乎】如何看待 QQ 扫描所有浏览器历史</a> 使用 <a href="https://www.zhihu.com/question/439768601/answer/1682468108">火绒的防护方法</a></div></div><div id="20210521142713-ti4c9j1" data-node-id="20210521142713-ti4c9j1" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20210118205455-n0g4r1v" data-node-id="20210118205455-n0g4r1v" data-type="NodeHeading" data-subtype="h2" class="h2">各浏览器打开调试页面的方法，远程调试手机</h2><div id="20210118205219-cwr3qp0" data-node-id="20210118205219-cwr3qp0" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://developer.mozilla.org/zh-CN/docs/Tools/about:debugging#%E6%89%93%E5%BC%80%E8%B0%83%E8%AF%95%E9%A1%B5%E9%9D%A2">[firefox]打开调试页面</a>  地址栏输入：<span data-type="code">about:debugging</span></div></div><div id="20210118205345-v1kte8i" data-node-id="20210118205345-v1kte8i" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://docs.microsoft.com/zh-cn/microsoft-edge/devtools-guide-chromium/remote-debugging/#%E6%AD%A5%E9%AA%A42%E4%BB%8E%E5%BC%80%E5%8F%91%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%B0%83%E8%AF%95-android-%E8%AE%BE%E5%A4%87%E4%B8%8A%E7%9A%84%E5%86%85%E5%AE%B9">[Edeg]打开调试页面</a>  地址栏输入：<span data-type="code">edge://inspect</span></div></div><div id="20210521142713-ko6vnay" data-node-id="20210521142713-ko6vnay" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210120162617-wqgi9yk" data-node-id="20210120162617-wqgi9yk" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="tag">闲评</span> ask.dcloud.net.cn 的文章发布系统会吞掉 emoji 之后的文本... 真的难受, 点击编辑看到的内容也和之前保存的时候不一样</div></div><div id="20210521142713-4ksknxp" data-node-id="20210521142713-4ksknxp" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210122112729-nb120oi" data-node-id="20210122112729-nb120oi" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="tag">工具</span> <a href="https://transform.tools/">https://transform.tools/</a> 多种语言转换的工具</div></div><div id="20210122112803-mze6947" data-node-id="20210122112803-mze6947" data-type="NodeParagraph" class="p"><div spellcheck="false">使用 css 实现 dom 元素抖动 <a href="http://elrumordelaluz.github.io/csshake/%E2%80%B8">http://elrumordelaluz.github.io/csshake/</a></div></div><div id="20210521142713-obu7r8l" data-node-id="20210521142713-obu7r8l" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210124153336-owl8hfp" data-node-id="20210124153336-owl8hfp" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="tag">日常</span> 因为宿舍的电费不可以取出来，而我下次再来就要换宿舍了，于是我想开着那没什么用的空调浪费一下，然后到下午3点的时候。就用完了，如果我不开空调的话，电应该是刚刚在我走的时候用完的​嗯，一切都是最好的安排。​我不应该浪费电的。</div></div><div id="20210125201017-zg4acrz" data-node-id="20210125201017-zg4acrz" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210125201017-w9rvfny" data-node-id="20210125201017-w9rvfny" data-type="NodeParagraph" class="p"><div spellcheck="false">vue jsx tsx 高阶组件尝试  <a href="https://www.zhihu.com/question/440637299/answer/1697377342">Vue 3 怎么写带泛型的组件？ - 崮生的回答 - 知乎</a></div></div><div id="20210125201043-ve715yp" data-node-id="20210125201043-ve715yp" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -220,7 +220,7 @@ export function debounce<T extends (...args: any) => any>(fn: T, time: number) {
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

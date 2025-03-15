@@ -5,12 +5,48 @@
   <link></link>
   <description></description>
   <atom:link href="https://shenzilong.cn/关于/rss/最近更新.rss.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>2025-03-14T13:27:01.153Z</lastBuildDate>
+  <lastBuildDate>2025-03-15T12:26:46.841Z</lastBuildDate>
   <item>
-    <title>OceanPress 支持部署思源笔记到自托管 server</title>
-    <link>https://shenzilong.cn/index/OceanPress 支持部署思源笔记到自托管 server.html</link>
+    <title>思源笔记</title>
+    <link>https://shenzilong.cn/record/思源笔记.html</link>
     <description></description>
-    <pubDate>2025-03-14T13:25:02.000Z</pubDate>
+    <pubDate>2021-05-21T06:43:32.000Z</pubDate>
+  </item>
+<item>
+    <title>思源笔记 其他记录</title>
+    <link>https://shenzilong.cn/record/思源笔记 其他记录.html</link>
+    <description></description>
+    <pubDate>2021-06-23T05:08:38.000Z</pubDate>
+  </item>
+<item>
+    <title>Tag</title>
+    <link>https://shenzilong.cn/record/Tag.html</link>
+    <description></description>
+    <pubDate>2023-12-22T06:28:36.000Z</pubDate>
+  </item>
+<item>
+    <title>支持在思源内打开OceanPress面板 0.3.28 </title>
+    <link>https://shenzilong.cn/想法/项目/OceanPress_js/OceanPress插件/更新日志/支持在思源内打开OceanPress面板 0.3.28 .html</link>
+    <description></description>
+    <pubDate>2025-03-15T06:27:04.000Z</pubDate>
+  </item>
+<item>
+    <title>更新日志</title>
+    <link>https://shenzilong.cn/想法/项目/OceanPress_js/OceanPress插件/更新日志.html</link>
+    <description></description>
+    <pubDate>2025-03-15T06:25:27.000Z</pubDate>
+  </item>
+<item>
+    <title>test</title>
+    <link>https://shenzilong.cn/index/test.html</link>
+    <description></description>
+    <pubDate>2025-03-15T05:11:25.000Z</pubDate>
+  </item>
+<item>
+    <title>OceanPress 部署思源笔记到自托管 server</title>
+    <link>https://shenzilong.cn/index/OceanPress 部署思源笔记到自托管 server.html</link>
+    <description></description>
+    <pubDate>2025-03-15T05:09:06.000Z</pubDate>
   </item>
 <item>
     <title>index</title>
@@ -131,12 +167,6 @@
     <link>https://shenzilong.cn/杂记/崮生的歌单.html</link>
     <description></description>
     <pubDate>2023-12-22T05:27:26.000Z</pubDate>
-  </item>
-<item>
-    <title>test</title>
-    <link>https://shenzilong.cn/index/test.html</link>
-    <description></description>
-    <pubDate>2025-03-14T11:01:37.000Z</pubDate>
   </item>
 <item>
     <title>continue</title>

@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>鸿蒙到底是啥</title>
 </head>
 <body>
@@ -86,9 +86,9 @@ Sheets）和HML（HarmonyOS Markup Language）。</div></div></div><div id="2021
       <div id="20210607151228-rxmooja" data-node-id="20210607151228-rxmooja" data-type="NodeParagraph" updated="20210607151252" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20210607150940-kwh105i"><a href="./../other/鸿蒙到底是啥.html#20210607150940-kwh105i">为啥中立技术人倾向嘲讽鸿蒙</a></span></div></div>
     </div></div><h3 id="20210602161902-doluii3" data-node-id="20210602161902-doluii3" data-type="NodeHeading" updated="20210602165820" data-subtype="h3" class="h3">听说鸿蒙开源了，所以鸿蒙这个分布式操作系统的代码仓库在哪？</h3><div id="20210602170026-9ymy22e" data-node-id="20210602170026-9ymy22e" data-type="NodeParagraph" updated="20210602170032" class="p"><div spellcheck="false"><a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjs4rzxyvjwAhWPA4gKHTlRAVwQFjAAegQIAxAD&url=https%3A%2F%2Fgitee.com%2Fexplore%2Fharmony&usg=AOvVaw0mEGB46brH7LlbAc4h6mfv">鸿蒙开源项目- 鸿蒙开源项目- 开源软件- Gitee.com</a></div></div><h3 id="20210602165824-zohpy5y" data-node-id="20210602165824-zohpy5y" data-type="NodeHeading" updated="20210602171409" data-subtype="h3" class="h3">就平时看到的说法鸿蒙似乎支持嵌入式以及安卓应用，就我的知识水平来看似乎需要两个操作系统才行？</h3><div id="20210602171244-69z3g21" data-node-id="20210602171244-69z3g21" data-type="NodeParagraph" updated="20210605182536" class="p"><div spellcheck="false">大致看了 <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjs4rzxyvjwAhWPA4gKHTlRAVwQFjAAegQIAxAD&url=https%3A%2F%2Fgitee.com%2Fexplore%2Fharmony&usg=AOvVaw0mEGB46brH7LlbAc4h6mfv">鸿蒙开源项目- 鸿蒙开源项目- 开源软件- Gitee.com</a> ，他确实实际上是多个系统，有嵌入式的 LiteOS ，兼容安卓的 armonyOS ，或许以后还会有纯软件的形式用来在其他系统运行。</div></div><div id="20210602171811-pnjz6hm" data-node-id="20210602171811-pnjz6hm" data-type="NodeParagraph" updated="20210602172043" class="p"><div spellcheck="false"><a href="https://zh.wikipedia.org/wiki/%E5%88%86%E5%B8%83%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">维基百科/分布式操作系统</a> 中说 『 <span data-type="strong">分布式操作系统</span> （Distributed operating system），是一个软件，它是许多独立的，<a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">网络连接</a>的，<a href="https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B%E9%96%93%E9%80%9A%E8%A8%8A">通讯</a>的，并且物理上分离的计算节点的集合 <span data-type="sup"><a href="https://zh.wikipedia.org/wiki/%E5%88%86%E5%B8%83%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F#cite_note-Tanenbaum1993-1">[1]</a></span> 。每个节点包含全局总操作系统的一个特定的软件子集。』</div></div><div id="20210602172215-0jkzqt8" data-node-id="20210602172215-0jkzqt8" data-type="NodeParagraph" updated="20210602172215" class="p"><div spellcheck="false">这是我没想到的，这个疑问来自于我对分布式操作系统的理解偏差</div></div><h3 id="20210607150940-kwh105i" data-node-id="20210607150940-kwh105i" data-type="NodeHeading" updated="20210607151321" data-subtype="h3" class="h3">为啥中立技术人倾向嘲讽鸿蒙</h3><div id="20210607150957-hdg4sjp" data-node-id="20210607150957-hdg4sjp" data-type="NodeParagraph" updated="20210607152004" class="p"><div spellcheck="false">鸿蒙是一款分布式系统，他其实由多个运行在不同环境的系统和软件组成的，但华为他宣传起来就好像是有一款独立的系统完全自主研发可以运行在各个平台并且兼容安卓，这个宣发看起来就让人生气</div></div><div id="20210602171115-qsajnuf" data-node-id="20210602171115-qsajnuf" data-type="NodeParagraph" updated="20210602171115" class="p"><div spellcheck="false"></div></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -107,7 +107,7 @@ Sheets）和HML（HarmonyOS Markup Language）。</div></div></div><div id="2021
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

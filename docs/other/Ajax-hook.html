@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>Ajax-hook</title>
 </head>
 <body>
@@ -51,9 +51,9 @@
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20210523142634-uvobblz" data-node-id="20210523142634-uvobblz" data-type="NodeDocument" updated="20241213140131" data-subtype="h1" class="h1" type="doc"></div><h1 id="20210523142634-uvobblz" data-node-id="20210523142634-uvobblz" data-type="NodeDocument" updated="20241213140131" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">Ajax-hook</h1><div id="20210523142634-ipm20fu" data-node-id="20210523142634-ipm20fu" data-type="NodeParagraph" updated="20240812123836" class="p"><div spellcheck="false"><a href="https://github.com/wendux/Ajax-hook">https://github.com/wendux/Ajax-hook</a>  请求拦截</div></div><div id="20210523142649-yywvh0f" data-node-id="20210523142649-yywvh0f" data-type="NodeParagraph" updated="20210523142706" class="p"><div spellcheck="false">Ajax-hook 是一个精巧的用于拦截浏览器XMLHttpRequest的库，它可以在XMLHttpRequest对象发起请求之前和收到响应内容之后获得处理权。通过它你可以在底层对请求和响应进行一些预处理。</div></div><div id="20241213140128-pkd6t5u" data-node-id="20241213140128-pkd6t5u" data-type="NodeThematicBreak" updated="20241213140128" class="hr"><div></div></div><div id="20210523142707-e4av4y4" data-node-id="20210523142707-e4av4y4" data-type="NodeParagraph" updated="20241213140126" class="p"><div spellcheck="false">​<span data-type="tag">note</span>​ 打算给 <a href="https://github.com/wendux/ajax-hook">ajax-hook</a> 捐赠一笔咖啡 <a href="https://github.com/wendux/ajax-hook/issues/136">https://github.com/wendux/ajax-hook/issues/136</a></div></div><div id="20241213140131-hnw4ecl" data-node-id="20241213140131-hnw4ecl" data-type="NodeParagraph" updated="20241213140131" class="p"><div spellcheck="false"></div></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -72,7 +72,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

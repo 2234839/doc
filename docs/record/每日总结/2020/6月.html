@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>6月</title>
 </head>
 <body>
@@ -355,9 +355,9 @@ style.appendChild(document.createTextNode(css));
 </div>
       </div><div id="20210521142713-rfm91ic" data-node-id="20210521142713-rfm91ic" data-type="NodeParagraph" class="p"><div spellcheck="false">这里的 <span data-type="code">count_cart_discounts.activityTotalAmount</span> 就有可能是一个长数值。结果出现了被截断显示不完整的 bug 通过后面隐藏的 <span data-type="code">&lt;cover-view style=&quot;color:transparent&quot;&gt;1&lt;/cover-view&gt;</span> 成功全部显示出来了</div></div><h2 id="20210521142713-z5c3a8q" data-node-id="20210521142713-z5c3a8q" data-type="NodeHeading" data-subtype="h2" class="h2"><a href="https://github.com/justjavac/deno_serverless_aliyun">deno 阿里云 runTime</a></h2><h2 id="20210521142713-6hv7qac" data-node-id="20210521142713-6hv7qac" data-type="NodeHeading" data-subtype="h2" class="h2">2020-6-24</h2><h3 id="20210521142713-8km8huh" data-node-id="20210521142713-8km8huh" data-type="NodeHeading" data-subtype="h3" class="h3">CSS div 部分透明渐变</h3><div id="20210521142713-dg1z8y6" data-node-id="20210521142713-dg1z8y6" data-type="NodeParagraph" class="p"><div spellcheck="false">主要是利用 mask 的 alpha 遮罩具体实现思路见 https://svelte.dev/repl/030dba75e2a44384b53c5fe6f235d3f8?version=3.23.2</div></div><div id="20210521142713-p9xu0mv" data-node-id="20210521142713-p9xu0mv" data-type="NodeParagraph" class="p"><div spellcheck="false">Chrome 系的目前好像并不支持，但手机上 iOS 和安卓基本能用。</div></div><div id="20210521142713-lsop6uq" data-node-id="20210521142713-lsop6uq" data-type="NodeParagraph" class="p"><div spellcheck="false">遮罩的要求则是 当 mask-mode 为 alpha 的时候他会根据遮罩层对应点的透明度来决定元素该位置的透明度，所以只要遮罩层的透明度是渐变的那么这个 div 自然也是透明渐变的效果了</div></div><h2 id="20210521142713-884z80s" data-node-id="20210521142713-884z80s" data-type="NodeHeading" data-subtype="h2" class="h2">2020-6-30</h2><h3 id="20210521142713-dh5dss7" data-node-id="20210521142713-dh5dss7" data-type="NodeHeading" data-subtype="h3" class="h3">一些图形库</h3><div id="20210521142713-5izzipi" data-node-id="20210521142713-5izzipi" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://wdd.js.org/jsplumb-chinese-tutorial/#/">jsplumb 主要用于图形连线</a></div></div><div id="20210521142713-dujxumw" data-node-id="20210521142713-dujxumw" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://g6.antv.vision/zh/examples/interaction/position">看起来比 jsplumb 要更全一些</a></div></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -376,7 +376,7 @@ style.appendChild(document.createTextNode(css));
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

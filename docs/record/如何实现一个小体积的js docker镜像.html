@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>如何实现一个小体积的js docker镜像</title>
 </head>
 <body>
@@ -71,9 +71,9 @@ CMD ["/home/llrt", "/home/app.lrt"]
 </div>
       </div><div id="20240831151702-kcntpeu" data-node-id="20240831151702-kcntpeu" data-type="NodeParagraph" updated="20240831151803" class="p"><div spellcheck="false">再经过 docker 的压缩后就得到了 3.78MB 这个数字。</div></div><h2 id="20240831151810-wcm9b6a" data-node-id="20240831151810-wcm9b6a" data-type="NodeHeading" updated="20240831152355" data-subtype="h2" class="h2">使用情况</h2><div id="20240831151816-je4r9a3" data-node-id="20240831151816-je4r9a3" data-type="NodeParagraph" updated="20240831151915" class="p"><div spellcheck="false">llrt 的运行速度比 node 还是慢了许多，在我这个场景下它比 node 要慢上两倍，gc 的运行速度也要慢许多。</div></div><div id="20240831152323-smkt5hr" data-node-id="20240831152323-smkt5hr" data-type="NodeParagraph" updated="20240831152355" class="p"><div spellcheck="false">但初始内存占用和启动速度是碾压 node 的。</div></div><div id="20240831151915-jffhsdl" data-node-id="20240831151915-jffhsdl" data-type="NodeParagraph" updated="20240831152258" class="p"><div spellcheck="false">由于运行时还不是特别完善的问题，很容易踩坑，所以除非你急需压缩 js 的运行内存占用/冷启动速度或者和我一样就是想要这么做，还是建议直接使用 node 吧。</div></div><div id="20240831152226-k6hu20d" data-node-id="20240831152226-k6hu20d" data-type="NodeParagraph" updated="20240831152226" class="p"><div spellcheck="false"></div></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -92,7 +92,7 @@ CMD ["/home/llrt", "/home/app.lrt"]
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);
