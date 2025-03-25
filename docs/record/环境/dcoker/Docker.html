@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>Docker</title>
 </head>
 <body>
@@ -49,12 +49,19 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201104153359-brlarq4" data-node-id="20201104153359-brlarq4" data-type="NodeDocument" updated="20231207095615" data-subtype="h1" class="h1" type="doc"></div><h1 id="20201104153359-brlarq4" data-node-id="20201104153359-brlarq4" data-type="NodeDocument" updated="20231207095615" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">Docker</h1><h2 id="20210521142713-li77tqz" data-node-id="20210521142713-li77tqz" data-type="NodeHeading" data-subtype="h2" class="h2">安装 docker</h2><div id="20210521142713-cfqbg9f" data-node-id="20210521142713-cfqbg9f" data-type="NodeParagraph" class="p"><div spellcheck="false">[Docker 安装]{https://docs.docker.com/engine/installation/}</div></div><h3 id="20210521142713-2cppvqy" data-node-id="20210521142713-2cppvqy" data-type="NodeHeading" data-subtype="h3" class="h3">安装的时候不出意外又遇到了很多错误</h3><div id="20210521142713-pf0wokt" data-node-id="20210521142713-pf0wokt" data-type="NodeParagraph" class="p"><div spellcheck="false">通过下面的方法解决了问题 <a href="https://stackoverflow.com/questions/45272827/docker-ce-on-rhel-requires-container-selinux-2-9">Docker CE on RHEL - Requires: container-selinux &gt;= 2.9</a></div></div><div id="20210521142713-o59ibxj" data-node-id="20210521142713-o59ibxj" data-type="NodeParagraph" class="p"><div spellcheck="false">具体步骤如下</div></div><div id="20210521142713-vm48orj" data-node-id="20210521142713-vm48orj" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">bash</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">$ yum install http://vault.centos.org/centos/7.3.1611/extras/x86_64/Packages/container-selinux-2.9-4.el7.noarch.rpm
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20201104153359-brlarq4" data-node-id="20201104153359-brlarq4" data-type="NodeDocument" updated="20231207095615" type="doc">
+
+<h1 id="20201104153359-brlarq4" data-node-id="20201104153359-brlarq4" data-type="NodeDocument" updated="20231207095615" type="doc" data-type="NodeHeading" class="h1">Docker</h1>
+<h2 id="20210521142713-li77tqz" data-node-id="20210521142713-li77tqz" data-type="NodeHeading" data-subtype="h2" class="h2">安装 docker</h2><div id="20210521142713-cfqbg9f" data-node-id="20210521142713-cfqbg9f" data-type="NodeParagraph" class="p"><div spellcheck="false">[Docker 安装]{https://docs.docker.com/engine/installation/}</div></div><h3 id="20210521142713-2cppvqy" data-node-id="20210521142713-2cppvqy" data-type="NodeHeading" data-subtype="h3" class="h3">安装的时候不出意外又遇到了很多错误</h3><div id="20210521142713-pf0wokt" data-node-id="20210521142713-pf0wokt" data-type="NodeParagraph" class="p"><div spellcheck="false">通过下面的方法解决了问题 <a href="https://stackoverflow.com/questions/45272827/docker-ce-on-rhel-requires-container-selinux-2-9">Docker CE on RHEL - Requires: container-selinux &gt;= 2.9</a></div></div><div id="20210521142713-o59ibxj" data-node-id="20210521142713-o59ibxj" data-type="NodeParagraph" class="p"><div spellcheck="false">具体步骤如下</div></div><div id="20210521142713-vm48orj" data-node-id="20210521142713-vm48orj" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">bash</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">$ yum install http://vault.centos.org/centos/7.3.1611/extras/x86_64/Packages/container-selinux-2.9-4.el7.noarch.rpm
 
 $ yum install -y yum-utils device-mapper-persistent-data lvm2
 
@@ -65,11 +72,12 @@ $ yum install docker-ce
 $ sudo systemctl start docker
 
 </div>
-      </div><h2 id="20231207095548-wr92ft7" data-node-id="20231207095548-wr92ft7" data-type="NodeHeading" updated="20231207095615" data-subtype="h2" class="h2">docker pnpm 优化 <a href="https://pnpm.io/zh/cli/fetch">https://pnpm.io/zh/cli/fetch</a></h2><div id="20231207095615-cdpc19p" data-node-id="20231207095615-cdpc19p" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div><h2 id="20231207095548-wr92ft7" data-node-id="20231207095548-wr92ft7" data-type="NodeHeading" updated="20231207095615" data-subtype="h2" class="h2">docker pnpm 优化 <a href="https://pnpm.io/zh/cli/fetch">https://pnpm.io/zh/cli/fetch</a></h2><div id="20231207095615-cdpc19p" data-node-id="20231207095615-cdpc19p" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -88,7 +96,7 @@ $ sudo systemctl start docker
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

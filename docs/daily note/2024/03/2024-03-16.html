@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>2024-03-16</title>
 </head>
 <body>
@@ -49,39 +49,47 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20240316165101-otrbbbf" data-node-id="20240316165101-otrbbbf" data-type="NodeDocument" updated="20240316185029" data-subtype="h1" class="h1" custom-dailynote-20240316="20240316"></div><h1 id="20240316165101-otrbbbf" data-node-id="20240316165101-otrbbbf" data-type="NodeDocument" updated="20240316185029" data-subtype="h1" class="h1" custom-dailynote-20240316="20240316" data-type="NodeHeading" class="h1">2024-03-16</h1><h2 id="20240316165101-o2p5r81" data-node-id="20240316165101-o2p5r81" data-type="NodeHeading" updated="20240316165110" data-subtype="h2" class="h2">cloudreve 迁移文件</h2><div id="20240316165110-hyshs83" data-node-id="20240316165110-hyshs83" data-type="NodeParagraph" updated="20240316165110" class="p"><div spellcheck="false"></div></div><div id="20240316165111-fohnb0j" data-node-id="20240316165111-fohnb0j" data-type="NodeParagraph" updated="20240316165201" class="p"><div spellcheck="false">首先在物理存储位置（例如磁盘，oss）将一个存储策略中的文件手动复制到另一个存储策略处</div></div><div id="20240316165204-l6hokt9" data-node-id="20240316165204-l6hokt9" data-type="NodeParagraph" updated="20240316165216" class="p"><div spellcheck="false">然后手动更新 cloudreve.db </div></div><div id="20240316165348-r5bf18x" data-node-id="20240316165348-r5bf18x" data-type="NodeParagraph" updated="20240316172212" class="p"><div spellcheck="false">下面是从 oss 迁移到本地存储策略的流程：</div></div><div id="20240316165348-p1zz46m" data-node-id="20240316165348-p1zz46m" data-type="NodeCodeBlock" updated="20240316172316" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">shell</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false"># 配置帐号密钥
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20240316165101-otrbbbf" data-node-id="20240316165101-otrbbbf" data-type="NodeDocument" updated="20240316185029" custom-dailynote-20240316="20240316">
+
+<h1 id="20240316165101-otrbbbf" data-node-id="20240316165101-otrbbbf" data-type="NodeDocument" updated="20240316185029" custom-dailynote-20240316="20240316" data-type="NodeHeading" class="h1">2024-03-16</h1>
+<h2 id="20240316165101-o2p5r81" data-node-id="20240316165101-o2p5r81" data-type="NodeHeading" updated="20240316165110" data-subtype="h2" class="h2">cloudreve 迁移文件</h2><div id="20240316165110-hyshs83" data-node-id="20240316165110-hyshs83" data-type="NodeParagraph" updated="20240316165110" class="p"><div spellcheck="false"></div></div><div id="20240316165111-fohnb0j" data-node-id="20240316165111-fohnb0j" data-type="NodeParagraph" updated="20240316165201" class="p"><div spellcheck="false">首先在物理存储位置（例如磁盘，oss）将一个存储策略中的文件手动复制到另一个存储策略处</div></div><div id="20240316165204-l6hokt9" data-node-id="20240316165204-l6hokt9" data-type="NodeParagraph" updated="20240316165216" class="p"><div spellcheck="false">然后手动更新 cloudreve.db </div></div><div id="20240316165348-r5bf18x" data-node-id="20240316165348-r5bf18x" data-type="NodeParagraph" updated="20240316172212" class="p"><div spellcheck="false">下面是从 oss 迁移到本地存储策略的流程：</div></div><div id="20240316165348-p1zz46m" data-node-id="20240316165348-p1zz46m" data-type="NodeCodeBlock" updated="20240316172316" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">shell</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"># 配置帐号密钥
 ./ossutil64 config
 # 复制文件到本地存储策略配置的文件存储路径，小心覆盖，自行手动合并
 ./ossutil64 cp -r oss://存储空间名称/uploads/ ~/test/uploads
 </div>
-      </div><div id="20240316184804-w7gdt1a" data-node-id="20240316184804-w7gdt1a" data-type="NodeParagraph" updated="20240316184845" class="p"><div spellcheck="false">需要注意存储策略的保存文件路径及名称规则是否一致，在不一致的情况下需要通过 sql 更新数据库才行。</div></div><div id="20240316184858-ldlvb5u" data-node-id="20240316184858-ldlvb5u" data-type="NodeParagraph" updated="20240316184906" class="p"><div spellcheck="false">给出一份我的样例</div></div><div id="20240316184906-lf4mzp8" data-node-id="20240316184906-lf4mzp8" data-type="NodeCodeBlock" updated="20240316184919" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">sql</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">UPDATE files 
+        </div><div id="20240316184804-w7gdt1a" data-node-id="20240316184804-w7gdt1a" data-type="NodeParagraph" updated="20240316184845" class="p"><div spellcheck="false">需要注意存储策略的保存文件路径及名称规则是否一致，在不一致的情况下需要通过 sql 更新数据库才行。</div></div><div id="20240316184858-ldlvb5u" data-node-id="20240316184858-ldlvb5u" data-type="NodeParagraph" updated="20240316184906" class="p"><div spellcheck="false">给出一份我的样例</div></div><div id="20240316184906-lf4mzp8" data-node-id="20240316184906-lf4mzp8" data-type="NodeCodeBlock" updated="20240316184919" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">sql</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">UPDATE files 
 SET source_name = REPLACE(source_name , 'uploads', '/d/uploads')
 WHERE source_name  LIKE 'uploads%';
 </div>
-      </div><div id="20240316184927-83fxbhk" data-node-id="20240316184927-83fxbhk" data-type="NodeParagraph" updated="20240316185029" class="p"><div spellcheck="false">还需要通过 sql 修改存储策略（这都需要依据实际情况进行调整，不要直接复制粘贴使用！！！）</div></div><div id="20240316184938-emv4wu6" data-node-id="20240316184938-emv4wu6" data-type="NodeCodeBlock" updated="20240316184955" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">sql</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">UPDATE files
+        </div><div id="20240316184927-83fxbhk" data-node-id="20240316184927-83fxbhk" data-type="NodeParagraph" updated="20240316185029" class="p"><div spellcheck="false">还需要通过 sql 修改存储策略（这都需要依据实际情况进行调整，不要直接复制粘贴使用！！！）</div></div><div id="20240316184938-emv4wu6" data-node-id="20240316184938-emv4wu6" data-type="NodeCodeBlock" updated="20240316184955" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">sql</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">UPDATE files
 SET policy_id = 3
 WHERE policy_id = 2;
 </div>
-      </div><div id="20240316184958-6wuw2hw" data-node-id="20240316184958-6wuw2hw" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div><div id="20240316184958-6wuw2hw" data-node-id="20240316184958-6wuw2hw" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -100,7 +108,7 @@ WHERE policy_id = 2;
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

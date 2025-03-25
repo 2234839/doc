@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>state.ts</title>
 </head>
 <body>
@@ -49,11 +49,19 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201230210825-tsznbqn" data-node-id="20201230210825-tsznbqn" data-type="NodeDocument" updated="20201230210825" data-subtype="h1" class="h1" type="doc"></div><h1 id="20201230210825-tsznbqn" data-node-id="20201230210825-tsznbqn" data-type="NodeDocument" updated="20201230210825" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">state.ts</h1><div id="20201230210825-xyubw1w" data-node-id="20201230210825-xyubw1w" data-type="NodeParagraph" class="p"><div spellcheck="false">有时候只是要保存一些状态，或者说数据量不会很大的情况下就不太想专门搞个数据库去存</div></div><div id="20201230210942-09vh8v3" data-node-id="20201230210942-09vh8v3" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20201230210941-zhsxe7x" data-node-id="20201230210941-zhsxe7x" data-type="NodeParagraph" class="p"><div spellcheck="false">所以想弄一个轻量级的 lib 来自动的将状态存到文件，文件被修改的时候又可以自动的加载状态</div></div><div id="20201230211059-dxux7el" data-node-id="20201230211059-dxux7el" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20201230211104-m7lzu4g" data-node-id="20201230211104-m7lzu4g" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20201230210825-tsznbqn" data-node-id="20201230210825-tsznbqn" data-type="NodeDocument" updated="20201230210825" type="doc">
+
+<h1 id="20201230210825-tsznbqn" data-node-id="20201230210825-tsznbqn" data-type="NodeDocument" updated="20201230210825" type="doc" data-type="NodeHeading" class="h1">state.ts</h1>
+<div id="20201230210825-xyubw1w" data-node-id="20201230210825-xyubw1w" data-type="NodeParagraph" class="p"><div spellcheck="false">有时候只是要保存一些状态，或者说数据量不会很大的情况下就不太想专门搞个数据库去存</div></div><div id="20201230210942-09vh8v3" data-node-id="20201230210942-09vh8v3" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20201230210941-zhsxe7x" data-node-id="20201230210941-zhsxe7x" data-type="NodeParagraph" class="p"><div spellcheck="false">所以想弄一个轻量级的 lib 来自动的将状态存到文件，文件被修改的时候又可以自动的加载状态</div></div><div id="20201230211059-dxux7el" data-node-id="20201230211059-dxux7el" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20201230211104-m7lzu4g" data-node-id="20201230211104-m7lzu4g" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -72,7 +80,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>typescript</title>
 </head>
 <body>
@@ -49,11 +49,19 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210816161947-gcm5vi3" data-node-id="20210816161947-gcm5vi3" data-type="NodeDocument" updated="20250312104700" data-subtype="h1" class="h1" type="doc"></div><h1 id="20210816161947-gcm5vi3" data-node-id="20210816161947-gcm5vi3" data-type="NodeDocument" updated="20250312104700" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">typescript</h1><h2 id="20231216120654-uiw656p" data-node-id="20231216120654-uiw656p" data-type="NodeHeading" updated="20250312104700" data-subtype="h2" class="h2">ts 编程最佳工具、最佳实践</h2><div id="20231216120707-ynfl2sm" data-node-id="20231216120707-ynfl2sm" data-type="NodeParagraph" updated="20250312104650" class="p"><div spellcheck="false">打包工具： <span data-type="block-ref" data-subtype="d" data-id="20250222153112-6tgkzn0"><a href="./../工具/开发最佳实践/rslib.html#20250222153112-6tgkzn0">rslib</a></span> <a href="https://github.com/egoist/tsup">https://github.com/egoist/tsup</a></div></div><div id="20231216120737-qsdkc3v" data-node-id="20231216120737-qsdkc3v" data-type="NodeParagraph" updated="20250312104700" class="p"><div spellcheck="false">运行时：tsx node (在node的基础上直接运行ts程序：<a href="https://github.com/unjs/jiti">jiti</a>，tsx) <span data-type="block-ref" data-subtype="d" data-id="20240518231434-d8w3074"><a href="./../daily note/2024/05/2024-05-18/llrt.html#20240518231434-d8w3074">llrt</a></span> bun，deno</div></div><div id="20240115181104-7gkszgg" data-node-id="20240115181104-7gkszgg" data-type="NodeParagraph" updated="20240115181124" class="p"><div spellcheck="false">混合 (CommonJS/ESM) TypeScript 节点包生成器。  写  仅在 ESM 和 CommonJS 中以简单模式工作的模块。https://github.com/isaacs/tshy</div></div><div id="20250312104030-zo7pxqv" data-node-id="20250312104030-zo7pxqv" data-type="NodeParagraph" updated="20250312104528" class="p"><div spellcheck="false"><span data-type="strong">type &amp;</span> <span data-type="strong">jsonSchema</span> ：<a href="https://github.com/arktypeio/arktype">arktype(魔法一般强大的ts类型验证)</a> https://github.com/sinclairzx81/typebox#readme</div></div><div id="20240125131005-2e4jdc5" data-node-id="20240125131005-2e4jdc5" data-type="NodeParagraph" updated="20250312104025" class="p"><div spellcheck="false"></div></div><div id="20240125131059-jr1b6s0" data-node-id="20240125131059-jr1b6s0" data-type="NodeParagraph" updated="20250312104022" class="p"><div spellcheck="false"><span data-type="strong">数据库</span>：<a href="https://github.com/kysely-org/kysely">kysely(ts 类型友好的 sql 生成器)</a>  <span data-type="block-ref" data-subtype="d" data-id="20231223132556-b9bysq1"><a href="./../工具/prisma.html#20231223132556-b9bysq1">prisma</a></span>(nice的 orm 库) https://github.com/drizzle-team/drizzle-orm</div></div><div id="20250312103838-pinqpc5" data-node-id="20250312103838-pinqpc5" data-type="NodeParagraph" updated="20250312103838" class="p"><div spellcheck="false"></div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20210816161947-gcm5vi3" data-node-id="20210816161947-gcm5vi3" data-type="NodeDocument" updated="20250312104700" type="doc">
+
+<h1 id="20210816161947-gcm5vi3" data-node-id="20210816161947-gcm5vi3" data-type="NodeDocument" updated="20250312104700" type="doc" data-type="NodeHeading" class="h1">typescript</h1>
+<h2 id="20231216120654-uiw656p" data-node-id="20231216120654-uiw656p" data-type="NodeHeading" updated="20250312104700" data-subtype="h2" class="h2">ts 编程最佳工具、最佳实践</h2><div id="20231216120707-ynfl2sm" data-node-id="20231216120707-ynfl2sm" data-type="NodeParagraph" updated="20250312104650" class="p"><div spellcheck="false">打包工具： <span data-type="block-ref"   data-subtype="d"   data-id="20250222153112-6tgkzn0"><a href="./../工具/开发最佳实践/rslib.html#20250222153112-6tgkzn0">rslib</a></span> <a href="https://github.com/egoist/tsup">https://github.com/egoist/tsup</a></div></div><div id="20231216120737-qsdkc3v" data-node-id="20231216120737-qsdkc3v" data-type="NodeParagraph" updated="20250312104700" class="p"><div spellcheck="false">运行时：tsx node (在node的基础上直接运行ts程序：<a href="https://github.com/unjs/jiti">jiti</a>，tsx) <span data-type="block-ref"   data-subtype="d"   data-id="20240518231434-d8w3074"><a href="./../daily note/2024/05/2024-05-18/llrt.html#20240518231434-d8w3074">llrt</a></span> bun，deno</div></div><div id="20240115181104-7gkszgg" data-node-id="20240115181104-7gkszgg" data-type="NodeParagraph" updated="20240115181124" class="p"><div spellcheck="false">混合 (CommonJS/ESM) TypeScript 节点包生成器。  写  仅在 ESM 和 CommonJS 中以简单模式工作的模块。https://github.com/isaacs/tshy</div></div><div id="20250312104030-zo7pxqv" data-node-id="20250312104030-zo7pxqv" data-type="NodeParagraph" updated="20250312104528" class="p"><div spellcheck="false"><span data-type="strong">type &amp;</span> <span data-type="strong">jsonSchema</span> ：<a href="https://github.com/arktypeio/arktype">arktype(魔法一般强大的ts类型验证)</a> https://github.com/sinclairzx81/typebox#readme</div></div><div id="20240125131005-2e4jdc5" data-node-id="20240125131005-2e4jdc5" data-type="NodeParagraph" updated="20250312104025" class="p"><div spellcheck="false"></div></div><div id="20240125131059-jr1b6s0" data-node-id="20240125131059-jr1b6s0" data-type="NodeParagraph" updated="20250312104022" class="p"><div spellcheck="false"><span data-type="strong">数据库</span>：<a href="https://github.com/kysely-org/kysely">kysely(ts 类型友好的 sql 生成器)</a>  <span data-type="block-ref"   data-subtype="d"   data-id="20231223132556-b9bysq1"><a href="./../工具/prisma.html#20231223132556-b9bysq1">prisma</a></span>(nice的 orm 库) https://github.com/drizzle-team/drizzle-orm</div></div><div id="20250312103838-pinqpc5" data-node-id="20250312103838-pinqpc5" data-type="NodeParagraph" updated="20250312103838" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -72,7 +80,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

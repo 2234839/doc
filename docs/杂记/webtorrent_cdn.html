@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>webtorrent_cdn</title>
 </head>
 <body>
@@ -49,11 +49,19 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20231205133939-oirnugp" data-node-id="20231205133939-oirnugp" data-type="NodeDocument" updated="20231205141242" data-subtype="h1" class="h1" type="doc"></div><h1 id="20231205133939-oirnugp" data-node-id="20231205133939-oirnugp" data-type="NodeDocument" updated="20231205141242" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">webtorrent_cdn</h1><div id="20231205133959-ymz1htx" data-node-id="20231205133959-ymz1htx" data-type="NodeBlockquote" updated="20231205141229" class="bq"><div id="20231205134001-hkvf30j" data-node-id="20231205134001-hkvf30j" data-type="NodeParagraph" updated="20231205134033" class="p"><div spellcheck="false">这是一个利用 webtorrent 实现的一个小型网站的前置 p2p CDN</div></div></div><h3 id="20231205141229-3rk9467" data-node-id="20231205141229-3rk9467" data-type="NodeHeading" updated="20231205141242" data-subtype="h3" class="h3">架构图</h3><div id="20231205134047-yun7af8" data-node-id="20231205134047-yun7af8" data-type="NodeWidget" updated="20231205134047" custom-data-assets="assets/widget-excalidraw/0-20231205141338-p5vubhw" custom-oceanpress-widget-update="1718319306656" custom-options="&#123;&quot;gridModeEnabled&quot;:true,&quot;exportBackground&quot;:true,&quot;theme&quot;:&quot;light&quot;&#125;" data-assets="assets/widget-excalidraw/0-20231205141338-p5vubhw" options="&#123;&quot;gridModeEnabled&quot;:true,&quot;exportBackground&quot;:true,&quot;theme&quot;:&quot;light&quot;&#125;"><img src="./../assets/widget/20231205134047-yun7af8.jpg"/></div><div id="20231205141226-f58zoyj" data-node-id="20231205141226-f58zoyj" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20231205133939-oirnugp" data-node-id="20231205133939-oirnugp" data-type="NodeDocument" updated="20231205141242" type="doc">
+
+<h1 id="20231205133939-oirnugp" data-node-id="20231205133939-oirnugp" data-type="NodeDocument" updated="20231205141242" type="doc" data-type="NodeHeading" class="h1">webtorrent_cdn</h1>
+<div id="20231205133959-ymz1htx" data-node-id="20231205133959-ymz1htx" data-type="NodeBlockquote" updated="20231205141229" class="bq"><div id="20231205134001-hkvf30j" data-node-id="20231205134001-hkvf30j" data-type="NodeParagraph" updated="20231205134033" class="p"><div spellcheck="false">这是一个利用 webtorrent 实现的一个小型网站的前置 p2p CDN</div></div></div><h3 id="20231205141229-3rk9467" data-node-id="20231205141229-3rk9467" data-type="NodeHeading" updated="20231205141242" data-subtype="h3" class="h3">架构图</h3><div id="20231205134047-yun7af8" data-node-id="20231205134047-yun7af8" data-type="NodeWidget" updated="20231205134047" custom-data-assets="assets/widget-excalidraw/0-20231205141338-p5vubhw" custom-oceanpress-widget-update="1718319306656" custom-options="&#123;&quot;gridModeEnabled&quot;:true,&quot;exportBackground&quot;:true,&quot;theme&quot;:&quot;light&quot;&#125;" data-assets="assets/widget-excalidraw/0-20231205141338-p5vubhw" options="&#123;&quot;gridModeEnabled&quot;:true,&quot;exportBackground&quot;:true,&quot;theme&quot;:&quot;light&quot;&#125;"><img src="./../assets/widget/20231205134047-yun7af8.jpg"/></div><div id="20231205141226-f58zoyj" data-node-id="20231205141226-f58zoyj" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -72,7 +80,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

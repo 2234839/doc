@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>uni-app最佳实践</title>
 </head>
 <body>
@@ -49,102 +49,110 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210120134520-egxkpts" data-node-id="20210120134520-egxkpts" data-type="NodeDocument" updated="20240321171744" data-subtype="h1" class="h1" type="doc"></div><h1 id="20210120134520-egxkpts" data-node-id="20210120134520-egxkpts" data-type="NodeDocument" updated="20240321171744" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">uni-app最佳实践</h1><div id="20210120134603-09bte2u" data-node-id="20210120134603-09bte2u" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/2234839/uni_app-demo">代码仓库</a></div></div><h2 id="20210120134541-yvifakc" data-node-id="20210120134541-yvifakc" data-type="NodeHeading" updated="20231221193218" data-subtype="h2" class="h2">tailwind</h2><div id="20210120134556-w728bux" data-node-id="20210120134556-w728bux" data-type="NodeParagraph" updated="20230924154548" class="p"><div spellcheck="false">值得注意的是微信小程序并不支持一些 css 选择器还有他的 wxss 不支持 <span data-type="code">\</span>​  所以如果直接使用tailwindcss 会报错类似于图中这样的错 : <span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20210120143300-oymna2p-image.png"
-  data-src="./../../../assets/20210120143300-oymna2p-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20210120143301-jwaumns" data-node-id="20210120143301-jwaumns" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210120195129-c3dvtb9" data-node-id="20210120195129-c3dvtb9" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210410114628-2boxawu" data-node-id="20210410114628-2boxawu" data-type="NodeParagraph" class="p"><div spellcheck="false">幸运的是 tailwindcss 支持自定义 <a href="undefined"><span data-type="code">separator</span></a></div></div>
-    </div><div id="20210120195135-57ob4le" data-node-id="20210120195135-57ob4le" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210410114628-biamles" data-node-id="20210410114628-biamles" data-type="NodeParagraph" class="p"><div spellcheck="false">但是在类名中包含 <span data-type="code">.</span> 的又需要 <span data-type="code">\.</span> 这样的形式去声明类名而且貌似没有办法自定义这个， 所以在这种情况下我复制了 <span data-type="code">'tailwindcss/defaultConfig'</span> 中的配置将 <span data-type="code">\</span> 全部改成了 <span data-type="code">_</span></div></div>
-    </div><div id="20210120201315-5n4a7qs" data-node-id="20210120201315-5n4a7qs" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210410114628-o43xoy8" data-node-id="20210410114628-o43xoy8" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20210120201316-3b7spc3-image.png"
-  data-src="./../../../assets/20210120201316-3b7spc3-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>这种语法 wxss 也不支持.... 这里不是 css 类名修改可以避免的，就只能去<a href="undefined"><span data-type="code">corePlugins</span></a>禁用相关的插件</div></div><div id="20210120201649-ce03ndq" data-node-id="20210120201649-ce03ndq" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210120201649-uhb7y2o" data-node-id="20210120201649-uhb7y2o" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210410114628-eh1lbnc" data-node-id="20210410114628-eh1lbnc" data-type="NodeParagraph" class="p"><div spellcheck="false">禁用了 <span data-type="code">space</span> <span data-type="code">divideWidth</span> <span data-type="code">divideStyle</span> <span data-type="code">divideOpacity</span></div></div>
-    </div></div>
-    </div><div id="20210120204139-0h1179f" data-node-id="20210120204139-0h1179f" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210410114628-spkvfyp" data-node-id="20210410114628-spkvfyp" data-type="NodeParagraph" class="p"><div spellcheck="false">css 的类名是允许以数字开头的，但需要进行转义，而 <span data-type="code">screens</span> 配置中有一个 <span data-type="code">2xl</span> 这个 key 会在类名的最前面出现，于是 tailwind 转义为 <span data-type="code">\32xl</span> 这里就又有了 <span data-type="code">\</span> 所以这里也需要<span data-type="block-ref" data-subtype="s" data-id="20210120204412-5n4ys5v"><a href="./../../../record/环境/uni/uni-app最佳实践.html#20210120204412-5n4ys5v">改一下</a></span></div></div>
-    </div><div id="20210120201713-360l9av" data-node-id="20210120201713-360l9av" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210410114628-xaberv7" data-node-id="20210410114628-xaberv7" data-type="NodeParagraph" class="p"><div spellcheck="false">本 demo 对 tailwind 进行了如上定制，所以在使用的时候需要注意这些点</div></div><div id="20210120201917-fjtzvap" data-node-id="20210120201917-fjtzvap" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210120201917-92s9e1o" data-node-id="20210120201917-92s9e1o" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210410114628-dntf8jq" data-node-id="20210410114628-dntf8jq" data-type="NodeParagraph" class="p"><div spellcheck="false">建议使用这里 <span data-type="block-ref" data-subtype="d" data-id="20210120201815-mhusgkv"><a href="./../../../record/环境/vscode/vscode使用心得.html#20210120201815-mhusgkv">⭐❤ tailwindcss 类名提示</a></span> 链接中的插件</div></div>
-    </div></div>
-    </div></div><h3 id="20210120195121-s5hu63g" data-node-id="20210120195121-s5hu63g" data-type="NodeHeading" data-subtype="h3" class="h3">效果</h3><div id="20210120143702-htst9km" data-node-id="20210120143702-htst9km" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="display: block; text-align: center; white-space: initial;" style="">
-<img
-  src="./../../../assets/20210120204803-gwnjcat-image.png"
-  data-src="./../../../assets/20210120204803-gwnjcat-image.png"
-  title="源码"
-  style="display: block; text-align: center; white-space: initial;"
-  loading="lazy"
-/>
-<span class="protyle-action__title">源码</span></span></div></div><div id="20210120203333-niq29xf" data-node-id="20210120203333-niq29xf" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="display: block; text-align: center; white-space: initial;" style="">
-<img
-  src="./../../../assets/20210120203334-kwg37es-image.png"
-  data-src="./../../../assets/20210120203334-kwg37es-image.png"
-  title="默认效果"
-  style="display: block; text-align: center; white-space: initial;"
-  loading="lazy"
-/>
-<span class="protyle-action__title">默认效果</span></span></div></div><div id="20210120204825-31kso3s" data-node-id="20210120204825-31kso3s" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="display: block; text-align: center; white-space: initial;" style="">
-<img
-  src="./../../../assets/20210120204826-3p4pf3b-image.png"
-  data-src="./../../../assets/20210120204826-3p4pf3b-image.png"
-  title="hover 后的效果"
-  style="display: block; text-align: center; white-space: initial;"
-  loading="lazy"
-/>
-<span class="protyle-action__title">hover 后的效果</span></span></div></div><h3 id="20210120155741-provey6" data-node-id="20210120155741-provey6" data-type="NodeHeading" data-subtype="h3" class="h3">相关 commit 记录</h3><div id="20210120202303-65ya0fp" data-node-id="20210120202303-65ya0fp" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210120202255-stsczst" data-node-id="20210120202255-stsczst" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210410114628-y1m1cqn" data-node-id="20210410114628-y1m1cqn" data-type="NodeParagraph" class="p"><div spellcheck="false">引入 tailwindcss 并在 微信开发者工具中正常跑起来的改动 <a href="undefined"><span data-type="code">b3c7085</span></a></div></div>
-    </div><div id="20210120202109-8jfxzry" data-node-id="20210120202109-8jfxzry" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210410114628-9v0nudk" data-node-id="20210410114628-9v0nudk" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/2234839/uni_app-demo/commit/e7c51502be6a9f5394cf8c83cd9a9bed4925411c">🦄refactor(tailwind): 更好的配置文件</a></div></div>
-    </div><div id="20210120204412-5n4ys5v" data-node-id="20210120204412-5n4ys5v" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210410114628-ryed07v" data-node-id="20210410114628-ryed07v" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/2234839/uni_app-demo/commit/1374c2f11ba9c47e5da5124332a08a14c95705fd">🐞fix(tailwind): 加回响应式配置</a></div></div>
-    </div></div><div id="20210410114628-7nv7a6f" data-node-id="20210410114628-7nv7a6f" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210120202722-w0313d3" data-node-id="20210120202722-w0313d3" data-type="NodeParagraph" updated="20240321171744" class="p"><div spellcheck="false">​<span data-type="tag">分享/文章</span>​
-<span data-type="block-ref" data-subtype="d" data-id="20210120134541-yvifakc"><a href="./../../../record/环境/uni/uni-app最佳实践.html#20210120134541-yvifakc">tailwind</a></span> 章节 ：<a href="https://ask.dcloud.net.cn/article/38697">dcloud</a></div></div><div id="20210123152150-2vnfuar" data-node-id="20210123152150-2vnfuar" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20210123152150-5wtujpw" data-node-id="20210123152150-5wtujpw" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20210120134520-egxkpts" data-node-id="20210120134520-egxkpts" data-type="NodeDocument" updated="20240321171744" type="doc">
+
+<h1 id="20210120134520-egxkpts" data-node-id="20210120134520-egxkpts" data-type="NodeDocument" updated="20240321171744" type="doc" data-type="NodeHeading" class="h1">uni-app最佳实践</h1>
+<div id="20210120134603-09bte2u" data-node-id="20210120134603-09bte2u" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/2234839/uni_app-demo">代码仓库</a></div></div><h2 id="20210120134541-yvifakc" data-node-id="20210120134541-yvifakc" data-type="NodeHeading" updated="20231221193218" data-subtype="h2" class="h2">tailwind</h2><div id="20210120134556-w728bux" data-node-id="20210120134556-w728bux" data-type="NodeParagraph" updated="20230924154548" class="p"><div spellcheck="false">值得注意的是微信小程序并不支持一些 css 选择器还有他的 wxss 不支持 <span data-type="code">\</span>​  所以如果直接使用tailwindcss 会报错类似于图中这样的错 : <span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20210120143300-oymna2p-image.png"
+    data-src="./../../../assets/20210120143300-oymna2p-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20210120143301-jwaumns" data-node-id="20210120143301-jwaumns" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210120195129-c3dvtb9" data-node-id="20210120195129-c3dvtb9" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210410114628-2boxawu" data-node-id="20210410114628-2boxawu" data-type="NodeParagraph" class="p"><div spellcheck="false">幸运的是 tailwindcss 支持自定义 <a href="undefined"><span data-type="code">separator</span></a></div></div>
+      </div><div id="20210120195135-57ob4le" data-node-id="20210120195135-57ob4le" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210410114628-biamles" data-node-id="20210410114628-biamles" data-type="NodeParagraph" class="p"><div spellcheck="false">但是在类名中包含 <span data-type="code">.</span> 的又需要 <span data-type="code">\.</span> 这样的形式去声明类名而且貌似没有办法自定义这个， 所以在这种情况下我复制了 <span data-type="code">'tailwindcss/defaultConfig'</span> 中的配置将 <span data-type="code">\</span> 全部改成了 <span data-type="code">_</span></div></div>
+      </div><div id="20210120201315-5n4a7qs" data-node-id="20210120201315-5n4a7qs" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210410114628-o43xoy8" data-node-id="20210410114628-o43xoy8" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20210120201316-3b7spc3-image.png"
+    data-src="./../../../assets/20210120201316-3b7spc3-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>这种语法 wxss 也不支持.... 这里不是 css 类名修改可以避免的，就只能去<a href="undefined"><span data-type="code">corePlugins</span></a>禁用相关的插件</div></div><div id="20210120201649-ce03ndq" data-node-id="20210120201649-ce03ndq" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210120201649-uhb7y2o" data-node-id="20210120201649-uhb7y2o" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210410114628-eh1lbnc" data-node-id="20210410114628-eh1lbnc" data-type="NodeParagraph" class="p"><div spellcheck="false">禁用了 <span data-type="code">space</span> <span data-type="code">divideWidth</span> <span data-type="code">divideStyle</span> <span data-type="code">divideOpacity</span></div></div>
+      </div></div>
+      </div><div id="20210120204139-0h1179f" data-node-id="20210120204139-0h1179f" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210410114628-spkvfyp" data-node-id="20210410114628-spkvfyp" data-type="NodeParagraph" class="p"><div spellcheck="false">css 的类名是允许以数字开头的，但需要进行转义，而 <span data-type="code">screens</span> 配置中有一个 <span data-type="code">2xl</span> 这个 key 会在类名的最前面出现，于是 tailwind 转义为 <span data-type="code">\32xl</span> 这里就又有了 <span data-type="code">\</span> 所以这里也需要<span data-type="block-ref"   data-subtype="s"   data-id="20210120204412-5n4ys5v"><a href="./../../../record/环境/uni/uni-app最佳实践.html#20210120204412-5n4ys5v">改一下</a></span></div></div>
+      </div><div id="20210120201713-360l9av" data-node-id="20210120201713-360l9av" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210410114628-xaberv7" data-node-id="20210410114628-xaberv7" data-type="NodeParagraph" class="p"><div spellcheck="false">本 demo 对 tailwind 进行了如上定制，所以在使用的时候需要注意这些点</div></div><div id="20210120201917-fjtzvap" data-node-id="20210120201917-fjtzvap" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210120201917-92s9e1o" data-node-id="20210120201917-92s9e1o" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210410114628-dntf8jq" data-node-id="20210410114628-dntf8jq" data-type="NodeParagraph" class="p"><div spellcheck="false">建议使用这里 <span data-type="block-ref"   data-subtype="d"   data-id="20210120201815-mhusgkv"><a href="./../../../record/环境/vscode/vscode使用心得.html#20210120201815-mhusgkv">⭐❤ tailwindcss 类名提示</a></span> 链接中的插件</div></div>
+      </div></div>
+      </div></div><h3 id="20210120195121-s5hu63g" data-node-id="20210120195121-s5hu63g" data-type="NodeHeading" data-subtype="h3" class="h3">效果</h3><div id="20210120143702-htst9km" data-node-id="20210120143702-htst9km" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="display: block; text-align: center; white-space: initial;" style="">
+  <img
+    src="./../../../assets/20210120204803-gwnjcat-image.png"
+    data-src="./../../../assets/20210120204803-gwnjcat-image.png"
+    title="源码"
+    style="display: block; text-align: center; white-space: initial;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title">源码</span></span></div></div><div id="20210120203333-niq29xf" data-node-id="20210120203333-niq29xf" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="display: block; text-align: center; white-space: initial;" style="">
+  <img
+    src="./../../../assets/20210120203334-kwg37es-image.png"
+    data-src="./../../../assets/20210120203334-kwg37es-image.png"
+    title="默认效果"
+    style="display: block; text-align: center; white-space: initial;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title">默认效果</span></span></div></div><div id="20210120204825-31kso3s" data-node-id="20210120204825-31kso3s" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="display: block; text-align: center; white-space: initial;" style="">
+  <img
+    src="./../../../assets/20210120204826-3p4pf3b-image.png"
+    data-src="./../../../assets/20210120204826-3p4pf3b-image.png"
+    title="hover 后的效果"
+    style="display: block; text-align: center; white-space: initial;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title">hover 后的效果</span></span></div></div><h3 id="20210120155741-provey6" data-node-id="20210120155741-provey6" data-type="NodeHeading" data-subtype="h3" class="h3">相关 commit 记录</h3><div id="20210120202303-65ya0fp" data-node-id="20210120202303-65ya0fp" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210120202255-stsczst" data-node-id="20210120202255-stsczst" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210410114628-y1m1cqn" data-node-id="20210410114628-y1m1cqn" data-type="NodeParagraph" class="p"><div spellcheck="false">引入 tailwindcss 并在 微信开发者工具中正常跑起来的改动 <a href="undefined"><span data-type="code">b3c7085</span></a></div></div>
+      </div><div id="20210120202109-8jfxzry" data-node-id="20210120202109-8jfxzry" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210410114628-9v0nudk" data-node-id="20210410114628-9v0nudk" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/2234839/uni_app-demo/commit/e7c51502be6a9f5394cf8c83cd9a9bed4925411c">🦄refactor(tailwind): 更好的配置文件</a></div></div>
+      </div><div id="20210120204412-5n4ys5v" data-node-id="20210120204412-5n4ys5v" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210410114628-ryed07v" data-node-id="20210410114628-ryed07v" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/2234839/uni_app-demo/commit/1374c2f11ba9c47e5da5124332a08a14c95705fd">🐞fix(tailwind): 加回响应式配置</a></div></div>
+      </div></div><div id="20210410114628-7nv7a6f" data-node-id="20210410114628-7nv7a6f" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210120202722-w0313d3" data-node-id="20210120202722-w0313d3" data-type="NodeParagraph" updated="20240321171744" class="p"><div spellcheck="false">​<span data-type="tag">分享/文章</span>​
+<span data-type="block-ref"   data-subtype="d"   data-id="20210120134541-yvifakc"><a href="./../../../record/环境/uni/uni-app最佳实践.html#20210120134541-yvifakc">tailwind</a></span> 章节 ：<a href="https://ask.dcloud.net.cn/article/38697">dcloud</a></div></div><div id="20210123152150-2vnfuar" data-node-id="20210123152150-2vnfuar" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20210123152150-5wtujpw" data-node-id="20210123152150-5wtujpw" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -163,7 +171,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

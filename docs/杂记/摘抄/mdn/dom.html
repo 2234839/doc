@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>dom</title>
 </head>
 <body>
@@ -49,29 +49,37 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201104153359-0bk0hx8" data-node-id="20201104153359-0bk0hx8" data-type="NodeDocument" updated="20210818124234" data-subtype="h1" class="h1" type="doc"></div><h1 id="20201104153359-0bk0hx8" data-node-id="20201104153359-0bk0hx8" data-type="NodeDocument" updated="20210818124234" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">dom</h1><h1 id="20210521142714-mba4wrl" data-node-id="20210521142714-mba4wrl" data-type="NodeHeading" data-subtype="h1" class="h1">mdn 文档中关于 dom 的一些摘抄</h1><div id="20210521142714-edjkliu" data-node-id="20210521142714-edjkliu" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142714-l3h8afe" data-node-id="20210521142714-l3h8afe" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142714-5eylihm" data-node-id="20210521142714-5eylihm" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate:2019-08-30 10:06:36</div></div>
-    </div><div id="20210521142714-jpeaz04" data-node-id="20210521142714-jpeaz04" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142714-24mogth" data-node-id="20210521142714-24mogth" data-type="NodeParagraph" class="p"><div spellcheck="false">tags:mdn</div></div>
-    </div></div><div id="20210521142714-oz1g6eu" data-node-id="20210521142714-oz1g6eu" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210818124202-ft5dkbf" data-node-id="20210818124202-ft5dkbf" data-type="NodeParagraph" updated="20210818124203" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/dom-content-loaded-20210818124203-ve0wyqj.png"
-  data-src="./../../../assets/dom-content-loaded-20210818124203-ve0wyqj.png"
-  title="有些时候应该使用 DOMContentLoaded 而非 load"
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title">有些时候应该使用 DOMContentLoaded 而非 load</span></span></div></div><div id="20210521142714-aisc6cs" data-node-id="20210521142714-aisc6cs" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/DOMContentLoaded#%E7%9B%B8%E5%85%B3%E4%BA%8B%E4%BB%B6">DOMContentLoaded</a></div></div><div id="20210521142714-uw7kn50" data-node-id="20210521142714-uw7kn50" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NodeList">nodeList</a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCollection">HTMLCollection</a> ，有点惭愧今天才了解到 HTMLCollection，感觉这个概念挺好的，他和 nodeList 的差距在于 nodeList 是返回你通过规则获取的那一刻符合规则的元素，而 HTMLCollection 中时刻都是符合规则的元素，例如 document.forms 始终是返回文档中所有的表单。</div></div><div id="20210818124234-x8ifbft" data-node-id="20210818124234-x8ifbft" data-type="NodeParagraph" updated="20210818124234" class="p"><div spellcheck="false"></div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20201104153359-0bk0hx8" data-node-id="20201104153359-0bk0hx8" data-type="NodeDocument" updated="20210818124234" type="doc">
+
+<h1 id="20201104153359-0bk0hx8" data-node-id="20201104153359-0bk0hx8" data-type="NodeDocument" updated="20210818124234" type="doc" data-type="NodeHeading" class="h1">dom</h1>
+<h1 id="20210521142714-mba4wrl" data-node-id="20210521142714-mba4wrl" data-type="NodeHeading" data-subtype="h1" class="h1">mdn 文档中关于 dom 的一些摘抄</h1><div id="20210521142714-edjkliu" data-node-id="20210521142714-edjkliu" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142714-l3h8afe" data-node-id="20210521142714-l3h8afe" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142714-5eylihm" data-node-id="20210521142714-5eylihm" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate:2019-08-30 10:06:36</div></div>
+      </div><div id="20210521142714-jpeaz04" data-node-id="20210521142714-jpeaz04" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142714-24mogth" data-node-id="20210521142714-24mogth" data-type="NodeParagraph" class="p"><div spellcheck="false">tags:mdn</div></div>
+      </div></div><div id="20210521142714-oz1g6eu" data-node-id="20210521142714-oz1g6eu" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210818124202-ft5dkbf" data-node-id="20210818124202-ft5dkbf" data-type="NodeParagraph" updated="20210818124203" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/dom-content-loaded-20210818124203-ve0wyqj.png"
+    data-src="./../../../assets/dom-content-loaded-20210818124203-ve0wyqj.png"
+    title="有些时候应该使用 DOMContentLoaded 而非 load"
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title">有些时候应该使用 DOMContentLoaded 而非 load</span></span></div></div><div id="20210521142714-aisc6cs" data-node-id="20210521142714-aisc6cs" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/DOMContentLoaded#%E7%9B%B8%E5%85%B3%E4%BA%8B%E4%BB%B6">DOMContentLoaded</a></div></div><div id="20210521142714-uw7kn50" data-node-id="20210521142714-uw7kn50" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NodeList">nodeList</a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCollection">HTMLCollection</a> ，有点惭愧今天才了解到 HTMLCollection，感觉这个概念挺好的，他和 nodeList 的差距在于 nodeList 是返回你通过规则获取的那一刻符合规则的元素，而 HTMLCollection 中时刻都是符合规则的元素，例如 document.forms 始终是返回文档中所有的表单。</div></div><div id="20210818124234-x8ifbft" data-node-id="20210818124234-x8ifbft" data-type="NodeParagraph" updated="20210818124234" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -90,7 +98,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

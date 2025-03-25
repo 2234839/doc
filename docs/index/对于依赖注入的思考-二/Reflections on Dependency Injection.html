@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>Reflections on Dependency Injection</title>
 </head>
 <body>
@@ -49,12 +49,19 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20250203112550-q97m2ib" data-node-id="20250203112550-q97m2ib" data-type="NodeDocument" updated="20250203112819" data-subtype="h1" class="h1" type="doc"></div><h1 id="20250203112550-q97m2ib" data-node-id="20250203112550-q97m2ib" data-type="NodeDocument" updated="20250203112819" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">Reflections on Dependency Injection</h1><div id="20250203112552-tzhlbvp" data-node-id="20250203112552-tzhlbvp" data-type="NodeParagraph" updated="20250203112752" class="p"><div spellcheck="false">此文由 ai 翻译自中文版 <span data-type="block-ref" data-subtype="d" data-id="20250202145716-wvgw7m7"><a href="./../../index/对于依赖注入的思考-二.html#20250202145716-wvgw7m7">对于依赖注入的思考-二</a></span></div></div><div id="20250203112552-ftvqi9c" data-node-id="20250203112552-ftvqi9c" data-type="NodeThematicBreak" updated="20250203112552" class="hr"><div></div></div><div id="20250203112552-b92abi2" data-node-id="20250203112552-b92abi2" data-type="NodeParagraph" updated="20250203112819" class="p"><div spellcheck="false">In a previous article titled <span data-type="block-ref" data-subtype="d" data-id="20250120091259-h7hf587"><a href="./../../index/对于依赖注入的思考/Suddenly Realized Why Dependency Injection Is Necessary.html#20250120091259-h7hf587">Suddenly Realized Why Dependency Injection Is Necessary</a></span>, I received a lot of feedback that pointed out significant flaws in my understanding. After some more study, I realized that the issue I was trying to address is not so much about Dependency Injection itself, but is closer to a concept known as <a href="https://overreacted.io/algebraic-effects-for-the-rest-of-us/">Algebraic Effects</a>. Both Dependency Injection and Algebraic Effects aim to solve engineering challenges in programming, such as replacing function implementations without modifying old code.</div></div><h4 id="20250203112552-b2inuaq" data-node-id="20250203112552-b2inuaq" data-type="NodeHeading" updated="20250203112552" data-subtype="h4" class="h4">Example of Dependency Injection:</h4><div id="20250203112552-w5dwvng" data-node-id="20250203112552-w5dwvng" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">javascript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">function baseFn_A() {}
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20250203112550-q97m2ib" data-node-id="20250203112550-q97m2ib" data-type="NodeDocument" updated="20250203112819" type="doc">
+
+<h1 id="20250203112550-q97m2ib" data-node-id="20250203112550-q97m2ib" data-type="NodeDocument" updated="20250203112819" type="doc" data-type="NodeHeading" class="h1">Reflections on Dependency Injection</h1>
+<div id="20250203112552-tzhlbvp" data-node-id="20250203112552-tzhlbvp" data-type="NodeParagraph" updated="20250203112752" class="p"><div spellcheck="false">此文由 ai 翻译自中文版 <span data-type="block-ref"   data-subtype="d"   data-id="20250202145716-wvgw7m7"><a href="./../../index/对于依赖注入的思考-二.html#20250202145716-wvgw7m7">对于依赖注入的思考-二</a></span></div></div><div id="20250203112552-ftvqi9c" data-node-id="20250203112552-ftvqi9c" data-type="NodeThematicBreak" updated="20250203112552" class="hr"><div></div></div><div id="20250203112552-b92abi2" data-node-id="20250203112552-b92abi2" data-type="NodeParagraph" updated="20250203112819" class="p"><div spellcheck="false">In a previous article titled <span data-type="block-ref"   data-subtype="d"   data-id="20250120091259-h7hf587"><a href="./../../index/对于依赖注入的思考/Suddenly Realized Why Dependency Injection Is Necessary.html#20250120091259-h7hf587">Suddenly Realized Why Dependency Injection Is Necessary</a></span>, I received a lot of feedback that pointed out significant flaws in my understanding. After some more study, I realized that the issue I was trying to address is not so much about Dependency Injection itself, but is closer to a concept known as <a href="https://overreacted.io/algebraic-effects-for-the-rest-of-us/">Algebraic Effects</a>. Both Dependency Injection and Algebraic Effects aim to solve engineering challenges in programming, such as replacing function implementations without modifying old code.</div></div><h4 id="20250203112552-b2inuaq" data-node-id="20250203112552-b2inuaq" data-type="NodeHeading" updated="20250203112552" data-subtype="h4" class="h4">Example of Dependency Injection:</h4><div id="20250203112552-w5dwvng" data-node-id="20250203112552-w5dwvng" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">javascript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">function baseFn_A() {}
 function baseFn_B() {}
 function higherFn_B() {
     baseFn_A(); // call baseFn_A in higherFn_B
@@ -64,26 +71,26 @@ function higherFn_C() {
     higherFn_B(); // call higherFn_B
 }
 </div>
-      </div><div id="20250203112552-7riwvxc" data-node-id="20250203112552-7riwvxc" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">The idea is that if I want to create a new function <span data-type="code">higherFn_C2</span>​ that differs from <span data-type="code">higherFn_C</span>​ only in that it calls <span data-type="code">baseFn_B</span>​ instead of <span data-type="code">baseFn_A</span>​, Dependency Injection allows me to achieve this without changing much of the existing code.</div></div><h4 id="20250203112552-k5f3g1o" data-node-id="20250203112552-k5f3g1o" data-type="NodeHeading" updated="20250203112552" data-subtype="h4" class="h4">A Key Insight on Context Propagation:</h4><div id="20250203112552-iqyzd2f" data-node-id="20250203112552-iqyzd2f" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">I recently came up with an idea where context is passed using a variable named <span data-type="code">ctx</span>​. It starts as a global <span data-type="code">ctx</span>​, and then branches into a tree for each module and function, where the context is derived from its parent. This is similar to implementing Algebraic Effects and Dependency Injection, as it allows for easy runtime replacement of context variables like replacing a closure in code.</div></div><h4 id="20250203112552-vvlvdvy" data-node-id="20250203112552-vvlvdvy" data-type="NodeHeading" updated="20250203112552" data-subtype="h4" class="h4">Problems to Solve:</h4><div id="20250203112552-k4o68ue" data-node-id="20250203112552-k4o68ue" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-6w2cfix" data-node-id="20250203112552-6w2cfix" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250203112552-abrhnj8" data-node-id="20250203112552-abrhnj8" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Changing logic without modifying old code</span>: The challenge is to alter logic without impacting existing code.</div></div>
-    </div></div><h4 id="20250203112552-y9amyk5" data-node-id="20250203112552-y9amyk5" data-type="NodeHeading" updated="20250203112552" data-subtype="h4" class="h4">Solutions Explored:</h4><div id="20250203112552-407hw8s" data-node-id="20250203112552-407hw8s" data-type="NodeList" updated="20250203112552" data-subtype="o" class="list"><div id="20250203112552-h7v613i" data-node-id="20250203112552-h7v613i" data-type="NodeListItem" updated="20250203112552" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20250203112552-daa2ozy" data-node-id="20250203112552-daa2ozy" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Passing Parameters</span>:</div></div><div id="20250203112552-v2gqzpl" data-node-id="20250203112552-v2gqzpl" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-wny39e6" data-node-id="20250203112552-wny39e6" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250203112552-cuqhuox" data-node-id="20250203112552-cuqhuox" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">A simple method is passing functions as parameters, enabling logic changes without altering existing functions.</div></div>
-    </div></div><div id="20250203112552-225axo5" data-node-id="20250203112552-225axo5" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        </div><div id="20250203112552-7riwvxc" data-node-id="20250203112552-7riwvxc" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">The idea is that if I want to create a new function <span data-type="code">higherFn_C2</span>​ that differs from <span data-type="code">higherFn_C</span>​ only in that it calls <span data-type="code">baseFn_B</span>​ instead of <span data-type="code">baseFn_A</span>​, Dependency Injection allows me to achieve this without changing much of the existing code.</div></div><h4 id="20250203112552-k5f3g1o" data-node-id="20250203112552-k5f3g1o" data-type="NodeHeading" updated="20250203112552" data-subtype="h4" class="h4">A Key Insight on Context Propagation:</h4><div id="20250203112552-iqyzd2f" data-node-id="20250203112552-iqyzd2f" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">I recently came up with an idea where context is passed using a variable named <span data-type="code">ctx</span>​. It starts as a global <span data-type="code">ctx</span>​, and then branches into a tree for each module and function, where the context is derived from its parent. This is similar to implementing Algebraic Effects and Dependency Injection, as it allows for easy runtime replacement of context variables like replacing a closure in code.</div></div><h4 id="20250203112552-vvlvdvy" data-node-id="20250203112552-vvlvdvy" data-type="NodeHeading" updated="20250203112552" data-subtype="h4" class="h4">Problems to Solve:</h4><div id="20250203112552-k4o68ue" data-node-id="20250203112552-k4o68ue" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-6w2cfix" data-node-id="20250203112552-6w2cfix" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">javascript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          <svg><use xlink:href="#iconDot"></use></svg>
         </div>
-        <div class="hljs" spellcheck="false">function baseFn_A(op) {
+        <div id="20250203112552-abrhnj8" data-node-id="20250203112552-abrhnj8" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Changing logic without modifying old code</span>: The challenge is to alter logic without impacting existing code.</div></div>
+      </div></div><h4 id="20250203112552-y9amyk5" data-node-id="20250203112552-y9amyk5" data-type="NodeHeading" updated="20250203112552" data-subtype="h4" class="h4">Solutions Explored:</h4><div id="20250203112552-407hw8s" data-node-id="20250203112552-407hw8s" data-type="NodeList" updated="20250203112552" data-subtype="o" class="list"><div id="20250203112552-h7v613i" data-node-id="20250203112552-h7v613i" data-type="NodeListItem" updated="20250203112552" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20250203112552-daa2ozy" data-node-id="20250203112552-daa2ozy" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Passing Parameters</span>:</div></div><div id="20250203112552-v2gqzpl" data-node-id="20250203112552-v2gqzpl" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-wny39e6" data-node-id="20250203112552-wny39e6" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250203112552-cuqhuox" data-node-id="20250203112552-cuqhuox" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">A simple method is passing functions as parameters, enabling logic changes without altering existing functions.</div></div>
+      </div></div><div id="20250203112552-225axo5" data-node-id="20250203112552-225axo5" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">javascript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">function baseFn_A(op) {
     return op();
 }
 
@@ -91,12 +98,12 @@ function higherFn_B(op) {
     baseFn_A(op);
 }
 </div>
-      </div><div id="20250203112552-u29zzo8" data-node-id="20250203112552-u29zzo8" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">This is a straightforward approach to Dependency Injection but becomes cumbersome as the number of parameters increases.</div></div><div id="20250203112552-23wdoav" data-node-id="20250203112552-23wdoav" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">javascript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">function baseFn_A(op, op2, op3) {
+        </div><div id="20250203112552-u29zzo8" data-node-id="20250203112552-u29zzo8" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">This is a straightforward approach to Dependency Injection but becomes cumbersome as the number of parameters increases.</div></div><div id="20250203112552-23wdoav" data-node-id="20250203112552-23wdoav" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">javascript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">function baseFn_A(op, op2, op3) {
     return [op(), op2(), op3()];
 }
 
@@ -104,12 +111,12 @@ function higherFn_B(op, op2, op3) {
     baseFn_A(op, op2, op3);
 }
 </div>
-      </div><div id="20250203112552-74rkn3n" data-node-id="20250203112552-74rkn3n" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">Ideally, you want a way to modify only specific parameters without affecting others.</div></div><div id="20250203112552-ivi4h5v" data-node-id="20250203112552-ivi4h5v" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">javascript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">function baseFn_A() {
+        </div><div id="20250203112552-74rkn3n" data-node-id="20250203112552-74rkn3n" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">Ideally, you want a way to modify only specific parameters without affecting others.</div></div><div id="20250203112552-ivi4h5v" data-node-id="20250203112552-ivi4h5v" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">javascript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">function baseFn_A() {
     const { op, op2, op3 } = requireFn();
     return [op(), op2(), op3()];
 }
@@ -119,22 +126,22 @@ function higherFn_B() {
     baseFn_A();
 }
 </div>
-      </div>
-    </div><div id="20250203112552-op0or38" data-node-id="20250203112552-op0or38" data-type="NodeListItem" updated="20250203112552" data-subtype="o" class="li" data-marker="2.">
-      <div class="protyle-action">
-        2.
-      </div>
-      <div id="20250203112552-3erf1pe" data-node-id="20250203112552-3erf1pe" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Continuation Local Storage (CLS)</span>:</div></div><div id="20250203112552-2hbutfk" data-node-id="20250203112552-2hbutfk" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-t227zwy" data-node-id="20250203112552-t227zwy" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250203112552-6jqfla2" data-node-id="20250203112552-6jqfla2" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">CLS is useful for handling context in asynchronous environments like Node.js, where data needs to persist across asynchronous calls without explicitly passing it through each function.</div></div>
-    </div></div><div id="20250203112552-2hwib5o" data-node-id="20250203112552-2hwib5o" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">javascript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
-        <div class="hljs" spellcheck="false">const { AsyncLocalStorage } = require('async_hooks');
+      </div><div id="20250203112552-op0or38" data-node-id="20250203112552-op0or38" data-type="NodeListItem" updated="20250203112552" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20250203112552-3erf1pe" data-node-id="20250203112552-3erf1pe" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Continuation Local Storage (CLS)</span>:</div></div><div id="20250203112552-2hbutfk" data-node-id="20250203112552-2hbutfk" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-t227zwy" data-node-id="20250203112552-t227zwy" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250203112552-6jqfla2" data-node-id="20250203112552-6jqfla2" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">CLS is useful for handling context in asynchronous environments like Node.js, where data needs to persist across asynchronous calls without explicitly passing it through each function.</div></div>
+      </div></div><div id="20250203112552-2hwib5o" data-node-id="20250203112552-2hwib5o" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">javascript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">const { AsyncLocalStorage } = require('async_hooks');
 const asyncLocalStorage = new AsyncLocalStorage();
 
 function setRequireFn(data) {
@@ -146,22 +153,22 @@ function requireFn() {
     return asyncLocalStorage.getStore() || {};
 }
 </div>
-      </div><div id="20250203112552-xiwel74" data-node-id="20250203112552-xiwel74" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">While this works in Node.js, it is not available in browsers as the <span data-type="code">async_hooks</span>​ module does not exist there.</div></div>
-    </div><div id="20250203112552-ux4ibbq" data-node-id="20250203112552-ux4ibbq" data-type="NodeListItem" updated="20250203112552" data-subtype="o" class="li" data-marker="3.">
-      <div class="protyle-action">
-        3.
-      </div>
-      <div id="20250203112552-srjpbgo" data-node-id="20250203112552-srjpbgo" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Compromise: Passing Context Variables</span>:</div></div><div id="20250203112552-fi3jc27" data-node-id="20250203112552-fi3jc27" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-gj5do8g" data-node-id="20250203112552-gj5do8g" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250203112552-602koc6" data-node-id="20250203112552-602koc6" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">As a workaround, you can pass a <span data-type="code">ctx</span>​ object explicitly and modify it as needed.</div></div>
-    </div></div><div id="20250203112552-ppq5set" data-node-id="20250203112552-ppq5set" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+        </div><div id="20250203112552-xiwel74" data-node-id="20250203112552-xiwel74" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">While this works in Node.js, it is not available in browsers as the <span data-type="code">async_hooks</span>​ module does not exist there.</div></div>
+      </div><div id="20250203112552-ux4ibbq" data-node-id="20250203112552-ux4ibbq" data-type="NodeListItem" updated="20250203112552" data-subtype="o" class="li" data-marker="3.">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">javascript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          3.
         </div>
-        <div class="hljs" spellcheck="false">function createContext() {
+        <div id="20250203112552-srjpbgo" data-node-id="20250203112552-srjpbgo" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false"><span data-type="strong">Compromise: Passing Context Variables</span>:</div></div><div id="20250203112552-fi3jc27" data-node-id="20250203112552-fi3jc27" data-type="NodeList" updated="20250203112552" data-subtype="u" class="list"><div id="20250203112552-gj5do8g" data-node-id="20250203112552-gj5do8g" data-type="NodeListItem" updated="20250203112552" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250203112552-602koc6" data-node-id="20250203112552-602koc6" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">As a workaround, you can pass a <span data-type="code">ctx</span>​ object explicitly and modify it as needed.</div></div>
+      </div></div><div id="20250203112552-ppq5set" data-node-id="20250203112552-ppq5set" data-type="NodeCodeBlock" updated="20250203112552" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">javascript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">function createContext() {
     return {
         op: () => 'default op logic',
         op2: () => 'default op2 logic',
@@ -191,12 +198,13 @@ function higherFn_C(ctx) {
     return higherFn_B(newCtx);
 }
 </div>
-      </div>
-    </div></div><h4 id="20250203112552-xj9wlxl" data-node-id="20250203112552-xj9wlxl" data-type="NodeHeading" updated="20250203112552" data-subtype="h4" class="h4">Conclusion:</h4><div id="20250203112552-i43qgtn" data-node-id="20250203112552-i43qgtn" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">This approach allows context to be modified dynamically, offering a cleaner way to achieve Dependency Injection or similar effects in JavaScript. For now, however, there are still limitations in certain environments (like browsers), and more work is needed to generalize these techniques.</div></div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div>
+      </div></div><h4 id="20250203112552-xj9wlxl" data-node-id="20250203112552-xj9wlxl" data-type="NodeHeading" updated="20250203112552" data-subtype="h4" class="h4">Conclusion:</h4><div id="20250203112552-i43qgtn" data-node-id="20250203112552-i43qgtn" data-type="NodeParagraph" updated="20250203112552" class="p"><div spellcheck="false">This approach allows context to be modified dynamically, offering a cleaner way to achieve Dependency Injection or similar effects in JavaScript. For now, however, there are still limitations in certain environments (like browsers), and more work is needed to generalize these techniques.</div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -215,7 +223,7 @@ function higherFn_C(ctx) {
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

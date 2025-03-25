@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>7月</title>
 </head>
 <body>
@@ -49,22 +49,29 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201104153359-cupt5av" data-node-id="20201104153359-cupt5av" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc"></div><h1 id="20201104153359-cupt5av" data-node-id="20201104153359-cupt5av" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">7月</h1><h1 id="20210521142713-3frbhek" data-node-id="20210521142713-3frbhek" data-type="NodeHeading" data-subtype="h1" class="h1">7 月</h1><div id="20210521142713-v89mu0w" data-node-id="20210521142713-v89mu0w" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142713-gg8a3je" data-node-id="20210521142713-gg8a3je" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142713-yyrz9e5" data-node-id="20210521142713-yyrz9e5" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate:2020-07-04 09:26:52</div></div>
-    </div><div id="20210521142713-q8z461l" data-node-id="20210521142713-q8z461l" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142713-kvlmmuv" data-node-id="20210521142713-kvlmmuv" data-type="NodeParagraph" class="p"><div spellcheck="false">tags:每日总结</div></div>
-    </div></div><div id="20210521142713-bu0sijr" data-node-id="20210521142713-bu0sijr" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20210521142713-v2jzi9u" data-node-id="20210521142713-v2jzi9u" data-type="NodeHeading" data-subtype="h2" class="h2">2020-7-4</h2><h3 id="20210521142713-3qyw9lx" data-node-id="20210521142713-3qyw9lx" data-type="NodeHeading" data-subtype="h3" class="h3">nest.js 阿里云云函数部署</h3><div id="20210521142713-j8zl368" data-node-id="20210521142713-j8zl368" data-type="NodeParagraph" class="p"><div spellcheck="false">之前就想让 nest.js 在阿里云上部署 serverless 试试，但在网上没有搜到相关的例子</div></div><div id="20210521142713-t0c4b8g" data-node-id="20210521142713-t0c4b8g" data-type="NodeParagraph" class="p"><div spellcheck="false">只找到了 express 的例子，但我不知道怎么从 nest.js 获得 express app 对象。就此陷入僵局，但在搜索的过程中发现腾讯云是有 nest.js 的例子的，一看他们的代码，( •̀ ω •́ )✧ express app 原来是这么拿的啊，只要用 ExpressAdapter 就好了，但之前没用过就不了解</div></div><div id="20210521142713-i3gzpv0" data-node-id="20210521142713-i3gzpv0" data-type="NodeParagraph" class="p"><div spellcheck="false">然后我刷刷刷的写出了如下代码</div></div><div id="20210521142713-myrxjrc" data-node-id="20210521142713-myrxjrc" data-type="NodeParagraph" class="p"><div spellcheck="false">file://src/index.ts</div></div><div id="20210521142713-5rlkq01" data-node-id="20210521142713-5rlkq01" data-type="NodeCodeBlock" class="code-block">
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20201104153359-cupt5av" data-node-id="20201104153359-cupt5av" data-type="NodeDocument" updated="20201104153359" type="doc">
+
+<h1 id="20201104153359-cupt5av" data-node-id="20201104153359-cupt5av" data-type="NodeDocument" updated="20201104153359" type="doc" data-type="NodeHeading" class="h1">7月</h1>
+<h1 id="20210521142713-3frbhek" data-node-id="20210521142713-3frbhek" data-type="NodeHeading" data-subtype="h1" class="h1">7 月</h1><div id="20210521142713-v89mu0w" data-node-id="20210521142713-v89mu0w" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142713-gg8a3je" data-node-id="20210521142713-gg8a3je" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">typescript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          <svg><use xlink:href="#iconDot"></use></svg>
         </div>
-        <div class="hljs" spellcheck="false">import { NestFactory } from "@nestjs/core";
+        <div id="20210521142713-yyrz9e5" data-node-id="20210521142713-yyrz9e5" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate:2020-07-04 09:26:52</div></div>
+      </div><div id="20210521142713-q8z461l" data-node-id="20210521142713-q8z461l" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142713-kvlmmuv" data-node-id="20210521142713-kvlmmuv" data-type="NodeParagraph" class="p"><div spellcheck="false">tags:每日总结</div></div>
+      </div></div><div id="20210521142713-bu0sijr" data-node-id="20210521142713-bu0sijr" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20210521142713-v2jzi9u" data-node-id="20210521142713-v2jzi9u" data-type="NodeHeading" data-subtype="h2" class="h2">2020-7-4</h2><h3 id="20210521142713-3qyw9lx" data-node-id="20210521142713-3qyw9lx" data-type="NodeHeading" data-subtype="h3" class="h3">nest.js 阿里云云函数部署</h3><div id="20210521142713-j8zl368" data-node-id="20210521142713-j8zl368" data-type="NodeParagraph" class="p"><div spellcheck="false">之前就想让 nest.js 在阿里云上部署 serverless 试试，但在网上没有搜到相关的例子</div></div><div id="20210521142713-t0c4b8g" data-node-id="20210521142713-t0c4b8g" data-type="NodeParagraph" class="p"><div spellcheck="false">只找到了 express 的例子，但我不知道怎么从 nest.js 获得 express app 对象。就此陷入僵局，但在搜索的过程中发现腾讯云是有 nest.js 的例子的，一看他们的代码，( •̀ ω •́ )✧ express app 原来是这么拿的啊，只要用 ExpressAdapter 就好了，但之前没用过就不了解</div></div><div id="20210521142713-i3gzpv0" data-node-id="20210521142713-i3gzpv0" data-type="NodeParagraph" class="p"><div spellcheck="false">然后我刷刷刷的写出了如下代码</div></div><div id="20210521142713-myrxjrc" data-node-id="20210521142713-myrxjrc" data-type="NodeParagraph" class="p"><div spellcheck="false">file://src/index.ts</div></div><div id="20210521142713-5rlkq01" data-node-id="20210521142713-5rlkq01" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">typescript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">import { NestFactory } from "@nestjs/core";
 import { ExpressAdapter } from "@nestjs/platform-express";
 import { Server } from "@webserverless/fc-express";
 import express from "express";
@@ -83,12 +90,12 @@ module.exports.handler = function (req, res, context) {
   });
 };
 </div>
-      </div><div id="20210521142713-omb9zie" data-node-id="20210521142713-omb9zie" data-type="NodeParagraph" class="p"><div spellcheck="false">结果 （；´д ｀）ゞ 他啪啪啪的一直超时，我就不明白了他为啥调用一直超时。</div></div><div id="20210521142713-qnus819" data-node-id="20210521142713-qnus819" data-type="NodeParagraph" class="p"><div spellcheck="false">经过一行行的测试发现 <span data-type="code">module.exports.handler</span> 中一旦是异步执行 <span data-type="code">server.httpProxy(req, res, context)</span> 哪怕是这样写 <span data-type="code">setTimeout(()=&gt;{server.httpProxy(req, res, context)},1)</span> 他也会超时。这里不知道原因，也不想浪费时间</div></div><div id="20210521142713-v3hc5al" data-node-id="20210521142713-v3hc5al" data-type="NodeParagraph" class="p"><div spellcheck="false">既然找到了症结那就简单了，咻咻咻一段修改得到如下代码</div></div><div id="20210521142713-coywsa7" data-node-id="20210521142713-coywsa7" data-type="NodeParagraph" class="p"><div spellcheck="false">file://src/index.ts</div></div><div id="20210521142713-0jvdjxc" data-node-id="20210521142713-0jvdjxc" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">typescript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">import { NestFactory } from "@nestjs/core";
+        </div><div id="20210521142713-omb9zie" data-node-id="20210521142713-omb9zie" data-type="NodeParagraph" class="p"><div spellcheck="false">结果 （；´д ｀）ゞ 他啪啪啪的一直超时，我就不明白了他为啥调用一直超时。</div></div><div id="20210521142713-qnus819" data-node-id="20210521142713-qnus819" data-type="NodeParagraph" class="p"><div spellcheck="false">经过一行行的测试发现 <span data-type="code">module.exports.handler</span> 中一旦是异步执行 <span data-type="code">server.httpProxy(req, res, context)</span> 哪怕是这样写 <span data-type="code">setTimeout(()=&gt;{server.httpProxy(req, res, context)},1)</span> 他也会超时。这里不知道原因，也不想浪费时间</div></div><div id="20210521142713-v3hc5al" data-node-id="20210521142713-v3hc5al" data-type="NodeParagraph" class="p"><div spellcheck="false">既然找到了症结那就简单了，咻咻咻一段修改得到如下代码</div></div><div id="20210521142713-coywsa7" data-node-id="20210521142713-coywsa7" data-type="NodeParagraph" class="p"><div spellcheck="false">file://src/index.ts</div></div><div id="20210521142713-0jvdjxc" data-node-id="20210521142713-0jvdjxc" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">typescript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">import { NestFactory } from "@nestjs/core";
 import { ExpressAdapter } from "@nestjs/platform-express";
 import { Server } from "@webserverless/fc-express";
 import express from "express";
@@ -113,11 +120,12 @@ module.exports.handler = function (req, res, context) {
   server.httpProxy(req, res, context);
 };
 </div>
-      </div><div id="20210521142713-zr3l6en" data-node-id="20210521142713-zr3l6en" data-type="NodeParagraph" class="p"><div spellcheck="false">完美运行，诀窍就是 <span data-type="code">module.exports.handler</span> 内部不异步执行了，等待 nest.js 初始化的这个操作放到 express 中间件中去就行了</div></div><div id="20210521142713-x9t8ufz" data-node-id="20210521142713-x9t8ufz" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/2234839/nest.js_aliyun_serverless">样例代码 github 地址</a></div></div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div><div id="20210521142713-zr3l6en" data-node-id="20210521142713-zr3l6en" data-type="NodeParagraph" class="p"><div spellcheck="false">完美运行，诀窍就是 <span data-type="code">module.exports.handler</span> 内部不异步执行了，等待 nest.js 初始化的这个操作放到 express 中间件中去就行了</div></div><div id="20210521142713-x9t8ufz" data-node-id="20210521142713-x9t8ufz" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/2234839/nest.js_aliyun_serverless">样例代码 github 地址</a></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -136,7 +144,7 @@ module.exports.handler = function (req, res, context) {
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

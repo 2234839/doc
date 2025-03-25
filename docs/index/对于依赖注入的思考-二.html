@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>对于依赖注入的思考-二</title>
 </head>
 <body>
@@ -49,13 +49,20 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20250202145716-wvgw7m7" data-node-id="20250202145716-wvgw7m7" data-type="NodeDocument" updated="20250224130811" data-subtype="h1" class="h1" type="doc"></div><h1 id="20250202145716-wvgw7m7" data-node-id="20250202145716-wvgw7m7" data-type="NodeDocument" updated="20250224130811" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">对于依赖注入的思考-二</h1><div id="20250203112657-l8rbguf" data-node-id="20250203112657-l8rbguf" data-type="NodeParagraph" updated="20250224130232" class="p"><div spellcheck="false">english：<span data-type="block-ref" data-subtype="d" data-id="20250203112550-q97m2ib"><a href="./../index/对于依赖注入的思考-二/Reflections on Dependency Injection.html#20250203112550-q97m2ib">Reflections on Dependency Injection</a></span></div></div><div id="20250224130236-eblldle" data-node-id="20250224130236-eblldle" data-type="NodeBlockquote" updated="20250224130358" class="bq"><div id="20250224130307-t0w7vff" data-node-id="20250224130307-t0w7vff" data-type="NodeParagraph" updated="20250224130358" class="p"><div spellcheck="false">2025/2/24 ：
-今天看到了 <a href="https://www.zhihu.com/question/300095154/answer/1744221759">函数式编程中的 algebraic effects 是什么？</a> 这篇文章，比我讲的强多了，建议先阅读此文章后在看下面的内容作为补充</div></div></div><div id="20250203112649-xu7cmza" data-node-id="20250203112649-xu7cmza" data-type="NodeThematicBreak" updated="20250203112649" class="hr"><div></div></div><div id="20250202145636-wyzldp5" data-node-id="20250202145636-wyzldp5" data-type="NodeParagraph" updated="20250202145735" class="p"><div spellcheck="false">之前写了 <span data-type="block-ref" data-subtype="d" data-id="20250101095839-ec2nkqw"><a href="./../index/对于依赖注入的思考.html#20250101095839-ec2nkqw">对于依赖注入的思考</a></span> 一文，得到了许多网友的指点，发现自己的理解存在很大的偏差。</div></div><div id="20250202145735-9f3rl08" data-node-id="20250202145735-9f3rl08" data-type="NodeParagraph" updated="20250202150750" class="p"><div spellcheck="false">经过一段时间的学习，我发现我要解决的问题和依赖注入这个名词的关系不大，</div></div><div id="20250202150812-yib1sgo" data-node-id="20250202150812-yib1sgo" data-type="NodeParagraph" updated="20250202152141" class="p"><div spellcheck="false">这块要解决的问题其实更像是 <a href="https://overreacted.io/algebraic-effects-for-the-rest-of-us/">Algebraic Effects（</a><span data-type="strong"><a href="undefined">代数效应</a></span><a href="undefined">）</a>，和依赖注入相同的地方在于，他们都是为了解决编程工程化上的一些难题（我简单的理解为在不修改旧代码的情况下可以替换其中的函数实现）</div></div><div id="20250202150815-biy24i6" data-node-id="20250202150815-biy24i6" data-type="NodeBlockquote" updated="20250202151319" class="bq"><div id="20250202150900-e2mmkin" data-node-id="20250202150900-e2mmkin" data-type="NodeParagraph" updated="20250202151319" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="s" data-id="20250120135351-tvf6top"><a href="./../index/对于依赖注入的思考.html#20250120135351-tvf6top">对于依赖注入的思考-代码示例</a></span></div></div><div id="20250202150932-d24n8q9" data-node-id="20250202150932-d24n8q9" data-type="NodeBlockQueryEmbed" updated="20250202150932" data-type="NodeBlockquote" class="bq"><div id="20250120135351-tvf6top" data-node-id="20250120135351-tvf6top" data-type="NodeCodeBlock" updated="20250120140032" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">function baseFn_A(){}
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20250202145716-wvgw7m7" data-node-id="20250202145716-wvgw7m7" data-type="NodeDocument" updated="20250224130811" type="doc">
+
+<h1 id="20250202145716-wvgw7m7" data-node-id="20250202145716-wvgw7m7" data-type="NodeDocument" updated="20250224130811" type="doc" data-type="NodeHeading" class="h1">对于依赖注入的思考-二</h1>
+<div id="20250203112657-l8rbguf" data-node-id="20250203112657-l8rbguf" data-type="NodeParagraph" updated="20250224130232" class="p"><div spellcheck="false">english：<span data-type="block-ref"   data-subtype="d"   data-id="20250203112550-q97m2ib"><a href="./../index/对于依赖注入的思考-二/Reflections on Dependency Injection.html#20250203112550-q97m2ib">Reflections on Dependency Injection</a></span></div></div><div id="20250224130236-eblldle" data-node-id="20250224130236-eblldle" data-type="NodeBlockquote" updated="20250224130358" class="bq"><div id="20250224130307-t0w7vff" data-node-id="20250224130307-t0w7vff" data-type="NodeParagraph" updated="20250224130358" class="p"><div spellcheck="false">2025/2/24 ：
+今天看到了 <a href="https://www.zhihu.com/question/300095154/answer/1744221759">函数式编程中的 algebraic effects 是什么？</a> 这篇文章，比我讲的强多了，建议先阅读此文章后在看下面的内容作为补充</div></div></div><div id="20250203112649-xu7cmza" data-node-id="20250203112649-xu7cmza" data-type="NodeThematicBreak" updated="20250203112649" class="hr"><div></div></div><div id="20250202145636-wyzldp5" data-node-id="20250202145636-wyzldp5" data-type="NodeParagraph" updated="20250202145735" class="p"><div spellcheck="false">之前写了 <span data-type="block-ref"   data-subtype="d"   data-id="20250101095839-ec2nkqw"><a href="./../index/对于依赖注入的思考.html#20250101095839-ec2nkqw">对于依赖注入的思考</a></span> 一文，得到了许多网友的指点，发现自己的理解存在很大的偏差。</div></div><div id="20250202145735-9f3rl08" data-node-id="20250202145735-9f3rl08" data-type="NodeParagraph" updated="20250202150750" class="p"><div spellcheck="false">经过一段时间的学习，我发现我要解决的问题和依赖注入这个名词的关系不大，</div></div><div id="20250202150812-yib1sgo" data-node-id="20250202150812-yib1sgo" data-type="NodeParagraph" updated="20250202152141" class="p"><div spellcheck="false">这块要解决的问题其实更像是 <a href="https://overreacted.io/algebraic-effects-for-the-rest-of-us/">Algebraic Effects（</a><span data-type="strong"><a href="undefined">代数效应</a></span><a href="undefined">）</a>，和依赖注入相同的地方在于，他们都是为了解决编程工程化上的一些难题（我简单的理解为在不修改旧代码的情况下可以替换其中的函数实现）</div></div><div id="20250202150815-biy24i6" data-node-id="20250202150815-biy24i6" data-type="NodeBlockquote" updated="20250202151319" class="bq"><div id="20250202150900-e2mmkin" data-node-id="20250202150900-e2mmkin" data-type="NodeParagraph" updated="20250202151319" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="s"   data-id="20250120135351-tvf6top"><a href="./../index/对于依赖注入的思考.html#20250120135351-tvf6top">对于依赖注入的思考-代码示例</a></span></div></div><div id="20250202150932-d24n8q9" data-node-id="20250202150932-d24n8q9" data-type="NodeBlockQueryEmbed" updated="20250202150932" data-type="NodeBlockquote" class="bq">  <div id="20250120135351-tvf6top" data-node-id="20250120135351-tvf6top" data-type="NodeCodeBlock" updated="20250120140032" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">js</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">function baseFn_A(){}
 function baseFn_B(){}
 function higherFn_B(){
 	baseFn_A()
@@ -72,36 +79,36 @@ function higherFn_C(){
 // 如果我要实现一个新的函数 higherFn_C2 ，它和 higherFn_C 唯一的区别就是调用的是 baseFn_B 而非 baseFn_A
 // 我认为依赖注入就是为了更方便的创建 higherFn_C2 而不需要改动特别多的代码
 </div>
-      </div></div></div><div id="20250202150752-sr9x6m3" data-node-id="20250202150752-sr9x6m3" data-type="NodeParagraph" updated="20250202152824" class="p"><div spellcheck="false">其实在2021年我就触碰过这个问题（ <a href="https://www.zhihu.com/question/452024776/answer/1815518009">js 一个函数执行的时候如何判断自己是否处于另一个的调用栈中？</a>，这个提问现在看来显然是一个 <a href="https://en.wikipedia.org/wiki/XY_problem">XY problem</a> ）</div></div><div id="20250202153050-c70t32y" data-node-id="20250202153050-c70t32y" data-type="NodeParagraph" updated="20250202153115" class="p"><div spellcheck="false">下面是我刚刚得到的一些灵感，记录在手机记事本中</div></div><div id="20250202153116-gj3p8rj" data-node-id="20250202153116-gj3p8rj" data-type="NodeBlockquote" updated="20250202173537" class="bq"><div id="20250202153117-owh3ap6" data-node-id="20250202153117-owh3ap6" data-type="NodeParagraph" updated="20250202153129" class="p"><div spellcheck="false">上下文传递方法使用一个同名变量ctx，起始于一个全局变量ctx然后从这个全局变量派生出来一棵树，每个模块乃至于函数都会有自己的ctx（从上级ctx 派生），许多需要的方法都是要从这个上下文中来获取</div></div><div id="20250202153129-5u8acis" data-node-id="20250202153129-5u8acis" data-type="NodeParagraph" updated="20250202173537" class="p"><div spellcheck="false">这个是实现一个类似代数效应以及依赖注入的方法<br>也等价于实现了一个可以操作的闭包环境，可以像在编码时替换一个闭包变量的实际指向一样容易的在运行时替换<br>最终就是为了部分的解决表达式问题 https://en.m.wikipedia.org/wiki/Expression_problem  </div></div></div><div id="20250202145716-nv3ph8f" data-node-id="20250202145716-nv3ph8f" data-type="NodeParagraph" updated="20250202153403" class="p"><div spellcheck="false">现在我捋一捋这个灵感</div></div><h2 id="20250202164415-s8dz9ex" data-node-id="20250202164415-s8dz9ex" data-type="NodeHeading" updated="20250202164415" data-subtype="h2" class="h2">需要解决的问题</h2><div id="20250202164415-rhugj6k" data-node-id="20250202164415-rhugj6k" data-type="NodeParagraph" updated="20250202164415" class="p"><div spellcheck="false"><span data-type="strong">在不修改旧代码的情况下修改他的逻辑</span></div></div><h2 id="20250202164415-yym259o" data-node-id="20250202164415-yym259o" data-type="NodeHeading" updated="20250202165632" data-subtype="h2" class="h2">寻找解决方案</h2><h3 id="20250202164415-768ypor" data-node-id="20250202164415-768ypor" data-type="NodeHeading" updated="20250202165632" data-subtype="h3" class="h3">最显而易见的：参数传递</h3><div id="20250202164415-wgx74r8" data-node-id="20250202164415-wgx74r8" data-type="NodeParagraph" updated="20250202164415" class="p"><div spellcheck="false">只要在编写旧代码的时候将需要被替换的函数作为参数就行了</div></div><div id="20250202164415-olbr8if" data-node-id="20250202164415-olbr8if" data-type="NodeCodeBlock" updated="20250202164417" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">function baseFn_A(op){
+        </div>  </div></div><div id="20250202150752-sr9x6m3" data-node-id="20250202150752-sr9x6m3" data-type="NodeParagraph" updated="20250202152824" class="p"><div spellcheck="false">其实在2021年我就触碰过这个问题（ <a href="https://www.zhihu.com/question/452024776/answer/1815518009">js 一个函数执行的时候如何判断自己是否处于另一个的调用栈中？</a>，这个提问现在看来显然是一个 <a href="https://en.wikipedia.org/wiki/XY_problem">XY problem</a> ）</div></div><div id="20250202153050-c70t32y" data-node-id="20250202153050-c70t32y" data-type="NodeParagraph" updated="20250202153115" class="p"><div spellcheck="false">下面是我刚刚得到的一些灵感，记录在手机记事本中</div></div><div id="20250202153116-gj3p8rj" data-node-id="20250202153116-gj3p8rj" data-type="NodeBlockquote" updated="20250202173537" class="bq"><div id="20250202153117-owh3ap6" data-node-id="20250202153117-owh3ap6" data-type="NodeParagraph" updated="20250202153129" class="p"><div spellcheck="false">上下文传递方法使用一个同名变量ctx，起始于一个全局变量ctx然后从这个全局变量派生出来一棵树，每个模块乃至于函数都会有自己的ctx（从上级ctx 派生），许多需要的方法都是要从这个上下文中来获取</div></div><div id="20250202153129-5u8acis" data-node-id="20250202153129-5u8acis" data-type="NodeParagraph" updated="20250202173537" class="p"><div spellcheck="false">这个是实现一个类似代数效应以及依赖注入的方法<br>也等价于实现了一个可以操作的闭包环境，可以像在编码时替换一个闭包变量的实际指向一样容易的在运行时替换<br>最终就是为了部分的解决表达式问题 https://en.m.wikipedia.org/wiki/Expression_problem  </div></div></div><div id="20250202145716-nv3ph8f" data-node-id="20250202145716-nv3ph8f" data-type="NodeParagraph" updated="20250202153403" class="p"><div spellcheck="false">现在我捋一捋这个灵感</div></div><h2 id="20250202164415-s8dz9ex" data-node-id="20250202164415-s8dz9ex" data-type="NodeHeading" updated="20250202164415" data-subtype="h2" class="h2">需要解决的问题</h2><div id="20250202164415-rhugj6k" data-node-id="20250202164415-rhugj6k" data-type="NodeParagraph" updated="20250202164415" class="p"><div spellcheck="false"><span data-type="strong">在不修改旧代码的情况下修改他的逻辑</span></div></div><h2 id="20250202164415-yym259o" data-node-id="20250202164415-yym259o" data-type="NodeHeading" updated="20250202165632" data-subtype="h2" class="h2">寻找解决方案</h2><h3 id="20250202164415-768ypor" data-node-id="20250202164415-768ypor" data-type="NodeHeading" updated="20250202165632" data-subtype="h3" class="h3">最显而易见的：参数传递</h3><div id="20250202164415-wgx74r8" data-node-id="20250202164415-wgx74r8" data-type="NodeParagraph" updated="20250202164415" class="p"><div spellcheck="false">只要在编写旧代码的时候将需要被替换的函数作为参数就行了</div></div><div id="20250202164415-olbr8if" data-node-id="20250202164415-olbr8if" data-type="NodeCodeBlock" updated="20250202164417" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">js</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">function baseFn_A(op){
 	return op()，
 }
 function higherFn_B(op){
 	baseFn_A(op)
 }
 </div>
-      </div><div id="20250202164415-5rw3h5c" data-node-id="20250202164415-5rw3h5c" data-type="NodeParagraph" updated="20250202164415" class="p"><div spellcheck="false">通过传递一个函数，就可以在不修改 higherFn_B 函数代码的前提下（不修改旧代码）来改变旧代码的逻辑了</div></div><div id="20250202164415-nfgrhsj" data-node-id="20250202164415-nfgrhsj" data-type="NodeParagraph" updated="20250202165104" class="p"><div spellcheck="false">这也是最简单的依赖倒置的实践</div></div><div id="20250202164539-fe91mdu" data-node-id="20250202164539-fe91mdu" data-type="NodeParagraph" updated="20250202164746" class="p"><div spellcheck="false">上面这个实现是可行的，但在实际使用中会遇到下面这样的情况，很多层嵌套，很多的参数需要传递</div></div><div id="20250202164316-kbf7lkh" data-node-id="20250202164316-kbf7lkh" data-type="NodeCodeBlock" updated="20250202165223" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">function baseFn_A(op,op2,op3,op4....){
+        </div><div id="20250202164415-5rw3h5c" data-node-id="20250202164415-5rw3h5c" data-type="NodeParagraph" updated="20250202164415" class="p"><div spellcheck="false">通过传递一个函数，就可以在不修改 higherFn_B 函数代码的前提下（不修改旧代码）来改变旧代码的逻辑了</div></div><div id="20250202164415-nfgrhsj" data-node-id="20250202164415-nfgrhsj" data-type="NodeParagraph" updated="20250202165104" class="p"><div spellcheck="false">这也是最简单的依赖倒置的实践</div></div><div id="20250202164539-fe91mdu" data-node-id="20250202164539-fe91mdu" data-type="NodeParagraph" updated="20250202164746" class="p"><div spellcheck="false">上面这个实现是可行的，但在实际使用中会遇到下面这样的情况，很多层嵌套，很多的参数需要传递</div></div><div id="20250202164316-kbf7lkh" data-node-id="20250202164316-kbf7lkh" data-type="NodeCodeBlock" updated="20250202165223" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">js</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">function baseFn_A(op,op2,op3,op4....){
 	return [op()，op2(),op3(),op4()....()]
 }
 function higherFn_B(op,op2,op3,op4....){
 	baseFn_A(op,op2,op3,op4....)
 }
 </div>
-      </div><div id="20250202164532-gn2cyys" data-node-id="20250202164532-gn2cyys" data-type="NodeParagraph" updated="20250202165100" class="p"><div spellcheck="false">如果可以做到 baseFn_A 声明需要哪些参数，但中间的传递层可以选择覆盖其中的一些配置，也可以选择不用传递的话就好了，伪代码如下</div></div><div id="20250202164955-54a3g94" data-node-id="20250202164955-54a3g94" data-type="NodeCodeBlock" updated="20250202165608" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">function baseFn_A(){
+        </div><div id="20250202164532-gn2cyys" data-node-id="20250202164532-gn2cyys" data-type="NodeParagraph" updated="20250202165100" class="p"><div spellcheck="false">如果可以做到 baseFn_A 声明需要哪些参数，但中间的传递层可以选择覆盖其中的一些配置，也可以选择不用传递的话就好了，伪代码如下</div></div><div id="20250202164955-54a3g94" data-node-id="20250202164955-54a3g94" data-type="NodeCodeBlock" updated="20250202165608" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">js</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">function baseFn_A(){
 	const {op,op2,op3,op4....} = requireFn()
 	return [op()，op2(),op3(),op4()....()]
 }
@@ -115,12 +122,12 @@ function higherFn_C(){
 	higherFn_B()
 }
 </div>
-      </div><h2 id="20250202164652-io9ywdn" data-node-id="20250202164652-io9ywdn" data-type="NodeHeading" updated="20250224130811" data-subtype="h2" class="h2">CLS来帮忙</h2><div id="20250202170436-xsqbs5h" data-node-id="20250202170436-xsqbs5h" data-type="NodeBlockquote" updated="20250202170530" class="bq"><div id="20250202170431-2iz1mut" data-node-id="20250202170431-2iz1mut" data-type="NodeParagraph" updated="20250202170431" class="p"><div spellcheck="false"><span data-type="strong">CLS（Continuation Local Storage）</span> 是一种在程序执行过程中，用于存储和传递跨异步操作的上下文数据的机制。在异步编程中，尤其是在像 Node.js 这样的环境中，跨越多个异步操作传递数据变得尤为复杂。CLS 允许你在不同的函数和异步任务中共享一些全局的上下文信息，而无需显式地将它们作为参数传递。CLS 的核心思想是：通过将数据与当前的执行上下文关联，确保在程序的控制流跨越异步边界时，这些数据能够随着控制流一起“传递”，而不需要通过显式的函数调用来传递。</div></div><div id="20250202170502-waoqyvu" data-node-id="20250202170502-waoqyvu" data-type="NodeParagraph" updated="20250202170530" class="p"><div spellcheck="false">在 Node.js 中，<span data-type="code">AsyncLocalStorage</span>​ 提供了一个实现 CLS 的工具，允许在异步操作的生命周期内存储和访问上下文数据。</div></div></div><div id="20250202170436-mhsz4c3" data-node-id="20250202170436-mhsz4c3" data-type="NodeParagraph" updated="20250202170436" class="p"><div spellcheck="false">在 Node.js 中，<span data-type="code">AsyncLocalStorage</span>​ 提供了一个实现 CLS 的工具，它允许你在异步操作的生命周期内存储和访问上下文数据。<span data-type="code">AsyncLocalStorage</span>​ 是基于 <span data-type="code">async_hooks</span>​ 模块构建的，专门设计用于在异步操作之间共享数据。</div></div><div id="20250202170218-8jobxzr" data-node-id="20250202170218-8jobxzr" data-type="NodeParagraph" updated="20250202170240" class="p"><div spellcheck="false">安装了 node 的可以尝试运行以下代码</div></div><div id="20250202165705-nw24iyq" data-node-id="20250202165705-nw24iyq" data-type="NodeCodeBlock" updated="20250202171356" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">const { AsyncLocalStorage } = require('async_hooks');
+        </div><h2 id="20250202164652-io9ywdn" data-node-id="20250202164652-io9ywdn" data-type="NodeHeading" updated="20250224130811" data-subtype="h2" class="h2">CLS来帮忙</h2><div id="20250202170436-xsqbs5h" data-node-id="20250202170436-xsqbs5h" data-type="NodeBlockquote" updated="20250202170530" class="bq"><div id="20250202170431-2iz1mut" data-node-id="20250202170431-2iz1mut" data-type="NodeParagraph" updated="20250202170431" class="p"><div spellcheck="false"><span data-type="strong">CLS（Continuation Local Storage）</span> 是一种在程序执行过程中，用于存储和传递跨异步操作的上下文数据的机制。在异步编程中，尤其是在像 Node.js 这样的环境中，跨越多个异步操作传递数据变得尤为复杂。CLS 允许你在不同的函数和异步任务中共享一些全局的上下文信息，而无需显式地将它们作为参数传递。CLS 的核心思想是：通过将数据与当前的执行上下文关联，确保在程序的控制流跨越异步边界时，这些数据能够随着控制流一起“传递”，而不需要通过显式的函数调用来传递。</div></div><div id="20250202170502-waoqyvu" data-node-id="20250202170502-waoqyvu" data-type="NodeParagraph" updated="20250202170530" class="p"><div spellcheck="false">在 Node.js 中，<span data-type="code">AsyncLocalStorage</span>​ 提供了一个实现 CLS 的工具，允许在异步操作的生命周期内存储和访问上下文数据。</div></div></div><div id="20250202170436-mhsz4c3" data-node-id="20250202170436-mhsz4c3" data-type="NodeParagraph" updated="20250202170436" class="p"><div spellcheck="false">在 Node.js 中，<span data-type="code">AsyncLocalStorage</span>​ 提供了一个实现 CLS 的工具，它允许你在异步操作的生命周期内存储和访问上下文数据。<span data-type="code">AsyncLocalStorage</span>​ 是基于 <span data-type="code">async_hooks</span>​ 模块构建的，专门设计用于在异步操作之间共享数据。</div></div><div id="20250202170218-8jobxzr" data-node-id="20250202170218-8jobxzr" data-type="NodeParagraph" updated="20250202170240" class="p"><div spellcheck="false">安装了 node 的可以尝试运行以下代码</div></div><div id="20250202165705-nw24iyq" data-node-id="20250202165705-nw24iyq" data-type="NodeCodeBlock" updated="20250202171356" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">js</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">const { AsyncLocalStorage } = require('async_hooks');
 const asyncLocalStorage = new AsyncLocalStorage();
 
 function setRequireFn(data) {
@@ -152,12 +159,12 @@ function higherFn_C() {
 }
 console.log(higherFn_C());  // 输出：['op result', 'op2 result', 'op3 result', 'op4 result']
 </div>
-      </div><div id="20250202170209-e8t0kv1" data-node-id="20250202170209-e8t0kv1" data-type="NodeParagraph" updated="20250202171634" class="p"><div spellcheck="false">看上去十分的美好了，但是...我之所以喜欢js就是因为代码可以运行在浏览器和node.js ，上面的代码只能支持node.js 但浏览器中是没有 async_hooks 模块的，<a href="https://github.com/orgs/JSCIG/discussions/9">【提案讨论】JavaScript 异步上下文 · JSCIG · Discussion #9 · GitHub</a> 这个提案似乎还遥遥无期。</div></div><div id="20250224130547-xksq9oj" data-node-id="20250224130547-xksq9oj" data-type="NodeParagraph" updated="20250224130547" class="p"><div spellcheck="false"></div></div><div id="20250224130548-eknlb61" data-node-id="20250224130548-eknlb61" data-type="NodeParagraph" updated="20250224130811" class="p"><div spellcheck="false">另外使用CLS这种方式存在一个问题，就是如何知道自己调用的这些个函数到底需要哪些依赖，依靠运行时的测试的话很难触及一个大型程序的所有分支（但这未尝不是一种办法），如果有某种可以在运行之前就进行分析的办法就好了。</div></div><h2 id="20250202171635-m6i49zy" data-node-id="20250202171635-m6i49zy" data-type="NodeHeading" updated="20250202174417" data-subtype="h2" class="h2">妥协的办法，传递上下文变量</h2><div id="20250202171725-her8ng9" data-node-id="20250202171725-her8ng9" data-type="NodeParagraph" updated="20250202172600" class="p"><div spellcheck="false">这个算是 <span data-type="block-ref" data-subtype="d" data-id="20250202164415-768ypor"><a href="./../index/对于依赖注入的思考-二.html#20250202164415-768ypor">最显而易见的：参数传递</a></span> 办法的一种变种。</div></div><div id="20250202172830-12641m7" data-node-id="20250202172830-12641m7" data-type="NodeParagraph" updated="20250202172935" class="p"><div spellcheck="false">这里理论上还可以通过利用 react 所实现的代数效应来实现不传递 ctx 参数（在vue中就是利用 inject ）</div></div><div id="20250202172426-4s1qp1f" data-node-id="20250202172426-4s1qp1f" data-type="NodeCodeBlock" updated="20250202174417" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">function createContext() {
+        </div><div id="20250202170209-e8t0kv1" data-node-id="20250202170209-e8t0kv1" data-type="NodeParagraph" updated="20250202171634" class="p"><div spellcheck="false">看上去十分的美好了，但是...我之所以喜欢js就是因为代码可以运行在浏览器和node.js ，上面的代码只能支持node.js 但浏览器中是没有 async_hooks 模块的，<a href="https://github.com/orgs/JSCIG/discussions/9">【提案讨论】JavaScript 异步上下文 · JSCIG · Discussion #9 · GitHub</a> 这个提案似乎还遥遥无期。</div></div><div id="20250224130547-xksq9oj" data-node-id="20250224130547-xksq9oj" data-type="NodeParagraph" updated="20250224130547" class="p"><div spellcheck="false"></div></div><div id="20250224130548-eknlb61" data-node-id="20250224130548-eknlb61" data-type="NodeParagraph" updated="20250224130811" class="p"><div spellcheck="false">另外使用CLS这种方式存在一个问题，就是如何知道自己调用的这些个函数到底需要哪些依赖，依靠运行时的测试的话很难触及一个大型程序的所有分支（但这未尝不是一种办法），如果有某种可以在运行之前就进行分析的办法就好了。</div></div><h2 id="20250202171635-m6i49zy" data-node-id="20250202171635-m6i49zy" data-type="NodeHeading" updated="20250202174417" data-subtype="h2" class="h2">妥协的办法，传递上下文变量</h2><div id="20250202171725-her8ng9" data-node-id="20250202171725-her8ng9" data-type="NodeParagraph" updated="20250202172600" class="p"><div spellcheck="false">这个算是 <span data-type="block-ref"   data-subtype="d"   data-id="20250202164415-768ypor"><a href="./../index/对于依赖注入的思考-二.html#20250202164415-768ypor">最显而易见的：参数传递</a></span> 办法的一种变种。</div></div><div id="20250202172830-12641m7" data-node-id="20250202172830-12641m7" data-type="NodeParagraph" updated="20250202172935" class="p"><div spellcheck="false">这里理论上还可以通过利用 react 所实现的代数效应来实现不传递 ctx 参数（在vue中就是利用 inject ）</div></div><div id="20250202172426-4s1qp1f" data-node-id="20250202172426-4s1qp1f" data-type="NodeCodeBlock" updated="20250202174417" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">js</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">function createContext() {
   return {
     op: () => 'default op logic',
     op2: () => 'default op2 logic',
@@ -190,11 +197,12 @@ function higherFn_C(ctx) {
 const initialCtx = createContext();  // 创建初始上下文
 console.log(higherFn_C(initialCtx));  // 输出：[ 'New Op logic', 'op2 result', 'op3 result', 'op4 result' ]
 </div>
-      </div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -213,7 +221,7 @@ console.log(higherFn_C(initialCtx));  // 输出：[ 'New Op logic', 'op2 result'
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

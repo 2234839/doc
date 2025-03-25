@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>阿里云函数计算</title>
 </head>
 <body>
@@ -49,20 +49,27 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210816161945-t1fzc5o" data-node-id="20210816161945-t1fzc5o" data-type="NodeDocument" updated="20231222132425" data-subtype="h1" class="h1"></div><h1 id="20210816161945-t1fzc5o" data-node-id="20210816161945-t1fzc5o" data-type="NodeDocument" updated="20231222132425" data-subtype="h1" class="h1" data-type="NodeHeading" class="h1">阿里云函数计算</h1><div id="20210816161945-9zbpzam" data-node-id="20210816161945-9zbpzam" data-type="NodeParagraph" updated="20210816161945" class="p"><div spellcheck="false"></div></div><h2 id="20231216162315-q7kbi5o" data-node-id="20231216162315-q7kbi5o" data-type="NodeHeading" updated="20231222132522" data-subtype="h2" class="h2">阿里云函数计算被刷的可能性测试</h2><div id="20231216155708-syrex9a" data-node-id="20231216155708-syrex9a" data-type="NodeParagraph" updated="20231216155755" class="p"><div spellcheck="false">由于一些 oss 被刷几万块钱的惨剧，我将oss的公共读全关了，然后又思考函数计算被刷的可能性</div></div><div id="20231216155756-g3fa8lm" data-node-id="20231216155756-g3fa8lm" data-type="NodeParagraph" updated="20231216155826" class="p"><div spellcheck="false">于是设置了并发度上限，进行一次测试。结果如下</div></div><div id="20231216155706-j21ur1k" data-node-id="20231216155706-j21ur1k" data-type="NodeParagraph" updated="20231216163600" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../assets/image-20231216155706-cvwoop4.png"
-  data-src="./../../assets/image-20231216155706-cvwoop4.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20231216155827-xdvtvuc" data-node-id="20231216155827-xdvtvuc" data-type="NodeParagraph" updated="20231216155917" class="p"><div spellcheck="false">从测试可以看到函数计算通过流控使得在 10s 内的 4.51 万次请求只成功了大概 0.01万次</div></div><div id="20231216155942-ydxkg6v" data-node-id="20231216155942-ydxkg6v" data-type="NodeParagraph" updated="20231216163235" class="p"><div spellcheck="false">下面是测试工具的数据，从两个数据来看一个函数实例单实例并发也为1，0.05vcpu的情况下10秒只处理了127个hello world请求。其余4.5万个都被拦截了。</div></div><div id="20231216155938-oxp060k" data-node-id="20231216155938-oxp060k" data-type="NodeCodeBlock" updated="20231216160025" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">abap</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">Statistics        Avg      Stdev        Max
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20210816161945-t1fzc5o" data-node-id="20210816161945-t1fzc5o" data-type="NodeDocument" updated="20231222132425">
+
+<h1 id="20210816161945-t1fzc5o" data-node-id="20210816161945-t1fzc5o" data-type="NodeDocument" updated="20231222132425" data-type="NodeHeading" class="h1">阿里云函数计算</h1>
+<div id="20210816161945-9zbpzam" data-node-id="20210816161945-9zbpzam" data-type="NodeParagraph" updated="20210816161945" class="p"><div spellcheck="false"></div></div><h2 id="20231216162315-q7kbi5o" data-node-id="20231216162315-q7kbi5o" data-type="NodeHeading" updated="20231222132522" data-subtype="h2" class="h2">阿里云函数计算被刷的可能性测试</h2><div id="20231216155708-syrex9a" data-node-id="20231216155708-syrex9a" data-type="NodeParagraph" updated="20231216155755" class="p"><div spellcheck="false">由于一些 oss 被刷几万块钱的惨剧，我将oss的公共读全关了，然后又思考函数计算被刷的可能性</div></div><div id="20231216155756-g3fa8lm" data-node-id="20231216155756-g3fa8lm" data-type="NodeParagraph" updated="20231216155826" class="p"><div spellcheck="false">于是设置了并发度上限，进行一次测试。结果如下</div></div><div id="20231216155706-j21ur1k" data-node-id="20231216155706-j21ur1k" data-type="NodeParagraph" updated="20231216163600" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../assets/image-20231216155706-cvwoop4.png"
+    data-src="./../../assets/image-20231216155706-cvwoop4.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20231216155827-xdvtvuc" data-node-id="20231216155827-xdvtvuc" data-type="NodeParagraph" updated="20231216155917" class="p"><div spellcheck="false">从测试可以看到函数计算通过流控使得在 10s 内的 4.51 万次请求只成功了大概 0.01万次</div></div><div id="20231216155942-ydxkg6v" data-node-id="20231216155942-ydxkg6v" data-type="NodeParagraph" updated="20231216163235" class="p"><div spellcheck="false">下面是测试工具的数据，从两个数据来看一个函数实例单实例并发也为1，0.05vcpu的情况下10秒只处理了127个hello world请求。其余4.5万个都被拦截了。</div></div><div id="20231216155938-oxp060k" data-node-id="20231216155938-oxp060k" data-type="NodeCodeBlock" updated="20231216160025" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">abap</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">Statistics        Avg      Stdev        Max
   Reqs/sec      4485.25    2199.12    9523.92
   Latency       44.48ms    92.30ms      2.11s
   Latency Distribution
@@ -76,12 +83,12 @@
     others - 0
   Throughput:     2.99MB/s
 </div>
-      </div><div id="20231216162605-g0w42pf" data-node-id="20231216162605-g0w42pf" data-type="NodeParagraph" updated="20231216162902" class="p"><div spellcheck="false">函数计算目前还是不用很担心被人恶意刷出高额账单。但还是建议大家适量配置并发度，做好报警，如果确实是真实用户流量，视情况上调并发即可，像我这种玩票性质的就直接低并发就行了。</div></div><div id="20231216162520-y3s8ipr" data-node-id="20231216162520-y3s8ipr" data-type="NodeParagraph" updated="20231216163200" class="p"><div spellcheck="false">顺便配一个 1vcpu 1G 内存 单实例 200 并发度（最高只能设置200）的测试：</div></div><div id="20231216162551-azhsl9s" data-node-id="20231216162551-azhsl9s" data-type="NodeCodeBlock" updated="20231216163146" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">abap</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">  Reqs/sec      1689.51    1850.40    8723.94
+        </div><div id="20231216162605-g0w42pf" data-node-id="20231216162605-g0w42pf" data-type="NodeParagraph" updated="20231216162902" class="p"><div spellcheck="false">函数计算目前还是不用很担心被人恶意刷出高额账单。但还是建议大家适量配置并发度，做好报警，如果确实是真实用户流量，视情况上调并发即可，像我这种玩票性质的就直接低并发就行了。</div></div><div id="20231216162520-y3s8ipr" data-node-id="20231216162520-y3s8ipr" data-type="NodeParagraph" updated="20231216163200" class="p"><div spellcheck="false">顺便配一个 1vcpu 1G 内存 单实例 200 并发度（最高只能设置200）的测试：</div></div><div id="20231216162551-azhsl9s" data-node-id="20231216162551-azhsl9s" data-type="NodeCodeBlock" updated="20231216163146" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">abap</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">  Reqs/sec      1689.51    1850.40    8723.94
   Latency      118.41ms    52.92ms      2.21s
   Latency Distribution
      50%   106.20ms
@@ -93,19 +100,20 @@
     1xx - 0, 2xx - 17117, 3xx - 0, 4xx - 1, 5xx - 0
     others - 0
   Throughput:     1.38MB/s</div>
-      </div><div id="20231222132425-qeqd3nx" data-node-id="20231222132425-qeqd3nx" data-type="NodeParagraph" updated="20231222132425" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 505px;" style="width: 495px;" style="width: 505px;">
-<img
-  src="./../../assets/Screenshot_2023-12-22-13-22-22-636_com.alibaba.android.rimet-20231222132425-vdpje77.jpg"
-  data-src="./../../assets/Screenshot_2023-12-22-13-22-22-636_com.alibaba.android.rimet-20231222132425-vdpje77.jpg"
-  title=""
-  style="width: 495px;"
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div><div id="20231222132425-qeqd3nx" data-node-id="20231222132425-qeqd3nx" data-type="NodeParagraph" updated="20231222132425" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 505px;" style="width: 495px;" style="width: 505px;">
+  <img
+    src="./../../assets/Screenshot_2023-12-22-13-22-22-636_com.alibaba.android.rimet-20231222132425-vdpje77.jpg"
+    data-src="./../../assets/Screenshot_2023-12-22-13-22-22-636_com.alibaba.android.rimet-20231222132425-vdpje77.jpg"
+    title=""
+    style="width: 495px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -124,7 +132,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

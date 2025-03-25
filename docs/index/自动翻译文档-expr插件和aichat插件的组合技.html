@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>自动翻译文档-expr插件和aichat插件的组合技</title>
 </head>
 <body>
@@ -49,31 +49,38 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20241228103033-h9y9bt3" data-node-id="20241228103033-h9y9bt3" data-type="NodeDocument" updated="20250308194225" data-subtype="h1" class="h1" type="doc"></div><h1 id="20241228103033-h9y9bt3" data-node-id="20241228103033-h9y9bt3" data-type="NodeDocument" updated="20250308194225" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">自动翻译文档-expr插件和aichat插件的组合技</h1><div id="20250308191708-msc9c4g" data-node-id="20250308191708-msc9c4g" data-type="NodeParagraph" updated="20250308191735" class="p"><div spellcheck="false">当前文章的英译版： <span data-type="block-ref" data-subtype="d" data-id="20250308191532-g9hkuca"><a href="./../index/Automatic translation of documents-the combination of expr plugin and aichat plugin technology.html#20250308191532-g9hkuca">Automatic translation of documents-the combination of expr plugin and aichat plugin technology</a></span></div></div><h2 id="20241228103321-j2580bo" data-node-id="20241228103321-j2580bo" data-type="NodeHeading" updated="20241228103539" data-subtype="h2" class="h2">前言</h2><div id="20241228103330-1986rfk" data-node-id="20241228103330-1986rfk" data-type="NodeParagraph" updated="20241228103536" class="p"><div spellcheck="false">我有时候有将文章翻译为英文用于分享到英文互联网的需求，所以现在我可以通过 aichat 插件来使用 ai 帮我翻译文档，然后使用 expr 插件 来自动更新英文笔记，最后使用 <span data-type="block-ref" data-subtype="d" data-id="20201121142503-ivwtfzg"><a href="./../想法/项目/OceanPress.html#20201121142503-ivwtfzg">OceanPress</a></span> 来分享我的笔记，一套连招丝滑完成。</div></div><h2 id="20241228103539-ru8wf4x" data-node-id="20241228103539-ru8wf4x" data-type="NodeHeading" updated="20250308192039" data-subtype="h2" class="h2">实现方式</h2><div id="20241228103033-5meuyig" data-node-id="20241228103033-5meuyig" data-type="NodeList" updated="20250308191344" data-subtype="o" class="list"><div id="20241228103617-xjuylym" data-node-id="20241228103617-xjuylym" data-type="NodeListItem" updated="20250308191340" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20241228103617-10ayh0y" data-node-id="20241228103617-10ayh0y" data-type="NodeParagraph" updated="20250308191340" class="p"><div spellcheck="false">安装 expr 插件最新版</div></div>
-    </div><div id="20241228103619-gbx6jem" data-node-id="20241228103619-gbx6jem" data-type="NodeListItem" updated="20250308191344" data-subtype="o" class="li" data-marker="2.">
-      <div class="protyle-action">
-        2.
-      </div>
-      <div id="20241228103619-d0yy0tc" data-node-id="20241228103619-d0yy0tc" data-type="NodeParagraph" updated="20250308191344" class="p"><div spellcheck="false">安装 aichat 插件最新版</div></div>
-    </div></div><div id="20250306204056-lnh3hj6" data-node-id="20250306204056-lnh3hj6" data-type="NodeParagraph" updated="20250306214628" class="p"><div spellcheck="false"></div></div><div id="20250306214629-u9lkg5t" data-node-id="20250306214629-u9lkg5t" data-type="NodeParagraph" updated="20250308191941" class="p"><div spellcheck="false">在需要输出译文的块上添加 expr 属性（ 按住shift键点击块标弹出自定义属性面板 ）
-​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/image-20250308191859-teuq6k1.png"
-  data-src="./../assets/image-20250308191859-teuq6k1.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20250306214641-u2cg1t2" data-node-id="20250306214641-u2cg1t2" data-type="NodeParagraph" updated="20250308191412" class="p"><div spellcheck="false">表达式如下,需要修改其中的 sourceId 为 原文文档的 id （右键对应文档>复制>id）</div></div><div id="20250306214646-p58etpr" data-node-id="20250306214646-p58etpr" data-type="NodeCodeBlock" updated="20250308191421" class="code-block" style="line-height: 22px;">
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20241228103033-h9y9bt3" data-node-id="20241228103033-h9y9bt3" data-type="NodeDocument" updated="20250308194225" type="doc">
+
+<h1 id="20241228103033-h9y9bt3" data-node-id="20241228103033-h9y9bt3" data-type="NodeDocument" updated="20250308194225" type="doc" data-type="NodeHeading" class="h1">自动翻译文档-expr插件和aichat插件的组合技</h1>
+<div id="20250308191708-msc9c4g" data-node-id="20250308191708-msc9c4g" data-type="NodeParagraph" updated="20250308191735" class="p"><div spellcheck="false">当前文章的英译版： <span data-type="block-ref"   data-subtype="d"   data-id="20250308191532-g9hkuca"><a href="./../index/Automatic translation of documents-the combination of expr plugin and aichat plugin technology.html#20250308191532-g9hkuca">Automatic translation of documents-the combination of expr plugin and aichat plugin technology</a></span></div></div><h2 id="20241228103321-j2580bo" data-node-id="20241228103321-j2580bo" data-type="NodeHeading" updated="20241228103539" data-subtype="h2" class="h2">前言</h2><div id="20241228103330-1986rfk" data-node-id="20241228103330-1986rfk" data-type="NodeParagraph" updated="20241228103536" class="p"><div spellcheck="false">我有时候有将文章翻译为英文用于分享到英文互联网的需求，所以现在我可以通过 aichat 插件来使用 ai 帮我翻译文档，然后使用 expr 插件 来自动更新英文笔记，最后使用 <span data-type="block-ref"   data-subtype="d"   data-id="20201121142503-ivwtfzg"><a href="./../想法/项目/OceanPress.html#20201121142503-ivwtfzg">OceanPress</a></span> 来分享我的笔记，一套连招丝滑完成。</div></div><h2 id="20241228103539-ru8wf4x" data-node-id="20241228103539-ru8wf4x" data-type="NodeHeading" updated="20250308192039" data-subtype="h2" class="h2">实现方式</h2><div id="20241228103033-5meuyig" data-node-id="20241228103033-5meuyig" data-type="NodeList" updated="20250308191344" data-subtype="o" class="list"><div id="20241228103617-xjuylym" data-node-id="20241228103617-xjuylym" data-type="NodeListItem" updated="20250308191340" data-subtype="o" class="li" data-marker="1.">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          1.
         </div>
-        <div class="hljs" spellcheck="false">// 需要被翻译的块(文档)的 id
+        <div id="20241228103617-10ayh0y" data-node-id="20241228103617-10ayh0y" data-type="NodeParagraph" updated="20250308191340" class="p"><div spellcheck="false">安装 expr 插件最新版</div></div>
+      </div><div id="20241228103619-gbx6jem" data-node-id="20241228103619-gbx6jem" data-type="NodeListItem" updated="20250308191344" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20241228103619-d0yy0tc" data-node-id="20241228103619-d0yy0tc" data-type="NodeParagraph" updated="20250308191344" class="p"><div spellcheck="false">安装 aichat 插件最新版</div></div>
+      </div></div><div id="20250306204056-lnh3hj6" data-node-id="20250306204056-lnh3hj6" data-type="NodeParagraph" updated="20250306214628" class="p"><div spellcheck="false"></div></div><div id="20250306214629-u9lkg5t" data-node-id="20250306214629-u9lkg5t" data-type="NodeParagraph" updated="20250308191941" class="p"><div spellcheck="false">在需要输出译文的块上添加 expr 属性（ 按住shift键点击块标弹出自定义属性面板 ）
+​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/image-20250308191859-teuq6k1.png"
+    data-src="./../assets/image-20250308191859-teuq6k1.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20250306214641-u2cg1t2" data-node-id="20250306214641-u2cg1t2" data-type="NodeParagraph" updated="20250308191412" class="p"><div spellcheck="false">表达式如下,需要修改其中的 sourceId 为 原文文档的 id （右键对应文档>复制>id）</div></div><div id="20250306214646-p58etpr" data-node-id="20250306214646-p58etpr" data-type="NodeCodeBlock" updated="20250308191421" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">js</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">// 需要被翻译的块(文档)的 id
 const sourceId = '20250306213356-ekvz9w9';
 
 const sourceAttr = await expr.util.api.getBlockAttrs(sourceId);
@@ -102,11 +109,12 @@ if (sourceAttr.updated === blockAttr[updateFlag]) {
 }
 
 </div>
-      </div><div id="20250308191425-qr0b88i" data-node-id="20250308191425-qr0b88i" data-type="NodeParagraph" updated="20250308191517" class="p"><div spellcheck="false">在翻译之后，如果你更新了原文，对应的译文表达式在特定的时机下会自动同步更新</div></div><div id="20250308191853-zr0zmx7" data-node-id="20250308191853-zr0zmx7" data-type="NodeParagraph" updated="20250308192026" class="p"><div spellcheck="false">正在执行的表达式块会有蓝色边框闪烁</div></div><div id="20250308192039-03ufzwj" data-node-id="20250308192039-03ufzwj" data-type="NodeParagraph" updated="20250308192039" class="p"><div spellcheck="false"></div></div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div><div id="20250308191425-qr0b88i" data-node-id="20250308191425-qr0b88i" data-type="NodeParagraph" updated="20250308191517" class="p"><div spellcheck="false">在翻译之后，如果你更新了原文，对应的译文表达式在特定的时机下会自动同步更新</div></div><div id="20250308191853-zr0zmx7" data-node-id="20250308191853-zr0zmx7" data-type="NodeParagraph" updated="20250308192026" class="p"><div spellcheck="false">正在执行的表达式块会有蓝色边框闪烁</div></div><div id="20250308192039-03ufzwj" data-node-id="20250308192039-03ufzwj" data-type="NodeParagraph" updated="20250308192039" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -125,7 +133,7 @@ if (sourceAttr.updated === blockAttr[updateFlag]) {
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

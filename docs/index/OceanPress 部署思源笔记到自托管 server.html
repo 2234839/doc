@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>OceanPress 部署思源笔记到自托管 server</title>
 </head>
 <body>
@@ -49,44 +49,52 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20250314212231-3bp2eh7" data-node-id="20250314212231-3bp2eh7" data-type="NodeDocument" updated="20250315130906" data-subtype="h1" class="h1" custom-liandi-articleId="1741959023937" type="doc"></div><h1 id="20250314212231-3bp2eh7" data-node-id="20250314212231-3bp2eh7" data-type="NodeDocument" updated="20250315130906" data-subtype="h1" class="h1" custom-liandi-articleId="1741959023937" type="doc" data-type="NodeHeading" class="h1">OceanPress 部署思源笔记到自托管 server</h1><div id="20250314212234-dgqa5z1" data-node-id="20250314212234-dgqa5z1" data-type="NodeParagraph" updated="20250314212234" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="width: 637px;" style="">
-<img
-  src="./../assets/image-20250314212234-l9x5f5x.png"
-  data-src="./../assets/image-20250314212234-l9x5f5x.png"
-  title=""
-  style="width: 637px;"
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20250314212241-9tfbh8z" data-node-id="20250314212241-9tfbh8z" data-type="NodeParagraph" updated="20250314212316" class="p"><div spellcheck="false">大致流程：</div></div><div id="20250314212323-ui8p6bv" data-node-id="20250314212323-ui8p6bv" data-type="NodeList" updated="20250314212418" data-subtype="o" class="list"><div id="20250314212324-69f6i70" data-node-id="20250314212324-69f6i70" data-type="NodeListItem" updated="20250314212324" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20250314212324-8xccnnb" data-node-id="20250314212324-8xccnnb" data-type="NodeParagraph" updated="20250314212341" class="p"><div spellcheck="false">安装 nodejs 和 pnpm / npm </div></div>
-    </div><div id="20250314212342-98t9q69" data-node-id="20250314212342-98t9q69" data-type="NodeListItem" updated="20250314212342" data-subtype="o" class="li" data-marker="2.">
-      <div class="protyle-action">
-        2.
-      </div>
-      <div id="20250314212342-j1wj87p" data-node-id="20250314212342-j1wj87p" data-type="NodeParagraph" updated="20250314212402" class="p"><div spellcheck="false">安装 OceanPress server 程序 : <span data-type="code">pnpm i -g oceanpress-server</span>​</div></div>
-    </div><div id="20250314212349-r44yzv8" data-node-id="20250314212349-r44yzv8" data-type="NodeListItem" updated="20250314212349" data-subtype="o" class="li" data-marker="3.">
-      <div class="protyle-action">
-        3.
-      </div>
-      <div id="20250314212349-gv95bx6" data-node-id="20250314212349-gv95bx6" data-type="NodeParagraph" updated="20250314212353" class="p"><div spellcheck="false">配置 apiKey ： 在运行程序的目录中创建文件 .env 并写入配置 API_KEY=api-key-test ,请注意不要泄露 apiKey，另外创建复杂度高一些的</div></div>
-    </div><div id="20250314212354-cj8hn3p" data-node-id="20250314212354-cj8hn3p" data-type="NodeListItem" updated="20250314212354" data-subtype="o" class="li" data-marker="4.">
-      <div class="protyle-action">
-        4.
-      </div>
-      <div id="20250314212354-2mvhzld" data-node-id="20250314212354-2mvhzld" data-type="NodeParagraph" updated="20250314212406" class="p"><div spellcheck="false">运行 OceanPress server 程序 : 命令行执行 <span data-type="code">oceanpress_server</span>​</div></div>
-    </div><div id="20250314212409-qh2xups" data-node-id="20250314212409-qh2xups" data-type="NodeListItem" updated="20250314212418" data-subtype="o" class="li" data-marker="5.">
-      <div class="protyle-action">
-        5.
-      </div>
-      <div id="20250314212409-lwvj3br" data-node-id="20250314212409-lwvj3br" data-type="NodeParagraph" updated="20250314212418" class="p"><div spellcheck="false">OceanPress 中配置 OceanPress server apiBase 和 ApiKey</div></div>
-    </div></div><div id="20250314212319-zgxyd24" data-node-id="20250314212319-zgxyd24" data-type="NodeParagraph" updated="20250314212427" class="p"><div spellcheck="false"></div></div><div id="20250314212430-22xnebb" data-node-id="20250314212430-22xnebb" data-type="NodeParagraph" updated="20250314212502" class="p"><div spellcheck="false">我尽量这个月内做到可以在思源 OceanPress 插件内直接部署到 OceanPress server</div></div><div id="20250314212502-x6boe13" data-node-id="20250314212502-x6boe13" data-type="NodeParagraph" updated="20250315130906" class="p"><div spellcheck="false"></div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20250314212231-3bp2eh7" data-node-id="20250314212231-3bp2eh7" data-type="NodeDocument" updated="20250316152706" custom-liandi-articleId="1741959023937" type="doc">
+
+<h1 id="20250314212231-3bp2eh7" data-node-id="20250314212231-3bp2eh7" data-type="NodeDocument" updated="20250316152706" custom-liandi-articleId="1741959023937" type="doc" data-type="NodeHeading" class="h1">OceanPress 部署思源笔记到自托管 server</h1>
+<div id="20250314212234-dgqa5z1" data-node-id="20250314212234-dgqa5z1" data-type="NodeParagraph" updated="20250314212234" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="width: 637px;" style="">
+  <img
+    src="./../assets/image-20250314212234-l9x5f5x.png"
+    data-src="./../assets/image-20250314212234-l9x5f5x.png"
+    title=""
+    style="width: 637px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20250314212241-9tfbh8z" data-node-id="20250314212241-9tfbh8z" data-type="NodeParagraph" updated="20250314212316" class="p"><div spellcheck="false">大致流程：</div></div><div id="20250314212323-ui8p6bv" data-node-id="20250314212323-ui8p6bv" data-type="NodeList" updated="20250314212418" data-subtype="o" class="list"><div id="20250314212324-69f6i70" data-node-id="20250314212324-69f6i70" data-type="NodeListItem" updated="20250314212324" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20250314212324-8xccnnb" data-node-id="20250314212324-8xccnnb" data-type="NodeParagraph" updated="20250314212341" class="p"><div spellcheck="false">安装 nodejs 和 pnpm / npm </div></div>
+      </div><div id="20250314212342-98t9q69" data-node-id="20250314212342-98t9q69" data-type="NodeListItem" updated="20250314212342" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20250314212342-j1wj87p" data-node-id="20250314212342-j1wj87p" data-type="NodeParagraph" updated="20250314212402" class="p"><div spellcheck="false">安装 OceanPress server 程序 : <span data-type="code">pnpm i -g oceanpress-server</span>​</div></div>
+      </div><div id="20250314212349-r44yzv8" data-node-id="20250314212349-r44yzv8" data-type="NodeListItem" updated="20250314212349" data-subtype="o" class="li" data-marker="3.">
+        <div class="protyle-action">
+          3.
+        </div>
+        <div id="20250314212349-gv95bx6" data-node-id="20250314212349-gv95bx6" data-type="NodeParagraph" updated="20250314212353" class="p"><div spellcheck="false">配置 apiKey ： 在运行程序的目录中创建文件 .env 并写入配置 API_KEY=api-key-test ,请注意不要泄露 apiKey，另外创建复杂度高一些的</div></div>
+      </div><div id="20250314212354-cj8hn3p" data-node-id="20250314212354-cj8hn3p" data-type="NodeListItem" updated="20250314212354" data-subtype="o" class="li" data-marker="4.">
+        <div class="protyle-action">
+          4.
+        </div>
+        <div id="20250314212354-2mvhzld" data-node-id="20250314212354-2mvhzld" data-type="NodeParagraph" updated="20250314212406" class="p"><div spellcheck="false">运行 OceanPress server 程序 : 命令行执行 <span data-type="code">oceanpress_server</span>​</div></div>
+      </div><div id="20250314212409-qh2xups" data-node-id="20250314212409-qh2xups" data-type="NodeListItem" updated="20250314212418" data-subtype="o" class="li" data-marker="5.">
+        <div class="protyle-action">
+          5.
+        </div>
+        <div id="20250314212409-lwvj3br" data-node-id="20250314212409-lwvj3br" data-type="NodeParagraph" updated="20250314212418" class="p"><div spellcheck="false">OceanPress 中配置 OceanPress server apiBase 和 ApiKey</div></div>
+      </div></div><div id="20250314212319-zgxyd24" data-node-id="20250314212319-zgxyd24" data-type="NodeParagraph" updated="20250314212427" class="p"><div spellcheck="false"></div></div><div id="20250314212430-22xnebb" data-node-id="20250314212430-22xnebb" data-type="NodeParagraph" updated="20250316152706" class="p"><div spellcheck="false"></div></div><div id="20250314212502-x6boe13" data-node-id="20250314212502-x6boe13" data-type="NodeParagraph" updated="20250315130906" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -105,7 +113,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>nginx</title>
 </head>
 <body>
@@ -49,31 +49,38 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201104153359-c94443j" data-node-id="20201104153359-c94443j" data-type="NodeDocument" updated="20210804220632" data-subtype="h1" class="h1" type="doc"></div><h1 id="20201104153359-c94443j" data-node-id="20201104153359-c94443j" data-type="NodeDocument" updated="20210804220632" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">nginx</h1><h1 id="20210521142713-volo71q" data-node-id="20210521142713-volo71q" data-type="NodeHeading" data-subtype="h1" class="h1">nginx 学习</h1><div id="20210521142713-21676kt" data-node-id="20210521142713-21676kt" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142713-zds3kpd" data-node-id="20210521142713-zds3kpd" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142713-wjuyw37" data-node-id="20210521142713-wjuyw37" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate:2019-08-14 17:15:40</div></div>
-    </div><div id="20210521142713-55px9wr" data-node-id="20210521142713-55px9wr" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142713-3uhqax9" data-node-id="20210521142713-3uhqax9" data-type="NodeParagraph" class="p"><div spellcheck="false">tags:nginx</div></div>
-    </div></div><div id="20210521142713-afctqas" data-node-id="20210521142713-afctqas" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20210521142713-fn6tltf" data-node-id="20210521142713-fn6tltf" data-type="NodeHeading" data-subtype="h2" class="h2">安装 nginx</h2><div id="20210521142713-ddylm8b" data-node-id="20210521142713-ddylm8b" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://qizhanming.com/blog/2018/08/06/how-to-install-nginx-on-centos-7">centos7 安装 nginx</a></div></div><div id="20210521142713-jtyzj5y" data-node-id="20210521142713-jtyzj5y" data-type="NodeCodeBlock" class="code-block">
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20201104153359-c94443j" data-node-id="20201104153359-c94443j" data-type="NodeDocument" updated="20210804220632" type="doc">
+
+<h1 id="20201104153359-c94443j" data-node-id="20201104153359-c94443j" data-type="NodeDocument" updated="20210804220632" type="doc" data-type="NodeHeading" class="h1">nginx</h1>
+<h1 id="20210521142713-volo71q" data-node-id="20210521142713-volo71q" data-type="NodeHeading" data-subtype="h1" class="h1">nginx 学习</h1><div id="20210521142713-21676kt" data-node-id="20210521142713-21676kt" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142713-zds3kpd" data-node-id="20210521142713-zds3kpd" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">bash</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          <svg><use xlink:href="#iconDot"></use></svg>
         </div>
-        <div class="hljs" spellcheck="false">sudo rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+        <div id="20210521142713-wjuyw37" data-node-id="20210521142713-wjuyw37" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate:2019-08-14 17:15:40</div></div>
+      </div><div id="20210521142713-55px9wr" data-node-id="20210521142713-55px9wr" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142713-3uhqax9" data-node-id="20210521142713-3uhqax9" data-type="NodeParagraph" class="p"><div spellcheck="false">tags:nginx</div></div>
+      </div></div><div id="20210521142713-afctqas" data-node-id="20210521142713-afctqas" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20210521142713-fn6tltf" data-node-id="20210521142713-fn6tltf" data-type="NodeHeading" data-subtype="h2" class="h2">安装 nginx</h2><div id="20210521142713-ddylm8b" data-node-id="20210521142713-ddylm8b" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://qizhanming.com/blog/2018/08/06/how-to-install-nginx-on-centos-7">centos7 安装 nginx</a></div></div><div id="20210521142713-jtyzj5y" data-node-id="20210521142713-jtyzj5y" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">bash</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
 
 sudo yum install nginx
 </div>
-      </div><h2 id="20210521142713-r0my2td" data-node-id="20210521142713-r0my2td" data-type="NodeHeading" data-subtype="h2" class="h2">配置</h2><div id="20210521142713-j20sbf9" data-node-id="20210521142713-j20sbf9" data-type="NodeParagraph" class="p"><div spellcheck="false">然后进行<a href="https://www.nginx.com/resources/wiki/start/topics/examples/full/">配置</a></div></div><div id="20210521142713-8aeca6j" data-node-id="20210521142713-8aeca6j" data-type="NodeParagraph" class="p"><div spellcheck="false">我的一个配置</div></div><div id="20210521142713-ftdweky" data-node-id="20210521142713-ftdweky" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">bash</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">user    root    root;#配置用户组
+        </div><h2 id="20210521142713-r0my2td" data-node-id="20210521142713-r0my2td" data-type="NodeHeading" data-subtype="h2" class="h2">配置</h2><div id="20210521142713-j20sbf9" data-node-id="20210521142713-j20sbf9" data-type="NodeParagraph" class="p"><div spellcheck="false">然后进行<a href="https://www.nginx.com/resources/wiki/start/topics/examples/full/">配置</a></div></div><div id="20210521142713-8aeca6j" data-node-id="20210521142713-8aeca6j" data-type="NodeParagraph" class="p"><div spellcheck="false">我的一个配置</div></div><div id="20210521142713-ftdweky" data-node-id="20210521142713-ftdweky" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">bash</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">user    root    root;#配置用户组
 http {
         include       mime.types;#设置类型，不设置css会出问题
         default_type  application/octet-stream;
@@ -124,11 +131,12 @@ events {# 工作的连接数
         worker_connections  1024;  ## Default: 1024
     }
 </div>
-      </div><h2 id="20210521142713-25bsz6q" data-node-id="20210521142713-25bsz6q" data-type="NodeHeading" data-subtype="h2" class="h2">nginx 运行指定的配置文件</h2><div id="20210521142713-ncu25yx" data-node-id="20210521142713-ncu25yx" data-type="NodeParagraph" class="p"><div spellcheck="false">sudo nginx -c ~/nginx.conf</div></div><h2 id="20210521142713-mmyxxcx" data-node-id="20210521142713-mmyxxcx" data-type="NodeHeading" data-subtype="h2" class="h2">kill 掉所有的 nginx</h2><div id="20210521142713-zeahrc2" data-node-id="20210521142713-zeahrc2" data-type="NodeParagraph" class="p"><div spellcheck="false">sudo pkill nginx</div></div><h2 id="20210521142713-iuo935e" data-node-id="20210521142713-iuo935e" data-type="NodeHeading" data-subtype="h2" class="h2">nginx 403</h2><div id="20210521142713-v3rdod4" data-node-id="20210521142713-v3rdod4" data-type="NodeParagraph" class="p"><div spellcheck="false">这是因为用户权限的问题，要在配置文件开头配置用户组。</div></div><div id="20210804220632-acxfn0s" data-node-id="20210804220632-acxfn0s" data-type="NodeParagraph" updated="20210804220632" class="p"><div spellcheck="false"></div></div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div><h2 id="20210521142713-25bsz6q" data-node-id="20210521142713-25bsz6q" data-type="NodeHeading" data-subtype="h2" class="h2">nginx 运行指定的配置文件</h2><div id="20210521142713-ncu25yx" data-node-id="20210521142713-ncu25yx" data-type="NodeParagraph" class="p"><div spellcheck="false">sudo nginx -c ~/nginx.conf</div></div><h2 id="20210521142713-mmyxxcx" data-node-id="20210521142713-mmyxxcx" data-type="NodeHeading" data-subtype="h2" class="h2">kill 掉所有的 nginx</h2><div id="20210521142713-zeahrc2" data-node-id="20210521142713-zeahrc2" data-type="NodeParagraph" class="p"><div spellcheck="false">sudo pkill nginx</div></div><h2 id="20210521142713-iuo935e" data-node-id="20210521142713-iuo935e" data-type="NodeHeading" data-subtype="h2" class="h2">nginx 403</h2><div id="20210521142713-v3rdod4" data-node-id="20210521142713-v3rdod4" data-type="NodeParagraph" class="p"><div spellcheck="false">这是因为用户权限的问题，要在配置文件开头配置用户组。</div></div><div id="20210804220632-acxfn0s" data-node-id="20210804220632-acxfn0s" data-type="NodeParagraph" updated="20210804220632" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -147,7 +155,7 @@ events {# 工作的连接数
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

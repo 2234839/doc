@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>siyuan_feed插件</title>
 </head>
 <body>
@@ -49,129 +49,136 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20231214112450-ndy3t2e" data-node-id="20231214112450-ndy3t2e" data-type="NodeDocument" updated="20240206171929" data-subtype="h1" class="h1" custom-sy-readonly="false" icon="1f6f8" type="doc"></div><h1 id="20231214112450-ndy3t2e" data-node-id="20231214112450-ndy3t2e" data-type="NodeDocument" updated="20240206171929" data-subtype="h1" class="h1" custom-sy-readonly="false" icon="1f6f8" type="doc" data-type="NodeHeading" class="h1">siyuan_feed插件</h1><div id="20231214112450-bcfp96k" data-node-id="20231214112450-bcfp96k" data-type="NodeList" updated="20231229135514" data-subtype="u" class="list"><div id="20231214112550-lydowr4" data-node-id="20231214112550-lydowr4" data-type="NodeListItem" updated="20231214112550" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231214112550-xk5fbao" data-node-id="20231214112550-xk5fbao" data-type="NodeParagraph" updated="20231222110734" class="p"><div spellcheck="false">让<span data-type="block-ref" data-subtype="d" data-id="20201104155455-awawq0n"><a href="./../record/思源笔记.html#20201104155455-awawq0n">思源笔记</a></span>变成 rss 阅读器（<span data-type="block-ref" data-subtype="d" data-id="20231222104949-lawj86k"><a href="./../文集/feed.html#20231222104949-lawj86k">我的订阅列表</a></span>）</div></div>
-    </div><div id="20231214112552-eks2hge" data-node-id="20231214112552-eks2hge" data-type="NodeListItem" updated="20231222105015" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231214112552-w35eoyo" data-node-id="20231214112552-w35eoyo" data-type="NodeParagraph" updated="20231222110733" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20231215140755-tzesdop"><a href="./../想法/siyuan_feed插件.html#20231215140755-tzesdop">通过嵌入块 sql 查询未读文档</a></span> </div></div>
-    </div><div id="20231215143506-1dxrfr9" data-node-id="20231215143506-1dxrfr9" data-type="NodeListItem" updated="20231229135514" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215143506-or80m3u" data-node-id="20231215143506-or80m3u" data-type="NodeParagraph" updated="20231229135514" class="p"><div spellcheck="false"><a href="https://github.com/2234839/feed_siyuan_plugin">https://github.com/2234839/feed_siyuan_plugin</a> <span data-type="NodeImage" class="img" parent-style="width: 127px;" style="width: 117px;" style="width: 127px;">
-<img
-  src="https://img.shields.io/github/release/2234839/feed_siyuan_plugin.svg"
-  data-src="https://img.shields.io/github/release/2234839/feed_siyuan_plugin.svg"
-  title=""
-  style="width: 117px;"
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span> 、<a href="https://ld246.com/article/1702624143360/comment/1702644083686#comments">链滴社区讨论</a></div></div>
-    </div></div><h3 id="20231217165435-tnou9qs" data-node-id="20231217165435-tnou9qs" data-type="NodeHeading" updated="20231217165435" data-subtype="h3" class="h3">入门文档</h3><div id="20240206171835-cpre17k" data-node-id="20240206171835-cpre17k" data-type="NodeParagraph" updated="20240206171929" class="p"><div spellcheck="false">直接导入示例： <a href="./../assets/阮一峰的网络日志.sy-20240206171835-85lj361.zip">阮一峰的网络日志.sy.zip</a> 或者复制下方文本，以markdown的形式粘贴到思源笔记内（注意添加feed书签）</div></div><div id="20231217165435-39jzewl" data-node-id="20231217165435-39jzewl" data-type="NodeCodeBlock" updated="20231217165435" class="code-block" style="line-height: 22px;">
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20231214112450-ndy3t2e" data-node-id="20231214112450-ndy3t2e" data-type="NodeDocument" updated="20240206171929" custom-sy-readonly="false" icon="1f6f8" type="doc">
+
+<h1 id="20231214112450-ndy3t2e" data-node-id="20231214112450-ndy3t2e" data-type="NodeDocument" updated="20240206171929" custom-sy-readonly="false" icon="1f6f8" type="doc" data-type="NodeHeading" class="h1">siyuan_feed插件</h1>
+<div id="20231214112450-bcfp96k" data-node-id="20231214112450-bcfp96k" data-type="NodeList" updated="20231229135514" data-subtype="u" class="list"><div id="20231214112550-lydowr4" data-node-id="20231214112550-lydowr4" data-type="NodeListItem" updated="20231214112550" data-subtype="u" class="li" data-marker="*">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">md</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          <svg><use xlink:href="#iconDot"></use></svg>
         </div>
-        <div class="hljs" spellcheck="false">## 阮一峰的网络日志  (手动在这个标题上添加书签：feed)
+        <div id="20231214112550-xk5fbao" data-node-id="20231214112550-xk5fbao" data-type="NodeParagraph" updated="20231222110734" class="p"><div spellcheck="false">让<span data-type="block-ref"   data-subtype="d"   data-id="20201104155455-awawq0n"><a href="./../record/思源笔记.html#20201104155455-awawq0n">思源笔记</a></span>变成 rss 阅读器（<span data-type="block-ref"   data-subtype="d"   data-id="20231222104949-lawj86k"><a href="./../文集/feed.html#20231222104949-lawj86k">我的订阅列表</a></span>）</div></div>
+      </div><div id="20231214112552-eks2hge" data-node-id="20231214112552-eks2hge" data-type="NodeListItem" updated="20231222105015" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231214112552-w35eoyo" data-node-id="20231214112552-w35eoyo" data-type="NodeParagraph" updated="20231222110733" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20231215140755-tzesdop"><a href="./../想法/siyuan_feed插件.html#20231215140755-tzesdop">通过嵌入块 sql 查询未读文档</a></span> </div></div>
+      </div><div id="20231215143506-1dxrfr9" data-node-id="20231215143506-1dxrfr9" data-type="NodeListItem" updated="20231229135514" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231215143506-or80m3u" data-node-id="20231215143506-or80m3u" data-type="NodeParagraph" updated="20231229135514" class="p"><div spellcheck="false"><a href="https://github.com/2234839/feed_siyuan_plugin">https://github.com/2234839/feed_siyuan_plugin</a> <span data-type="NodeImage" class="img" parent-style="width: 127px;" style="width: 117px;" style="width: 127px;">
+  <img
+    src="https://img.shields.io/github/release/2234839/feed_siyuan_plugin.svg"
+    data-src="https://img.shields.io/github/release/2234839/feed_siyuan_plugin.svg"
+    title=""
+    style="width: 117px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span> 、<a href="https://ld246.com/article/1702624143360/comment/1702644083686#comments">链滴社区讨论</a></div></div>
+      </div></div><h3 id="20231217165435-tnou9qs" data-node-id="20231217165435-tnou9qs" data-type="NodeHeading" updated="20231217165435" data-subtype="h3" class="h3">入门文档</h3><div id="20240206171835-cpre17k" data-node-id="20240206171835-cpre17k" data-type="NodeParagraph" updated="20240206171929" class="p"><div spellcheck="false">直接导入示例： <a href="./../assets/阮一峰的网络日志.sy-20240206171835-85lj361.zip">阮一峰的网络日志.sy.zip</a> 或者复制下方文本，以markdown的形式粘贴到思源笔记内（注意添加feed书签）</div></div><div id="20231217165435-39jzewl" data-node-id="20231217165435-39jzewl" data-type="NodeCodeBlock" updated="20231217165435" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">md</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">## 阮一峰的网络日志  (手动在这个标题上添加书签：feed)
 
 * feed:http://www.ruanyifeng.com/blog/atom.xml
 * cron:`1 20 * * *`  需要注意的是，上方链接后面不可有其他文字，会全部当做url
 </div>
-      </div><div id="20231217165435-jlmb3p5" data-node-id="20231217165435-jlmb3p5" data-type="NodeParagraph" updated="20231217165435" class="p"><div spellcheck="false">现在你应该能得到：</div></div><div id="20231217165435-nyv1bo6" data-node-id="20231217165435-nyv1bo6" data-type="NodeParagraph" updated="20231217165435" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 632px;" style="width: 622px;" style="width: 632px;">
-<img
-  src="./../assets/image-20231217164546-cx8slv1.png"
-  data-src="./../assets/image-20231217164546-cx8slv1.png"
-  title=""
-  style="width: 622px;"
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20231217165435-ou34gw7" data-node-id="20231217165435-ou34gw7" data-type="NodeParagraph" updated="20231217165435" class="p"><div spellcheck="false">给标题添加书签 feed ，得到：</div></div><div id="20231217165435-uuac8gr" data-node-id="20231217165435-uuac8gr" data-type="NodeParagraph" updated="20231217165435" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 924px;" style="width: 914px;" style="width: 924px;">
-<img
-  src="./../assets/image-20231217164657-a6l8qwz.png"
-  data-src="./../assets/image-20231217164657-a6l8qwz.png"
-  title=""
-  style="width: 914px;"
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20231217165435-yy4cce4" data-node-id="20231217165435-yy4cce4" data-type="NodeParagraph" updated="20231217165435" class="p"><div spellcheck="false">同时按下 <span data-type="kbd">shift+alt+p</span>​ 运行下面这个命令</div></div><div id="20231217165435-b0pudmy" data-node-id="20231217165435-b0pudmy" data-type="NodeBlockQueryEmbed" updated="20231217165435" data-type="NodeBlockquote" class="bq"><div id="20231216215244-juypm1n" data-node-id="20231216215244-juypm1n" data-type="NodeParagraph" updated="20231217170159" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/image-20231216215244-41u20iu.png"
-  data-src="./../assets/image-20231216215244-41u20iu.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div></div><div id="20231217165435-m98nlq9" data-node-id="20231217165435-m98nlq9" data-type="NodeParagraph" updated="20231217165435" class="p"><div spellcheck="false">现在你应该能看到</div></div><div id="20231217165435-7furtta" data-node-id="20231217165435-7furtta" data-type="NodeParagraph" updated="20231217165435" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 668px;" style="width: 658px;" style="width: 668px;">
-<img
-  src="./../assets/image-20231217165306-t6jtyvc.png"
-  data-src="./../assets/image-20231217165306-t6jtyvc.png"
-  title=""
-  style="width: 658px;"
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20231217165435-81pp7hk" data-node-id="20231217165435-81pp7hk" data-type="NodeParagraph" updated="20231217165435" class="p"><div spellcheck="false">如果没有看见的话请尝试按 <span data-type="kbd">F5</span>​ 刷新一下当前页面，还不行的话联系我吧：<span data-type="block-ref" data-subtype="d" data-id="20201228124011-yky6n68"><a href="./../关于/崮生_子虚/子虚的联系方式.html#20201228124011-yky6n68">子虚的联系方式</a></span></div></div><div id="20231221175032-4zhnbkr" data-node-id="20231221175032-4zhnbkr" data-type="NodeParagraph" updated="20231217165435" class="p"><div spellcheck="false">扩展操作： <span data-type="block-ref" data-subtype="d" data-id="20231215140755-tzesdop"><a href="./../想法/siyuan_feed插件.html#20231215140755-tzesdop">通过嵌入块 sql 查询未读文档</a></span> 、 <span data-type="block-ref" data-subtype="d" data-id="20240116202448-2uly7cm"><a href="./../想法/siyuan_feed插件.html#20240116202448-2uly7cm">通过数据库来定义属性</a></span></div></div><h2 id="20231214112816-mo04im0" data-node-id="20231214112816-mo04im0" data-type="NodeHeading" updated="20231217165458" data-subtype="h2" class="h2">进阶文档</h2><div id="20231214140642-96iz8jo" data-node-id="20231214140642-96iz8jo" data-type="NodeList" updated="20231222133457" data-subtype="o" class="list"><div id="20231214140710-qyhixqi" data-node-id="20231214140710-qyhixqi" data-type="NodeListItem" updated="20231215110345" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20231214140710-ogufx6w" data-node-id="20231214140710-ogufx6w" data-type="NodeParagraph" updated="20231215110345" class="p"><div spellcheck="false">对任意一个容器块添加 <span data-type="code">feed</span>​​​​​​​​ 书签</div></div>
-    </div><div id="20231214140801-8h69m0m" data-node-id="20231214140801-8h69m0m" data-type="NodeListItem" updated="20231222111948" data-subtype="o" class="li" data-marker="2.">
-      <div class="protyle-action">
-        2.
-      </div>
-      <div id="20231214140801-ch9094x" data-node-id="20231214140801-ch9094x" data-type="NodeParagraph" updated="20231215204008" class="p"><div spellcheck="false">该容器块内再创建一个容器块 (假设叫做列表X)</div></div><div id="20231215113156-1dwwfa4" data-node-id="20231215113156-1dwwfa4" data-type="NodeList" updated="20231222111948" data-subtype="o" class="list"><div id="20231215113156-ynoelys" data-node-id="20231215113156-ynoelys" data-type="NodeListItem" updated="20231222105620" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20231215113156-2ixitpe" data-node-id="20231215113156-2ixitpe" data-type="NodeParagraph" updated="20231222105620" class="p"><div spellcheck="false">列表X以 <span data-type="code">feed:</span>​​ 开头的子块声明了 feed 的链接地址，<span data-type="strong">这是必填的</span></div></div>
-    </div><div id="20231221085611-2ecqsu1" data-node-id="20231221085611-2ecqsu1" data-type="NodeListItem" updated="20231222105622" data-subtype="o" class="li" data-marker="2.">
-      <div class="protyle-action">
-        2.
-      </div>
-      <div id="20231221085611-wlauo9m" data-node-id="20231221085611-wlauo9m" data-type="NodeParagraph" updated="20231222105622" class="p"><div spellcheck="false">列表X以 <span data-type="code">timeout:</span>​​ 开头的子块声明了请求该 feed 的超时时间，单位为 ms 默认为 10000 （十秒）</div></div>
-    </div><div id="20231221174102-3xa4che" data-node-id="20231221174102-3xa4che" data-type="NodeListItem" updated="20231222111948" data-subtype="o" class="li" data-marker="3.">
-      <div class="protyle-action">
-        3.
-      </div>
-      <div id="20231221174102-l3e2ltq" data-node-id="20231221174102-l3e2ltq" data-type="NodeParagraph" updated="20231222105623" class="p"><div spellcheck="false">列表X以 <span data-type="code">customParse:</span>​​ 开头的子块声明一个自定义的解析器，可以参照 <span data-type="block-ref" data-subtype="d" data-id="20231221124707-a6k71b6"><a href="./../文集/feed/太郎-龙逸楠的博客.html#20231221124707-a6k71b6">太郎-龙逸楠的博客</a></span> 处的实现</div></div><div id="20231221174201-f8eypjk" data-node-id="20231221174201-f8eypjk" data-type="NodeParagraph" updated="20231221174318" class="p"><div spellcheck="false">这需要你具有一定的编程能力，实现代码可见 <a href="https://github.com/2234839/feed_siyuan_plugin/issues/2">https://github.com/2234839/feed_siyuan_plugin/issues/2</a> 的相关提交代码</div></div><div id="20231221203649-25my80q" data-node-id="20231221203649-25my80q" data-type="NodeParagraph" updated="20231221203718" class="p"><div spellcheck="false">有网友询问：</div></div><div id="20231221203709-fu937l6" data-node-id="20231221203709-fu937l6" data-type="NodeBlockquote" updated="20231221203712" class="bq"><div id="20231221203710-mstpcym" data-node-id="20231221203710-mstpcym" data-type="NodeParagraph" updated="20231221203711" class="p"><div spellcheck="false">请问如果一个单纯的 html 网页，不提供 json 或 xml 格式的数据，应该怎么写 customParse 呢？能否提供一个例子？谢谢！</div></div></div><div id="20231221203712-pk29yy0" data-node-id="20231221203712-pk29yy0" data-type="NodeParagraph" updated="20231222111948" class="p"><div spellcheck="false">可以的！请看：  <span data-type="block-ref" data-subtype="d" data-id="20231221203731-tlrovzq"><a href="./../想法/siyuan_feed插件/思源更新了吗.html#20231221203731-tlrovzq">思源更新了吗</a></span></div></div><div id="20231222111945-568zo3u" data-node-id="20231222111945-568zo3u" data-type="NodeBlockQueryEmbed" updated="20231222111945" data-type="NodeBlockquote" class="bq"><div id="20231222111756-w9xslan" data-node-id="20231222111756-w9xslan" data-type="NodeParagraph" updated="20231222112001" class="p"><div spellcheck="false"><a href="https://rsshub.app/">https://rsshub.app/</a> 对于很多不支持rss的网站提供了聚合链接，在这里找找有么有你想订阅的网站</div></div></div>
-    </div><div id="20231215113247-lw6346y" data-node-id="20231215113247-lw6346y" data-type="NodeListItem" updated="20231222105624" data-subtype="o" class="li" data-marker="4.">
-      <div class="protyle-action">
-        4.
-      </div>
-      <div id="20231215113247-m5z2aqw" data-node-id="20231215113247-m5z2aqw" data-type="NodeParagraph" updated="20231222105624" class="p"><div spellcheck="false">列表X以 <span data-type="code">cron:</span>​​ 开头的子块声明什么时候对该链接进行更新检查</div></div>
-    </div><div id="20231215113335-c06rvn4" data-node-id="20231215113335-c06rvn4" data-type="NodeListItem" updated="20231221203846" data-subtype="o" class="li" data-marker="5.">
-      <div class="protyle-action">
-        5.
-      </div>
-      <div id="20231215113335-h5gym6g" data-node-id="20231215113335-h5gym6g" data-type="NodeParagraph" updated="20231215115327" class="p"><div spellcheck="false">例如下方的列表块就是一个以 <span data-type="code">feed:</span>​​​​​​​​​​ 开头的容器块并且声明了链接地址和更新时间（每天晚上八点1分检查一次），</div></div><div id="20231215202254-yhphw4e" data-node-id="20231215202254-yhphw4e" data-type="NodeParagraph" updated="20231215202313" class="p"><div spellcheck="false">简单来说 feed 和 cron 应该是同一个列表中的不同的列表项</div></div><div id="20231215113359-kb7or4b" data-node-id="20231215113359-kb7or4b" data-type="NodeList" updated="20231221203846" data-subtype="u" class="list"><div id="20231215113405-kbvru6h" data-node-id="20231215113405-kbvru6h" data-type="NodeListItem" updated="20231215113412" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215113405-x9mtdrf" data-node-id="20231215113405-x9mtdrf" data-type="NodeParagraph" updated="20231215113412" class="p"><div spellcheck="false">feed:http://www.ruanyifeng.com/blog/atom.xml</div></div>
-    </div><div id="20231215113422-xqe2q98" data-node-id="20231215113422-xqe2q98" data-type="NodeListItem" updated="20231221203846" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215113422-3pkdqpy" data-node-id="20231215113422-3pkdqpy" data-type="NodeParagraph" updated="20231221203846" class="p"><div spellcheck="false">cron:​1 20 * * *​​​​​​​​​​  需要注意的是，上方链接后面不可有其他文字，会全部当做url</div></div><div id="20231215122035-6yhzmi6" data-node-id="20231215122035-6yhzmi6" data-type="NodeList" updated="20231216214032" data-subtype="u" class="list"><div id="20231215122039-298b10l" data-node-id="20231215122039-298b10l" data-type="NodeListItem" updated="20231216214032" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215122039-cm7emk8" data-node-id="20231215122039-cm7emk8" data-type="NodeParagraph" updated="20231216214032" class="p"><div spellcheck="false">此属性是可选的，插件会采取默认值 <span data-type="code">1 * * * *</span>​​​​​​​​ 每小时的第一分钟进行一次检查，<span data-type="block-ref" data-subtype="s" data-id="20231215113645-6pphd6k"><a href="./../想法/siyuan_feed插件.html#20231215113645-6pphd6k">表达式语法如下</a></span></div></div>
-    </div></div>
-    </div><div id="20231215113645-6pphd6k" data-node-id="20231215113645-6pphd6k" data-type="NodeListItem" updated="20231215115416" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231215113645-gf1i5a1" data-node-id="20231215113645-gf1i5a1" data-type="NodeCodeBlock" updated="20231215115416" class="code-block" style="line-height: 22px;">
+        </div><div id="20231217165435-jlmb3p5" data-node-id="20231217165435-jlmb3p5" data-type="NodeParagraph" updated="20231217165435" class="p"><div spellcheck="false">现在你应该能得到：</div></div><div id="20231217165435-nyv1bo6" data-node-id="20231217165435-nyv1bo6" data-type="NodeParagraph" updated="20231217165435" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 632px;" style="width: 622px;" style="width: 632px;">
+  <img
+    src="./../assets/image-20231217164546-cx8slv1.png"
+    data-src="./../assets/image-20231217164546-cx8slv1.png"
+    title=""
+    style="width: 622px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20231217165435-ou34gw7" data-node-id="20231217165435-ou34gw7" data-type="NodeParagraph" updated="20231217165435" class="p"><div spellcheck="false">给标题添加书签 feed ，得到：</div></div><div id="20231217165435-uuac8gr" data-node-id="20231217165435-uuac8gr" data-type="NodeParagraph" updated="20231217165435" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 924px;" style="width: 914px;" style="width: 924px;">
+  <img
+    src="./../assets/image-20231217164657-a6l8qwz.png"
+    data-src="./../assets/image-20231217164657-a6l8qwz.png"
+    title=""
+    style="width: 914px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20231217165435-yy4cce4" data-node-id="20231217165435-yy4cce4" data-type="NodeParagraph" updated="20231217165435" class="p"><div spellcheck="false">同时按下 <span data-type="kbd">shift+alt+p</span>​ 运行下面这个命令</div></div><div id="20231217165435-b0pudmy" data-node-id="20231217165435-b0pudmy" data-type="NodeBlockQueryEmbed" updated="20231217165435" data-type="NodeBlockquote" class="bq">  <div id="20231216215244-juypm1n" data-node-id="20231216215244-juypm1n" data-type="NodeParagraph" updated="20231217170159" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/image-20231216215244-41u20iu.png"
+    data-src="./../assets/image-20231216215244-41u20iu.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div>  </div><div id="20231217165435-m98nlq9" data-node-id="20231217165435-m98nlq9" data-type="NodeParagraph" updated="20231217165435" class="p"><div spellcheck="false">现在你应该能看到</div></div><div id="20231217165435-7furtta" data-node-id="20231217165435-7furtta" data-type="NodeParagraph" updated="20231217165435" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 668px;" style="width: 658px;" style="width: 668px;">
+  <img
+    src="./../assets/image-20231217165306-t6jtyvc.png"
+    data-src="./../assets/image-20231217165306-t6jtyvc.png"
+    title=""
+    style="width: 658px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20231217165435-81pp7hk" data-node-id="20231217165435-81pp7hk" data-type="NodeParagraph" updated="20231217165435" class="p"><div spellcheck="false">如果没有看见的话请尝试按 <span data-type="kbd">F5</span>​ 刷新一下当前页面，还不行的话联系我吧：<span data-type="block-ref"   data-subtype="d"   data-id="20201228124011-yky6n68"><a href="./../关于/崮生_子虚/子虚的联系方式.html#20201228124011-yky6n68">子虚的联系方式</a></span></div></div><div id="20231221175032-4zhnbkr" data-node-id="20231221175032-4zhnbkr" data-type="NodeParagraph" updated="20231217165435" class="p"><div spellcheck="false">扩展操作： <span data-type="block-ref"   data-subtype="d"   data-id="20231215140755-tzesdop"><a href="./../想法/siyuan_feed插件.html#20231215140755-tzesdop">通过嵌入块 sql 查询未读文档</a></span> 、 <span data-type="block-ref"   data-subtype="d"   data-id="20240116202448-2uly7cm"><a href="./../想法/siyuan_feed插件.html#20240116202448-2uly7cm">通过数据库来定义属性</a></span></div></div><h2 id="20231214112816-mo04im0" data-node-id="20231214112816-mo04im0" data-type="NodeHeading" updated="20231217165458" data-subtype="h2" class="h2">进阶文档</h2><div id="20231214140642-96iz8jo" data-node-id="20231214140642-96iz8jo" data-type="NodeList" updated="20231222133457" data-subtype="o" class="list"><div id="20231214140710-qyhixqi" data-node-id="20231214140710-qyhixqi" data-type="NodeListItem" updated="20231215110345" data-subtype="o" class="li" data-marker="1.">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">bash</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          1.
         </div>
-        <div class="hljs" spellcheck="false">* * * * *
+        <div id="20231214140710-ogufx6w" data-node-id="20231214140710-ogufx6w" data-type="NodeParagraph" updated="20231215110345" class="p"><div spellcheck="false">对任意一个容器块添加 <span data-type="code">feed</span>​​​​​​​​ 书签</div></div>
+      </div><div id="20231214140801-8h69m0m" data-node-id="20231214140801-8h69m0m" data-type="NodeListItem" updated="20231222111948" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20231214140801-ch9094x" data-node-id="20231214140801-ch9094x" data-type="NodeParagraph" updated="20231215204008" class="p"><div spellcheck="false">该容器块内再创建一个容器块 (假设叫做列表X)</div></div><div id="20231215113156-1dwwfa4" data-node-id="20231215113156-1dwwfa4" data-type="NodeList" updated="20231222111948" data-subtype="o" class="list"><div id="20231215113156-ynoelys" data-node-id="20231215113156-ynoelys" data-type="NodeListItem" updated="20231222105620" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20231215113156-2ixitpe" data-node-id="20231215113156-2ixitpe" data-type="NodeParagraph" updated="20231222105620" class="p"><div spellcheck="false">列表X以 <span data-type="code">feed:</span>​​ 开头的子块声明了 feed 的链接地址，<span data-type="strong">这是必填的</span></div></div>
+      </div><div id="20231221085611-2ecqsu1" data-node-id="20231221085611-2ecqsu1" data-type="NodeListItem" updated="20231222105622" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20231221085611-wlauo9m" data-node-id="20231221085611-wlauo9m" data-type="NodeParagraph" updated="20231222105622" class="p"><div spellcheck="false">列表X以 <span data-type="code">timeout:</span>​​ 开头的子块声明了请求该 feed 的超时时间，单位为 ms 默认为 10000 （十秒）</div></div>
+      </div><div id="20231221174102-3xa4che" data-node-id="20231221174102-3xa4che" data-type="NodeListItem" updated="20231222111948" data-subtype="o" class="li" data-marker="3.">
+        <div class="protyle-action">
+          3.
+        </div>
+        <div id="20231221174102-l3e2ltq" data-node-id="20231221174102-l3e2ltq" data-type="NodeParagraph" updated="20231222105623" class="p"><div spellcheck="false">列表X以 <span data-type="code">customParse:</span>​​ 开头的子块声明一个自定义的解析器，可以参照 <span data-type="block-ref"   data-subtype="d"   data-id="20231221124707-a6k71b6"><a href="./../文集/feed/太郎-龙逸楠的博客.html#20231221124707-a6k71b6">太郎-龙逸楠的博客</a></span> 处的实现</div></div><div id="20231221174201-f8eypjk" data-node-id="20231221174201-f8eypjk" data-type="NodeParagraph" updated="20231221174318" class="p"><div spellcheck="false">这需要你具有一定的编程能力，实现代码可见 <a href="https://github.com/2234839/feed_siyuan_plugin/issues/2">https://github.com/2234839/feed_siyuan_plugin/issues/2</a> 的相关提交代码</div></div><div id="20231221203649-25my80q" data-node-id="20231221203649-25my80q" data-type="NodeParagraph" updated="20231221203718" class="p"><div spellcheck="false">有网友询问：</div></div><div id="20231221203709-fu937l6" data-node-id="20231221203709-fu937l6" data-type="NodeBlockquote" updated="20231221203712" class="bq"><div id="20231221203710-mstpcym" data-node-id="20231221203710-mstpcym" data-type="NodeParagraph" updated="20231221203711" class="p"><div spellcheck="false">请问如果一个单纯的 html 网页，不提供 json 或 xml 格式的数据，应该怎么写 customParse 呢？能否提供一个例子？谢谢！</div></div></div><div id="20231221203712-pk29yy0" data-node-id="20231221203712-pk29yy0" data-type="NodeParagraph" updated="20231222111948" class="p"><div spellcheck="false">可以的！请看：  <span data-type="block-ref"   data-subtype="d"   data-id="20231221203731-tlrovzq"><a href="./../想法/siyuan_feed插件/思源更新了吗.html#20231221203731-tlrovzq">思源更新了吗</a></span></div></div><div id="20231222111945-568zo3u" data-node-id="20231222111945-568zo3u" data-type="NodeBlockQueryEmbed" updated="20231222111945" data-type="NodeBlockquote" class="bq">  <div id="20231222111756-w9xslan" data-node-id="20231222111756-w9xslan" data-type="NodeParagraph" updated="20231222112001" class="p"><div spellcheck="false"><a href="https://rsshub.app/">https://rsshub.app/</a> 对于很多不支持rss的网站提供了聚合链接，在这里找找有么有你想订阅的网站</div></div>  </div>
+      </div><div id="20231215113247-lw6346y" data-node-id="20231215113247-lw6346y" data-type="NodeListItem" updated="20231222105624" data-subtype="o" class="li" data-marker="4.">
+        <div class="protyle-action">
+          4.
+        </div>
+        <div id="20231215113247-m5z2aqw" data-node-id="20231215113247-m5z2aqw" data-type="NodeParagraph" updated="20231222105624" class="p"><div spellcheck="false">列表X以 <span data-type="code">cron:</span>​​ 开头的子块声明什么时候对该链接进行更新检查</div></div>
+      </div><div id="20231215113335-c06rvn4" data-node-id="20231215113335-c06rvn4" data-type="NodeListItem" updated="20231221203846" data-subtype="o" class="li" data-marker="5.">
+        <div class="protyle-action">
+          5.
+        </div>
+        <div id="20231215113335-h5gym6g" data-node-id="20231215113335-h5gym6g" data-type="NodeParagraph" updated="20231215115327" class="p"><div spellcheck="false">例如下方的列表块就是一个以 <span data-type="code">feed:</span>​​​​​​​​​​ 开头的容器块并且声明了链接地址和更新时间（每天晚上八点1分检查一次），</div></div><div id="20231215202254-yhphw4e" data-node-id="20231215202254-yhphw4e" data-type="NodeParagraph" updated="20231215202313" class="p"><div spellcheck="false">简单来说 feed 和 cron 应该是同一个列表中的不同的列表项</div></div><div id="20231215113359-kb7or4b" data-node-id="20231215113359-kb7or4b" data-type="NodeList" updated="20231221203846" data-subtype="u" class="list"><div id="20231215113405-kbvru6h" data-node-id="20231215113405-kbvru6h" data-type="NodeListItem" updated="20231215113412" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231215113405-x9mtdrf" data-node-id="20231215113405-x9mtdrf" data-type="NodeParagraph" updated="20231215113412" class="p"><div spellcheck="false">feed:http://www.ruanyifeng.com/blog/atom.xml</div></div>
+      </div><div id="20231215113422-xqe2q98" data-node-id="20231215113422-xqe2q98" data-type="NodeListItem" updated="20231221203846" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231215113422-3pkdqpy" data-node-id="20231215113422-3pkdqpy" data-type="NodeParagraph" updated="20231221203846" class="p"><div spellcheck="false">cron:​1 20 * * *​​​​​​​​​​  需要注意的是，上方链接后面不可有其他文字，会全部当做url</div></div><div id="20231215122035-6yhzmi6" data-node-id="20231215122035-6yhzmi6" data-type="NodeList" updated="20231216214032" data-subtype="u" class="list"><div id="20231215122039-298b10l" data-node-id="20231215122039-298b10l" data-type="NodeListItem" updated="20231216214032" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231215122039-cm7emk8" data-node-id="20231215122039-cm7emk8" data-type="NodeParagraph" updated="20231216214032" class="p"><div spellcheck="false">此属性是可选的，插件会采取默认值 <span data-type="code">1 * * * *</span>​​​​​​​​ 每小时的第一分钟进行一次检查，<span data-type="block-ref"   data-subtype="s"   data-id="20231215113645-6pphd6k"><a href="./../想法/siyuan_feed插件.html#20231215113645-6pphd6k">表达式语法如下</a></span></div></div>
+      </div></div>
+      </div><div id="20231215113645-6pphd6k" data-node-id="20231215113645-6pphd6k" data-type="NodeListItem" updated="20231215115416" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231215113645-gf1i5a1" data-node-id="20231215113645-gf1i5a1" data-type="NodeCodeBlock" updated="20231215115416" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">bash</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">* * * * *
 | | | | |
 | | | | +----- 星期几 (1 - 7) (星期天为 7)
 | | | +------- 月份 (1 - 12)
@@ -181,42 +188,42 @@
 
 注意！！这个 cron 表达式仅支持数字和*表达，不支持更高级的特性
 </div>
-      </div>
-    </div></div>
-    </div></div>
-    </div><div id="20231215140504-b1cqns8" data-node-id="20231215140504-b1cqns8" data-type="NodeListItem" updated="20231215141701" data-subtype="o" class="li" data-marker="3.">
-      <div class="protyle-action">
-        3.
-      </div>
-      <div id="20231215140504-ndh6rtx" data-node-id="20231215140504-ndh6rtx" data-type="NodeParagraph" updated="20231215141701" class="p"><div spellcheck="false">会从 feed 链接获取数据和本地数据比对之后，将本地没有的新更新的文章都会放置在容器块A:<span data-type="block-ref" data-subtype="d" data-id="20231214140710-qyhixqi"><a href="./../想法/siyuan_feed插件.html#20231214140710-qyhixqi">对任意一个容器块添加 feed 书签</a></span> 的子容器块B：<span data-type="block-ref" data-subtype="s" data-id="20231214140801-8h69m0m"><a href="./../想法/siyuan_feed插件.html#20231214140801-8h69m0m">在他的子块中创建一个以 feed: 开头的容器块</a></span> 的后侧</div></div>
-    </div><div id="20231215140755-tzesdop" data-node-id="20231215140755-tzesdop" data-type="NodeListItem" updated="20231222133457" data-subtype="o" class="li" data-marker="4.">
-      <div class="protyle-action">
-        4.
-      </div>
-      <div id="20231215140755-h6ss5w5" data-node-id="20231215140755-h6ss5w5" data-type="NodeParagraph" updated="20231215140813" class="p"><div spellcheck="false">通过嵌入块 sql 查询未读文档</div></div><div id="20231215140814-haj9t44" data-node-id="20231215140814-haj9t44" data-type="NodeList" updated="20231222133457" data-subtype="o" class="list"><div id="20231215140814-9j32o02" data-node-id="20231215140814-9j32o02" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20231215140814-qgnvx8w" data-node-id="20231215140814-qgnvx8w" data-type="NodeParagraph" updated="20231215140957" class="p"><div spellcheck="false">所有订阅文章的 md 都是以 <span data-type="code">* [ ] ##...</span>​​​​​​ 或 <span data-type="code">* [X] ##...</span>​​​​​​ 开头的（所以不要随意改动插件生成的文档，否则可能重复生成)</div></div>
-    </div><div id="20231215141000-333ndu6" data-node-id="20231215141000-333ndu6" data-type="NodeListItem" updated="20231222133457" data-subtype="o" class="li" data-marker="2.">
-      <div class="protyle-action">
-        2.
-      </div>
-      <div id="20231215141000-ywmlpwr" data-node-id="20231215141000-ywmlpwr" data-type="NodeParagraph" updated="20231222133457" class="p"><div spellcheck="false">熟悉sql的一下子就能够知道我们只要查询具有 feed 书签的块的子块并且该子块以 <span data-type="code">* [ ] ##...</span>​​ 开头即是未读文档</div></div>
-    </div><div id="20231215143109-vzc1quh" data-node-id="20231215143109-vzc1quh" data-type="NodeListItem" updated="20231216220331" data-subtype="o" class="li" data-marker="3.">
-      <div class="protyle-action">
-        3.
-      </div>
-      <div id="20231215143109-yisrewg" data-node-id="20231215143109-yisrewg" data-type="NodeParagraph" updated="20231215144035" class="p"><div spellcheck="false">然后通过 <span data-type="block-ref" data-subtype="s" data-id="20231215143612-kg51jqj"><a href="./../工具/chatGPT.html#20231215143612-kg51jqj">询问 ChatGPT</a></span> 得到如下 sql</div></div><div id="20231215143142-7ukt6l7" data-node-id="20231215143142-7ukt6l7" data-type="NodeList" updated="20231216220331" data-subtype="o" class="list"><div id="20231215143125-2x46ill" data-node-id="20231215143125-2x46ill" data-type="NodeListItem" updated="20231216220331" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20231215143125-bzhkoka" data-node-id="20231215143125-bzhkoka" data-type="NodeCodeBlock" updated="20231216220331" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">sql</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
         </div>
-        <div class="hljs" spellcheck="false">SELECT *
+      </div></div>
+      </div></div>
+      </div><div id="20231215140504-b1cqns8" data-node-id="20231215140504-b1cqns8" data-type="NodeListItem" updated="20231215141701" data-subtype="o" class="li" data-marker="3.">
+        <div class="protyle-action">
+          3.
+        </div>
+        <div id="20231215140504-ndh6rtx" data-node-id="20231215140504-ndh6rtx" data-type="NodeParagraph" updated="20231215141701" class="p"><div spellcheck="false">会从 feed 链接获取数据和本地数据比对之后，将本地没有的新更新的文章都会放置在容器块A:<span data-type="block-ref"   data-subtype="d"   data-id="20231214140710-qyhixqi"><a href="./../想法/siyuan_feed插件.html#20231214140710-qyhixqi">对任意一个容器块添加 feed 书签</a></span> 的子容器块B：<span data-type="block-ref"   data-subtype="s"   data-id="20231214140801-8h69m0m"><a href="./../想法/siyuan_feed插件.html#20231214140801-8h69m0m">在他的子块中创建一个以 feed: 开头的容器块</a></span> 的后侧</div></div>
+      </div><div id="20231215140755-tzesdop" data-node-id="20231215140755-tzesdop" data-type="NodeListItem" updated="20231222133457" data-subtype="o" class="li" data-marker="4.">
+        <div class="protyle-action">
+          4.
+        </div>
+        <div id="20231215140755-h6ss5w5" data-node-id="20231215140755-h6ss5w5" data-type="NodeParagraph" updated="20231215140813" class="p"><div spellcheck="false">通过嵌入块 sql 查询未读文档</div></div><div id="20231215140814-haj9t44" data-node-id="20231215140814-haj9t44" data-type="NodeList" updated="20231222133457" data-subtype="o" class="list"><div id="20231215140814-9j32o02" data-node-id="20231215140814-9j32o02" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20231215140814-qgnvx8w" data-node-id="20231215140814-qgnvx8w" data-type="NodeParagraph" updated="20231215140957" class="p"><div spellcheck="false">所有订阅文章的 md 都是以 <span data-type="code">* [ ] ##...</span>​​​​​​ 或 <span data-type="code">* [X] ##...</span>​​​​​​ 开头的（所以不要随意改动插件生成的文档，否则可能重复生成)</div></div>
+      </div><div id="20231215141000-333ndu6" data-node-id="20231215141000-333ndu6" data-type="NodeListItem" updated="20231222133457" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20231215141000-ywmlpwr" data-node-id="20231215141000-ywmlpwr" data-type="NodeParagraph" updated="20231222133457" class="p"><div spellcheck="false">熟悉sql的一下子就能够知道我们只要查询具有 feed 书签的块的子块并且该子块以 <span data-type="code">* [ ] ##...</span>​​ 开头即是未读文档</div></div>
+      </div><div id="20231215143109-vzc1quh" data-node-id="20231215143109-vzc1quh" data-type="NodeListItem" updated="20231216220331" data-subtype="o" class="li" data-marker="3.">
+        <div class="protyle-action">
+          3.
+        </div>
+        <div id="20231215143109-yisrewg" data-node-id="20231215143109-yisrewg" data-type="NodeParagraph" updated="20231215144035" class="p"><div spellcheck="false">然后通过 <span data-type="block-ref"   data-subtype="s"   data-id="20231215143612-kg51jqj"><a href="./../工具/chatGPT.html#20231215143612-kg51jqj">询问 ChatGPT</a></span> 得到如下 sql</div></div><div id="20231215143142-7ukt6l7" data-node-id="20231215143142-7ukt6l7" data-type="NodeList" updated="20231216220331" data-subtype="o" class="list"><div id="20231215143125-2x46ill" data-node-id="20231215143125-2x46ill" data-type="NodeListItem" updated="20231216220331" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20231215143125-bzhkoka" data-node-id="20231215143125-bzhkoka" data-type="NodeCodeBlock" updated="20231216220331" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">sql</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">SELECT *
       FROM (
           SELECT b.*
           FROM blocks AS b
@@ -226,112 +233,113 @@
 WHERE subquery.markdown LIKE '* [ ] #%'
 ORDER BY created DESC
 </div>
-      </div>
-    </div></div>
-    </div><div id="20231215143147-ki0peja" data-node-id="20231215143147-ki0peja" data-type="NodeListItem" updated="20231215150838" data-subtype="o" class="li" data-marker="4.">
-      <div class="protyle-action">
-        4.
-      </div>
-      <div id="20231215143147-4uy5tms" data-node-id="20231215143147-4uy5tms" data-type="NodeParagraph" updated="20231215150838" class="p"><div spellcheck="false">将该sql复制到嵌入块的查询语句中即可得到如下效果，主要获取了 标题、链接、发布时间、更新时间、摘要，然后如果阅读后有什么感想也可以记在该标题块的最后面
+        </div>
+      </div></div>
+      </div><div id="20231215143147-ki0peja" data-node-id="20231215143147-ki0peja" data-type="NodeListItem" updated="20231215150838" data-subtype="o" class="li" data-marker="4.">
+        <div class="protyle-action">
+          4.
+        </div>
+        <div id="20231215143147-4uy5tms" data-node-id="20231215143147-4uy5tms" data-type="NodeParagraph" updated="20231215150838" class="p"><div spellcheck="false">将该sql复制到嵌入块的查询语句中即可得到如下效果，主要获取了 标题、链接、发布时间、更新时间、摘要，然后如果阅读后有什么感想也可以记在该标题块的最后面
 ​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/image-20231215143246-eo50mwo.png"
-  data-src="./../assets/image-20231215143246-eo50mwo.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div>
-    </div></div>
-    </div><div id="20240116202436-l0fse6r" data-node-id="20240116202436-l0fse6r" data-type="NodeListItem" data-subtype="o" class="li" data-marker="5.">
-      <div class="protyle-action">
-        5.
-      </div>
-      <div id="20240116202436-xpcl5ky" data-node-id="20240116202436-xpcl5ky" data-type="NodeParagraph" class="p"><div spellcheck="false">在阅读完文章之后勾选标题前面的任务框，等待思源笔记更新嵌入块即完成了一整套使用思源笔记订阅 rss 源的过程</div></div>
-    </div></div><h3 id="20240116202448-2uly7cm" data-node-id="20240116202448-2uly7cm" data-type="NodeHeading" updated="20240116202648" data-subtype="h3" class="h3">通过数据库来定义属性</h3><div id="20240116202455-4foudd1" data-node-id="20240116202455-4foudd1" data-type="NodeParagraph" updated="20240116202842" class="p"><div spellcheck="false">如下图所示，在多数据库的情况下数据库名为 feed 的具有高优先级，然后排在前面的优先级高于后面的</div></div><div id="20240116202610-xxjtufz" data-node-id="20240116202610-xxjtufz" data-type="NodeParagraph" updated="20240116204332" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 645px;" style="width: 635px;" style="width: 645px;">
-<img
-  src="./../assets/image-20240116203429-5fos6nr.png"
-  data-src="./../assets/image-20240116203429-5fos6nr.png"
-  title=""
-  style="width: 635px;"
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span><span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/image-20240116203515-93yknxz.png"
-  data-src="./../assets/image-20240116203515-93yknxz.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20240116203524-w2xlkjc" data-node-id="20240116203524-w2xlkjc" data-type="NodeParagraph" updated="20240116203818" class="p"><div spellcheck="false">如果没有在文档中定义以 <span data-type="code">feed:</span>​ 开头的容器块的话，所有文章都会插入到具有feed书签的块之后，可以定义一个 <span data-type="code">feed:</span>​ （这里不写链接，在数据库中定义）容器块来控制文章插入的位置。</div></div><h3 id="20231216215227-hiswgz8" data-node-id="20231216215227-hiswgz8" data-type="NodeHeading" updated="20231216215244" data-subtype="h3" class="h3">支持命令</h3><div id="20231216215244-juypm1n" data-node-id="20231216215244-juypm1n" data-type="NodeParagraph" updated="20231217170159" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/image-20231216215244-41u20iu.png"
-  data-src="./../assets/image-20231216215244-41u20iu.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><h2 id="20231215140339-3qxf73q" data-node-id="20231215140339-3qxf73q" data-type="NodeHeading" updated="20231215140342" data-subtype="h2" class="h2">示例</h2><div id="20231215140342-64rkxzi" data-node-id="20231215140342-64rkxzi" data-type="NodeParagraph" updated="20231221092133" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20231215121826-vrlq40n"><a href="./../文集/feed.html#20231215121826-vrlq40n">feed</a></span> > <span data-type="block-ref" data-subtype="d" data-id="20231214134236-8hquuwm"><a href="./../文集/feed/阮一峰的网络日志.html#20231214134236-8hquuwm">阮一峰的网络日志</a></span></div></div><h2 id="20231222111750-5vxtq84" data-node-id="20231222111750-5vxtq84" data-type="NodeHeading" updated="20231222111755" data-subtype="h2" class="h2">其他</h2><div id="20231222111756-w9xslan" data-node-id="20231222111756-w9xslan" data-type="NodeParagraph" updated="20231222112001" class="p"><div spellcheck="false"><a href="https://rsshub.app/">https://rsshub.app/</a> 对于很多不支持rss的网站提供了聚合链接，在这里找找有么有你想订阅的网站</div></div><div id="20231216214038-s2o6h60" data-node-id="20231216214038-s2o6h60" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20231216215835-2nlz7fo" data-node-id="20231216215835-2nlz7fo" data-type="NodeBlockQueryEmbed" updated="20231216215835" data-type="NodeBlockquote" class="bq"><h2 id="20210106101307-5vr9bqf" data-node-id="20210106101307-5vr9bqf" data-type="NodeHeading" updated="20241227142305" data-subtype="h2" class="h2"><a href="https://afdian.com/@llej0">赞赏-通过爱发电平台</a></h2></div><h2 id="20231216214039-fyz9zv2" data-node-id="20231216214039-fyz9zv2" data-type="NodeHeading" updated="20231216214047" data-subtype="h2" class="h2">更新日志</h2><h3 id="20240116185717-dx432x1" data-node-id="20240116185717-dx432x1" data-type="NodeHeading" updated="20240116185953" data-subtype="h3" class="h3">v1.1.11 <span data-type="text" style="font-size: 14px; background-color: var(--b3-card-error-background); color: var(--b3-card-error-color);">不兼容更新</span></h3><div id="20240116185733-1uw3whe" data-node-id="20240116185733-1uw3whe" data-type="NodeList" updated="20240116205822" data-subtype="u" class="list"><div id="20240116185744-mnkdzzb" data-node-id="20240116185744-mnkdzzb" data-type="NodeListItem" updated="20240116205822" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240116185744-lhrp1xr" data-node-id="20240116185744-lhrp1xr" data-type="NodeParagraph" updated="20240116205822" class="p"><div spellcheck="false">支持使用数据库属性来替代块声明 <a href="https://github.com/2234839/feed_siyuan_plugin/issues/3">feed_siyuan_plugin/issues/3</a> ，doc： <span data-type="block-ref" data-subtype="d" data-id="20240116202448-2uly7cm"><a href="./../想法/siyuan_feed插件.html#20240116202448-2uly7cm">通过数据库来定义属性</a></span></div></div>
-    </div><div id="20240116185852-kmfmrp8" data-node-id="20240116185852-kmfmrp8" data-type="NodeListItem" updated="20240116190200" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240116185852-upo47tb" data-node-id="20240116185852-upo47tb" data-type="NodeParagraph" updated="20240116190047" class="p"><div spellcheck="false"><span data-type="text" style="font-size: 14px; background-color: var(--b3-card-error-background); color: var(--b3-card-error-color);">不兼容</span> customParse 的第一个参数的值发生了变化，如果使用到了该参数则需要修改</div></div><div id="20240116190054-3tih601" data-node-id="20240116190054-3tih601" data-type="NodeParagraph" updated="20240116190200" class="p"><div spellcheck="false">升级方案： 假设第一个参数名为 attr ,请修改为 feedDoc , 然后在函数内添加 const attr = feedDoc.attr 即可兼容原有代码</div></div>
-    </div></div><h3 id="20240111171953-2s2u7sr" data-node-id="20240111171953-2s2u7sr" data-type="NodeHeading" updated="20231216214047" data-subtype="h3" class="h3">v.0.0.9</h3><div id="20240111172002-hvgdn4n" data-node-id="20240111172002-hvgdn4n" data-type="NodeParagraph" updated="20231216214047" class="p"><div spellcheck="false">解决控制台报错 name 重定义。更新 logo。</div></div><h3 id="20231221173730-g1gtz8v" data-node-id="20231221173730-g1gtz8v" data-type="NodeHeading" updated="20231216214047" data-subtype="h3" class="h3">v0.0.8</h3><div id="20231221173820-ao4n3rn" data-node-id="20231221173820-ao4n3rn" data-type="NodeList" updated="20231216214047" data-subtype="u" class="list"><div id="20231221173820-2bvfmwn" data-node-id="20231221173820-2bvfmwn" data-type="NodeListItem" updated="20231221173841" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231221173820-fdznvdf" data-node-id="20231221173820-fdznvdf" data-type="NodeParagraph" updated="20231221173841" class="p"><div spellcheck="false">新增customParse属性配置 <a href="https://github.com/2234839/feed_siyuan_plugin/issues/2">feed_siyuan_plugin/issues/2</a></div></div>
-    </div></div><h3 id="20231221085710-skw9k76" data-node-id="20231221085710-skw9k76" data-type="NodeHeading" updated="20231216214047" data-subtype="h3" class="h3">v0.0.7</h3><div id="20231221085716-3p56axe" data-node-id="20231221085716-3p56axe" data-type="NodeList" updated="20231216214047" data-subtype="u" class="list"><div id="20231221085718-bqmj6su" data-node-id="20231221085718-bqmj6su" data-type="NodeListItem" updated="20231221085740" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231221085718-75vt42w" data-node-id="20231221085718-75vt42w" data-type="NodeParagraph" updated="20231221085740" class="p"><div spellcheck="false">新增timeout属性配置 <a href="https://github.com/2234839/feed_siyuan_plugin/issues/1">feed_siyuan_plugin/issues/1</a></div></div>
-    </div></div><h3 id="20231220142705-07ew97t" data-node-id="20231220142705-07ew97t" data-type="NodeHeading" updated="20231216214047" data-subtype="h3" class="h3">v0.0.6</h3><div id="20231220142713-fokmc7v" data-node-id="20231220142713-fokmc7v" data-type="NodeList" updated="20231216214047" data-subtype="u" class="list"><div id="20231220142714-13frpwp" data-node-id="20231220142714-13frpwp" data-type="NodeListItem" updated="20231220142841" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231220142714-kb5dyvm" data-node-id="20231220142714-kb5dyvm" data-type="NodeParagraph" updated="20231220142841" class="p"><div spellcheck="false">修改请求实现，支持网页端 <a href="https://github.com/2234839/feed_siyuan_plugin/commit/741aae44">741aae44</a></div></div>
-    </div></div><h3 id="20231216214047-0lzdb37" data-node-id="20231216214047-0lzdb37" data-type="NodeHeading" updated="20231216214047" data-subtype="h3" class="h3">2023-12-16</h3><div id="20231216214101-362obbj" data-node-id="20231216214101-362obbj" data-type="NodeList" updated="20231216214047" data-subtype="u" class="list"><div id="20231216214253-non3vdy" data-node-id="20231216214253-non3vdy" data-type="NodeListItem" updated="20231216214810" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231216214253-d2bzk5o" data-node-id="20231216214253-d2bzk5o" data-type="NodeParagraph" updated="20231216214306" class="p"><div spellcheck="false">手动测试 feed：</div></div><div id="20231216214309-a0c3pbj" data-node-id="20231216214309-a0c3pbj" data-type="NodeList" updated="20231216214810" data-subtype="u" class="list"><div id="20231216214308-zgfo8l7" data-node-id="20231216214308-zgfo8l7" data-type="NodeListItem" updated="20231216214810" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231216214308-kgm173q" data-node-id="20231216214308-kgm173q" data-type="NodeParagraph" updated="20231216214810" class="p"><div spellcheck="false">https://yifei.me/feed</div></div>
-    </div><div id="20231216214310-amnovxx" data-node-id="20231216214310-amnovxx" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231216214310-r9eerj1" data-node-id="20231216214310-r9eerj1" data-type="NodeParagraph" class="p"><div spellcheck="false">https://www.zhangxinxu.com/wordpress/feed</div></div>
-    </div></div>
-    </div><div id="20231216214312-8eu5nz1" data-node-id="20231216214312-8eu5nz1" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231216214312-pt5h8u5" data-node-id="20231216214312-pt5h8u5" data-type="NodeParagraph" updated="20231216214319" class="p"><div spellcheck="false">添加了对 rss 2.0 的简易支持</div></div>
-    </div><div id="20231216214320-3n5f92n" data-node-id="20231216214320-3n5f92n" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231216214320-y8oo3sg" data-node-id="20231216214320-y8oo3sg" data-type="NodeParagraph" class="p"><div spellcheck="false">增强了xss过滤功能</div></div>
-    </div><div id="20231216214350-3kavtrd" data-node-id="20231216214350-3kavtrd" data-type="NodeListItem" updated="20231216214350" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20231216214350-ebrkm87" data-node-id="20231216214350-ebrkm87" data-type="NodeParagraph" updated="20231216214350" class="p"><div spellcheck="false">插件添加命令 _feedFetch 立刻对所有feed进行一次拉取</div></div>
-    </div></div><div id="20231217170822-gt8q57p" data-node-id="20231217170822-gt8q57p" data-type="NodeParagraph" updated="20231216214047" class="p"><div spellcheck="false"></div></div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <img
+    src="./../assets/image-20231215143246-eo50mwo.png"
+    data-src="./../assets/image-20231215143246-eo50mwo.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div>
+      </div></div>
+      </div><div id="20240116202436-l0fse6r" data-node-id="20240116202436-l0fse6r" data-type="NodeListItem" data-subtype="o" class="li" data-marker="5.">
+        <div class="protyle-action">
+          5.
+        </div>
+        <div id="20240116202436-xpcl5ky" data-node-id="20240116202436-xpcl5ky" data-type="NodeParagraph" class="p"><div spellcheck="false">在阅读完文章之后勾选标题前面的任务框，等待思源笔记更新嵌入块即完成了一整套使用思源笔记订阅 rss 源的过程</div></div>
+      </div></div><h3 id="20240116202448-2uly7cm" data-node-id="20240116202448-2uly7cm" data-type="NodeHeading" updated="20240116202648" data-subtype="h3" class="h3">通过数据库来定义属性</h3><div id="20240116202455-4foudd1" data-node-id="20240116202455-4foudd1" data-type="NodeParagraph" updated="20240116202842" class="p"><div spellcheck="false">如下图所示，在多数据库的情况下数据库名为 feed 的具有高优先级，然后排在前面的优先级高于后面的</div></div><div id="20240116202610-xxjtufz" data-node-id="20240116202610-xxjtufz" data-type="NodeParagraph" updated="20240116204332" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 645px;" style="width: 635px;" style="width: 645px;">
+  <img
+    src="./../assets/image-20240116203429-5fos6nr.png"
+    data-src="./../assets/image-20240116203429-5fos6nr.png"
+    title=""
+    style="width: 635px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span><span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/image-20240116203515-93yknxz.png"
+    data-src="./../assets/image-20240116203515-93yknxz.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20240116203524-w2xlkjc" data-node-id="20240116203524-w2xlkjc" data-type="NodeParagraph" updated="20240116203818" class="p"><div spellcheck="false">如果没有在文档中定义以 <span data-type="code">feed:</span>​ 开头的容器块的话，所有文章都会插入到具有feed书签的块之后，可以定义一个 <span data-type="code">feed:</span>​ （这里不写链接，在数据库中定义）容器块来控制文章插入的位置。</div></div><h3 id="20231216215227-hiswgz8" data-node-id="20231216215227-hiswgz8" data-type="NodeHeading" updated="20231216215244" data-subtype="h3" class="h3">支持命令</h3><div id="20231216215244-juypm1n" data-node-id="20231216215244-juypm1n" data-type="NodeParagraph" updated="20231217170159" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/image-20231216215244-41u20iu.png"
+    data-src="./../assets/image-20231216215244-41u20iu.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><h2 id="20231215140339-3qxf73q" data-node-id="20231215140339-3qxf73q" data-type="NodeHeading" updated="20231215140342" data-subtype="h2" class="h2">示例</h2><div id="20231215140342-64rkxzi" data-node-id="20231215140342-64rkxzi" data-type="NodeParagraph" updated="20231221092133" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20231215121826-vrlq40n"><a href="./../文集/feed.html#20231215121826-vrlq40n">feed</a></span> > <span data-type="block-ref"   data-subtype="d"   data-id="20231214134236-8hquuwm"><a href="./../文集/feed/阮一峰的网络日志.html#20231214134236-8hquuwm">阮一峰的网络日志</a></span></div></div><h2 id="20231222111750-5vxtq84" data-node-id="20231222111750-5vxtq84" data-type="NodeHeading" updated="20231222111755" data-subtype="h2" class="h2">其他</h2><div id="20231222111756-w9xslan" data-node-id="20231222111756-w9xslan" data-type="NodeParagraph" updated="20231222112001" class="p"><div spellcheck="false"><a href="https://rsshub.app/">https://rsshub.app/</a> 对于很多不支持rss的网站提供了聚合链接，在这里找找有么有你想订阅的网站</div></div><div id="20231216214038-s2o6h60" data-node-id="20231216214038-s2o6h60" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20231216215835-2nlz7fo" data-node-id="20231216215835-2nlz7fo" data-type="NodeBlockQueryEmbed" updated="20231216215835" data-type="NodeBlockquote" class="bq">  <h2 id="20210106101307-5vr9bqf" data-node-id="20210106101307-5vr9bqf" data-type="NodeHeading" updated="20241227142305" data-subtype="h2" class="h2"><a href="https://afdian.com/@llej0">赞赏-通过爱发电平台</a></h2>  </div><h2 id="20231216214039-fyz9zv2" data-node-id="20231216214039-fyz9zv2" data-type="NodeHeading" updated="20231216214047" data-subtype="h2" class="h2">更新日志</h2><h3 id="20240116185717-dx432x1" data-node-id="20240116185717-dx432x1" data-type="NodeHeading" updated="20240116185953" data-subtype="h3" class="h3">v1.1.11 <span data-type="text" style="font-size: 14px; background-color: var(--b3-card-error-background); color: var(--b3-card-error-color);">不兼容更新</span></h3><div id="20240116185733-1uw3whe" data-node-id="20240116185733-1uw3whe" data-type="NodeList" updated="20240116205822" data-subtype="u" class="list"><div id="20240116185744-mnkdzzb" data-node-id="20240116185744-mnkdzzb" data-type="NodeListItem" updated="20240116205822" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240116185744-lhrp1xr" data-node-id="20240116185744-lhrp1xr" data-type="NodeParagraph" updated="20240116205822" class="p"><div spellcheck="false">支持使用数据库属性来替代块声明 <a href="https://github.com/2234839/feed_siyuan_plugin/issues/3">feed_siyuan_plugin/issues/3</a> ，doc： <span data-type="block-ref"   data-subtype="d"   data-id="20240116202448-2uly7cm"><a href="./../想法/siyuan_feed插件.html#20240116202448-2uly7cm">通过数据库来定义属性</a></span></div></div>
+      </div><div id="20240116185852-kmfmrp8" data-node-id="20240116185852-kmfmrp8" data-type="NodeListItem" updated="20240116190200" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240116185852-upo47tb" data-node-id="20240116185852-upo47tb" data-type="NodeParagraph" updated="20240116190047" class="p"><div spellcheck="false"><span data-type="text" style="font-size: 14px; background-color: var(--b3-card-error-background); color: var(--b3-card-error-color);">不兼容</span> customParse 的第一个参数的值发生了变化，如果使用到了该参数则需要修改</div></div><div id="20240116190054-3tih601" data-node-id="20240116190054-3tih601" data-type="NodeParagraph" updated="20240116190200" class="p"><div spellcheck="false">升级方案： 假设第一个参数名为 attr ,请修改为 feedDoc , 然后在函数内添加 const attr = feedDoc.attr 即可兼容原有代码</div></div>
+      </div></div><h3 id="20240111171953-2s2u7sr" data-node-id="20240111171953-2s2u7sr" data-type="NodeHeading" updated="20231216214047" data-subtype="h3" class="h3">v.0.0.9</h3><div id="20240111172002-hvgdn4n" data-node-id="20240111172002-hvgdn4n" data-type="NodeParagraph" updated="20231216214047" class="p"><div spellcheck="false">解决控制台报错 name 重定义。更新 logo。</div></div><h3 id="20231221173730-g1gtz8v" data-node-id="20231221173730-g1gtz8v" data-type="NodeHeading" updated="20231216214047" data-subtype="h3" class="h3">v0.0.8</h3><div id="20231221173820-ao4n3rn" data-node-id="20231221173820-ao4n3rn" data-type="NodeList" updated="20231216214047" data-subtype="u" class="list"><div id="20231221173820-2bvfmwn" data-node-id="20231221173820-2bvfmwn" data-type="NodeListItem" updated="20231221173841" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231221173820-fdznvdf" data-node-id="20231221173820-fdznvdf" data-type="NodeParagraph" updated="20231221173841" class="p"><div spellcheck="false">新增customParse属性配置 <a href="https://github.com/2234839/feed_siyuan_plugin/issues/2">feed_siyuan_plugin/issues/2</a></div></div>
+      </div></div><h3 id="20231221085710-skw9k76" data-node-id="20231221085710-skw9k76" data-type="NodeHeading" updated="20231216214047" data-subtype="h3" class="h3">v0.0.7</h3><div id="20231221085716-3p56axe" data-node-id="20231221085716-3p56axe" data-type="NodeList" updated="20231216214047" data-subtype="u" class="list"><div id="20231221085718-bqmj6su" data-node-id="20231221085718-bqmj6su" data-type="NodeListItem" updated="20231221085740" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231221085718-75vt42w" data-node-id="20231221085718-75vt42w" data-type="NodeParagraph" updated="20231221085740" class="p"><div spellcheck="false">新增timeout属性配置 <a href="https://github.com/2234839/feed_siyuan_plugin/issues/1">feed_siyuan_plugin/issues/1</a></div></div>
+      </div></div><h3 id="20231220142705-07ew97t" data-node-id="20231220142705-07ew97t" data-type="NodeHeading" updated="20231216214047" data-subtype="h3" class="h3">v0.0.6</h3><div id="20231220142713-fokmc7v" data-node-id="20231220142713-fokmc7v" data-type="NodeList" updated="20231216214047" data-subtype="u" class="list"><div id="20231220142714-13frpwp" data-node-id="20231220142714-13frpwp" data-type="NodeListItem" updated="20231220142841" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231220142714-kb5dyvm" data-node-id="20231220142714-kb5dyvm" data-type="NodeParagraph" updated="20231220142841" class="p"><div spellcheck="false">修改请求实现，支持网页端 <a href="https://github.com/2234839/feed_siyuan_plugin/commit/741aae44">741aae44</a></div></div>
+      </div></div><h3 id="20231216214047-0lzdb37" data-node-id="20231216214047-0lzdb37" data-type="NodeHeading" updated="20231216214047" data-subtype="h3" class="h3">2023-12-16</h3><div id="20231216214101-362obbj" data-node-id="20231216214101-362obbj" data-type="NodeList" updated="20231216214047" data-subtype="u" class="list"><div id="20231216214253-non3vdy" data-node-id="20231216214253-non3vdy" data-type="NodeListItem" updated="20231216214810" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231216214253-d2bzk5o" data-node-id="20231216214253-d2bzk5o" data-type="NodeParagraph" updated="20231216214306" class="p"><div spellcheck="false">手动测试 feed：</div></div><div id="20231216214309-a0c3pbj" data-node-id="20231216214309-a0c3pbj" data-type="NodeList" updated="20231216214810" data-subtype="u" class="list"><div id="20231216214308-zgfo8l7" data-node-id="20231216214308-zgfo8l7" data-type="NodeListItem" updated="20231216214810" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231216214308-kgm173q" data-node-id="20231216214308-kgm173q" data-type="NodeParagraph" updated="20231216214810" class="p"><div spellcheck="false">https://yifei.me/feed</div></div>
+      </div><div id="20231216214310-amnovxx" data-node-id="20231216214310-amnovxx" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231216214310-r9eerj1" data-node-id="20231216214310-r9eerj1" data-type="NodeParagraph" class="p"><div spellcheck="false">https://www.zhangxinxu.com/wordpress/feed</div></div>
+      </div></div>
+      </div><div id="20231216214312-8eu5nz1" data-node-id="20231216214312-8eu5nz1" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231216214312-pt5h8u5" data-node-id="20231216214312-pt5h8u5" data-type="NodeParagraph" updated="20231216214319" class="p"><div spellcheck="false">添加了对 rss 2.0 的简易支持</div></div>
+      </div><div id="20231216214320-3n5f92n" data-node-id="20231216214320-3n5f92n" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231216214320-y8oo3sg" data-node-id="20231216214320-y8oo3sg" data-type="NodeParagraph" class="p"><div spellcheck="false">增强了xss过滤功能</div></div>
+      </div><div id="20231216214350-3kavtrd" data-node-id="20231216214350-3kavtrd" data-type="NodeListItem" updated="20231216214350" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231216214350-ebrkm87" data-node-id="20231216214350-ebrkm87" data-type="NodeParagraph" updated="20231216214350" class="p"><div spellcheck="false">插件添加命令 _feedFetch 立刻对所有feed进行一次拉取</div></div>
+      </div></div><div id="20231217170822-gt8q57p" data-node-id="20231217170822-gt8q57p" data-type="NodeParagraph" updated="20231216214047" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -350,7 +358,7 @@ ORDER BY created DESC
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

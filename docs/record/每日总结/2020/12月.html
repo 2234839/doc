@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>12月</title>
 </head>
 <body>
@@ -49,12 +49,19 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201201102932-3rahy0i" data-node-id="20201201102932-3rahy0i" data-type="NodeDocument" updated="20240624164637" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201201102932-3rahy0i&quot;,&quot;startId&quot;:&quot;20210407210503-47qjy9y&quot;,&quot;endId&quot;:&quot;20201227121444-rl4lbpz&quot;,&quot;scrollTop&quot;:4093,&quot;focusId&quot;:&quot;20201227123816-dgiawma&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc"></div><h1 id="20201201102932-3rahy0i" data-node-id="20201201102932-3rahy0i" data-type="NodeDocument" updated="20240624164637" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201201102932-3rahy0i&quot;,&quot;startId&quot;:&quot;20210407210503-47qjy9y&quot;,&quot;endId&quot;:&quot;20201227121444-rl4lbpz&quot;,&quot;scrollTop&quot;:4093,&quot;focusId&quot;:&quot;20201227123816-dgiawma&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc" data-type="NodeHeading" class="h1">12月</h1><h1 id="20201201103016-97kh8cd" data-node-id="20201201103016-97kh8cd" data-type="NodeHeading" updated="20240624164637" data-subtype="h1" class="h1">12 月的每日总结</h1><div id="20201201103047-ipkbhog" data-node-id="20201201103047-ipkbhog" data-type="NodeParagraph" class="p"><div spellcheck="false">12 月了时间过的真快。....</div></div><div id="20210407210503-sjagu1v" data-node-id="20210407210503-sjagu1v" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20201201103205-8ym5wiv" data-node-id="20201201103205-8ym5wiv" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://www.zhihu.com/question/20298345/answer/14670020">JavaScript 语句后应该加分号么？ - 贺师俊的回答 - 知乎</a> 关于这个问题我一贯的倾向是我不会主动写不必要的分号，依靠格式化工具自动添加分号。我倾向于无分号派 (^ 人 ^) 。</div></div><div id="20201201103333-hu4fu41" data-node-id="20201201103333-hu4fu41" data-type="NodeBlockquote" class="bq"><div id="20201201103348-4ba9dvx" data-node-id="20201201103348-4ba9dvx" data-type="NodeParagraph" class="p"><div spellcheck="false">不要奢望工具能解决人的问题</div></div></div><div id="20201201103357-ek32ke5" data-node-id="20201201103357-ek32ke5" data-type="NodeParagraph" class="p"><div spellcheck="false">分号也是工具，一律添加不如不要。他应该要在合适的位置去解决歧义，而非漫天都是。</div></div><div id="20210407210503-3ipjd5c" data-node-id="20210407210503-3ipjd5c" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20201201172239-qjncq95" data-node-id="20201201172239-qjncq95" data-type="NodeHeading" updated="20240624164637" data-subtype="h2" class="h2">QQ 邮箱 <span data-type="tag">自动化脚本</span> 删除收信规则</h2><div id="20201201172548-91u95wz" data-node-id="20201201172548-91u95wz" data-type="NodeParagraph" class="p"><div spellcheck="false">之前因为一些原因在 QQ 邮箱中添加了很多的收信规则，现在想删除。但一个一个点实在太麻烦了，故写了如下脚本</div></div><div id="20201201172359-es9ip4w" data-node-id="20201201172359-es9ip4w" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">javascript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">const qAll = (s) => top[1].document.querySelectorAll(s);
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20201201102932-3rahy0i" data-node-id="20201201102932-3rahy0i" data-type="NodeDocument" updated="20240624164637" scroll="&#123;&quot;rootId&quot;:&quot;20201201102932-3rahy0i&quot;,&quot;startId&quot;:&quot;20210407210503-47qjy9y&quot;,&quot;endId&quot;:&quot;20201227121444-rl4lbpz&quot;,&quot;scrollTop&quot;:4093,&quot;focusId&quot;:&quot;20201227123816-dgiawma&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc">
+
+<h1 id="20201201102932-3rahy0i" data-node-id="20201201102932-3rahy0i" data-type="NodeDocument" updated="20240624164637" scroll="&#123;&quot;rootId&quot;:&quot;20201201102932-3rahy0i&quot;,&quot;startId&quot;:&quot;20210407210503-47qjy9y&quot;,&quot;endId&quot;:&quot;20201227121444-rl4lbpz&quot;,&quot;scrollTop&quot;:4093,&quot;focusId&quot;:&quot;20201227123816-dgiawma&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc" data-type="NodeHeading" class="h1">12月</h1>
+<h1 id="20201201103016-97kh8cd" data-node-id="20201201103016-97kh8cd" data-type="NodeHeading" updated="20240624164637" data-subtype="h1" class="h1">12 月的每日总结</h1><div id="20201201103047-ipkbhog" data-node-id="20201201103047-ipkbhog" data-type="NodeParagraph" class="p"><div spellcheck="false">12 月了时间过的真快。....</div></div><div id="20210407210503-sjagu1v" data-node-id="20210407210503-sjagu1v" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20201201103205-8ym5wiv" data-node-id="20201201103205-8ym5wiv" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://www.zhihu.com/question/20298345/answer/14670020">JavaScript 语句后应该加分号么？ - 贺师俊的回答 - 知乎</a> 关于这个问题我一贯的倾向是我不会主动写不必要的分号，依靠格式化工具自动添加分号。我倾向于无分号派 (^ 人 ^) 。</div></div><div id="20201201103333-hu4fu41" data-node-id="20201201103333-hu4fu41" data-type="NodeBlockquote" class="bq"><div id="20201201103348-4ba9dvx" data-node-id="20201201103348-4ba9dvx" data-type="NodeParagraph" class="p"><div spellcheck="false">不要奢望工具能解决人的问题</div></div></div><div id="20201201103357-ek32ke5" data-node-id="20201201103357-ek32ke5" data-type="NodeParagraph" class="p"><div spellcheck="false">分号也是工具，一律添加不如不要。他应该要在合适的位置去解决歧义，而非漫天都是。</div></div><div id="20210407210503-3ipjd5c" data-node-id="20210407210503-3ipjd5c" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20201201172239-qjncq95" data-node-id="20201201172239-qjncq95" data-type="NodeHeading" updated="20240624164637" data-subtype="h2" class="h2">QQ 邮箱 <span data-type="tag">自动化脚本</span> 删除收信规则</h2><div id="20201201172548-91u95wz" data-node-id="20201201172548-91u95wz" data-type="NodeParagraph" class="p"><div spellcheck="false">之前因为一些原因在 QQ 邮箱中添加了很多的收信规则，现在想删除。但一个一个点实在太麻烦了，故写了如下脚本</div></div><div id="20201201172359-es9ip4w" data-node-id="20201201172359-es9ip4w" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">javascript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">const qAll = (s) => top[1].document.querySelectorAll(s);
 
 setInterval(() => {
   [...qAll(`[id*="ruleRc_"]`)]
@@ -66,24 +73,24 @@ setInterval(() => {
   }, 100);
 }, 1000);
 </div>
-      </div><div id="20201201172422-s6d9xh1" data-node-id="20201201172422-s6d9xh1" data-type="NodeParagraph" class="p"><div spellcheck="false">这个脚本很容易懂，也可以很容易的修改其中自定义的过滤规则来决定要删除什么样的收信规则</div></div><div id="20210407210503-99hzwjz" data-node-id="20210407210503-99hzwjz" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20201202172447-h8sla4x" data-node-id="20201202172447-h8sla4x" data-type="NodeHeading" updated="20240624164637" data-subtype="h2" class="h2">阿里 iconfont 多颜色设定尝试</h2> <div id="20201202172453-qcy348s" data-node-id="20201202172453-qcy348s" data-type="NodeIFrame" class="iframe">
-    <div class="iframe-content">
-    <iframe src="https://svelte.dev/repl/f5526b69512843b8b25f63ed4f5a49ab?version=3.30.1" width=700 height=400 ></iframe>
-    </div>
-  </div><div id="20201202172507-dl4ube5" data-node-id="20201202172507-dl4ube5" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://svelte.dev/repl/f5526b69512843b8b25f63ed4f5a49ab?version=3.30.1">demo 地址</a></div></div><div id="20201202172716-shcib3b" data-node-id="20201202172716-shcib3b" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201202172733-fkc599s-image.png"
-  data-src="./../../../assets/20201202172733-fkc599s-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div><div id="20201202172742-z7rd34y" data-node-id="20201202172742-z7rd34y" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">html</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false"><svg class="icon" aria-hidden="true">
+        </div><div id="20201201172422-s6d9xh1" data-node-id="20201201172422-s6d9xh1" data-type="NodeParagraph" class="p"><div spellcheck="false">这个脚本很容易懂，也可以很容易的修改其中自定义的过滤规则来决定要删除什么样的收信规则</div></div><div id="20210407210503-99hzwjz" data-node-id="20210407210503-99hzwjz" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20201202172447-h8sla4x" data-node-id="20201202172447-h8sla4x" data-type="NodeHeading" updated="20240624164637" data-subtype="h2" class="h2">阿里 iconfont 多颜色设定尝试</h2> <div id="20201202172453-qcy348s" data-node-id="20201202172453-qcy348s" data-type="NodeIFrame" class="iframe">
+      <div class="iframe-content">
+      <iframe src="https://svelte.dev/repl/f5526b69512843b8b25f63ed4f5a49ab?version=3.30.1" width=700 height=400 ></iframe>
+      </div>
+    </div><div id="20201202172507-dl4ube5" data-node-id="20201202172507-dl4ube5" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://svelte.dev/repl/f5526b69512843b8b25f63ed4f5a49ab?version=3.30.1">demo 地址</a></div></div><div id="20201202172716-shcib3b" data-node-id="20201202172716-shcib3b" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201202172733-fkc599s-image.png"
+    data-src="./../../../assets/20201202172733-fkc599s-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div><div id="20201202172742-z7rd34y" data-node-id="20201202172742-z7rd34y" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">html</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"><svg class="icon" aria-hidden="true">
     <use xlink:href="#icon-xiangxia"></use>
 </svg>
 <svg class="icon" aria-hidden="true" style="--c1:red;--c2:green">
@@ -93,27 +100,27 @@ setInterval(() => {
     <use xlink:href="#icon-xiangxia"></use>
 </svg>
 </div>
-      </div><div id="20201202172808-9gvo3cq" data-node-id="20201202172808-9gvo3cq" data-type="NodeParagraph" class="p"><div spellcheck="false">经过一定的处理后可以通过<span data-type="block-ref" data-subtype="s" data-id="20201202172848-w21p8ky"><a href="./../../../other/css 变量.html#20201202172848-w21p8ky">CSS 变量</a></span>来指定一个多色的 icon 其中一部分的颜色</div></div><div id="20210407210503-xyw54pf" data-node-id="20210407210503-xyw54pf" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20201202223601-myu1ak0" data-node-id="20201202223601-myu1ak0" data-type="NodeHeading" updated="20240624164637" data-subtype="h2" class="h2">tailwind css的 ui 开发工具</h2><div id="20201202223548-ka93rt2" data-node-id="20201202223548-ka93rt2" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://ui-devtools.com/">UI Devtools for Tailwind CSS (ui-devtools.com)</a></div></div><div id="20210407210503-auei5zz" data-node-id="20210407210503-auei5zz" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20201204144054-y56w3kq" data-node-id="20201204144054-y56w3kq" data-type="NodeHeading" updated="20240624164637" data-subtype="h2" class="h2">获取当前路由的 child (子路由) 选中的哪一个 route</h2><div id="20201204144146-3m7mqvd" data-node-id="20201204144146-3m7mqvd" data-type="NodeCodeBlock" updated="20240624164637" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">typescript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">const cur = route?.routes?.find((el) => matchPath(location.pathname, el))
+        </div><div id="20201202172808-9gvo3cq" data-node-id="20201202172808-9gvo3cq" data-type="NodeParagraph" class="p"><div spellcheck="false">经过一定的处理后可以通过<span data-type="block-ref"   data-subtype="s"   data-id="20201202172848-w21p8ky"><a href="./../../../other/css 变量.html#20201202172848-w21p8ky">CSS 变量</a></span>来指定一个多色的 icon 其中一部分的颜色</div></div><div id="20210407210503-xyw54pf" data-node-id="20210407210503-xyw54pf" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20201202223601-myu1ak0" data-node-id="20201202223601-myu1ak0" data-type="NodeHeading" updated="20240624164637" data-subtype="h2" class="h2">tailwind css的 ui 开发工具</h2><div id="20201202223548-ka93rt2" data-node-id="20201202223548-ka93rt2" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://ui-devtools.com/">UI Devtools for Tailwind CSS (ui-devtools.com)</a></div></div><div id="20210407210503-auei5zz" data-node-id="20210407210503-auei5zz" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20201204144054-y56w3kq" data-node-id="20201204144054-y56w3kq" data-type="NodeHeading" updated="20240624164637" data-subtype="h2" class="h2">获取当前路由的 child (子路由) 选中的哪一个 route</h2><div id="20201204144146-3m7mqvd" data-node-id="20201204144146-3m7mqvd" data-type="NodeCodeBlock" updated="20240624164637" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">typescript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">const cur = route?.routes?.find((el) => matchPath(location.pathname, el))
 </div>
-      </div><h2 id="20201209153952-kahknds" data-node-id="20201209153952-kahknds" data-type="NodeHeading" data-subtype="h2" class="h2">typescript enum 获取 key 的类型 type</h2><div id="20201209154009-1vi3167" data-node-id="20201209154009-1vi3167" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201209154026-9huc5aa-image.png"
-  data-src="./../../../assets/20201209154026-9huc5aa-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div><div id="20201209154017-boknic8" data-node-id="20201209154017-boknic8" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">typescript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">export enum saveStatus {
+        </div><h2 id="20201209153952-kahknds" data-node-id="20201209153952-kahknds" data-type="NodeHeading" data-subtype="h2" class="h2">typescript enum 获取 key 的类型 type</h2><div id="20201209154009-1vi3167" data-node-id="20201209154009-1vi3167" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201209154026-9huc5aa-image.png"
+    data-src="./../../../assets/20201209154026-9huc5aa-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div><div id="20201209154017-boknic8" data-node-id="20201209154017-boknic8" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">typescript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">export enum saveStatus {
   editing,
   error,
   warn,
@@ -122,67 +129,67 @@ setInterval(() => {
 
 type a = keyof typeof saveStatus
 </div>
-      </div><h2 id="20201209154107-cdlanko" data-node-id="20201209154107-cdlanko" data-type="NodeHeading" data-subtype="h2" class="h2">ts 枚举的零值导致的隐式转换问题</h2><div id="20201209154135-2p3osiz" data-node-id="20201209154135-2p3osiz" data-type="NodeParagraph" class="p"><div spellcheck="false">例如我们有上面 <span data-type="code">saveStaus </span> 这个枚举变量</div></div><div id="20201209154223-ulprwnx" data-node-id="20201209154223-ulprwnx" data-type="NodeParagraph" class="p"><div spellcheck="false">然后我们写出了如下代码</div></div><div id="20201209154238-92ix4if" data-node-id="20201209154238-92ix4if" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">typescript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">function test(s?: saveStatus) {
+        </div><h2 id="20201209154107-cdlanko" data-node-id="20201209154107-cdlanko" data-type="NodeHeading" data-subtype="h2" class="h2">ts 枚举的零值导致的隐式转换问题</h2><div id="20201209154135-2p3osiz" data-node-id="20201209154135-2p3osiz" data-type="NodeParagraph" class="p"><div spellcheck="false">例如我们有上面 <span data-type="code">saveStaus </span> 这个枚举变量</div></div><div id="20201209154223-ulprwnx" data-node-id="20201209154223-ulprwnx" data-type="NodeParagraph" class="p"><div spellcheck="false">然后我们写出了如下代码</div></div><div id="20201209154238-92ix4if" data-node-id="20201209154238-92ix4if" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">typescript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">function test(s?: saveStatus) {
   if (s) {
       console.log(s, saveStatus.error)
   }
   console.log(s || saveStatus.error)
 }
 </div>
-      </div><div id="20201209154148-05u8ey3" data-node-id="20201209154148-05u8ey3" data-type="NodeParagraph" class="p"><div spellcheck="false">这里有两个错误，思考下</div></div><div id="20201209154831-nvd8xmu" data-node-id="20201209154831-nvd8xmu" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20201209154833-kv1u69p" data-node-id="20201209154833-kv1u69p" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
-      <div class="protyle-action">
-        1
-      </div>
-      <div id="20210225110514-ptdtedp" data-node-id="20210225110514-ptdtedp" data-type="NodeParagraph" class="p"><div spellcheck="false">if 的本意是想判断 s 有没有被传入，但当输入是这样的时候 <span data-type="code">test(saveStatus.editing)</span> 就出现了问题，因为 enum 的性质 <span data-type="code">saveStatus.editing</span> 的值是 <span data-type="code">0</span> 这个 if 就没有符合我们的本意了。</div></div><div id="20201209155432-gr08lxb" data-node-id="20201209155432-gr08lxb" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20201209155431-fs0agwk" data-node-id="20201209155431-fs0agwk" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
-      <div class="protyle-action">
-        1
-      </div>
-      <div id="20210225110514-raedqmd" data-node-id="20210225110514-raedqmd" data-type="NodeParagraph" class="p"><div spellcheck="false">需要修正的话条件应该改成 <span data-type="code">s !== undefined</span></div></div>
-    </div></div>
-    </div><div id="20201209155507-ov3ohex" data-node-id="20201209155507-ov3ohex" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
-      <div class="protyle-action">
-        2
-      </div>
-      <div id="20210225110514-egzycc3" data-node-id="20210225110514-egzycc3" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="code">console.log(s || saveStatus.error)</span> 的本意也是想在 <span data-type="code">s</span> 没有被传入的时候有一个兜底的值，但和1的问题一样，<span data-type="code">saveStatus.editing</span>的值是<span data-type="code">0</span>导致他打印的是 <span data-type="code">saveStatus.error</span> 而非预想的 s</div></div>
-    </div></div><div id="20201209155709-67ovbky" data-node-id="20201209155709-67ovbky" data-type="NodeParagraph" class="p"><div spellcheck="false">这两个问题都是 <span data-type="code">0</span> 的问题，而 <span data-type="code">0</span> 来自于 <span data-type="code">enum</span> 第一项是从零开始这个规定，所以我们想要优雅的解决这样问题的话最后的方案就是让他的第一项不是从零开始就行了</div></div><div id="20201209155917-v24mf5l" data-node-id="20201209155917-v24mf5l" data-type="NodeCodeBlock" class="code-block">
+        </div><div id="20201209154148-05u8ey3" data-node-id="20201209154148-05u8ey3" data-type="NodeParagraph" class="p"><div spellcheck="false">这里有两个错误，思考下</div></div><div id="20201209154831-nvd8xmu" data-node-id="20201209154831-nvd8xmu" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20201209154833-kv1u69p" data-node-id="20201209154833-kv1u69p" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">typescript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          1
         </div>
-        <div class="hljs" spellcheck="false">enum saveStatus {
+        <div id="20210225110514-ptdtedp" data-node-id="20210225110514-ptdtedp" data-type="NodeParagraph" class="p"><div spellcheck="false">if 的本意是想判断 s 有没有被传入，但当输入是这样的时候 <span data-type="code">test(saveStatus.editing)</span> 就出现了问题，因为 enum 的性质 <span data-type="code">saveStatus.editing</span> 的值是 <span data-type="code">0</span> 这个 if 就没有符合我们的本意了。</div></div><div id="20201209155432-gr08lxb" data-node-id="20201209155432-gr08lxb" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20201209155431-fs0agwk" data-node-id="20201209155431-fs0agwk" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
+        <div class="protyle-action">
+          1
+        </div>
+        <div id="20210225110514-raedqmd" data-node-id="20210225110514-raedqmd" data-type="NodeParagraph" class="p"><div spellcheck="false">需要修正的话条件应该改成 <span data-type="code">s !== undefined</span></div></div>
+      </div></div>
+      </div><div id="20201209155507-ov3ohex" data-node-id="20201209155507-ov3ohex" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
+        <div class="protyle-action">
+          2
+        </div>
+        <div id="20210225110514-egzycc3" data-node-id="20210225110514-egzycc3" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="code">console.log(s || saveStatus.error)</span> 的本意也是想在 <span data-type="code">s</span> 没有被传入的时候有一个兜底的值，但和1的问题一样，<span data-type="code">saveStatus.editing</span>的值是<span data-type="code">0</span>导致他打印的是 <span data-type="code">saveStatus.error</span> 而非预想的 s</div></div>
+      </div></div><div id="20201209155709-67ovbky" data-node-id="20201209155709-67ovbky" data-type="NodeParagraph" class="p"><div spellcheck="false">这两个问题都是 <span data-type="code">0</span> 的问题，而 <span data-type="code">0</span> 来自于 <span data-type="code">enum</span> 第一项是从零开始这个规定，所以我们想要优雅的解决这样问题的话最后的方案就是让他的第一项不是从零开始就行了</div></div><div id="20201209155917-v24mf5l" data-node-id="20201209155917-v24mf5l" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">typescript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">enum saveStatus {
   editing = 1,
   error,
   warn,
   save,
 }
 </div>
-      </div><div id="20201209155852-jyi53pv" data-node-id="20201209155852-jyi53pv" data-type="NodeParagraph" class="p"><div spellcheck="false">把这个 <span data-type="code">saveStatus</span> 再代入上面的代码中就符合我们的预期了~ 🎉</div></div><div id="20201209160032-st61uo4" data-node-id="20201209160032-st61uo4" data-type="NodeParagraph" class="p"><div spellcheck="false">结论： <span data-type="strong">使用 enum 最好将第一项设置为 1</span></div></div><div id="20210407210503-uubavns" data-node-id="20210407210503-uubavns" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20201209223148-9rpztgo" data-node-id="20201209223148-9rpztgo" data-type="NodeHeading" data-subtype="h2" class="h2">错误的 null 设计</h2><div id="20201209223138-wraci4v" data-node-id="20201209223138-wraci4v" data-type="NodeParagraph" class="p"><div spellcheck="false">在 Java 中 <span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201209223138-237lfqb-image.png"
-  data-src="./../../../assets/20201209223138-237lfqb-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div><div id="20201209223206-fbowh3m" data-node-id="20201209223206-fbowh3m" data-type="NodeParagraph" class="p"><div spellcheck="false">ts 的实现是正确的，这里就是应该报错 <span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201209223207-nsv49k8-image.png"
-  data-src="./../../../assets/20201209223207-nsv49k8-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div><div id="20201209224139-dg85b8o" data-node-id="20201209224139-dg85b8o" data-type="NodeBlockquote" class="bq"><div id="20201209224141-oi80w34" data-node-id="20201209224141-oi80w34" data-type="NodeParagraph" class="p"><div spellcheck="false">在我看来 null 可以看做是所有对象的父类型，那么把 父类型赋值给 子类型就是显而易见的错误，不明白为什么有人维护 null 可以被赋值给 其他类型这个做法</div></div></div><div id="20210530120024-dmya00i" data-node-id="20210530120024-dmya00i" data-type="NodeParagraph" updated="20210530120136" class="p"><div spellcheck="false">Tony Hoare，null 的发明者，发表过演讲 “Null References: The Billion Dollar Mistake”。著名的十亿美元的错误从此而来</div></div><div id="20210407210503-47qjy9y" data-node-id="20210407210503-47qjy9y" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20201217144439-9phr7n4" data-node-id="20201217144439-9phr7n4" data-type="NodeHeading" data-subtype="h2" class="h2">数据库异常数据监控思考</h2><div id="20201217144446-0vobdjc" data-node-id="20201217144446-0vobdjc" data-type="NodeParagraph" class="p"><div spellcheck="false">刚碰到一个接口报错的问题，经排查是有一条数据不对劲</div></div><div id="20201217144514-b95en0n" data-node-id="20201217144514-b95en0n" data-type="NodeParagraph" class="p"><div spellcheck="false">于是我想是不是可以专门写一个检测异常数据的监控程序来检测是否出现了这种数据</div></div><div id="20201217144607-4u3mf7q" data-node-id="20201217144607-4u3mf7q" data-type="NodeParagraph" class="p"><div spellcheck="false">目前的想法是定时执行一些 SQL 如果这些 SQL 的返回不符合预期则表明数据出现了问题，然后提醒开发人员及时的进行排查</div></div><div id="20201217145916-e57ekmj" data-node-id="20201217145916-e57ekmj" data-type="NodeParagraph" class="p"><div spellcheck="false">例如某个表的某个字段按正常逻辑来说不会是 null 那就写一条 SQL 来统计这个字段为 null 的数据有多少条，超过 0 条的就发送报警信息</div></div><div id="20201217150318-x52uimh" data-node-id="20201217150318-x52uimh" data-type="NodeParagraph" class="p"><div spellcheck="false">像这样的 SQL 或许可以称之为 <span data-type="strong">数据库的测试用例</span> ？</div></div><div id="20210407210503-ozxwok9" data-node-id="20210407210503-ozxwok9" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20201220202044-0ylltc2" data-node-id="20201220202044-0ylltc2" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/2234839/mb">Mbrush 开源代码</a>  Mbrush 是一个手持打印机</div></div><div id="20210407210503-tzhdgf4" data-node-id="20210407210503-tzhdgf4" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20201224202601-kc4r8hr" data-node-id="20201224202601-kc4r8hr" data-type="NodeParagraph" class="p"><div spellcheck="false">今天对博客进行了一波修改，从使用 lute 对文章进行渲染改成了直接嵌入使用<span data-type="block-ref" data-subtype="d" data-id="20201121142422-1gk6qv5"><a href="./../../../想法/项目/md2website.html#20201121142422-1gk6qv5">md2website</a></span> 生成的 HTML ，效果还行。</div></div><div id="20201224202739-4wmy5gj" data-node-id="20201224202739-4wmy5gj" data-type="NodeParagraph" class="p"><div spellcheck="false">之后只要维护好 <span data-type="block-ref" data-subtype="d" data-id="20201121142422-1gk6qv5"><a href="./../../../想法/项目/md2website.html#20201121142422-1gk6qv5">md2website</a></span> 就行了，这样之后博客即可以随着<span data-type="block-ref" data-subtype="d" data-id="20201104155455-awawq0n"><a href="./../../../record/思源笔记.html#20201104155455-awawq0n">思源笔记</a></span>一起进步又可以通过实践来完善<span data-type="block-ref" data-subtype="d" data-id="20201121142422-1gk6qv5"><a href="./../../../想法/项目/md2website.html#20201121142422-1gk6qv5">md2website</a></span></div></div><h2 id="20201225160958-amryk25" data-node-id="20201225160958-amryk25" data-type="NodeHeading" data-subtype="h2" class="h2"><a href="https://imagecompressor.com/zh/">图片压缩工具 Optimizilla</a><a href="undefined">在线图片优化器</a></h2><div id="20201225165403-zlv6hpv" data-node-id="20201225165403-zlv6hpv" data-type="NodeParagraph" class="p"><div spellcheck="false">他的压缩效果相当的好，<span data-type="block-ref" data-subtype="d" data-id="20201225101337-4ol4eml"><a href="./../../../record/每日总结/2020/5月.html#20201225101337-4ol4eml">花朝日（花朝节）</a></span> 这个文章中的「眉眼」图原大小为 12M，压缩后只有 2.89M 而且对图片质量的损失我是基本看不出来的</div></div><div id="20201226134806-ox8n85v" data-node-id="20201226134806-ox8n85v" data-type="NodeBlockquote" class="bq"><h2 id="20210116104651-7p6n8ry" data-node-id="20210116104651-7p6n8ry" data-type="NodeHeading" data-subtype="h2" class="h2"><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTML_Drag_and_Drop_API#确定什么是可拖拽的">确定什么是可拖拽的</a></h2><div id="20201226134814-gr4i2ke" data-node-id="20201226134814-gr4i2ke" data-type="NodeParagraph" class="p"><div spellcheck="false">让一个元素被拖拽需要添加 <a href="undefined"><span data-type="code">draggable</span></a></a> 属性，再加上全局事件处理函数 <a href="undefined"><span data-type="code">ondragstart</span></a> ，</div></div><div id="20201226134814-e6aqjxe" data-node-id="20201226134814-e6aqjxe" data-type="NodeParagraph" class="p"><div spellcheck="false">如下面的示例代码所示：</div></div><div id="20210116104651-ny13t3v" data-node-id="20210116104651-ny13t3v" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language"></span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false"><script>
+        </div><div id="20201209155852-jyi53pv" data-node-id="20201209155852-jyi53pv" data-type="NodeParagraph" class="p"><div spellcheck="false">把这个 <span data-type="code">saveStatus</span> 再代入上面的代码中就符合我们的预期了~ 🎉</div></div><div id="20201209160032-st61uo4" data-node-id="20201209160032-st61uo4" data-type="NodeParagraph" class="p"><div spellcheck="false">结论： <span data-type="strong">使用 enum 最好将第一项设置为 1</span></div></div><div id="20210407210503-uubavns" data-node-id="20210407210503-uubavns" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20201209223148-9rpztgo" data-node-id="20201209223148-9rpztgo" data-type="NodeHeading" data-subtype="h2" class="h2">错误的 null 设计</h2><div id="20201209223138-wraci4v" data-node-id="20201209223138-wraci4v" data-type="NodeParagraph" class="p"><div spellcheck="false">在 Java 中 <span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201209223138-237lfqb-image.png"
+    data-src="./../../../assets/20201209223138-237lfqb-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div><div id="20201209223206-fbowh3m" data-node-id="20201209223206-fbowh3m" data-type="NodeParagraph" class="p"><div spellcheck="false">ts 的实现是正确的，这里就是应该报错 <span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201209223207-nsv49k8-image.png"
+    data-src="./../../../assets/20201209223207-nsv49k8-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div><div id="20201209224139-dg85b8o" data-node-id="20201209224139-dg85b8o" data-type="NodeBlockquote" class="bq"><div id="20201209224141-oi80w34" data-node-id="20201209224141-oi80w34" data-type="NodeParagraph" class="p"><div spellcheck="false">在我看来 null 可以看做是所有对象的父类型，那么把 父类型赋值给 子类型就是显而易见的错误，不明白为什么有人维护 null 可以被赋值给 其他类型这个做法</div></div></div><div id="20210530120024-dmya00i" data-node-id="20210530120024-dmya00i" data-type="NodeParagraph" updated="20210530120136" class="p"><div spellcheck="false">Tony Hoare，null 的发明者，发表过演讲 “Null References: The Billion Dollar Mistake”。著名的十亿美元的错误从此而来</div></div><div id="20210407210503-47qjy9y" data-node-id="20210407210503-47qjy9y" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20201217144439-9phr7n4" data-node-id="20201217144439-9phr7n4" data-type="NodeHeading" data-subtype="h2" class="h2">数据库异常数据监控思考</h2><div id="20201217144446-0vobdjc" data-node-id="20201217144446-0vobdjc" data-type="NodeParagraph" class="p"><div spellcheck="false">刚碰到一个接口报错的问题，经排查是有一条数据不对劲</div></div><div id="20201217144514-b95en0n" data-node-id="20201217144514-b95en0n" data-type="NodeParagraph" class="p"><div spellcheck="false">于是我想是不是可以专门写一个检测异常数据的监控程序来检测是否出现了这种数据</div></div><div id="20201217144607-4u3mf7q" data-node-id="20201217144607-4u3mf7q" data-type="NodeParagraph" class="p"><div spellcheck="false">目前的想法是定时执行一些 SQL 如果这些 SQL 的返回不符合预期则表明数据出现了问题，然后提醒开发人员及时的进行排查</div></div><div id="20201217145916-e57ekmj" data-node-id="20201217145916-e57ekmj" data-type="NodeParagraph" class="p"><div spellcheck="false">例如某个表的某个字段按正常逻辑来说不会是 null 那就写一条 SQL 来统计这个字段为 null 的数据有多少条，超过 0 条的就发送报警信息</div></div><div id="20201217150318-x52uimh" data-node-id="20201217150318-x52uimh" data-type="NodeParagraph" class="p"><div spellcheck="false">像这样的 SQL 或许可以称之为 <span data-type="strong">数据库的测试用例</span> ？</div></div><div id="20210407210503-ozxwok9" data-node-id="20210407210503-ozxwok9" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20201220202044-0ylltc2" data-node-id="20201220202044-0ylltc2" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/2234839/mb">Mbrush 开源代码</a>  Mbrush 是一个手持打印机</div></div><div id="20210407210503-tzhdgf4" data-node-id="20210407210503-tzhdgf4" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20201224202601-kc4r8hr" data-node-id="20201224202601-kc4r8hr" data-type="NodeParagraph" class="p"><div spellcheck="false">今天对博客进行了一波修改，从使用 lute 对文章进行渲染改成了直接嵌入使用<span data-type="block-ref"   data-subtype="d"   data-id="20201121142422-1gk6qv5"><a href="./../../../想法/项目/md2website.html#20201121142422-1gk6qv5">md2website</a></span> 生成的 HTML ，效果还行。</div></div><div id="20201224202739-4wmy5gj" data-node-id="20201224202739-4wmy5gj" data-type="NodeParagraph" class="p"><div spellcheck="false">之后只要维护好 <span data-type="block-ref"   data-subtype="d"   data-id="20201121142422-1gk6qv5"><a href="./../../../想法/项目/md2website.html#20201121142422-1gk6qv5">md2website</a></span> 就行了，这样之后博客即可以随着<span data-type="block-ref"   data-subtype="d"   data-id="20201104155455-awawq0n"><a href="./../../../record/思源笔记.html#20201104155455-awawq0n">思源笔记</a></span>一起进步又可以通过实践来完善<span data-type="block-ref"   data-subtype="d"   data-id="20201121142422-1gk6qv5"><a href="./../../../想法/项目/md2website.html#20201121142422-1gk6qv5">md2website</a></span></div></div><h2 id="20201225160958-amryk25" data-node-id="20201225160958-amryk25" data-type="NodeHeading" data-subtype="h2" class="h2"><a href="https://imagecompressor.com/zh/">图片压缩工具 Optimizilla</a><a href="undefined">在线图片优化器</a></h2><div id="20201225165403-zlv6hpv" data-node-id="20201225165403-zlv6hpv" data-type="NodeParagraph" class="p"><div spellcheck="false">他的压缩效果相当的好，<span data-type="block-ref"   data-subtype="d"   data-id="20201225101337-4ol4eml"><a href="./../../../record/每日总结/2020/5月.html#20201225101337-4ol4eml">花朝日（花朝节）</a></span> 这个文章中的「眉眼」图原大小为 12M，压缩后只有 2.89M 而且对图片质量的损失我是基本看不出来的</div></div><div id="20201226134806-ox8n85v" data-node-id="20201226134806-ox8n85v" data-type="NodeBlockquote" class="bq"><h2 id="20210116104651-7p6n8ry" data-node-id="20210116104651-7p6n8ry" data-type="NodeHeading" data-subtype="h2" class="h2"><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTML_Drag_and_Drop_API#确定什么是可拖拽的">确定什么是可拖拽的</a></h2><div id="20201226134814-gr4i2ke" data-node-id="20201226134814-gr4i2ke" data-type="NodeParagraph" class="p"><div spellcheck="false">让一个元素被拖拽需要添加 <a href="undefined"><span data-type="code">draggable</span></a></a> 属性，再加上全局事件处理函数 <a href="undefined"><span data-type="code">ondragstart</span></a> ，</div></div><div id="20201226134814-e6aqjxe" data-node-id="20201226134814-e6aqjxe" data-type="NodeParagraph" class="p"><div spellcheck="false">如下面的示例代码所示：</div></div><div id="20210116104651-ny13t3v" data-node-id="20210116104651-ny13t3v" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"><script>
   function dragstart_handler(ev) {
     // Add the target element's id to the data transfer object
     ev.dataTransfer.setData("text/plain", ev.target.id);
@@ -198,12 +205,12 @@ type a = keyof typeof saveStatus
 
 <p id="p1" draggable="true">This element is draggable.</p>
 </div>
-      </div></div><div id="20201226130832-q8vjybm" data-node-id="20201226130832-q8vjybm" data-type="NodeBlockquote" class="bq"><h2 id="20210116104651-ro4fo9f" data-node-id="20210116104651-ro4fo9f" data-type="NodeHeading" data-subtype="h2" class="h2"><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTML_Drag_and_Drop_API#定义一个放置区">定义一个放置区</a></h2><div id="20201226134847-3o6vdyi" data-node-id="20201226134847-3o6vdyi" data-type="NodeParagraph" class="p"><div spellcheck="false">当拖拽一个项目到 HTML 元素中时，浏览器默认不会有任何响应。想要让一个元素变成可释放区域，该元素必须设置 <a href="undefined"><span data-type="code">ondragover</span></a> 和 <a href="undefined"><span data-type="code">ondrop</span></a> 事件处理程序属性，下面的例子通过简单的事件处理展示了如何使用这些属性：</div></div><div id="20210116104651-0dy3s60" data-node-id="20210116104651-0dy3s60" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language"></span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false"><script>
+        </div></div><div id="20201226130832-q8vjybm" data-node-id="20201226130832-q8vjybm" data-type="NodeBlockquote" class="bq"><h2 id="20210116104651-ro4fo9f" data-node-id="20210116104651-ro4fo9f" data-type="NodeHeading" data-subtype="h2" class="h2"><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTML_Drag_and_Drop_API#定义一个放置区">定义一个放置区</a></h2><div id="20201226134847-3o6vdyi" data-node-id="20201226134847-3o6vdyi" data-type="NodeParagraph" class="p"><div spellcheck="false">当拖拽一个项目到 HTML 元素中时，浏览器默认不会有任何响应。想要让一个元素变成可释放区域，该元素必须设置 <a href="undefined"><span data-type="code">ondragover</span></a> 和 <a href="undefined"><span data-type="code">ondrop</span></a> 事件处理程序属性，下面的例子通过简单的事件处理展示了如何使用这些属性：</div></div><div id="20210116104651-0dy3s60" data-node-id="20210116104651-0dy3s60" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"><script>
 function dragover_handler(ev) {
  ev.preventDefault();
  ev.dataTransfer.dropEffect = "move";
@@ -218,309 +225,313 @@ function drop_handler(ev) {
 
 <p id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">Drop Zone</p>
 </div>
-      </div><div id="20201226134847-z3t7431" data-node-id="20201226134847-z3t7431" data-type="NodeParagraph" class="p"><div spellcheck="false">注意每个处理程序调用 <a href="undefined"><span data-type="code">preventDefault()</span></a> 来阻止对这个事件的其它处理过程（如触点事件或指针事件）。</div></div></div><div id="20210521142715-2jp54vl" data-node-id="20210521142715-2jp54vl" data-type="NodeBlockQueryEmbed" data-type="NodeBlockquote" class="bq"><div id="20201226134911-x9asowm" data-node-id="20201226134911-x9asowm" data-type="NodeBlockquote" class="bq"><h1 id="20201226190707-2f6v0nl" data-node-id="20201226190707-2f6v0nl" data-type="NodeHeading" data-subtype="h1" class="h1">序：<a href="https://www.zhihu.com/question/376164372">97 年，23 岁，一事无成，未来还有希望吗？</a></h1></div><div id="20201226190710-cuhfkwl" data-node-id="20201226190710-cuhfkwl" data-type="NodeParagraph" class="p"><div spellcheck="false">知乎回答 <span data-type="sup"><a href="https://www.zhihu.com/question/376164372/answer/1646476550">97 年，23 岁，一事无成，未来还有希望吗？ - 崮生的回答 - 知乎</a></span></div></div><div id="20201226190831-rrlcgdh" data-node-id="20201226190831-rrlcgdh" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20201226135206-c4di17g" data-node-id="20201226135206-c4di17g" data-type="NodeParagraph" class="p"><div spellcheck="false">看着问题我想了一下我的希望，突然发现我不知道希望是什么。</div></div><div id="20230922212330-7ffw1pn" data-node-id="20230922212330-7ffw1pn" data-type="NodeParagraph" updated="20230922212330" class="p"><div spellcheck="false">翻阅了一下字典：</div></div><div id="20230922212330-d99fpos" data-node-id="20230922212330-d99fpos" data-type="NodeBlockquote" updated="20240113130443" class="bq"><div id="20230922212330-sig996b" data-node-id="20230922212330-sig996b" data-type="NodeParagraph" updated="20240113130443" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/词典-希望-20240113130452-2tcpgre.png"
-  data-src="./../../../assets/词典-希望-20240113130452-2tcpgre.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span><a href="https://cd.hwxnet.com/view/jilihpijlbkoeela.html">https://cd.hwxnet.com/view/jilihpijlbkoeela.html</a></div></div></div><div id="20201226135102-9epvcpp" data-node-id="20201226135102-9epvcpp" data-type="NodeParagraph" class="p"><div spellcheck="false">这里应该讲的是第二种：心愿、理想</div></div><div id="20201226135549-0vgkgl1" data-node-id="20201226135549-0vgkgl1" data-type="NodeParagraph" class="p"><div spellcheck="false">我问自己，「我的心愿是什么？我的理想是什么？」一时间有许多东西浮上心头。</div></div><div id="20201226135956-w56x22p" data-node-id="20201226135956-w56x22p" data-type="NodeParagraph" class="p"><div spellcheck="false">例如：</div></div><div id="20201226140014-f9qzrk9" data-node-id="20201226140014-f9qzrk9" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20201226140023-ef6cst3" data-node-id="20201226140023-ef6cst3" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142712-58kktoz" data-node-id="20210521142712-58kktoz" data-type="NodeParagraph" class="p"><div spellcheck="false">考清华北大</div></div>
-    </div><div id="20201226140438-a3pbjx9" data-node-id="20201226140438-a3pbjx9" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142712-gah7meh" data-node-id="20210521142712-gah7meh" data-type="NodeParagraph" class="p"><div spellcheck="false">考上一本</div></div>
-    </div><div id="20201226140507-ic2z2rw" data-node-id="20201226140507-ic2z2rw" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142712-a420aql" data-node-id="20210521142712-a420aql" data-type="NodeParagraph" class="p"><div spellcheck="false">考上二本</div></div>
-    </div><div id="20201226140512-qn1awtj" data-node-id="20201226140512-qn1awtj" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142712-k2sfy2h" data-node-id="20210521142712-k2sfy2h" data-type="NodeParagraph" class="p"><div spellcheck="false">找个好工作</div></div>
-    </div><div id="20201226140520-6v77yxy" data-node-id="20201226140520-6v77yxy" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142712-05v76qe" data-node-id="20210521142712-05v76qe" data-type="NodeParagraph" class="p"><div spellcheck="false">身体健康</div></div>
-    </div><div id="20201226140431-jzu3fw2" data-node-id="20201226140431-jzu3fw2" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142712-2mzfpee" data-node-id="20210521142712-2mzfpee" data-type="NodeParagraph" class="p"><div spellcheck="false">......</div></div>
-    </div></div><div id="20201226135825-ygxujzt" data-node-id="20201226135825-ygxujzt" data-type="NodeParagraph" class="p"><div spellcheck="false">随即心里又浮起一问：<span data-type="strong">这是你的吗？</span> 再思考，我一直在放弃，一直在失败...</div></div><div id="20201226140921-wckjxxn" data-node-id="20201226140921-wckjxxn" data-type="NodeBlockquote" class="bq"><div id="20201226140946-7v5ri2e" data-node-id="20201226140946-7v5ri2e" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20201226190707-2f6v0nl"><a href="./../../../other/未来还有希望吗.html#20201226190707-2f6v0nl">序：97 年，23 岁，一事无成，未来还有希望吗？</a></span></div></div></div><div id="20201226140934-j5vbuzl" data-node-id="20201226140934-j5vbuzl" data-type="NodeParagraph" class="p"><div spellcheck="false">我还有希望吗？</div></div><div id="20201226141043-xmshotn" data-node-id="20201226141043-xmshotn" data-type="NodeParagraph" class="p"><div spellcheck="false">心愿和理想是有的，虽然越来越卑微</div></div><div id="20201226141322-7ig4iln" data-node-id="20201226141322-7ig4iln" data-type="NodeParagraph" class="p"><div spellcheck="false">我还有希望吗？</div></div><div id="20201226141334-2smi2o4" data-node-id="20201226141334-2smi2o4" data-type="NodeParagraph" class="p"><div spellcheck="false">大概....没有了吧。</div></div><div id="20201226143112-uymbdgf" data-node-id="20201226143112-uymbdgf" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20201226143113-wul5jdz" data-node-id="20201226143113-wul5jdz" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20201226141435-c9xopzt" data-node-id="20201226141435-c9xopzt" data-type="NodeParagraph" class="p"><div spellcheck="false">甘心吗？</div></div><div id="20201226141644-s2ndklp" data-node-id="20201226141644-s2ndklp" data-type="NodeParagraph" class="p"><div spellcheck="false">不甘心！</div></div><div id="20201226181153-fojsjc7" data-node-id="20201226181153-fojsjc7" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20201226141702-7ui96ry" data-node-id="20201226141702-7ui96ry" data-type="NodeParagraph" class="p"><div spellcheck="false">虽屡战屡败，将至死方休！</div></div><div id="20201226181810-cnmqfkx" data-node-id="20201226181810-cnmqfkx" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div><h2 id="20201227123816-dgiawma" data-node-id="20201227123816-dgiawma" data-type="NodeHeading" data-subtype="h2" class="h2">网页表单自动填写的简单方法</h2><div id="20201227121355-8itqwr3" data-node-id="20201227121355-8itqwr3" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://www.zhihu.com/question/436680254/answer/1647749892">网页刷新后能不能保持填报系统中已选择的标签不变？</a> 或许可以写一个填写表单的油猴脚本来优化这样的重复劳作</div></div><div id="20201227121444-rl4lbpz" data-node-id="20201227121444-rl4lbpz" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20201227125554-iw14p22" data-node-id="20201227125554-iw14p22" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
-      <div class="protyle-action">
-        1
-      </div>
-      <div id="20210225110514-p5ujrw6" data-node-id="20210225110514-p5ujrw6" data-type="NodeParagraph" class="p"><div spellcheck="false">安装 Edeg 浏览器（其他浏览器也可以，但一些步骤会有点区别，这里只讲在 Edeg 中的操作）</div></div>
-    </div><div id="20201227125830-qad33jn" data-node-id="20201227125830-qad33jn" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
-      <div class="protyle-action">
-        2
-      </div>
-      <div id="20210225110514-17jclyk" data-node-id="20210225110514-17jclyk" data-type="NodeParagraph" class="p"><div spellcheck="false">打开表单所在网页（例：<span data-type="block-ref" data-subtype="d" data-id="20201227130023-sv9fvdm"><a href="./../../../other/测试页面_普通表单.html#20201227130023-sv9fvdm">测试页面_普通表单</a></span>）</div></div>
-    </div><div id="20201227133157-1numti6" data-node-id="20201227133157-1numti6" data-type="NodeListItem" data-subtype="o" class="li" data-marker="3">
-      <div class="protyle-action">
-        3
-      </div>
-      <div id="20210225110514-a0m6wtu" data-node-id="20210225110514-a0m6wtu" data-type="NodeParagraph" class="p"><div spellcheck="false">按下 <span data-type="kbd">F12</span> 键打开devTools<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201227133737-ohhq4uh-image.png"
-  data-src="./../../../assets/20201227133737-ohhq4uh-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div>
-    </div><div id="20201227133743-nq4zi40" data-node-id="20201227133743-nq4zi40" data-type="NodeListItem" data-subtype="o" class="li" data-marker="4">
-      <div class="protyle-action">
-        4
-      </div>
-      <div id="20210225110514-3e02ri8" data-node-id="20210225110514-3e02ri8" data-type="NodeParagraph" class="p"><div spellcheck="false">如下 gif 所示去复制输入框的 js 路径 <span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201227134355-c6lhbg7-复制js选择器.gif"
-  data-src="./../../../assets/20201227134355-c6lhbg7-复制js选择器.gif"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div>
-    </div><div id="20201227134440-frj60ll" data-node-id="20201227134440-frj60ll" data-type="NodeListItem" data-subtype="o" class="li" data-marker="5">
-      <div class="protyle-action">
-        5
-      </div>
-      <div id="20210225110514-dx3o3ul" data-node-id="20210225110514-dx3o3ul" data-type="NodeParagraph" class="p"><div spellcheck="false">然后回到控制台选项卡粘贴，结果如下 <span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201227134558-fpy14ke-image.png"
-  data-src="./../../../assets/20201227134558-fpy14ke-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div>
-    </div><div id="20201227134603-1j99por" data-node-id="20201227134603-1j99por" data-type="NodeListItem" data-subtype="o" class="li" data-marker="6">
-      <div class="protyle-action">
-        6
-      </div>
-      <div id="20210225110514-ifre5q2" data-node-id="20210225110514-ifre5q2" data-type="NodeParagraph" class="p"><div spellcheck="false">另外回忆一下刚刚选中的元素是 <span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201227134638-b6turhb-image.png"
-  data-src="./../../../assets/20201227134638-b6turhb-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span> 这样的，这里要选中 input 的标签然后右键复制 js 路径</div></div>
-    </div><div id="20201227134747-gycslup" data-node-id="20201227134747-gycslup" data-type="NodeListItem" data-subtype="o" class="li" data-marker="7">
-      <div class="protyle-action">
-        7
-      </div>
-      <div id="20210225110514-f14jpt7" data-node-id="20210225110514-f14jpt7" data-type="NodeParagraph" class="p"><div spellcheck="false">左侧还有一个文本域的表单项，他长这样 ：textarea<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201227134748-xvxokoa-image.png"
-  data-src="./../../../assets/20201227134748-xvxokoa-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div>
-    </div><div id="20201227134847-jc9whvk" data-node-id="20201227134847-jc9whvk" data-type="NodeListItem" data-subtype="o" class="li" data-marker="8">
-      <div class="protyle-action">
-        8
-      </div>
-      <div id="20210225110514-zbcih0h" data-node-id="20210225110514-zbcih0h" data-type="NodeParagraph" class="p"><div spellcheck="false">同样按照 <span data-type="block-ref" data-subtype="s" data-id="20201227133743-nq4zi40"><a href="./../../../record/每日总结/2020/12月.html#20201227133743-nq4zi40">第四步</a></span> 那样的流程去复制他的 js 路径得到 <span data-type="code">document.querySelector(&quot;#form &gt; div:nth-child(2) &gt; textarea&quot;)</span></div></div>
-    </div><div id="20201227135009-xtyf5dj" data-node-id="20201227135009-xtyf5dj" data-type="NodeListItem" data-subtype="o" class="li" data-marker="9">
-      <div class="protyle-action">
-        9
-      </div>
-      <div id="20210225110514-xfpim8o" data-node-id="20210225110514-xfpim8o" data-type="NodeParagraph" class="p"><div spellcheck="false">对于 <span data-type="code">input type=&quot;text&quot;</span> 和 <span data-type="code">textarea</span> 这样的表单项可以通过这样的代码进行赋值</div></div><div id="20201227135249-hdls5lk" data-node-id="20201227135249-hdls5lk" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20201227135249-pszs5q4" data-node-id="20201227135249-pszs5q4" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
-      <div class="protyle-action">
-        1
-      </div>
-      <div id="20210225110514-19ml45g" data-node-id="20210225110514-19ml45g" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="code">document.querySelector(&quot;#form &gt; div:nth-child(1) &gt; input&quot;).value=`你要输入的文本` </span></div></div>
-    </div><div id="20201227135256-5bify12" data-node-id="20201227135256-5bify12" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
-      <div class="protyle-action">
-        2
-      </div>
-      <div id="20210225110514-ryrauqw" data-node-id="20210225110514-ryrauqw" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="code">document.querySelector(&quot;#form &gt; div:nth-child(2) &gt; textarea&quot;).value=`你要输入的文本` </span></div></div>
-    </div></div>
-    </div><div id="20201227135508-68uivlx" data-node-id="20201227135508-68uivlx" data-type="NodeListItem" data-subtype="o" class="li" data-marker="10">
-      <div class="protyle-action">
-        10
-      </div>
-      <div id="20210225110514-bb0mxjp" data-node-id="20210225110514-bb0mxjp" data-type="NodeParagraph" class="p"><div spellcheck="false">copy 上面的代码进行尝试可以发现成功的填充了左侧的表单项 <span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201227135509-pxxug4i-image.png"
-  data-src="./../../../assets/20201227135509-pxxug4i-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div>
-    </div><div id="20201227135541-8n59la7" data-node-id="20201227135541-8n59la7" data-type="NodeListItem" data-subtype="o" class="li" data-marker="11">
-      <div class="protyle-action">
-        11
-      </div>
-      <div id="20210225110514-7daw39e" data-node-id="20210225110514-7daw39e" data-type="NodeParagraph" class="p"><div spellcheck="false">但左侧还有选项菜单、单选项、复选框、等形式的表单项，对于他们的赋值步骤可以参考下表</div></div>
-    </div></div><div id="20201227140001-wafzyp2" data-node-id="20201227140001-wafzyp2" data-type="NodeParagraph" class="p"><div spellcheck="false">选择器：之前复制的路径其实就是一段通过特定规则选中特定元素的 js 代码 <span data-type="code">document.querySelector(&quot;#form &gt; div:nth-child(1) &gt; input&quot;).value=`你要输入的文本` </span> , 下边的表中用 「选择器」代指这段代码</div></div><div id="20201227135823-q286edr" data-node-id="20201227135823-q286edr" data-type="NodeTable" class="table">
-    <div>
-      <table spellcheck="false">
-        <colgroup>
-        <col /><col /><col />
-        </colgroup>
-        <undefined><tr><td>表单项类型</td><td>长什么样</td><td>赋值代码</td></tr></undefined>
-        <tbody>
-        <tr><td><span data-type="code">input type=&quot;text&quot;</span></td><td><span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201227135949-jxa0gtk-image.png"
-  data-src="./../../../assets/20201227135949-jxa0gtk-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></td><td><span data-type="block-ref" data-subtype="s" data-id="20201227140001-wafzyp2"><a href="./../../../record/每日总结/2020/12月.html#20201227140001-wafzyp2">选择器</a></span>.value=`要输入的文本`</td></tr>
-<tr><td><span data-type="code">textarea</span></td><td><span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201227140710-hki46h2-image.png"
-  data-src="./../../../assets/20201227140710-hki46h2-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></td><td><span data-type="block-ref" data-subtype="s" data-id="20201227140001-wafzyp2"><a href="./../../../record/每日总结/2020/12月.html#20201227140001-wafzyp2">选择器</a></span>.value=`要输入的文本`</td></tr>
-<tr><td><span data-type="code">input type=&quot;checkbox&quot;</span></td><td><span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201227140807-3ccl27i-image.png"
-  data-src="./../../../assets/20201227140807-3ccl27i-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></td><td>选中:<span data-type="block-ref" data-subtype="s" data-id="20201227140001-wafzyp2"><a href="./../../../record/每日总结/2020/12月.html#20201227140001-wafzyp2">选择器</a></span>.checked=true<undefined>取消选中:<span data-type="block-ref" data-subtype="s" data-id="20201227140001-wafzyp2"><a href="./../../../record/每日总结/2020/12月.html#20201227140001-wafzyp2">选择器</a></span>.checked=false</td></tr>
-<tr><td><span data-type="code">select</span></td><td><span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201227141058-d7ctg1w-image.png"
-  data-src="./../../../assets/20201227141058-d7ctg1w-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></td><td><span data-type="block-ref" data-subtype="s" data-id="20201227140001-wafzyp2"><a href="./../../../record/每日总结/2020/12月.html#20201227140001-wafzyp2">选择器</a></span>.value=`option 的value`<undefined>注意，这里是option的value<undefined>而不是界面中你能看到的value</td></tr>
-<tr><td><span data-type="code">input type=&quot;radio&quot;</span></td><td><span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201227141302-o3cys08-image.png"
-  data-src="./../../../assets/20201227141302-o3cys08-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></td><td>选中:<span data-type="block-ref" data-subtype="s" data-id="20201227140001-wafzyp2"><a href="./../../../record/每日总结/2020/12月.html#20201227140001-wafzyp2">选择器</a></span>.checked=true<undefined>无需取消选中，单选只能选一个</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div><div id="20201227134827-ql6xdva" data-node-id="20201227134827-ql6xdva" data-type="NodeList" data-subtype="o" class="list" data-marker="12"><div id="20201227141642-kv335qm" data-node-id="20201227141642-kv335qm" data-type="NodeListItem" data-subtype="o" class="li" data-marker="12">
-      <div class="protyle-action">
-        12
-      </div>
-      <div id="20210225110514-7ps10v3" data-node-id="20210225110514-7ps10v3" data-type="NodeParagraph" class="p"><div spellcheck="false">对页面中的所有表单项进行上面的操作得到代码如图<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201227141727-xnb4nlg-image.png"
-  data-src="./../../../assets/20201227141727-xnb4nlg-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div>
-    </div></div><div id="20201227141731-okavyvr" data-node-id="20201227141731-okavyvr" data-type="NodeList" data-subtype="o" class="list" data-marker="13"><div id="20201227141746-8wivqyt" data-node-id="20201227141746-8wivqyt" data-type="NodeListItem" data-subtype="o" class="li" data-marker="13">
-      <div class="protyle-action">
-        13
-      </div>
-      <div id="20210225110514-fnpb9uo" data-node-id="20210225110514-fnpb9uo" data-type="NodeParagraph" class="p"><div spellcheck="false">将它们像下面这样整理一下复制到文本中</div></div>
-    </div></div><div id="20201227141758-zt20og9" data-node-id="20201227141758-zt20og9" data-type="NodeCodeBlock" class="code-block">
+        </div><div id="20201226134847-z3t7431" data-node-id="20201226134847-z3t7431" data-type="NodeParagraph" class="p"><div spellcheck="false">注意每个处理程序调用 <a href="undefined"><span data-type="code">preventDefault()</span></a> 来阻止对这个事件的其它处理过程（如触点事件或指针事件）。</div></div></div><div id="20210521142715-2jp54vl" data-node-id="20210521142715-2jp54vl" data-type="NodeBlockQueryEmbed" data-type="NodeBlockquote" class="bq">  <div style="min-height: 150px;" id="20201226134721-9xsczq4" data-node-id="20201226134721-9xsczq4" data-type="NodeDocument" updated="20240113130443" scroll="&#123;&quot;rootId&quot;:&quot;20201226134721-9xsczq4&quot;,&quot;startId&quot;:&quot;20201226134911-x9asowm&quot;,&quot;endId&quot;:&quot;20201226181810-cnmqfkx&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20201226190710-cuhfkwl&quot;,&quot;focusStart&quot;:41,&quot;focusEnd&quot;:41&#125;" type="doc">
+
+
+<div id="20201226134911-x9asowm" data-node-id="20201226134911-x9asowm" data-type="NodeBlockquote" class="bq"><h1 id="20201226190707-2f6v0nl" data-node-id="20201226190707-2f6v0nl" data-type="NodeHeading" data-subtype="h1" class="h1">序：<a href="https://www.zhihu.com/question/376164372">97 年，23 岁，一事无成，未来还有希望吗？</a></h1></div><div id="20201226190710-cuhfkwl" data-node-id="20201226190710-cuhfkwl" data-type="NodeParagraph" class="p"><div spellcheck="false">知乎回答 <span data-type="sup"><a href="https://www.zhihu.com/question/376164372/answer/1646476550">97 年，23 岁，一事无成，未来还有希望吗？ - 崮生的回答 - 知乎</a></span></div></div><div id="20201226190831-rrlcgdh" data-node-id="20201226190831-rrlcgdh" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20201226135206-c4di17g" data-node-id="20201226135206-c4di17g" data-type="NodeParagraph" class="p"><div spellcheck="false">看着问题我想了一下我的希望，突然发现我不知道希望是什么。</div></div><div id="20230922212330-7ffw1pn" data-node-id="20230922212330-7ffw1pn" data-type="NodeParagraph" updated="20230922212330" class="p"><div spellcheck="false">翻阅了一下字典：</div></div><div id="20230922212330-d99fpos" data-node-id="20230922212330-d99fpos" data-type="NodeBlockquote" updated="20240113130443" class="bq"><div id="20230922212330-sig996b" data-node-id="20230922212330-sig996b" data-type="NodeParagraph" updated="20240113130443" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/词典-希望-20240113130452-2tcpgre.png"
+    data-src="./../../../assets/词典-希望-20240113130452-2tcpgre.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span><a href="https://cd.hwxnet.com/view/jilihpijlbkoeela.html">https://cd.hwxnet.com/view/jilihpijlbkoeela.html</a></div></div></div><div id="20201226135102-9epvcpp" data-node-id="20201226135102-9epvcpp" data-type="NodeParagraph" class="p"><div spellcheck="false">这里应该讲的是第二种：心愿、理想</div></div><div id="20201226135549-0vgkgl1" data-node-id="20201226135549-0vgkgl1" data-type="NodeParagraph" class="p"><div spellcheck="false">我问自己，「我的心愿是什么？我的理想是什么？」一时间有许多东西浮上心头。</div></div><div id="20201226135956-w56x22p" data-node-id="20201226135956-w56x22p" data-type="NodeParagraph" class="p"><div spellcheck="false">例如：</div></div><div id="20201226140014-f9qzrk9" data-node-id="20201226140014-f9qzrk9" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20201226140023-ef6cst3" data-node-id="20201226140023-ef6cst3" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">javascript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          <svg><use xlink:href="#iconDot"></use></svg>
         </div>
-        <div class="hljs" spellcheck="false">document.querySelector("#form > div:nth-child(1) > input").value=`你要输入的文本`
+        <div id="20210521142712-58kktoz" data-node-id="20210521142712-58kktoz" data-type="NodeParagraph" class="p"><div spellcheck="false">考清华北大</div></div>
+      </div><div id="20201226140438-a3pbjx9" data-node-id="20201226140438-a3pbjx9" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142712-gah7meh" data-node-id="20210521142712-gah7meh" data-type="NodeParagraph" class="p"><div spellcheck="false">考上一本</div></div>
+      </div><div id="20201226140507-ic2z2rw" data-node-id="20201226140507-ic2z2rw" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142712-a420aql" data-node-id="20210521142712-a420aql" data-type="NodeParagraph" class="p"><div spellcheck="false">考上二本</div></div>
+      </div><div id="20201226140512-qn1awtj" data-node-id="20201226140512-qn1awtj" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142712-k2sfy2h" data-node-id="20210521142712-k2sfy2h" data-type="NodeParagraph" class="p"><div spellcheck="false">找个好工作</div></div>
+      </div><div id="20201226140520-6v77yxy" data-node-id="20201226140520-6v77yxy" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142712-05v76qe" data-node-id="20210521142712-05v76qe" data-type="NodeParagraph" class="p"><div spellcheck="false">身体健康</div></div>
+      </div><div id="20201226140431-jzu3fw2" data-node-id="20201226140431-jzu3fw2" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142712-2mzfpee" data-node-id="20210521142712-2mzfpee" data-type="NodeParagraph" class="p"><div spellcheck="false">......</div></div>
+      </div></div><div id="20201226135825-ygxujzt" data-node-id="20201226135825-ygxujzt" data-type="NodeParagraph" class="p"><div spellcheck="false">随即心里又浮起一问：<span data-type="strong">这是你的吗？</span> 再思考，我一直在放弃，一直在失败...</div></div><div id="20201226140921-wckjxxn" data-node-id="20201226140921-wckjxxn" data-type="NodeBlockquote" class="bq"><div id="20201226140946-7v5ri2e" data-node-id="20201226140946-7v5ri2e" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20201226190707-2f6v0nl"><a href="./../../../other/未来还有希望吗.html#20201226190707-2f6v0nl">序：97 年，23 岁，一事无成，未来还有希望吗？</a></span></div></div></div><div id="20201226140934-j5vbuzl" data-node-id="20201226140934-j5vbuzl" data-type="NodeParagraph" class="p"><div spellcheck="false">我还有希望吗？</div></div><div id="20201226141043-xmshotn" data-node-id="20201226141043-xmshotn" data-type="NodeParagraph" class="p"><div spellcheck="false">心愿和理想是有的，虽然越来越卑微</div></div><div id="20201226141322-7ig4iln" data-node-id="20201226141322-7ig4iln" data-type="NodeParagraph" class="p"><div spellcheck="false">我还有希望吗？</div></div><div id="20201226141334-2smi2o4" data-node-id="20201226141334-2smi2o4" data-type="NodeParagraph" class="p"><div spellcheck="false">大概....没有了吧。</div></div><div id="20201226143112-uymbdgf" data-node-id="20201226143112-uymbdgf" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20201226143113-wul5jdz" data-node-id="20201226143113-wul5jdz" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20201226141435-c9xopzt" data-node-id="20201226141435-c9xopzt" data-type="NodeParagraph" class="p"><div spellcheck="false">甘心吗？</div></div><div id="20201226141644-s2ndklp" data-node-id="20201226141644-s2ndklp" data-type="NodeParagraph" class="p"><div spellcheck="false">不甘心！</div></div><div id="20201226181153-fojsjc7" data-node-id="20201226181153-fojsjc7" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20201226141702-7ui96ry" data-node-id="20201226141702-7ui96ry" data-type="NodeParagraph" class="p"><div spellcheck="false">虽屡战屡败，将至死方休！</div></div><div id="20201226181810-cnmqfkx" data-node-id="20201226181810-cnmqfkx" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div>  </div><h2 id="20201227123816-dgiawma" data-node-id="20201227123816-dgiawma" data-type="NodeHeading" data-subtype="h2" class="h2">网页表单自动填写的简单方法</h2><div id="20201227121355-8itqwr3" data-node-id="20201227121355-8itqwr3" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://www.zhihu.com/question/436680254/answer/1647749892">网页刷新后能不能保持填报系统中已选择的标签不变？</a> 或许可以写一个填写表单的油猴脚本来优化这样的重复劳作</div></div><div id="20201227121444-rl4lbpz" data-node-id="20201227121444-rl4lbpz" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20201227125554-iw14p22" data-node-id="20201227125554-iw14p22" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
+        <div class="protyle-action">
+          1
+        </div>
+        <div id="20210225110514-p5ujrw6" data-node-id="20210225110514-p5ujrw6" data-type="NodeParagraph" class="p"><div spellcheck="false">安装 Edeg 浏览器（其他浏览器也可以，但一些步骤会有点区别，这里只讲在 Edeg 中的操作）</div></div>
+      </div><div id="20201227125830-qad33jn" data-node-id="20201227125830-qad33jn" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
+        <div class="protyle-action">
+          2
+        </div>
+        <div id="20210225110514-17jclyk" data-node-id="20210225110514-17jclyk" data-type="NodeParagraph" class="p"><div spellcheck="false">打开表单所在网页（例：<span data-type="block-ref"   data-subtype="d"   data-id="20201227130023-sv9fvdm"><a href="./../../../other/测试页面_普通表单.html#20201227130023-sv9fvdm">测试页面_普通表单</a></span>）</div></div>
+      </div><div id="20201227133157-1numti6" data-node-id="20201227133157-1numti6" data-type="NodeListItem" data-subtype="o" class="li" data-marker="3">
+        <div class="protyle-action">
+          3
+        </div>
+        <div id="20210225110514-a0m6wtu" data-node-id="20210225110514-a0m6wtu" data-type="NodeParagraph" class="p"><div spellcheck="false">按下 <span data-type="kbd">F12</span> 键打开devTools<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201227133737-ohhq4uh-image.png"
+    data-src="./../../../assets/20201227133737-ohhq4uh-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div>
+      </div><div id="20201227133743-nq4zi40" data-node-id="20201227133743-nq4zi40" data-type="NodeListItem" data-subtype="o" class="li" data-marker="4">
+        <div class="protyle-action">
+          4
+        </div>
+        <div id="20210225110514-3e02ri8" data-node-id="20210225110514-3e02ri8" data-type="NodeParagraph" class="p"><div spellcheck="false">如下 gif 所示去复制输入框的 js 路径 <span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201227134355-c6lhbg7-复制js选择器.gif"
+    data-src="./../../../assets/20201227134355-c6lhbg7-复制js选择器.gif"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div>
+      </div><div id="20201227134440-frj60ll" data-node-id="20201227134440-frj60ll" data-type="NodeListItem" data-subtype="o" class="li" data-marker="5">
+        <div class="protyle-action">
+          5
+        </div>
+        <div id="20210225110514-dx3o3ul" data-node-id="20210225110514-dx3o3ul" data-type="NodeParagraph" class="p"><div spellcheck="false">然后回到控制台选项卡粘贴，结果如下 <span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201227134558-fpy14ke-image.png"
+    data-src="./../../../assets/20201227134558-fpy14ke-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div>
+      </div><div id="20201227134603-1j99por" data-node-id="20201227134603-1j99por" data-type="NodeListItem" data-subtype="o" class="li" data-marker="6">
+        <div class="protyle-action">
+          6
+        </div>
+        <div id="20210225110514-ifre5q2" data-node-id="20210225110514-ifre5q2" data-type="NodeParagraph" class="p"><div spellcheck="false">另外回忆一下刚刚选中的元素是 <span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201227134638-b6turhb-image.png"
+    data-src="./../../../assets/20201227134638-b6turhb-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span> 这样的，这里要选中 input 的标签然后右键复制 js 路径</div></div>
+      </div><div id="20201227134747-gycslup" data-node-id="20201227134747-gycslup" data-type="NodeListItem" data-subtype="o" class="li" data-marker="7">
+        <div class="protyle-action">
+          7
+        </div>
+        <div id="20210225110514-f14jpt7" data-node-id="20210225110514-f14jpt7" data-type="NodeParagraph" class="p"><div spellcheck="false">左侧还有一个文本域的表单项，他长这样 ：textarea<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201227134748-xvxokoa-image.png"
+    data-src="./../../../assets/20201227134748-xvxokoa-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div>
+      </div><div id="20201227134847-jc9whvk" data-node-id="20201227134847-jc9whvk" data-type="NodeListItem" data-subtype="o" class="li" data-marker="8">
+        <div class="protyle-action">
+          8
+        </div>
+        <div id="20210225110514-zbcih0h" data-node-id="20210225110514-zbcih0h" data-type="NodeParagraph" class="p"><div spellcheck="false">同样按照 <span data-type="block-ref"   data-subtype="s"   data-id="20201227133743-nq4zi40"><a href="./../../../record/每日总结/2020/12月.html#20201227133743-nq4zi40">第四步</a></span> 那样的流程去复制他的 js 路径得到 <span data-type="code">document.querySelector(&quot;#form &gt; div:nth-child(2) &gt; textarea&quot;)</span></div></div>
+      </div><div id="20201227135009-xtyf5dj" data-node-id="20201227135009-xtyf5dj" data-type="NodeListItem" data-subtype="o" class="li" data-marker="9">
+        <div class="protyle-action">
+          9
+        </div>
+        <div id="20210225110514-xfpim8o" data-node-id="20210225110514-xfpim8o" data-type="NodeParagraph" class="p"><div spellcheck="false">对于 <span data-type="code">input type=&quot;text&quot;</span> 和 <span data-type="code">textarea</span> 这样的表单项可以通过这样的代码进行赋值</div></div><div id="20201227135249-hdls5lk" data-node-id="20201227135249-hdls5lk" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20201227135249-pszs5q4" data-node-id="20201227135249-pszs5q4" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
+        <div class="protyle-action">
+          1
+        </div>
+        <div id="20210225110514-19ml45g" data-node-id="20210225110514-19ml45g" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="code">document.querySelector(&quot;#form &gt; div:nth-child(1) &gt; input&quot;).value=`你要输入的文本` </span></div></div>
+      </div><div id="20201227135256-5bify12" data-node-id="20201227135256-5bify12" data-type="NodeListItem" data-subtype="o" class="li" data-marker="2">
+        <div class="protyle-action">
+          2
+        </div>
+        <div id="20210225110514-ryrauqw" data-node-id="20210225110514-ryrauqw" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="code">document.querySelector(&quot;#form &gt; div:nth-child(2) &gt; textarea&quot;).value=`你要输入的文本` </span></div></div>
+      </div></div>
+      </div><div id="20201227135508-68uivlx" data-node-id="20201227135508-68uivlx" data-type="NodeListItem" data-subtype="o" class="li" data-marker="10">
+        <div class="protyle-action">
+          10
+        </div>
+        <div id="20210225110514-bb0mxjp" data-node-id="20210225110514-bb0mxjp" data-type="NodeParagraph" class="p"><div spellcheck="false">copy 上面的代码进行尝试可以发现成功的填充了左侧的表单项 <span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201227135509-pxxug4i-image.png"
+    data-src="./../../../assets/20201227135509-pxxug4i-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div>
+      </div><div id="20201227135541-8n59la7" data-node-id="20201227135541-8n59la7" data-type="NodeListItem" data-subtype="o" class="li" data-marker="11">
+        <div class="protyle-action">
+          11
+        </div>
+        <div id="20210225110514-7daw39e" data-node-id="20210225110514-7daw39e" data-type="NodeParagraph" class="p"><div spellcheck="false">但左侧还有选项菜单、单选项、复选框、等形式的表单项，对于他们的赋值步骤可以参考下表</div></div>
+      </div></div><div id="20201227140001-wafzyp2" data-node-id="20201227140001-wafzyp2" data-type="NodeParagraph" class="p"><div spellcheck="false">选择器：之前复制的路径其实就是一段通过特定规则选中特定元素的 js 代码 <span data-type="code">document.querySelector(&quot;#form &gt; div:nth-child(1) &gt; input&quot;).value=`你要输入的文本` </span> , 下边的表中用 「选择器」代指这段代码</div></div><div id="20201227135823-q286edr" data-node-id="20201227135823-q286edr" data-type="NodeTable" class="table">
+      <div>
+        <table spellcheck="false">
+          <colgroup>
+          <col /><col /><col />
+          </colgroup>
+          <undefined><tr><td>表单项类型</td><td>长什么样</td><td>赋值代码</td></tr></undefined>
+          <tbody>
+          <tr><td><span data-type="code">input type=&quot;text&quot;</span></td><td><span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201227135949-jxa0gtk-image.png"
+    data-src="./../../../assets/20201227135949-jxa0gtk-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></td><td><span data-type="block-ref"   data-subtype="s"   data-id="20201227140001-wafzyp2"><a href="./../../../record/每日总结/2020/12月.html#20201227140001-wafzyp2">选择器</a></span>.value=`要输入的文本`</td></tr>
+<tr><td><span data-type="code">textarea</span></td><td><span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201227140710-hki46h2-image.png"
+    data-src="./../../../assets/20201227140710-hki46h2-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></td><td><span data-type="block-ref"   data-subtype="s"   data-id="20201227140001-wafzyp2"><a href="./../../../record/每日总结/2020/12月.html#20201227140001-wafzyp2">选择器</a></span>.value=`要输入的文本`</td></tr>
+<tr><td><span data-type="code">input type=&quot;checkbox&quot;</span></td><td><span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201227140807-3ccl27i-image.png"
+    data-src="./../../../assets/20201227140807-3ccl27i-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></td><td>选中:<span data-type="block-ref"   data-subtype="s"   data-id="20201227140001-wafzyp2"><a href="./../../../record/每日总结/2020/12月.html#20201227140001-wafzyp2">选择器</a></span>.checked=true<undefined>取消选中:<span data-type="block-ref"   data-subtype="s"   data-id="20201227140001-wafzyp2"><a href="./../../../record/每日总结/2020/12月.html#20201227140001-wafzyp2">选择器</a></span>.checked=false</td></tr>
+<tr><td><span data-type="code">select</span></td><td><span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201227141058-d7ctg1w-image.png"
+    data-src="./../../../assets/20201227141058-d7ctg1w-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></td><td><span data-type="block-ref"   data-subtype="s"   data-id="20201227140001-wafzyp2"><a href="./../../../record/每日总结/2020/12月.html#20201227140001-wafzyp2">选择器</a></span>.value=`option 的value`<undefined>注意，这里是option的value<undefined>而不是界面中你能看到的value</td></tr>
+<tr><td><span data-type="code">input type=&quot;radio&quot;</span></td><td><span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201227141302-o3cys08-image.png"
+    data-src="./../../../assets/20201227141302-o3cys08-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></td><td>选中:<span data-type="block-ref"   data-subtype="s"   data-id="20201227140001-wafzyp2"><a href="./../../../record/每日总结/2020/12月.html#20201227140001-wafzyp2">选择器</a></span>.checked=true<undefined>无需取消选中，单选只能选一个</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div><div id="20201227134827-ql6xdva" data-node-id="20201227134827-ql6xdva" data-type="NodeList" data-subtype="o" class="list" data-marker="12"><div id="20201227141642-kv335qm" data-node-id="20201227141642-kv335qm" data-type="NodeListItem" data-subtype="o" class="li" data-marker="12">
+        <div class="protyle-action">
+          12
+        </div>
+        <div id="20210225110514-7ps10v3" data-node-id="20210225110514-7ps10v3" data-type="NodeParagraph" class="p"><div spellcheck="false">对页面中的所有表单项进行上面的操作得到代码如图<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201227141727-xnb4nlg-image.png"
+    data-src="./../../../assets/20201227141727-xnb4nlg-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div>
+      </div></div><div id="20201227141731-okavyvr" data-node-id="20201227141731-okavyvr" data-type="NodeList" data-subtype="o" class="list" data-marker="13"><div id="20201227141746-8wivqyt" data-node-id="20201227141746-8wivqyt" data-type="NodeListItem" data-subtype="o" class="li" data-marker="13">
+        <div class="protyle-action">
+          13
+        </div>
+        <div id="20210225110514-fnpb9uo" data-node-id="20210225110514-fnpb9uo" data-type="NodeParagraph" class="p"><div spellcheck="false">将它们像下面这样整理一下复制到文本中</div></div>
+      </div></div><div id="20201227141758-zt20og9" data-node-id="20201227141758-zt20og9" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">javascript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">document.querySelector("#form > div:nth-child(1) > input").value=`你要输入的文本`
 document.querySelector("#form > div:nth-child(2) > textarea").value=`你要输入的文本`
 document.querySelector("#form > div:nth-child(3) > input").checked=true
 document.querySelector("#pet-select").value=`cat`
 document.querySelector("#dewey").checked=true
 </div>
-      </div><div id="20201227141802-aztg7wd" data-node-id="20201227141802-aztg7wd" data-type="NodeList" data-subtype="o" class="list" data-marker="14"><div id="20201227141900-g8ay0u3" data-node-id="20201227141900-g8ay0u3" data-type="NodeListItem" data-subtype="o" class="li" data-marker="14">
-      <div class="protyle-action">
-        14
-      </div>
-      <div id="20210225110514-peni6g7" data-node-id="20210225110514-peni6g7" data-type="NodeParagraph" class="p"><div spellcheck="false">然后<span data-type="kbd">F5</span>  刷新页面，复制上面的的代码放到控制台中执行</div></div>
-    </div><div id="20201227142045-qz8y1w7" data-node-id="20201227142045-qz8y1w7" data-type="NodeListItem" data-subtype="o" class="li" data-marker="15">
-      <div class="protyle-action">
-        15
-      </div>
-      <div id="20210225110514-vbdl5a3" data-node-id="20210225110514-vbdl5a3" data-type="NodeParagraph" class="p"><div spellcheck="false">可以看见自动填表成功了 <span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201227142046-0b8w5xs-image.png"
-  data-src="./../../../assets/20201227142046-0b8w5xs-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div>
-    </div></div><div id="20201227141919-p7j6oyz" data-node-id="20201227141919-p7j6oyz" data-type="NodeList" updated="20210526112647" data-subtype="o" class="list" data-marker="16"><div id="20201227142453-tt6uhla" data-node-id="20201227142453-tt6uhla" data-type="NodeListItem" updated="20210526112647" data-subtype="o" class="li" data-marker="16">
-      <div class="protyle-action">
-        16
-      </div>
-      <div id="20210225110514-8khieox" data-node-id="20210225110514-8khieox" data-type="NodeParagraph" updated="20210526112647" class="p"><div spellcheck="false">现在虽然自动填表成功了，但每次要打开 devtools 粘贴代码有些繁琐，可以通过 <span data-type="block-ref" data-subtype="d" data-id="20210526112647-r1n4w6i"><a href="./../../../other/Bookmarklet.html#20210526112647-r1n4w6i">Bookmarklet</a></span> 这样的小技巧来实现只要点一下就成</div></div>
-    </div><div id="20201227142640-fhuobpe" data-node-id="20201227142640-fhuobpe" data-type="NodeListItem" data-subtype="o" class="li" data-marker="17">
-      <div class="protyle-action">
-        17
-      </div>
-      <div id="20210225110514-dap95as" data-node-id="20210225110514-dap95as" data-type="NodeParagraph" class="p"><div spellcheck="false">去 <a href="https://chriszarate.github.io/bookmarkleter/">bookmarkleter</a> 将 js 代码转为 Bookmarklet 代码<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201227142638-fsxxc81-image.png"
-  data-src="./../../../assets/20201227142638-fsxxc81-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div>
-    </div></div><div id="20201227142729-4lzo4gu" data-node-id="20201227142729-4lzo4gu" data-type="NodeList" data-subtype="o" class="list" data-marker="18"><div id="20201227143349-ia3lknl" data-node-id="20201227143349-ia3lknl" data-type="NodeListItem" data-subtype="o" class="li" data-marker="18">
-      <div class="protyle-action">
-        18
-      </div>
-      <div id="20210225110514-e0tewkf" data-node-id="20210225110514-e0tewkf" data-type="NodeParagraph" class="p"><div spellcheck="false">创建一个收藏夹，然后将我们的Bookmarklet 代码填写到URL栏中 <span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201227143349-u2qqmpz-image.png"
-  data-src="./../../../assets/20201227143349-u2qqmpz-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div>
-    </div></div><div id="20201227143559-86ntc5y" data-node-id="20201227143559-86ntc5y" data-type="NodeList" data-subtype="o" class="list" data-marker="19"><div id="20201227143610-4t3lqgf" data-node-id="20201227143610-4t3lqgf" data-type="NodeListItem" data-subtype="o" class="li" data-marker="19">
-      <div class="protyle-action">
-        19
-      </div>
-      <div id="20210225110514-ja54bf4" data-node-id="20210225110514-ja54bf4" data-type="NodeParagraph" class="p"><div spellcheck="false">终于完成了只要点一下就自动填充的功能了 🎉 ，俗话说磨刀不误砍柴工，你如果有许多需要重复填写的表单的话不妨尝试一下<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20201227143601-9qc1wtv-Bookmarklet演示.gif"
-  data-src="./../../../assets/20201227143601-9qc1wtv-Bookmarklet演示.gif"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div>
-    </div></div><div id="20210407210503-35rzy14" data-node-id="20210407210503-35rzy14" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20201228195707-ey3avrr" data-node-id="20201228195707-ey3avrr" data-type="NodeParagraph" updated="20210521143742" class="p"><div spellcheck="false">今天又折腾了一下自己的博客和 <span data-type="block-ref" data-subtype="d" data-id="20201121142503-ivwtfzg"><a href="./../../../想法/项目/OceanPress.html#20201121142503-ivwtfzg">OceanPress</a></span> ,改成了使用 <span data-type="block-ref" data-subtype="d" data-id="20201228195854-0h3zjhp"><a href="./../../../other/custom Element.html#20201228195854-0h3zjhp">custom Element</a></span> 来组织页面结构，另外博客中的链接也终于可以正常跳转，页面不会在没有必要的时候刷新了。</div></div><div id="20210407210503-qjdk7et" data-node-id="20210407210503-qjdk7et" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20201229105900-smdc0ah" data-node-id="20201229105900-smdc0ah" data-type="NodeParagraph" updated="20210301183556" class="p"><div spellcheck="false"><a href="https://emojixd.com/">🤣 Emoji表情大全，颜文字百科 💌 - EmojiXD</a> <= <span data-type="tag">网页备份</span> <a href="./../../../assets/所有Emoji表情符号 - 颜文字单页合集 - EmojiXD (2020-12-29 上午11_02_31).html">页面备份</a></div></div><div id="20210301183547-ckcwpcy" data-node-id="20210301183547-ckcwpcy" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20201229171006-50lqaga" data-node-id="20201229171006-50lqaga" data-type="NodeParagraph" class="p"><div spellcheck="false">以前在知乎提的一个问题 <a href="https://www.zhihu.com/question/404206877">怎么让css font-size 尽量大 但不要溢出？</a></div></div><div id="20201229171047-fbi4zyx" data-node-id="20201229171047-fbi4zyx" data-type="NodeBlockquote" class="bq"><div id="20201229171048-n4fpyu2" data-node-id="20201229171048-n4fpyu2" data-type="NodeParagraph" class="p"><div spellcheck="false">例如 box 宽度是 100px 高度是 40 px 内有不确定个数的文字，需要让 里面的文字尽量大，或者尽量接近 40px 大小，但当文字数量比较多的时候字体应该要变小该如何实现？</div></div></div><div id="20210522105130-0yobdbp" data-node-id="20210522105130-0yobdbp" data-type="NodeParagraph" updated="20210522105130" class="p"><div spellcheck="false"></div></div><div id="20210408121250-q1mkly9" data-node-id="20210408121250-q1mkly9" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div><div id="20201227141802-aztg7wd" data-node-id="20201227141802-aztg7wd" data-type="NodeList" data-subtype="o" class="list" data-marker="14"><div id="20201227141900-g8ay0u3" data-node-id="20201227141900-g8ay0u3" data-type="NodeListItem" data-subtype="o" class="li" data-marker="14">
+        <div class="protyle-action">
+          14
+        </div>
+        <div id="20210225110514-peni6g7" data-node-id="20210225110514-peni6g7" data-type="NodeParagraph" class="p"><div spellcheck="false">然后<span data-type="kbd">F5</span>  刷新页面，复制上面的的代码放到控制台中执行</div></div>
+      </div><div id="20201227142045-qz8y1w7" data-node-id="20201227142045-qz8y1w7" data-type="NodeListItem" data-subtype="o" class="li" data-marker="15">
+        <div class="protyle-action">
+          15
+        </div>
+        <div id="20210225110514-vbdl5a3" data-node-id="20210225110514-vbdl5a3" data-type="NodeParagraph" class="p"><div spellcheck="false">可以看见自动填表成功了 <span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201227142046-0b8w5xs-image.png"
+    data-src="./../../../assets/20201227142046-0b8w5xs-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div>
+      </div></div><div id="20201227141919-p7j6oyz" data-node-id="20201227141919-p7j6oyz" data-type="NodeList" updated="20210526112647" data-subtype="o" class="list" data-marker="16"><div id="20201227142453-tt6uhla" data-node-id="20201227142453-tt6uhla" data-type="NodeListItem" updated="20210526112647" data-subtype="o" class="li" data-marker="16">
+        <div class="protyle-action">
+          16
+        </div>
+        <div id="20210225110514-8khieox" data-node-id="20210225110514-8khieox" data-type="NodeParagraph" updated="20210526112647" class="p"><div spellcheck="false">现在虽然自动填表成功了，但每次要打开 devtools 粘贴代码有些繁琐，可以通过 <span data-type="block-ref"   data-subtype="d"   data-id="20210526112647-r1n4w6i"><a href="./../../../other/Bookmarklet.html#20210526112647-r1n4w6i">Bookmarklet</a></span> 这样的小技巧来实现只要点一下就成</div></div>
+      </div><div id="20201227142640-fhuobpe" data-node-id="20201227142640-fhuobpe" data-type="NodeListItem" data-subtype="o" class="li" data-marker="17">
+        <div class="protyle-action">
+          17
+        </div>
+        <div id="20210225110514-dap95as" data-node-id="20210225110514-dap95as" data-type="NodeParagraph" class="p"><div spellcheck="false">去 <a href="https://chriszarate.github.io/bookmarkleter/">bookmarkleter</a> 将 js 代码转为 Bookmarklet 代码<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201227142638-fsxxc81-image.png"
+    data-src="./../../../assets/20201227142638-fsxxc81-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div>
+      </div></div><div id="20201227142729-4lzo4gu" data-node-id="20201227142729-4lzo4gu" data-type="NodeList" data-subtype="o" class="list" data-marker="18"><div id="20201227143349-ia3lknl" data-node-id="20201227143349-ia3lknl" data-type="NodeListItem" data-subtype="o" class="li" data-marker="18">
+        <div class="protyle-action">
+          18
+        </div>
+        <div id="20210225110514-e0tewkf" data-node-id="20210225110514-e0tewkf" data-type="NodeParagraph" class="p"><div spellcheck="false">创建一个收藏夹，然后将我们的Bookmarklet 代码填写到URL栏中 <span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201227143349-u2qqmpz-image.png"
+    data-src="./../../../assets/20201227143349-u2qqmpz-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div>
+      </div></div><div id="20201227143559-86ntc5y" data-node-id="20201227143559-86ntc5y" data-type="NodeList" data-subtype="o" class="list" data-marker="19"><div id="20201227143610-4t3lqgf" data-node-id="20201227143610-4t3lqgf" data-type="NodeListItem" data-subtype="o" class="li" data-marker="19">
+        <div class="protyle-action">
+          19
+        </div>
+        <div id="20210225110514-ja54bf4" data-node-id="20210225110514-ja54bf4" data-type="NodeParagraph" class="p"><div spellcheck="false">终于完成了只要点一下就自动填充的功能了 🎉 ，俗话说磨刀不误砍柴工，你如果有许多需要重复填写的表单的话不妨尝试一下<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20201227143601-9qc1wtv-Bookmarklet演示.gif"
+    data-src="./../../../assets/20201227143601-9qc1wtv-Bookmarklet演示.gif"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div>
+      </div></div><div id="20210407210503-35rzy14" data-node-id="20210407210503-35rzy14" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20201228195707-ey3avrr" data-node-id="20201228195707-ey3avrr" data-type="NodeParagraph" updated="20210521143742" class="p"><div spellcheck="false">今天又折腾了一下自己的博客和 <span data-type="block-ref"   data-subtype="d"   data-id="20201121142503-ivwtfzg"><a href="./../../../想法/项目/OceanPress.html#20201121142503-ivwtfzg">OceanPress</a></span> ,改成了使用 <span data-type="block-ref"   data-subtype="d"   data-id="20201228195854-0h3zjhp"><a href="./../../../other/custom Element.html#20201228195854-0h3zjhp">custom Element</a></span> 来组织页面结构，另外博客中的链接也终于可以正常跳转，页面不会在没有必要的时候刷新了。</div></div><div id="20210407210503-qjdk7et" data-node-id="20210407210503-qjdk7et" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20201229105900-smdc0ah" data-node-id="20201229105900-smdc0ah" data-type="NodeParagraph" updated="20210301183556" class="p"><div spellcheck="false"><a href="https://emojixd.com/">🤣 Emoji表情大全，颜文字百科 💌 - EmojiXD</a> <= <span data-type="tag">网页备份</span> <a href="./../../../assets/所有Emoji表情符号 - 颜文字单页合集 - EmojiXD (2020-12-29 上午11_02_31).html">页面备份</a></div></div><div id="20210301183547-ckcwpcy" data-node-id="20210301183547-ckcwpcy" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20201229171006-50lqaga" data-node-id="20201229171006-50lqaga" data-type="NodeParagraph" class="p"><div spellcheck="false">以前在知乎提的一个问题 <a href="https://www.zhihu.com/question/404206877">怎么让css font-size 尽量大 但不要溢出？</a></div></div><div id="20201229171047-fbi4zyx" data-node-id="20201229171047-fbi4zyx" data-type="NodeBlockquote" class="bq"><div id="20201229171048-n4fpyu2" data-node-id="20201229171048-n4fpyu2" data-type="NodeParagraph" class="p"><div spellcheck="false">例如 box 宽度是 100px 高度是 40 px 内有不确定个数的文字，需要让 里面的文字尽量大，或者尽量接近 40px 大小，但当文字数量比较多的时候字体应该要变小该如何实现？</div></div></div><div id="20210522105130-0yobdbp" data-node-id="20210522105130-0yobdbp" data-type="NodeParagraph" updated="20210522105130" class="p"><div spellcheck="false"></div></div><div id="20210408121250-q1mkly9" data-node-id="20210408121250-q1mkly9" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -539,7 +550,7 @@ document.querySelector("#dewey").checked=true
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>mui的踩坑之路</title>
 </head>
 <body>
@@ -49,21 +49,29 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201104153359-sji4b7x" data-node-id="20201104153359-sji4b7x" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc"></div><h1 id="20201104153359-sji4b7x" data-node-id="20201104153359-sji4b7x" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">mui的踩坑之路</h1><h1 id="20210521142712-viap28f" data-node-id="20210521142712-viap28f" data-type="NodeHeading" data-subtype="h1" class="h1">mui 的踩坑之路</h1><div id="20210521142712-fjoamjh" data-node-id="20210521142712-fjoamjh" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142712-e1s6zjp" data-node-id="20210521142712-e1s6zjp" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142712-aie3sbc" data-node-id="20210521142712-aie3sbc" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate:2019-05-07 17:10:15</div></div>
-    </div><div id="20210521142712-4ehtr7a" data-node-id="20210521142712-4ehtr7a" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142712-dswx2bz" data-node-id="20210521142712-dswx2bz" data-type="NodeParagraph" class="p"><div spellcheck="false">tags:mui</div></div>
-    </div></div><div id="20210521142712-vi38nkh" data-node-id="20210521142712-vi38nkh" data-type="NodeBlockquote" class="bq"><div id="20210521142712-xnoe2m7" data-node-id="20210521142712-xnoe2m7" data-type="NodeParagraph" class="p"><div spellcheck="false">一个自己开发时攒下来的一点工具 <a href="https://dev.tencent.com/u/sheng_gu/p/muiutil/git">muiutil</a></div></div></div><div id="20210521142712-jwienlf" data-node-id="20210521142712-jwienlf" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20210521142712-bsilfhe" data-node-id="20210521142712-bsilfhe" data-type="NodeHeading" data-subtype="h2" class="h2">怎么重写 mui.back 也没用</h2><div id="20210521142712-853j4p6" data-node-id="20210521142712-853j4p6" data-type="NodeParagraph" class="p"><div spellcheck="false">重写之后按返回还是能够退出，这是因为那个页面里加载了 iframe，iframe 里面的 js 执行了 mui.back 的逻辑。</div></div><div id="20210521142712-ki5nuus" data-node-id="20210521142712-ki5nuus" data-type="NodeParagraph" class="p"><div spellcheck="false">解决方案就是将 iframe 里面的 mui.back 也重写就好了</div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20201104153359-sji4b7x" data-node-id="20201104153359-sji4b7x" data-type="NodeDocument" updated="20201104153359" type="doc">
+
+<h1 id="20201104153359-sji4b7x" data-node-id="20201104153359-sji4b7x" data-type="NodeDocument" updated="20201104153359" type="doc" data-type="NodeHeading" class="h1">mui的踩坑之路</h1>
+<h1 id="20210521142712-viap28f" data-node-id="20210521142712-viap28f" data-type="NodeHeading" data-subtype="h1" class="h1">mui 的踩坑之路</h1><div id="20210521142712-fjoamjh" data-node-id="20210521142712-fjoamjh" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142712-e1s6zjp" data-node-id="20210521142712-e1s6zjp" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142712-aie3sbc" data-node-id="20210521142712-aie3sbc" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate:2019-05-07 17:10:15</div></div>
+      </div><div id="20210521142712-4ehtr7a" data-node-id="20210521142712-4ehtr7a" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142712-dswx2bz" data-node-id="20210521142712-dswx2bz" data-type="NodeParagraph" class="p"><div spellcheck="false">tags:mui</div></div>
+      </div></div><div id="20210521142712-vi38nkh" data-node-id="20210521142712-vi38nkh" data-type="NodeBlockquote" class="bq"><div id="20210521142712-xnoe2m7" data-node-id="20210521142712-xnoe2m7" data-type="NodeParagraph" class="p"><div spellcheck="false">一个自己开发时攒下来的一点工具 <a href="https://dev.tencent.com/u/sheng_gu/p/muiutil/git">muiutil</a></div></div></div><div id="20210521142712-jwienlf" data-node-id="20210521142712-jwienlf" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20210521142712-bsilfhe" data-node-id="20210521142712-bsilfhe" data-type="NodeHeading" data-subtype="h2" class="h2">怎么重写 mui.back 也没用</h2><div id="20210521142712-853j4p6" data-node-id="20210521142712-853j4p6" data-type="NodeParagraph" class="p"><div spellcheck="false">重写之后按返回还是能够退出，这是因为那个页面里加载了 iframe，iframe 里面的 js 执行了 mui.back 的逻辑。</div></div><div id="20210521142712-ki5nuus" data-node-id="20210521142712-ki5nuus" data-type="NodeParagraph" class="p"><div spellcheck="false">解决方案就是将 iframe 里面的 mui.back 也重写就好了</div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -82,7 +90,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

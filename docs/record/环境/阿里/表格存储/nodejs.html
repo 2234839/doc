@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>nodejs</title>
 </head>
 <body>
@@ -49,38 +49,46 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201104153359-6o8ykq1" data-node-id="20201104153359-6o8ykq1" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc"></div><h1 id="20201104153359-6o8ykq1" data-node-id="20201104153359-6o8ykq1" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">nodejs</h1><h1 id="20210521142713-lm1zl9i" data-node-id="20210521142713-lm1zl9i" data-type="NodeHeading" data-subtype="h1" class="h1">阿里云表格存储 node.js</h1><div id="20210521142713-06dcjin" data-node-id="20210521142713-06dcjin" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142713-wrepslv" data-node-id="20210521142713-wrepslv" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142713-d5x0mcf" data-node-id="20210521142713-d5x0mcf" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate:2019-11-22 22:48:59</div></div>
-    </div><div id="20210521142713-1rbuevm" data-node-id="20210521142713-1rbuevm" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142713-xyuqenl" data-node-id="20210521142713-xyuqenl" data-type="NodeParagraph" class="p"><div spellcheck="false">tags:node.js，表格存储，阿里</div></div>
-    </div></div><div id="20210521142713-2voqevw" data-node-id="20210521142713-2voqevw" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20210521142713-x56sldy" data-node-id="20210521142713-x56sldy" data-type="NodeHeading" data-subtype="h2" class="h2">必读</h2><div id="20210521142713-a2mvg97" data-node-id="20210521142713-a2mvg97" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142713-0mz3aqg" data-node-id="20210521142713-0mz3aqg" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142713-jyhz964" data-node-id="20210521142713-jyhz964" data-type="NodeParagraph" class="p"><div spellcheck="false">tablestore sdk 基本上所有的接口都是支持 promise 和错误优先回调两种调用方式的，我一开始以为只支持回调方式，还自己写了一些转换的函数</div></div>
-    </div></div><h2 id="20210521142713-nnqdvnj" data-node-id="20210521142713-nnqdvnj" data-type="NodeHeading" data-subtype="h2" class="h2">花费了我一番时间寻找</h2><div id="20210521142713-82ugwrn" data-node-id="20210521142713-82ugwrn" data-type="NodeParagraph" class="p"><div spellcheck="false">1.自增主键该如何赋值 设置为这个 <a href="https://github.com/aliyun/aliyun-tablestore-nodejs-sdk/blob/master/samples/primarykey.js">TableStore.PK_AUTO_INCR</a></div></div><h2 id="20210521142713-giwvdwy" data-node-id="20210521142713-giwvdwy" data-type="NodeHeading" data-subtype="h2" class="h2">疑难杂症</h2><div id="20210521142713-1myc6q9" data-node-id="20210521142713-1myc6q9" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142713-rqrpa8u" data-node-id="20210521142713-rqrpa8u" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142713-0datu7e" data-node-id="20210521142713-0datu7e" data-type="NodeParagraph" class="p"><div spellcheck="false">getRow 读取的数据中 row 为空​实际上 row 里面是有值的，直接 JSON.stringify getRow 返回的对象显示的是"" 但 JSON.stringify row 对象就能看到实际结果了​这里据阿里的人说可能是 Protobuf 的问题，这些函数最后返回的都是 Protobuf 的完整对象</div></div>
-    </div></div><h3 id="20210521142713-kx2moiy" data-node-id="20210521142713-kx2moiy" data-type="NodeHeading" data-subtype="h3" class="h3">遇到的一些错误</h3><div id="20210521142713-itth5am" data-node-id="20210521142713-itth5am" data-type="NodeBlockquote" class="bq"><div id="20210521142713-1wwxnb2" data-node-id="20210521142713-1wwxnb2" data-type="NodeParagraph" class="p"><div spellcheck="false">Cannot read property 'rowExistenceExpectation' of undefined</div></div></div><div id="20210521142713-eile6dj" data-node-id="20210521142713-eile6dj" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language"></span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">- 没有传   condition: new TableStore.Condition(TableStore.RowExistenceExpectation.IGNORE, null),
-</div>
-      </div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../../../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20201104153359-6o8ykq1" data-node-id="20201104153359-6o8ykq1" data-type="NodeDocument" updated="20201104153359" type="doc">
+
+<h1 id="20201104153359-6o8ykq1" data-node-id="20201104153359-6o8ykq1" data-type="NodeDocument" updated="20201104153359" type="doc" data-type="NodeHeading" class="h1">nodejs</h1>
+<h1 id="20210521142713-lm1zl9i" data-node-id="20210521142713-lm1zl9i" data-type="NodeHeading" data-subtype="h1" class="h1">阿里云表格存储 node.js</h1><div id="20210521142713-06dcjin" data-node-id="20210521142713-06dcjin" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142713-wrepslv" data-node-id="20210521142713-wrepslv" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142713-d5x0mcf" data-node-id="20210521142713-d5x0mcf" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate:2019-11-22 22:48:59</div></div>
+      </div><div id="20210521142713-1rbuevm" data-node-id="20210521142713-1rbuevm" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142713-xyuqenl" data-node-id="20210521142713-xyuqenl" data-type="NodeParagraph" class="p"><div spellcheck="false">tags:node.js，表格存储，阿里</div></div>
+      </div></div><div id="20210521142713-2voqevw" data-node-id="20210521142713-2voqevw" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20210521142713-x56sldy" data-node-id="20210521142713-x56sldy" data-type="NodeHeading" data-subtype="h2" class="h2">必读</h2><div id="20210521142713-a2mvg97" data-node-id="20210521142713-a2mvg97" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142713-0mz3aqg" data-node-id="20210521142713-0mz3aqg" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142713-jyhz964" data-node-id="20210521142713-jyhz964" data-type="NodeParagraph" class="p"><div spellcheck="false">tablestore sdk 基本上所有的接口都是支持 promise 和错误优先回调两种调用方式的，我一开始以为只支持回调方式，还自己写了一些转换的函数</div></div>
+      </div></div><h2 id="20210521142713-nnqdvnj" data-node-id="20210521142713-nnqdvnj" data-type="NodeHeading" data-subtype="h2" class="h2">花费了我一番时间寻找</h2><div id="20210521142713-82ugwrn" data-node-id="20210521142713-82ugwrn" data-type="NodeParagraph" class="p"><div spellcheck="false">1.自增主键该如何赋值 设置为这个 <a href="https://github.com/aliyun/aliyun-tablestore-nodejs-sdk/blob/master/samples/primarykey.js">TableStore.PK_AUTO_INCR</a></div></div><h2 id="20210521142713-giwvdwy" data-node-id="20210521142713-giwvdwy" data-type="NodeHeading" data-subtype="h2" class="h2">疑难杂症</h2><div id="20210521142713-1myc6q9" data-node-id="20210521142713-1myc6q9" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142713-rqrpa8u" data-node-id="20210521142713-rqrpa8u" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142713-0datu7e" data-node-id="20210521142713-0datu7e" data-type="NodeParagraph" class="p"><div spellcheck="false">getRow 读取的数据中 row 为空​实际上 row 里面是有值的，直接 JSON.stringify getRow 返回的对象显示的是"" 但 JSON.stringify row 对象就能看到实际结果了​这里据阿里的人说可能是 Protobuf 的问题，这些函数最后返回的都是 Protobuf 的完整对象</div></div>
+      </div></div><h3 id="20210521142713-kx2moiy" data-node-id="20210521142713-kx2moiy" data-type="NodeHeading" data-subtype="h3" class="h3">遇到的一些错误</h3><div id="20210521142713-itth5am" data-node-id="20210521142713-itth5am" data-type="NodeBlockquote" class="bq"><div id="20210521142713-1wwxnb2" data-node-id="20210521142713-1wwxnb2" data-type="NodeParagraph" class="p"><div spellcheck="false">Cannot read property 'rowExistenceExpectation' of undefined</div></div></div><div id="20210521142713-eile6dj" data-node-id="20210521142713-eile6dj" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">- 没有传   condition: new TableStore.Condition(TableStore.RowExistenceExpectation.IGNORE, null),
+</div>
+        </div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -99,7 +107,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>act</title>
 </head>
 <body>
@@ -49,19 +49,26 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20250306093127-z0ilsud" data-node-id="20250306093127-z0ilsud" data-type="NodeDocument" updated="20250306094716" data-subtype="h1" class="h1" type="doc"></div><h1 id="20250306093127-z0ilsud" data-node-id="20250306093127-z0ilsud" data-type="NodeDocument" updated="20250306094716" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">act</h1><div id="20250306093127-0et7oza" data-node-id="20250306093127-0et7oza" data-type="NodeParagraph" updated="20250306093133" class="p"><div spellcheck="false"><a href="https://github.com/nektos/act">nektos/act - 在本地运行 github actions</a></div></div><h2 id="20250306093209-6ddma27" data-node-id="20250306093209-6ddma27" data-type="NodeHeading" updated="20250306093225" data-subtype="h2" class="h2">设置 act 网络代理</h2><div id="20250306093136-gy21zxs" data-node-id="20250306093136-gy21zxs" data-type="NodeCodeBlock" updated="20250306093206" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">bash</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">act --env https_proxy=http://192.168.1.4:7897 --env http_proxy=http://192.168.1.4:7897
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20250306093127-z0ilsud" data-node-id="20250306093127-z0ilsud" data-type="NodeDocument" updated="20250306094716" type="doc">
+
+<h1 id="20250306093127-z0ilsud" data-node-id="20250306093127-z0ilsud" data-type="NodeDocument" updated="20250306094716" type="doc" data-type="NodeHeading" class="h1">act</h1>
+<div id="20250306093127-0et7oza" data-node-id="20250306093127-0et7oza" data-type="NodeParagraph" updated="20250306093133" class="p"><div spellcheck="false"><a href="https://github.com/nektos/act">nektos/act - 在本地运行 github actions</a></div></div><h2 id="20250306093209-6ddma27" data-node-id="20250306093209-6ddma27" data-type="NodeHeading" updated="20250306093225" data-subtype="h2" class="h2">设置 act 网络代理</h2><div id="20250306093136-gy21zxs" data-node-id="20250306093136-gy21zxs" data-type="NodeCodeBlock" updated="20250306093206" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">bash</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">act --env https_proxy=http://192.168.1.4:7897 --env http_proxy=http://192.168.1.4:7897
 </div>
-      </div><div id="20250306093137-y8s1y2a" data-node-id="20250306093137-y8s1y2a" data-type="NodeParagraph" updated="20250306093152" class="p"><div spellcheck="false"></div></div><h2 id="20250306093134-l28etx3" data-node-id="20250306093134-l28etx3" data-type="NodeHeading" updated="20250306093715" data-subtype="h2" class="h2">github actions pnpm 示例</h2><div id="20250306093331-32b856c" data-node-id="20250306093331-32b856c" data-type="NodeCodeBlock" updated="20250306093715" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">yaml</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">name: Build and Deploy
+        </div><div id="20250306093137-y8s1y2a" data-node-id="20250306093137-y8s1y2a" data-type="NodeParagraph" updated="20250306093152" class="p"><div spellcheck="false"></div></div><h2 id="20250306093134-l28etx3" data-node-id="20250306093134-l28etx3" data-type="NodeHeading" updated="20250306093715" data-subtype="h2" class="h2">github actions pnpm 示例</h2><div id="20250306093331-32b856c" data-node-id="20250306093331-32b856c" data-type="NodeCodeBlock" updated="20250306093715" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">yaml</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">name: Build and Deploy
 
 on:
   push:
@@ -94,11 +101,12 @@ jobs:
         publish_dir: ./dist
         publish_branch: deploy  # 指定目标分支
 </div>
-      </div><h2 id="20250306093344-4vy9nsq" data-node-id="20250306093344-4vy9nsq" data-type="NodeHeading" updated="20250306094716" data-subtype="h2" class="h2">使用 actions-gh-pages 的注意事项</h2><div id="20250306094633-uijrjqq" data-node-id="20250306094633-uijrjqq" data-type="NodeParagraph" updated="20250306094716" class="p"><div spellcheck="false">需要在 仓库的 Settiongs > Actions > General 中配置允许读写仓库（Read and write permissions）</div></div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div><h2 id="20250306093344-4vy9nsq" data-node-id="20250306093344-4vy9nsq" data-type="NodeHeading" updated="20250306094716" data-subtype="h2" class="h2">使用 actions-gh-pages 的注意事项</h2><div id="20250306094633-uijrjqq" data-node-id="20250306094633-uijrjqq" data-type="NodeParagraph" updated="20250306094716" class="p"><div spellcheck="false">需要在 仓库的 Settiongs > Actions > General 中配置允许读写仓库（Read and write permissions）</div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -117,7 +125,7 @@ jobs:
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

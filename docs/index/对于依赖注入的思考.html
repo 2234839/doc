@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>对于依赖注入的思考</title>
 </head>
 <body>
@@ -49,13 +49,20 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20250101095839-ec2nkqw" data-node-id="20250101095839-ec2nkqw" data-type="NodeDocument" updated="20250202153010" data-subtype="h1" class="h1" type="doc"></div><h1 id="20250101095839-ec2nkqw" data-node-id="20250101095839-ec2nkqw" data-type="NodeDocument" updated="20250202153010" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">对于依赖注入的思考</h1><div id="20250120091243-ox7i8dp" data-node-id="20250120091243-ox7i8dp" data-type="NodeParagraph" updated="20250120091259" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250120091259-h7hf587"><a href="./../index/对于依赖注入的思考/Suddenly Realized Why Dependency Injection Is Necessary.html#20250120091259-h7hf587">Suddenly Realized Why Dependency Injection Is Necessary</a></span></div></div><div id="20250120091302-g3o0ykd" data-node-id="20250120091302-g3o0ykd" data-type="NodeThematicBreak" updated="20250120091302" class="hr"><div></div></div><div id="20250118095259-sp1sj04" data-node-id="20250118095259-sp1sj04" data-type="NodeParagraph" updated="20250118095301" class="p"><div spellcheck="false">​<span data-type="tag">note</span>​ 突然想明白了为什么要有依赖注入了：这里只讨论在组合优于继承的这种情况下
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20250101095839-ec2nkqw" data-node-id="20250101095839-ec2nkqw" data-type="NodeDocument" updated="20250202153010" type="doc">
+
+<h1 id="20250101095839-ec2nkqw" data-node-id="20250101095839-ec2nkqw" data-type="NodeDocument" updated="20250202153010" type="doc" data-type="NodeHeading" class="h1">对于依赖注入的思考</h1>
+<div id="20250120091243-ox7i8dp" data-node-id="20250120091243-ox7i8dp" data-type="NodeParagraph" updated="20250120091259" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250120091259-h7hf587"><a href="./../index/对于依赖注入的思考/Suddenly Realized Why Dependency Injection Is Necessary.html#20250120091259-h7hf587">Suddenly Realized Why Dependency Injection Is Necessary</a></span></div></div><div id="20250120091302-g3o0ykd" data-node-id="20250120091302-g3o0ykd" data-type="NodeThematicBreak" updated="20250120091302" class="hr"><div></div></div><div id="20250118095259-sp1sj04" data-node-id="20250118095259-sp1sj04" data-type="NodeParagraph" updated="20250118095301" class="p"><div spellcheck="false">​<span data-type="tag">note</span>​ 突然想明白了为什么要有依赖注入了：这里只讨论在组合优于继承的这种情况下
 一定会有许多的函数组合情况，而且还会有函数组合的组合，这样实质上形成了一个函数之间的依赖链路。</div></div><div id="20250118095307-zyh4bd0" data-node-id="20250118095307-zyh4bd0" data-type="NodeParagraph" updated="20250118095307" class="p"><div spellcheck="false">如果是直接在代码中硬编码对应的函数组合的话，我要实现一个新的高阶组合他和原来的高阶组合的唯一区别只是一个基础函数的实现不一致，那我基本需要重新复制一遍原来的组合代码，然后修改其中一个调用</div></div><div id="20250118095308-mb5k0ea" data-node-id="20250118095308-mb5k0ea" data-type="NodeParagraph" updated="20250118095308" class="p"><div spellcheck="false">如果要想复用原来的高阶组合，而只是修改其中对于该基础函数的替换的话，要么将该函数作为参数传递（这个传递链路可能很长），而依赖注入就是为了解决这个问题而存在的。</div></div><div id="20250118095308-a1p4pu2" data-node-id="20250118095308-a1p4pu2" data-type="NodeParagraph" updated="20250118095308" class="p"><div spellcheck="false">有了依赖注入，只需要在编写代码的时候就通过依赖注入来调用函数，后续的替换就十分的方便了。</div></div><div id="20250120135351-tvf6top" data-node-id="20250120135351-tvf6top" data-type="NodeCodeBlock" updated="20250120140032" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">function baseFn_A(){}
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">js</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">function baseFn_A(){}
 function baseFn_B(){}
 function higherFn_B(){
 	baseFn_A()
@@ -72,78 +79,79 @@ function higherFn_C(){
 // 如果我要实现一个新的函数 higherFn_C2 ，它和 higherFn_C 唯一的区别就是调用的是 baseFn_B 而非 baseFn_A
 // 我认为依赖注入就是为了更方便的创建 higherFn_C2 而不需要改动特别多的代码
 </div>
-      </div><h2 id="20250118145748-mdazo8x" data-node-id="20250118145748-mdazo8x" data-type="NodeHeading" updated="20250202153010" data-subtype="h2" class="h2">如何实现依赖注入</h2><div id="20250118145804-2w4i85r" data-node-id="20250118145804-2w4i85r" data-type="NodeBlockquote" updated="20250120141521" class="bq"><div id="20250118145923-m73x2wj" data-node-id="20250118145923-m73x2wj" data-type="NodeParagraph" updated="20250120141521" class="p"><div spellcheck="false"> 依赖注入可以使用链表来理解。js 的原型链就可以认为是一种依赖注入</div></div></div><div id="20250118150631-9itym3k" data-node-id="20250118150631-9itym3k" data-type="NodeParagraph" updated="20250118150721" class="p"><div spellcheck="false">只要实现  <span data-type="code">inject</span>​ 和 <span data-type="code">provide</span>​ 这两个函数就可以了</div></div><div id="20250118150915-1nq5n6h" data-node-id="20250118150915-1nq5n6h" data-type="NodeParagraph" updated="20250118150915" class="p"><div spellcheck="false">​<span data-type="code">provide</span>​ 实现 ：接受一个 key 和 value ， 将这两个参数和当前节点相绑定</div></div><div id="20250118145859-iavce6x" data-node-id="20250118145859-iavce6x" data-type="NodeParagraph" updated="20250118150805" class="p"><div spellcheck="false">​<span data-type="code">inject</span>​ 实现 ：接受一个 key， 在任意一个节点，沿父级一直向上通过 key 查询对应的注入的值，找到了就返回，没有就找父级的父级。</div></div><div id="20250118150923-f49irk2" data-node-id="20250118150923-f49irk2" data-type="NodeParagraph" updated="20250118151117" class="p"><div spellcheck="false"> <span data-type="code">inject</span>​ 的实现基本和 js 对象基于原型链查找属性值的实现方式是一样的。所以我说 <span data-type="u">js 的原型链就可以认为是一种依赖注入</span></div></div><div id="20250118151216-92pm35y" data-node-id="20250118151216-92pm35y" data-type="NodeParagraph" updated="20250118151216" class="p"><div spellcheck="false"></div></div><div id="20250118151129-cin1h7f" data-node-id="20250118151129-cin1h7f" data-type="NodeParagraph" updated="20250120141556" class="p"><div spellcheck="false">如何使用链表来理解呢：</div></div><div id="20250118151223-iha2itp" data-node-id="20250118151223-iha2itp" data-type="NodeParagraph" updated="20250120152127" class="p"><div spellcheck="false">比如 vue 中的依赖注入系统（<span data-type="strong">树形结构依赖注入</span>），这里的链表是组件树中，将组件理解为节点，然后一直查找上一层组件，一直到顶层，其中经过的所有节点就是一个链表，基于这个链表，最末端的节点，可以获取他的任意一个父级节点 <span data-type="code">provide</span>​ 的值，并且在 key 相同的情况下 <span data-type="code">inject </span>​的是离他最近的一个节点 <span data-type="code">provide </span>​的值</div></div><div id="20250118152116-tqoedqs" data-node-id="20250118152116-tqoedqs" data-type="NodeParagraph" updated="20250118152116" class="p"><div spellcheck="false"></div></div><div id="20250118151512-ri2sa98" data-node-id="20250118151512-ri2sa98" data-type="NodeParagraph" updated="20250118152147" class="p"><div spellcheck="false">但如果我们要以函数为节点，以函数调用栈作为链表来实现一个依赖注入系统可行吗？</div></div><div id="20250118152147-qg5w3yl" data-node-id="20250118152147-qg5w3yl" data-type="NodeParagraph" updated="20250118152542" class="p"><div spellcheck="false">答案是可以但又不可以，因为在浏览器中是受限的，只能基于 <span data-type="block-ref" data-subtype="d" data-id="20210409090637-h0drlqf"><a href="./../other/zone.js.html#20210409090637-h0drlqf">zone.js</a></span> 来实现（存在缺陷）</div></div><div id="20250118152542-8zqiwju" data-node-id="20250118152542-8zqiwju" data-type="NodeParagraph" updated="20250118152542" class="p"><div spellcheck="false"> <span data-type="block-ref" data-subtype="d" data-id="20210608231606-cw5th69"><a href="./../other/zone.js.html#20210608231606-cw5th69">在 node.js 的环境下可以选择使用 Async hooks 来达成同样的目的</a></span></div></div><div id="20250202153010-q0gjwmw" data-node-id="20250202153010-q0gjwmw" data-type="NodeParagraph" updated="20250202153010" class="p"><div spellcheck="false"></div></div><div id="20250202153010-3aq4osl" data-node-id="20250202153010-3aq4osl" data-type="NodeParagraph" updated="20250202153010" class="p"><div spellcheck="false"></div></div><div id="20250202153010-40t1zpf" data-node-id="20250202153010-40t1zpf" data-type="NodeParagraph" updated="20250202153010" class="p"><div spellcheck="false"></div></div><div id="20250202153010-3r8aj9c" data-node-id="20250202153010-3r8aj9c" data-type="NodeThematicBreak" updated="20250202153010" class="hr"><div></div></div><h2 id="20250118152451-nr2s2sa" data-node-id="20250118152451-nr2s2sa" data-type="NodeHeading" updated="20250120153130" data-subtype="h2" class="h2">相关领域知识</h2><div id="20250120152212-iq22eby" data-node-id="20250120152212-iq22eby" data-type="NodeParagraph" updated="20250120152256" class="p"><div spellcheck="false">依赖注入是实现依赖倒置的一种办法</div></div><h3 id="20250120152256-6pbgxbt" data-node-id="20250120152256-6pbgxbt" data-type="NodeHeading" updated="20250120153130" data-subtype="h3" class="h3">传递依赖一般有</h3><div id="20250120152940-ds1f28k" data-node-id="20250120152940-ds1f28k" data-type="NodeList" updated="20250120153130" data-subtype="u" class="list"><div id="20250120152945-4j3xwby" data-node-id="20250120152945-4j3xwby" data-type="NodeListItem" updated="20250120153126" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250120152945-0cxwbkz" data-node-id="20250120152945-0cxwbkz" data-type="NodeParagraph" updated="20250120153126" class="p"><div spellcheck="false">通过方法注入
+        </div><h2 id="20250118145748-mdazo8x" data-node-id="20250118145748-mdazo8x" data-type="NodeHeading" updated="20250202153010" data-subtype="h2" class="h2">如何实现依赖注入</h2><div id="20250118145804-2w4i85r" data-node-id="20250118145804-2w4i85r" data-type="NodeBlockquote" updated="20250120141521" class="bq"><div id="20250118145923-m73x2wj" data-node-id="20250118145923-m73x2wj" data-type="NodeParagraph" updated="20250120141521" class="p"><div spellcheck="false"> 依赖注入可以使用链表来理解。js 的原型链就可以认为是一种依赖注入</div></div></div><div id="20250118150631-9itym3k" data-node-id="20250118150631-9itym3k" data-type="NodeParagraph" updated="20250118150721" class="p"><div spellcheck="false">只要实现  <span data-type="code">inject</span>​ 和 <span data-type="code">provide</span>​ 这两个函数就可以了</div></div><div id="20250118150915-1nq5n6h" data-node-id="20250118150915-1nq5n6h" data-type="NodeParagraph" updated="20250118150915" class="p"><div spellcheck="false">​<span data-type="code">provide</span>​ 实现 ：接受一个 key 和 value ， 将这两个参数和当前节点相绑定</div></div><div id="20250118145859-iavce6x" data-node-id="20250118145859-iavce6x" data-type="NodeParagraph" updated="20250118150805" class="p"><div spellcheck="false">​<span data-type="code">inject</span>​ 实现 ：接受一个 key， 在任意一个节点，沿父级一直向上通过 key 查询对应的注入的值，找到了就返回，没有就找父级的父级。</div></div><div id="20250118150923-f49irk2" data-node-id="20250118150923-f49irk2" data-type="NodeParagraph" updated="20250118151117" class="p"><div spellcheck="false"> <span data-type="code">inject</span>​ 的实现基本和 js 对象基于原型链查找属性值的实现方式是一样的。所以我说 <span data-type="u">js 的原型链就可以认为是一种依赖注入</span></div></div><div id="20250118151216-92pm35y" data-node-id="20250118151216-92pm35y" data-type="NodeParagraph" updated="20250118151216" class="p"><div spellcheck="false"></div></div><div id="20250118151129-cin1h7f" data-node-id="20250118151129-cin1h7f" data-type="NodeParagraph" updated="20250120141556" class="p"><div spellcheck="false">如何使用链表来理解呢：</div></div><div id="20250118151223-iha2itp" data-node-id="20250118151223-iha2itp" data-type="NodeParagraph" updated="20250120152127" class="p"><div spellcheck="false">比如 vue 中的依赖注入系统（<span data-type="strong">树形结构依赖注入</span>），这里的链表是组件树中，将组件理解为节点，然后一直查找上一层组件，一直到顶层，其中经过的所有节点就是一个链表，基于这个链表，最末端的节点，可以获取他的任意一个父级节点 <span data-type="code">provide</span>​ 的值，并且在 key 相同的情况下 <span data-type="code">inject </span>​的是离他最近的一个节点 <span data-type="code">provide </span>​的值</div></div><div id="20250118152116-tqoedqs" data-node-id="20250118152116-tqoedqs" data-type="NodeParagraph" updated="20250118152116" class="p"><div spellcheck="false"></div></div><div id="20250118151512-ri2sa98" data-node-id="20250118151512-ri2sa98" data-type="NodeParagraph" updated="20250118152147" class="p"><div spellcheck="false">但如果我们要以函数为节点，以函数调用栈作为链表来实现一个依赖注入系统可行吗？</div></div><div id="20250118152147-qg5w3yl" data-node-id="20250118152147-qg5w3yl" data-type="NodeParagraph" updated="20250118152542" class="p"><div spellcheck="false">答案是可以但又不可以，因为在浏览器中是受限的，只能基于 <span data-type="block-ref"   data-subtype="d"   data-id="20210409090637-h0drlqf"><a href="./../other/zone.js.html#20210409090637-h0drlqf">zone.js</a></span> 来实现（存在缺陷）</div></div><div id="20250118152542-8zqiwju" data-node-id="20250118152542-8zqiwju" data-type="NodeParagraph" updated="20250118152542" class="p"><div spellcheck="false"> <span data-type="block-ref"   data-subtype="d"   data-id="20210608231606-cw5th69"><a href="./../other/zone.js.html#20210608231606-cw5th69">在 node.js 的环境下可以选择使用 Async hooks 来达成同样的目的</a></span></div></div><div id="20250202153010-q0gjwmw" data-node-id="20250202153010-q0gjwmw" data-type="NodeParagraph" updated="20250202153010" class="p"><div spellcheck="false"></div></div><div id="20250202153010-3aq4osl" data-node-id="20250202153010-3aq4osl" data-type="NodeParagraph" updated="20250202153010" class="p"><div spellcheck="false"></div></div><div id="20250202153010-40t1zpf" data-node-id="20250202153010-40t1zpf" data-type="NodeParagraph" updated="20250202153010" class="p"><div spellcheck="false"></div></div><div id="20250202153010-3r8aj9c" data-node-id="20250202153010-3r8aj9c" data-type="NodeThematicBreak" updated="20250202153010" class="hr"><div></div></div><h2 id="20250118152451-nr2s2sa" data-node-id="20250118152451-nr2s2sa" data-type="NodeHeading" updated="20250120153130" data-subtype="h2" class="h2">相关领域知识</h2><div id="20250120152212-iq22eby" data-node-id="20250120152212-iq22eby" data-type="NodeParagraph" updated="20250120152256" class="p"><div spellcheck="false">依赖注入是实现依赖倒置的一种办法</div></div><h3 id="20250120152256-6pbgxbt" data-node-id="20250120152256-6pbgxbt" data-type="NodeHeading" updated="20250120153130" data-subtype="h3" class="h3">传递依赖一般有</h3><div id="20250120152940-ds1f28k" data-node-id="20250120152940-ds1f28k" data-type="NodeList" updated="20250120153130" data-subtype="u" class="list"><div id="20250120152945-4j3xwby" data-node-id="20250120152945-4j3xwby" data-type="NodeListItem" updated="20250120153126" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250120152945-0cxwbkz" data-node-id="20250120152945-0cxwbkz" data-type="NodeParagraph" updated="20250120153126" class="p"><div spellcheck="false">通过方法注入
 参数逐层传递</div></div>
-    </div><div id="20250120152947-v4mdqir" data-node-id="20250120152947-v4mdqir" data-type="NodeListItem" updated="20250120153130" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250120152947-bpf68za" data-node-id="20250120152947-bpf68za" data-type="NodeParagraph" updated="20250120153130" class="p"><div spellcheck="false">通过上下文注入
+      </div><div id="20250120152947-v4mdqir" data-node-id="20250120152947-v4mdqir" data-type="NodeListItem" updated="20250120153130" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250120152947-bpf68za" data-node-id="20250120152947-bpf68za" data-type="NodeParagraph" updated="20250120153130" class="p"><div spellcheck="false">通过上下文注入
 需要全局管理依赖生命周期，比如大型应用中多个模块需要共享依赖。</div></div>
-    </div></div><h3 id="20250120152850-199lkxa" data-node-id="20250120152850-199lkxa" data-type="NodeHeading" updated="20250120152932" data-subtype="h3" class="h3">实现依赖注入所需要依赖的数据结构一般有</h3><div id="20250120152928-w47oeya" data-node-id="20250120152928-w47oeya" data-type="NodeList" updated="20250120152928" data-subtype="u" class="list"><div id="20250120152928-62kqq13" data-node-id="20250120152928-62kqq13" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250120152928-nqjj02t" data-node-id="20250120152928-nqjj02t" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false"><span data-type="strong">树形结构依赖注入</span></div></div><div id="20250120152928-s6crlxh" data-node-id="20250120152928-s6crlxh" data-type="NodeList" updated="20250120152928" data-subtype="u" class="list"><div id="20250120152928-bc34gn8" data-node-id="20250120152928-bc34gn8" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250120152928-peqpfat" data-node-id="20250120152928-peqpfat" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false">依赖形成层次化、父子关系明确。</div></div>
-    </div><div id="20250120152928-ab24ocv" data-node-id="20250120152928-ab24ocv" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250120152928-cdoblwr" data-node-id="20250120152928-cdoblwr" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false"><span data-type="strong">应用场景</span>：UI 组件嵌套（React/Vue）、层次化配置等。</div></div>
-    </div></div>
-    </div><div id="20250120152928-cxkqpw1" data-node-id="20250120152928-cxkqpw1" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250120152928-67fb4zb" data-node-id="20250120152928-67fb4zb" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false"><span data-type="strong">线性依赖注入</span></div></div><div id="20250120152928-1rbuh5a" data-node-id="20250120152928-1rbuh5a" data-type="NodeList" updated="20250120152928" data-subtype="u" class="list"><div id="20250120152928-1ilo07t" data-node-id="20250120152928-1ilo07t" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250120152928-5rbefsm" data-node-id="20250120152928-5rbefsm" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false">依赖按顺序逐一注入，无复杂层次关系。</div></div>
-    </div><div id="20250120152928-f13wofy" data-node-id="20250120152928-f13wofy" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250120152928-3hjciza" data-node-id="20250120152928-3hjciza" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false"><span data-type="strong">应用场景</span>：函数调用链。</div></div>
-    </div></div>
-    </div><div id="20250120152928-o4rcdgk" data-node-id="20250120152928-o4rcdgk" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250120152928-0bqhl73" data-node-id="20250120152928-0bqhl73" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false"><span data-type="strong">图结构依赖注入</span></div></div><div id="20250120152928-raktt5l" data-node-id="20250120152928-raktt5l" data-type="NodeList" updated="20250120152928" data-subtype="u" class="list"><div id="20250120152928-khiktz4" data-node-id="20250120152928-khiktz4" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250120152928-62owlty" data-node-id="20250120152928-62owlty" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false">依赖之间可能存在复杂交互或循环引用。</div></div>
-    </div><div id="20250120152928-n7asu3p" data-node-id="20250120152928-n7asu3p" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250120152928-hx8wmec" data-node-id="20250120152928-hx8wmec" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false"><span data-type="strong">应用场景</span>：任务调度、资源共享系统。</div></div>
-    </div></div>
-    </div><div id="20250120152928-ypa9q81" data-node-id="20250120152928-ypa9q81" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250120152928-7fo26k1" data-node-id="20250120152928-7fo26k1" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false"><span data-type="strong">无依赖注入 (Dependency-Free)</span></div></div><div id="20250120152928-q6ft32v" data-node-id="20250120152928-q6ft32v" data-type="NodeList" updated="20250120152928" data-subtype="u" class="list"><div id="20250120152928-mywjy6m" data-node-id="20250120152928-mywjy6m" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20250120152928-opjvs76" data-node-id="20250120152928-opjvs76" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false">依赖全部内置或硬编码，常见于简单脚本或微服务。</div></div>
-    </div></div>
-    </div></div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+      </div></div><h3 id="20250120152850-199lkxa" data-node-id="20250120152850-199lkxa" data-type="NodeHeading" updated="20250120152932" data-subtype="h3" class="h3">实现依赖注入所需要依赖的数据结构一般有</h3><div id="20250120152928-w47oeya" data-node-id="20250120152928-w47oeya" data-type="NodeList" updated="20250120152928" data-subtype="u" class="list"><div id="20250120152928-62kqq13" data-node-id="20250120152928-62kqq13" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250120152928-nqjj02t" data-node-id="20250120152928-nqjj02t" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false"><span data-type="strong">树形结构依赖注入</span></div></div><div id="20250120152928-s6crlxh" data-node-id="20250120152928-s6crlxh" data-type="NodeList" updated="20250120152928" data-subtype="u" class="list"><div id="20250120152928-bc34gn8" data-node-id="20250120152928-bc34gn8" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250120152928-peqpfat" data-node-id="20250120152928-peqpfat" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false">依赖形成层次化、父子关系明确。</div></div>
+      </div><div id="20250120152928-ab24ocv" data-node-id="20250120152928-ab24ocv" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250120152928-cdoblwr" data-node-id="20250120152928-cdoblwr" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false"><span data-type="strong">应用场景</span>：UI 组件嵌套（React/Vue）、层次化配置等。</div></div>
+      </div></div>
+      </div><div id="20250120152928-cxkqpw1" data-node-id="20250120152928-cxkqpw1" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250120152928-67fb4zb" data-node-id="20250120152928-67fb4zb" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false"><span data-type="strong">线性依赖注入</span></div></div><div id="20250120152928-1rbuh5a" data-node-id="20250120152928-1rbuh5a" data-type="NodeList" updated="20250120152928" data-subtype="u" class="list"><div id="20250120152928-1ilo07t" data-node-id="20250120152928-1ilo07t" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250120152928-5rbefsm" data-node-id="20250120152928-5rbefsm" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false">依赖按顺序逐一注入，无复杂层次关系。</div></div>
+      </div><div id="20250120152928-f13wofy" data-node-id="20250120152928-f13wofy" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250120152928-3hjciza" data-node-id="20250120152928-3hjciza" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false"><span data-type="strong">应用场景</span>：函数调用链。</div></div>
+      </div></div>
+      </div><div id="20250120152928-o4rcdgk" data-node-id="20250120152928-o4rcdgk" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250120152928-0bqhl73" data-node-id="20250120152928-0bqhl73" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false"><span data-type="strong">图结构依赖注入</span></div></div><div id="20250120152928-raktt5l" data-node-id="20250120152928-raktt5l" data-type="NodeList" updated="20250120152928" data-subtype="u" class="list"><div id="20250120152928-khiktz4" data-node-id="20250120152928-khiktz4" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250120152928-62owlty" data-node-id="20250120152928-62owlty" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false">依赖之间可能存在复杂交互或循环引用。</div></div>
+      </div><div id="20250120152928-n7asu3p" data-node-id="20250120152928-n7asu3p" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250120152928-hx8wmec" data-node-id="20250120152928-hx8wmec" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false"><span data-type="strong">应用场景</span>：任务调度、资源共享系统。</div></div>
+      </div></div>
+      </div><div id="20250120152928-ypa9q81" data-node-id="20250120152928-ypa9q81" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250120152928-7fo26k1" data-node-id="20250120152928-7fo26k1" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false"><span data-type="strong">无依赖注入 (Dependency-Free)</span></div></div><div id="20250120152928-q6ft32v" data-node-id="20250120152928-q6ft32v" data-type="NodeList" updated="20250120152928" data-subtype="u" class="list"><div id="20250120152928-mywjy6m" data-node-id="20250120152928-mywjy6m" data-type="NodeListItem" updated="20250120152928" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250120152928-opjvs76" data-node-id="20250120152928-opjvs76" data-type="NodeParagraph" updated="20250120152928" class="p"><div spellcheck="false">依赖全部内置或硬编码，常见于简单脚本或微服务。</div></div>
+      </div></div>
+      </div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -162,7 +170,7 @@ function higherFn_C(){
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

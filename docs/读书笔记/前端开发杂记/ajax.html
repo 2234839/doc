@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>ajax</title>
 </head>
 <body>
@@ -49,37 +49,45 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201104153359-47tgpd3" data-node-id="20201104153359-47tgpd3" data-type="NodeDocument" updated="20210818124812" data-subtype="h1" class="h1" type="doc"></div><h1 id="20201104153359-47tgpd3" data-node-id="20201104153359-47tgpd3" data-type="NodeDocument" updated="20210818124812" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">ajax</h1><div id="20210521142715-6d5vkmn" data-node-id="20210521142715-6d5vkmn" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142715-xj76jbo" data-node-id="20210521142715-xj76jbo" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142715-j4iqfq5" data-node-id="20210521142715-j4iqfq5" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate:2019-11-8 11:29:16</div></div>
-    </div><div id="20210521142715-e5umm51" data-node-id="20210521142715-e5umm51" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142715-2j6fyjx" data-node-id="20210521142715-2j6fyjx" data-type="NodeParagraph" class="p"><div spellcheck="false">tags:ajax，调试</div></div>
-    </div></div><div id="20210521142715-c6k94cu" data-node-id="20210521142715-c6k94cu" data-type="NodeParagraph" class="p"><div spellcheck="false">关于前端请求的一些技巧</div></div><div id="20210521142715-aep3xo8" data-node-id="20210521142715-aep3xo8" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20210521142715-xs71u77" data-node-id="20210521142715-xs71u77" data-type="NodeHeading" data-subtype="h2" class="h2">AJAX 调试技巧</h2><h3 id="20210521142715-8kvmybv" data-node-id="20210521142715-8kvmybv" data-type="NodeHeading" data-subtype="h3" class="h3">配合 postman</h3><div id="20210818124754-petqlpo" data-node-id="20210818124754-petqlpo" data-type="NodeParagraph" updated="20210818124755" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../assets/copy-request-20210818124755-lnwhwnh.png"
-  data-src="./../../assets/copy-request-20210818124755-lnwhwnh.png"
-  title="复制请求信息"
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title">复制请求信息</span></span></div></div><div id="20210818124812-6urrav5" data-node-id="20210818124812-6urrav5" data-type="NodeParagraph" updated="20210818124812" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../assets/request-import-20210818124812-a08gpx7.png"
-  data-src="./../../assets/request-import-20210818124812-a08gpx7.png"
-  title="复制请求到 postman"
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title">复制请求到 postman</span></span></div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20201104153359-47tgpd3" data-node-id="20201104153359-47tgpd3" data-type="NodeDocument" updated="20210818124812" type="doc">
+
+<h1 id="20201104153359-47tgpd3" data-node-id="20201104153359-47tgpd3" data-type="NodeDocument" updated="20210818124812" type="doc" data-type="NodeHeading" class="h1">ajax</h1>
+<div id="20210521142715-6d5vkmn" data-node-id="20210521142715-6d5vkmn" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142715-xj76jbo" data-node-id="20210521142715-xj76jbo" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142715-j4iqfq5" data-node-id="20210521142715-j4iqfq5" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate:2019-11-8 11:29:16</div></div>
+      </div><div id="20210521142715-e5umm51" data-node-id="20210521142715-e5umm51" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142715-2j6fyjx" data-node-id="20210521142715-2j6fyjx" data-type="NodeParagraph" class="p"><div spellcheck="false">tags:ajax，调试</div></div>
+      </div></div><div id="20210521142715-c6k94cu" data-node-id="20210521142715-c6k94cu" data-type="NodeParagraph" class="p"><div spellcheck="false">关于前端请求的一些技巧</div></div><div id="20210521142715-aep3xo8" data-node-id="20210521142715-aep3xo8" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20210521142715-xs71u77" data-node-id="20210521142715-xs71u77" data-type="NodeHeading" data-subtype="h2" class="h2">AJAX 调试技巧</h2><h3 id="20210521142715-8kvmybv" data-node-id="20210521142715-8kvmybv" data-type="NodeHeading" data-subtype="h3" class="h3">配合 postman</h3><div id="20210818124754-petqlpo" data-node-id="20210818124754-petqlpo" data-type="NodeParagraph" updated="20210818124755" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../assets/copy-request-20210818124755-lnwhwnh.png"
+    data-src="./../../assets/copy-request-20210818124755-lnwhwnh.png"
+    title="复制请求信息"
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title">复制请求信息</span></span></div></div><div id="20210818124812-6urrav5" data-node-id="20210818124812-6urrav5" data-type="NodeParagraph" updated="20210818124812" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../assets/request-import-20210818124812-a08gpx7.png"
+    data-src="./../../assets/request-import-20210818124812-a08gpx7.png"
+    title="复制请求到 postman"
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title">复制请求到 postman</span></span></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -98,7 +106,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

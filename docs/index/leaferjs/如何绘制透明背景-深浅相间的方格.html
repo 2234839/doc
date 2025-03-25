@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>如何绘制透明背景-深浅相间的方格</title>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20250319220001-bacxpac" data-node-id="20250319220001-bacxpac" data-type="NodeDocument" updated="20250320101743" type="doc">
+
+<h1 id="20250319220001-bacxpac" data-node-id="20250319220001-bacxpac" data-type="NodeDocument" updated="20250320101743" type="doc" data-type="NodeHeading" class="h1">如何绘制透明背景-深浅相间的方格</h1>
+<div id="20250319222242-g2fttv6" data-node-id="20250319222242-g2fttv6" data-type="NodeBlockquote" updated="20250320101743" class="bq"><div id="20250319222252-afz1f02" data-node-id="20250319222252-afz1f02" data-type="NodeParagraph" updated="20250320101743" class="p"><div spellcheck="false"> <span data-type="block-ref"   data-subtype="d"   data-id="20250319215933-nshgiqr"><a href="./../../index/leaferjs.html#20250319215933-nshgiqr">leaferjs</a></span>   <span data-type="strong">棋盘格图案</span></div></div></div><div id="20250319220001-9te0yxt" data-node-id="20250319220001-9te0yxt" data-type="NodeParagraph" updated="20250319221737" class="p"><div spellcheck="false">首先应该要创建两份 Frame，这样第一个 Frame 就可以设置为真正的透明背景了，然后 backgroundFrame 作为背景先添加到 app</div></div><div id="20250319220333-wysskdv" data-node-id="20250319220333-wysskdv" data-type="NodeCodeBlock" updated="20250320094428" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">ts</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">const frame =  BackgroundFrame.one( {
+        fill: 'rgba(255,255,255,0)',
+      }, 0, 0, 600, 600);
+const backgroundFrame = BackgroundUI.one({}, 0, 0, 600, 600); 
+app.tree.add(backgroundFrame);   // 先添加的在底层
+app.tree.add(frame);           // 用于显示具体前景元素
+</div>
+        </div><div id="20250319220221-iwehdxq" data-node-id="20250319220221-iwehdxq" data-type="NodeParagraph" updated="20250319220236" class="p"><div spellcheck="false">具体代码如下：</div></div><h2 id="20250320093712-ynj64c4" data-node-id="20250320093712-ynj64c4" data-type="NodeHeading" updated="20250320094849" data-subtype="h2" class="h2">优化-使用图片平铺的形式生成方格</h2><div id="20250320093728-ft5sowc" data-node-id="20250320093728-ft5sowc" data-type="NodeCodeBlock" updated="20250320094849" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">ts</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">// #创建固定宽高的 Leafer [window]
+import {
+    Leafer, Platform,
+    Rect,
+    registerUI,
+    type ILeaferCanvas,
+    type IRenderOptions,
+    type IUIInputData,
+} from 'leafer-ui'
+
+export const BackgroundUITag = 'BackgroundFrame';
+
+const svg = Platform.toURL(
+    `<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+<!-- 定义两个不同颜色的方块 -->
+<defs>
+<pattern id="checkerboard" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+<!-- 浅色方块 -->
+<rect x="0" y="0" width="10" height="10" fill="#cccccc"/>
+<rect x="10" y="10" width="10" height="10" fill="#cccccc"/>
+<!-- 深色方块 -->
+<rect x="10" y="0" width="10" height="10" fill="#999999"/>
+<rect x="0" y="10" width="10" height="10" fill="#999999"/>
+</pattern>
+</defs>
+<!-- 使用定义的图案填充整个SVG -->
+<rect x="0" y="0" width="100" height="100" fill="url(#checkerboard)"/>
+</svg>`,
+    'svg',
+);
+
+class BackgroundUI extends Rect {
+    // 2. 定义全局唯一的 tag 名称
+    public get __tag() {
+        return BackgroundUITag;
+    }
+    constructor(input: IUIInputData) {
+        if (!input.fill) {
+            input.fill = {
+                type: 'image',
+                url: svg,
+                mode: 'repeat',
+                format: 'svg',
+                size: { height: 100, width: 100 },
+            };
+        }
+        super(input);
+    }
+    // 绘制自定义内容 https://www.leaferjs.com/ui/reference/display/custom/context.html
+    __draw(canvas: ILeaferCanvas, options: IRenderOptions): void {
+        const scale = this.zoomLayer.scaleX ?? 1;
+        const l = 100 / scale;
+        // 修改第二层级的数据不会触发渲染, 例如 this.fill.size.height = 100 / scale; 不会触发渲染,所以这里需要重新赋值 fill 属性
+        // 修改对象  https://www.leaferjs.com/ui/guide/basic/style.html#%E4%BF%AE%E6%94%B9%E5%AF%B9%E8%B1%A1
+        this.fill = {
+            type: 'image',
+            url: svg,
+            mode: 'repeat', // 相当于 CSS 的 background-repeat: repeat
+            format: 'svg',
+            size: { height: l, width: l },
+        };
+        super.__draw(canvas, options); // 调用父类的绘制方法，确保其他样式正常渲染
+    }
+}
+registerUI()(BackgroundUI)
+
+
+const leafer = new Leafer({
+    view: window, // view 参数支持设置 window 对象
+    width: 600, // 不能设置为 0， 否则会变成自动布局
+    height: 300,
+    fill: '#333'
+})
+
+leafer.add(Rect.one({ fill: '#32cd79', draggable: true }, 200, 100))
+
+
+</div>
+        </div><h2 id="20250320093738-vx1c8is" data-node-id="20250320093738-vx1c8is" data-type="NodeHeading" updated="20250320100550" data-subtype="h2" class="h2">编程式生成方格</h2><div id="20250319220221-qu3c5iw" data-node-id="20250319220221-qu3c5iw" data-type="NodeCodeBlock" updated="20250320090545" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">ts</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">import { Frame, registerUI, type ILeaferCanvas, type IRenderOptions } from 'leafer-ui';
+
+export const BackgroundFrameTag = 'BackgroundFrame';
+
+@registerUI()
+export class BackgroundFrame extends Frame {
+  // 2. 定义全局唯一的 tag 名称
+  public get __tag() {
+    return BackgroundFrameTag;
+  }
+
+  // 绘制自定义内容 https://www.leaferjs.com/ui/reference/display/custom/context.html
+  __draw(canvas: ILeaferCanvas, options: IRenderOptions): void {
+    const { context } = canvas;
+
+    const box = this.__layout.boxBounds;
+    const w = box.width!;
+    const h = box.height!;
+    const scale = this.zoomLayer.scaleX ?? 1;
+
+    // 设置基础方格大小
+    const baseGridSize = 10;
+    // 根据缩放比例调整方格大小
+    const gridSize = baseGridSize / scale;
+
+    // 绘制透明背景的深浅方格
+    // 用于记录上一行的第一个方格是否为深色
+    let oldFirstIsDark = false;
+    for (let x = 0; x < w; x += gridSize) {
+      // 每行开始时，根据上一行的第一个方格颜色来决定当前行的第一个方格颜色
+      let isDark = !oldFirstIsDark;
+      for (let y = 0; y < h; y += gridSize) {
+        // 计算当前方格的宽度和高度，确保不会超出边界
+        const rectWidth = Math.min(gridSize, w - x);
+        const rectHeight = Math.min(gridSize, h - y);
+
+        // 判断当前方格的位置，决定使用深色还是浅色
+        context.fillStyle = isDark ? '#CCCCCC' : '#FFFFFF'; // 深色和浅色
+        context.fillRect(x, y, rectWidth, rectHeight);
+        // 切换颜色
+        isDark = !isDark;
+      }
+      // 更新 oldFirstIsDark 为当前行的第一个方格颜色
+      oldFirstIsDark = !oldFirstIsDark;
+    }
+  }
+}
+
+</div>
+        </div><div id="20250320100549-hyt2ppd" data-node-id="20250320100549-hyt2ppd" data-type="NodeParagraph" updated="20250320100549" class="p"><div spellcheck="false"></div></div><div id="20250320100550-iet0tok" data-node-id="20250320100550-iet0tok" data-type="NodeParagraph" updated="20250320100550" class="p"><div spellcheck="false"></div></div><div id="20250320100550-8yc0s02" data-node-id="20250320100550-8yc0s02" data-type="NodeParagraph" updated="20250320100550" class="p"><div spellcheck="false"></div></div><div id="20250320100559-09r6d98" data-node-id="20250320100559-09r6d98" data-type="NodeParagraph" updated="20250320100559" class="p"><div spellcheck="false"></div></div><div id="20250320100603-4v8camd" data-node-id="20250320100603-4v8camd" data-type="NodeParagraph" updated="20250320100603" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>

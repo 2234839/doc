@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>链式调用与proxy</title>
 </head>
 <body>
@@ -49,30 +49,37 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210523132829-qk82mwr" data-node-id="20210523132829-qk82mwr" data-type="NodeDocument" updated="20210523133049" data-subtype="h1" class="h1" type="doc"></div><h1 id="20210523132829-qk82mwr" data-node-id="20210523132829-qk82mwr" data-type="NodeDocument" updated="20210523133049" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">链式调用与proxy</h1><div id="20210523132901-tckrm22" data-node-id="20210523132901-tckrm22" data-type="NodeBlockquote" updated="20210523132901" class="bq"><div id="20210523132901-svee9d6" data-node-id="20210523132901-svee9d6" data-type="NodeParagraph" class="p"><div spellcheck="false">tags:<span data-type="tag">知乎分享地址</span></div></div></div><div id="20210523132901-g154tng" data-node-id="20210523132901-g154tng" data-type="NodeParagraph" updated="20210523132901" class="p"><div spellcheck="false">知乎地址：<a href="https://zhuanlan.zhihu.com/p/189746698">https://zhuanlan.zhihu.com/p/189746698</a></div></div><div id="20210523132901-hu1wjmb" data-node-id="20210523132901-hu1wjmb" data-type="NodeParagraph" updated="20210523132901" class="p"><div spellcheck="false">思否地址：<a href="https://segmentfault.com/a/1190000023694003">https://segmentfault.com/a/1190000023694003</a></div></div><div id="20210523132913-bhjvdmw" data-node-id="20210523132913-bhjvdmw" data-type="NodeThematicBreak" updated="20210523132913" class="hr"><div></div></div><div id="20210523132915-kh5bw7f" data-node-id="20210523132915-kh5bw7f" data-type="NodeParagraph" updated="20210523132915" class="p"><div spellcheck="false">链式调用虽然快乐，可每个方法后面的 <span data-type="code"></span><span data-type="code">return this</span> 略显繁琐与丑陋，括号与引号也未免太多。</div></div><div id="20210523132901-brd17eo" data-node-id="20210523132901-brd17eo" data-type="NodeParagraph" updated="20210523132901" class="p"><div spellcheck="false">例如下面这个简单的logger</div></div><div id="20210523132901-uvig8mz" data-node-id="20210523132901-uvig8mz" data-type="NodeCodeBlock" updated="20210523132956" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">TypeScript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">new Logger()
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20210523132829-qk82mwr" data-node-id="20210523132829-qk82mwr" data-type="NodeDocument" updated="20210523133049" type="doc">
+
+<h1 id="20210523132829-qk82mwr" data-node-id="20210523132829-qk82mwr" data-type="NodeDocument" updated="20210523133049" type="doc" data-type="NodeHeading" class="h1">链式调用与proxy</h1>
+<div id="20210523132901-tckrm22" data-node-id="20210523132901-tckrm22" data-type="NodeBlockquote" updated="20210523132901" class="bq"><div id="20210523132901-svee9d6" data-node-id="20210523132901-svee9d6" data-type="NodeParagraph" class="p"><div spellcheck="false">tags:<span data-type="tag">知乎分享地址</span></div></div></div><div id="20210523132901-g154tng" data-node-id="20210523132901-g154tng" data-type="NodeParagraph" updated="20210523132901" class="p"><div spellcheck="false">知乎地址：<a href="https://zhuanlan.zhihu.com/p/189746698">https://zhuanlan.zhihu.com/p/189746698</a></div></div><div id="20210523132901-hu1wjmb" data-node-id="20210523132901-hu1wjmb" data-type="NodeParagraph" updated="20210523132901" class="p"><div spellcheck="false">思否地址：<a href="https://segmentfault.com/a/1190000023694003">https://segmentfault.com/a/1190000023694003</a></div></div><div id="20210523132913-bhjvdmw" data-node-id="20210523132913-bhjvdmw" data-type="NodeThematicBreak" updated="20210523132913" class="hr"><div></div></div><div id="20210523132915-kh5bw7f" data-node-id="20210523132915-kh5bw7f" data-type="NodeParagraph" updated="20210523132915" class="p"><div spellcheck="false">链式调用虽然快乐，可每个方法后面的 <span data-type="code"></span><span data-type="code">return this</span> 略显繁琐与丑陋，括号与引号也未免太多。</div></div><div id="20210523132901-brd17eo" data-node-id="20210523132901-brd17eo" data-type="NodeParagraph" updated="20210523132901" class="p"><div spellcheck="false">例如下面这个简单的logger</div></div><div id="20210523132901-uvig8mz" data-node-id="20210523132901-uvig8mz" data-type="NodeCodeBlock" updated="20210523132956" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">TypeScript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">new Logger()
   .addLabel("warn", "l4", "登录", "游客", "error")
   .addContent("失败")
   .addContent("密码不对")
   .end();
 </div>
-      </div><div id="20210523132901-7w97hd1" data-node-id="20210523132901-7w97hd1" data-type="NodeParagraph" updated="20210523132901" class="p"><div spellcheck="false">你可能已经对这样的封装习以为常了，但其实他还能这样写！</div></div><div id="20210523132901-ti4be37" data-node-id="20210523132901-ti4be37" data-type="NodeCodeBlock" updated="20210523132901" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">TypeScript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">Log.warn.l4.label("登录", "游客").log("失败").error.密码不对;
+        </div><div id="20210523132901-7w97hd1" data-node-id="20210523132901-7w97hd1" data-type="NodeParagraph" updated="20210523132901" class="p"><div spellcheck="false">你可能已经对这样的封装习以为常了，但其实他还能这样写！</div></div><div id="20210523132901-ti4be37" data-node-id="20210523132901-ti4be37" data-type="NodeCodeBlock" updated="20210523132901" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">TypeScript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">Log.warn.l4.label("登录", "游客").log("失败").error.密码不对;
 </div>
-      </div><div id="20210523132901-v4w3kzr" data-node-id="20210523132901-v4w3kzr" data-type="NodeParagraph" updated="20210523132901" class="p"><div spellcheck="false">我觉得后者有一种简洁美</div></div><div id="20210523132901-2cdm63v" data-node-id="20210523132901-2cdm63v" data-type="NodeParagraph" updated="20210523132901" class="p"><div spellcheck="false">具体实现如下</div></div><div id="20210523132901-0runtn3" data-node-id="20210523132901-0runtn3" data-type="NodeCodeBlock" updated="20210523132901" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">TypeScript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">class Logger {
+        </div><div id="20210523132901-v4w3kzr" data-node-id="20210523132901-v4w3kzr" data-type="NodeParagraph" updated="20210523132901" class="p"><div spellcheck="false">我觉得后者有一种简洁美</div></div><div id="20210523132901-2cdm63v" data-node-id="20210523132901-2cdm63v" data-type="NodeParagraph" updated="20210523132901" class="p"><div spellcheck="false">具体实现如下</div></div><div id="20210523132901-0runtn3" data-node-id="20210523132901-0runtn3" data-type="NodeCodeBlock" updated="20210523132901" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">TypeScript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">class Logger {
   label: string[] = [];
   content: unknown[] = [];
   addLabel(...label: string[]) {
@@ -171,19 +178,20 @@ new Logger()
 
 
 </div>
-      </div><div id="20210523132901-ze750eu" data-node-id="20210523132901-ze750eu" data-type="NodeParagraph" updated="20210523133034" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
-<img
-  src="https://secure-cdn.wol.tv/static%2Fa2THwtAPPFjE5XEBTepNEd%2Fimage.png?auth_key=1621747832-xayF5gFj2XfAPkJCJr5v9q-0-654b807d804801ac622ff8b115320642"
-  data-src="https://secure-cdn.wol.tv/static%2Fa2THwtAPPFjE5XEBTepNEd%2Fimage.png?auth_key=1621747832-xayF5gFj2XfAPkJCJr5v9q-0-654b807d804801ac622ff8b115320642"
-  title="运行结果"
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title">运行结果</span></span></div></div><div id="20210523133049-0ojgf1r" data-node-id="20210523133049-0ojgf1r" data-type="NodeParagraph" updated="20210523133049" class="p"><div spellcheck="false"></div></div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div><div id="20210523132901-ze750eu" data-node-id="20210523132901-ze750eu" data-type="NodeParagraph" updated="20210523133034" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
+  <img
+    src="https://secure-cdn.wol.tv/static%2Fa2THwtAPPFjE5XEBTepNEd%2Fimage.png?auth_key=1621747832-xayF5gFj2XfAPkJCJr5v9q-0-654b807d804801ac622ff8b115320642"
+    data-src="https://secure-cdn.wol.tv/static%2Fa2THwtAPPFjE5XEBTepNEd%2Fimage.png?auth_key=1621747832-xayF5gFj2XfAPkJCJr5v9q-0-654b807d804801ac622ff8b115320642"
+    title="运行结果"
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title">运行结果</span></span></div></div><div id="20210523133049-0ojgf1r" data-node-id="20210523133049-0ojgf1r" data-type="NodeParagraph" updated="20210523133049" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -202,7 +210,7 @@ new Logger()
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

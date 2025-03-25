@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>在serverless中使用prisma</title>
 </head>
 <body>
@@ -49,12 +49,19 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20231223132619-pult0qj" data-node-id="20231223132619-pult0qj" data-type="NodeDocument" updated="20231224143547" data-subtype="h1" class="h1" custom-custom-Jianshu-yaml="---_esc_newline_created: '2023-12-23 13:26:19'_esc_newline_updated: '2023-12-25 10:38:57'_esc_newline_title: 在serverless中使用prisma_esc_newline_slug: use-prisma-in-serverless-z2gilly_esc_newline_permalink: siyuan://blocks/20231223132619-pult0qj_esc_newline_categories: []_esc_newline_---" custom-custom-Juejin-yaml="---_esc_newline_created: '2023-12-23 13:26:19'_esc_newline_updated: '2023-12-25 10:45:49'_esc_newline_title: 在serverless中使用prisma_esc_newline_slug: use-prisma-in-serverless-z2gilly_esc_newline_permalink: siyuan://blocks/20231223132619-pult0qj_esc_newline_categories: []_esc_newline_---" custom-custom-Zhihu-yaml="---_esc_newline_created: '2023-12-23 13:26:19'_esc_newline_updated: '2023-12-24 14:05:05'_esc_newline_title: 在serverless中使用prisma_esc_newline_slug: use-prisma-in-serverless-z2gilly_esc_newline_permalink: siyuan://blocks/20231223132619-pult0qj_esc_newline_categories: []_esc_newline_---" custom-metaweblog-Cnblogs-yaml="---_esc_newline_created: '2023-12-23 13:26:19'_esc_newline_updated: '2023-12-25 10:28:30'_esc_newline_title: 在serverless中使用prisma_esc_newline_slug: use-prisma-in-serverless-z2gilly_esc_newline_permalink: siyuan://blocks/20231223132619-pult0qj_esc_newline_categories: []_esc_newline_---"></div><h1 id="20231223132619-pult0qj" data-node-id="20231223132619-pult0qj" data-type="NodeDocument" updated="20231224143547" data-subtype="h1" class="h1" custom-custom-Jianshu-yaml="---_esc_newline_created: '2023-12-23 13:26:19'_esc_newline_updated: '2023-12-25 10:38:57'_esc_newline_title: 在serverless中使用prisma_esc_newline_slug: use-prisma-in-serverless-z2gilly_esc_newline_permalink: siyuan://blocks/20231223132619-pult0qj_esc_newline_categories: []_esc_newline_---" custom-custom-Juejin-yaml="---_esc_newline_created: '2023-12-23 13:26:19'_esc_newline_updated: '2023-12-25 10:45:49'_esc_newline_title: 在serverless中使用prisma_esc_newline_slug: use-prisma-in-serverless-z2gilly_esc_newline_permalink: siyuan://blocks/20231223132619-pult0qj_esc_newline_categories: []_esc_newline_---" custom-custom-Zhihu-yaml="---_esc_newline_created: '2023-12-23 13:26:19'_esc_newline_updated: '2023-12-24 14:05:05'_esc_newline_title: 在serverless中使用prisma_esc_newline_slug: use-prisma-in-serverless-z2gilly_esc_newline_permalink: siyuan://blocks/20231223132619-pult0qj_esc_newline_categories: []_esc_newline_---" custom-metaweblog-Cnblogs-yaml="---_esc_newline_created: '2023-12-23 13:26:19'_esc_newline_updated: '2023-12-25 10:28:30'_esc_newline_title: 在serverless中使用prisma_esc_newline_slug: use-prisma-in-serverless-z2gilly_esc_newline_permalink: siyuan://blocks/20231223132619-pult0qj_esc_newline_categories: []_esc_newline_---" data-type="NodeHeading" class="h1">在serverless中使用prisma</h1><div id="20231223132628-au05aow" data-node-id="20231223132628-au05aow" data-type="NodeParagraph" updated="20231223132720" class="p"><div spellcheck="false">众所周知为了冷启动速度一般要将代码打包到一个js文件。</div></div><div id="20231223132720-0pibt5k" data-node-id="20231223132720-0pibt5k" data-type="NodeParagraph" updated="20231223133337" class="p"><div spellcheck="false">当在项目中使用了 prisma 打包完后上传到serverless平台，一般会遇到第一个问题：</div></div><div id="20231223133036-u8m0qs5" data-node-id="20231223133036-u8m0qs5" data-type="NodeCodeBlock" updated="20231223133154" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">bash</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false"> Error: 
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20231223132619-pult0qj" data-node-id="20231223132619-pult0qj" data-type="NodeDocument" updated="20231224143547" custom-custom-Jianshu-yaml="---_esc_newline_created: '2023-12-23 13:26:19'_esc_newline_updated: '2023-12-25 10:38:57'_esc_newline_title: 在serverless中使用prisma_esc_newline_slug: use-prisma-in-serverless-z2gilly_esc_newline_permalink: siyuan://blocks/20231223132619-pult0qj_esc_newline_categories: []_esc_newline_---" custom-custom-Juejin-yaml="---_esc_newline_created: '2023-12-23 13:26:19'_esc_newline_updated: '2023-12-25 10:45:49'_esc_newline_title: 在serverless中使用prisma_esc_newline_slug: use-prisma-in-serverless-z2gilly_esc_newline_permalink: siyuan://blocks/20231223132619-pult0qj_esc_newline_categories: []_esc_newline_---" custom-custom-Zhihu-yaml="---_esc_newline_created: '2023-12-23 13:26:19'_esc_newline_updated: '2023-12-24 14:05:05'_esc_newline_title: 在serverless中使用prisma_esc_newline_slug: use-prisma-in-serverless-z2gilly_esc_newline_permalink: siyuan://blocks/20231223132619-pult0qj_esc_newline_categories: []_esc_newline_---" custom-metaweblog-Cnblogs-yaml="---_esc_newline_created: '2023-12-23 13:26:19'_esc_newline_updated: '2023-12-25 10:28:30'_esc_newline_title: 在serverless中使用prisma_esc_newline_slug: use-prisma-in-serverless-z2gilly_esc_newline_permalink: siyuan://blocks/20231223132619-pult0qj_esc_newline_categories: []_esc_newline_---">
+
+<h1 id="20231223132619-pult0qj" data-node-id="20231223132619-pult0qj" data-type="NodeDocument" updated="20231224143547" custom-custom-Jianshu-yaml="---_esc_newline_created: '2023-12-23 13:26:19'_esc_newline_updated: '2023-12-25 10:38:57'_esc_newline_title: 在serverless中使用prisma_esc_newline_slug: use-prisma-in-serverless-z2gilly_esc_newline_permalink: siyuan://blocks/20231223132619-pult0qj_esc_newline_categories: []_esc_newline_---" custom-custom-Juejin-yaml="---_esc_newline_created: '2023-12-23 13:26:19'_esc_newline_updated: '2023-12-25 10:45:49'_esc_newline_title: 在serverless中使用prisma_esc_newline_slug: use-prisma-in-serverless-z2gilly_esc_newline_permalink: siyuan://blocks/20231223132619-pult0qj_esc_newline_categories: []_esc_newline_---" custom-custom-Zhihu-yaml="---_esc_newline_created: '2023-12-23 13:26:19'_esc_newline_updated: '2023-12-24 14:05:05'_esc_newline_title: 在serverless中使用prisma_esc_newline_slug: use-prisma-in-serverless-z2gilly_esc_newline_permalink: siyuan://blocks/20231223132619-pult0qj_esc_newline_categories: []_esc_newline_---" custom-metaweblog-Cnblogs-yaml="---_esc_newline_created: '2023-12-23 13:26:19'_esc_newline_updated: '2023-12-25 10:28:30'_esc_newline_title: 在serverless中使用prisma_esc_newline_slug: use-prisma-in-serverless-z2gilly_esc_newline_permalink: siyuan://blocks/20231223132619-pult0qj_esc_newline_categories: []_esc_newline_---" data-type="NodeHeading" class="h1">在serverless中使用prisma</h1>
+<div id="20231223132628-au05aow" data-node-id="20231223132628-au05aow" data-type="NodeParagraph" updated="20231223132720" class="p"><div spellcheck="false">众所周知为了冷启动速度一般要将代码打包到一个js文件。</div></div><div id="20231223132720-0pibt5k" data-node-id="20231223132720-0pibt5k" data-type="NodeParagraph" updated="20231223133337" class="p"><div spellcheck="false">当在项目中使用了 prisma 打包完后上传到serverless平台，一般会遇到第一个问题：</div></div><div id="20231223133036-u8m0qs5" data-node-id="20231223133036-u8m0qs5" data-type="NodeCodeBlock" updated="20231223133154" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">bash</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"> Error: 
  Invalid `prisma.companie.findMany()` invocation:
  
  
@@ -74,12 +81,12 @@
      at PrismaClientFetcher.request (/home/ubuntu/nacho/server/node_modules/@prisma/client/runtime/index.js:79361:15)
      at process._tickCallback (internal/process/next_tick.js:68:7) clientVersion: '2.12.1' }
 </div>
-      </div><div id="20231223132619-v214t1d" data-node-id="20231223132619-v214t1d" data-type="NodeParagraph" updated="20231223133358" class="p"><div spellcheck="false">经过搜索后得知 <a href="https://github.com/prisma/prisma/issues/4769">prisma/issues/4769</a> ，prisma 在不同平台是依赖不同二进制文件的。</div></div><div id="20231223133359-6sua7yy" data-node-id="20231223133359-6sua7yy" data-type="NodeParagraph" updated="20231223133510" class="p"><div spellcheck="false">那么现在修改 prisma 配置重新生成代码再 编译打包上传运行 依旧会出现找不到该文件的问题。</div></div><div id="20231223133510-nktyz9r" data-node-id="20231223133510-nktyz9r" data-type="NodeParagraph" updated="20231223133747" class="p"><div spellcheck="false">例如：</div></div><div id="20231223133747-jjc8u52" data-node-id="20231223133747-jjc8u52" data-type="NodeCodeBlock" updated="20231223133811" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">log</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">PrismaClientInitializationError: Prisma Client could not locate the Query Engine for runtime "debian-openssl-1.1.x".
+        </div><div id="20231223132619-v214t1d" data-node-id="20231223132619-v214t1d" data-type="NodeParagraph" updated="20231223133358" class="p"><div spellcheck="false">经过搜索后得知 <a href="https://github.com/prisma/prisma/issues/4769">prisma/issues/4769</a> ，prisma 在不同平台是依赖不同二进制文件的。</div></div><div id="20231223133359-6sua7yy" data-node-id="20231223133359-6sua7yy" data-type="NodeParagraph" updated="20231223133510" class="p"><div spellcheck="false">那么现在修改 prisma 配置重新生成代码再 编译打包上传运行 依旧会出现找不到该文件的问题。</div></div><div id="20231223133510-nktyz9r" data-node-id="20231223133510-nktyz9r" data-type="NodeParagraph" updated="20231223133747" class="p"><div spellcheck="false">例如：</div></div><div id="20231223133747-jjc8u52" data-node-id="20231223133747-jjc8u52" data-type="NodeCodeBlock" updated="20231223133811" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">log</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">PrismaClientInitializationError: Prisma Client could not locate the Query Engine for runtime "debian-openssl-1.1.x".
 
 This is likely caused by a bundler that has not copied "libquery_engine-debian-openssl-1.1.x.so.node" next to the resulting bundle.
 Ensure that "libquery_engine-debian-openssl-1.1.x.so.node" has been copied next to the bundle or in "node_modules/.pnpm/@prisma+client@5.7.1_prisma@5.7.1/node_modules/.prisma/client".
@@ -101,19 +108,20 @@ The following locations have been searched:
   errorCode: undefined
 }
 </div>
-      </div><div id="20231223133809-6bnkdwr" data-node-id="20231223133809-6bnkdwr" data-type="NodeParagraph" updated="20231223133928" class="p"><div spellcheck="false">现在需要从本地找到该文件 <span data-type="code">libquery_engine-debian-openssl-1.1.x.so.node</span>​</div></div><div id="20231223133928-xnhhemn" data-node-id="20231223133928-xnhhemn" data-type="NodeParagraph" updated="20231223134116" class="p"><div spellcheck="false">然后和代码一起上传，注意路径要和你编译后的代码中所依赖的一致</div></div><div id="20231223134035-vw2b0q2" data-node-id="20231223134035-vw2b0q2" data-type="NodeParagraph" updated="20231223134058" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../assets/image-20231223134035-z8yd2lm.png"
-  data-src="./../../assets/image-20231223134035-z8yd2lm.png"
-  title="函数计算依赖上传截图"
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title">函数计算依赖上传截图</span></span>​</div></div><div id="20231223134058-lz9wj89" data-node-id="20231223134058-lz9wj89" data-type="NodeParagraph" updated="20231223134135" class="p"><div spellcheck="false">📝完结撒花🎉</div></div><div id="20231224143547-l0t97ev" data-node-id="20231224143547-l0t97ev" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div><div id="20231223133809-6bnkdwr" data-node-id="20231223133809-6bnkdwr" data-type="NodeParagraph" updated="20231223133928" class="p"><div spellcheck="false">现在需要从本地找到该文件 <span data-type="code">libquery_engine-debian-openssl-1.1.x.so.node</span>​</div></div><div id="20231223133928-xnhhemn" data-node-id="20231223133928-xnhhemn" data-type="NodeParagraph" updated="20231223134116" class="p"><div spellcheck="false">然后和代码一起上传，注意路径要和你编译后的代码中所依赖的一致</div></div><div id="20231223134035-vw2b0q2" data-node-id="20231223134035-vw2b0q2" data-type="NodeParagraph" updated="20231223134058" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../assets/image-20231223134035-z8yd2lm.png"
+    data-src="./../../assets/image-20231223134035-z8yd2lm.png"
+    title="函数计算依赖上传截图"
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title">函数计算依赖上传截图</span></span>​</div></div><div id="20231223134058-lz9wj89" data-node-id="20231223134058-lz9wj89" data-type="NodeParagraph" updated="20231223134135" class="p"><div spellcheck="false">📝完结撒花🎉</div></div><div id="20231224143547-l0t97ev" data-node-id="20231224143547-l0t97ev" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -132,7 +140,7 @@ The following locations have been searched:
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

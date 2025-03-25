@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>思源挂件块开发实践</title>
 </head>
 <body>
@@ -49,46 +49,53 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210805125620-rre8vhj" data-node-id="20210805125620-rre8vhj" data-type="NodeDocument" updated="20240514215456" data-subtype="h1" class="h1" type="doc"></div><h1 id="20210805125620-rre8vhj" data-node-id="20210805125620-rre8vhj" data-type="NodeDocument" updated="20240514215456" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">思源挂件块开发实践</h1><h2 id="20210805203349-yve6gri" data-node-id="20210805203349-yve6gri" data-type="NodeHeading" updated="20240514215456" data-subtype="h2" class="h2">效果</h2><div id="20210816225654-7wjesgp" data-node-id="20210816225654-7wjesgp" data-type="NodeParagraph" updated="20210816225711" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/image-20210816225711-t9fwelz.png"
-  data-src="./../assets/image-20210816225711-t9fwelz.png"
-  title="runKit未加载完毕时的样式"
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title">runKit未加载完毕时的样式</span></span></div></div><div id="20210805203357-8yjs28v" data-node-id="20210805203357-8yjs28v" data-type="NodeParagraph" updated="20210805203357" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="width: 731px;" style="">
-<img
-  src="./../assets/image-20210805203357-4qo5s0u.png"
-  data-src="./../assets/image-20210805203357-4qo5s0u.png"
-  title="挂件块样式"
-  style="width: 731px;"
-  loading="lazy"
-/>
-<span class="protyle-action__title">挂件块样式</span></span></div></div><div id="20210805203554-t61i3ib" data-node-id="20210805203554-t61i3ib" data-type="NodeParagraph" updated="20210805203554" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="width: 726px;" style="">
-<img
-  src="./../assets/image-20210805203554-lqag5tl.png"
-  data-src="./../assets/image-20210805203554-lqag5tl.png"
-  title="数据存储在自定义属性中"
-  style="width: 726px;"
-  loading="lazy"
-/>
-<span class="protyle-action__title">数据存储在自定义属性中</span></span></div></div><div id="20210805204021-3oxy6fc" data-node-id="20210805204021-3oxy6fc" data-type="NodeParagraph" updated="20210805204022" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="width: 765px;" style="">
-<img
-  src="./../assets/image-20210805204022-2lzsg79.png"
-  data-src="./../assets/image-20210805204022-2lzsg79.png"
-  title="在 OceanPress 中的效果"
-  style="width: 765px;"
-  loading="lazy"
-/>
-<span class="protyle-action__title">在 OceanPress 中的效果</span></span></div></div><h2 id="20210805203359-pmt3zg2" data-node-id="20210805203359-pmt3zg2" data-type="NodeHeading" updated="20240514215456" data-subtype="h2" class="h2">开发调试</h2><h3 id="20210805204114-jmiegak" data-node-id="20210805204114-jmiegak" data-type="NodeHeading" updated="20240514215456" data-subtype="h3" class="h3"><a href="https://github.com/2234839/siyuan_api_cache_lib">siyuan_api_cache_lib</a> </h3><div id="20210805125642-cmk42vk" data-node-id="20210805125642-cmk42vk" data-type="NodeParagraph" updated="20210805191324" class="p"><div spellcheck="false">由于 <a href="https://github.com/2234839/siyuan_api_cache_lib">siyuan_api_cache_lib</a> 内使用了 <span data-type="code">self.frameElement</span> 而 <span data-type="code">frameElement</span> 只能在同源的情况下才能访问到
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20210805125620-rre8vhj" data-node-id="20210805125620-rre8vhj" data-type="NodeDocument" updated="20240514215456" type="doc">
+
+<h1 id="20210805125620-rre8vhj" data-node-id="20210805125620-rre8vhj" data-type="NodeDocument" updated="20240514215456" type="doc" data-type="NodeHeading" class="h1">思源挂件块开发实践</h1>
+<h2 id="20210805203349-yve6gri" data-node-id="20210805203349-yve6gri" data-type="NodeHeading" updated="20240514215456" data-subtype="h2" class="h2">效果</h2><div id="20210816225654-7wjesgp" data-node-id="20210816225654-7wjesgp" data-type="NodeParagraph" updated="20210816225711" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/image-20210816225711-t9fwelz.png"
+    data-src="./../assets/image-20210816225711-t9fwelz.png"
+    title="runKit未加载完毕时的样式"
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title">runKit未加载完毕时的样式</span></span></div></div><div id="20210805203357-8yjs28v" data-node-id="20210805203357-8yjs28v" data-type="NodeParagraph" updated="20210805203357" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="width: 731px;" style="">
+  <img
+    src="./../assets/image-20210805203357-4qo5s0u.png"
+    data-src="./../assets/image-20210805203357-4qo5s0u.png"
+    title="挂件块样式"
+    style="width: 731px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title">挂件块样式</span></span></div></div><div id="20210805203554-t61i3ib" data-node-id="20210805203554-t61i3ib" data-type="NodeParagraph" updated="20210805203554" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="width: 726px;" style="">
+  <img
+    src="./../assets/image-20210805203554-lqag5tl.png"
+    data-src="./../assets/image-20210805203554-lqag5tl.png"
+    title="数据存储在自定义属性中"
+    style="width: 726px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title">数据存储在自定义属性中</span></span></div></div><div id="20210805204021-3oxy6fc" data-node-id="20210805204021-3oxy6fc" data-type="NodeParagraph" updated="20210805204022" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="width: 765px;" style="">
+  <img
+    src="./../assets/image-20210805204022-2lzsg79.png"
+    data-src="./../assets/image-20210805204022-2lzsg79.png"
+    title="在 OceanPress 中的效果"
+    style="width: 765px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title">在 OceanPress 中的效果</span></span></div></div><h2 id="20210805203359-pmt3zg2" data-node-id="20210805203359-pmt3zg2" data-type="NodeHeading" updated="20240514215456" data-subtype="h2" class="h2">开发调试</h2><h3 id="20210805204114-jmiegak" data-node-id="20210805204114-jmiegak" data-type="NodeHeading" updated="20240514215456" data-subtype="h3" class="h3"><a href="https://github.com/2234839/siyuan_api_cache_lib">siyuan_api_cache_lib</a> </h3><div id="20210805125642-cmk42vk" data-node-id="20210805125642-cmk42vk" data-type="NodeParagraph" updated="20210805191324" class="p"><div spellcheck="false">由于 <a href="https://github.com/2234839/siyuan_api_cache_lib">siyuan_api_cache_lib</a> 内使用了 <span data-type="code">self.frameElement</span> 而 <span data-type="code">frameElement</span> 只能在同源的情况下才能访问到
 所以我在开发的时候使用 nginx 进行转发来绕过这个问题
 (我使用 chrome 关闭跨域的安全策略还是无法在非同源的情况下拿到 <span data-type="code">frameElement</span>)</div></div><div id="20210805125642-y75f9jo" data-node-id="20210805125642-y75f9jo" data-type="NodeParagraph" updated="20231214144358" class="p"><div spellcheck="false">配置 iframe 的资源链接为 <span data-type="code">http://127.0.0.1/widget/run-code/</span>​ (run-code 是我在开发的挂件 <a href="https://github.com/2234839/run-code">github.com/run-code</a>，建议查看这个项目里面对本库的使用方式)</div></div><div id="20210805125642-8ff2sou" data-node-id="20210805125642-8ff2sou" data-type="NodeParagraph" updated="20210805125642" class="p"><div spellcheck="false">对于在思源中的开发调试建议采用 nginx 进行如下配置，然后使用思源的在浏览器中打开，在这里进行开发调试</div></div><div id="20210805125642-2rffv1j" data-node-id="20210805125642-2rffv1j" data-type="NodeCodeBlock" updated="20210805190539" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">server {
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">js</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">server {
     listen 80;
     server_name localhost 127.0.0.1;
 
@@ -103,12 +110,12 @@
         index index.html index.htm;
     }
 }</div>
-      </div><div id="20210805125642-dw17eot" data-node-id="20210805125642-dw17eot" data-type="NodeParagraph" updated="20210805125642" class="p"><div spellcheck="false">对于 OceanPress 的调试可以采用如下配置</div></div><div id="20210805125642-suw0h9d" data-node-id="20210805125642-suw0h9d" data-type="NodeCodeBlock" updated="20210805125642" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">server {
+        </div><div id="20210805125642-dw17eot" data-node-id="20210805125642-dw17eot" data-type="NodeParagraph" updated="20210805125642" class="p"><div spellcheck="false">对于 OceanPress 的调试可以采用如下配置</div></div><div id="20210805125642-suw0h9d" data-node-id="20210805125642-suw0h9d" data-type="NodeCodeBlock" updated="20210805125642" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">js</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">server {
     listen 80;
     server_name localhost 127.0.0.1;
 
@@ -123,11 +130,12 @@
     }
 }
 </div>
-      </div><div id="20210805133126-6dbgx78" data-node-id="20210805133126-6dbgx78" data-type="NodeParagraph" updated="20210805133126" class="p"><div spellcheck="false"></div></div><h2 id="20210805133127-rkx8qr6" data-node-id="20210805133127-rkx8qr6" data-type="NodeHeading" updated="20240514215456" data-subtype="h2" class="h2">挂件块 <a href="https://github.com/2234839/run-code">run-code</a></h2><div id="20240514215427-iyjqrwb" data-node-id="20240514215427-iyjqrwb" data-type="NodeParagraph" updated="20240514215456" class="p"><div spellcheck="false">这个可以说是思源最古早的一批挂件了，但随后三年我没有维护它。</div></div><div id="20210805180530-0thiduq" data-node-id="20210805180530-0thiduq" data-type="NodeParagraph" updated="20210906152030" class="p"><div spellcheck="false">使用 <a href="https://github.com/2234839/siyuan_api_cache_lib">siyuan_api_cache_lib</a> 来调用思源 api ，在 RunKit 的 onSave 事件中将代码保存到挂件块的自定义属性中</div></div><div id="20210906152030-96h489x" data-node-id="20210906152030-96h489x" data-type="NodeWidget" updated="20210906152030" custom-config="&#123;&quot;source&quot;:&quot;&quot;,&quot;inside&quot;:&quot;inside&quot;,&quot;title&quot;:&quot;&quot;,&quot;preamble&quot;:&quot;&quot;,&quot;version&quot;:&quot;16.x.x&quot;&#125;" custom-z-getblockattr-7719993692093501="&#123;&quot;block_id&quot;:&quot;20210906152030-96h489x&quot;,&quot;box&quot;:&quot;20210816161940-zo21go1&quot;,&quot;id&quot;:&quot;20240529114506-n54mwf7&quot;,&quot;name&quot;:&quot;custom-config&quot;,&quot;path&quot;:&quot;/20210816161944-cn1ky4x/20210805125620-rre8vhj.sy&quot;,&quot;root_id&quot;:&quot;20210805125620-rre8vhj&quot;,&quot;type&quot;:&quot;b&quot;,&quot;value&quot;:&quot;&#123;\&quot;source\&quot;:\&quot;\&quot;,\&quot;inside\&quot;:\&quot;inside\&quot;,\&quot;title\&quot;:\&quot;\&quot;,\&quot;preamble\&quot;:\&quot;\&quot;,\&quot;version\&quot;:\&quot;16.x.x\&quot;&#125;&quot;&#125;"><img src="./../assets/widget/20210906152030-96h489x.jpg"/></div><div id="20210906152047-8n0izg8" data-node-id="20210906152047-8n0izg8" data-type="NodeParagraph" updated="20210906152030" class="p"><div spellcheck="false"></div></div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div><div id="20210805133126-6dbgx78" data-node-id="20210805133126-6dbgx78" data-type="NodeParagraph" updated="20210805133126" class="p"><div spellcheck="false"></div></div><h2 id="20210805133127-rkx8qr6" data-node-id="20210805133127-rkx8qr6" data-type="NodeHeading" updated="20240514215456" data-subtype="h2" class="h2">挂件块 <a href="https://github.com/2234839/run-code">run-code</a></h2><div id="20240514215427-iyjqrwb" data-node-id="20240514215427-iyjqrwb" data-type="NodeParagraph" updated="20240514215456" class="p"><div spellcheck="false">这个可以说是思源最古早的一批挂件了，但随后三年我没有维护它。</div></div><div id="20210805180530-0thiduq" data-node-id="20210805180530-0thiduq" data-type="NodeParagraph" updated="20210906152030" class="p"><div spellcheck="false">使用 <a href="https://github.com/2234839/siyuan_api_cache_lib">siyuan_api_cache_lib</a> 来调用思源 api ，在 RunKit 的 onSave 事件中将代码保存到挂件块的自定义属性中</div></div><div id="20210906152030-96h489x" data-node-id="20210906152030-96h489x" data-type="NodeWidget" updated="20210906152030" custom-config="&#123;&quot;source&quot;:&quot;&quot;,&quot;inside&quot;:&quot;inside&quot;,&quot;title&quot;:&quot;&quot;,&quot;preamble&quot;:&quot;&quot;,&quot;version&quot;:&quot;16.x.x&quot;&#125;" custom-z-getblockattr-7719993692093501="&#123;&quot;block_id&quot;:&quot;20210906152030-96h489x&quot;,&quot;box&quot;:&quot;20210816161940-zo21go1&quot;,&quot;id&quot;:&quot;20240529114506-n54mwf7&quot;,&quot;name&quot;:&quot;custom-config&quot;,&quot;path&quot;:&quot;/20210816161944-cn1ky4x/20210805125620-rre8vhj.sy&quot;,&quot;root_id&quot;:&quot;20210805125620-rre8vhj&quot;,&quot;type&quot;:&quot;b&quot;,&quot;value&quot;:&quot;&#123;\&quot;source\&quot;:\&quot;\&quot;,\&quot;inside\&quot;:\&quot;inside\&quot;,\&quot;title\&quot;:\&quot;\&quot;,\&quot;preamble\&quot;:\&quot;\&quot;,\&quot;version\&quot;:\&quot;16.x.x\&quot;&#125;&quot;&#125;"><img src="./../assets/widget/20210906152030-96h489x.jpg"/></div><div id="20210906152047-8n0izg8" data-node-id="20210906152047-8n0izg8" data-type="NodeParagraph" updated="20210906152030" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -146,7 +154,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

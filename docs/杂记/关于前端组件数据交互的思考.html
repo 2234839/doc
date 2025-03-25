@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>关于前端组件数据交互的思考</title>
 </head>
 <body>
@@ -49,45 +49,53 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20230914195323-trjref1" data-node-id="20230914195323-trjref1" data-type="NodeDocument" updated="20230914200806" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20230914195323-trjref1&quot;,&quot;startId&quot;:&quot;20230914195341-ut9g30n&quot;,&quot;endId&quot;:&quot;20230914200752-kpdyidc&quot;,&quot;scrollTop&quot;:0&#125;"></div><h1 id="20230914195323-trjref1" data-node-id="20230914195323-trjref1" data-type="NodeDocument" updated="20230914200806" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20230914195323-trjref1&quot;,&quot;startId&quot;:&quot;20230914195341-ut9g30n&quot;,&quot;endId&quot;:&quot;20230914200752-kpdyidc&quot;,&quot;scrollTop&quot;:0&#125;" data-type="NodeHeading" class="h1">关于前端组件数据交互的思考</h1><div id="20230914195341-ut9g30n" data-node-id="20230914195341-ut9g30n" data-type="NodeParagraph" class="p"><div spellcheck="false">现在vue的数据交互方式是通过attribute来给组件传递参数以及接收结果</div></div><div id="20230914195509-orli9aa" data-node-id="20230914195509-orli9aa" data-type="NodeCodeBlock" updated="20230914200149" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">html</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false"><script>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20230914195323-trjref1" data-node-id="20230914195323-trjref1" data-type="NodeDocument" updated="20230914200806" scroll="&#123;&quot;rootId&quot;:&quot;20230914195323-trjref1&quot;,&quot;startId&quot;:&quot;20230914195341-ut9g30n&quot;,&quot;endId&quot;:&quot;20230914200752-kpdyidc&quot;,&quot;scrollTop&quot;:0&#125;">
+
+<h1 id="20230914195323-trjref1" data-node-id="20230914195323-trjref1" data-type="NodeDocument" updated="20230914200806" scroll="&#123;&quot;rootId&quot;:&quot;20230914195323-trjref1&quot;,&quot;startId&quot;:&quot;20230914195341-ut9g30n&quot;,&quot;endId&quot;:&quot;20230914200752-kpdyidc&quot;,&quot;scrollTop&quot;:0&#125;" data-type="NodeHeading" class="h1">关于前端组件数据交互的思考</h1>
+<div id="20230914195341-ut9g30n" data-node-id="20230914195341-ut9g30n" data-type="NodeParagraph" class="p"><div spellcheck="false">现在vue的数据交互方式是通过attribute来给组件传递参数以及接收结果</div></div><div id="20230914195509-orli9aa" data-node-id="20230914195509-orli9aa" data-type="NodeCodeBlock" updated="20230914200149" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">html</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"><script>
   const data = 0
   function set(){}
 </script>
 <Component :props="data" @event="set"></Component>
 </div>
-      </div><div id="20230914195947-40nd6vu" data-node-id="20230914195947-40nd6vu" data-type="NodeParagraph" updated="20230914200329" class="p"><div spellcheck="false">上面这段代码我认为和下面的写法是等价的</div></div><div id="20230914200003-3wm0plz" data-node-id="20230914200003-3wm0plz" data-type="NodeCodeBlock" updated="20230914200330" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">html</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false"><script>
+        </div><div id="20230914195947-40nd6vu" data-node-id="20230914195947-40nd6vu" data-type="NodeParagraph" updated="20230914200329" class="p"><div spellcheck="false">上面这段代码我认为和下面的写法是等价的</div></div><div id="20230914200003-3wm0plz" data-node-id="20230914200003-3wm0plz" data-type="NodeCodeBlock" updated="20230914200330" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">html</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"><script>
   const data = 0
   function set(){}
   const component_1 = Component({props:data,emit:set})
 </script>
 <component_1 ></component_1>
 </div>
-      </div><div id="20230914200331-rite06n" data-node-id="20230914200331-rite06n" data-type="NodeParagraph" updated="20230914200559" class="p"><div spellcheck="false">这段代码是存在冗余的，尤其在使用ts时set还需要自行标注类型，但类型在Component函数中是已经定义了的，我认为优雅的解决方案应该伪代码如下</div></div><div id="20230914200602-3o4w48o" data-node-id="20230914200602-3o4w48o" data-type="NodeCodeBlock" updated="20230914200716" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">html</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false"><script>
+        </div><div id="20230914200331-rite06n" data-node-id="20230914200331-rite06n" data-type="NodeParagraph" updated="20230914200559" class="p"><div spellcheck="false">这段代码是存在冗余的，尤其在使用ts时set还需要自行标注类型，但类型在Component函数中是已经定义了的，我认为优雅的解决方案应该伪代码如下</div></div><div id="20230914200602-3o4w48o" data-node-id="20230914200602-3o4w48o" data-type="NodeCodeBlock" updated="20230914200716" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">html</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"><script>
   const data = 0
   const [component_1 ,set(){} ]= Component({props:data})
 </script>
 <component_1 ></component_1>
 </div>
-      </div><div id="20230914200656-femn7bu" data-node-id="20230914200656-femn7bu" data-type="NodeParagraph" updated="20230914200806" class="p"><div spellcheck="false">这样就解决了重复写 <span data-type="code">set</span>​ 类型的问题</div></div><div id="20230914200752-kpdyidc" data-node-id="20230914200752-kpdyidc" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div><div id="20230914200656-femn7bu" data-node-id="20230914200656-femn7bu" data-type="NodeParagraph" updated="20230914200806" class="p"><div spellcheck="false">这样就解决了重复写 <span data-type="code">set</span>​ 类型的问题</div></div><div id="20230914200752-kpdyidc" data-node-id="20230914200752-kpdyidc" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -106,7 +114,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>Typescript函数返回类型怎样根据传入参数值的不同而改变？ - 知乎</title>
 </head>
 <body>
@@ -49,12 +49,19 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20240619103613-kfgx3q2" data-node-id="20240619103613-kfgx3q2" data-type="NodeDocument" updated="20240619103711" data-subtype="h1" class="h1" type="doc"></div><h1 id="20240619103613-kfgx3q2" data-node-id="20240619103613-kfgx3q2" data-type="NodeDocument" updated="20240619103711" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">Typescript函数返回类型怎样根据传入参数值的不同而改变？ - 知乎</h1><div id="20240619103622-xt8upan" data-node-id="20240619103622-xt8upan" data-type="NodeParagraph" updated="20240619103700" class="p"><div spellcheck="false"><a href="file:///D:/code/doc/docs/tag/文章分享到的地方：.html#20210325155155-2wk7rxv">文章分享到的地方：</a><a href="https://www.zhihu.com/question/463682477/answer/1927751335">Typescript函数返回类型怎样根据传入参数值的不同而改变？ - 崮生的回答 - 知乎 </a></div></div><div id="20240619103622-emtxxco" data-node-id="20240619103622-emtxxco" data-type="NodeParagraph" updated="20240619103700" class="p"><div spellcheck="false">我这里有两种方案，一种是重载一种是类型推断</div></div><div id="20240619103622-q1o49uj" data-node-id="20240619103622-q1o49uj" data-type="NodeParagraph" updated="20240619103700" class="p"><div spellcheck="false">我更喜欢第二种，但存在一些问题，希望知道的朋友指点一下</div></div><div id="20240619103622-95khak8" data-node-id="20240619103622-95khak8" data-type="NodeParagraph" updated="20240619103700" class="p"><div spellcheck="false"><a href="https://www.typescriptlang.org/zh/play?#code/C4TwDgpgBGULxQOTEVAPkgFogsAKADMBXAOwGNgBLAexKmAgGdgAKMALiRQEpOSiAtgCMIAJ3zFyVWvSasOWRLyjNRlEgHMJpCjToNmbTslQZE2Zf2Fj0K4Gs1QA3vihuolAlDbwEAImA-bmdXdzDRCGAiUToAZlC3AF8oCAAbRmgXPDDwyOi6Pz8EqET8UrwAegqoQE34wCo5QF-FQAdTQBC3QG8fQGj1QHozQDJvQAgVQAyMwDu3QEDIwCEbFsAxeUBQxUALhMA87UAG50AseUBSo0BMVMAYf8BEI0BYOUBT90BlBMBT6MA4A0AJOUAKdV3Af3lAClcoAEMSEChAGJUoAAFgRgBaSg0JGoESgLUAowaAVsVANByS20Uj0smYACYADwAFRSAA8GCQACaMLiINDmRAAPiMaOUGIg2IgeIJJigAH4oFYRKIoJxVOoNCFsu5PN5YHB-IFglkcu4IlEYlB4vzJVUoGjwNBEGyxKhKASgcAnoxGACSI8hKloMBqPRVUhqbT6VAAn5mazBOzOXYHBpEAA6YrJNIZPmStxVb5-I3AiDFXIygpFBUlMr4IA">在线尝试_www.typescriptlang.org/zh/play</a></div></div><div id="20240619103622-78hpn5g" data-node-id="20240619103622-78hpn5g" data-type="NodeCodeBlock" updated="20240619103700" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">ts</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">type p = 't' | 'h'
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../../../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20240619103613-kfgx3q2" data-node-id="20240619103613-kfgx3q2" data-type="NodeDocument" updated="20240619103711" type="doc">
+
+<h1 id="20240619103613-kfgx3q2" data-node-id="20240619103613-kfgx3q2" data-type="NodeDocument" updated="20240619103711" type="doc" data-type="NodeHeading" class="h1">Typescript函数返回类型怎样根据传入参数值的不同而改变？ - 知乎</h1>
+<div id="20240619103622-xt8upan" data-node-id="20240619103622-xt8upan" data-type="NodeParagraph" updated="20240619103700" class="p"><div spellcheck="false"><a href="file:///D:/code/doc/docs/tag/文章分享到的地方：.html#20210325155155-2wk7rxv">文章分享到的地方：</a><a href="https://www.zhihu.com/question/463682477/answer/1927751335">Typescript函数返回类型怎样根据传入参数值的不同而改变？ - 崮生的回答 - 知乎 </a></div></div><div id="20240619103622-emtxxco" data-node-id="20240619103622-emtxxco" data-type="NodeParagraph" updated="20240619103700" class="p"><div spellcheck="false">我这里有两种方案，一种是重载一种是类型推断</div></div><div id="20240619103622-q1o49uj" data-node-id="20240619103622-q1o49uj" data-type="NodeParagraph" updated="20240619103700" class="p"><div spellcheck="false">我更喜欢第二种，但存在一些问题，希望知道的朋友指点一下</div></div><div id="20240619103622-95khak8" data-node-id="20240619103622-95khak8" data-type="NodeParagraph" updated="20240619103700" class="p"><div spellcheck="false"><a href="https://www.typescriptlang.org/zh/play?#code/C4TwDgpgBGULxQOTEVAPkgFogsAKADMBXAOwGNgBLAexKmAgGdgAKMALiRQEpOSiAtgCMIAJ3zFyVWvSasOWRLyjNRlEgHMJpCjToNmbTslQZE2Zf2Fj0K4Gs1QA3vihuolAlDbwEAImA-bmdXdzDRCGAiUToAZlC3AF8oCAAbRmgXPDDwyOi6Pz8EqET8UrwAegqoQE34wCo5QF-FQAdTQBC3QG8fQGj1QHozQDJvQAgVQAyMwDu3QEDIwCEbFsAxeUBQxUALhMA87UAG50AseUBSo0BMVMAYf8BEI0BYOUBT90BlBMBT6MA4A0AJOUAKdV3Af3lAClcoAEMSEChAGJUoAAFgRgBaSg0JGoESgLUAowaAVsVANByS20Uj0smYACYADwAFRSAA8GCQACaMLiINDmRAAPiMaOUGIg2IgeIJJigAH4oFYRKIoJxVOoNCFsu5PN5YHB-IFglkcu4IlEYlB4vzJVUoGjwNBEGyxKhKASgcAnoxGACSI8hKloMBqPRVUhqbT6VAAn5mazBOzOXYHBpEAA6YrJNIZPmStxVb5-I3AiDFXIygpFBUlMr4IA">在线尝试_www.typescriptlang.org/zh/play</a></div></div><div id="20240619103622-78hpn5g" data-node-id="20240619103622-78hpn5g" data-type="NodeCodeBlock" updated="20240619103700" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">ts</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">type p = 't' | 'h'
 function test(p: 't'): number
 function test(p: 'h'): string
 function test(p: 't' | 'h'): number | string {
@@ -75,12 +82,12 @@ function test2(p:T): T extends 't' ? number : string {
     }
 }
 </div>
-      </div><div id="20240619103622-nvb9yj4" data-node-id="20240619103622-nvb9yj4" data-type="NodeParagraph" updated="20240619103700" class="p"><div spellcheck="false"><a href="https://www.zhihu.com/people/moregeen-foliman">宁逍遥</a> 给出的<a href="https://www.zhihu.com/question/463682477/answer/1928576430">方案</a>要优雅的多</div></div><div id="20240619103622-zmhxn9w" data-node-id="20240619103622-zmhxn9w" data-type="NodeParagraph" updated="20240619103700" class="p"><div spellcheck="false">在官网查看并理解narrowing和mapping type这两个知识点 <a href="https://www.typescriptlang.org/play?#code/FASwdgLgpgTgZgQwMZQAQDUEBsCuUDOqqA3sEUQgFyr4QzgDmZ5ARtWDgLYuzNEDaAaygBParXpgGAXWo4wgsAHsA7mGABfYMAgiADmgAKqALyphIpXAzY8+HfrQAVUzdwF+AcgSfpDg6gAyq6Y7vheLL7acPJIECBKYKgg+ADSovgAFBZyCspqAJTUFsmExqTkqDBQEDgwSSUmTajenqgAPu3moqbNnpGa0bHxiagMNaF4ADzpIqhQAB7QYAAmZQB82aLUs0VudvyzfjFgcQlJ4xCTUFtiNHSMe-KKqkkV5EiJtPdK1dTXhDM70qFGoACIABJQLBYJRggA0fBBbFQAEYAEwAZkRlS0SJA1kyKVmWQsBQKJCRlWqtXqP2qQlEflx2mpNTqSVovygjJEfjxAHoBagkKV7pImJ8wN9RWZLtdMq0CsAhagVmKONxeFLvuq5RNbDd+p5laqlBAABawQgpVDPfLqHUQeaueWGzJgmJIQSoS1oFS-LArMEFIA">ts/paly</a></div></div><div id="20240619103622-yk7byoi" data-node-id="20240619103622-yk7byoi" data-type="NodeCodeBlock" updated="20240619103700" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">ts</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">interface Values  {
+        </div><div id="20240619103622-nvb9yj4" data-node-id="20240619103622-nvb9yj4" data-type="NodeParagraph" updated="20240619103700" class="p"><div spellcheck="false"><a href="https://www.zhihu.com/people/moregeen-foliman">宁逍遥</a> 给出的<a href="https://www.zhihu.com/question/463682477/answer/1928576430">方案</a>要优雅的多</div></div><div id="20240619103622-zmhxn9w" data-node-id="20240619103622-zmhxn9w" data-type="NodeParagraph" updated="20240619103700" class="p"><div spellcheck="false">在官网查看并理解narrowing和mapping type这两个知识点 <a href="https://www.typescriptlang.org/play?#code/FASwdgLgpgTgZgQwMZQAQDUEBsCuUDOqqA3sEUQgFyr4QzgDmZ5ARtWDgLYuzNEDaAaygBParXpgGAXWo4wgsAHsA7mGABfYMAgiADmgAKqALyphIpXAzY8+HfrQAVUzdwF+AcgSfpDg6gAyq6Y7vheLL7acPJIECBKYKgg+ADSovgAFBZyCspqAJTUFsmExqTkqDBQEDgwSSUmTajenqgAPu3moqbNnpGa0bHxiagMNaF4ADzpIqhQAB7QYAAmZQB82aLUs0VudvyzfjFgcQlJ4xCTUFtiNHSMe-KKqkkV5EiJtPdK1dTXhDM70qFGoACIABJQLBYJRggA0fBBbFQAEYAEwAZkRlS0SJA1kyKVmWQsBQKJCRlWqtXqP2qQlEflx2mpNTqSVovygjJEfjxAHoBagkKV7pImJ8wN9RWZLtdMq0CsAhagVmKONxeFLvuq5RNbDd+p5laqlBAABawQgpVDPfLqHUQeaueWGzJgmJIQSoS1oFS-LArMEFIA">ts/paly</a></div></div><div id="20240619103622-yk7byoi" data-node-id="20240619103622-yk7byoi" data-type="NodeCodeBlock" updated="20240619103700" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">ts</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">interface Values  {
     a: string
     b: number
     [key: string]: unknown
@@ -115,11 +122,12 @@ const d = getValue('b')
 // others is unknown
 const e = getValue("fuck the world")
 </div>
-      </div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -138,7 +146,7 @@ const e = getValue("fuck the world")
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

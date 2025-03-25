@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>各种系统安装node</title>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20201104153359-3bz18z5" data-node-id="20201104153359-3bz18z5" data-type="NodeDocument" updated="20250325085930" scroll="&#123;&quot;rootId&quot;:&quot;20201104153359-3bz18z5&quot;,&quot;startId&quot;:&quot;20231209155630-fmvirop&quot;,&quot;endId&quot;:&quot;20231207095234-5qtalax&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20231207095315-4a8ke1h&quot;,&quot;focusStart&quot;:148,&quot;focusEnd&quot;:148&#125;" type="doc">
+
+<h1 id="20201104153359-3bz18z5" data-node-id="20201104153359-3bz18z5" data-type="NodeDocument" updated="20250325085930" scroll="&#123;&quot;rootId&quot;:&quot;20201104153359-3bz18z5&quot;,&quot;startId&quot;:&quot;20231209155630-fmvirop&quot;,&quot;endId&quot;:&quot;20231207095234-5qtalax&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20231207095315-4a8ke1h&quot;,&quot;focusStart&quot;:148,&quot;focusEnd&quot;:148&#125;" type="doc" data-type="NodeHeading" class="h1">各种系统安装node</h1>
+<h2 id="20231209155630-fmvirop" data-node-id="20231209155630-fmvirop" data-type="NodeHeading" updated="20231209155739" data-subtype="h2" class="h2">官网下载 <a href="https://nodejs.org/en/download/">nodejs.org</a> (windows、ubuntu、macOS）</h2><h2 id="20210521142713-utzshpn" data-node-id="20210521142713-utzshpn" data-type="NodeHeading" updated="20250324154456" data-subtype="h2" class="h2">node 版本管理</h2><div id="20240813094743-df5uxq9" data-node-id="20240813094743-df5uxq9" data-type="NodeParagraph" updated="20250325085741" class="p"><div spellcheck="false"><a href="https://github.com/Schniz/fnm?tab=readme-ov-file#powershell">fnm</a>（推荐使用） ：全平台 / <span data-type="block-ref"   data-subtype="d"   data-id="20250324154456-kga64b6"><a href="./../../读书笔记/node/各种系统安装node.html#20250324154456-kga64b6">通过二进制安装 node</a></span></div></div><div id="20241010115900-391sj9d" data-node-id="20241010115900-391sj9d" data-type="NodeCodeBlock" updated="20241010115955" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">bash</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"># 第一次使用 fnm 时需要安装
+winget install Schniz.fnm
+# configure fnm environment
+fnm env --use-on-cd | Out-String | Invoke-Expression
+
+## 之后直接使用对应版本就行
+fnm use v22.9.0
+
+# verifies the right Node.js version is in the environment
+node -v # should print `v22.9.0`
+
+# verifies the right npm version is in the environment
+npm -v # should print `10.8.3`
+</div>
+        </div><h2 id="20250324154456-kga64b6" data-node-id="20250324154456-kga64b6" data-type="NodeHeading" updated="20250325085703" data-subtype="h2" class="h2">通过二进制安装 node</h2><h3 id="20250325085650-xq54xeq" data-node-id="20250325085650-xq54xeq" data-type="NodeHeading" updated="20250325085703" data-subtype="h3" class="h3">1. <span data-type="strong">下载 Node.js 二进制包</span></h3><div id="20250325085650-vaxfr4q" data-node-id="20250325085650-vaxfr4q" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">访问 <a href="https://nodejs.org/">Node.js 官网</a> 或 <a href="https://nodejs.org/en/download/">下载页面</a>，选择适合你系统的二进制包（通常是 <span data-type="code">linux-x64</span>​ 版本）。
+例如，下载最新 LTS 版本（替换 <span data-type="code">x.x.x</span>​ 为实际版本号）：</div></div><div id="20250325085650-igobhni" data-node-id="20250325085650-igobhni" data-type="NodeCodeBlock" updated="20250325085703" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">bash</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">wget https://nodejs.org/dist/vx.x.x/node-vx.x.x-linux-x64.tar.xz
+</div>
+        </div><div id="20250325085650-f68bmkt" data-node-id="20250325085650-f68bmkt" data-type="NodeThematicBreak" updated="20250325085650" class="hr"><div></div></div><h3 id="20250325085650-57jidjr" data-node-id="20250325085650-57jidjr" data-type="NodeHeading" updated="20250325085650" data-subtype="h3" class="h3">2. <span data-type="strong">解压文件</span></h3><div id="20250325085650-8h60r2g" data-node-id="20250325085650-8h60r2g" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">使用 <span data-type="code">tar</span>​ 解压 <span data-type="code">.tar.xz</span>​ 文件：</div></div><div id="20250325085650-yfroec2" data-node-id="20250325085650-yfroec2" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">tar -xJf node-vx.x.x-linux-x64.tar.xz
+</div>
+        </div><div id="20250325085650-nmlwy5r" data-node-id="20250325085650-nmlwy5r" data-type="NodeThematicBreak" updated="20250325085650" class="hr"><div></div></div><h3 id="20250325085650-qf6ywgw" data-node-id="20250325085650-qf6ywgw" data-type="NodeHeading" updated="20250325085650" data-subtype="h3" class="h3">3. <span data-type="strong">移动文件到系统目录（推荐）</span></h3><div id="20250325085650-nejnqcb" data-node-id="20250325085650-nejnqcb" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">将解压后的文件夹移动到 <span data-type="code">/usr/local/lib/nodejs</span>​（或其他自定义路径）：</div></div><div id="20250325085650-kfp9spi" data-node-id="20250325085650-kfp9spi" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo mkdir -p /usr/local/lib/nodejs  # 创建目录（可选）
+sudo mv node-vx.x.x-linux-x64 /usr/local/lib/nodejs/
+</div>
+        </div><div id="20250325085650-ob2jhy2" data-node-id="20250325085650-ob2jhy2" data-type="NodeThematicBreak" updated="20250325085650" class="hr"><div></div></div><h3 id="20250325085650-0et8twm" data-node-id="20250325085650-0et8twm" data-type="NodeHeading" updated="20250325085650" data-subtype="h3" class="h3">4. <span data-type="strong">配置环境变量</span></h3><div id="20250325085650-ty5tylx" data-node-id="20250325085650-ty5tylx" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">将 Node.js 的 <span data-type="code">bin</span>​ 目录添加到 <span data-type="code">PATH</span>​ 中，使其全局可用。</div></div><h4 id="20250325085650-v2445fs" data-node-id="20250325085650-v2445fs" data-type="NodeHeading" updated="20250325085650" data-subtype="h4" class="h4">方法一：直接添加到 <span data-type="code">PATH</span>​</h4><div id="20250325085650-80lu00y" data-node-id="20250325085650-80lu00y" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">编辑 <span data-type="code">~/.bashrc</span>​ 或 <span data-type="code">~/.profile</span>​：</div></div><div id="20250325085650-a4kan55" data-node-id="20250325085650-a4kan55" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">echo 'export PATH="/usr/local/lib/nodejs/node-vx.x.x-linux-x64/bin:$PATH"' >> ~/.bashrc
+</div>
+        </div><div id="20250325085650-z9gwy2l" data-node-id="20250325085650-z9gwy2l" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">然后使配置生效：</div></div><div id="20250325085650-ctlcu8y" data-node-id="20250325085650-ctlcu8y" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">source ~/.bashrc
+</div>
+        </div><h4 id="20250325085650-ejnaamb" data-node-id="20250325085650-ejnaamb" data-type="NodeHeading" updated="20250325085650" data-subtype="h4" class="h4">方法二：创建符号链接（无需修改 PATH）</h4><div id="20250325085650-4jyejkx" data-node-id="20250325085650-4jyejkx" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo ln -s /usr/local/lib/nodejs/node-vx.x.x-linux-x64/bin/node /usr/local/bin/node
+sudo ln -s /usr/local/lib/nodejs/node-vx.x.x-linux-x64/bin/npm /usr/local/bin/npm
+</div>
+        </div><div id="20250325085650-nnd4b7s" data-node-id="20250325085650-nnd4b7s" data-type="NodeThematicBreak" updated="20250325085650" class="hr"><div></div></div><h3 id="20250325085650-cckwdiy" data-node-id="20250325085650-cckwdiy" data-type="NodeHeading" updated="20250325085650" data-subtype="h3" class="h3">5. <span data-type="strong">验证安装</span></h3><div id="20250325085650-grd6i5m" data-node-id="20250325085650-grd6i5m" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">检查 Node.js 和 npm 版本：</div></div><div id="20250325085650-htklvb5" data-node-id="20250325085650-htklvb5" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">node -v
+npm -v
+</div>
+        </div><div id="20250325085650-b2fjj4h" data-node-id="20250325085650-b2fjj4h" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">如果正确显示版本号，则安装成功。</div></div><div id="20250325085650-h7hnofe" data-node-id="20250325085650-h7hnofe" data-type="NodeThematicBreak" updated="20250325085650" class="hr"><div></div></div><h3 id="20250325085650-bm33u0t" data-node-id="20250325085650-bm33u0t" data-type="NodeHeading" updated="20250325085930" data-subtype="h3" class="h3">可选步骤：清理安装包</h3><div id="20250325085650-h5ciogy" data-node-id="20250325085650-h5ciogy" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">rm node-vx.x.x-linux-x64.tar.xz
+</div>
+        </div><div id="20250325085915-vyvp5wn" data-node-id="20250325085915-vyvp5wn" data-type="NodeParagraph" updated="20250325085930" class="p"><div spellcheck="false">npm 配置国内镜像 <span data-type="code">npm config set registry https://registry.npmmirror.com</span>​</div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>

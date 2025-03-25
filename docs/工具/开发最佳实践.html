@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>开发最佳实践</title>
 </head>
 <body>
@@ -49,26 +49,36 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20231214205132-uvaysrt" data-node-id="20231214205132-uvaysrt" data-type="NodeDocument" updated="20250312104744" data-subtype="h1" class="h1" type="doc"></div><h1 id="20231214205132-uvaysrt" data-node-id="20231214205132-uvaysrt" data-type="NodeDocument" updated="20250312104744" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">开发最佳实践</h1><div id="20240202152518-mwgs2sd" data-node-id="20240202152518-mwgs2sd" data-type="NodeBlockquote" updated="20240311142907" class="bq"><div id="20240202152938-wqa2lws" data-node-id="20240202152938-wqa2lws" data-type="NodeParagraph" updated="20240311142907" class="p"><div spellcheck="false">仅仅是我认为的</div></div></div><div id="20240202152525-db7srgj" data-node-id="20240202152525-db7srgj" data-type="NodeList" updated="20250312104619" data-subtype="u" class="list"><div id="20240202152949-04ibqlo" data-node-id="20240202152949-04ibqlo" data-type="NodeListItem" updated="20250312104619" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240202152949-kutpbvd" data-node-id="20240202152949-kutpbvd" data-type="NodeParagraph" updated="20250312104619" class="p"><div spellcheck="false">主编程语言 ：<span data-type="block-ref" data-subtype="d" data-id="20210816161947-gcm5vi3"><a href="./../读书笔记/typescript.html#20210816161947-gcm5vi3">typescript</a></span></div></div><div id="20250312104607-omt141v" data-node-id="20250312104607-omt141v" data-type="NodeBlockQueryEmbed" updated="20250312104607" data-type="NodeBlockquote" class="bq"><h2 id="20231216120654-uiw656p" data-node-id="20231216120654-uiw656p" data-type="NodeHeading" updated="20250312104700" data-subtype="h2" class="h2">ts 编程最佳工具、最佳实践</h2><div id="20231216120707-ynfl2sm" data-node-id="20231216120707-ynfl2sm" data-type="NodeParagraph" updated="20250312104650" class="p"><div spellcheck="false">打包工具： <span data-type="block-ref" data-subtype="d" data-id="20250222153112-6tgkzn0"><a href="./../工具/开发最佳实践/rslib.html#20250222153112-6tgkzn0">rslib</a></span> <a href="https://github.com/egoist/tsup">https://github.com/egoist/tsup</a></div></div><div id="20231216120737-qsdkc3v" data-node-id="20231216120737-qsdkc3v" data-type="NodeParagraph" updated="20250312104700" class="p"><div spellcheck="false">运行时：tsx node (在node的基础上直接运行ts程序：<a href="https://github.com/unjs/jiti">jiti</a>，tsx) <span data-type="block-ref" data-subtype="d" data-id="20240518231434-d8w3074"><a href="./../daily note/2024/05/2024-05-18/llrt.html#20240518231434-d8w3074">llrt</a></span> bun，deno</div></div><div id="20240115181104-7gkszgg" data-node-id="20240115181104-7gkszgg" data-type="NodeParagraph" updated="20240115181124" class="p"><div spellcheck="false">混合 (CommonJS/ESM) TypeScript 节点包生成器。  写  仅在 ESM 和 CommonJS 中以简单模式工作的模块。https://github.com/isaacs/tshy</div></div><div id="20250312104030-zo7pxqv" data-node-id="20250312104030-zo7pxqv" data-type="NodeParagraph" updated="20250312104528" class="p"><div spellcheck="false"><span data-type="strong">type &amp;</span> <span data-type="strong">jsonSchema</span> ：<a href="https://github.com/arktypeio/arktype">arktype(魔法一般强大的ts类型验证)</a> https://github.com/sinclairzx81/typebox#readme</div></div><div id="20240125131005-2e4jdc5" data-node-id="20240125131005-2e4jdc5" data-type="NodeParagraph" updated="20250312104025" class="p"><div spellcheck="false"></div></div><div id="20240125131059-jr1b6s0" data-node-id="20240125131059-jr1b6s0" data-type="NodeParagraph" updated="20250312104022" class="p"><div spellcheck="false"><span data-type="strong">数据库</span>：<a href="https://github.com/kysely-org/kysely">kysely(ts 类型友好的 sql 生成器)</a>  <span data-type="block-ref" data-subtype="d" data-id="20231223132556-b9bysq1"><a href="./../工具/prisma.html#20231223132556-b9bysq1">prisma</a></span>(nice的 orm 库) https://github.com/drizzle-team/drizzle-orm</div></div><div id="20250312103838-pinqpc5" data-node-id="20250312103838-pinqpc5" data-type="NodeParagraph" updated="20250312103838" class="p"><div spellcheck="false"></div></div></div>
-    </div></div><div id="20231220132631-pwy1r0w" data-node-id="20231220132631-pwy1r0w" data-type="NodeList" updated="20240202153004" data-subtype="u" class="list"><div id="20240202153004-8do1tg2" data-node-id="20240202153004-8do1tg2" data-type="NodeListItem" updated="20240202153004" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240202153004-qy4a81o" data-node-id="20240202153004-qy4a81o" data-type="NodeParagraph" updated="20240202153004" class="p"><div spellcheck="false">编辑器： <span data-type="block-ref" data-subtype="d" data-id="20210816161945-sc79cz2"><a href="./../record/环境/vscode.html#20210816161945-sc79cz2">vscode</a></span></div></div>
-    </div></div><div id="20231220132646-ladqay8" data-node-id="20231220132646-ladqay8" data-type="NodeList" updated="20250306093131" data-subtype="u" class="list"><div id="20240202152725-uyhzju9" data-node-id="20240202152725-uyhzju9" data-type="NodeListItem" updated="20250306093131" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240202152725-yi3iaf6" data-node-id="20240202152725-yi3iaf6" data-type="NodeParagraph" updated="20250306093131" class="p"><div spellcheck="false">ci/cd ： <a href="https://developer.github.com/actions/">github actions</a> , <span data-type="block-ref" data-subtype="d" data-id="20250306093127-z0ilsud"><a href="./../工具/开发最佳实践/act.html#20250306093127-z0ilsud">act</a></span></div></div><div id="20240202152726-9ccirm9" data-node-id="20240202152726-9ccirm9" data-type="NodeParagraph" updated="20240202153449" class="p"><div spellcheck="false">我惯用的命令:</div></div><div id="20240202152744-uv84i4z" data-node-id="20240202152744-uv84i4z" data-type="NodeCodeBlock" updated="20240317162534" class="code-block" style="line-height: 22px;">
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20231214205132-uvaysrt" data-node-id="20231214205132-uvaysrt" data-type="NodeDocument" updated="20250312104744" type="doc">
+
+<h1 id="20231214205132-uvaysrt" data-node-id="20231214205132-uvaysrt" data-type="NodeDocument" updated="20250312104744" type="doc" data-type="NodeHeading" class="h1">开发最佳实践</h1>
+<div id="20240202152518-mwgs2sd" data-node-id="20240202152518-mwgs2sd" data-type="NodeBlockquote" updated="20240311142907" class="bq"><div id="20240202152938-wqa2lws" data-node-id="20240202152938-wqa2lws" data-type="NodeParagraph" updated="20240311142907" class="p"><div spellcheck="false">仅仅是我认为的</div></div></div><div id="20240202152525-db7srgj" data-node-id="20240202152525-db7srgj" data-type="NodeList" updated="20250312104619" data-subtype="u" class="list"><div id="20240202152949-04ibqlo" data-node-id="20240202152949-04ibqlo" data-type="NodeListItem" updated="20250312104619" data-subtype="u" class="li" data-marker="*">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">bash</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          <svg><use xlink:href="#iconDot"></use></svg>
         </div>
-        <div class="hljs" spellcheck="false">act\
+        <div id="20240202152949-kutpbvd" data-node-id="20240202152949-kutpbvd" data-type="NodeParagraph" updated="20250312104619" class="p"><div spellcheck="false">主编程语言 ：<span data-type="block-ref"   data-subtype="d"   data-id="20210816161947-gcm5vi3"><a href="./../读书笔记/typescript.html#20210816161947-gcm5vi3">typescript</a></span></div></div><div id="20250312104607-omt141v" data-node-id="20250312104607-omt141v" data-type="NodeBlockQueryEmbed" updated="20250312104607" data-type="NodeBlockquote" class="bq">  <div style="min-height: 150px;" id="20210816161947-gcm5vi3" data-node-id="20210816161947-gcm5vi3" data-type="NodeDocument" updated="20250312104700" type="doc">
+
+
+<h2 id="20231216120654-uiw656p" data-node-id="20231216120654-uiw656p" data-type="NodeHeading" updated="20250312104700" data-subtype="h2" class="h2">ts 编程最佳工具、最佳实践</h2><div id="20231216120707-ynfl2sm" data-node-id="20231216120707-ynfl2sm" data-type="NodeParagraph" updated="20250312104650" class="p"><div spellcheck="false">打包工具： <span data-type="block-ref"   data-subtype="d"   data-id="20250222153112-6tgkzn0"><a href="./../工具/开发最佳实践/rslib.html#20250222153112-6tgkzn0">rslib</a></span> <a href="https://github.com/egoist/tsup">https://github.com/egoist/tsup</a></div></div><div id="20231216120737-qsdkc3v" data-node-id="20231216120737-qsdkc3v" data-type="NodeParagraph" updated="20250312104700" class="p"><div spellcheck="false">运行时：tsx node (在node的基础上直接运行ts程序：<a href="https://github.com/unjs/jiti">jiti</a>，tsx) <span data-type="block-ref"   data-subtype="d"   data-id="20240518231434-d8w3074"><a href="./../daily note/2024/05/2024-05-18/llrt.html#20240518231434-d8w3074">llrt</a></span> bun，deno</div></div><div id="20240115181104-7gkszgg" data-node-id="20240115181104-7gkszgg" data-type="NodeParagraph" updated="20240115181124" class="p"><div spellcheck="false">混合 (CommonJS/ESM) TypeScript 节点包生成器。  写  仅在 ESM 和 CommonJS 中以简单模式工作的模块。https://github.com/isaacs/tshy</div></div><div id="20250312104030-zo7pxqv" data-node-id="20250312104030-zo7pxqv" data-type="NodeParagraph" updated="20250312104528" class="p"><div spellcheck="false"><span data-type="strong">type &amp;</span> <span data-type="strong">jsonSchema</span> ：<a href="https://github.com/arktypeio/arktype">arktype(魔法一般强大的ts类型验证)</a> https://github.com/sinclairzx81/typebox#readme</div></div><div id="20240125131005-2e4jdc5" data-node-id="20240125131005-2e4jdc5" data-type="NodeParagraph" updated="20250312104025" class="p"><div spellcheck="false"></div></div><div id="20240125131059-jr1b6s0" data-node-id="20240125131059-jr1b6s0" data-type="NodeParagraph" updated="20250312104022" class="p"><div spellcheck="false"><span data-type="strong">数据库</span>：<a href="https://github.com/kysely-org/kysely">kysely(ts 类型友好的 sql 生成器)</a>  <span data-type="block-ref"   data-subtype="d"   data-id="20231223132556-b9bysq1"><a href="./../工具/prisma.html#20231223132556-b9bysq1">prisma</a></span>(nice的 orm 库) https://github.com/drizzle-team/drizzle-orm</div></div><div id="20250312103838-pinqpc5" data-node-id="20250312103838-pinqpc5" data-type="NodeParagraph" updated="20250312103838" class="p"><div spellcheck="false"></div></div></div>  </div>
+      </div></div><div id="20231220132631-pwy1r0w" data-node-id="20231220132631-pwy1r0w" data-type="NodeList" updated="20240202153004" data-subtype="u" class="list"><div id="20240202153004-8do1tg2" data-node-id="20240202153004-8do1tg2" data-type="NodeListItem" updated="20240202153004" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240202153004-qy4a81o" data-node-id="20240202153004-qy4a81o" data-type="NodeParagraph" updated="20240202153004" class="p"><div spellcheck="false">编辑器： <span data-type="block-ref"   data-subtype="d"   data-id="20210816161945-sc79cz2"><a href="./../record/环境/vscode.html#20210816161945-sc79cz2">vscode</a></span></div></div>
+      </div></div><div id="20231220132646-ladqay8" data-node-id="20231220132646-ladqay8" data-type="NodeList" updated="20250306093131" data-subtype="u" class="list"><div id="20240202152725-uyhzju9" data-node-id="20240202152725-uyhzju9" data-type="NodeListItem" updated="20250306093131" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240202152725-yi3iaf6" data-node-id="20240202152725-yi3iaf6" data-type="NodeParagraph" updated="20250306093131" class="p"><div spellcheck="false">ci/cd ： <a href="https://developer.github.com/actions/">github actions</a> , <span data-type="block-ref"   data-subtype="d"   data-id="20250306093127-z0ilsud"><a href="./../工具/开发最佳实践/act.html#20250306093127-z0ilsud">act</a></span></div></div><div id="20240202152726-9ccirm9" data-node-id="20240202152726-9ccirm9" data-type="NodeParagraph" updated="20240202153449" class="p"><div spellcheck="false">我惯用的命令:</div></div><div id="20240202152744-uv84i4z" data-node-id="20240202152744-uv84i4z" data-type="NodeCodeBlock" updated="20240317162534" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">bash</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">act\
  # 不重新拉取镜像（需要之前拉取过）
  --pull=false\
  # 将当前工作目录绑定到容器内，而非复制到容器内（actions脚本可以直接操作外界文件）
@@ -76,35 +86,36 @@
  # 配置网络代理
  --env HTTP_PROXY=http://127.0.0.1:7777 --env HTTPS_PROXY=http://127.0.0.1:7777
 </div>
-      </div>
-    </div></div><div id="20240202152720-dd9reiq" data-node-id="20240202152720-dd9reiq" data-type="NodeList" updated="20250312104744" data-subtype="u" class="list"><div id="20240202160853-oy0os14" data-node-id="20240202160853-oy0os14" data-type="NodeListItem" updated="20250312104744" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240202160853-bbgtghu" data-node-id="20240202160853-bbgtghu" data-type="NodeParagraph" updated="20250312104744" class="p"><div spellcheck="false">输入法 ： <span data-type="block-ref" data-subtype="d" data-id="20240311141906-ne5uqtm"><a href="./../工具/开发最佳实践/rime.html#20240311141906-ne5uqtm">rime</a></span> / 微软输入法<span data-type="block-ref" data-subtype="d" data-id="20241022165225-erl53to"><a href="./../index/我的软件资源清单.html#20241022165225-erl53to">添加小鹤双拼方案,cmd 执行下面这条命令</a></span></div></div>
-    </div><div id="20240312223938-zsakjqm" data-node-id="20240312223938-zsakjqm" data-type="NodeListItem" updated="20240312224040" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240312223938-nx9buhy" data-node-id="20240312223938-nx9buhy" data-type="NodeParagraph" updated="20240312223942" class="p"><div spellcheck="false">html</div></div><div id="20240312223943-vca1lge" data-node-id="20240312223943-vca1lge" data-type="NodeList" updated="20240312224040" data-subtype="u" class="list"><div id="20240312223943-0lp87f8" data-node-id="20240312223943-0lp87f8" data-type="NodeListItem" updated="20240312224040" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240312223943-pfqa88p" data-node-id="20240312223943-pfqa88p" data-type="NodeParagraph" updated="20240312224040" class="p"><div spellcheck="false">所有不安全引用应当采用 <span data-type="block-ref" data-subtype="d" data-id="20240312222001-eol92xs"><a href="./../daily note/2024/03/2024-03-12.html#20240312222001-eol92xs">Subresource_Integrity 子资源完整性校验</a></span></div></div>
-    </div></div>
-    </div></div><h2 id="20240202152642-9skbb3l" data-node-id="20240202152642-9skbb3l" data-type="NodeHeading" updated="20250203204911" data-subtype="h2" class="h2">工具收藏</h2><div id="20240603161221-t59ftjz" data-node-id="20240603161221-t59ftjz" data-type="NodeParagraph" updated="20240603161243" class="p"><div spellcheck="false"><a href="https://github.com/inngest/inngest">inngest</a> 可扩展、低延迟、事件驱动的持久执行平台。  支持部署到无服务器、服务器或边缘的功能。</div></div><div id="20240604165634-j3nkrgj" data-node-id="20240604165634-j3nkrgj" data-type="NodeParagraph" updated="20250203204911" class="p"><div spellcheck="false"><a href="https://github.com/unjs/c12?tab=readme-ov-file#-features">智能配置加载器</a> ts文件作为配置 <span data-type="NodeImage" class="img" parent-style="width: 418px;" style="width: 408px;" style="width: 418px;">
-<img
-  src="./../assets/image-20240715164611-99loumr.png"
-  data-src="./../assets/image-20240715164611-99loumr.png"
-  title=""
-  style="width: 408px;"
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20240715164551-ikhjvra" data-node-id="20240715164551-ikhjvra" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div>
+      </div></div><div id="20240202152720-dd9reiq" data-node-id="20240202152720-dd9reiq" data-type="NodeList" updated="20250312104744" data-subtype="u" class="list"><div id="20240202160853-oy0os14" data-node-id="20240202160853-oy0os14" data-type="NodeListItem" updated="20250312104744" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240202160853-bbgtghu" data-node-id="20240202160853-bbgtghu" data-type="NodeParagraph" updated="20250312104744" class="p"><div spellcheck="false">输入法 ： <span data-type="block-ref"   data-subtype="d"   data-id="20240311141906-ne5uqtm"><a href="./../工具/开发最佳实践/rime.html#20240311141906-ne5uqtm">rime</a></span> / 微软输入法<span data-type="block-ref"   data-subtype="d"   data-id="20241022165225-erl53to"><a href="./../index/我的软件资源清单.html#20241022165225-erl53to">添加小鹤双拼方案,cmd 执行下面这条命令</a></span></div></div>
+      </div><div id="20240312223938-zsakjqm" data-node-id="20240312223938-zsakjqm" data-type="NodeListItem" updated="20240312224040" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240312223938-nx9buhy" data-node-id="20240312223938-nx9buhy" data-type="NodeParagraph" updated="20240312223942" class="p"><div spellcheck="false">html</div></div><div id="20240312223943-vca1lge" data-node-id="20240312223943-vca1lge" data-type="NodeList" updated="20240312224040" data-subtype="u" class="list"><div id="20240312223943-0lp87f8" data-node-id="20240312223943-0lp87f8" data-type="NodeListItem" updated="20240312224040" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240312223943-pfqa88p" data-node-id="20240312223943-pfqa88p" data-type="NodeParagraph" updated="20240312224040" class="p"><div spellcheck="false">所有不安全引用应当采用 <span data-type="block-ref"   data-subtype="d"   data-id="20240312222001-eol92xs"><a href="./../daily note/2024/03/2024-03-12.html#20240312222001-eol92xs">Subresource_Integrity 子资源完整性校验</a></span></div></div>
+      </div></div>
+      </div></div><h2 id="20240202152642-9skbb3l" data-node-id="20240202152642-9skbb3l" data-type="NodeHeading" updated="20250203204911" data-subtype="h2" class="h2">工具收藏</h2><div id="20240603161221-t59ftjz" data-node-id="20240603161221-t59ftjz" data-type="NodeParagraph" updated="20240603161243" class="p"><div spellcheck="false"><a href="https://github.com/inngest/inngest">inngest</a> 可扩展、低延迟、事件驱动的持久执行平台。  支持部署到无服务器、服务器或边缘的功能。</div></div><div id="20240604165634-j3nkrgj" data-node-id="20240604165634-j3nkrgj" data-type="NodeParagraph" updated="20250203204911" class="p"><div spellcheck="false"><a href="https://github.com/unjs/c12?tab=readme-ov-file#-features">智能配置加载器</a> ts文件作为配置 <span data-type="NodeImage" class="img" parent-style="width: 418px;" style="width: 408px;" style="width: 418px;">
+  <img
+    src="./../assets/image-20240715164611-99loumr.png"
+    data-src="./../assets/image-20240715164611-99loumr.png"
+    title=""
+    style="width: 408px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20240715164551-ikhjvra" data-node-id="20240715164551-ikhjvra" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -123,7 +134,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

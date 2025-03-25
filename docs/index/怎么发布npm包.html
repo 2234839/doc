@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>怎么发布npm包</title>
 </head>
 <body>
@@ -49,37 +49,45 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20250312225200-5mtfqiq" data-node-id="20250312225200-5mtfqiq" data-type="NodeDocument" updated="20250312225507" data-subtype="h1" class="h1" type="doc"></div><h1 id="20250312225200-5mtfqiq" data-node-id="20250312225200-5mtfqiq" data-type="NodeDocument" updated="20250312225507" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">怎么发布npm包</h1><div id="20250312225200-bmil0xq" data-node-id="20250312225200-bmil0xq" data-type="NodeList" updated="20250312225507" data-subtype="o" class="list"><div id="20250312225219-a7pw8gk" data-node-id="20250312225219-a7pw8gk" data-type="NodeListItem" updated="20250312225219" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20250312225219-3vfqaft" data-node-id="20250312225219-3vfqaft" data-type="NodeParagraph" updated="20250312225241" class="p"><div spellcheck="false">最好使用 tsup 之类的打包器打包一下代码</div></div>
-    </div><div id="20250312225241-dnvh3e0" data-node-id="20250312225241-dnvh3e0" data-type="NodeListItem" updated="20250312225241" data-subtype="o" class="li" data-marker="2.">
-      <div class="protyle-action">
-        2.
-      </div>
-      <div id="20250312225241-b6ebf57" data-node-id="20250312225241-b6ebf57" data-type="NodeParagraph" updated="20250312225340" class="p"><div spellcheck="false">在 package.josn 中 files 字段声明哪些文件是需要上传 npm 的</div></div>
-    </div><div id="20250312225341-hitmum2" data-node-id="20250312225341-hitmum2" data-type="NodeListItem" updated="20250312225341" data-subtype="o" class="li" data-marker="3.">
-      <div class="protyle-action">
-        3.
-      </div>
-      <div id="20250312225341-x8a1h3r" data-node-id="20250312225341-x8a1h3r" data-type="NodeParagraph" updated="20250312225426" class="p"><div spellcheck="false">在项目目录下添加 .npmrc 文件指定对应的 <span data-type="code">registry</span>​
-​<span data-type="code">registry=https://registry.npmjs.org/</span>​</div></div>
-    </div><div id="20250312225429-z6fdge7" data-node-id="20250312225429-z6fdge7" data-type="NodeListItem" updated="20250312225507" data-subtype="o" class="li" data-marker="4.">
-      <div class="protyle-action">
-        4.
-      </div>
-      <div id="20250312225429-4f1owam" data-node-id="20250312225429-4f1owam" data-type="NodeParagraph" updated="20250312225437" class="p"><div spellcheck="false">执行 pnpm publish 命令</div></div><div id="20250312225439-8ijkmht" data-node-id="20250312225439-8ijkmht" data-type="NodeList" updated="20250312225507" data-subtype="o" class="list"><div id="20250312225439-3uhf9o6" data-node-id="20250312225439-3uhf9o6" data-type="NodeListItem" updated="20250312225507" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20250312225439-gfqpjoy" data-node-id="20250312225439-gfqpjoy" data-type="NodeParagraph" updated="20250312225507" class="p"><div spellcheck="false">可能还需要先登录，会有提示，打开命令行中的相关连接跳转浏览器即可</div></div>
-    </div></div>
-    </div></div><div id="20250312225422-76c9o36" data-node-id="20250312225422-76c9o36" data-type="NodeParagraph" updated="20250312225422" class="p"><div spellcheck="false"></div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20250312225200-5mtfqiq" data-node-id="20250312225200-5mtfqiq" data-type="NodeDocument" updated="20250312225507" type="doc">
+
+<h1 id="20250312225200-5mtfqiq" data-node-id="20250312225200-5mtfqiq" data-type="NodeDocument" updated="20250312225507" type="doc" data-type="NodeHeading" class="h1">怎么发布npm包</h1>
+<div id="20250312225200-bmil0xq" data-node-id="20250312225200-bmil0xq" data-type="NodeList" updated="20250312225507" data-subtype="o" class="list"><div id="20250312225219-a7pw8gk" data-node-id="20250312225219-a7pw8gk" data-type="NodeListItem" updated="20250312225219" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20250312225219-3vfqaft" data-node-id="20250312225219-3vfqaft" data-type="NodeParagraph" updated="20250312225241" class="p"><div spellcheck="false">最好使用 tsup 之类的打包器打包一下代码</div></div>
+      </div><div id="20250312225241-dnvh3e0" data-node-id="20250312225241-dnvh3e0" data-type="NodeListItem" updated="20250312225241" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20250312225241-b6ebf57" data-node-id="20250312225241-b6ebf57" data-type="NodeParagraph" updated="20250312225340" class="p"><div spellcheck="false">在 package.josn 中 files 字段声明哪些文件是需要上传 npm 的</div></div>
+      </div><div id="20250312225341-hitmum2" data-node-id="20250312225341-hitmum2" data-type="NodeListItem" updated="20250312225341" data-subtype="o" class="li" data-marker="3.">
+        <div class="protyle-action">
+          3.
+        </div>
+        <div id="20250312225341-x8a1h3r" data-node-id="20250312225341-x8a1h3r" data-type="NodeParagraph" updated="20250312225426" class="p"><div spellcheck="false">在项目目录下添加 .npmrc 文件指定对应的 <span data-type="code">registry</span>​
+​<span data-type="code">registry=https://registry.npmjs.org/</span>​</div></div>
+      </div><div id="20250312225429-z6fdge7" data-node-id="20250312225429-z6fdge7" data-type="NodeListItem" updated="20250312225507" data-subtype="o" class="li" data-marker="4.">
+        <div class="protyle-action">
+          4.
+        </div>
+        <div id="20250312225429-4f1owam" data-node-id="20250312225429-4f1owam" data-type="NodeParagraph" updated="20250312225437" class="p"><div spellcheck="false">执行 pnpm publish 命令</div></div><div id="20250312225439-8ijkmht" data-node-id="20250312225439-8ijkmht" data-type="NodeList" updated="20250312225507" data-subtype="o" class="list"><div id="20250312225439-3uhf9o6" data-node-id="20250312225439-3uhf9o6" data-type="NodeListItem" updated="20250312225507" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20250312225439-gfqpjoy" data-node-id="20250312225439-gfqpjoy" data-type="NodeParagraph" updated="20250312225507" class="p"><div spellcheck="false">可能还需要先登录，会有提示，打开命令行中的相关连接跳转浏览器即可</div></div>
+      </div></div>
+      </div></div><div id="20250312225422-76c9o36" data-node-id="20250312225422-76c9o36" data-type="NodeParagraph" updated="20250312225422" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -98,7 +106,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

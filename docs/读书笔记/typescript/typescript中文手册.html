@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>typescript中文手册</title>
 </head>
 <body>
@@ -49,56 +49,63 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201104153359-0zkt74n" data-node-id="20201104153359-0zkt74n" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc"></div><h1 id="20201104153359-0zkt74n" data-node-id="20201104153359-0zkt74n" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">typescript中文手册</h1><div id="20210408131217-02bdw1l" data-node-id="20210408131217-02bdw1l" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210408131217-6iozc08" data-node-id="20210408131217-6iozc08" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210408131217-1qjnmj2" data-node-id="20210408131217-1qjnmj2" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate: 2019-07-25 14:54:20</div></div>
-    </div><div id="20210408131217-1n2cl8o" data-node-id="20210408131217-1n2cl8o" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210408131217-xdp620k" data-node-id="20210408131217-xdp620k" data-type="NodeParagraph" class="p"><div spellcheck="false">tags :typescript，读书，index</div></div>
-    </div></div><div id="20210408131217-dw9zg75" data-node-id="20210408131217-dw9zg75" data-type="NodeParagraph" class="p"><div spellcheck="false">看过几次但都不够仔细，所以今天打算仔细读读。这里也只会记录我没映像或者理解错的 。</div></div><div id="20210408131217-noja6kf" data-node-id="20210408131217-noja6kf" data-type="NodeParagraph" updated="20210408131227" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20201104153359-whnn14z"><a href="./../../读书笔记/typescript/ts技巧.html#20201104153359-whnn14z">ts技巧</a></span></div></div><div id="20210408131217-zl7dwl7" data-node-id="20210408131217-zl7dwl7" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210408131217-bgmghp9" data-node-id="20210408131217-bgmghp9" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://typescript.bootcss.com/interfaces.html">原文地址</a></div></div><h2 id="20210408131217-s9qgjny" data-node-id="20210408131217-s9qgjny" data-type="NodeHeading" data-subtype="h2" class="h2">只读属性</h2><div id="20210408131217-2m2djl2" data-node-id="20210408131217-2m2djl2" data-type="NodeParagraph" class="p"><div spellcheck="false">在属性前面加上 readonly 标记就好了</div></div><div id="20210408131217-yxnbjdx" data-node-id="20210408131217-yxnbjdx" data-type="NodeCodeBlock" class="code-block">
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20201104153359-0zkt74n" data-node-id="20201104153359-0zkt74n" data-type="NodeDocument" updated="20201104153359" type="doc">
+
+<h1 id="20201104153359-0zkt74n" data-node-id="20201104153359-0zkt74n" data-type="NodeDocument" updated="20201104153359" type="doc" data-type="NodeHeading" class="h1">typescript中文手册</h1>
+<div id="20210408131217-02bdw1l" data-node-id="20210408131217-02bdw1l" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210408131217-6iozc08" data-node-id="20210408131217-6iozc08" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">typescript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          <svg><use xlink:href="#iconDot"></use></svg>
         </div>
-        <div class="hljs" spellcheck="false">interface Point {
+        <div id="20210408131217-1qjnmj2" data-node-id="20210408131217-1qjnmj2" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate: 2019-07-25 14:54:20</div></div>
+      </div><div id="20210408131217-1n2cl8o" data-node-id="20210408131217-1n2cl8o" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210408131217-xdp620k" data-node-id="20210408131217-xdp620k" data-type="NodeParagraph" class="p"><div spellcheck="false">tags :typescript，读书，index</div></div>
+      </div></div><div id="20210408131217-dw9zg75" data-node-id="20210408131217-dw9zg75" data-type="NodeParagraph" class="p"><div spellcheck="false">看过几次但都不够仔细，所以今天打算仔细读读。这里也只会记录我没映像或者理解错的 。</div></div><div id="20210408131217-noja6kf" data-node-id="20210408131217-noja6kf" data-type="NodeParagraph" updated="20210408131227" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20201104153359-whnn14z"><a href="./../../读书笔记/typescript/ts技巧.html#20201104153359-whnn14z">ts技巧</a></span></div></div><div id="20210408131217-zl7dwl7" data-node-id="20210408131217-zl7dwl7" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210408131217-bgmghp9" data-node-id="20210408131217-bgmghp9" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://typescript.bootcss.com/interfaces.html">原文地址</a></div></div><h2 id="20210408131217-s9qgjny" data-node-id="20210408131217-s9qgjny" data-type="NodeHeading" data-subtype="h2" class="h2">只读属性</h2><div id="20210408131217-2m2djl2" data-node-id="20210408131217-2m2djl2" data-type="NodeParagraph" class="p"><div spellcheck="false">在属性前面加上 readonly 标记就好了</div></div><div id="20210408131217-yxnbjdx" data-node-id="20210408131217-yxnbjdx" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">typescript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">interface Point {
   readonly x: number;
   readonly y: number;
 }
 </div>
-      </div><div id="20210408131217-36d5sue" data-node-id="20210408131217-36d5sue" data-type="NodeParagraph" class="p"><div spellcheck="false">TypeScript 具有 ReadonlyArray<T>类型，它与 Array<T>相似，只是把所有可变方法去掉了，因此可以确保数组创建后再也不能被修改：</div></div><div id="20210408131217-2loxxfe" data-node-id="20210408131217-2loxxfe" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">typescript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">let a: number[] = [1, 2, 3, 4];
+        </div><div id="20210408131217-36d5sue" data-node-id="20210408131217-36d5sue" data-type="NodeParagraph" class="p"><div spellcheck="false">TypeScript 具有 ReadonlyArray<T>类型，它与 Array<T>相似，只是把所有可变方法去掉了，因此可以确保数组创建后再也不能被修改：</div></div><div id="20210408131217-2loxxfe" data-node-id="20210408131217-2loxxfe" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">typescript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">let a: number[] = [1, 2, 3, 4];
 let ro: ReadonlyArray<number> = a;
 ro[0] = 12; // error!
 ro.push(5); // error!
 ro.length = 100; // error!
 a = ro; // error!
 </div>
-      </div><h2 id="20210408131217-vxtnbst" data-node-id="20210408131217-vxtnbst" data-type="NodeHeading" data-subtype="h2" class="h2">protected 受保护的修饰符</h2><div id="20210408131217-dmlqcrp" data-node-id="20210408131217-dmlqcrp" data-type="NodeParagraph" class="p"><div spellcheck="false">protected 修饰符与 private 修饰符的行为很相似，但有一点不同，protected 成员在派生类中仍然可以访问。</div></div><h2 id="20210408131217-tsk6fhc" data-node-id="20210408131217-tsk6fhc" data-type="NodeHeading" data-subtype="h2" class="h2">参数属性</h2><div id="20210408131217-n3ql442" data-node-id="20210408131217-n3ql442" data-type="NodeParagraph" class="p"><div spellcheck="false">private 修饰符也可以替换为 public 之类的。在构造函数的参数上使用这些修饰符等同于在类中定义了这样的属性。</div></div><div id="20210408131217-p5wrtm0" data-node-id="20210408131217-p5wrtm0" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">typescript {run}</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">class Animal {
+        </div><h2 id="20210408131217-vxtnbst" data-node-id="20210408131217-vxtnbst" data-type="NodeHeading" data-subtype="h2" class="h2">protected 受保护的修饰符</h2><div id="20210408131217-dmlqcrp" data-node-id="20210408131217-dmlqcrp" data-type="NodeParagraph" class="p"><div spellcheck="false">protected 修饰符与 private 修饰符的行为很相似，但有一点不同，protected 成员在派生类中仍然可以访问。</div></div><h2 id="20210408131217-tsk6fhc" data-node-id="20210408131217-tsk6fhc" data-type="NodeHeading" data-subtype="h2" class="h2">参数属性</h2><div id="20210408131217-n3ql442" data-node-id="20210408131217-n3ql442" data-type="NodeParagraph" class="p"><div spellcheck="false">private 修饰符也可以替换为 public 之类的。在构造函数的参数上使用这些修饰符等同于在类中定义了这样的属性。</div></div><div id="20210408131217-p5wrtm0" data-node-id="20210408131217-p5wrtm0" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">typescript {run}</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">class Animal {
   constructor(private name: string) {}
   move(distanceInMeters: number) {
     console.log(`${this.name} moved ${distanceInMeters}m.`);
   }
 }
 </div>
-      </div><h2 id="20210408131217-mtc6a2g" data-node-id="20210408131217-mtc6a2g" data-type="NodeHeading" data-subtype="h2" class="h2">抽象类 abstract</h2><div id="20210408131217-ih7k9la" data-node-id="20210408131217-ih7k9la" data-type="NodeParagraph" class="p"><div spellcheck="false">抽象类做为其它派生类的基类使用。 它们一般不会直接被实例化。 不同于接口，抽象类可以包含成员的实现细节。 abstract 关键字是用于定义抽象类和在抽象类内部定义抽象方法。</div></div><div id="20210408131217-wulzq7j" data-node-id="20210408131217-wulzq7j" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">typescript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">abstract class Department {
+        </div><h2 id="20210408131217-mtc6a2g" data-node-id="20210408131217-mtc6a2g" data-type="NodeHeading" data-subtype="h2" class="h2">抽象类 abstract</h2><div id="20210408131217-ih7k9la" data-node-id="20210408131217-ih7k9la" data-type="NodeParagraph" class="p"><div spellcheck="false">抽象类做为其它派生类的基类使用。 它们一般不会直接被实例化。 不同于接口，抽象类可以包含成员的实现细节。 abstract 关键字是用于定义抽象类和在抽象类内部定义抽象方法。</div></div><div id="20210408131217-wulzq7j" data-node-id="20210408131217-wulzq7j" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">typescript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">abstract class Department {
   constructor(public name: string) {}
   printName(): void {
     console.log("Department name: " + this.name);
@@ -106,22 +113,22 @@ a = ro; // error!
   abstract printMeeting(): void; // 必须在派生类中实现
 }
 </div>
-      </div><h2 id="20210408131217-4fqg00z" data-node-id="20210408131217-4fqg00z" data-type="NodeHeading" data-subtype="h2" class="h2">默认值参数可以放在前面</h2><div id="20210408131217-gbtc8ck" data-node-id="20210408131217-gbtc8ck" data-type="NodeParagraph" class="p"><div spellcheck="false">但必须显式的传入 undefined 来获得它的默认值</div></div><div id="20210408131217-ktlo1fm" data-node-id="20210408131217-ktlo1fm" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">typescript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">function add(a = 7, b: number) {
+        </div><h2 id="20210408131217-4fqg00z" data-node-id="20210408131217-4fqg00z" data-type="NodeHeading" data-subtype="h2" class="h2">默认值参数可以放在前面</h2><div id="20210408131217-gbtc8ck" data-node-id="20210408131217-gbtc8ck" data-type="NodeParagraph" class="p"><div spellcheck="false">但必须显式的传入 undefined 来获得它的默认值</div></div><div id="20210408131217-ktlo1fm" data-node-id="20210408131217-ktlo1fm" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">typescript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">function add(a = 7, b: number) {
   return a + b;
 }
 add(undefined, 10); //17
 </div>
-      </div><h2 id="20210408131217-mzv2oix" data-node-id="20210408131217-mzv2oix" data-type="NodeHeading" data-subtype="h2" class="h2">this 参数</h2><div id="20210408131217-c2pqt1s" data-node-id="20210408131217-c2pqt1s" data-type="NodeParagraph" class="p"><div spellcheck="false">函数可以定义一个 this 参数并指定本函数运行时 this 时啥样的</div></div><div id="20210408131217-jx2z12n" data-node-id="20210408131217-jx2z12n" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">typescript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">function A(this: String) {
+        </div><h2 id="20210408131217-mzv2oix" data-node-id="20210408131217-mzv2oix" data-type="NodeHeading" data-subtype="h2" class="h2">this 参数</h2><div id="20210408131217-c2pqt1s" data-node-id="20210408131217-c2pqt1s" data-type="NodeParagraph" class="p"><div spellcheck="false">函数可以定义一个 this 参数并指定本函数运行时 this 时啥样的</div></div><div id="20210408131217-jx2z12n" data-node-id="20210408131217-jx2z12n" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">typescript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">function A(this: String) {
   //虽然定义了this参数但这个参数是不要传的
   return this.trim();
 }
@@ -135,11 +142,12 @@ str1.b();
 A(); //报错 因为this不为String
 A(""); //报错 因为不用传参
 </div>
-      </div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -158,7 +166,7 @@ A(""); //报错 因为不用传参
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

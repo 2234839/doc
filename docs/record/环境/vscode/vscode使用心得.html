@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>vscode使用心得</title>
 </head>
 <body>
@@ -49,12 +49,19 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201104153359-55kblxd" data-node-id="20201104153359-55kblxd" data-type="NodeDocument" updated="20250206211953" data-subtype="h1" class="h1" type="doc"></div><h1 id="20201104153359-55kblxd" data-node-id="20201104153359-55kblxd" data-type="NodeDocument" updated="20250206211953" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">vscode使用心得</h1><h2 id="20210104101034-2s4rost" data-node-id="20210104101034-2s4rost" data-type="NodeHeading" data-subtype="h2" class="h2">快捷键</h2><h3 id="20210104101034-m8dbz81" data-node-id="20210104101034-m8dbz81" data-type="NodeHeading" data-subtype="h3" class="h3">选区</h3><div id="20210104101034-lsgwjh3" data-node-id="20210104101034-lsgwjh3" data-type="NodeParagraph" class="p"><div spellcheck="false">拓展性 (Shift + Alt + Right) 或者收缩性 (Shift + Alt + Left) 的选中文本</div></div><div id="20210104101034-enx8cu3" data-node-id="20210104101034-enx8cu3" data-type="NodeParagraph" class="p"><div spellcheck="false">矩形框的鼠标选择： 同时按住 Shit 和 Alt 并使用鼠标进行拖拽选择</div></div><h3 id="20210104101034-0sj71l2" data-node-id="20210104101034-0sj71l2" data-type="NodeHeading" data-subtype="h3" class="h3">折叠与展开</h3><div id="20210104101034-02xmha2" data-node-id="20210104101034-02xmha2" data-type="NodeParagraph" class="p"><div spellcheck="false">折叠当前光标所在区域： Ctrl + Shift + [​取消当前光标所在区域的折叠： Ctrl + Shift + ]​折叠当前文件内容的所有区域： Ctrl + K Ctrl + 0</div></div><h3 id="20210104101034-rbszy0z" data-node-id="20210104101034-rbszy0z" data-type="NodeHeading" data-subtype="h3" class="h3">搜索</h3><div id="20210104101034-78g1fa8" data-node-id="20210104101034-78g1fa8" data-type="NodeParagraph" class="p"><div spellcheck="false">在 Ctrl+P 窗口下还可以</div></div><div id="20210104101034-muwsamh" data-node-id="20210104101034-muwsamh" data-type="NodeParagraph" class="p"><div spellcheck="false">直接输入文件名，跳转到文件​? 列出当前可执行的动作​! 显示 Errors 或 Warnings，也可以 `Ctrl+Shift+M​: 跳转到行数，也可以 Ctrl+G 直接进入​@ 跳转到 symbol（搜索变量或者函数），也可以 Ctrl+Shift+O 直接进入​@:根据分类跳转 symbol，查找属性或函数，也可以 Ctrl+Shift+O 后输入：进入</div></div><h2 id="20210405082525-42e01vs" data-node-id="20210405082525-42e01vs" data-type="NodeHeading" updated="20250206211953" data-subtype="h2" class="h2">杂项</h2><div id="20210405082530-4y5rlcl" data-node-id="20210405082530-4y5rlcl" data-type="NodeParagraph" updated="20210405082654" class="p"><div spellcheck="false">鼠标移动到符号上面获取的信息不多，例如 ts 中无法查看一个类型的结构，此时按住 Contol 就可以查看更详细的信息</div></div><h3 id="20250206205916-tr9sng5" data-node-id="20250206205916-tr9sng5" data-type="NodeHeading" updated="20250206211953" data-subtype="h3" class="h3"><a href="https://code.visualstudio.com/docs/editor/codebasics#_folding">通过注释来实现将相同的功能折叠</a></h3><div id="20250206211157-0vhkw2p" data-node-id="20250206211157-0vhkw2p" data-type="NodeParagraph" updated="20250206211235" class="p"><div spellcheck="false">可搭配 <a href="https://marketplace.visualstudio.com/items?itemName=Wiensss.region-highlighter">Region Highlighter</a> 插件来高亮展开的区域</div></div><div id="20250206205912-sagju0k" data-node-id="20250206205912-sagju0k" data-type="NodeCodeBlock" updated="20250206210222" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">//#region 功能A ，在vscode 中可以直接将这个块折叠起来
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20201104153359-55kblxd" data-node-id="20201104153359-55kblxd" data-type="NodeDocument" updated="20250206211953" type="doc">
+
+<h1 id="20201104153359-55kblxd" data-node-id="20201104153359-55kblxd" data-type="NodeDocument" updated="20250206211953" type="doc" data-type="NodeHeading" class="h1">vscode使用心得</h1>
+<h2 id="20210104101034-2s4rost" data-node-id="20210104101034-2s4rost" data-type="NodeHeading" data-subtype="h2" class="h2">快捷键</h2><h3 id="20210104101034-m8dbz81" data-node-id="20210104101034-m8dbz81" data-type="NodeHeading" data-subtype="h3" class="h3">选区</h3><div id="20210104101034-lsgwjh3" data-node-id="20210104101034-lsgwjh3" data-type="NodeParagraph" class="p"><div spellcheck="false">拓展性 (Shift + Alt + Right) 或者收缩性 (Shift + Alt + Left) 的选中文本</div></div><div id="20210104101034-enx8cu3" data-node-id="20210104101034-enx8cu3" data-type="NodeParagraph" class="p"><div spellcheck="false">矩形框的鼠标选择： 同时按住 Shit 和 Alt 并使用鼠标进行拖拽选择</div></div><h3 id="20210104101034-0sj71l2" data-node-id="20210104101034-0sj71l2" data-type="NodeHeading" data-subtype="h3" class="h3">折叠与展开</h3><div id="20210104101034-02xmha2" data-node-id="20210104101034-02xmha2" data-type="NodeParagraph" class="p"><div spellcheck="false">折叠当前光标所在区域： Ctrl + Shift + [​取消当前光标所在区域的折叠： Ctrl + Shift + ]​折叠当前文件内容的所有区域： Ctrl + K Ctrl + 0</div></div><h3 id="20210104101034-rbszy0z" data-node-id="20210104101034-rbszy0z" data-type="NodeHeading" data-subtype="h3" class="h3">搜索</h3><div id="20210104101034-78g1fa8" data-node-id="20210104101034-78g1fa8" data-type="NodeParagraph" class="p"><div spellcheck="false">在 Ctrl+P 窗口下还可以</div></div><div id="20210104101034-muwsamh" data-node-id="20210104101034-muwsamh" data-type="NodeParagraph" class="p"><div spellcheck="false">直接输入文件名，跳转到文件​? 列出当前可执行的动作​! 显示 Errors 或 Warnings，也可以 `Ctrl+Shift+M​: 跳转到行数，也可以 Ctrl+G 直接进入​@ 跳转到 symbol（搜索变量或者函数），也可以 Ctrl+Shift+O 直接进入​@:根据分类跳转 symbol，查找属性或函数，也可以 Ctrl+Shift+O 后输入：进入</div></div><h2 id="20210405082525-42e01vs" data-node-id="20210405082525-42e01vs" data-type="NodeHeading" updated="20250206211953" data-subtype="h2" class="h2">杂项</h2><div id="20210405082530-4y5rlcl" data-node-id="20210405082530-4y5rlcl" data-type="NodeParagraph" updated="20210405082654" class="p"><div spellcheck="false">鼠标移动到符号上面获取的信息不多，例如 ts 中无法查看一个类型的结构，此时按住 Contol 就可以查看更详细的信息</div></div><h3 id="20250206205916-tr9sng5" data-node-id="20250206205916-tr9sng5" data-type="NodeHeading" updated="20250206211953" data-subtype="h3" class="h3"><a href="https://code.visualstudio.com/docs/editor/codebasics#_folding">通过注释来实现将相同的功能折叠</a></h3><div id="20250206211157-0vhkw2p" data-node-id="20250206211157-0vhkw2p" data-type="NodeParagraph" updated="20250206211235" class="p"><div spellcheck="false">可搭配 <a href="https://marketplace.visualstudio.com/items?itemName=Wiensss.region-highlighter">Region Highlighter</a> 插件来高亮展开的区域</div></div><div id="20250206205912-sagju0k" data-node-id="20250206205912-sagju0k" data-type="NodeCodeBlock" updated="20250206210222" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">js</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">//#region 功能A ，在vscode 中可以直接将这个块折叠起来
 const a = 1;
 const b = 2;
 //#endregion
@@ -65,67 +72,68 @@ function test() {
 }
 //#endregion
 </div>
-      </div><h2 id="20210104101034-rx4fda0" data-node-id="20210104101034-rx4fda0" data-type="NodeHeading" data-subtype="h2" class="h2">vscode 扩展插件</h2><h3 id="20210104101403-iu3fcdh" data-node-id="20210104101403-iu3fcdh" data-type="NodeHeading" data-subtype="h3" class="h3">我正在使用的</h3><div id="20210104101034-mzz071d" data-node-id="20210104101034-mzz071d" data-type="NodeList" updated="20231227090107" data-subtype="o" class="list"><div id="20210104101034-jcdoyyx" data-node-id="20210104101034-jcdoyyx" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20210104101742-8b8apcm" data-node-id="20210104101742-8b8apcm" data-type="NodeParagraph" updated="20210807174924" class="p"><div spellcheck="false">⭐❤ <a href="https://marketplace.visualstudio.com/items?itemName=svenzhao.var-translation">驼峰翻译助手</a> 这个插件可以执行各种命名规则</div></div>
-    </div><div id="20210808004213-cx57txz" data-node-id="20210808004213-cx57txz" data-type="NodeListItem" updated="20210808004320" data-subtype="o" class="li" data-marker="2.">
-      <div class="protyle-action">
-        2.
-      </div>
-      <div id="20210808004213-umvzcoj" data-node-id="20210808004213-umvzcoj" data-type="NodeParagraph" updated="20231220132838" class="p"><div spellcheck="false">⭐❤ <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot">GitHub Copilot</a> 代码补全神器，人生苦短，现在要收费了</div></div>
-    </div><div id="20210104101034-l35xnwl" data-node-id="20210104101034-l35xnwl" data-type="NodeListItem" data-subtype="o" class="li" data-marker="3.">
-      <div class="protyle-action">
-        3.
-      </div>
-      <div id="20210104101742-6a02dfq" data-node-id="20210104101742-6a02dfq" data-type="NodeParagraph" class="p"><div spellcheck="false">⭐❤<a href="https://marketplace.visualstudio.com/items?itemName=jack89ita.open-file-from-path">alt+d 跳转</a>vscode 有一些路径不可以通过 ctrl+click 跳转，安装这个插件可以使用快捷键跳转这些路径</div></div>
-    </div><div id="20210104105254-7e6p4j5" data-node-id="20210104105254-7e6p4j5" data-type="NodeListItem" data-subtype="o" class="li" data-marker="4.">
-      <div class="protyle-action">
-        4.
-      </div>
-      <div id="20210104105254-0tnc2dn" data-node-id="20210104105254-0tnc2dn" data-type="NodeParagraph" class="p"><div spellcheck="false">⭐❤<a href="https://marketplace.visualstudio.com/items?itemName=pucelle.vscode-css-navigation">CSS Navigation</a> 从 类名、id 跳转到对应的 css 定义</div></div>
-    </div><div id="20210113161842-a09102t" data-node-id="20210113161842-a09102t" data-type="NodeListItem" updated="20210522105705" data-subtype="o" class="li" data-marker="5.">
-      <div class="protyle-action">
-        5.
-      </div>
-      <div id="20210113161842-lq61fhv" data-node-id="20210113161842-lq61fhv" data-type="NodeParagraph" updated="20231220132843" class="p"><div spellcheck="false">⭐❤ <a href="https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar">volar</a> vue3 模板 ts 类型提示插件（爽！）。</div></div>
-    </div><div id="20210120201815-mhusgkv" data-node-id="20210120201815-mhusgkv" data-type="NodeListItem" data-subtype="o" class="li" data-marker="6.">
-      <div class="protyle-action">
-        6.
-      </div>
-      <div id="20210120201815-nvhf00v" data-node-id="20210120201815-nvhf00v" data-type="NodeParagraph" class="p"><div spellcheck="false">⭐❤ <a href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">tailwindcss</a> 类名提示</div></div>
-    </div><div id="20231220133058-en8ntwz" data-node-id="20231220133058-en8ntwz" data-type="NodeListItem" updated="20231220133304" data-subtype="o" class="li" data-marker="7.">
-      <div class="protyle-action">
-        7.
-      </div>
-      <div id="20231220133058-qw2aidk" data-node-id="20231220133058-qw2aidk" data-type="NodeParagraph" updated="20231220133304" class="p"><div spellcheck="false"><a href="https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools">⭐❤ edge-devtools</a> 前端开发福音，<a href="https://github.com/microsoft/vscode-edge-devtools/issues/965">可以直接在 devtools 中修改样式镜像到源码修改</a> （需要开启 css 源映射）</div></div>
-    </div><div id="20231227090016-ukh9o9m" data-node-id="20231227090016-ukh9o9m" data-type="NodeListItem" updated="20231227090107" data-subtype="o" class="li" data-marker="8.">
-      <div class="protyle-action">
-        8.
-      </div>
-      <div id="20231227090016-84xon2e" data-node-id="20231227090016-84xon2e" data-type="NodeParagraph" updated="20231227090107" class="p"><div spellcheck="false"><a href="https://marketplace.visualstudio.com/items?itemName=tintinweb.graphviz-interactive-preview">tintinweb.graphviz-interactive-preview</a> dot 图预览 <span data-type="block-ref" data-subtype="d" data-id="20231227083806-th3cv3m"><a href="./../../../工具/dependency.html#20231227083806-th3cv3m">dependency</a></span></div></div>
-    </div></div><h3 id="20210107103954-ct0lh67" data-node-id="20210107103954-ct0lh67" data-type="NodeHeading" data-subtype="h3" class="h3">vscode 扩展插件问题排除</h3><div id="20210107104006-kgj6h4n" data-node-id="20210107104006-kgj6h4n" data-type="NodeBlockquote" class="bq"><div id="20210107104008-4kiyhb1" data-node-id="20210107104008-4kiyhb1" data-type="NodeParagraph" class="p"><div spellcheck="false">以前出现了什么问题需要自己手动一个一个的禁用扩展来确定问题，很是麻烦</div></div></div><div id="20210107104038-7vskrk2" data-node-id="20210107104038-7vskrk2" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://code.visualstudio.com/updates/v1_52#_troubleshooting-extension-bisect">v1.52 二分法排除故障</a> ：现在vscode 出来这样一个通过二分法排除故障的方法 👍</div></div><div id="20210107104441-hchjew9" data-node-id="20210107104441-hchjew9" data-type="NodeParagraph" class="p"><div spellcheck="false">通过 <span data-type="kbd">ctrl</span>+<span data-type="kbd">shift</span>+<span data-type="kbd">P</span> 输入命令 <span data-type="code">Start Extension Bisect</span> 开始排查</div></div><div id="20210107104254-o09ivny" data-node-id="20210107104254-o09ivny" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20210107104436-i883cij-QQ截图20210107104339.jpg"
-  data-src="./../../../assets/20210107104436-i883cij-QQ截图20210107104339.jpg"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div><div id="20210107104807-k3sd8si" data-node-id="20210107104807-k3sd8si" data-type="NodeParagraph" class="p"><div spellcheck="false">执行之后结果如下</div></div><div id="20210107104813-8j86sqo" data-node-id="20210107104813-8j86sqo" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/20210107104813-izywmau-image.png"
-  data-src="./../../../assets/20210107104813-izywmau-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div><div id="20210107104818-qxischg" data-node-id="20210107104818-qxischg" data-type="NodeParagraph" class="p"><div spellcheck="false">就这样一步一步的确定真正有问题的扩展，比以前自己手动禁用真的舒服多了</div></div><h2 id="20210104101034-kc8be2j" data-node-id="20210104101034-kc8be2j" data-type="NodeHeading" data-subtype="h2" class="h2">一些问题</h2><div id="20210104101034-2tdg6gr" data-node-id="20210104101034-2tdg6gr" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://segmentfault.com/q/1010000008771415">在一些文件中 tab 没有按照设定的宽度展示的问题</a></div></div><div id="20210122161010-wglpw9i" data-node-id="20210122161010-wglpw9i" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20210122161010-wgj8w5f" data-node-id="20210122161010-wgj8w5f" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div><h2 id="20210104101034-rx4fda0" data-node-id="20210104101034-rx4fda0" data-type="NodeHeading" data-subtype="h2" class="h2">vscode 扩展插件</h2><h3 id="20210104101403-iu3fcdh" data-node-id="20210104101403-iu3fcdh" data-type="NodeHeading" data-subtype="h3" class="h3">我正在使用的</h3><div id="20210104101034-mzz071d" data-node-id="20210104101034-mzz071d" data-type="NodeList" updated="20231227090107" data-subtype="o" class="list"><div id="20210104101034-jcdoyyx" data-node-id="20210104101034-jcdoyyx" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20210104101742-8b8apcm" data-node-id="20210104101742-8b8apcm" data-type="NodeParagraph" updated="20210807174924" class="p"><div spellcheck="false">⭐❤ <a href="https://marketplace.visualstudio.com/items?itemName=svenzhao.var-translation">驼峰翻译助手</a> 这个插件可以执行各种命名规则</div></div>
+      </div><div id="20210808004213-cx57txz" data-node-id="20210808004213-cx57txz" data-type="NodeListItem" updated="20210808004320" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20210808004213-umvzcoj" data-node-id="20210808004213-umvzcoj" data-type="NodeParagraph" updated="20231220132838" class="p"><div spellcheck="false">⭐❤ <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot">GitHub Copilot</a> 代码补全神器，人生苦短，现在要收费了</div></div>
+      </div><div id="20210104101034-l35xnwl" data-node-id="20210104101034-l35xnwl" data-type="NodeListItem" data-subtype="o" class="li" data-marker="3.">
+        <div class="protyle-action">
+          3.
+        </div>
+        <div id="20210104101742-6a02dfq" data-node-id="20210104101742-6a02dfq" data-type="NodeParagraph" class="p"><div spellcheck="false">⭐❤<a href="https://marketplace.visualstudio.com/items?itemName=jack89ita.open-file-from-path">alt+d 跳转</a>vscode 有一些路径不可以通过 ctrl+click 跳转，安装这个插件可以使用快捷键跳转这些路径</div></div>
+      </div><div id="20210104105254-7e6p4j5" data-node-id="20210104105254-7e6p4j5" data-type="NodeListItem" data-subtype="o" class="li" data-marker="4.">
+        <div class="protyle-action">
+          4.
+        </div>
+        <div id="20210104105254-0tnc2dn" data-node-id="20210104105254-0tnc2dn" data-type="NodeParagraph" class="p"><div spellcheck="false">⭐❤<a href="https://marketplace.visualstudio.com/items?itemName=pucelle.vscode-css-navigation">CSS Navigation</a> 从 类名、id 跳转到对应的 css 定义</div></div>
+      </div><div id="20210113161842-a09102t" data-node-id="20210113161842-a09102t" data-type="NodeListItem" updated="20210522105705" data-subtype="o" class="li" data-marker="5.">
+        <div class="protyle-action">
+          5.
+        </div>
+        <div id="20210113161842-lq61fhv" data-node-id="20210113161842-lq61fhv" data-type="NodeParagraph" updated="20231220132843" class="p"><div spellcheck="false">⭐❤ <a href="https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar">volar</a> vue3 模板 ts 类型提示插件（爽！）。</div></div>
+      </div><div id="20210120201815-mhusgkv" data-node-id="20210120201815-mhusgkv" data-type="NodeListItem" data-subtype="o" class="li" data-marker="6.">
+        <div class="protyle-action">
+          6.
+        </div>
+        <div id="20210120201815-nvhf00v" data-node-id="20210120201815-nvhf00v" data-type="NodeParagraph" class="p"><div spellcheck="false">⭐❤ <a href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">tailwindcss</a> 类名提示</div></div>
+      </div><div id="20231220133058-en8ntwz" data-node-id="20231220133058-en8ntwz" data-type="NodeListItem" updated="20231220133304" data-subtype="o" class="li" data-marker="7.">
+        <div class="protyle-action">
+          7.
+        </div>
+        <div id="20231220133058-qw2aidk" data-node-id="20231220133058-qw2aidk" data-type="NodeParagraph" updated="20231220133304" class="p"><div spellcheck="false"><a href="https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools">⭐❤ edge-devtools</a> 前端开发福音，<a href="https://github.com/microsoft/vscode-edge-devtools/issues/965">可以直接在 devtools 中修改样式镜像到源码修改</a> （需要开启 css 源映射）</div></div>
+      </div><div id="20231227090016-ukh9o9m" data-node-id="20231227090016-ukh9o9m" data-type="NodeListItem" updated="20231227090107" data-subtype="o" class="li" data-marker="8.">
+        <div class="protyle-action">
+          8.
+        </div>
+        <div id="20231227090016-84xon2e" data-node-id="20231227090016-84xon2e" data-type="NodeParagraph" updated="20231227090107" class="p"><div spellcheck="false"><a href="https://marketplace.visualstudio.com/items?itemName=tintinweb.graphviz-interactive-preview">tintinweb.graphviz-interactive-preview</a> dot 图预览 <span data-type="block-ref"   data-subtype="d"   data-id="20231227083806-th3cv3m"><a href="./../../../工具/dependency.html#20231227083806-th3cv3m">dependency</a></span></div></div>
+      </div></div><h3 id="20210107103954-ct0lh67" data-node-id="20210107103954-ct0lh67" data-type="NodeHeading" data-subtype="h3" class="h3">vscode 扩展插件问题排除</h3><div id="20210107104006-kgj6h4n" data-node-id="20210107104006-kgj6h4n" data-type="NodeBlockquote" class="bq"><div id="20210107104008-4kiyhb1" data-node-id="20210107104008-4kiyhb1" data-type="NodeParagraph" class="p"><div spellcheck="false">以前出现了什么问题需要自己手动一个一个的禁用扩展来确定问题，很是麻烦</div></div></div><div id="20210107104038-7vskrk2" data-node-id="20210107104038-7vskrk2" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://code.visualstudio.com/updates/v1_52#_troubleshooting-extension-bisect">v1.52 二分法排除故障</a> ：现在vscode 出来这样一个通过二分法排除故障的方法 👍</div></div><div id="20210107104441-hchjew9" data-node-id="20210107104441-hchjew9" data-type="NodeParagraph" class="p"><div spellcheck="false">通过 <span data-type="kbd">ctrl</span>+<span data-type="kbd">shift</span>+<span data-type="kbd">P</span> 输入命令 <span data-type="code">Start Extension Bisect</span> 开始排查</div></div><div id="20210107104254-o09ivny" data-node-id="20210107104254-o09ivny" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20210107104436-i883cij-QQ截图20210107104339.jpg"
+    data-src="./../../../assets/20210107104436-i883cij-QQ截图20210107104339.jpg"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div><div id="20210107104807-k3sd8si" data-node-id="20210107104807-k3sd8si" data-type="NodeParagraph" class="p"><div spellcheck="false">执行之后结果如下</div></div><div id="20210107104813-8j86sqo" data-node-id="20210107104813-8j86sqo" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/20210107104813-izywmau-image.png"
+    data-src="./../../../assets/20210107104813-izywmau-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div><div id="20210107104818-qxischg" data-node-id="20210107104818-qxischg" data-type="NodeParagraph" class="p"><div spellcheck="false">就这样一步一步的确定真正有问题的扩展，比以前自己手动禁用真的舒服多了</div></div><h2 id="20210104101034-kc8be2j" data-node-id="20210104101034-kc8be2j" data-type="NodeHeading" data-subtype="h2" class="h2">一些问题</h2><div id="20210104101034-2tdg6gr" data-node-id="20210104101034-2tdg6gr" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://segmentfault.com/q/1010000008771415">在一些文件中 tab 没有按照设定的宽度展示的问题</a></div></div><div id="20210122161010-wglpw9i" data-node-id="20210122161010-wglpw9i" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20210122161010-wgj8w5f" data-node-id="20210122161010-wgj8w5f" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -144,7 +152,7 @@ function test() {
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

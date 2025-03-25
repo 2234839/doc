@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>rime</title>
 </head>
 <body>
@@ -49,46 +49,62 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20240311141906-ne5uqtm" data-node-id="20240311141906-ne5uqtm" data-type="NodeDocument" updated="20240523004200" data-subtype="h1" class="h1" type="doc"></div><h1 id="20240311141906-ne5uqtm" data-node-id="20240311141906-ne5uqtm" data-type="NodeDocument" updated="20240523004200" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">rime</h1><div id="20240316114046-ln657b2" data-node-id="20240316114046-ln657b2" data-type="NodeParagraph" updated="20240316114103" class="p"><div spellcheck="false">ubuntu安装rime ： https://www.cnblogs.com/keatonlao/p/12983158.html</div></div><div id="20240316114226-nf994qx" data-node-id="20240316114226-nf994qx" data-type="NodeCodeBlock" updated="20240316115132" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">shell</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">sudo apt-get install ibus-rime
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20240311141906-ne5uqtm" data-node-id="20240311141906-ne5uqtm" data-type="NodeDocument" updated="20250321173908" type="doc">
+
+<h1 id="20240311141906-ne5uqtm" data-node-id="20240311141906-ne5uqtm" data-type="NodeDocument" updated="20250321173908" type="doc" data-type="NodeHeading" class="h1">rime</h1>
+<div id="20250321172404-19li9h5" data-node-id="20250321172404-19li9h5" data-type="NodeParagraph" updated="20250321172411" class="p"><div spellcheck="false">官网 <a href="https://rime.im/">https://rime.im/</a></div></div><h2 id="20240316114046-ln657b2" data-node-id="20240316114046-ln657b2" data-type="NodeHeading" updated="20250321172348" data-subtype="h2" class="h2">ubuntu安装rime</h2><div id="20250321172015-ecnkp1a" data-node-id="20250321172015-ecnkp1a" data-type="NodeParagraph" updated="20250321172015" class="p"><div spellcheck="false"> <a href="https://www.cnblogs.com/keatonlao/p/12983158.html">https://www.cnblogs.com/keatonlao/p/12983158.html</a></div></div><div id="20240316114226-nf994qx" data-node-id="20240316114226-nf994qx" data-type="NodeCodeBlock" updated="20240316115132" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">shell</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo apt-get install ibus-rime
 # 安装双拼
 sudo apt-get install rime-data-double-pinyin
 # 
 ibus restart
 # Ubuntu 22.04版本设置输入法在设置->-键盘->输入源->加号->汉语->中文（Rime）
 </div>
-      </div><h2 id="20240311141906-g8vm9mz" data-node-id="20240311141906-g8vm9mz" data-type="NodeHeading" updated="20240523004200" data-subtype="h2" class="h2">自定义配置</h2><div id="20240311141918-iqk5hbs" data-node-id="20240311141918-iqk5hbs" data-type="NodeParagraph" updated="20240311141957" class="p"><div spellcheck="false">rime输入法较为极客，他的ui界面基本上配置不了什么东西。</div></div><div id="20240311141959-tv6e65l" data-node-id="20240311141959-tv6e65l" data-type="NodeParagraph" updated="20240311142153" class="p"><div spellcheck="false">需要修改对应的文件才能进行配置（以 ubuntu 为例该配置文件位于：/home/用户名/.config/ibus/rime/default.custom.yaml）</div></div><div id="20240311142242-52ehuln" data-node-id="20240311142242-52ehuln" data-type="NodeParagraph" updated="20240311142351" class="p"><div spellcheck="false">下面是我的配置，可以看出来这个 custom.yaml 文件就是简单的 patch 覆盖 default.yaml 中的选项</div></div><div id="20240311142353-q7f778c" data-node-id="20240311142353-q7f778c" data-type="NodeParagraph" updated="20240311142408" class="p"><div spellcheck="false">我主要定制了如下</div></div><div id="20240311142246-s826fh9" data-node-id="20240311142246-s826fh9" data-type="NodeList" updated="20240316115404" data-subtype="u" class="list"><div id="20240311142257-tm8n1nu" data-node-id="20240311142257-tm8n1nu" data-type="NodeListItem" updated="20240316115404" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240311142257-2z8ghek" data-node-id="20240311142257-2z8ghek" data-type="NodeParagraph" updated="20240316115404" class="p"><div spellcheck="false">从rime默认的繁体配置为简体</div></div>
-    </div><div id="20240311142429-4585580" data-node-id="20240311142429-4585580" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240311142429-p3k4grs" data-node-id="20240311142429-p3k4grs" data-type="NodeParagraph" updated="20240311142449" class="p"><div spellcheck="false">采用双拼（需要另外的命令安装双拼功能）</div></div>
-    </div><div id="20240311142453-dtud3wc" data-node-id="20240311142453-dtud3wc" data-type="NodeListItem" updated="20240311142652" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240311142453-mm4hyqe" data-node-id="20240311142453-mm4hyqe" data-type="NodeParagraph" updated="20240311142652" class="p"><div spellcheck="false">屏蔽 <span data-type="kbd">ctrl</span>​ + <span data-type="kbd">`</span>​ （grave）快捷键（和 vscode 冲突了）</div></div>
-    </div></div><div id="20240311142154-s1hb4el" data-node-id="20240311142154-s1hb4el" data-type="NodeCodeBlock" updated="20240311142236" class="code-block">
+        </div><h2 id="20250321172348-vc8845z" data-node-id="20250321172348-vc8845z" data-type="NodeHeading" updated="20250321172717" data-subtype="h2" class="h2">windows 安装 - 小狼豪</h2><div id="20250321172420-jjil85y" data-node-id="20250321172420-jjil85y" data-type="NodeBlockQueryEmbed" updated="20250321172420" data-type="NodeBlockquote" class="bq">  <div id="20250321172404-19li9h5" data-node-id="20250321172404-19li9h5" data-type="NodeParagraph" updated="20250321172411" class="p"><div spellcheck="false">官网 <a href="https://rime.im/">https://rime.im/</a></div></div>  </div><div id="20250321172422-n9ya811" data-node-id="20250321172422-n9ya811" data-type="NodeParagraph" updated="20250321172519" class="p"><div spellcheck="false">在安装页面点击更多输入法，会弹出下面这样的命令窗口，输入 <span data-type="code">rime/rime-double-pinyin</span>​ 获取双拼方案</div></div><div id="20250321172444-2exqszw" data-node-id="20250321172444-2exqszw" data-type="NodeParagraph" updated="20250321172444" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../assets/image-20250321172444-hf5ziya.png"
+    data-src="./../../assets/image-20250321172444-hf5ziya.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><h2 id="20240311141906-g8vm9mz" data-node-id="20240311141906-g8vm9mz" data-type="NodeHeading" updated="20250321173908" data-subtype="h2" class="h2">自定义配置</h2><div id="20240311141918-iqk5hbs" data-node-id="20240311141918-iqk5hbs" data-type="NodeParagraph" updated="20240311141957" class="p"><div spellcheck="false">rime输入法较为极客，他的ui界面基本上配置不了什么东西。</div></div><div id="20240311141959-tv6e65l" data-node-id="20240311141959-tv6e65l" data-type="NodeParagraph" updated="20250321173209" class="p"><div spellcheck="false">需要修改对应的文件才能进行配置（以 ubuntu 为例该配置文件位于：/home/用户名/.config/ibus/rime/default.custom.yaml，windows 在 <span data-type="code">%APPDATA%\Rime</span>​）</div></div><div id="20240311142242-52ehuln" data-node-id="20240311142242-52ehuln" data-type="NodeParagraph" updated="20240311142351" class="p"><div spellcheck="false">下面是我的配置，可以看出来这个 custom.yaml 文件就是简单的 patch 覆盖 default.yaml 中的选项</div></div><div id="20240311142353-q7f778c" data-node-id="20240311142353-q7f778c" data-type="NodeParagraph" updated="20240311142408" class="p"><div spellcheck="false">我主要定制了如下</div></div><div id="20240311142246-s826fh9" data-node-id="20240311142246-s826fh9" data-type="NodeList" updated="20250321173745" data-subtype="u" class="list"><div id="20240311142257-tm8n1nu" data-node-id="20240311142257-tm8n1nu" data-type="NodeListItem" updated="20240316115404" data-subtype="u" class="li" data-marker="*">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">yaml</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          <svg><use xlink:href="#iconDot"></use></svg>
         </div>
-        <div class="hljs" spellcheck="false">patch:
+        <div id="20240311142257-2z8ghek" data-node-id="20240311142257-2z8ghek" data-type="NodeParagraph" updated="20250321173521" class="p"><div spellcheck="false">从 rime 默认的繁体配置为简体</div></div>
+      </div><div id="20240311142429-4585580" data-node-id="20240311142429-4585580" data-type="NodeListItem" updated="20240311142429" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240311142429-p3k4grs" data-node-id="20240311142429-p3k4grs" data-type="NodeParagraph" updated="20240311142449" class="p"><div spellcheck="false">采用双拼（需要另外的命令安装双拼功能）</div></div>
+      </div><div id="20240311142453-dtud3wc" data-node-id="20240311142453-dtud3wc" data-type="NodeListItem" updated="20250321173745" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240311142453-mm4hyqe" data-node-id="20240311142453-mm4hyqe" data-type="NodeParagraph" updated="20250321173745" class="p"><div spellcheck="false">屏蔽 <span data-type="kbd">ctrl</span>​ + <span data-type="kbd">`</span>​ （grave）快捷键，切换输入选项（和 vscode 打開終端冲突了，所以我改成了 f4）</div></div>
+      </div></div><div id="20240311142154-s1hb4el" data-node-id="20240311142154-s1hb4el" data-type="NodeCodeBlock" updated="20250321173011" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">yaml</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">patch:
     schema_list:
         - schema: luna_pinyin_simp # 简化字模式
         - schema: double_pinyin_flypy # 小鹤双拼  
     switcher:
         caption: 〔方案選單〕
         hotkeys:
-            # - Control+grave #grave = ` 
+			# 切換輸入法方案
+            # - Control+grave #grave = `  
             - Control+Shift+grave
             - F4
         save_options:
@@ -103,25 +119,31 @@ ibus restart
         abbreviate_options: true
         option_list_separator: '／'
 </div>
-      </div><div id="20240311142027-g3eer6a" data-node-id="20240311142027-g3eer6a" data-type="NodeParagraph" updated="20240311142837" class="p"><div spellcheck="false">然后点击状态栏的 rime 图标点击部署即可。<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../assets/image-20240311142755-r4ja9v9.png"
-  data-src="./../../assets/image-20240311142755-r4ja9v9.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><h2 id="20240312183640-1wme1ss" data-node-id="20240312183640-1wme1ss" data-type="NodeHeading" updated="20240523004200" data-subtype="h2" class="h2">配置双拼</h2><div id="20240522231607-xsc8acr" data-node-id="20240522231607-xsc8acr" data-type="NodeParagraph" updated="20240522231607" class="p"><div spellcheck="false">首先在开始菜单中打开“【小狼毫】輸入法設定”</div></div><div id="20240522231607-d6u7b0s" data-node-id="20240522231607-d6u7b0s" data-type="NodeParagraph" updated="20240522231607" class="p"><div spellcheck="false">点击“獲取更多輸入方案...”，在打开的窗口中输入double-pinyin然后回车</div></div><div id="20240522231607-ovkpze7" data-node-id="20240522231607-ovkpze7" data-type="NodeParagraph" updated="20240522231614" class="p"><div spellcheck="false">输出中看到Everything is OK字样则表示安装成功</div></div><h2 id="20240522231616-yduy11a" data-node-id="20240522231616-yduy11a" data-type="NodeHeading" updated="20240523004200" data-subtype="h2" class="h2">rime同步</h2><div id="20240523001848-5q6qz2x" data-node-id="20240523001848-5q6qz2x" data-type="NodeParagraph" updated="20240523004200" class="p"><div spellcheck="false">windows：<span data-type="code"> .\WeaselDeployer.exe /sync</span>​ ，可以直接运行下面这个命令</div></div><div id="20240523004116-osyok7k" data-node-id="20240523004116-osyok7k" data-type="NodeCodeBlock" updated="20240523004142" class="code-block">
+        </div><div id="20240311142027-g3eer6a" data-node-id="20240311142027-g3eer6a" data-type="NodeList" updated="20250321173908" data-subtype="u" class="list"><div id="20250321173843-4f0pimr" data-node-id="20250321173843-4f0pimr" data-type="NodeListItem" updated="20250321173908" data-subtype="u" class="li" data-marker="*">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">powershell</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          <svg><use xlink:href="#iconDot"></use></svg>
         </div>
-        <div class="hljs" spellcheck="false">& 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\小狼毫输入法\【小狼毫】用户资料同步.lnk'</div>
-      </div><div id="20240523001900-p44gtra" data-node-id="20240523001900-p44gtra" data-type="NodeParagraph" updated="20240523001900" class="p"><div spellcheck="false"></div></div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        <div id="20250321173843-xanzrjr" data-node-id="20250321173843-xanzrjr" data-type="NodeParagraph" updated="20250321173908" class="p"><div spellcheck="false">修改了这个配置文件需要点击重新部署，点击状态栏的 rime 图标点击部署即可。，在windows中直接开始菜单搜索重新部署就能看到<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../assets/image-20240311142755-r4ja9v9.png"
+    data-src="./../../assets/image-20240311142755-r4ja9v9.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div>
+      </div></div><h2 id="20240312183640-1wme1ss" data-node-id="20240312183640-1wme1ss" data-type="NodeHeading" updated="20240523004200" data-subtype="h2" class="h2">配置双拼</h2><div id="20240522231607-xsc8acr" data-node-id="20240522231607-xsc8acr" data-type="NodeParagraph" updated="20240522231607" class="p"><div spellcheck="false">首先在开始菜单中打开“【小狼毫】輸入法設定”</div></div><div id="20240522231607-d6u7b0s" data-node-id="20240522231607-d6u7b0s" data-type="NodeParagraph" updated="20240522231607" class="p"><div spellcheck="false">点击“獲取更多輸入方案...”，在打开的窗口中输入double-pinyin然后回车</div></div><div id="20240522231607-ovkpze7" data-node-id="20240522231607-ovkpze7" data-type="NodeParagraph" updated="20240522231614" class="p"><div spellcheck="false">输出中看到Everything is OK字样则表示安装成功</div></div><h2 id="20240522231616-yduy11a" data-node-id="20240522231616-yduy11a" data-type="NodeHeading" updated="20240523004200" data-subtype="h2" class="h2">rime同步</h2><div id="20240523001848-5q6qz2x" data-node-id="20240523001848-5q6qz2x" data-type="NodeParagraph" updated="20240523004200" class="p"><div spellcheck="false">windows：<span data-type="code"> .\WeaselDeployer.exe /sync</span>​ ，可以直接运行下面这个命令</div></div><div id="20240523004116-osyok7k" data-node-id="20240523004116-osyok7k" data-type="NodeCodeBlock" updated="20240523004142" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">powershell</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">& 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\小狼毫输入法\【小狼毫】用户资料同步.lnk'</div>
+        </div><div id="20240523001900-p44gtra" data-node-id="20240523001900-p44gtra" data-type="NodeParagraph" updated="20240523001900" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -140,7 +162,7 @@ ibus restart
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

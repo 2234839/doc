@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>网络请求的调试方法</title>
 </head>
 <body>
@@ -49,19 +49,27 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210716095156-av6caio" data-node-id="20210716095156-av6caio" data-type="NodeDocument" updated="20240321171628" data-subtype="h1" class="h1" type="doc"></div><h1 id="20210716095156-av6caio" data-node-id="20210716095156-av6caio" data-type="NodeDocument" updated="20240321171628" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">网络请求的调试方法</h1><div id="20210716095156-wpg48mg" data-node-id="20210716095156-wpg48mg" data-type="NodeParagraph" updated="20210716095326" class="p"><div spellcheck="false">有时候会经常遇到一些请求在某些情况下可以得到预期的结果，有时候却出现各种各样的错误</div></div><div id="20210716095349-kvh892j" data-node-id="20210716095349-kvh892j" data-type="NodeParagraph" updated="20210716095416" class="p"><div spellcheck="false">这时候可以将成功与失败的请求都通过下图这样的方式复制为 fetch </div></div><div id="20210716095326-m9l7z2e" data-node-id="20210716095326-m9l7z2e" data-type="NodeParagraph" updated="20210716095346" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/image-20210716095346-4ikzicg.png"
-  data-src="./../assets/image-20210716095346-4ikzicg.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div><div id="20210716095418-prqof15" data-node-id="20210716095418-prqof15" data-type="NodeParagraph" updated="20210716095505" class="p"><div spellcheck="false">然后直接对比他俩究竟有什么区别，这要比自己去审阅代码更容易找到问题</div></div><div id="20210716095521-z72lyoe" data-node-id="20210716095521-z72lyoe" data-type="NodeParagraph" updated="20210716095521" class="p"><div spellcheck="false"></div></div><div id="20210716095522-zrsojud" data-node-id="20210716095522-zrsojud" data-type="NodeParagraph" updated="20210716100154" class="p"><div spellcheck="false">还可以按上图的方式最后一步选择 「<span data-type="strong">复制为cURL(bash)</span>」然后导入 postman 来进行调试</div></div><div id="20210716100154-fi54q5y" data-node-id="20210716100154-fi54q5y" data-type="NodeParagraph" updated="20210716100154" class="p"><div spellcheck="false"></div></div><div id="20210716100355-becq2b8" data-node-id="20210716100355-becq2b8" data-type="NodeThematicBreak" updated="20210716100355" class="hr"><div></div></div><div id="20210716100416-8585h8z" data-node-id="20210716100416-8585h8z" data-type="NodeParagraph" updated="20240321171628" class="p"><div spellcheck="false">​<span data-type="tag">分享/文章</span>​ <a href="https://segmentfault.com/q/1010000040353797#:~:text=%E6%9C%89%E6%97%B6%E5%80%99%E4%BC%9A%E7%BB%8F%E5%B8%B8%E9%81%87%E5%88%B0%E4%B8%80%E4%BA%9B%E8%AF%B7%E6%B1%82%E5%9C%A8%E6%9F%90%E4%BA%9B%E6%83%85%E5%86%B5%E4%B8%8B%E5%8F%AF%E4%BB%A5%E5%BE%97%E5%88%B0%E9%A2%84%E6%9C%9F%E7%9A%84%E7%BB%93%E6%9E%9C%2C%E6%9C%89%E6%97%B6%E5%80%99%E5%8D%B4%E5%87%BA%E7%8E%B0%E5%90%84%E7%A7%8D%E5%90%84%E6%A0%B7%E7%9A%84%E9%94%99%E8%AF%AF">思否</a></div></div><div id="20210716100436-iim1nee" data-node-id="20210716100436-iim1nee" data-type="NodeParagraph" updated="20210716100436" class="p"><div spellcheck="false"></div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20210716095156-av6caio" data-node-id="20210716095156-av6caio" data-type="NodeDocument" updated="20240321171628" type="doc">
+
+<h1 id="20210716095156-av6caio" data-node-id="20210716095156-av6caio" data-type="NodeDocument" updated="20240321171628" type="doc" data-type="NodeHeading" class="h1">网络请求的调试方法</h1>
+<div id="20210716095156-wpg48mg" data-node-id="20210716095156-wpg48mg" data-type="NodeParagraph" updated="20210716095326" class="p"><div spellcheck="false">有时候会经常遇到一些请求在某些情况下可以得到预期的结果，有时候却出现各种各样的错误</div></div><div id="20210716095349-kvh892j" data-node-id="20210716095349-kvh892j" data-type="NodeParagraph" updated="20210716095416" class="p"><div spellcheck="false">这时候可以将成功与失败的请求都通过下图这样的方式复制为 fetch </div></div><div id="20210716095326-m9l7z2e" data-node-id="20210716095326-m9l7z2e" data-type="NodeParagraph" updated="20210716095346" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/image-20210716095346-4ikzicg.png"
+    data-src="./../assets/image-20210716095346-4ikzicg.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div><div id="20210716095418-prqof15" data-node-id="20210716095418-prqof15" data-type="NodeParagraph" updated="20210716095505" class="p"><div spellcheck="false">然后直接对比他俩究竟有什么区别，这要比自己去审阅代码更容易找到问题</div></div><div id="20210716095521-z72lyoe" data-node-id="20210716095521-z72lyoe" data-type="NodeParagraph" updated="20210716095521" class="p"><div spellcheck="false"></div></div><div id="20210716095522-zrsojud" data-node-id="20210716095522-zrsojud" data-type="NodeParagraph" updated="20210716100154" class="p"><div spellcheck="false">还可以按上图的方式最后一步选择 「<span data-type="strong">复制为cURL(bash)</span>」然后导入 postman 来进行调试</div></div><div id="20210716100154-fi54q5y" data-node-id="20210716100154-fi54q5y" data-type="NodeParagraph" updated="20210716100154" class="p"><div spellcheck="false"></div></div><div id="20210716100355-becq2b8" data-node-id="20210716100355-becq2b8" data-type="NodeThematicBreak" updated="20210716100355" class="hr"><div></div></div><div id="20210716100416-8585h8z" data-node-id="20210716100416-8585h8z" data-type="NodeParagraph" updated="20240321171628" class="p"><div spellcheck="false">​<span data-type="tag">分享/文章</span>​ <a href="https://segmentfault.com/q/1010000040353797#:~:text=%E6%9C%89%E6%97%B6%E5%80%99%E4%BC%9A%E7%BB%8F%E5%B8%B8%E9%81%87%E5%88%B0%E4%B8%80%E4%BA%9B%E8%AF%B7%E6%B1%82%E5%9C%A8%E6%9F%90%E4%BA%9B%E6%83%85%E5%86%B5%E4%B8%8B%E5%8F%AF%E4%BB%A5%E5%BE%97%E5%88%B0%E9%A2%84%E6%9C%9F%E7%9A%84%E7%BB%93%E6%9E%9C%2C%E6%9C%89%E6%97%B6%E5%80%99%E5%8D%B4%E5%87%BA%E7%8E%B0%E5%90%84%E7%A7%8D%E5%90%84%E6%A0%B7%E7%9A%84%E9%94%99%E8%AF%AF">思否</a></div></div><div id="20210716100436-iim1nee" data-node-id="20210716100436-iim1nee" data-type="NodeParagraph" updated="20210716100436" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -80,7 +88,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

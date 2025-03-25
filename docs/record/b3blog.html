@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>b3blog</title>
 </head>
 <body>
@@ -49,27 +49,34 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201104153359-r2m5rrg" data-node-id="20201104153359-r2m5rrg" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc"></div><h1 id="20201104153359-r2m5rrg" data-node-id="20201104153359-r2m5rrg" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">b3blog</h1><h1 id="20210521142712-sesz6wi" data-node-id="20210521142712-sesz6wi" data-type="NodeHeading" data-subtype="h1" class="h1">加入 b3blog</h1><div id="20210521142712-9l9nhmv" data-node-id="20210521142712-9l9nhmv" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142712-budyqd6" data-node-id="20210521142712-budyqd6" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142712-ay75ley" data-node-id="20210521142712-ay75ley" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate:2020-04-25 19:21:14</div></div>
-    </div><div id="20210521142712-s9hfogc" data-node-id="20210521142712-s9hfogc" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142712-jgah8q6" data-node-id="20210521142712-jgah8q6" data-type="NodeParagraph" class="p"><div spellcheck="false">tags:b3blog</div></div>
-    </div></div><div id="20210521142712-zt2o8p5" data-node-id="20210521142712-zt2o8p5" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20210521142712-a0awh9o" data-node-id="20210521142712-a0awh9o" data-type="NodeHeading" data-subtype="h2" class="h2">资料</h2><div id="20210521142712-mt0ku4u" data-node-id="20210521142712-mt0ku4u" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20210521142712-nuzkakw" data-node-id="20210521142712-nuzkakw" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
-      <div class="protyle-action">
-        1
-      </div>
-      <div id="20210521142712-kcumd4o" data-node-id="20210521142712-kcumd4o" data-type="NodeParagraph" class="p"><div spellcheck="false">博客发布/更新文章推送社区</div></div>
-    </div></div><div id="20210521142712-jdipa69" data-node-id="20210521142712-jdipa69" data-type="NodeParagraph" class="p"><div spellcheck="false">发布文章和更新文章使用相同的 API，如果 article.id 已经存在则视为更新操作。</div></div><div id="20210521142712-1qkmjg1" data-node-id="20210521142712-1qkmjg1" data-type="NodeParagraph" class="p"><div spellcheck="false">参数在 POST body 中指定 JSON 格式的实参：</div></div><div id="20210521142712-h2524z1" data-node-id="20210521142712-h2524z1" data-type="NodeBlockquote" class="bq"><div id="20210521142712-48psyxm" data-node-id="20210521142712-48psyxm" data-type="NodeParagraph" class="p"><div spellcheck="false">post https://rhythm.b3log.org/api/article</div></div></div><div id="20210521142712-84gnnpf" data-node-id="20210521142712-84gnnpf" data-type="NodeCodeBlock" class="code-block">
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20201104153359-r2m5rrg" data-node-id="20201104153359-r2m5rrg" data-type="NodeDocument" updated="20201104153359" type="doc">
+
+<h1 id="20201104153359-r2m5rrg" data-node-id="20201104153359-r2m5rrg" data-type="NodeDocument" updated="20201104153359" type="doc" data-type="NodeHeading" class="h1">b3blog</h1>
+<h1 id="20210521142712-sesz6wi" data-node-id="20210521142712-sesz6wi" data-type="NodeHeading" data-subtype="h1" class="h1">加入 b3blog</h1><div id="20210521142712-9l9nhmv" data-node-id="20210521142712-9l9nhmv" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142712-budyqd6" data-node-id="20210521142712-budyqd6" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">json</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          <svg><use xlink:href="#iconDot"></use></svg>
         </div>
-        <div class="hljs" spellcheck="false">{
+        <div id="20210521142712-ay75ley" data-node-id="20210521142712-ay75ley" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate:2020-04-25 19:21:14</div></div>
+      </div><div id="20210521142712-s9hfogc" data-node-id="20210521142712-s9hfogc" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142712-jgah8q6" data-node-id="20210521142712-jgah8q6" data-type="NodeParagraph" class="p"><div spellcheck="false">tags:b3blog</div></div>
+      </div></div><div id="20210521142712-zt2o8p5" data-node-id="20210521142712-zt2o8p5" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20210521142712-a0awh9o" data-node-id="20210521142712-a0awh9o" data-type="NodeHeading" data-subtype="h2" class="h2">资料</h2><div id="20210521142712-mt0ku4u" data-node-id="20210521142712-mt0ku4u" data-type="NodeList" data-subtype="o" class="list" data-marker="1"><div id="20210521142712-nuzkakw" data-node-id="20210521142712-nuzkakw" data-type="NodeListItem" data-subtype="o" class="li" data-marker="1">
+        <div class="protyle-action">
+          1
+        </div>
+        <div id="20210521142712-kcumd4o" data-node-id="20210521142712-kcumd4o" data-type="NodeParagraph" class="p"><div spellcheck="false">博客发布/更新文章推送社区</div></div>
+      </div></div><div id="20210521142712-jdipa69" data-node-id="20210521142712-jdipa69" data-type="NodeParagraph" class="p"><div spellcheck="false">发布文章和更新文章使用相同的 API，如果 article.id 已经存在则视为更新操作。</div></div><div id="20210521142712-1qkmjg1" data-node-id="20210521142712-1qkmjg1" data-type="NodeParagraph" class="p"><div spellcheck="false">参数在 POST body 中指定 JSON 格式的实参：</div></div><div id="20210521142712-h2524z1" data-node-id="20210521142712-h2524z1" data-type="NodeBlockquote" class="bq"><div id="20210521142712-48psyxm" data-node-id="20210521142712-48psyxm" data-type="NodeParagraph" class="p"><div spellcheck="false">post https://rhythm.b3log.org/api/article</div></div></div><div id="20210521142712-84gnnpf" data-node-id="20210521142712-84gnnpf" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">json</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">{
   "article": {
     "id": "1165070220000",
     "title": "这是一篇测试文章",
@@ -87,11 +94,12 @@
   }
 }
 </div>
-      </div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -110,7 +118,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

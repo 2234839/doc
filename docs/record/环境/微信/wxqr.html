@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>wxqr</title>
 </head>
 <body>
@@ -49,30 +49,37 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201104153359-4xivpsg" data-node-id="20201104153359-4xivpsg" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc"></div><h1 id="20201104153359-4xivpsg" data-node-id="20201104153359-4xivpsg" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">wxqr</h1><h1 id="20210521142713-h21iuvp" data-node-id="20210521142713-h21iuvp" data-type="NodeHeading" data-subtype="h1" class="h1">微信扫码</h1><div id="20210521142713-k65idlm" data-node-id="20210521142713-k65idlm" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142713-1qn4zql" data-node-id="20210521142713-1qn4zql" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142713-tkxuj2y" data-node-id="20210521142713-tkxuj2y" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate: 2019-04-08 10:56:28</div></div>
-    </div><div id="20210521142713-71x8o0h" data-node-id="20210521142713-71x8o0h" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142713-p920qgf" data-node-id="20210521142713-p920qgf" data-type="NodeParagraph" class="p"><div spellcheck="false">tags : 微信，javascript,mui</div></div>
-    </div></div><div id="20210521142713-lbsqpql" data-node-id="20210521142713-lbsqpql" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20210521142713-xfnex1f" data-node-id="20210521142713-xfnex1f" data-type="NodeHeading" data-subtype="h2" class="h2">先引入微信的 js 文件</h2><div id="20210521142713-ymx7f7w" data-node-id="20210521142713-ymx7f7w" data-type="NodeCodeBlock" class="code-block">
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20201104153359-4xivpsg" data-node-id="20201104153359-4xivpsg" data-type="NodeDocument" updated="20201104153359" type="doc">
+
+<h1 id="20201104153359-4xivpsg" data-node-id="20201104153359-4xivpsg" data-type="NodeDocument" updated="20201104153359" type="doc" data-type="NodeHeading" class="h1">wxqr</h1>
+<h1 id="20210521142713-h21iuvp" data-node-id="20210521142713-h21iuvp" data-type="NodeHeading" data-subtype="h1" class="h1">微信扫码</h1><div id="20210521142713-k65idlm" data-node-id="20210521142713-k65idlm" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142713-1qn4zql" data-node-id="20210521142713-1qn4zql" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">html</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          <svg><use xlink:href="#iconDot"></use></svg>
         </div>
-        <div class="hljs" spellcheck="false"><script src="/static/jquery-3.3.1.min.js"></script>
+        <div id="20210521142713-tkxuj2y" data-node-id="20210521142713-tkxuj2y" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate: 2019-04-08 10:56:28</div></div>
+      </div><div id="20210521142713-71x8o0h" data-node-id="20210521142713-71x8o0h" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142713-p920qgf" data-node-id="20210521142713-p920qgf" data-type="NodeParagraph" class="p"><div spellcheck="false">tags : 微信，javascript,mui</div></div>
+      </div></div><div id="20210521142713-lbsqpql" data-node-id="20210521142713-lbsqpql" data-type="NodeThematicBreak" class="hr"><div></div></div><h2 id="20210521142713-xfnex1f" data-node-id="20210521142713-xfnex1f" data-type="NodeHeading" data-subtype="h2" class="h2">先引入微信的 js 文件</h2><div id="20210521142713-ymx7f7w" data-node-id="20210521142713-ymx7f7w" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">html</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"><script src="/static/jquery-3.3.1.min.js"></script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </div>
-      </div><h2 id="20210521142713-px8gy8u" data-node-id="20210521142713-px8gy8u" data-type="NodeHeading" data-subtype="h2" class="h2">判断是不是在微信内的方法</h2><div id="20210521142713-qluwd67" data-node-id="20210521142713-qluwd67" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">javascript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">function isWeiXin(){
+        </div><h2 id="20210521142713-px8gy8u" data-node-id="20210521142713-px8gy8u" data-type="NodeHeading" data-subtype="h2" class="h2">判断是不是在微信内的方法</h2><div id="20210521142713-qluwd67" data-node-id="20210521142713-qluwd67" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">javascript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">function isWeiXin(){
 　　var ua = window.navigator.userAgent.toLowerCase();
 　　if(ua.match(/MicroMessenger/i) == 'micromessenger'){
 　　　　return true;
@@ -82,12 +89,12 @@
 　　}
 }
 </div>
-      </div><h2 id="20210521142713-9us395v" data-node-id="20210521142713-9us395v" data-type="NodeHeading" data-subtype="h2" class="h2">调用微信扫一扫</h2><div id="20210521142713-hcl0e0z" data-node-id="20210521142713-hcl0e0z" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">javascript</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">$.ajax('http://dfpay.ltoyun.com/wx/sweep/es',{
+        </div><h2 id="20210521142713-9us395v" data-node-id="20210521142713-9us395v" data-type="NodeHeading" data-subtype="h2" class="h2">调用微信扫一扫</h2><div id="20210521142713-hcl0e0z" data-node-id="20210521142713-hcl0e0z" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">javascript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">$.ajax('http://dfpay.ltoyun.com/wx/sweep/es',{
 	data:{
 	    url:encodeURIComponent(location.href.split('#')[0]),
         state:'fxmtest123'
@@ -121,11 +128,12 @@ wx.ready(function() {
     });
 });
 </div>
-      </div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -144,7 +152,7 @@ wx.ready(function() {
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

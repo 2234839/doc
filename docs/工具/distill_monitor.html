@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>distill_monitor</title>
 </head>
 <body>
@@ -49,27 +49,35 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20240115162002-i24yr9v" data-node-id="20240115162002-i24yr9v" data-type="NodeDocument" updated="20240605202137" data-subtype="h1" class="h1" type="doc"></div><h1 id="20240115162002-i24yr9v" data-node-id="20240115162002-i24yr9v" data-type="NodeDocument" updated="20240605202137" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">distill_monitor</h1><div id="20240115162106-8hirs0s" data-node-id="20240115162106-8hirs0s" data-type="NodeParagraph" updated="20240115162324" class="p"><div spellcheck="false">浏览器插件，用于监听网页变化。可以使用 css 选择器和 js 代码来选择想要监听的部分。</div></div><div id="20240115162324-56anu65" data-node-id="20240115162324-56anu65" data-type="NodeParagraph" updated="20240115162344" class="p"><div spellcheck="false">提供 webhook 和邮件通知功能（免费账户的邮件通知数量有限）</div></div><div id="20240115162059-e5ercoe" data-node-id="20240115162059-e5ercoe" data-type="NodeParagraph" updated="20240115162359" class="p"><div spellcheck="false"><a href="https://monitor.distill.io/">https://monitor.distill.io/</a></div></div><h2 id="20240605183155-nkjaxzg" data-node-id="20240605183155-nkjaxzg" data-type="NodeHeading" updated="20240605202137" data-subtype="h2" class="h2">distill Web Monitor 去除任务数量限制</h2><div id="20240605192141-5y4uqjl" data-node-id="20240605192141-5y4uqjl" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false">编写此文章时 3.6.12 版本可用。</div></div><div id="20240605191557-v5jk9lt" data-node-id="20240605191557-v5jk9lt" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false">第一步：修改源码（<span data-type="strong">这一步可以跳过</span>）</div></div><div id="20240605184227-qubjwkn" data-node-id="20240605184227-qubjwkn" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false">先正常登录使得能够打开插件，然后根据下面的方式找到 distill 的 xpi</div></div><div id="20240605183918-fwrvlr9" data-node-id="20240605183918-fwrvlr9" data-type="NodeBlockQueryEmbed" updated="20240605192804" data-type="NodeBlockquote" class="bq"><div id="20240605171444-cm0de4u" data-node-id="20240605171444-cm0de4u" data-type="NodeParagraph" updated="20240605171647" class="p"><div spellcheck="false">地址栏输入 about:support 查看支持，在这个页面打开配置文件夹可以查看数据存放地址，扩展所在地址</div></div></div><div id="20240605183842-668pbk2" data-node-id="20240605183842-668pbk2" data-type="NodeBlockQueryEmbed" updated="20240605192804" data-type="NodeBlockquote" class="bq"><div id="20240605171649-eyl7uj5" data-node-id="20240605171649-eyl7uj5" data-type="NodeParagraph" updated="20240605171740" class="p"><div spellcheck="false">对于使用id命名的扩展xpi可以在扩展管理界面查看最后更新时间去确定是哪一个，可以直接修改xpi包来调整扩展。</div></div></div><div id="20240605184210-gxv8egj" data-node-id="20240605184210-gxv8egj" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false">再将 ui/assets/label.d933b3ec.js 中的 checkSieveConstraint的limit变量由原来的25修改为999</div></div><div id="20240605184213-bdbod1u" data-node-id="20240605184213-bdbod1u" data-type="NodeSuperBlock" updated="20240605192804" class="sb" data-sb-layout="col"><div id="20240605184050-j8ncthp" data-node-id="20240605184050-j8ncthp" data-type="NodeParagraph" updated="20240605184214" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 525px;" style="width: 515px;" style="width: 525px;">
-<img
-  src="./../assets/image-20240605184050-klbjwba.png"
-  data-src="./../assets/image-20240605184050-klbjwba.png"
-  title=""
-  style="width: 515px;"
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20240605184105-ap3u31s" data-node-id="20240605184105-ap3u31s" data-type="NodeParagraph" updated="20240605184214" class="p"><div spellcheck="false"></div></div></div><div id="20240605191729-hlofj4f" data-node-id="20240605191729-hlofj4f" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false"></div></div><div id="20240605184416-yf591tk" data-node-id="20240605184416-yf591tk" data-type="NodeParagraph" updated="20240605191743" class="p"><div spellcheck="false">第二步：然后在firefox的配置项中，在 extensions.webextensions.restrictedDomains 中添加 <span data-type="code">,api.distill.io</span>​ 禁止扩展访问该域名</div></div><div id="20240605191646-65hmiwc" data-node-id="20240605191646-65hmiwc" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/image-20240605191646-p5dfkpc.png"
-  data-src="./../assets/image-20240605191646-p5dfkpc.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20240605191726-aqll9me" data-node-id="20240605191726-aqll9me" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false">原理是这个扩展完全可以不依赖它自身的在线服务运行，他会通过服务来判断是否超出来25条然后将超出的移动到回收站。禁止访问该域名就放弃了云同步，他就无法执行上述操作了。</div></div><div id="20240605202137-lxugx5a" data-node-id="20240605202137-lxugx5a" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20240115162002-i24yr9v" data-node-id="20240115162002-i24yr9v" data-type="NodeDocument" updated="20240605202137" type="doc">
+
+<h1 id="20240115162002-i24yr9v" data-node-id="20240115162002-i24yr9v" data-type="NodeDocument" updated="20240605202137" type="doc" data-type="NodeHeading" class="h1">distill_monitor</h1>
+<div id="20240115162106-8hirs0s" data-node-id="20240115162106-8hirs0s" data-type="NodeParagraph" updated="20240115162324" class="p"><div spellcheck="false">浏览器插件，用于监听网页变化。可以使用 css 选择器和 js 代码来选择想要监听的部分。</div></div><div id="20240115162324-56anu65" data-node-id="20240115162324-56anu65" data-type="NodeParagraph" updated="20240115162344" class="p"><div spellcheck="false">提供 webhook 和邮件通知功能（免费账户的邮件通知数量有限）</div></div><div id="20240115162059-e5ercoe" data-node-id="20240115162059-e5ercoe" data-type="NodeParagraph" updated="20240115162359" class="p"><div spellcheck="false"><a href="https://monitor.distill.io/">https://monitor.distill.io/</a></div></div><h2 id="20240605183155-nkjaxzg" data-node-id="20240605183155-nkjaxzg" data-type="NodeHeading" updated="20240605202137" data-subtype="h2" class="h2">distill Web Monitor 去除任务数量限制</h2><div id="20240605192141-5y4uqjl" data-node-id="20240605192141-5y4uqjl" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false">编写此文章时 3.6.12 版本可用。</div></div><div id="20240605191557-v5jk9lt" data-node-id="20240605191557-v5jk9lt" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false">第一步：修改源码（<span data-type="strong">这一步可以跳过</span>）</div></div><div id="20240605184227-qubjwkn" data-node-id="20240605184227-qubjwkn" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false">先正常登录使得能够打开插件，然后根据下面的方式找到 distill 的 xpi</div></div><div id="20240605183918-fwrvlr9" data-node-id="20240605183918-fwrvlr9" data-type="NodeBlockQueryEmbed" updated="20240605192804" data-type="NodeBlockquote" class="bq">  <div id="20240605171444-cm0de4u" data-node-id="20240605171444-cm0de4u" data-type="NodeParagraph" updated="20240605171647" class="p"><div spellcheck="false">地址栏输入 about:support 查看支持，在这个页面打开配置文件夹可以查看数据存放地址，扩展所在地址</div></div>  </div><div id="20240605183842-668pbk2" data-node-id="20240605183842-668pbk2" data-type="NodeBlockQueryEmbed" updated="20240605192804" data-type="NodeBlockquote" class="bq">  <div id="20240605171649-eyl7uj5" data-node-id="20240605171649-eyl7uj5" data-type="NodeParagraph" updated="20240605171740" class="p"><div spellcheck="false">对于使用id命名的扩展xpi可以在扩展管理界面查看最后更新时间去确定是哪一个，可以直接修改xpi包来调整扩展。</div></div>  </div><div id="20240605184210-gxv8egj" data-node-id="20240605184210-gxv8egj" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false">再将 ui/assets/label.d933b3ec.js 中的 checkSieveConstraint的limit变量由原来的25修改为999</div></div><div id="20240605184213-bdbod1u" data-node-id="20240605184213-bdbod1u" data-type="NodeSuperBlock" updated="20240605192804" class="sb" data-sb-layout="col"><div id="20240605184050-j8ncthp" data-node-id="20240605184050-j8ncthp" data-type="NodeParagraph" updated="20240605184214" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 525px;" style="width: 515px;" style="width: 525px;">
+  <img
+    src="./../assets/image-20240605184050-klbjwba.png"
+    data-src="./../assets/image-20240605184050-klbjwba.png"
+    title=""
+    style="width: 515px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20240605184105-ap3u31s" data-node-id="20240605184105-ap3u31s" data-type="NodeParagraph" updated="20240605184214" class="p"><div spellcheck="false"></div></div></div><div id="20240605191729-hlofj4f" data-node-id="20240605191729-hlofj4f" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false"></div></div><div id="20240605184416-yf591tk" data-node-id="20240605184416-yf591tk" data-type="NodeParagraph" updated="20240605191743" class="p"><div spellcheck="false">第二步：然后在firefox的配置项中，在 extensions.webextensions.restrictedDomains 中添加 <span data-type="code">,api.distill.io</span>​ 禁止扩展访问该域名</div></div><div id="20240605191646-65hmiwc" data-node-id="20240605191646-65hmiwc" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/image-20240605191646-p5dfkpc.png"
+    data-src="./../assets/image-20240605191646-p5dfkpc.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20240605191726-aqll9me" data-node-id="20240605191726-aqll9me" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false">原理是这个扩展完全可以不依赖它自身的在线服务运行，他会通过服务来判断是否超出来25条然后将超出的移动到回收站。禁止访问该域名就放弃了云同步，他就无法执行上述操作了。</div></div><div id="20240605202137-lxugx5a" data-node-id="20240605202137-lxugx5a" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -88,7 +96,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

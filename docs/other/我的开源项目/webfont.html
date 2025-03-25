@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>webfont</title>
 </head>
 <body>
@@ -49,19 +49,27 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20240818115523-hf23y5f" data-node-id="20240818115523-hf23y5f" data-type="NodeDocument" updated="20240818115749" data-subtype="h1" class="h1" type="doc"></div><h1 id="20240818115523-hf23y5f" data-node-id="20240818115523-hf23y5f" data-type="NodeDocument" updated="20240818115749" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">webfont</h1><div id="20240818115629-lai7b71" data-node-id="20240818115629-lai7b71" data-type="NodeParagraph" updated="20240818115629" class="p"><div spellcheck="false"><a href="https://github.com/2234839/web-font">webfont</a></div></div><h2 id="20240818115630-dorzf4t" data-node-id="20240818115630-dorzf4t" data-type="NodeHeading" updated="20240818115749" data-subtype="h2" class="h2">重构实现</h2><div id="20240818115642-g0u3fpc" data-node-id="20240818115642-g0u3fpc" data-type="NodeParagraph" updated="20240818115713" class="p"><div spellcheck="false">我看上了 llrt 的小体积，于是实现了一版支持llrt 的</div></div><div id="20240818115714-3dlgkdz" data-node-id="20240818115714-3dlgkdz" data-type="NodeParagraph" updated="20240818115730" class="p"><div spellcheck="false">在速度方面，比node慢了足足一倍</div></div><div id="20240818115749-nnjzgg3" data-node-id="20240818115749-nnjzgg3" data-type="NodeParagraph" updated="20240818115749" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 472px;" style="width: 462px;" style="width: 472px;">
-<img
-  src="./../../assets/image-20240818115749-2tn66zl.png"
-  data-src="./../../assets/image-20240818115749-2tn66zl.png"
-  title=""
-  style="width: 462px;"
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20240818115523-hf23y5f" data-node-id="20240818115523-hf23y5f" data-type="NodeDocument" updated="20240818115749" type="doc">
+
+<h1 id="20240818115523-hf23y5f" data-node-id="20240818115523-hf23y5f" data-type="NodeDocument" updated="20240818115749" type="doc" data-type="NodeHeading" class="h1">webfont</h1>
+<div id="20240818115629-lai7b71" data-node-id="20240818115629-lai7b71" data-type="NodeParagraph" updated="20240818115629" class="p"><div spellcheck="false"><a href="https://github.com/2234839/web-font">webfont</a></div></div><h2 id="20240818115630-dorzf4t" data-node-id="20240818115630-dorzf4t" data-type="NodeHeading" updated="20240818115749" data-subtype="h2" class="h2">重构实现</h2><div id="20240818115642-g0u3fpc" data-node-id="20240818115642-g0u3fpc" data-type="NodeParagraph" updated="20240818115713" class="p"><div spellcheck="false">我看上了 llrt 的小体积，于是实现了一版支持llrt 的</div></div><div id="20240818115714-3dlgkdz" data-node-id="20240818115714-3dlgkdz" data-type="NodeParagraph" updated="20240818115730" class="p"><div spellcheck="false">在速度方面，比node慢了足足一倍</div></div><div id="20240818115749-nnjzgg3" data-node-id="20240818115749-nnjzgg3" data-type="NodeParagraph" updated="20240818115749" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 472px;" style="width: 462px;" style="width: 472px;">
+  <img
+    src="./../../assets/image-20240818115749-2tn66zl.png"
+    data-src="./../../assets/image-20240818115749-2tn66zl.png"
+    title=""
+    style="width: 462px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -80,7 +88,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

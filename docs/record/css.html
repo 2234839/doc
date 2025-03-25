@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>css</title>
 </head>
 <body>
@@ -49,31 +49,39 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20201104153359-yr20jlk" data-node-id="20201104153359-yr20jlk" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc"></div><h1 id="20201104153359-yr20jlk" data-node-id="20201104153359-yr20jlk" data-type="NodeDocument" updated="20201104153359" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">css</h1><h1 id="20210521142712-8yzo03e" data-node-id="20210521142712-8yzo03e" data-type="NodeHeading" data-subtype="h1" class="h1">记录一些有用的 CSS 方法</h1><div id="20210521142712-2b9u2at" data-node-id="20210521142712-2b9u2at" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142712-g7wb6tv" data-node-id="20210521142712-g7wb6tv" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142712-1grauzq" data-node-id="20210521142712-1grauzq" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate :2019-04-23 09:37:44</div></div>
-    </div><div id="20210521142712-dett9wh" data-node-id="20210521142712-dett9wh" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210521142712-rd7fsis" data-node-id="20210521142712-rd7fsis" data-type="NodeParagraph" class="p"><div spellcheck="false">tag : CSS</div></div>
-    </div></div><div id="20210521142712-g02rip6" data-node-id="20210521142712-g02rip6" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210521142712-nnxzvow" data-node-id="20210521142712-nnxzvow" data-type="NodeParagraph" class="p"><div spellcheck="false">background-size <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-size">调整背景的大小</a></div></div><h2 id="20210521142712-q3vxxsk" data-node-id="20210521142712-q3vxxsk" data-type="NodeHeading" data-subtype="h2" class="h2">聚光灯效果</h2><div id="20210521142712-5t85i6z" data-node-id="20210521142712-5t85i6z" data-type="NodeCodeBlock" class="code-block">
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20201104153359-yr20jlk" data-node-id="20201104153359-yr20jlk" data-type="NodeDocument" updated="20201104153359" type="doc">
+
+<h1 id="20201104153359-yr20jlk" data-node-id="20201104153359-yr20jlk" data-type="NodeDocument" updated="20201104153359" type="doc" data-type="NodeHeading" class="h1">css</h1>
+<h1 id="20210521142712-8yzo03e" data-node-id="20210521142712-8yzo03e" data-type="NodeHeading" data-subtype="h1" class="h1">记录一些有用的 CSS 方法</h1><div id="20210521142712-2b9u2at" data-node-id="20210521142712-2b9u2at" data-type="NodeList" data-subtype="u" class="list" data-marker="-"><div id="20210521142712-g7wb6tv" data-node-id="20210521142712-g7wb6tv" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">html{run .hidden}</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          <svg><use xlink:href="#iconDot"></use></svg>
         </div>
-        <div class="hljs" spellcheck="false"><iframe height="265" style="width: 100%;" scrolling="no" title="聚光灯效果" src="https://codepen.io/2234839/embed/gOpdwJm?height=265&theme-id=light&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+        <div id="20210521142712-1grauzq" data-node-id="20210521142712-1grauzq" data-type="NodeParagraph" class="p"><div spellcheck="false">pubdate :2019-04-23 09:37:44</div></div>
+      </div><div id="20210521142712-dett9wh" data-node-id="20210521142712-dett9wh" data-type="NodeListItem" data-subtype="u" class="li" data-marker="-">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210521142712-rd7fsis" data-node-id="20210521142712-rd7fsis" data-type="NodeParagraph" class="p"><div spellcheck="false">tag : CSS</div></div>
+      </div></div><div id="20210521142712-g02rip6" data-node-id="20210521142712-g02rip6" data-type="NodeThematicBreak" class="hr"><div></div></div><div id="20210521142712-nnxzvow" data-node-id="20210521142712-nnxzvow" data-type="NodeParagraph" class="p"><div spellcheck="false">background-size <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-size">调整背景的大小</a></div></div><h2 id="20210521142712-q3vxxsk" data-node-id="20210521142712-q3vxxsk" data-type="NodeHeading" data-subtype="h2" class="h2">聚光灯效果</h2><div id="20210521142712-5t85i6z" data-node-id="20210521142712-5t85i6z" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">html{run .hidden}</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"><iframe height="265" style="width: 100%;" scrolling="no" title="聚光灯效果" src="https://codepen.io/2234839/embed/gOpdwJm?height=265&theme-id=light&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/2234839/pen/gOpdwJm'>聚光灯效果</a> by 崮生
   (<a href='https://codepen.io/2234839'>@2234839</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 </div>
-      </div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -92,7 +100,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>2024-06-07</title>
 </head>
 <body>
@@ -49,31 +49,39 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20240607105808-d30mtvl" data-node-id="20240607105808-d30mtvl" data-type="NodeDocument" updated="20240607133513" data-subtype="h1" class="h1" custom-dailynote-20240607="20240607" type="doc"></div><h1 id="20240607105808-d30mtvl" data-node-id="20240607105808-d30mtvl" data-type="NodeDocument" updated="20240607133513" data-subtype="h1" class="h1" custom-dailynote-20240607="20240607" type="doc" data-type="NodeHeading" class="h1">2024-06-07</h1><h2 id="20240607105808-ou34qk2" data-node-id="20240607105808-ou34qk2" data-type="NodeHeading" updated="20240607133513" data-subtype="h2" class="h2">sqlite sql 转义字符</h2><div id="20240607105826-x1as19u" data-node-id="20240607105826-x1as19u" data-type="NodeParagraph" updated="20240607105831" class="p"><div spellcheck="false">SQLite使用反斜杠（\）作为转义字符，用于转义特殊字符。下面是一些常见的特殊字符及其转义形式：</div></div><div id="20240607105826-27zdi3a" data-node-id="20240607105826-27zdi3a" data-type="NodeList" updated="20240607105831" data-subtype="u" class="list"><div id="20240607105826-mtfd9xn" data-node-id="20240607105826-mtfd9xn" data-type="NodeListItem" updated="20240607105826" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240607105826-kbe3a0t" data-node-id="20240607105826-kbe3a0t" data-type="NodeParagraph" updated="20240607105826" class="p"><div spellcheck="false">单引号（’）: 可以用两个相邻的单引号（”）进行转义。</div></div>
-    </div><div id="20240607105826-xhil9w3" data-node-id="20240607105826-xhil9w3" data-type="NodeListItem" updated="20240607105826" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240607105826-7xw744n" data-node-id="20240607105826-7xw744n" data-type="NodeParagraph" updated="20240607105826" class="p"><div spellcheck="false">双引号（”）: 可以用两个相邻的双引号（””）进行转义。</div></div>
-    </div><div id="20240607105826-2032kjh" data-node-id="20240607105826-2032kjh" data-type="NodeListItem" updated="20240607105826" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240607105826-adl81ny" data-node-id="20240607105826-adl81ny" data-type="NodeParagraph" updated="20240607105826" class="p"><div spellcheck="false">百分号（%）: 可以用反斜杠（%）进行转义。</div></div>
-    </div><div id="20240607105826-6e621rt" data-node-id="20240607105826-6e621rt" data-type="NodeListItem" updated="20240607105826" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240607105826-52mj3ir" data-node-id="20240607105826-52mj3ir" data-type="NodeParagraph" updated="20240607105826" class="p"><div spellcheck="false">下划线（_）: 可以用反斜杠（_）进行转义。</div></div>
-    </div></div><h2 id="20240607105832-e3mnfkp" data-node-id="20240607105832-e3mnfkp" data-type="NodeHeading" updated="20240607133513" data-subtype="h2" class="h2">无法访问知乎</h2><div id="20240607115836-kr6xtlh" data-node-id="20240607115836-kr6xtlh" data-type="NodeParagraph" updated="20240607120015" class="p"><div spellcheck="false">我使用firfox浏览器开启 doh 之后，使用的 https://doh.360.cn/dns-query 服务，事实上上我更换其他的阿里、腾讯都无法打开知乎的界面，提示：连接到 www.zhihu.com 时发生错误。PR_END_OF_FILE_ERROR</div></div><h2 id="20240607120016-7irsd7c" data-node-id="20240607120016-7irsd7c" data-type="NodeHeading" updated="20240607133513" data-subtype="h2" class="h2">思源笔记转视频</h2><div id="20240607133432-wixhdfg" data-node-id="20240607133432-wixhdfg" data-type="NodeParagraph" updated="20240607133513" class="p"><div spellcheck="false">一个超级块是一个片段，超级块内含图片作为背景，录音和视频直接播放</div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20240607105808-d30mtvl" data-node-id="20240607105808-d30mtvl" data-type="NodeDocument" updated="20240607133513" custom-dailynote-20240607="20240607" type="doc">
+
+<h1 id="20240607105808-d30mtvl" data-node-id="20240607105808-d30mtvl" data-type="NodeDocument" updated="20240607133513" custom-dailynote-20240607="20240607" type="doc" data-type="NodeHeading" class="h1">2024-06-07</h1>
+<h2 id="20240607105808-ou34qk2" data-node-id="20240607105808-ou34qk2" data-type="NodeHeading" updated="20240607133513" data-subtype="h2" class="h2">sqlite sql 转义字符</h2><div id="20240607105826-x1as19u" data-node-id="20240607105826-x1as19u" data-type="NodeParagraph" updated="20240607105831" class="p"><div spellcheck="false">SQLite使用反斜杠（\）作为转义字符，用于转义特殊字符。下面是一些常见的特殊字符及其转义形式：</div></div><div id="20240607105826-27zdi3a" data-node-id="20240607105826-27zdi3a" data-type="NodeList" updated="20240607105831" data-subtype="u" class="list"><div id="20240607105826-mtfd9xn" data-node-id="20240607105826-mtfd9xn" data-type="NodeListItem" updated="20240607105826" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240607105826-kbe3a0t" data-node-id="20240607105826-kbe3a0t" data-type="NodeParagraph" updated="20240607105826" class="p"><div spellcheck="false">单引号（’）: 可以用两个相邻的单引号（”）进行转义。</div></div>
+      </div><div id="20240607105826-xhil9w3" data-node-id="20240607105826-xhil9w3" data-type="NodeListItem" updated="20240607105826" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240607105826-7xw744n" data-node-id="20240607105826-7xw744n" data-type="NodeParagraph" updated="20240607105826" class="p"><div spellcheck="false">双引号（”）: 可以用两个相邻的双引号（””）进行转义。</div></div>
+      </div><div id="20240607105826-2032kjh" data-node-id="20240607105826-2032kjh" data-type="NodeListItem" updated="20240607105826" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240607105826-adl81ny" data-node-id="20240607105826-adl81ny" data-type="NodeParagraph" updated="20240607105826" class="p"><div spellcheck="false">百分号（%）: 可以用反斜杠（%）进行转义。</div></div>
+      </div><div id="20240607105826-6e621rt" data-node-id="20240607105826-6e621rt" data-type="NodeListItem" updated="20240607105826" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240607105826-52mj3ir" data-node-id="20240607105826-52mj3ir" data-type="NodeParagraph" updated="20240607105826" class="p"><div spellcheck="false">下划线（_）: 可以用反斜杠（_）进行转义。</div></div>
+      </div></div><h2 id="20240607105832-e3mnfkp" data-node-id="20240607105832-e3mnfkp" data-type="NodeHeading" updated="20240607133513" data-subtype="h2" class="h2">无法访问知乎</h2><div id="20240607115836-kr6xtlh" data-node-id="20240607115836-kr6xtlh" data-type="NodeParagraph" updated="20240607120015" class="p"><div spellcheck="false">我使用firfox浏览器开启 doh 之后，使用的 https://doh.360.cn/dns-query 服务，事实上上我更换其他的阿里、腾讯都无法打开知乎的界面，提示：连接到 www.zhihu.com 时发生错误。PR_END_OF_FILE_ERROR</div></div><h2 id="20240607120016-7irsd7c" data-node-id="20240607120016-7irsd7c" data-type="NodeHeading" updated="20240607133513" data-subtype="h2" class="h2">思源笔记转视频</h2><div id="20240607133432-wixhdfg" data-node-id="20240607133432-wixhdfg" data-type="NodeParagraph" updated="20240607133513" class="p"><div spellcheck="false">一个超级块是一个片段，超级块内含图片作为背景，录音和视频直接播放</div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -92,7 +100,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

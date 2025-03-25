@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>vue动态引入替换组件</title>
 </head>
 <body>
@@ -49,43 +49,51 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210106142508-wr3ob9l" data-node-id="20210106142508-wr3ob9l" data-type="NodeDocument" updated="20210106142508" data-subtype="h1" class="h1" type="doc"></div><h1 id="20210106142508-wr3ob9l" data-node-id="20210106142508-wr3ob9l" data-type="NodeDocument" updated="20210106142508" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">vue动态引入替换组件</h1><div id="20210106142508-d0hfqsg" data-node-id="20210106142508-d0hfqsg" data-type="NodeBlockquote" class="bq"><div id="20210106142513-t5pr7r4" data-node-id="20210106142513-t5pr7r4" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://www.zhihu.com/question/437966971">如何动态引入Vue组件？</a></div></div></div><div id="20210106142531-qqra541" data-node-id="20210106142531-qqra541" data-type="NodeParagraph" class="p"><div spellcheck="false">我第一时间想到的就是 <span data-type="code">import</span>,</div></div><div id="20210106142549-p3kt4be" data-node-id="20210106142549-p3kt4be" data-type="NodeParagraph" class="p"><div spellcheck="false">刚上手实现了一遍，挺简单的。 <a href="https://2234839.github.io/vue-demo/">体验地址</a><span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../assets/20210106142656-zqcgr3y-image.png"
-  data-src="./../../assets/20210106142656-zqcgr3y-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div><div id="20210106142655-1c5g5v1" data-node-id="20210106142655-1c5g5v1" data-type="NodeParagraph" class="p"><div spellcheck="false">只注意红框内就好了，懒得新建项目了，在之前的测试项目上实现的</div></div><div id="20210106142723-4l0qxr7" data-node-id="20210106142723-4l0qxr7" data-type="NodeParagraph" class="p"><div spellcheck="false">我的想法是先使用 <span data-type="code">import()</span>建立一个组件表 <span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../assets/20210106142758-4w9jf5t-image.png"
-  data-src="./../../assets/20210106142758-4w9jf5t-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div><div id="20210106142800-37a2axb" data-node-id="20210106142800-37a2axb" data-type="NodeParagraph" class="p"><div spellcheck="false">然后根据用户输入选择不同的组件 <span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../assets/20210106142916-8qi5eiv-image.png"
-  data-src="./../../assets/20210106142916-8qi5eiv-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div><div id="20210106142918-g65j9da" data-node-id="20210106142918-g65j9da" data-type="NodeParagraph" class="p"><div spellcheck="false">没了....</div></div><div id="20210106142921-f78d4z7" data-node-id="20210106142921-f78d4z7" data-type="NodeParagraph" class="p"><div spellcheck="false">就这么简单，我之前都想复杂了</div></div><div id="20210106142941-y7t63cv" data-node-id="20210106142941-y7t63cv" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../assets/20210106142941-2sr62c1-image.png"
-  data-src="./../../assets/20210106142941-2sr62c1-image.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span></div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20210106142508-wr3ob9l" data-node-id="20210106142508-wr3ob9l" data-type="NodeDocument" updated="20210106142508" type="doc">
+
+<h1 id="20210106142508-wr3ob9l" data-node-id="20210106142508-wr3ob9l" data-type="NodeDocument" updated="20210106142508" type="doc" data-type="NodeHeading" class="h1">vue动态引入替换组件</h1>
+<div id="20210106142508-d0hfqsg" data-node-id="20210106142508-d0hfqsg" data-type="NodeBlockquote" class="bq"><div id="20210106142513-t5pr7r4" data-node-id="20210106142513-t5pr7r4" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://www.zhihu.com/question/437966971">如何动态引入Vue组件？</a></div></div></div><div id="20210106142531-qqra541" data-node-id="20210106142531-qqra541" data-type="NodeParagraph" class="p"><div spellcheck="false">我第一时间想到的就是 <span data-type="code">import</span>,</div></div><div id="20210106142549-p3kt4be" data-node-id="20210106142549-p3kt4be" data-type="NodeParagraph" class="p"><div spellcheck="false">刚上手实现了一遍，挺简单的。 <a href="https://2234839.github.io/vue-demo/">体验地址</a><span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../assets/20210106142656-zqcgr3y-image.png"
+    data-src="./../../assets/20210106142656-zqcgr3y-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div><div id="20210106142655-1c5g5v1" data-node-id="20210106142655-1c5g5v1" data-type="NodeParagraph" class="p"><div spellcheck="false">只注意红框内就好了，懒得新建项目了，在之前的测试项目上实现的</div></div><div id="20210106142723-4l0qxr7" data-node-id="20210106142723-4l0qxr7" data-type="NodeParagraph" class="p"><div spellcheck="false">我的想法是先使用 <span data-type="code">import()</span>建立一个组件表 <span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../assets/20210106142758-4w9jf5t-image.png"
+    data-src="./../../assets/20210106142758-4w9jf5t-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div><div id="20210106142800-37a2axb" data-node-id="20210106142800-37a2axb" data-type="NodeParagraph" class="p"><div spellcheck="false">然后根据用户输入选择不同的组件 <span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../assets/20210106142916-8qi5eiv-image.png"
+    data-src="./../../assets/20210106142916-8qi5eiv-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div><div id="20210106142918-g65j9da" data-node-id="20210106142918-g65j9da" data-type="NodeParagraph" class="p"><div spellcheck="false">没了....</div></div><div id="20210106142921-f78d4z7" data-node-id="20210106142921-f78d4z7" data-type="NodeParagraph" class="p"><div spellcheck="false">就这么简单，我之前都想复杂了</div></div><div id="20210106142941-y7t63cv" data-node-id="20210106142941-y7t63cv" data-type="NodeParagraph" class="p"><div spellcheck="false"><span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../assets/20210106142941-2sr62c1-image.png"
+    data-src="./../../assets/20210106142941-2sr62c1-image.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -104,7 +112,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

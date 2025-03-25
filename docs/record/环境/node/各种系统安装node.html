@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>各种系统安装node</title>
 </head>
 <body>
@@ -50,11 +50,11 @@
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div style="min-height: 150px;" id="20201104153359-3bz18z5" data-node-id="20201104153359-3bz18z5" data-type="NodeDocument" updated="20250205092016" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201104153359-3bz18z5&quot;,&quot;startId&quot;:&quot;20231209155630-fmvirop&quot;,&quot;endId&quot;:&quot;20231207095234-5qtalax&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20231207095315-4a8ke1h&quot;,&quot;focusStart&quot;:148,&quot;focusEnd&quot;:148&#125;" type="doc"></div><h1 id="20201104153359-3bz18z5" data-node-id="20201104153359-3bz18z5" data-type="NodeDocument" updated="20250205092016" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20201104153359-3bz18z5&quot;,&quot;startId&quot;:&quot;20231209155630-fmvirop&quot;,&quot;endId&quot;:&quot;20231207095234-5qtalax&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20231207095315-4a8ke1h&quot;,&quot;focusStart&quot;:148,&quot;focusEnd&quot;:148&#125;" type="doc" data-type="NodeHeading" class="h1">各种系统安装node</h1><h2 id="20231209155630-fmvirop" data-node-id="20231209155630-fmvirop" data-type="NodeHeading" updated="20231209155739" data-subtype="h2" class="h2">官网下载 <a href="https://nodejs.org/en/download/">nodejs.org</a> (windows、ubuntu、macOS）</h2><h2 id="20210521142713-utzshpn" data-node-id="20210521142713-utzshpn" data-type="NodeHeading" updated="20250205092016" data-subtype="h2" class="h2">node 版本管理</h2><div id="20240813094743-df5uxq9" data-node-id="20240813094743-df5uxq9" data-type="NodeParagraph" updated="20250205092016" class="p"><div spellcheck="false"><a href="https://github.com/Schniz/fnm?tab=readme-ov-file#powershell">fnm</a>（推荐使用） ：全平台</div></div><div id="20241010115900-391sj9d" data-node-id="20241010115900-391sj9d" data-type="NodeCodeBlock" updated="20241010115955" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">bash</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false"># 第一次使用 fnm 时需要安装
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">bash</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"># 第一次使用 fnm 时需要安装
 winget install Schniz.fnm
 # configure fnm environment
 fnm env --use-on-cd | Out-String | Invoke-Expression
@@ -68,116 +68,116 @@ node -v # should print `v22.9.0`
 # verifies the right npm version is in the environment
 npm -v # should print `10.8.3`
 </div>
-      </div><h2 id="20240813094740-sfs3oep" data-node-id="20240813094740-sfs3oep" data-type="NodeHeading" updated="20241212111522" data-subtype="h2" class="h2"> (n\nvm) 不支持 windows</h2><div id="20210521142713-nihh3ez" data-node-id="20210521142713-nihh3ez" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">bash</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">$ npm i -g n    # n 模块是专门用来管理node版本的
+        </div><h2 id="20240813094740-sfs3oep" data-node-id="20240813094740-sfs3oep" data-type="NodeHeading" updated="20241212111522" data-subtype="h2" class="h2"> (n\nvm) 不支持 windows</h2><div id="20210521142713-nihh3ez" data-node-id="20210521142713-nihh3ez" data-type="NodeCodeBlock" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">bash</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">$ npm i -g n    # n 模块是专门用来管理node版本的
 
 #安装node版本  也可以安装指定版
 $ n latest      # 安装最新版
 $ n stable      # 安装稳定版
 $ n lts         # 安装最新的LTS官方版本
 </div>
-      </div><h2 id="20231207095234-5qtalax" data-node-id="20231207095234-5qtalax" data-type="NodeHeading" updated="20241212111528" data-subtype="h2" class="h2">apt 安装 node</h2><div id="20241212111528-8ir34oe" data-node-id="20241212111528-8ir34oe" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">要使用 apt 安装新版本的 Node.js，您需要遵循以下步骤：</div></div><div id="20241212111528-a9cr13v" data-node-id="20241212111528-a9cr13v" data-type="NodeList" updated="20241212111528" data-subtype="o" class="list"><div id="20241212111528-0me7tf4" data-node-id="20241212111528-0me7tf4" data-type="NodeListItem" updated="20241212111528" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20241212111528-0lub2ag" data-node-id="20241212111528-0lub2ag" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">首先，更新您的包列表：</div></div>
-    </div></div><div id="20241212111528-xnrn8t6" data-node-id="20241212111528-xnrn8t6" data-type="NodeCodeBlock" updated="20241212111528" class="code-block">
+        </div><h2 id="20231207095234-5qtalax" data-node-id="20231207095234-5qtalax" data-type="NodeHeading" updated="20241212111528" data-subtype="h2" class="h2">apt 安装 node</h2><div id="20241212111528-8ir34oe" data-node-id="20241212111528-8ir34oe" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">要使用 apt 安装新版本的 Node.js，您需要遵循以下步骤：</div></div><div id="20241212111528-a9cr13v" data-node-id="20241212111528-a9cr13v" data-type="NodeList" updated="20241212111528" data-subtype="o" class="list"><div id="20241212111528-0me7tf4" data-node-id="20241212111528-0me7tf4" data-type="NodeListItem" updated="20241212111528" data-subtype="o" class="li" data-marker="1.">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">plaintext</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          1.
         </div>
-        <div class="hljs" spellcheck="false">sudo apt update
+        <div id="20241212111528-0lub2ag" data-node-id="20241212111528-0lub2ag" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">首先，更新您的包列表：</div></div>
+      </div></div><div id="20241212111528-xnrn8t6" data-node-id="20241212111528-xnrn8t6" data-type="NodeCodeBlock" updated="20241212111528" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">plaintext</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo apt update
 </div>
-      </div><div id="20241212111528-e6l7tmr" data-node-id="20241212111528-e6l7tmr" data-type="NodeList" updated="20241212111528" data-subtype="o" class="list"><div id="20241212111528-wjicji8" data-node-id="20241212111528-wjicji8" data-type="NodeListItem" updated="20241212111528" data-subtype="o" class="li" data-marker="2.">
-      <div class="protyle-action">
-        2.
-      </div>
-      <div id="20241212111528-455xrht" data-node-id="20241212111528-455xrht" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">安装允许 apt 通过 HTTPS 使用存储库的必要包：</div></div>
-    </div></div><div id="20241212111528-str8mhf" data-node-id="20241212111528-str8mhf" data-type="NodeCodeBlock" updated="20241212111528" class="code-block">
+        </div><div id="20241212111528-e6l7tmr" data-node-id="20241212111528-e6l7tmr" data-type="NodeList" updated="20241212111528" data-subtype="o" class="list"><div id="20241212111528-wjicji8" data-node-id="20241212111528-wjicji8" data-type="NodeListItem" updated="20241212111528" data-subtype="o" class="li" data-marker="2.">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">plaintext</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          2.
         </div>
-        <div class="hljs" spellcheck="false">sudo apt install curl gnupg2 ca-certificates lsb-release
+        <div id="20241212111528-455xrht" data-node-id="20241212111528-455xrht" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">安装允许 apt 通过 HTTPS 使用存储库的必要包：</div></div>
+      </div></div><div id="20241212111528-str8mhf" data-node-id="20241212111528-str8mhf" data-type="NodeCodeBlock" updated="20241212111528" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">plaintext</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo apt install curl gnupg2 ca-certificates lsb-release
 </div>
-      </div><div id="20241212111528-t4iu7p6" data-node-id="20241212111528-t4iu7p6" data-type="NodeList" updated="20241212111528" data-subtype="o" class="list"><div id="20241212111528-m07a0np" data-node-id="20241212111528-m07a0np" data-type="NodeListItem" updated="20241212111528" data-subtype="o" class="li" data-marker="3.">
-      <div class="protyle-action">
-        3.
-      </div>
-      <div id="20241212111528-7yym54a" data-node-id="20241212111528-7yym54a" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">添加 NodeSource 存储库的 GPG 密钥：</div></div>
-    </div></div><div id="20241212111528-zy2sm4s" data-node-id="20241212111528-zy2sm4s" data-type="NodeCodeBlock" updated="20241212111528" class="code-block">
+        </div><div id="20241212111528-t4iu7p6" data-node-id="20241212111528-t4iu7p6" data-type="NodeList" updated="20241212111528" data-subtype="o" class="list"><div id="20241212111528-m07a0np" data-node-id="20241212111528-m07a0np" data-type="NodeListItem" updated="20241212111528" data-subtype="o" class="li" data-marker="3.">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">plaintext</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          3.
         </div>
-        <div class="hljs" spellcheck="false">curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+        <div id="20241212111528-7yym54a" data-node-id="20241212111528-7yym54a" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">添加 NodeSource 存储库的 GPG 密钥：</div></div>
+      </div></div><div id="20241212111528-zy2sm4s" data-node-id="20241212111528-zy2sm4s" data-type="NodeCodeBlock" updated="20241212111528" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">plaintext</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 </div>
-      </div><div id="20241212111528-3s3ib8o" data-node-id="20241212111528-3s3ib8o" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">这个命令会添加 Node.js 的长期支持（LTS）版本。如果您想安装最新的稳定版本，可以将 <span data-type="code">setup_lts.x</span>​ 替换为 <span data-type="code">setup_current.x</span>​。</div></div><div id="20241212111528-3ku9r9z" data-node-id="20241212111528-3ku9r9z" data-type="NodeList" updated="20241212111528" data-subtype="o" class="list"><div id="20241212111528-kveveah" data-node-id="20241212111528-kveveah" data-type="NodeListItem" updated="20241212111528" data-subtype="o" class="li" data-marker="4.">
-      <div class="protyle-action">
-        4.
-      </div>
-      <div id="20241212111528-x1qb6gh" data-node-id="20241212111528-x1qb6gh" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">现在，您可以安装 Node.js：</div></div>
-    </div></div><div id="20241212111528-yx7jslm" data-node-id="20241212111528-yx7jslm" data-type="NodeCodeBlock" updated="20241212111528" class="code-block">
+        </div><div id="20241212111528-3s3ib8o" data-node-id="20241212111528-3s3ib8o" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">这个命令会添加 Node.js 的长期支持（LTS）版本。如果您想安装最新的稳定版本，可以将 <span data-type="code">setup_lts.x</span>​ 替换为 <span data-type="code">setup_current.x</span>​。</div></div><div id="20241212111528-3ku9r9z" data-node-id="20241212111528-3ku9r9z" data-type="NodeList" updated="20241212111528" data-subtype="o" class="list"><div id="20241212111528-kveveah" data-node-id="20241212111528-kveveah" data-type="NodeListItem" updated="20241212111528" data-subtype="o" class="li" data-marker="4.">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">plaintext</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          4.
         </div>
-        <div class="hljs" spellcheck="false">sudo apt install nodejs
+        <div id="20241212111528-x1qb6gh" data-node-id="20241212111528-x1qb6gh" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">现在，您可以安装 Node.js：</div></div>
+      </div></div><div id="20241212111528-yx7jslm" data-node-id="20241212111528-yx7jslm" data-type="NodeCodeBlock" updated="20241212111528" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">plaintext</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo apt install nodejs
 </div>
-      </div><div id="20241212111528-k0snis0" data-node-id="20241212111528-k0snis0" data-type="NodeList" updated="20241212111528" data-subtype="o" class="list"><div id="20241212111528-bm93ujc" data-node-id="20241212111528-bm93ujc" data-type="NodeListItem" updated="20241212111528" data-subtype="o" class="li" data-marker="5.">
-      <div class="protyle-action">
-        5.
-      </div>
-      <div id="20241212111528-kfjbttb" data-node-id="20241212111528-kfjbttb" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">安装完成后，验证安装：</div></div>
-    </div></div><div id="20241212111528-o0at5t2" data-node-id="20241212111528-o0at5t2" data-type="NodeCodeBlock" updated="20241212111528" class="code-block">
+        </div><div id="20241212111528-k0snis0" data-node-id="20241212111528-k0snis0" data-type="NodeList" updated="20241212111528" data-subtype="o" class="list"><div id="20241212111528-bm93ujc" data-node-id="20241212111528-bm93ujc" data-type="NodeListItem" updated="20241212111528" data-subtype="o" class="li" data-marker="5.">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">plaintext</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          5.
         </div>
-        <div class="hljs" spellcheck="false">node --version
+        <div id="20241212111528-kfjbttb" data-node-id="20241212111528-kfjbttb" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">安装完成后，验证安装：</div></div>
+      </div></div><div id="20241212111528-o0at5t2" data-node-id="20241212111528-o0at5t2" data-type="NodeCodeBlock" updated="20241212111528" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">plaintext</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">node --version
 npm --version
 </div>
-      </div><div id="20241212111528-0k0tlrb" data-node-id="20241212111528-0k0tlrb" data-type="NodeList" updated="20241212111528" data-subtype="o" class="list"><div id="20241212111528-vllnqi0" data-node-id="20241212111528-vllnqi0" data-type="NodeListItem" updated="20241212111528" data-subtype="o" class="li" data-marker="6.">
-      <div class="protyle-action">
-        6.
-      </div>
-      <div id="20241212111528-8dkrrdg" data-node-id="20241212111528-8dkrrdg" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">（可选）如果您需要编译原生插件，还需要安装 build-essential 包：</div></div>
-    </div></div><div id="20241212111528-8qu7aw2" data-node-id="20241212111528-8qu7aw2" data-type="NodeCodeBlock" updated="20241212111528" class="code-block">
+        </div><div id="20241212111528-0k0tlrb" data-node-id="20241212111528-0k0tlrb" data-type="NodeList" updated="20241212111528" data-subtype="o" class="list"><div id="20241212111528-vllnqi0" data-node-id="20241212111528-vllnqi0" data-type="NodeListItem" updated="20241212111528" data-subtype="o" class="li" data-marker="6.">
         <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">plaintext</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          6.
         </div>
-        <div class="hljs" spellcheck="false">sudo apt install build-essential
+        <div id="20241212111528-8dkrrdg" data-node-id="20241212111528-8dkrrdg" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">（可选）如果您需要编译原生插件，还需要安装 build-essential 包：</div></div>
+      </div></div><div id="20241212111528-8qu7aw2" data-node-id="20241212111528-8qu7aw2" data-type="NodeCodeBlock" updated="20241212111528" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">plaintext</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo apt install build-essential
 </div>
-      </div><div id="20241212111528-jdeayps" data-node-id="20241212111528-jdeayps" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">注意事项：</div></div><div id="20241212111528-pfk42pn" data-node-id="20241212111528-pfk42pn" data-type="NodeList" updated="20241212111528" data-subtype="u" class="list"><div id="20241212111528-0mxj9li" data-node-id="20241212111528-0mxj9li" data-type="NodeListItem" updated="20241212111528" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241212111528-xapbra4" data-node-id="20241212111528-xapbra4" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">这个方法会安装 Node.js 和 npm（Node 包管理器）。</div></div>
-    </div><div id="20241212111528-3uwjbo5" data-node-id="20241212111528-3uwjbo5" data-type="NodeListItem" updated="20241212111528" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241212111528-91fcq4f" data-node-id="20241212111528-91fcq4f" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">使用 NodeSource 存储库可以确保您获得最新的 Node.js 版本。</div></div>
-    </div><div id="20241212111528-l6jvv1t" data-node-id="20241212111528-l6jvv1t" data-type="NodeListItem" updated="20241212111528" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241212111528-kpsjcg7" data-node-id="20241212111528-kpsjcg7" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">如果您之前已经安装了旧版本的 Node.js，这个过程会更新到最新版本。</div></div>
-    </div><div id="20241212111528-0mdd8jl" data-node-id="20241212111528-0mdd8jl" data-type="NodeListItem" updated="20241212111528" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241212111528-vf6f9wr" data-node-id="20241212111528-vf6f9wr" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">请确保您有足够的权限执行这些命令（使用 sudo）。</div></div>
-    </div></div><div id="20241212111528-vqk0uk5" data-node-id="20241212111528-vqk0uk5" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">如果您在安装过程中遇到任何问题，或者需要更详细的解释，请随时告诉我。我很乐意提供进一步的帮助。</div></div>
+        </div><div id="20241212111528-jdeayps" data-node-id="20241212111528-jdeayps" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">注意事项：</div></div><div id="20241212111528-pfk42pn" data-node-id="20241212111528-pfk42pn" data-type="NodeList" updated="20241212111528" data-subtype="u" class="list"><div id="20241212111528-0mxj9li" data-node-id="20241212111528-0mxj9li" data-type="NodeListItem" updated="20241212111528" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20241212111528-xapbra4" data-node-id="20241212111528-xapbra4" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">这个方法会安装 Node.js 和 npm（Node 包管理器）。</div></div>
+      </div><div id="20241212111528-3uwjbo5" data-node-id="20241212111528-3uwjbo5" data-type="NodeListItem" updated="20241212111528" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20241212111528-91fcq4f" data-node-id="20241212111528-91fcq4f" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">使用 NodeSource 存储库可以确保您获得最新的 Node.js 版本。</div></div>
+      </div><div id="20241212111528-l6jvv1t" data-node-id="20241212111528-l6jvv1t" data-type="NodeListItem" updated="20241212111528" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20241212111528-kpsjcg7" data-node-id="20241212111528-kpsjcg7" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">如果您之前已经安装了旧版本的 Node.js，这个过程会更新到最新版本。</div></div>
+      </div><div id="20241212111528-0mdd8jl" data-node-id="20241212111528-0mdd8jl" data-type="NodeListItem" updated="20241212111528" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20241212111528-vf6f9wr" data-node-id="20241212111528-vf6f9wr" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">请确保您有足够的权限执行这些命令（使用 sudo）。</div></div>
+      </div></div><div id="20241212111528-vqk0uk5" data-node-id="20241212111528-vqk0uk5" data-type="NodeParagraph" updated="20241212111528" class="p"><div spellcheck="false">如果您在安装过程中遇到任何问题，或者需要更详细的解释，请随时告诉我。我很乐意提供进一步的帮助。</div></div>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -196,7 +196,7 @@ npm --version
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@latest/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

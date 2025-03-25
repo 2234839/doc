@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>函数计算域名调试web应用</title>
 </head>
 <body>
@@ -49,27 +49,35 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20240113150613-7qp57gh" data-node-id="20240113150613-7qp57gh" data-type="NodeDocument" updated="20240113150812" data-subtype="h1" class="h1" custom-custom-Juejin-yaml="---_esc_newline_created: '2024-01-13 15:06:13'_esc_newline_updated: '2024-01-13 15:09:10'_esc_newline_title: 函数计算域名调试web应用_esc_newline_slug: function-calculation-domain-name-debug-web-application-2nd0ia_esc_newline_permalink: siyuan://blocks/20240113150613-7qp57gh_esc_newline_categories: []_esc_newline_---" custom-custom-Zhihu-yaml="---_esc_newline_created: '2024-01-13 15:06:13'_esc_newline_updated: '2024-01-13 15:09:10'_esc_newline_title: 函数计算域名调试web应用_esc_newline_slug: function-calculation-domain-name-debug-web-application-2nd0ia_esc_newline_permalink: siyuan://blocks/20240113150613-7qp57gh_esc_newline_categories: []_esc_newline_---" custom-metaweblog-Cnblogs-yaml="---_esc_newline_created: '2024-01-13 15:06:13'_esc_newline_updated: '2024-01-13 15:09:10'_esc_newline_title: 函数计算域名调试web应用_esc_newline_slug: function-calculation-domain-name-debug-web-application-2nd0ia_esc_newline_permalink: siyuan://blocks/20240113150613-7qp57gh_esc_newline_categories: []_esc_newline_---"></div><h1 id="20240113150613-7qp57gh" data-node-id="20240113150613-7qp57gh" data-type="NodeDocument" updated="20240113150812" data-subtype="h1" class="h1" custom-custom-Juejin-yaml="---_esc_newline_created: '2024-01-13 15:06:13'_esc_newline_updated: '2024-01-13 15:09:10'_esc_newline_title: 函数计算域名调试web应用_esc_newline_slug: function-calculation-domain-name-debug-web-application-2nd0ia_esc_newline_permalink: siyuan://blocks/20240113150613-7qp57gh_esc_newline_categories: []_esc_newline_---" custom-custom-Zhihu-yaml="---_esc_newline_created: '2024-01-13 15:06:13'_esc_newline_updated: '2024-01-13 15:09:10'_esc_newline_title: 函数计算域名调试web应用_esc_newline_slug: function-calculation-domain-name-debug-web-application-2nd0ia_esc_newline_permalink: siyuan://blocks/20240113150613-7qp57gh_esc_newline_categories: []_esc_newline_---" custom-metaweblog-Cnblogs-yaml="---_esc_newline_created: '2024-01-13 15:06:13'_esc_newline_updated: '2024-01-13 15:09:10'_esc_newline_title: 函数计算域名调试web应用_esc_newline_slug: function-calculation-domain-name-debug-web-application-2nd0ia_esc_newline_permalink: siyuan://blocks/20240113150613-7qp57gh_esc_newline_categories: []_esc_newline_---" data-type="NodeHeading" class="h1">函数计算域名调试web应用</h1><div id="20240113150732-gj3b2vk" data-node-id="20240113150732-gj3b2vk" data-type="NodeParagraph" updated="20240113150753" class="p"><div spellcheck="false">如果没有域名的话，可以利用一个小技巧来绕过阿里云对于函数计算域名使用的限制，从而直接使用阿里云的域名进行访问</div></div><div id="20240110184646-kwkcmkz" data-node-id="20240110184646-kwkcmkz" data-type="NodeParagraph" updated="20240113150701" class="p"><div spellcheck="false">先进入如下页面复制公网访问地址</div></div><div id="20240110184641-2bhzmta" data-node-id="20240110184641-2bhzmta" data-type="NodeParagraph" updated="20240113150701" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 843px;" style="width: 833px;" style="width: 843px;">
-<img
-  src="./../../../assets/image-20240110184641-itbojv2.png"
-  data-src="./../../../assets/image-20240110184641-itbojv2.png"
-  title=""
-  style="width: 833px;"
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20240110184230-93vf7g8" data-node-id="20240110184230-93vf7g8" data-type="NodeParagraph" updated="20240113150701" class="p"><div spellcheck="false">然后安装可以修改响应头的浏览器插件，例如  <a href="https://github.com/FirefoxBar/HeaderEditor">https://github.com/FirefoxBar/HeaderEditor</a> ，然后进行类似如下的配置，修改掉阿里云附加的 content-disposition 响应头，就可以直接在浏览器中打开之前阿里云提供的公网访问地址了。🎉</div></div><div id="20240110184311-c0x04bj" data-node-id="20240110184311-c0x04bj" data-type="NodeParagraph" updated="20240113150701" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 808px;" style="width: 798px;" style="width: 808px;">
-<img
-  src="./../../../assets/image-20240110184311-zyslduj.png"
-  data-src="./../../../assets/image-20240110184311-zyslduj.png"
-  title=""
-  style="width: 798px;"
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20240113150613-x8o5q28" data-node-id="20240113150613-x8o5q28" data-type="NodeParagraph" updated="20240113150613" class="p"><div spellcheck="false"></div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20240113150613-7qp57gh" data-node-id="20240113150613-7qp57gh" data-type="NodeDocument" updated="20240113150812" custom-custom-Juejin-yaml="---_esc_newline_created: '2024-01-13 15:06:13'_esc_newline_updated: '2024-01-13 15:09:10'_esc_newline_title: 函数计算域名调试web应用_esc_newline_slug: function-calculation-domain-name-debug-web-application-2nd0ia_esc_newline_permalink: siyuan://blocks/20240113150613-7qp57gh_esc_newline_categories: []_esc_newline_---" custom-custom-Zhihu-yaml="---_esc_newline_created: '2024-01-13 15:06:13'_esc_newline_updated: '2024-01-13 15:09:10'_esc_newline_title: 函数计算域名调试web应用_esc_newline_slug: function-calculation-domain-name-debug-web-application-2nd0ia_esc_newline_permalink: siyuan://blocks/20240113150613-7qp57gh_esc_newline_categories: []_esc_newline_---" custom-metaweblog-Cnblogs-yaml="---_esc_newline_created: '2024-01-13 15:06:13'_esc_newline_updated: '2024-01-13 15:09:10'_esc_newline_title: 函数计算域名调试web应用_esc_newline_slug: function-calculation-domain-name-debug-web-application-2nd0ia_esc_newline_permalink: siyuan://blocks/20240113150613-7qp57gh_esc_newline_categories: []_esc_newline_---">
+
+<h1 id="20240113150613-7qp57gh" data-node-id="20240113150613-7qp57gh" data-type="NodeDocument" updated="20240113150812" custom-custom-Juejin-yaml="---_esc_newline_created: '2024-01-13 15:06:13'_esc_newline_updated: '2024-01-13 15:09:10'_esc_newline_title: 函数计算域名调试web应用_esc_newline_slug: function-calculation-domain-name-debug-web-application-2nd0ia_esc_newline_permalink: siyuan://blocks/20240113150613-7qp57gh_esc_newline_categories: []_esc_newline_---" custom-custom-Zhihu-yaml="---_esc_newline_created: '2024-01-13 15:06:13'_esc_newline_updated: '2024-01-13 15:09:10'_esc_newline_title: 函数计算域名调试web应用_esc_newline_slug: function-calculation-domain-name-debug-web-application-2nd0ia_esc_newline_permalink: siyuan://blocks/20240113150613-7qp57gh_esc_newline_categories: []_esc_newline_---" custom-metaweblog-Cnblogs-yaml="---_esc_newline_created: '2024-01-13 15:06:13'_esc_newline_updated: '2024-01-13 15:09:10'_esc_newline_title: 函数计算域名调试web应用_esc_newline_slug: function-calculation-domain-name-debug-web-application-2nd0ia_esc_newline_permalink: siyuan://blocks/20240113150613-7qp57gh_esc_newline_categories: []_esc_newline_---" data-type="NodeHeading" class="h1">函数计算域名调试web应用</h1>
+<div id="20240113150732-gj3b2vk" data-node-id="20240113150732-gj3b2vk" data-type="NodeParagraph" updated="20240113150753" class="p"><div spellcheck="false">如果没有域名的话，可以利用一个小技巧来绕过阿里云对于函数计算域名使用的限制，从而直接使用阿里云的域名进行访问</div></div><div id="20240110184646-kwkcmkz" data-node-id="20240110184646-kwkcmkz" data-type="NodeParagraph" updated="20240113150701" class="p"><div spellcheck="false">先进入如下页面复制公网访问地址</div></div><div id="20240110184641-2bhzmta" data-node-id="20240110184641-2bhzmta" data-type="NodeParagraph" updated="20240113150701" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 843px;" style="width: 833px;" style="width: 843px;">
+  <img
+    src="./../../../assets/image-20240110184641-itbojv2.png"
+    data-src="./../../../assets/image-20240110184641-itbojv2.png"
+    title=""
+    style="width: 833px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20240110184230-93vf7g8" data-node-id="20240110184230-93vf7g8" data-type="NodeParagraph" updated="20240113150701" class="p"><div spellcheck="false">然后安装可以修改响应头的浏览器插件，例如  <a href="https://github.com/FirefoxBar/HeaderEditor">https://github.com/FirefoxBar/HeaderEditor</a> ，然后进行类似如下的配置，修改掉阿里云附加的 content-disposition 响应头，就可以直接在浏览器中打开之前阿里云提供的公网访问地址了。🎉</div></div><div id="20240110184311-c0x04bj" data-node-id="20240110184311-c0x04bj" data-type="NodeParagraph" updated="20240113150701" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 808px;" style="width: 798px;" style="width: 808px;">
+  <img
+    src="./../../../assets/image-20240110184311-zyslduj.png"
+    data-src="./../../../assets/image-20240110184311-zyslduj.png"
+    title=""
+    style="width: 798px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20240113150613-x8o5q28" data-node-id="20240113150613-x8o5q28" data-type="NodeParagraph" updated="20240113150613" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -88,7 +96,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

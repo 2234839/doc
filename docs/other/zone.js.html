@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>zone.js</title>
 </head>
 <body>
@@ -49,56 +49,64 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210409090637-h0drlqf" data-node-id="20210409090637-h0drlqf" data-type="NodeDocument" updated="20210608231708" data-subtype="h1" class="h1" type="doc"></div><h1 id="20210409090637-h0drlqf" data-node-id="20210409090637-h0drlqf" data-type="NodeDocument" updated="20210608231708" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">zone.js</h1><div id="20210409090641-0wmityi" data-node-id="20210409090641-0wmityi" data-type="NodeParagraph" updated="20210409090702" class="p"><div spellcheck="false"><a href="https://www.npmjs.com/package/zone.js?activeTab=readme">zone.js npm</a></div></div><div id="20210409090813-weju7he" data-node-id="20210409090813-weju7he" data-type="NodeList" updated="20210608231708" data-subtype="u" class="list"><div id="20210409090813-cgawbhl" data-node-id="20210409090813-cgawbhl" data-type="NodeListItem" updated="20210608231708" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210409090813-ufcwxmh" data-node-id="20210409090813-ufcwxmh" data-type="NodeParagraph" updated="20210409090855" class="p"><div spellcheck="false">zones 曾是 js 中的一个提案，但后来被废弃了，现在提出了新的 <a href="https://github.com/JSCIG/es-discuss/discussions/9">异步上下文提案</a></div></div><div id="20210608231606-dlyhb14" data-node-id="20210608231606-dlyhb14" data-type="NodeList" updated="20210608231708" data-subtype="u" class="list"><div id="20210608231606-oxynulo" data-node-id="20210608231606-oxynulo" data-type="NodeListItem" updated="20210608231708" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210608231606-cw5th69" data-node-id="20210608231606-cw5th69" data-type="NodeParagraph" updated="20210608231708" class="p"><div spellcheck="false">在 node.js 的环境下可以选择使用 <a href="https://nodejs.org/api/async_hooks.html#async_hooks_async_hooks">Async hooks</a> 来达成同样的目的</div></div>
-    </div></div>
-    </div><div id="20210608231523-bze6hpa" data-node-id="20210608231523-bze6hpa" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210608231523-z5e5w6z" data-node-id="20210608231523-z5e5w6z" data-type="NodeParagraph" class="p"><div spellcheck="false">在 node.js 中 req.on('end') 里面调用的函数似乎无法绑定到对应的 zone</div></div>
-    </div><div id="20210608231527-crohnq6" data-node-id="20210608231527-crohnq6" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210608231527-pjwmxnq" data-node-id="20210608231527-pjwmxnq" data-type="NodeParagraph" class="p"><div spellcheck="false">可以通过封装成 promise 来解决这个问题</div></div>
-    </div><div id="20210608231531-iengebw" data-node-id="20210608231531-iengebw" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210608231531-watdjjs" data-node-id="20210608231531-watdjjs" data-type="NodeParagraph" class="p"><div spellcheck="false">对于 promise 他可以正确监听，但 原生 async 与 await zone.js 会被中断，在浏览器中没有办法弥补</div></div>
-    </div><div id="20210608231537-kj1lnw1" data-node-id="20210608231537-kj1lnw1" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210608231537-332rjs2" data-node-id="20210608231537-332rjs2" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/angular/angular/issues/38782">Moving off of Zones and building to target ES2018. · Issue #38782 · angular/angular (github.com)</a></div></div>
-    </div><div id="20210608231552-py86nd2" data-node-id="20210608231552-py86nd2" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210608231552-uw6h4wm" data-node-id="20210608231552-uw6h4wm" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/angular/angular/issues/31730">angular with tsconfig target ES2017 async/await will not work with zone.js · Issue #31730 · angular/angular (github.com)</a></div></div>
-    </div><div id="20210608231556-2wycsla" data-node-id="20210608231556-2wycsla" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210608231556-zpbs0a2" data-node-id="20210608231556-zpbs0a2" data-type="NodeParagraph" class="p"><div spellcheck="false">单纯靠他监听异步结束似乎并不靠谱，我没有找到有效的方法</div></div>
-    </div><div id="20210608231600-z0nr0m3" data-node-id="20210608231600-z0nr0m3" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20210608231600-3ui4ice" data-node-id="20210608231600-3ui4ice" data-type="NodeParagraph" class="p"><div spellcheck="false">官方文档中使用 <a href="undefined"><span data-type="code">!hasTaskState.microTask &amp;&amp; !hasTaskState.macroTask</span></a> 来进行判断，但在我的代码中这个判断是不正确的</div></div>
-    </div></div><div id="20210409090813-4q22e9p" data-node-id="20210409090813-4q22e9p" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20210409090637-h0drlqf" data-node-id="20210409090637-h0drlqf" data-type="NodeDocument" updated="20210608231708" type="doc">
+
+<h1 id="20210409090637-h0drlqf" data-node-id="20210409090637-h0drlqf" data-type="NodeDocument" updated="20210608231708" type="doc" data-type="NodeHeading" class="h1">zone.js</h1>
+<div id="20210409090641-0wmityi" data-node-id="20210409090641-0wmityi" data-type="NodeParagraph" updated="20210409090702" class="p"><div spellcheck="false"><a href="https://www.npmjs.com/package/zone.js?activeTab=readme">zone.js npm</a></div></div><div id="20210409090813-weju7he" data-node-id="20210409090813-weju7he" data-type="NodeList" updated="20210608231708" data-subtype="u" class="list"><div id="20210409090813-cgawbhl" data-node-id="20210409090813-cgawbhl" data-type="NodeListItem" updated="20210608231708" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210409090813-ufcwxmh" data-node-id="20210409090813-ufcwxmh" data-type="NodeParagraph" updated="20210409090855" class="p"><div spellcheck="false">zones 曾是 js 中的一个提案，但后来被废弃了，现在提出了新的 <a href="https://github.com/JSCIG/es-discuss/discussions/9">异步上下文提案</a></div></div><div id="20210608231606-dlyhb14" data-node-id="20210608231606-dlyhb14" data-type="NodeList" updated="20210608231708" data-subtype="u" class="list"><div id="20210608231606-oxynulo" data-node-id="20210608231606-oxynulo" data-type="NodeListItem" updated="20210608231708" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210608231606-cw5th69" data-node-id="20210608231606-cw5th69" data-type="NodeParagraph" updated="20210608231708" class="p"><div spellcheck="false">在 node.js 的环境下可以选择使用 <a href="https://nodejs.org/api/async_hooks.html#async_hooks_async_hooks">Async hooks</a> 来达成同样的目的</div></div>
+      </div></div>
+      </div><div id="20210608231523-bze6hpa" data-node-id="20210608231523-bze6hpa" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210608231523-z5e5w6z" data-node-id="20210608231523-z5e5w6z" data-type="NodeParagraph" class="p"><div spellcheck="false">在 node.js 中 req.on('end') 里面调用的函数似乎无法绑定到对应的 zone</div></div>
+      </div><div id="20210608231527-crohnq6" data-node-id="20210608231527-crohnq6" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210608231527-pjwmxnq" data-node-id="20210608231527-pjwmxnq" data-type="NodeParagraph" class="p"><div spellcheck="false">可以通过封装成 promise 来解决这个问题</div></div>
+      </div><div id="20210608231531-iengebw" data-node-id="20210608231531-iengebw" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210608231531-watdjjs" data-node-id="20210608231531-watdjjs" data-type="NodeParagraph" class="p"><div spellcheck="false">对于 promise 他可以正确监听，但 原生 async 与 await zone.js 会被中断，在浏览器中没有办法弥补</div></div>
+      </div><div id="20210608231537-kj1lnw1" data-node-id="20210608231537-kj1lnw1" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210608231537-332rjs2" data-node-id="20210608231537-332rjs2" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/angular/angular/issues/38782">Moving off of Zones and building to target ES2018. · Issue #38782 · angular/angular (github.com)</a></div></div>
+      </div><div id="20210608231552-py86nd2" data-node-id="20210608231552-py86nd2" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210608231552-uw6h4wm" data-node-id="20210608231552-uw6h4wm" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/angular/angular/issues/31730">angular with tsconfig target ES2017 async/await will not work with zone.js · Issue #31730 · angular/angular (github.com)</a></div></div>
+      </div><div id="20210608231556-2wycsla" data-node-id="20210608231556-2wycsla" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210608231556-zpbs0a2" data-node-id="20210608231556-zpbs0a2" data-type="NodeParagraph" class="p"><div spellcheck="false">单纯靠他监听异步结束似乎并不靠谱，我没有找到有效的方法</div></div>
+      </div><div id="20210608231600-z0nr0m3" data-node-id="20210608231600-z0nr0m3" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20210608231600-3ui4ice" data-node-id="20210608231600-3ui4ice" data-type="NodeParagraph" class="p"><div spellcheck="false">官方文档中使用 <a href="undefined"><span data-type="code">!hasTaskState.microTask &amp;&amp; !hasTaskState.macroTask</span></a> 来进行判断，但在我的代码中这个判断是不正确的</div></div>
+      </div></div><div id="20210409090813-4q22e9p" data-node-id="20210409090813-4q22e9p" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -117,7 +125,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

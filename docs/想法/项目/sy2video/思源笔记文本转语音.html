@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>思源笔记文本转语音</title>
 </head>
 <body>
@@ -49,23 +49,31 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20240622172305-ov58n5w" data-node-id="20240622172305-ov58n5w" data-type="NodeDocument" updated="20240623110905" data-subtype="h1" class="h1" custom-liandi-articleId="1719063876862" type="doc"></div><h1 id="20240622172305-ov58n5w" data-node-id="20240622172305-ov58n5w" data-type="NodeDocument" updated="20240623110905" data-subtype="h1" class="h1" custom-liandi-articleId="1719063876862" type="doc" data-type="NodeHeading" class="h1">思源笔记文本转语音</h1><div id="20240622172329-u5js7ny" data-node-id="20240622172329-u5js7ny" data-type="NodeParagraph" updated="20240622172410" class="p"><div spellcheck="false">此功能目前仅支持 <a href="https://github.com/jianchang512/ChatTTS-ui">ChatTTS-ui</a> 项目的 api 接口</div></div><h2 id="20240622172410-1accng3" data-node-id="20240622172410-1accng3" data-type="NodeHeading" updated="20240623110905" data-subtype="h2" class="h2">使用方式</h2><div id="20240622172422-lqysqti" data-node-id="20240622172422-lqysqti" data-type="NodeParagraph" updated="20240622214328" class="p"><div spellcheck="false">安装 <a href="https://github.com/2234839/sy2video-plugin-siyuan">2234839/sy2video-plugin-siyuan</a> 插件并启动 ChatTTS-ui</div></div><div id="20240622214224-rz8iwn4" data-node-id="20240622214224-rz8iwn4" data-type="NodeParagraph" updated="20240622214302" class="p"><div spellcheck="false">点击文本左侧块标最下方的转音频按钮，耐心等待一会就会在文本的下方添加一个音频块</div></div> <div id="20240622214327-gh41sah" data-node-id="20240622214327-gh41sah" data-type="NodeAudio" updated="20240622214327">
-    <div class="iframe-content">
-    <audio controls="controls" src="./../../../assets/1719063807130-sf0rtsi9tl7-20240622214327-9fqwbzi.wav" data-src="assets/1719063807130-sf0rtsi9tl7-20240622214327-9fqwbzi.wav"></audio>
-    </div>
-  </div><div id="20240622214423-felgxe3" data-node-id="20240622214423-felgxe3" data-type="NodeParagraph" updated="20240622214423" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../../assets/image-20240622214423-m8ou616.png"
-  data-src="./../../../assets/image-20240622214423-m8ou616.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20240623110905-tty3365" data-node-id="20240623110905-tty3365" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20240622172305-ov58n5w" data-node-id="20240622172305-ov58n5w" data-type="NodeDocument" updated="20240623110905" custom-liandi-articleId="1719063876862" type="doc">
+
+<h1 id="20240622172305-ov58n5w" data-node-id="20240622172305-ov58n5w" data-type="NodeDocument" updated="20240623110905" custom-liandi-articleId="1719063876862" type="doc" data-type="NodeHeading" class="h1">思源笔记文本转语音</h1>
+<div id="20240622172329-u5js7ny" data-node-id="20240622172329-u5js7ny" data-type="NodeParagraph" updated="20240622172410" class="p"><div spellcheck="false">此功能目前仅支持 <a href="https://github.com/jianchang512/ChatTTS-ui">ChatTTS-ui</a> 项目的 api 接口</div></div><h2 id="20240622172410-1accng3" data-node-id="20240622172410-1accng3" data-type="NodeHeading" updated="20240623110905" data-subtype="h2" class="h2">使用方式</h2><div id="20240622172422-lqysqti" data-node-id="20240622172422-lqysqti" data-type="NodeParagraph" updated="20240622214328" class="p"><div spellcheck="false">安装 <a href="https://github.com/2234839/sy2video-plugin-siyuan">2234839/sy2video-plugin-siyuan</a> 插件并启动 ChatTTS-ui</div></div><div id="20240622214224-rz8iwn4" data-node-id="20240622214224-rz8iwn4" data-type="NodeParagraph" updated="20240622214302" class="p"><div spellcheck="false">点击文本左侧块标最下方的转音频按钮，耐心等待一会就会在文本的下方添加一个音频块</div></div> <div id="20240622214327-gh41sah" data-node-id="20240622214327-gh41sah" data-type="NodeAudio" updated="20240622214327">
+      <div class="iframe-content">
+      <audio controls="controls" src="./../../../assets/1719063807130-sf0rtsi9tl7-20240622214327-9fqwbzi.wav" data-src="assets/1719063807130-sf0rtsi9tl7-20240622214327-9fqwbzi.wav"></audio>
+      </div>
+    </div><div id="20240622214423-felgxe3" data-node-id="20240622214423-felgxe3" data-type="NodeParagraph" updated="20240622214423" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../../assets/image-20240622214423-m8ou616.png"
+    data-src="./../../../assets/image-20240622214423-m8ou616.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20240623110905-tty3365" data-node-id="20240623110905-tty3365" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -84,7 +92,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

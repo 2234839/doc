@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>powershell 终端美化 git 分支名乱码解决办法</title>
 </head>
 <body>
@@ -49,123 +49,131 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20240610142803-fratzp9" data-node-id="20240610142803-fratzp9" data-type="NodeDocument" updated="20240610142803" data-subtype="h1" class="h1" type="doc"></div><h1 id="20240610142803-fratzp9" data-node-id="20240610142803-fratzp9" data-type="NodeDocument" updated="20240610142803" data-subtype="h1" class="h1" type="doc" data-type="NodeHeading" class="h1">powershell 终端美化 git 分支名乱码解决办法</h1><div id="20240610142803-3wwg4hi" data-node-id="20240610142803-3wwg4hi" data-type="NodeThematicBreak" updated="20240610142803" class="hr"><div></div></div><div id="20240610142803-hl5mcrh" data-node-id="20240610142803-hl5mcrh" data-type="NodeList" updated="20240610142803" data-subtype="u" class="list"><div id="20240610142803-dow68e1" data-node-id="20240610142803-dow68e1" data-type="NodeListItem" updated="20240610142803" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240610142803-gux2wn0" data-node-id="20240610142803-gux2wn0" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">powershell 终端美化 git 分支名乱码解决办法 - 知乎专栏</div></div>
-    </div><div id="20240610142803-dp3ks66" data-node-id="20240610142803-dp3ks66" data-type="NodeListItem" updated="20240610142803" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240610142803-my0f3xo" data-node-id="20240610142803-my0f3xo" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false"><a href="https://zhuanlan.zhihu.com/p/208493467">https://zhuanlan.zhihu.com/p/208493467</a></div></div>
-    </div><div id="20240610142803-jv35i1y" data-node-id="20240610142803-jv35i1y" data-type="NodeListItem" updated="20240610142803" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240610142803-d7z2wjw" data-node-id="20240610142803-d7z2wjw" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">2024-06-10 14:28:03</div></div>
-    </div></div><div id="20240610142803-zlmn4bi" data-node-id="20240610142803-zlmn4bi" data-type="NodeThematicBreak" updated="20240610142803" class="hr"><div></div></div><div id="20240610142803-vh7ati5" data-node-id="20240610142803-vh7ati5" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">之前通过 on-my-posh 已经美化过一次了但是 如果我 git 分支名中有中文那么他显示的还是乱码，所以现在想让他正常显示</div></div><div id="20240610142803-i04g0gk" data-node-id="20240610142803-i04g0gk" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/v2-05c7f38bf9ddcbea62d5ee275d7f03f4_b-20240610142803-bx9g57t.jpg"
-  data-src="./../assets/v2-05c7f38bf9ddcbea62d5ee275d7f03f4_b-20240610142803-bx9g57t.jpg"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20240610142803-lk258es" data-node-id="20240610142803-lk258es" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">通过如下命令找到主题文件</div></div><div id="20240610142803-s41mgfy" data-node-id="20240610142803-s41mgfy" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/v2-ae7976059f35479baedcb4ab8dc7f420_b-20240610142803-6hwwhn0.jpg"
-  data-src="./../assets/v2-ae7976059f35479baedcb4ab8dc7f420_b-20240610142803-6hwwhn0.jpg"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20240610142803-zjacmjd" data-node-id="20240610142803-zjacmjd" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">打开之后搜寻一番发现</div></div><div id="20240610142803-asm944c" data-node-id="20240610142803-asm944c" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/v2-3851221ea61b8821845b335edf90f379_b-20240610142803-vxp3x01.jpg"
-  data-src="./../assets/v2-3851221ea61b8821845b335edf90f379_b-20240610142803-vxp3x01.jpg"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20240610142803-b8uob4i" data-node-id="20240610142803-b8uob4i" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">ps 脚本我不太懂，看这个文件大致可以猜出来终端中上面那一行就是 $prompt 输出后的结果，现在的问题缩小到如何让 $prompt 内包含的中文输出后正常显示？</div></div><div id="20240610142803-g7qa7ot" data-node-id="20240610142803-g7qa7ot" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">经过尝试上图红框出输入中文输出的也是乱码，网上搜寻无果，突然想起来gb2312 这个东西，将该文件使用gb2312编码保存代码内的中文可以输出了</div></div><div id="20240610142803-5r0h6d1" data-node-id="20240610142803-5r0h6d1" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/v2-484658392105c706889827e77d00e47a_b-20240610142803-yjmt5zf.jpg"
-  data-src="./../assets/v2-484658392105c706889827e77d00e47a_b-20240610142803-yjmt5zf.jpg"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20240610142803-9sezxkt" data-node-id="20240610142803-9sezxkt" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">但右侧分支名还是乱码，猜测应该是一样的问题，那么应该会有这几种解决方案</div></div><div id="20240610142803-x5amb9l" data-node-id="20240610142803-x5amb9l" data-type="NodeList" updated="20240610142803" data-subtype="o" class="list"><div id="20240610142803-qmy8z4t" data-node-id="20240610142803-qmy8z4t" data-type="NodeListItem" updated="20240610142803" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20240610142803-1218azf" data-node-id="20240610142803-1218azf" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">让powershell 支持utf-8。这个因为其他问题之前试过，虽然utf-8 的是正常显示了但导致本来中文能正常输出的反而不行了</div></div>
-    </div><div id="20240610142803-6ht8e2m" data-node-id="20240610142803-6ht8e2m" data-type="NodeListItem" updated="20240610142803" data-subtype="o" class="li" data-marker="2.">
-      <div class="protyle-action">
-        2.
-      </div>
-      <div id="20240610142803-5pzwd5g" data-node-id="20240610142803-5pzwd5g" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">最好的方法应该是直接让这个脚本可以输出utf-8的字符</div></div>
-    </div><div id="20240610142803-30gqipy" data-node-id="20240610142803-30gqipy" data-type="NodeListItem" updated="20240610142803" data-subtype="o" class="li" data-marker="3.">
-      <div class="protyle-action">
-        3.
-      </div>
-      <div id="20240610142803-u7qr38z" data-node-id="20240610142803-u7qr38z" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">分支名转 gb2312 再输出</div></div>
-    </div></div><div id="20240610142803-6idclx2" data-node-id="20240610142803-6idclx2" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">接下来就是去网上找文档看有没有办法解决或者能实现我上面提出的两个方案</div></div><div id="20240610142803-fh947fv" data-node-id="20240610142803-fh947fv" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">在 <a href="https://www.zhihu.com/question/54724102/answer/1035566559">https://www.zhihu.com/question/54724102/answer/1035566559</a> 发现了解决方案1的实现方法</div></div><div id="20240610142803-tabugdq" data-node-id="20240610142803-tabugdq" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">步骤如下</div></div><div id="20240610142803-k9t9phn" data-node-id="20240610142803-k9t9phn" data-type="NodeList" updated="20240610142803" data-subtype="o" class="list"><div id="20240610142803-akf9d2y" data-node-id="20240610142803-akf9d2y" data-type="NodeListItem" updated="20240610142803" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20240610142803-ch1lzrf" data-node-id="20240610142803-ch1lzrf" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">输入 <span data-type="code">$profile</span>​ 得到powershell配置文件地址</div></div>
-    </div></div><div id="20240610142803-tq423zh" data-node-id="20240610142803-tq423zh" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/v2-520d4cd75f6c4ab51798cadae815c195_b-20240610142803-knfc18h.jpg"
-  data-src="./../assets/v2-520d4cd75f6c4ab51798cadae815c195_b-20240610142803-knfc18h.jpg"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20240610142803-pf43n92" data-node-id="20240610142803-pf43n92" data-type="NodeList" updated="20240610142803" data-subtype="o" class="list"><div id="20240610142803-b3cx0iu" data-node-id="20240610142803-b3cx0iu" data-type="NodeListItem" updated="20240610142803" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20240610142803-idondzt" data-node-id="20240610142803-idondzt" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">添加 <span data-type="code">$OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding</span>​</div></div>
-    </div></div><div id="20240610142803-nauwyf1" data-node-id="20240610142803-nauwyf1" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/v2-fb35765a140d22c9ffe614f46f855d90_b-20240610142803-o490kh6.png"
-  data-src="./../assets/v2-fb35765a140d22c9ffe614f46f855d90_b-20240610142803-o490kh6.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20240610142803-gn4h20x" data-node-id="20240610142803-gn4h20x" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">中文分支名正确显示！</div></div><div id="20240610142803-y2w6zbw" data-node-id="20240610142803-y2w6zbw" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/v2-c5bcedc4c9cb80a3b197cd9a0dd53af3_b-20240610142803-s1kg1c0.jpg"
-  data-src="./../assets/v2-c5bcedc4c9cb80a3b197cd9a0dd53af3_b-20240610142803-s1kg1c0.jpg"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><h3 id="20240610142803-mpv9l0x" data-node-id="20240610142803-mpv9l0x" data-type="NodeHeading" updated="20240610142803" data-subtype="h3" class="h3">另外的问题，显示 emoji</h3><div id="20240610142803-x4nsizf" data-node-id="20240610142803-x4nsizf" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">我想在最前面放一个 emoji</div></div><div id="20240610142803-jolsqcn" data-node-id="20240610142803-jolsqcn" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/v2-2b0f91c01fe9ab4e16a797c3ccd33471_b-20240610142803-mgsum7s.png"
-  data-src="./../assets/v2-2b0f91c01fe9ab4e16a797c3ccd33471_b-20240610142803-mgsum7s.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20240610142803-yb90ibj" data-node-id="20240610142803-yb90ibj" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/v2-ebc064b2b3e90989472471e337cfe8dd_b-20240610142803-p44pltd.jpg"
-  data-src="./../assets/v2-ebc064b2b3e90989472471e337cfe8dd_b-20240610142803-p44pltd.jpg"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20240610142803-lt0md07" data-node-id="20240610142803-lt0md07" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">在线编码工具 <a href="https://link.zhihu.com/?target=http%3A//tools.jb51.net/transcoding/decode_encode_tool">http://tools.jb51.net/transcoding/decode_encode_tool</a></div></div><div id="20240610142803-oqaux4z" data-node-id="20240610142803-oqaux4z" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">这个三角形的编码就是 <span data-type="code">0x1F4D0</span>​ 但打印出来后前面多了问号，不知道什么原因，但前四位为0的emoji是可以正常显示的,可能是因为组合字的缘故。</div></div><div id="20240610142803-k2vz2t1" data-node-id="20240610142803-k2vz2t1" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">这个问题没有想到比较好的方法，望了解者不吝赐教(´▽`ʃ♡ƪ) 。我只能暂时先用单个码点的emoji了</div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20240610142803-fratzp9" data-node-id="20240610142803-fratzp9" data-type="NodeDocument" updated="20240610142803" type="doc">
+
+<h1 id="20240610142803-fratzp9" data-node-id="20240610142803-fratzp9" data-type="NodeDocument" updated="20240610142803" type="doc" data-type="NodeHeading" class="h1">powershell 终端美化 git 分支名乱码解决办法</h1>
+<div id="20240610142803-3wwg4hi" data-node-id="20240610142803-3wwg4hi" data-type="NodeThematicBreak" updated="20240610142803" class="hr"><div></div></div><div id="20240610142803-hl5mcrh" data-node-id="20240610142803-hl5mcrh" data-type="NodeList" updated="20240610142803" data-subtype="u" class="list"><div id="20240610142803-dow68e1" data-node-id="20240610142803-dow68e1" data-type="NodeListItem" updated="20240610142803" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240610142803-gux2wn0" data-node-id="20240610142803-gux2wn0" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">powershell 终端美化 git 分支名乱码解决办法 - 知乎专栏</div></div>
+      </div><div id="20240610142803-dp3ks66" data-node-id="20240610142803-dp3ks66" data-type="NodeListItem" updated="20240610142803" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240610142803-my0f3xo" data-node-id="20240610142803-my0f3xo" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false"><a href="https://zhuanlan.zhihu.com/p/208493467">https://zhuanlan.zhihu.com/p/208493467</a></div></div>
+      </div><div id="20240610142803-jv35i1y" data-node-id="20240610142803-jv35i1y" data-type="NodeListItem" updated="20240610142803" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240610142803-d7z2wjw" data-node-id="20240610142803-d7z2wjw" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">2024-06-10 14:28:03</div></div>
+      </div></div><div id="20240610142803-zlmn4bi" data-node-id="20240610142803-zlmn4bi" data-type="NodeThematicBreak" updated="20240610142803" class="hr"><div></div></div><div id="20240610142803-vh7ati5" data-node-id="20240610142803-vh7ati5" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">之前通过 on-my-posh 已经美化过一次了但是 如果我 git 分支名中有中文那么他显示的还是乱码，所以现在想让他正常显示</div></div><div id="20240610142803-i04g0gk" data-node-id="20240610142803-i04g0gk" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/v2-05c7f38bf9ddcbea62d5ee275d7f03f4_b-20240610142803-bx9g57t.jpg"
+    data-src="./../assets/v2-05c7f38bf9ddcbea62d5ee275d7f03f4_b-20240610142803-bx9g57t.jpg"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20240610142803-lk258es" data-node-id="20240610142803-lk258es" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">通过如下命令找到主题文件</div></div><div id="20240610142803-s41mgfy" data-node-id="20240610142803-s41mgfy" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/v2-ae7976059f35479baedcb4ab8dc7f420_b-20240610142803-6hwwhn0.jpg"
+    data-src="./../assets/v2-ae7976059f35479baedcb4ab8dc7f420_b-20240610142803-6hwwhn0.jpg"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20240610142803-zjacmjd" data-node-id="20240610142803-zjacmjd" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">打开之后搜寻一番发现</div></div><div id="20240610142803-asm944c" data-node-id="20240610142803-asm944c" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/v2-3851221ea61b8821845b335edf90f379_b-20240610142803-vxp3x01.jpg"
+    data-src="./../assets/v2-3851221ea61b8821845b335edf90f379_b-20240610142803-vxp3x01.jpg"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20240610142803-b8uob4i" data-node-id="20240610142803-b8uob4i" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">ps 脚本我不太懂，看这个文件大致可以猜出来终端中上面那一行就是 $prompt 输出后的结果，现在的问题缩小到如何让 $prompt 内包含的中文输出后正常显示？</div></div><div id="20240610142803-g7qa7ot" data-node-id="20240610142803-g7qa7ot" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">经过尝试上图红框出输入中文输出的也是乱码，网上搜寻无果，突然想起来gb2312 这个东西，将该文件使用gb2312编码保存代码内的中文可以输出了</div></div><div id="20240610142803-5r0h6d1" data-node-id="20240610142803-5r0h6d1" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/v2-484658392105c706889827e77d00e47a_b-20240610142803-yjmt5zf.jpg"
+    data-src="./../assets/v2-484658392105c706889827e77d00e47a_b-20240610142803-yjmt5zf.jpg"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20240610142803-9sezxkt" data-node-id="20240610142803-9sezxkt" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">但右侧分支名还是乱码，猜测应该是一样的问题，那么应该会有这几种解决方案</div></div><div id="20240610142803-x5amb9l" data-node-id="20240610142803-x5amb9l" data-type="NodeList" updated="20240610142803" data-subtype="o" class="list"><div id="20240610142803-qmy8z4t" data-node-id="20240610142803-qmy8z4t" data-type="NodeListItem" updated="20240610142803" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20240610142803-1218azf" data-node-id="20240610142803-1218azf" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">让powershell 支持utf-8。这个因为其他问题之前试过，虽然utf-8 的是正常显示了但导致本来中文能正常输出的反而不行了</div></div>
+      </div><div id="20240610142803-6ht8e2m" data-node-id="20240610142803-6ht8e2m" data-type="NodeListItem" updated="20240610142803" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20240610142803-5pzwd5g" data-node-id="20240610142803-5pzwd5g" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">最好的方法应该是直接让这个脚本可以输出utf-8的字符</div></div>
+      </div><div id="20240610142803-30gqipy" data-node-id="20240610142803-30gqipy" data-type="NodeListItem" updated="20240610142803" data-subtype="o" class="li" data-marker="3.">
+        <div class="protyle-action">
+          3.
+        </div>
+        <div id="20240610142803-u7qr38z" data-node-id="20240610142803-u7qr38z" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">分支名转 gb2312 再输出</div></div>
+      </div></div><div id="20240610142803-6idclx2" data-node-id="20240610142803-6idclx2" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">接下来就是去网上找文档看有没有办法解决或者能实现我上面提出的两个方案</div></div><div id="20240610142803-fh947fv" data-node-id="20240610142803-fh947fv" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">在 <a href="https://www.zhihu.com/question/54724102/answer/1035566559">https://www.zhihu.com/question/54724102/answer/1035566559</a> 发现了解决方案1的实现方法</div></div><div id="20240610142803-tabugdq" data-node-id="20240610142803-tabugdq" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">步骤如下</div></div><div id="20240610142803-k9t9phn" data-node-id="20240610142803-k9t9phn" data-type="NodeList" updated="20240610142803" data-subtype="o" class="list"><div id="20240610142803-akf9d2y" data-node-id="20240610142803-akf9d2y" data-type="NodeListItem" updated="20240610142803" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20240610142803-ch1lzrf" data-node-id="20240610142803-ch1lzrf" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">输入 <span data-type="code">$profile</span>​ 得到powershell配置文件地址</div></div>
+      </div></div><div id="20240610142803-tq423zh" data-node-id="20240610142803-tq423zh" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/v2-520d4cd75f6c4ab51798cadae815c195_b-20240610142803-knfc18h.jpg"
+    data-src="./../assets/v2-520d4cd75f6c4ab51798cadae815c195_b-20240610142803-knfc18h.jpg"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20240610142803-pf43n92" data-node-id="20240610142803-pf43n92" data-type="NodeList" updated="20240610142803" data-subtype="o" class="list"><div id="20240610142803-b3cx0iu" data-node-id="20240610142803-b3cx0iu" data-type="NodeListItem" updated="20240610142803" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20240610142803-idondzt" data-node-id="20240610142803-idondzt" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">添加 <span data-type="code">$OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding</span>​</div></div>
+      </div></div><div id="20240610142803-nauwyf1" data-node-id="20240610142803-nauwyf1" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/v2-fb35765a140d22c9ffe614f46f855d90_b-20240610142803-o490kh6.png"
+    data-src="./../assets/v2-fb35765a140d22c9ffe614f46f855d90_b-20240610142803-o490kh6.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20240610142803-gn4h20x" data-node-id="20240610142803-gn4h20x" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">中文分支名正确显示！</div></div><div id="20240610142803-y2w6zbw" data-node-id="20240610142803-y2w6zbw" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/v2-c5bcedc4c9cb80a3b197cd9a0dd53af3_b-20240610142803-s1kg1c0.jpg"
+    data-src="./../assets/v2-c5bcedc4c9cb80a3b197cd9a0dd53af3_b-20240610142803-s1kg1c0.jpg"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><h3 id="20240610142803-mpv9l0x" data-node-id="20240610142803-mpv9l0x" data-type="NodeHeading" updated="20240610142803" data-subtype="h3" class="h3">另外的问题，显示 emoji</h3><div id="20240610142803-x4nsizf" data-node-id="20240610142803-x4nsizf" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">我想在最前面放一个 emoji</div></div><div id="20240610142803-jolsqcn" data-node-id="20240610142803-jolsqcn" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/v2-2b0f91c01fe9ab4e16a797c3ccd33471_b-20240610142803-mgsum7s.png"
+    data-src="./../assets/v2-2b0f91c01fe9ab4e16a797c3ccd33471_b-20240610142803-mgsum7s.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20240610142803-yb90ibj" data-node-id="20240610142803-yb90ibj" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/v2-ebc064b2b3e90989472471e337cfe8dd_b-20240610142803-p44pltd.jpg"
+    data-src="./../assets/v2-ebc064b2b3e90989472471e337cfe8dd_b-20240610142803-p44pltd.jpg"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20240610142803-lt0md07" data-node-id="20240610142803-lt0md07" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">在线编码工具 <a href="https://link.zhihu.com/?target=http%3A//tools.jb51.net/transcoding/decode_encode_tool">http://tools.jb51.net/transcoding/decode_encode_tool</a></div></div><div id="20240610142803-oqaux4z" data-node-id="20240610142803-oqaux4z" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">这个三角形的编码就是 <span data-type="code">0x1F4D0</span>​ 但打印出来后前面多了问号，不知道什么原因，但前四位为0的emoji是可以正常显示的,可能是因为组合字的缘故。</div></div><div id="20240610142803-k2vz2t1" data-node-id="20240610142803-k2vz2t1" data-type="NodeParagraph" updated="20240610142803" class="p"><div spellcheck="false">这个问题没有想到比较好的方法，望了解者不吝赐教(´▽`ʃ♡ƪ) 。我只能暂时先用单个码点的emoji了</div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -184,7 +192,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

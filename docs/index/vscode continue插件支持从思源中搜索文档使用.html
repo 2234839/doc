@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>vscode continue插件支持从思源中搜索文档使用</title>
 </head>
 <body>
@@ -49,28 +49,35 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20250207102303-34utbcn" data-node-id="20250207102303-34utbcn" data-type="NodeDocument" updated="20250207102704" data-subtype="h1" class="h1" custom-liandi-articleId="1738895231883" type="doc"></div><h1 id="20250207102303-34utbcn" data-node-id="20250207102303-34utbcn" data-type="NodeDocument" updated="20250207102704" data-subtype="h1" class="h1" custom-liandi-articleId="1738895231883" type="doc" data-type="NodeHeading" class="h1">vscode continue插件支持从思源中搜索文档使用</h1><h2 id="20250207102630-sqv3sea" data-node-id="20250207102630-sqv3sea" data-type="NodeHeading" updated="20250207102704" data-subtype="h2" class="h2">使用效果</h2><div id="20250207102647-slcrste" data-node-id="20250207102647-slcrste" data-type="NodeParagraph" updated="20250207102647" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/image-20250207102647-zbsyxp3.png"
-  data-src="./../assets/image-20250207102647-zbsyxp3.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20250207102653-4sfftgf" data-node-id="20250207102653-4sfftgf" data-type="NodeParagraph" updated="20250207102704" class="p"><div spellcheck="false">支持点击上方的 item 跳转到思源</div></div><h2 id="20250207102303-u39y8e8" data-node-id="20250207102303-u39y8e8" data-type="NodeHeading" updated="20250207102602" data-subtype="h2" class="h2">1. 在 config.json 中配置 apiKey</h2><div id="20250207102507-epsbkf1" data-node-id="20250207102507-epsbkf1" data-type="NodeParagraph" updated="20250207102602" class="p"><div spellcheck="false">直接点击插件的齿轮图标->Open configuration file 就能打开 config.json</div></div><div id="20250207102349-30kkk5b" data-node-id="20250207102349-30kkk5b" data-type="NodeParagraph" updated="20250207102359" class="p"><div spellcheck="false">添加如下这样的配置即可</div></div><div id="20250207102336-dl53piy" data-node-id="20250207102336-dl53piy" data-type="NodeParagraph" updated="20250207102336" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../assets/image-20250207102336-f4l0w4j.png"
-  data-src="./../assets/image-20250207102336-f4l0w4j.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><h2 id="20250207102409-4ccgr29" data-node-id="20250207102409-4ccgr29" data-type="NodeHeading" updated="20250207102627" data-subtype="h2" class="h2">2. 在 config.ts 中编写自定义的 <span data-type="code">contextProviders</span>​</h2><div id="20250207102612-yzqtsfz" data-node-id="20250207102612-yzqtsfz" data-type="NodeParagraph" updated="20250207102627" class="p"><div spellcheck="false">config.ts 和 上面的 config.json 在同一个目录下</div></div><div id="20250207102434-mtdmvr5" data-node-id="20250207102434-mtdmvr5" data-type="NodeParagraph" updated="20250207102436" class="p"><div spellcheck="false">代码如下</div></div><div id="20250207102436-223zttw" data-node-id="20250207102436-223zttw" data-type="NodeCodeBlock" updated="20250207102457" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">ts</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">export function modifyConfig(config: Config): Config {
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20250207102303-34utbcn" data-node-id="20250207102303-34utbcn" data-type="NodeDocument" updated="20250207102704" custom-liandi-articleId="1738895231883" type="doc">
+
+<h1 id="20250207102303-34utbcn" data-node-id="20250207102303-34utbcn" data-type="NodeDocument" updated="20250207102704" custom-liandi-articleId="1738895231883" type="doc" data-type="NodeHeading" class="h1">vscode continue插件支持从思源中搜索文档使用</h1>
+<h2 id="20250207102630-sqv3sea" data-node-id="20250207102630-sqv3sea" data-type="NodeHeading" updated="20250207102704" data-subtype="h2" class="h2">使用效果</h2><div id="20250207102647-slcrste" data-node-id="20250207102647-slcrste" data-type="NodeParagraph" updated="20250207102647" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/image-20250207102647-zbsyxp3.png"
+    data-src="./../assets/image-20250207102647-zbsyxp3.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20250207102653-4sfftgf" data-node-id="20250207102653-4sfftgf" data-type="NodeParagraph" updated="20250207102704" class="p"><div spellcheck="false">支持点击上方的 item 跳转到思源</div></div><h2 id="20250207102303-u39y8e8" data-node-id="20250207102303-u39y8e8" data-type="NodeHeading" updated="20250207102602" data-subtype="h2" class="h2">1. 在 config.json 中配置 apiKey</h2><div id="20250207102507-epsbkf1" data-node-id="20250207102507-epsbkf1" data-type="NodeParagraph" updated="20250207102602" class="p"><div spellcheck="false">直接点击插件的齿轮图标->Open configuration file 就能打开 config.json</div></div><div id="20250207102349-30kkk5b" data-node-id="20250207102349-30kkk5b" data-type="NodeParagraph" updated="20250207102359" class="p"><div spellcheck="false">添加如下这样的配置即可</div></div><div id="20250207102336-dl53piy" data-node-id="20250207102336-dl53piy" data-type="NodeParagraph" updated="20250207102336" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/image-20250207102336-f4l0w4j.png"
+    data-src="./../assets/image-20250207102336-f4l0w4j.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><h2 id="20250207102409-4ccgr29" data-node-id="20250207102409-4ccgr29" data-type="NodeHeading" updated="20250207102627" data-subtype="h2" class="h2">2. 在 config.ts 中编写自定义的 <span data-type="code">contextProviders</span>​</h2><div id="20250207102612-yzqtsfz" data-node-id="20250207102612-yzqtsfz" data-type="NodeParagraph" updated="20250207102627" class="p"><div spellcheck="false">config.ts 和 上面的 config.json 在同一个目录下</div></div><div id="20250207102434-mtdmvr5" data-node-id="20250207102434-mtdmvr5" data-type="NodeParagraph" updated="20250207102436" class="p"><div spellcheck="false">代码如下</div></div><div id="20250207102436-223zttw" data-node-id="20250207102436-223zttw" data-type="NodeCodeBlock" updated="20250207102457" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">ts</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">export function modifyConfig(config: Config): Config {
   // 自定义上下文提供者
   config.contextProviders?.push({
     title: "siyuan",
@@ -156,11 +163,12 @@
 }
 
 </div>
-      </div>
-  </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+        </div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -179,7 +187,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);

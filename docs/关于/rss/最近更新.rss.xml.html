@@ -31,15 +31,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
     const currentHour = new Date().getHours();
     return currentHour >= 18 || currentHour < 6;
   }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>最近更新.rss.xml</title>
 </head>
 <body>
@@ -49,433 +49,540 @@
 </div>
 
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
-  <div style="min-height: 150px;" id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc"></div><h1 id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" data-subtype="h1" class="h1" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc" data-type="NodeHeading" class="h1">最近更新.rss.xml</h1><div id="20210606154842-jah9dt8" data-node-id="20210606154842-jah9dt8" data-type="NodeBlockQueryEmbed" updated="20240619103229" style="height: 9998px;" data-type="NodeBlockquote" class="bq"><h1 id="20230910200918-c5tz174" data-node-id="20230910200918-c5tz174" data-type="NodeHeading" updated="20250315203540" data-subtype="h1" class="h1">2023-9-16</h1><h2 id="20230916143010-p5on7eh" data-node-id="20230916143010-p5on7eh" data-type="NodeHeading" updated="20250315203540" data-subtype="h2" class="h2">3️⃣完成sy文件的渲染功能</h2>
-<div id="20230916143117-mxdn61p" data-node-id="20230916143117-mxdn61p" data-type="NodeParagraph" updated="20250315203540" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 586px;" style="width: 576px;" style="width: 586px;">
-<img
-  src="./../../assets/image-20230916143117-tv32ymo.png"
-  data-src="./../../assets/image-20230916143117-tv32ymo.png"
-  title=""
-  style="width: 576px;"
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div>
-<div id="20230915102015-rb9rhsl" data-node-id="20230915102015-rb9rhsl" data-type="NodeSuperBlock" updated="20240118165426" class="sb" data-sb-layout="col"><div id="20230915102008-hli7flm" data-node-id="20230915102008-hli7flm" data-type="NodeSuperBlock" updated="20230915102021" class="sb" data-sb-layout="row"><h4 id="20230915101713-55mkrzb" data-node-id="20230915101713-55mkrzb" data-type="NodeHeading" updated="20230915102021" data-subtype="h4" class="h4">1️⃣初步全量生成html</h4><div id="20230915101813-2z7d0k3" data-node-id="20230915101813-2z7d0k3" data-type="NodeParagraph" updated="20230915102008" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../assets/image-20230915101813-0f6486s.png"
-  data-src="./../../assets/image-20230915101813-0f6486s.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div></div><div id="20230915101958-tnkgbx3" data-node-id="20230915101958-tnkgbx3" data-type="NodeSuperBlock" updated="20230915102027" class="sb" data-sb-layout="row"><h4 id="20230915101842-ribwbn7" data-node-id="20230915101842-ribwbn7" data-type="NodeHeading" updated="20230915102027" data-subtype="h4" class="h4">2️⃣添加生成预览</h4><div id="20230915101916-oujaafk" data-node-id="20230915101916-oujaafk" data-type="NodeParagraph" updated="20230915101958" class="p"><div spellcheck="false">在本地生成思源笔记用户指南的html</div></div><div id="20230915101918-polpr28" data-node-id="20230915101918-polpr28" data-type="NodeParagraph" updated="20230915101958" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../assets/image-20230915101918-qhcpo0u.png"
-  data-src="./../../assets/image-20230915101918-qhcpo0u.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div></div></div><div id="20230916143117-mxdn61p" data-node-id="20230916143117-mxdn61p" data-type="NodeParagraph" updated="20250315203540" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 586px;" style="width: 576px;" style="width: 586px;">
-<img
-  src="./../../assets/image-20230916143117-tv32ymo.png"
-  data-src="./../../assets/image-20230916143117-tv32ymo.png"
-  title=""
-  style="width: 576px;"
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><h2 id="20201125120429-rq6gnau" data-node-id="20201125120429-rq6gnau" data-type="NodeHeading" updated="20250315193326" data-subtype="h2" class="h2">以下是用来测试渲染效果的</h2>
-<div id="20201125120429-gph7gp3" data-node-id="20201125120429-gph7gp3" data-type="NodeParagraph" class="p"><div spellcheck="false">页面引用： <span data-type="block-ref" data-subtype="s" data-id="20201105161628-4vktwyt"><a href="./../../record/思源笔记 其他记录.html#20201105161628-4vktwyt">思源笔记 其他记录</a></span></div></div>
-<div id="20201125120429-1jptmeq" data-node-id="20201125120429-1jptmeq" data-type="NodeParagraph" class="p"><div spellcheck="false">块引用：<span data-type="block-ref" data-subtype="s" data-id="20201105161704-racjvte"><a href="./../../record/思源笔记 其他记录.html#20201105161704-racjvte">我提的一些 issues  思源笔记</a></span></div></div>
-<div id="20210408144740-vj8pk0b" data-node-id="20210408144740-vj8pk0b" data-type="NodeParagraph" updated="20210408144802" class="p"><div spellcheck="false">链中链： <span data-type="block-ref" data-subtype="d" data-id="20201125120429-1jptmeq"><a href="./../../record/思源笔记.html#20201125120429-1jptmeq">块引用：我提的一些 issues  思源笔记</a></span></div></div>
-<div id="20201125120429-0wng1w1" data-node-id="20201125120429-0wng1w1" data-type="NodeParagraph" class="p"><div spellcheck="false">下面是嵌入块引用</div></div>
-<div id="20210521142715-8lgb2tu" data-node-id="20210521142715-8lgb2tu" data-type="NodeBlockQueryEmbed" data-type="NodeBlockquote" class="bq"><h2 id="20201105161704-racjvte" data-node-id="20201105161704-racjvte" data-type="NodeHeading" updated="20210623110554" data-subtype="h2" class="h2"><span data-type="block-ref" data-subtype="s" data-id="20201105162504-ftm3r0p"><a href="./../../record/Tag.html#20201105162504-ftm3r0p">我提的一些 issues</a></span>  <span data-type="block-ref" data-subtype="d" data-id="20201104155455-awawq0n"><a href="./../../record/思源笔记.html#20201104155455-awawq0n">思源笔记</a></span></h2>
-<div id="20201121142250-9bpg8v9" data-node-id="20201121142250-9bpg8v9" data-type="NodeList" data-subtype="t" class="list" data-marker="*"><div id="20201121142250-68i2qmv" data-node-id="20201121142250-68i2qmv" data-type="NodeListItem" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <div id="20210521142712-h6dk2nq" data-node-id="20210521142712-h6dk2nq" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/88250/lute/issues/102">BlockRef 没有触发自定义渲染器</a></div></div>
-    </div><div id="20201121142250-sdxm76p" data-node-id="20201121142250-sdxm76p" data-type="NodeListItem" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <div id="20210521142712-xzxsbbh" data-node-id="20210521142712-xzxsbbh" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/88250/lute/issues/101">公式块 id 没有渲染，标题 「id」是否应该换一种处理方式？</a></div></div>
-    </div><div id="20201121142250-9l23m4w" data-node-id="20201121142250-9l23m4w" data-type="NodeListItem" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <div id="20210521142712-fpfot70" data-node-id="20210521142712-fpfot70" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/88250/lute/issues/100">【渲染 bug】昨天更新的版本报错 Error: runtime error: slice bounds out of range</a></div></div>
-    </div><div id="20201121142250-beye3yv" data-node-id="20201121142250-beye3yv" data-type="NodeListItem" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <div id="20210521142712-ld8hij2" data-node-id="20210521142712-ld8hij2" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/88250/lute/issues/99">标题块渲染为 html 后丢失块 id 信息</a></div></div>
-    </div><div id="20201121142250-dr3ccxf" data-node-id="20201121142250-dr3ccxf" data-type="NodeListItem" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <div id="20210521142712-i9ntyn7" data-node-id="20210521142712-i9ntyn7" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/88250/lute/issues/98">使用 lute.MarkdownStr(&quot;&quot;, md_str) 得到的结果里面有 id 该怎么处理</a></div></div>
-    </div></div></div>
-<div id="20201125120429-762p6xt" data-node-id="20201125120429-762p6xt" data-type="NodeParagraph" class="p"><div spellcheck="false">下面是一行嵌入块</div></div>
-<div id="20210521142715-pvdg8c3" data-node-id="20210521142715-pvdg8c3" data-type="NodeBlockQueryEmbed" data-type="NodeBlockquote" class="bq"><div id="20201121142250-68i2qmv" data-node-id="20201121142250-68i2qmv" data-type="NodeListItem" data-subtype="t" class="li protyle-task--done " data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconCheck"></use></svg>
-      </div>
-      <div id="20210521142712-h6dk2nq" data-node-id="20210521142712-h6dk2nq" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://github.com/88250/lute/issues/102">BlockRef 没有触发自定义渲染器</a></div></div>
-    </div></div>
-<div id="20210523204003-zv4r6nn" data-node-id="20210523204003-zv4r6nn" data-type="NodeSuperBlock" updated="20201125120429" class="sb" data-sb-layout="col"><div id="20201125120429-16mryh8" data-node-id="20201125120429-16mryh8" data-type="NodeParagraph" updated="20210523204050" class="p"><div spellcheck="false">数学公式演示 :  行内 <span data-type="inline-math" data-subtype="math" data-content="a^3" class="render-node"></span>
-公式块 -></div></div><div id="20201125120429-bs1n28w" data-node-id="20201125120429-bs1n28w" data-type="NodeMathBlock" updated="20201125120429" data-subtype="math" class="render-node" data-content="a^3 + a^5 = 198">
-    <div spin="1"></div>
-  </div></div>
-<div id="20201125120429-8c3ecc0" data-node-id="20201125120429-8c3ecc0" data-type="NodeCodeBlock" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">javascript {run}</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">console.log(3333)
-</div>
-      </div>
-<div id="20201125141217-41uqvwo" data-node-id="20201125141217-41uqvwo" data-type="NodeSuperBlock" updated="20250315193326" class="sb" data-sb-layout="undefined"><div id="20201125140645-gn17aas" data-node-id="20201125140645-gn17aas" data-type="NodeParagraph" updated="20250315193326" class="p"><div spellcheck="false"><span data-type="s">超级块测试</span> , <span data-type="strong">键盘样式</span>： <span data-type="kbd">ctrl+space</span>​  <span data-type="u">上下标演示</span>： X<span data-type="sup">2</span>  H<span data-type="sub">2</span>O  <span data-type="code">行内代码块</span>​ <span data-type="code">const a = 4</span>​</div></div><h2 id="20210209125951-hlpghto" data-node-id="20210209125951-hlpghto" data-type="NodeHeading" updated="20210209125951" data-subtype="h2" class="h2">test</h2></div>
-<div id="20210521142715-ewlpy1y" data-node-id="20210521142715-ewlpy1y" data-type="NodeBlockQueryEmbed" data-type="NodeBlockquote" class="bq"><div id="20201125141217-41uqvwo" data-node-id="20201125141217-41uqvwo" data-type="NodeSuperBlock" updated="20250315193326" class="sb" data-sb-layout="undefined"><div id="20201125140645-gn17aas" data-node-id="20201125140645-gn17aas" data-type="NodeParagraph" updated="20250315193326" class="p"><div spellcheck="false"><span data-type="s">超级块测试</span> , <span data-type="strong">键盘样式</span>： <span data-type="kbd">ctrl+space</span>​  <span data-type="u">上下标演示</span>： X<span data-type="sup">2</span>  H<span data-type="sub">2</span>O  <span data-type="code">行内代码块</span>​ <span data-type="code">const a = 4</span>​</div></div><h2 id="20210209125951-hlpghto" data-node-id="20210209125951-hlpghto" data-type="NodeHeading" updated="20210209125951" data-subtype="h2" class="h2">test</h2></div></div>
-<div id="20210105213133-6v6wnn4" data-node-id="20210105213133-6v6wnn4" data-type="NodeParagraph" updated="20210408155724" class="p"><div spellcheck="false"><span data-type="strong" style="background-image: linear-gradient(to right, var(--b3-theme-primary), var(--b3-theme-error)); -webkit-background-clip: text; color: transparent;">高亮功能测试</span>，<span data-type="strong" style="background-color: rgb(41, 253, 46); color: var(--b3-theme-background);">背景高亮</span>，<span data-type="strong" style="color: rgb(255, 253, 56);">字</span><span data-type="strong" style="color: rgb(255, 253, 56);">体高亮</span>，<span data-type="strong" style="color: rgb(30, 177, 237);">亮亮</span> <span data-type="strong" style="background-color: rgb(255, 253, 56); color: rgb(252, 13, 27);">亮亮亮亮亮</span>亮</div></div>
-<div id="20210105213956-skaq7b6" data-node-id="20210105213956-skaq7b6" data-type="NodeParagraph" updated="20210408163433" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20210105213133-6v6wnn4"><a href="./../../record/思源笔记.html#20210105213133-6v6wnn4">高亮功能测试，背景高亮，字体高亮，亮亮 亮亮亮亮亮亮</a></span></div></div><div id="20201125141217-41uqvwo" data-node-id="20201125141217-41uqvwo" data-type="NodeSuperBlock" updated="20250315193326" class="sb" data-sb-layout="undefined"><div id="20201125140645-gn17aas" data-node-id="20201125140645-gn17aas" data-type="NodeParagraph" updated="20250315193326" class="p"><div spellcheck="false"><span data-type="s">超级块测试</span> , <span data-type="strong">键盘样式</span>： <span data-type="kbd">ctrl+space</span>​  <span data-type="u">上下标演示</span>： X<span data-type="sup">2</span>  H<span data-type="sub">2</span>O  <span data-type="code">行内代码块</span>​ <span data-type="code">const a = 4</span>​</div></div><h2 id="20210209125951-hlpghto" data-node-id="20210209125951-hlpghto" data-type="NodeHeading" updated="20210209125951" data-subtype="h2" class="h2">test</h2></div><div id="20201125140645-gn17aas" data-node-id="20201125140645-gn17aas" data-type="NodeParagraph" updated="20250315193326" class="p"><div spellcheck="false"><span data-type="s">超级块测试</span> , <span data-type="strong">键盘样式</span>： <span data-type="kbd">ctrl+space</span>​  <span data-type="u">上下标演示</span>： X<span data-type="sup">2</span>  H<span data-type="sub">2</span>O  <span data-type="code">行内代码块</span>​ <span data-type="code">const a = 4</span>​</div></div><div id="20250315142602-imcgq4m" data-node-id="20250315142602-imcgq4m" data-type="NodeParagraph" updated="20250315142704" class="p"><div spellcheck="false">在安装好 OceanPress 插件 v0.3.28 版本后可以按照以下步骤在思源笔记内打开 OceanPress 面板进行发布了</div></div><div id="20250315142600-vrmjqlm" data-node-id="20250315142600-vrmjqlm" data-type="NodeParagraph" updated="20250315142600" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../assets/image-20250315142600-70fsiko.png"
-  data-src="./../../assets/image-20250315142600-70fsiko.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20250315142541-bzpmnde" data-node-id="20250315142541-bzpmnde" data-type="NodeParagraph" updated="20250315142541" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
-<img
-  src="./../../assets/image-20250315142541-3nre9km.png"
-  data-src="./../../assets/image-20250315142541-3nre9km.png"
-  title=""
-  style=""
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><div id="20250315142500-brlut3d" data-node-id="20250315142500-brlut3d" data-type="NodeParagraph" updated="20250315142527" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250315142527-96g76zu"><a href="./../../想法/项目/OceanPress_js/OceanPress插件/更新日志/支持在思源内打开OceanPress面板 0.3.28 .html#20250315142527-96g76zu">支持在思源内打开OceanPress面板 0.3.28</a></span></div></div><div id="20250315130914-nk87mxq" data-node-id="20250315130914-nk87mxq" data-type="NodeParagraph" updated="20250315130914" class="p"><div spellcheck="false"></div></div><div id="20250315130914-b9z4tnv" data-node-id="20250315130914-b9z4tnv" data-type="NodeParagraph" updated="20250315130914" class="p"><div spellcheck="false"></div></div><div id="20250315130914-5miqzov" data-node-id="20250315130914-5miqzov" data-type="NodeParagraph" updated="20250315130914" class="p"><div spellcheck="false"></div></div><div id="20250314212502-x6boe13" data-node-id="20250314212502-x6boe13" data-type="NodeParagraph" updated="20250315130906" class="p"><div spellcheck="false"></div></div><div id="20250314212430-22xnebb" data-node-id="20250314212430-22xnebb" data-type="NodeParagraph" updated="20250314212502" class="p"><div spellcheck="false">我尽量这个月内做到可以在思源 OceanPress 插件内直接部署到 OceanPress server</div></div><div id="20250314212319-zgxyd24" data-node-id="20250314212319-zgxyd24" data-type="NodeParagraph" updated="20250314212427" class="p"><div spellcheck="false"></div></div><div id="20250314212323-ui8p6bv" data-node-id="20250314212323-ui8p6bv" data-type="NodeList" updated="20250314212418" data-subtype="o" class="list"><div id="20250314212324-69f6i70" data-node-id="20250314212324-69f6i70" data-type="NodeListItem" updated="20250314212324" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20250314212324-8xccnnb" data-node-id="20250314212324-8xccnnb" data-type="NodeParagraph" updated="20250314212341" class="p"><div spellcheck="false">安装 nodejs 和 pnpm / npm </div></div>
-    </div><div id="20250314212342-98t9q69" data-node-id="20250314212342-98t9q69" data-type="NodeListItem" updated="20250314212342" data-subtype="o" class="li" data-marker="2.">
-      <div class="protyle-action">
-        2.
-      </div>
-      <div id="20250314212342-j1wj87p" data-node-id="20250314212342-j1wj87p" data-type="NodeParagraph" updated="20250314212402" class="p"><div spellcheck="false">安装 OceanPress server 程序 : <span data-type="code">pnpm i -g oceanpress-server</span>​</div></div>
-    </div><div id="20250314212349-r44yzv8" data-node-id="20250314212349-r44yzv8" data-type="NodeListItem" updated="20250314212349" data-subtype="o" class="li" data-marker="3.">
-      <div class="protyle-action">
-        3.
-      </div>
-      <div id="20250314212349-gv95bx6" data-node-id="20250314212349-gv95bx6" data-type="NodeParagraph" updated="20250314212353" class="p"><div spellcheck="false">配置 apiKey ： 在运行程序的目录中创建文件 .env 并写入配置 API_KEY=api-key-test ,请注意不要泄露 apiKey，另外创建复杂度高一些的</div></div>
-    </div><div id="20250314212354-cj8hn3p" data-node-id="20250314212354-cj8hn3p" data-type="NodeListItem" updated="20250314212354" data-subtype="o" class="li" data-marker="4.">
-      <div class="protyle-action">
-        4.
-      </div>
-      <div id="20250314212354-2mvhzld" data-node-id="20250314212354-2mvhzld" data-type="NodeParagraph" updated="20250314212406" class="p"><div spellcheck="false">运行 OceanPress server 程序 : 命令行执行 <span data-type="code">oceanpress_server</span>​</div></div>
-    </div><div id="20250314212409-qh2xups" data-node-id="20250314212409-qh2xups" data-type="NodeListItem" updated="20250314212418" data-subtype="o" class="li" data-marker="5.">
-      <div class="protyle-action">
-        5.
-      </div>
-      <div id="20250314212409-lwvj3br" data-node-id="20250314212409-lwvj3br" data-type="NodeParagraph" updated="20250314212418" class="p"><div spellcheck="false">OceanPress 中配置 OceanPress server apiBase 和 ApiKey</div></div>
-    </div></div><div id="20250314212409-qh2xups" data-node-id="20250314212409-qh2xups" data-type="NodeListItem" updated="20250314212418" data-subtype="o" class="li" data-marker="5.">
-      <div class="protyle-action">
-        5.
-      </div>
-      <div id="20250314212409-lwvj3br" data-node-id="20250314212409-lwvj3br" data-type="NodeParagraph" updated="20250314212418" class="p"><div spellcheck="false">OceanPress 中配置 OceanPress server apiBase 和 ApiKey</div></div>
-    </div><div id="20250314212409-lwvj3br" data-node-id="20250314212409-lwvj3br" data-type="NodeParagraph" updated="20250314212418" class="p"><div spellcheck="false">OceanPress 中配置 OceanPress server apiBase 和 ApiKey</div></div><div id="20250314212354-2mvhzld" data-node-id="20250314212354-2mvhzld" data-type="NodeParagraph" updated="20250314212406" class="p"><div spellcheck="false">运行 OceanPress server 程序 : 命令行执行 <span data-type="code">oceanpress_server</span>​</div></div><div id="20250314212342-j1wj87p" data-node-id="20250314212342-j1wj87p" data-type="NodeParagraph" updated="20250314212402" class="p"><div spellcheck="false">安装 OceanPress server 程序 : <span data-type="code">pnpm i -g oceanpress-server</span>​</div></div><div id="20250314212354-cj8hn3p" data-node-id="20250314212354-cj8hn3p" data-type="NodeListItem" updated="20250314212354" data-subtype="o" class="li" data-marker="4.">
-      <div class="protyle-action">
-        4.
-      </div>
-      <div id="20250314212354-2mvhzld" data-node-id="20250314212354-2mvhzld" data-type="NodeParagraph" updated="20250314212406" class="p"><div spellcheck="false">运行 OceanPress server 程序 : 命令行执行 <span data-type="code">oceanpress_server</span>​</div></div>
-    </div><div id="20250314212349-gv95bx6" data-node-id="20250314212349-gv95bx6" data-type="NodeParagraph" updated="20250314212353" class="p"><div spellcheck="false">配置 apiKey ： 在运行程序的目录中创建文件 .env 并写入配置 API_KEY=api-key-test ,请注意不要泄露 apiKey，另外创建复杂度高一些的</div></div><div id="20250314212349-r44yzv8" data-node-id="20250314212349-r44yzv8" data-type="NodeListItem" updated="20250314212349" data-subtype="o" class="li" data-marker="3.">
-      <div class="protyle-action">
-        3.
-      </div>
-      <div id="20250314212349-gv95bx6" data-node-id="20250314212349-gv95bx6" data-type="NodeParagraph" updated="20250314212353" class="p"><div spellcheck="false">配置 apiKey ： 在运行程序的目录中创建文件 .env 并写入配置 API_KEY=api-key-test ,请注意不要泄露 apiKey，另外创建复杂度高一些的</div></div>
-    </div><div id="20250314212342-98t9q69" data-node-id="20250314212342-98t9q69" data-type="NodeListItem" updated="20250314212342" data-subtype="o" class="li" data-marker="2.">
-      <div class="protyle-action">
-        2.
-      </div>
-      <div id="20250314212342-j1wj87p" data-node-id="20250314212342-j1wj87p" data-type="NodeParagraph" updated="20250314212402" class="p"><div spellcheck="false">安装 OceanPress server 程序 : <span data-type="code">pnpm i -g oceanpress-server</span>​</div></div>
-    </div><div id="20250314212324-8xccnnb" data-node-id="20250314212324-8xccnnb" data-type="NodeParagraph" updated="20250314212341" class="p"><div spellcheck="false">安装 nodejs 和 pnpm / npm </div></div><div id="20250314212324-69f6i70" data-node-id="20250314212324-69f6i70" data-type="NodeListItem" updated="20250314212324" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20250314212324-8xccnnb" data-node-id="20250314212324-8xccnnb" data-type="NodeParagraph" updated="20250314212341" class="p"><div spellcheck="false">安装 nodejs 和 pnpm / npm </div></div>
-    </div><div id="20250314212241-9tfbh8z" data-node-id="20250314212241-9tfbh8z" data-type="NodeParagraph" updated="20250314212316" class="p"><div spellcheck="false">大致流程：</div></div><div id="20250314212234-dgqa5z1" data-node-id="20250314212234-dgqa5z1" data-type="NodeParagraph" updated="20250314212234" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="width: 637px;" style="">
-<img
-  src="./../../assets/image-20250314212234-l9x5f5x.png"
-  data-src="./../../assets/image-20250314212234-l9x5f5x.png"
-  title=""
-  style="width: 637px;"
-  loading="lazy"
-/>
-<span class="protyle-action__title"></span></span>​</div></div><h2 id="20231214134136-9zq5juf" data-node-id="20231214134136-9zq5juf" data-type="NodeHeading" updated="20250314212231" data-subtype="h2" class="h2">最近实践</h2>
-<div id="20250314212154-8uvf8sn" data-node-id="20250314212154-8uvf8sn" data-type="NodeParagraph" updated="20250314212231" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250314212231-3bp2eh7"><a href="./../../index/OceanPress 部署思源笔记到自托管 server.html#20250314212231-3bp2eh7">OceanPress 部署思源笔记到自托管 server</a></span></div></div>
-<div id="20250312225152-ajj46s8" data-node-id="20250312225152-ajj46s8" data-type="NodeParagraph" updated="20250312225200" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250312225200-5mtfqiq"><a href="./../../index/怎么发布npm包.html#20250312225200-5mtfqiq">怎么发布npm包</a></span></div></div>
-<div id="20250304134605-dleyjk1" data-node-id="20250304134605-dleyjk1" data-type="NodeParagraph" updated="20250304134614" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250304134614-qnhu20w"><a href="./../../index/windows 语音输入.html#20250304134614-qnhu20w">windows 语音输入</a></span></div></div>
-<div id="20250226145105-cnao4rj" data-node-id="20250226145105-cnao4rj" data-type="NodeParagraph" updated="20250226150152" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250226150151-nw265i8"><a href="./../../index/[Vue warn]: Failed to resolve component: feDropShadow 的pr解决之路.html#20250226150151-nw265i8">[Vue warn]: Failed to resolve component: feDropShadow 的pr解决之路</a></span></div></div>
-<div id="20250226134920-6tq7xzg" data-node-id="20250226134920-6tq7xzg" data-type="NodeParagraph" updated="20250226134941" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250226134940-i75khvz"><a href="./../../index/如何评价CSS框架TailwindCSS？.html#20250226134940-i75khvz">如何评价CSS框架TailwindCSS？</a></span></div></div>
-<div id="20250225214514-a6adbp1" data-node-id="20250225214514-a6adbp1" data-type="NodeParagraph" updated="20250225214521" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250225214521-7bhsxel"><a href="./../../index/超级棒的remote app.html#20250225214521-7bhsxel">超级棒的remote app</a></span></div></div>
-<div id="20250216144950-vzgoq6z" data-node-id="20250216144950-vzgoq6z" data-type="NodeParagraph" updated="20250216144955" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250216144955-o08said"><a href="./../../index/电子爱好.html#20250216144955-o08said">电子爱好</a></span></div></div>
-<div id="20250212204206-5gb4ybb" data-node-id="20250212204206-5gb4ybb" data-type="NodeParagraph" updated="20250212204220" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250212204219-tpp9jkv"><a href="./../../index/ai agent学习.html#20250212204219-tpp9jkv">ai agent学习</a></span></div></div>
-<div id="20250207102242-jcn2znl" data-node-id="20250207102242-jcn2znl" data-type="NodeParagraph" updated="20250207102303" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250207102303-34utbcn"><a href="./../../index/vscode continue插件支持从思源中搜索文档使用.html#20250207102303-34utbcn">vscode continue插件支持从思源中搜索文档使用</a></span></div></div>
-<div id="20250203190104-89x90ks" data-node-id="20250203190104-89x90ks" data-type="NodeParagraph" updated="20250203190113" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250203190113-bu077qy"><a href="./../../index/ai测试.html#20250203190113-bu077qy">ai测试</a></span></div></div>
-<div id="20250120093111-67tqec9" data-node-id="20250120093111-67tqec9" data-type="NodeParagraph" updated="20250202145631" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250202145716-wvgw7m7"><a href="./../../index/对于依赖注入的思考-二.html#20250202145716-wvgw7m7">对于依赖注入的思考-二</a></span></div></div>
-<div id="20250101095953-g826rwo" data-node-id="20250101095953-g826rwo" data-type="NodeParagraph" updated="20250101095956" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250101095839-ec2nkqw"><a href="./../../index/对于依赖注入的思考.html#20250101095839-ec2nkqw">对于依赖注入的思考</a></span></div></div>
-<div id="20241228103007-fs2y8vl" data-node-id="20241228103007-fs2y8vl" data-type="NodeParagraph" updated="20241228103034" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20241228103033-h9y9bt3"><a href="./../../index/自动翻译文档-expr插件和aichat插件的组合技.html#20241228103033-h9y9bt3">自动翻译文档-expr插件和aichat插件的组合技</a></span></div></div>
-<div id="20241227155556-drtao0c" data-node-id="20241227155556-drtao0c" data-type="NodeParagraph" updated="20241227155607" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20241227155607-14cuxd5"><a href="./../../index/aiChat-plugin-siyuan.html#20241227155607-14cuxd5">aiChat-plugin-siyuan</a></span></div></div>
-<div id="20241022155619-j3k1ai2" data-node-id="20241022155619-j3k1ai2" data-type="NodeParagraph" updated="20241022155634" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20241022155634-9i70eo4"><a href="./../../index/我的软件资源清单.html#20241022155634-9i70eo4">我的软件资源清单</a></span></div></div>
-<div id="20240831155455-urwiuan" data-node-id="20240831155455-urwiuan" data-type="NodeParagraph" updated="20240831155502" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20240831144820-s0ruk7h"><a href="./../../record/如何实现一个小体积的js docker镜像.html#20240831144820-s0ruk7h">如何实现一个小体积的js docker镜像</a></span></div></div>
-<div id="20240613220138-gof5tz9" data-node-id="20240613220138-gof5tz9" data-type="NodeParagraph" updated="20240613220144" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20240612161400-q3nlr71"><a href="./../../想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件实现完美ocr v0.3.6.html#20240612161400-q3nlr71">OceanPress插件实现完美ocr v0.3.6</a></span></div></div>
-<div id="20231214134145-ofocg0i" data-node-id="20231214134145-ofocg0i" data-type="NodeParagraph" updated="20240517225616" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20231214112450-ndy3t2e"><a href="./../../想法/siyuan_feed插件.html#20231214112450-ndy3t2e">siyuan_feed插件</a></span></div></div>
-<div id="20231214134205-ec6yvih" data-node-id="20231214134205-ec6yvih" data-type="NodeParagraph" updated="20240517225616" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20230905170531-6q68jov"><a href="./../../想法/项目/OceanPress_js.html#20230905170531-6q68jov">OceanPress_js</a></span></div></div>
-<div id="20231222130724-vixhahq" data-node-id="20231222130724-vixhahq" data-type="NodeBlockQueryEmbed" updated="20240517225616" name="今日推歌" style="height: 136px;" data-type="NodeBlockquote" class="bq"> <div id="20231222125920-gpig588" data-node-id="20231222125920-gpig588" data-type="NodeIFrame" updated="20231222130716" class="iframe">
-    <div class="iframe-content">
-    <iframe sandbox="allow-forms allow-presentation allow-same-origin allow-scripts allow-modals" src="https://music.163.com/outchain/player?type=2&amp;id=1467948307&amp;auto=1&amp;height=66" data-src="" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 561px; height: 86px;"></iframe>
-    </div>
-  </div></div><div id="20250314212154-8uvf8sn" data-node-id="20250314212154-8uvf8sn" data-type="NodeParagraph" updated="20250314212231" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250314212231-3bp2eh7"><a href="./../../index/OceanPress 部署思源笔记到自托管 server.html#20250314212231-3bp2eh7">OceanPress 部署思源笔记到自托管 server</a></span></div></div><div id="20250314190137-ng2hi62" data-node-id="20250314190137-ng2hi62" data-type="NodeParagraph" updated="20250314190137" class="p"><div spellcheck="false"></div></div><h2 id="20250314102303-eed02nq" data-node-id="20250314102303-eed02nq" data-type="NodeHeading" updated="20250314102919" data-subtype="h2" class="h2"><a href="https://docs.continue.dev/customize/deep-dives/rules">添加全局提示词</a></h2>
-<div id="20250314102317-e501mmc" data-node-id="20250314102317-e501mmc" data-type="NodeParagraph" updated="20250314102323" class="p"><div spellcheck="false">编写在如下文件中</div></div>
-<div id="20250314102310-9fxottd" data-node-id="20250314102310-9fxottd" data-type="NodeParagraph" updated="20250314102315" class="p"><div spellcheck="false">.continuerules</div></div>
-<div id="20250314102919-ohw5wik" data-node-id="20250314102919-ohw5wik" data-type="NodeParagraph" updated="20250314102919" class="p"><div spellcheck="false"></div></div><div id="20250314102919-ohw5wik" data-node-id="20250314102919-ohw5wik" data-type="NodeParagraph" updated="20250314102919" class="p"><div spellcheck="false"></div></div><div id="20250314102317-e501mmc" data-node-id="20250314102317-e501mmc" data-type="NodeParagraph" updated="20250314102323" class="p"><div spellcheck="false">编写在如下文件中</div></div><div id="20250314102310-9fxottd" data-node-id="20250314102310-9fxottd" data-type="NodeParagraph" updated="20250314102315" class="p"><div spellcheck="false">.continuerules</div></div><h2 id="20250314102149-mtggo6m" data-node-id="20250314102149-mtggo6m" data-type="NodeHeading" updated="20250314102303" data-subtype="h2" class="h2">添加 prompt</h2>
-<div id="20250314102215-cmwymxn" data-node-id="20250314102215-cmwymxn" data-type="NodeParagraph" updated="20250314102229" class="p"><div spellcheck="false">在项目文件夹下添加如下文件</div></div>
-<div id="20250314102157-iskj6w5" data-node-id="20250314102157-iskj6w5" data-type="NodeParagraph" updated="20250314102212" class="p"><div spellcheck="false">.continue/prompts/api创建文档生成表单代码.prompt</div></div><div id="20250314102215-cmwymxn" data-node-id="20250314102215-cmwymxn" data-type="NodeParagraph" updated="20250314102229" class="p"><div spellcheck="false">在项目文件夹下添加如下文件</div></div><div id="20250314102157-iskj6w5" data-node-id="20250314102157-iskj6w5" data-type="NodeParagraph" updated="20250314102212" class="p"><div spellcheck="false">.continue/prompts/api创建文档生成表单代码.prompt</div></div><h2 id="20250206101841-c3j4qg3" data-node-id="20250206101841-c3j4qg3" data-type="NodeHeading" updated="20250314102149" data-subtype="h2" class="h2">自定义斜杠命令</h2>
-<div id="20250206101911-mh43xrf" data-node-id="20250206101911-mh43xrf" data-type="NodeParagraph" updated="20250206102346" class="p"><div spellcheck="false">在 config.json 中定义</div></div>
-<div id="20250206102347-j2nxzr5" data-node-id="20250206102347-j2nxzr5" data-type="NodeCodeBlock" updated="20250206102347" class="code-block">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">  "customCommands": [
-    {
-      "name": "test-customCommands",
-      "prompt": "{{{ input }}}\n\n使用中文回答我的提问，在回答的最后提示你的知识最新更新时间",
-      "description": "This is an example custom command. Open config.json to edit it and create more"
-    }
-  ],
-</div>
-      </div>
-<div id="20250206102349-x5on9kn" data-node-id="20250206102349-x5on9kn" data-type="NodeParagraph" updated="20250206102416" class="p"><div spellcheck="false">或者参考 <a href="https://docs.continue.dev/actions/how-to-customize#custom-slash-commands-with-configts">https://docs.continue.dev/actions/how-to-customize#custom-slash-commands-with-configts</a> 实现以编程方式定义</div></div><div id="20250312225200-bmil0xq" data-node-id="20250312225200-bmil0xq" data-type="NodeList" updated="20250312225507" data-subtype="o" class="list"><div id="20250312225219-a7pw8gk" data-node-id="20250312225219-a7pw8gk" data-type="NodeListItem" updated="20250312225219" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20250312225219-3vfqaft" data-node-id="20250312225219-3vfqaft" data-type="NodeParagraph" updated="20250312225241" class="p"><div spellcheck="false">最好使用 tsup 之类的打包器打包一下代码</div></div>
-    </div><div id="20250312225241-dnvh3e0" data-node-id="20250312225241-dnvh3e0" data-type="NodeListItem" updated="20250312225241" data-subtype="o" class="li" data-marker="2.">
-      <div class="protyle-action">
-        2.
-      </div>
-      <div id="20250312225241-b6ebf57" data-node-id="20250312225241-b6ebf57" data-type="NodeParagraph" updated="20250312225340" class="p"><div spellcheck="false">在 package.josn 中 files 字段声明哪些文件是需要上传 npm 的</div></div>
-    </div><div id="20250312225341-hitmum2" data-node-id="20250312225341-hitmum2" data-type="NodeListItem" updated="20250312225341" data-subtype="o" class="li" data-marker="3.">
-      <div class="protyle-action">
-        3.
-      </div>
-      <div id="20250312225341-x8a1h3r" data-node-id="20250312225341-x8a1h3r" data-type="NodeParagraph" updated="20250312225426" class="p"><div spellcheck="false">在项目目录下添加 .npmrc 文件指定对应的 <span data-type="code">registry</span>​
-​<span data-type="code">registry=https://registry.npmjs.org/</span>​</div></div>
-    </div><div id="20250312225429-z6fdge7" data-node-id="20250312225429-z6fdge7" data-type="NodeListItem" updated="20250312225507" data-subtype="o" class="li" data-marker="4.">
-      <div class="protyle-action">
-        4.
-      </div>
-      <div id="20250312225429-4f1owam" data-node-id="20250312225429-4f1owam" data-type="NodeParagraph" updated="20250312225437" class="p"><div spellcheck="false">执行 pnpm publish 命令</div></div><div id="20250312225439-8ijkmht" data-node-id="20250312225439-8ijkmht" data-type="NodeList" updated="20250312225507" data-subtype="o" class="list"><div id="20250312225439-3uhf9o6" data-node-id="20250312225439-3uhf9o6" data-type="NodeListItem" updated="20250312225507" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20250312225439-gfqpjoy" data-node-id="20250312225439-gfqpjoy" data-type="NodeParagraph" updated="20250312225507" class="p"><div spellcheck="false">可能还需要先登录，会有提示，打开命令行中的相关连接跳转浏览器即可</div></div>
-    </div></div>
-    </div></div><div id="20250312225429-z6fdge7" data-node-id="20250312225429-z6fdge7" data-type="NodeListItem" updated="20250312225507" data-subtype="o" class="li" data-marker="4.">
-      <div class="protyle-action">
-        4.
-      </div>
-      <div id="20250312225429-4f1owam" data-node-id="20250312225429-4f1owam" data-type="NodeParagraph" updated="20250312225437" class="p"><div spellcheck="false">执行 pnpm publish 命令</div></div><div id="20250312225439-8ijkmht" data-node-id="20250312225439-8ijkmht" data-type="NodeList" updated="20250312225507" data-subtype="o" class="list"><div id="20250312225439-3uhf9o6" data-node-id="20250312225439-3uhf9o6" data-type="NodeListItem" updated="20250312225507" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20250312225439-gfqpjoy" data-node-id="20250312225439-gfqpjoy" data-type="NodeParagraph" updated="20250312225507" class="p"><div spellcheck="false">可能还需要先登录，会有提示，打开命令行中的相关连接跳转浏览器即可</div></div>
-    </div></div>
-    </div><div id="20250312225439-8ijkmht" data-node-id="20250312225439-8ijkmht" data-type="NodeList" updated="20250312225507" data-subtype="o" class="list"><div id="20250312225439-3uhf9o6" data-node-id="20250312225439-3uhf9o6" data-type="NodeListItem" updated="20250312225507" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20250312225439-gfqpjoy" data-node-id="20250312225439-gfqpjoy" data-type="NodeParagraph" updated="20250312225507" class="p"><div spellcheck="false">可能还需要先登录，会有提示，打开命令行中的相关连接跳转浏览器即可</div></div>
-    </div></div><div id="20250312225439-3uhf9o6" data-node-id="20250312225439-3uhf9o6" data-type="NodeListItem" updated="20250312225507" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20250312225439-gfqpjoy" data-node-id="20250312225439-gfqpjoy" data-type="NodeParagraph" updated="20250312225507" class="p"><div spellcheck="false">可能还需要先登录，会有提示，打开命令行中的相关连接跳转浏览器即可</div></div>
-    </div><div id="20250312225439-gfqpjoy" data-node-id="20250312225439-gfqpjoy" data-type="NodeParagraph" updated="20250312225507" class="p"><div spellcheck="false">可能还需要先登录，会有提示，打开命令行中的相关连接跳转浏览器即可</div></div><div id="20250312225429-4f1owam" data-node-id="20250312225429-4f1owam" data-type="NodeParagraph" updated="20250312225437" class="p"><div spellcheck="false">执行 pnpm publish 命令</div></div><div id="20250312225341-x8a1h3r" data-node-id="20250312225341-x8a1h3r" data-type="NodeParagraph" updated="20250312225426" class="p"><div spellcheck="false">在项目目录下添加 .npmrc 文件指定对应的 <span data-type="code">registry</span>​
-​<span data-type="code">registry=https://registry.npmjs.org/</span>​</div></div><div id="20250312225422-76c9o36" data-node-id="20250312225422-76c9o36" data-type="NodeParagraph" updated="20250312225422" class="p"><div spellcheck="false"></div></div><div id="20250312225341-hitmum2" data-node-id="20250312225341-hitmum2" data-type="NodeListItem" updated="20250312225341" data-subtype="o" class="li" data-marker="3.">
-      <div class="protyle-action">
-        3.
-      </div>
-      <div id="20250312225341-x8a1h3r" data-node-id="20250312225341-x8a1h3r" data-type="NodeParagraph" updated="20250312225426" class="p"><div spellcheck="false">在项目目录下添加 .npmrc 文件指定对应的 <span data-type="code">registry</span>​
-​<span data-type="code">registry=https://registry.npmjs.org/</span>​</div></div>
-    </div><div id="20250312225241-b6ebf57" data-node-id="20250312225241-b6ebf57" data-type="NodeParagraph" updated="20250312225340" class="p"><div spellcheck="false">在 package.josn 中 files 字段声明哪些文件是需要上传 npm 的</div></div><div id="20250312225219-3vfqaft" data-node-id="20250312225219-3vfqaft" data-type="NodeParagraph" updated="20250312225241" class="p"><div spellcheck="false">最好使用 tsup 之类的打包器打包一下代码</div></div><div id="20250312225241-dnvh3e0" data-node-id="20250312225241-dnvh3e0" data-type="NodeListItem" updated="20250312225241" data-subtype="o" class="li" data-marker="2.">
-      <div class="protyle-action">
-        2.
-      </div>
-      <div id="20250312225241-b6ebf57" data-node-id="20250312225241-b6ebf57" data-type="NodeParagraph" updated="20250312225340" class="p"><div spellcheck="false">在 package.josn 中 files 字段声明哪些文件是需要上传 npm 的</div></div>
-    </div><div id="20250312225219-a7pw8gk" data-node-id="20250312225219-a7pw8gk" data-type="NodeListItem" updated="20250312225219" data-subtype="o" class="li" data-marker="1.">
-      <div class="protyle-action">
-        1.
-      </div>
-      <div id="20250312225219-3vfqaft" data-node-id="20250312225219-3vfqaft" data-type="NodeParagraph" updated="20250312225241" class="p"><div spellcheck="false">最好使用 tsup 之类的打包器打包一下代码</div></div>
-    </div><div id="20250312225152-ajj46s8" data-node-id="20250312225152-ajj46s8" data-type="NodeParagraph" updated="20250312225200" class="p"><div spellcheck="false"><span data-type="block-ref" data-subtype="d" data-id="20250312225200-5mtfqiq"><a href="./../../index/怎么发布npm包.html#20250312225200-5mtfqiq">怎么发布npm包</a></span></div></div><h2 id="20241022163333-dg8k8z2" data-node-id="20241022163333-dg8k8z2" data-type="NodeHeading" updated="20250312104809" data-subtype="h2" class="h2">基础</h2>
-<div id="20241022163341-tttwgyo" data-node-id="20241022163341-tttwgyo" data-type="NodeList" updated="20250312104809" data-subtype="u" class="list"><div id="20241022163342-aicpzx3" data-node-id="20241022163342-aicpzx3" data-type="NodeListItem" updated="20250312104809" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241022163342-51zljgd" data-node-id="20241022163342-51zljgd" data-type="NodeParagraph" updated="20250209144101" class="p"><div spellcheck="false">输入法 （ <span data-type="block-ref" data-subtype="d" data-id="20250209144058-w6zqsho"><a href="./../../index/我的软件资源清单/崮生61键按键方案.html#20250209144058-w6zqsho">崮生61键按键方案</a></span> ）</div></div><div id="20241022163349-en2ppd4" data-node-id="20241022163349-en2ppd4" data-type="NodeList" updated="20250312104809" data-subtype="u" class="list"><div id="20241022163349-yy1r3d6" data-node-id="20241022163349-yy1r3d6" data-type="NodeListItem" updated="20250312104809" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241022163349-cu3kroo" data-node-id="20241022163349-cu3kroo" data-type="NodeParagraph" updated="20241022163358" class="p"><div spellcheck="false">微软自带</div></div><div id="20241022165226-j0mi4oo" data-node-id="20241022165226-j0mi4oo" data-type="NodeList" updated="20250312104809" data-subtype="u" class="list"><div id="20241022165225-36cclnx" data-node-id="20241022165225-36cclnx" data-type="NodeListItem" updated="20250312104809" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241022165225-erl53to" data-node-id="20241022165225-erl53to" data-type="NodeParagraph" updated="20250209143953" class="p"><div spellcheck="false">添加小鹤双拼方案,cmd 执行下面这条命令</div></div><div id="20250209143756-efqw3ik" data-node-id="20250209143756-efqw3ik" data-type="NodeCodeBlock" updated="20250312104809" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">reg add HKCU\Software\Microsoft\InputMethod\Settings\CHS /v UserDefinedDoublePinyinScheme0 /t REG_SZ /d "小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt"
-</div>
-      </div><div id="20250209143755-shtq934" data-node-id="20250209143755-shtq934" data-type="NodeParagraph" updated="20250209143755" class="p"><div spellcheck="false"> <a href="https://www.bilibili.com/read/cv35435995/?jump_opus=1">作者：大白兔-夏日限定版 </a></div></div>
-    </div></div>
-    </div></div>
-    </div></div><div id="20241022163341-tttwgyo" data-node-id="20241022163341-tttwgyo" data-type="NodeList" updated="20250312104809" data-subtype="u" class="list"><div id="20241022163342-aicpzx3" data-node-id="20241022163342-aicpzx3" data-type="NodeListItem" updated="20250312104809" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241022163342-51zljgd" data-node-id="20241022163342-51zljgd" data-type="NodeParagraph" updated="20250209144101" class="p"><div spellcheck="false">输入法 （ <span data-type="block-ref" data-subtype="d" data-id="20250209144058-w6zqsho"><a href="./../../index/我的软件资源清单/崮生61键按键方案.html#20250209144058-w6zqsho">崮生61键按键方案</a></span> ）</div></div><div id="20241022163349-en2ppd4" data-node-id="20241022163349-en2ppd4" data-type="NodeList" updated="20250312104809" data-subtype="u" class="list"><div id="20241022163349-yy1r3d6" data-node-id="20241022163349-yy1r3d6" data-type="NodeListItem" updated="20250312104809" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241022163349-cu3kroo" data-node-id="20241022163349-cu3kroo" data-type="NodeParagraph" updated="20241022163358" class="p"><div spellcheck="false">微软自带</div></div><div id="20241022165226-j0mi4oo" data-node-id="20241022165226-j0mi4oo" data-type="NodeList" updated="20250312104809" data-subtype="u" class="list"><div id="20241022165225-36cclnx" data-node-id="20241022165225-36cclnx" data-type="NodeListItem" updated="20250312104809" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241022165225-erl53to" data-node-id="20241022165225-erl53to" data-type="NodeParagraph" updated="20250209143953" class="p"><div spellcheck="false">添加小鹤双拼方案,cmd 执行下面这条命令</div></div><div id="20250209143756-efqw3ik" data-node-id="20250209143756-efqw3ik" data-type="NodeCodeBlock" updated="20250312104809" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">reg add HKCU\Software\Microsoft\InputMethod\Settings\CHS /v UserDefinedDoublePinyinScheme0 /t REG_SZ /d "小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt"
-</div>
-      </div><div id="20250209143755-shtq934" data-node-id="20250209143755-shtq934" data-type="NodeParagraph" updated="20250209143755" class="p"><div spellcheck="false"> <a href="https://www.bilibili.com/read/cv35435995/?jump_opus=1">作者：大白兔-夏日限定版 </a></div></div>
-    </div></div>
-    </div></div>
-    </div></div><div id="20241022163342-aicpzx3" data-node-id="20241022163342-aicpzx3" data-type="NodeListItem" updated="20250312104809" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241022163342-51zljgd" data-node-id="20241022163342-51zljgd" data-type="NodeParagraph" updated="20250209144101" class="p"><div spellcheck="false">输入法 （ <span data-type="block-ref" data-subtype="d" data-id="20250209144058-w6zqsho"><a href="./../../index/我的软件资源清单/崮生61键按键方案.html#20250209144058-w6zqsho">崮生61键按键方案</a></span> ）</div></div><div id="20241022163349-en2ppd4" data-node-id="20241022163349-en2ppd4" data-type="NodeList" updated="20250312104809" data-subtype="u" class="list"><div id="20241022163349-yy1r3d6" data-node-id="20241022163349-yy1r3d6" data-type="NodeListItem" updated="20250312104809" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241022163349-cu3kroo" data-node-id="20241022163349-cu3kroo" data-type="NodeParagraph" updated="20241022163358" class="p"><div spellcheck="false">微软自带</div></div><div id="20241022165226-j0mi4oo" data-node-id="20241022165226-j0mi4oo" data-type="NodeList" updated="20250312104809" data-subtype="u" class="list"><div id="20241022165225-36cclnx" data-node-id="20241022165225-36cclnx" data-type="NodeListItem" updated="20250312104809" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241022165225-erl53to" data-node-id="20241022165225-erl53to" data-type="NodeParagraph" updated="20250209143953" class="p"><div spellcheck="false">添加小鹤双拼方案,cmd 执行下面这条命令</div></div><div id="20250209143756-efqw3ik" data-node-id="20250209143756-efqw3ik" data-type="NodeCodeBlock" updated="20250312104809" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">reg add HKCU\Software\Microsoft\InputMethod\Settings\CHS /v UserDefinedDoublePinyinScheme0 /t REG_SZ /d "小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt"
-</div>
-      </div><div id="20250209143755-shtq934" data-node-id="20250209143755-shtq934" data-type="NodeParagraph" updated="20250209143755" class="p"><div spellcheck="false"> <a href="https://www.bilibili.com/read/cv35435995/?jump_opus=1">作者：大白兔-夏日限定版 </a></div></div>
-    </div></div>
-    </div></div>
-    </div><div id="20241022163349-en2ppd4" data-node-id="20241022163349-en2ppd4" data-type="NodeList" updated="20250312104809" data-subtype="u" class="list"><div id="20241022163349-yy1r3d6" data-node-id="20241022163349-yy1r3d6" data-type="NodeListItem" updated="20250312104809" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241022163349-cu3kroo" data-node-id="20241022163349-cu3kroo" data-type="NodeParagraph" updated="20241022163358" class="p"><div spellcheck="false">微软自带</div></div><div id="20241022165226-j0mi4oo" data-node-id="20241022165226-j0mi4oo" data-type="NodeList" updated="20250312104809" data-subtype="u" class="list"><div id="20241022165225-36cclnx" data-node-id="20241022165225-36cclnx" data-type="NodeListItem" updated="20250312104809" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241022165225-erl53to" data-node-id="20241022165225-erl53to" data-type="NodeParagraph" updated="20250209143953" class="p"><div spellcheck="false">添加小鹤双拼方案,cmd 执行下面这条命令</div></div><div id="20250209143756-efqw3ik" data-node-id="20250209143756-efqw3ik" data-type="NodeCodeBlock" updated="20250312104809" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">reg add HKCU\Software\Microsoft\InputMethod\Settings\CHS /v UserDefinedDoublePinyinScheme0 /t REG_SZ /d "小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt"
-</div>
-      </div><div id="20250209143755-shtq934" data-node-id="20250209143755-shtq934" data-type="NodeParagraph" updated="20250209143755" class="p"><div spellcheck="false"> <a href="https://www.bilibili.com/read/cv35435995/?jump_opus=1">作者：大白兔-夏日限定版 </a></div></div>
-    </div></div>
-    </div></div><div id="20241022163349-yy1r3d6" data-node-id="20241022163349-yy1r3d6" data-type="NodeListItem" updated="20250312104809" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241022163349-cu3kroo" data-node-id="20241022163349-cu3kroo" data-type="NodeParagraph" updated="20241022163358" class="p"><div spellcheck="false">微软自带</div></div><div id="20241022165226-j0mi4oo" data-node-id="20241022165226-j0mi4oo" data-type="NodeList" updated="20250312104809" data-subtype="u" class="list"><div id="20241022165225-36cclnx" data-node-id="20241022165225-36cclnx" data-type="NodeListItem" updated="20250312104809" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241022165225-erl53to" data-node-id="20241022165225-erl53to" data-type="NodeParagraph" updated="20250209143953" class="p"><div spellcheck="false">添加小鹤双拼方案,cmd 执行下面这条命令</div></div><div id="20250209143756-efqw3ik" data-node-id="20250209143756-efqw3ik" data-type="NodeCodeBlock" updated="20250312104809" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">reg add HKCU\Software\Microsoft\InputMethod\Settings\CHS /v UserDefinedDoublePinyinScheme0 /t REG_SZ /d "小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt"
-</div>
-      </div><div id="20250209143755-shtq934" data-node-id="20250209143755-shtq934" data-type="NodeParagraph" updated="20250209143755" class="p"><div spellcheck="false"> <a href="https://www.bilibili.com/read/cv35435995/?jump_opus=1">作者：大白兔-夏日限定版 </a></div></div>
-    </div></div>
-    </div><div id="20241022165226-j0mi4oo" data-node-id="20241022165226-j0mi4oo" data-type="NodeList" updated="20250312104809" data-subtype="u" class="list"><div id="20241022165225-36cclnx" data-node-id="20241022165225-36cclnx" data-type="NodeListItem" updated="20250312104809" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241022165225-erl53to" data-node-id="20241022165225-erl53to" data-type="NodeParagraph" updated="20250209143953" class="p"><div spellcheck="false">添加小鹤双拼方案,cmd 执行下面这条命令</div></div><div id="20250209143756-efqw3ik" data-node-id="20250209143756-efqw3ik" data-type="NodeCodeBlock" updated="20250312104809" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">reg add HKCU\Software\Microsoft\InputMethod\Settings\CHS /v UserDefinedDoublePinyinScheme0 /t REG_SZ /d "小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt"
-</div>
-      </div><div id="20250209143755-shtq934" data-node-id="20250209143755-shtq934" data-type="NodeParagraph" updated="20250209143755" class="p"><div spellcheck="false"> <a href="https://www.bilibili.com/read/cv35435995/?jump_opus=1">作者：大白兔-夏日限定版 </a></div></div>
-    </div></div><div id="20241022165225-36cclnx" data-node-id="20241022165225-36cclnx" data-type="NodeListItem" updated="20250312104809" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20241022165225-erl53to" data-node-id="20241022165225-erl53to" data-type="NodeParagraph" updated="20250209143953" class="p"><div spellcheck="false">添加小鹤双拼方案,cmd 执行下面这条命令</div></div><div id="20250209143756-efqw3ik" data-node-id="20250209143756-efqw3ik" data-type="NodeCodeBlock" updated="20250312104809" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">reg add HKCU\Software\Microsoft\InputMethod\Settings\CHS /v UserDefinedDoublePinyinScheme0 /t REG_SZ /d "小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt"
-</div>
-      </div><div id="20250209143755-shtq934" data-node-id="20250209143755-shtq934" data-type="NodeParagraph" updated="20250209143755" class="p"><div spellcheck="false"> <a href="https://www.bilibili.com/read/cv35435995/?jump_opus=1">作者：大白兔-夏日限定版 </a></div></div>
-    </div><div id="20250209143756-efqw3ik" data-node-id="20250209143756-efqw3ik" data-type="NodeCodeBlock" updated="20250312104809" class="code-block" style="line-height: 22px;">
-        <div class="protyle-action">
-          <span class="protyle-action--first protyle-action__language">js</span>
-          <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
-        </div>
-        <div class="hljs" spellcheck="false">reg add HKCU\Software\Microsoft\InputMethod\Settings\CHS /v UserDefinedDoublePinyinScheme0 /t REG_SZ /d "小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt"
-</div>
-      </div><div id="20240202152720-dd9reiq" data-node-id="20240202152720-dd9reiq" data-type="NodeList" updated="20250312104744" data-subtype="u" class="list"><div id="20240202160853-oy0os14" data-node-id="20240202160853-oy0os14" data-type="NodeListItem" updated="20250312104744" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240202160853-bbgtghu" data-node-id="20240202160853-bbgtghu" data-type="NodeParagraph" updated="20250312104744" class="p"><div spellcheck="false">输入法 ： <span data-type="block-ref" data-subtype="d" data-id="20240311141906-ne5uqtm"><a href="./../../工具/开发最佳实践/rime.html#20240311141906-ne5uqtm">rime</a></span> / 微软输入法<span data-type="block-ref" data-subtype="d" data-id="20241022165225-erl53to"><a href="./../../index/我的软件资源清单.html#20241022165225-erl53to">添加小鹤双拼方案,cmd 执行下面这条命令</a></span></div></div>
-    </div><div id="20240312223938-zsakjqm" data-node-id="20240312223938-zsakjqm" data-type="NodeListItem" updated="20240312224040" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240312223938-nx9buhy" data-node-id="20240312223938-nx9buhy" data-type="NodeParagraph" updated="20240312223942" class="p"><div spellcheck="false">html</div></div><div id="20240312223943-vca1lge" data-node-id="20240312223943-vca1lge" data-type="NodeList" updated="20240312224040" data-subtype="u" class="list"><div id="20240312223943-0lp87f8" data-node-id="20240312223943-0lp87f8" data-type="NodeListItem" updated="20240312224040" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240312223943-pfqa88p" data-node-id="20240312223943-pfqa88p" data-type="NodeParagraph" updated="20240312224040" class="p"><div spellcheck="false">所有不安全引用应当采用 <span data-type="block-ref" data-subtype="d" data-id="20240312222001-eol92xs"><a href="./../../daily note/2024/03/2024-03-12.html#20240312222001-eol92xs">Subresource_Integrity 子资源完整性校验</a></span></div></div>
-    </div></div>
-    </div></div><div id="20240202160853-oy0os14" data-node-id="20240202160853-oy0os14" data-type="NodeListItem" updated="20250312104744" data-subtype="u" class="li" data-marker="*">
-      <div class="protyle-action">
-        <svg><use xlink:href="#iconDot"></use></svg>
-      </div>
-      <div id="20240202160853-bbgtghu" data-node-id="20240202160853-bbgtghu" data-type="NodeParagraph" updated="20250312104744" class="p"><div spellcheck="false">输入法 ： <span data-type="block-ref" data-subtype="d" data-id="20240311141906-ne5uqtm"><a href="./../../工具/开发最佳实践/rime.html#20240311141906-ne5uqtm">rime</a></span> / 微软输入法<span data-type="block-ref" data-subtype="d" data-id="20241022165225-erl53to"><a href="./../../index/我的软件资源清单.html#20241022165225-erl53to">添加小鹤双拼方案,cmd 执行下面这条命令</a></span></div></div>
-    </div></div><div id="20210606160324-57c0iql" data-node-id="20210606160324-57c0iql" data-type="NodeParagraph" updated="20230924170522" class="p"><div spellcheck="false"></div></div>
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../__oceanpress/docTree.html"></iframe>
   </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <div style="min-height: 150px;" id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc">
+
+<h1 id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc" data-type="NodeHeading" class="h1">最近更新.rss.xml</h1>
+<div id="20210606154842-jah9dt8" data-node-id="20210606154842-jah9dt8" data-type="NodeBlockQueryEmbed" updated="20240619103229" style="height: 9998px;" data-type="NodeBlockquote" class="bq">  <div id="20250325142812-fp2qjyu" data-node-id="20250325142812-fp2qjyu" data-type="NodeParagraph" updated="20250325142851" class="p"><div spellcheck="false">思源文档树排序规则存储在： 笔记本id/.siyuan/sort.json</div></div><div id="20250325142829-u0y9ub7" data-node-id="20250325142829-u0y9ub7" data-type="NodeParagraph" updated="20250325142829" class="p"><div spellcheck="false"></div></div><div id="20250325142817-psmqa8p" data-node-id="20250325142817-psmqa8p" data-type="NodeParagraph" updated="20250325142817" class="p"><div spellcheck="false"></div></div><div id="20250325142805-aorxp43" data-node-id="20250325142805-aorxp43" data-type="NodeParagraph" updated="20250325142810" class="p"><div spellcheck="false"><a href="https://docs.siyuan-note.club/zh-Hans/">思源开发者文档</a></div></div><div id="20250325142810-u3un3p5" data-node-id="20250325142810-u3un3p5" data-type="NodeThematicBreak" updated="20250325142810" class="hr"><div></div></div><div id="20231222124855-jodsdsu" data-node-id="20231222124855-jodsdsu" data-type="NodeParagraph" updated="20250325142805" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250325142805-8fbm375"><a href="./../../record/思源笔记/思源开发手册.html#20250325142805-8fbm375">思源开发手册</a></span></div></div><h2 id="20250325090255-9js7ezl" data-node-id="20250325090255-9js7ezl" data-type="NodeHeading" updated="20250325093744" data-subtype="h2" class="h2">node 性能调优</h2>
+<div id="20250325090315-nxqohqw" data-node-id="20250325090315-nxqohqw" data-type="NodeParagraph" updated="20250325090351" class="p"><div spellcheck="false">使用 jemalloc 替换默认的 ptmalloc：<a href="https://www.zhihu.com/question/67241393/answer/3343845245">node rss堆外内存 持续上涨，如何释放?</a></div></div>
+<div id="20250325093710-jm84uzk" data-node-id="20250325093710-jm84uzk" data-type="NodeList" updated="20250325093743" data-subtype="o" class="list"><div id="20250325093710-085urp6" data-node-id="20250325093710-085urp6" data-type="NodeListItem" updated="20250325093728" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20250325093710-a6vj9pd" data-node-id="20250325093710-a6vj9pd" data-type="NodeParagraph" updated="20250325093710" class="p"><div spellcheck="false"><span data-type="strong">安装jemalloc库</span>：</div></div><div id="20250325093710-k2ljbs6" data-node-id="20250325093710-k2ljbs6" data-type="NodeList" updated="20250325093728" data-subtype="u" class="list"><div id="20250325093710-r5vpb8q" data-node-id="20250325093710-r5vpb8q" data-type="NodeListItem" updated="20250325093722" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250325093710-n5ht810" data-node-id="20250325093710-n5ht810" data-type="NodeParagraph" updated="20250325093722" class="p"><div spellcheck="false"><span data-type="strong">Ubuntu/Debian</span>：</div></div><div id="20250325093710-6ib4wnx" data-node-id="20250325093710-6ib4wnx" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo apt-get install libjemalloc-dev
+</div>
+        </div>
+      </div><div id="20250325093710-i322svf" data-node-id="20250325093710-i322svf" data-type="NodeListItem" updated="20250325093725" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250325093710-g2ga9la" data-node-id="20250325093710-g2ga9la" data-type="NodeParagraph" updated="20250325093725" class="p"><div spellcheck="false"><span data-type="strong">CentOS/RHEL</span>：</div></div><div id="20250325093710-4reh1wf" data-node-id="20250325093710-4reh1wf" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo yum install jemalloc
+</div>
+        </div>
+      </div><div id="20250325093710-yr9bnxu" data-node-id="20250325093710-yr9bnxu" data-type="NodeListItem" updated="20250325093728" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250325093710-jaj06on" data-node-id="20250325093710-jaj06on" data-type="NodeParagraph" updated="20250325093728" class="p"><div spellcheck="false"><span data-type="strong">从源码编译</span>（可选）：</div></div><div id="20250325093710-s8tuux4" data-node-id="20250325093710-s8tuux4" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">wget https://github.com/jemalloc/jemalloc/releases/download/5.3.0/jemalloc-5.3.0.tar.bz2
+tar xvf jemalloc-5.3.0.tar.bz2
+cd jemalloc-5.3.0
+./configure && make && sudo make install
+</div>
+        </div>
+      </div></div>
+      </div><div id="20250325093710-yif44tt" data-node-id="20250325093710-yif44tt" data-type="NodeListItem" updated="20250325093732" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20250325093710-f6wnfjs" data-node-id="20250325093710-f6wnfjs" data-type="NodeParagraph" updated="20250325093732" class="p"><div spellcheck="false"><span data-type="strong">查找jemalloc库路径</span>：</div></div><div id="20250325093710-5oevciv" data-node-id="20250325093710-5oevciv" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"># 通常路径如下：
+# Ubuntu: /usr/lib/x86_64-linux-gnu/libjemalloc.so
+# CentOS: /usr/lib64/libjemalloc.so
+# 源码安装可能位于: /usr/local/lib/libjemalloc.so
+find /usr -name 'libjemalloc.so*'
+</div>
+        </div>
+      </div><div id="20250325093710-yclljo3" data-node-id="20250325093710-yclljo3" data-type="NodeListItem" updated="20250325093737" data-subtype="o" class="li" data-marker="3.">
+        <div class="protyle-action">
+          3.
+        </div>
+        <div id="20250325093710-ppjnjmx" data-node-id="20250325093710-ppjnjmx" data-type="NodeParagraph" updated="20250325093737" class="p"><div spellcheck="false"><span data-type="strong">启动Node.js时预加载jemalloc</span>：</div></div><div id="20250325093710-swvkb8x" data-node-id="20250325093710-swvkb8x" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">LD_PRELOAD=/path/to/libjemalloc.so node app.js
+</div>
+        </div>
+      </div><div id="20250325093710-215vmg5" data-node-id="20250325093710-215vmg5" data-type="NodeListItem" updated="20250325093743" data-subtype="o" class="li" data-marker="4.">
+        <div class="protyle-action">
+          4.
+        </div>
+        <div id="20250325093710-3vfjvre" data-node-id="20250325093710-3vfjvre" data-type="NodeParagraph" updated="20250325093743" class="p"><div spellcheck="false"><span data-type="strong">验证是否生效</span>：</div></div><div id="20250325093710-odokibd" data-node-id="20250325093710-odokibd" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"># 查看进程内存映射
+pmap -x <PID> | grep jemalloc
+# 或设置环境变量输出统计信息
+MALLOC_CONF=stats_print:true LD_PRELOAD=/path/to/libjemalloc.so node app.j
+</div>
+        </div>
+      </div></div>
+<div id="20250325093744-zvopjfw" data-node-id="20250325093744-zvopjfw" data-type="NodeParagraph" updated="20250325093744" class="p"><div spellcheck="false"></div></div><div id="20250325093744-zvopjfw" data-node-id="20250325093744-zvopjfw" data-type="NodeParagraph" updated="20250325093744" class="p"><div spellcheck="false"></div></div><div id="20250325093710-jm84uzk" data-node-id="20250325093710-jm84uzk" data-type="NodeList" updated="20250325093743" data-subtype="o" class="list"><div id="20250325093710-085urp6" data-node-id="20250325093710-085urp6" data-type="NodeListItem" updated="20250325093728" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20250325093710-a6vj9pd" data-node-id="20250325093710-a6vj9pd" data-type="NodeParagraph" updated="20250325093710" class="p"><div spellcheck="false"><span data-type="strong">安装jemalloc库</span>：</div></div><div id="20250325093710-k2ljbs6" data-node-id="20250325093710-k2ljbs6" data-type="NodeList" updated="20250325093728" data-subtype="u" class="list"><div id="20250325093710-r5vpb8q" data-node-id="20250325093710-r5vpb8q" data-type="NodeListItem" updated="20250325093722" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250325093710-n5ht810" data-node-id="20250325093710-n5ht810" data-type="NodeParagraph" updated="20250325093722" class="p"><div spellcheck="false"><span data-type="strong">Ubuntu/Debian</span>：</div></div><div id="20250325093710-6ib4wnx" data-node-id="20250325093710-6ib4wnx" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo apt-get install libjemalloc-dev
+</div>
+        </div>
+      </div><div id="20250325093710-i322svf" data-node-id="20250325093710-i322svf" data-type="NodeListItem" updated="20250325093725" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250325093710-g2ga9la" data-node-id="20250325093710-g2ga9la" data-type="NodeParagraph" updated="20250325093725" class="p"><div spellcheck="false"><span data-type="strong">CentOS/RHEL</span>：</div></div><div id="20250325093710-4reh1wf" data-node-id="20250325093710-4reh1wf" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo yum install jemalloc
+</div>
+        </div>
+      </div><div id="20250325093710-yr9bnxu" data-node-id="20250325093710-yr9bnxu" data-type="NodeListItem" updated="20250325093728" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250325093710-jaj06on" data-node-id="20250325093710-jaj06on" data-type="NodeParagraph" updated="20250325093728" class="p"><div spellcheck="false"><span data-type="strong">从源码编译</span>（可选）：</div></div><div id="20250325093710-s8tuux4" data-node-id="20250325093710-s8tuux4" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">wget https://github.com/jemalloc/jemalloc/releases/download/5.3.0/jemalloc-5.3.0.tar.bz2
+tar xvf jemalloc-5.3.0.tar.bz2
+cd jemalloc-5.3.0
+./configure && make && sudo make install
+</div>
+        </div>
+      </div></div>
+      </div><div id="20250325093710-yif44tt" data-node-id="20250325093710-yif44tt" data-type="NodeListItem" updated="20250325093732" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20250325093710-f6wnfjs" data-node-id="20250325093710-f6wnfjs" data-type="NodeParagraph" updated="20250325093732" class="p"><div spellcheck="false"><span data-type="strong">查找jemalloc库路径</span>：</div></div><div id="20250325093710-5oevciv" data-node-id="20250325093710-5oevciv" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"># 通常路径如下：
+# Ubuntu: /usr/lib/x86_64-linux-gnu/libjemalloc.so
+# CentOS: /usr/lib64/libjemalloc.so
+# 源码安装可能位于: /usr/local/lib/libjemalloc.so
+find /usr -name 'libjemalloc.so*'
+</div>
+        </div>
+      </div><div id="20250325093710-yclljo3" data-node-id="20250325093710-yclljo3" data-type="NodeListItem" updated="20250325093737" data-subtype="o" class="li" data-marker="3.">
+        <div class="protyle-action">
+          3.
+        </div>
+        <div id="20250325093710-ppjnjmx" data-node-id="20250325093710-ppjnjmx" data-type="NodeParagraph" updated="20250325093737" class="p"><div spellcheck="false"><span data-type="strong">启动Node.js时预加载jemalloc</span>：</div></div><div id="20250325093710-swvkb8x" data-node-id="20250325093710-swvkb8x" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">LD_PRELOAD=/path/to/libjemalloc.so node app.js
+</div>
+        </div>
+      </div><div id="20250325093710-215vmg5" data-node-id="20250325093710-215vmg5" data-type="NodeListItem" updated="20250325093743" data-subtype="o" class="li" data-marker="4.">
+        <div class="protyle-action">
+          4.
+        </div>
+        <div id="20250325093710-3vfjvre" data-node-id="20250325093710-3vfjvre" data-type="NodeParagraph" updated="20250325093743" class="p"><div spellcheck="false"><span data-type="strong">验证是否生效</span>：</div></div><div id="20250325093710-odokibd" data-node-id="20250325093710-odokibd" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"># 查看进程内存映射
+pmap -x <PID> | grep jemalloc
+# 或设置环境变量输出统计信息
+MALLOC_CONF=stats_print:true LD_PRELOAD=/path/to/libjemalloc.so node app.j
+</div>
+        </div>
+      </div></div><div id="20250325093710-215vmg5" data-node-id="20250325093710-215vmg5" data-type="NodeListItem" updated="20250325093743" data-subtype="o" class="li" data-marker="4.">
+        <div class="protyle-action">
+          4.
+        </div>
+        <div id="20250325093710-3vfjvre" data-node-id="20250325093710-3vfjvre" data-type="NodeParagraph" updated="20250325093743" class="p"><div spellcheck="false"><span data-type="strong">验证是否生效</span>：</div></div><div id="20250325093710-odokibd" data-node-id="20250325093710-odokibd" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"># 查看进程内存映射
+pmap -x <PID> | grep jemalloc
+# 或设置环境变量输出统计信息
+MALLOC_CONF=stats_print:true LD_PRELOAD=/path/to/libjemalloc.so node app.j
+</div>
+        </div>
+      </div><div id="20250325093710-3vfjvre" data-node-id="20250325093710-3vfjvre" data-type="NodeParagraph" updated="20250325093743" class="p"><div spellcheck="false"><span data-type="strong">验证是否生效</span>：</div></div><div id="20250325093710-yclljo3" data-node-id="20250325093710-yclljo3" data-type="NodeListItem" updated="20250325093737" data-subtype="o" class="li" data-marker="3.">
+        <div class="protyle-action">
+          3.
+        </div>
+        <div id="20250325093710-ppjnjmx" data-node-id="20250325093710-ppjnjmx" data-type="NodeParagraph" updated="20250325093737" class="p"><div spellcheck="false"><span data-type="strong">启动Node.js时预加载jemalloc</span>：</div></div><div id="20250325093710-swvkb8x" data-node-id="20250325093710-swvkb8x" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">LD_PRELOAD=/path/to/libjemalloc.so node app.js
+</div>
+        </div>
+      </div><div id="20250325093710-ppjnjmx" data-node-id="20250325093710-ppjnjmx" data-type="NodeParagraph" updated="20250325093737" class="p"><div spellcheck="false"><span data-type="strong">启动Node.js时预加载jemalloc</span>：</div></div><div id="20250325093710-yif44tt" data-node-id="20250325093710-yif44tt" data-type="NodeListItem" updated="20250325093732" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20250325093710-f6wnfjs" data-node-id="20250325093710-f6wnfjs" data-type="NodeParagraph" updated="20250325093732" class="p"><div spellcheck="false"><span data-type="strong">查找jemalloc库路径</span>：</div></div><div id="20250325093710-5oevciv" data-node-id="20250325093710-5oevciv" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"># 通常路径如下：
+# Ubuntu: /usr/lib/x86_64-linux-gnu/libjemalloc.so
+# CentOS: /usr/lib64/libjemalloc.so
+# 源码安装可能位于: /usr/local/lib/libjemalloc.so
+find /usr -name 'libjemalloc.so*'
+</div>
+        </div>
+      </div><div id="20250325093710-f6wnfjs" data-node-id="20250325093710-f6wnfjs" data-type="NodeParagraph" updated="20250325093732" class="p"><div spellcheck="false"><span data-type="strong">查找jemalloc库路径</span>：</div></div><div id="20250325093710-085urp6" data-node-id="20250325093710-085urp6" data-type="NodeListItem" updated="20250325093728" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20250325093710-a6vj9pd" data-node-id="20250325093710-a6vj9pd" data-type="NodeParagraph" updated="20250325093710" class="p"><div spellcheck="false"><span data-type="strong">安装jemalloc库</span>：</div></div><div id="20250325093710-k2ljbs6" data-node-id="20250325093710-k2ljbs6" data-type="NodeList" updated="20250325093728" data-subtype="u" class="list"><div id="20250325093710-r5vpb8q" data-node-id="20250325093710-r5vpb8q" data-type="NodeListItem" updated="20250325093722" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250325093710-n5ht810" data-node-id="20250325093710-n5ht810" data-type="NodeParagraph" updated="20250325093722" class="p"><div spellcheck="false"><span data-type="strong">Ubuntu/Debian</span>：</div></div><div id="20250325093710-6ib4wnx" data-node-id="20250325093710-6ib4wnx" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo apt-get install libjemalloc-dev
+</div>
+        </div>
+      </div><div id="20250325093710-i322svf" data-node-id="20250325093710-i322svf" data-type="NodeListItem" updated="20250325093725" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250325093710-g2ga9la" data-node-id="20250325093710-g2ga9la" data-type="NodeParagraph" updated="20250325093725" class="p"><div spellcheck="false"><span data-type="strong">CentOS/RHEL</span>：</div></div><div id="20250325093710-4reh1wf" data-node-id="20250325093710-4reh1wf" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo yum install jemalloc
+</div>
+        </div>
+      </div><div id="20250325093710-yr9bnxu" data-node-id="20250325093710-yr9bnxu" data-type="NodeListItem" updated="20250325093728" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250325093710-jaj06on" data-node-id="20250325093710-jaj06on" data-type="NodeParagraph" updated="20250325093728" class="p"><div spellcheck="false"><span data-type="strong">从源码编译</span>（可选）：</div></div><div id="20250325093710-s8tuux4" data-node-id="20250325093710-s8tuux4" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">wget https://github.com/jemalloc/jemalloc/releases/download/5.3.0/jemalloc-5.3.0.tar.bz2
+tar xvf jemalloc-5.3.0.tar.bz2
+cd jemalloc-5.3.0
+./configure && make && sudo make install
+</div>
+        </div>
+      </div></div>
+      </div><div id="20250325093710-k2ljbs6" data-node-id="20250325093710-k2ljbs6" data-type="NodeList" updated="20250325093728" data-subtype="u" class="list"><div id="20250325093710-r5vpb8q" data-node-id="20250325093710-r5vpb8q" data-type="NodeListItem" updated="20250325093722" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250325093710-n5ht810" data-node-id="20250325093710-n5ht810" data-type="NodeParagraph" updated="20250325093722" class="p"><div spellcheck="false"><span data-type="strong">Ubuntu/Debian</span>：</div></div><div id="20250325093710-6ib4wnx" data-node-id="20250325093710-6ib4wnx" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo apt-get install libjemalloc-dev
+</div>
+        </div>
+      </div><div id="20250325093710-i322svf" data-node-id="20250325093710-i322svf" data-type="NodeListItem" updated="20250325093725" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250325093710-g2ga9la" data-node-id="20250325093710-g2ga9la" data-type="NodeParagraph" updated="20250325093725" class="p"><div spellcheck="false"><span data-type="strong">CentOS/RHEL</span>：</div></div><div id="20250325093710-4reh1wf" data-node-id="20250325093710-4reh1wf" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo yum install jemalloc
+</div>
+        </div>
+      </div><div id="20250325093710-yr9bnxu" data-node-id="20250325093710-yr9bnxu" data-type="NodeListItem" updated="20250325093728" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250325093710-jaj06on" data-node-id="20250325093710-jaj06on" data-type="NodeParagraph" updated="20250325093728" class="p"><div spellcheck="false"><span data-type="strong">从源码编译</span>（可选）：</div></div><div id="20250325093710-s8tuux4" data-node-id="20250325093710-s8tuux4" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">wget https://github.com/jemalloc/jemalloc/releases/download/5.3.0/jemalloc-5.3.0.tar.bz2
+tar xvf jemalloc-5.3.0.tar.bz2
+cd jemalloc-5.3.0
+./configure && make && sudo make install
+</div>
+        </div>
+      </div></div><div id="20250325093710-yr9bnxu" data-node-id="20250325093710-yr9bnxu" data-type="NodeListItem" updated="20250325093728" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250325093710-jaj06on" data-node-id="20250325093710-jaj06on" data-type="NodeParagraph" updated="20250325093728" class="p"><div spellcheck="false"><span data-type="strong">从源码编译</span>（可选）：</div></div><div id="20250325093710-s8tuux4" data-node-id="20250325093710-s8tuux4" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">wget https://github.com/jemalloc/jemalloc/releases/download/5.3.0/jemalloc-5.3.0.tar.bz2
+tar xvf jemalloc-5.3.0.tar.bz2
+cd jemalloc-5.3.0
+./configure && make && sudo make install
+</div>
+        </div>
+      </div><div id="20250325093710-jaj06on" data-node-id="20250325093710-jaj06on" data-type="NodeParagraph" updated="20250325093728" class="p"><div spellcheck="false"><span data-type="strong">从源码编译</span>（可选）：</div></div><div id="20250325093710-i322svf" data-node-id="20250325093710-i322svf" data-type="NodeListItem" updated="20250325093725" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250325093710-g2ga9la" data-node-id="20250325093710-g2ga9la" data-type="NodeParagraph" updated="20250325093725" class="p"><div spellcheck="false"><span data-type="strong">CentOS/RHEL</span>：</div></div><div id="20250325093710-4reh1wf" data-node-id="20250325093710-4reh1wf" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo yum install jemalloc
+</div>
+        </div>
+      </div><div id="20250325093710-g2ga9la" data-node-id="20250325093710-g2ga9la" data-type="NodeParagraph" updated="20250325093725" class="p"><div spellcheck="false"><span data-type="strong">CentOS/RHEL</span>：</div></div><div id="20250325093710-r5vpb8q" data-node-id="20250325093710-r5vpb8q" data-type="NodeListItem" updated="20250325093722" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250325093710-n5ht810" data-node-id="20250325093710-n5ht810" data-type="NodeParagraph" updated="20250325093722" class="p"><div spellcheck="false"><span data-type="strong">Ubuntu/Debian</span>：</div></div><div id="20250325093710-6ib4wnx" data-node-id="20250325093710-6ib4wnx" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo apt-get install libjemalloc-dev
+</div>
+        </div>
+      </div><div id="20250325093710-n5ht810" data-node-id="20250325093710-n5ht810" data-type="NodeParagraph" updated="20250325093722" class="p"><div spellcheck="false"><span data-type="strong">Ubuntu/Debian</span>：</div></div><div id="20250325093710-a6vj9pd" data-node-id="20250325093710-a6vj9pd" data-type="NodeParagraph" updated="20250325093710" class="p"><div spellcheck="false"><span data-type="strong">安装jemalloc库</span>：</div></div><div id="20250325093710-6ib4wnx" data-node-id="20250325093710-6ib4wnx" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo apt-get install libjemalloc-dev
+</div>
+        </div><div id="20250325093710-4reh1wf" data-node-id="20250325093710-4reh1wf" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo yum install jemalloc
+</div>
+        </div><div id="20250325093710-s8tuux4" data-node-id="20250325093710-s8tuux4" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">wget https://github.com/jemalloc/jemalloc/releases/download/5.3.0/jemalloc-5.3.0.tar.bz2
+tar xvf jemalloc-5.3.0.tar.bz2
+cd jemalloc-5.3.0
+./configure && make && sudo make install
+</div>
+        </div><div id="20250325093710-5oevciv" data-node-id="20250325093710-5oevciv" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"># 通常路径如下：
+# Ubuntu: /usr/lib/x86_64-linux-gnu/libjemalloc.so
+# CentOS: /usr/lib64/libjemalloc.so
+# 源码安装可能位于: /usr/local/lib/libjemalloc.so
+find /usr -name 'libjemalloc.so*'
+</div>
+        </div><div id="20250325093710-swvkb8x" data-node-id="20250325093710-swvkb8x" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">LD_PRELOAD=/path/to/libjemalloc.so node app.js
+</div>
+        </div><div id="20250325093710-odokibd" data-node-id="20250325093710-odokibd" data-type="NodeCodeBlock" updated="20250325093710" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"># 查看进程内存映射
+pmap -x <PID> | grep jemalloc
+# 或设置环境变量输出统计信息
+MALLOC_CONF=stats_print:true LD_PRELOAD=/path/to/libjemalloc.so node app.j
+</div>
+        </div><div id="20250325090315-nxqohqw" data-node-id="20250325090315-nxqohqw" data-type="NodeParagraph" updated="20250325090351" class="p"><div spellcheck="false">使用 jemalloc 替换默认的 ptmalloc：<a href="https://www.zhihu.com/question/67241393/answer/3343845245">node rss堆外内存 持续上涨，如何释放?</a></div></div><div id="20250325090155-h81h91i" data-node-id="20250325090155-h81h91i" data-type="NodeParagraph" updated="20250325090155" class="p"><div spellcheck="false"></div></div><div id="20250325090045-pqpk33b" data-node-id="20250325090045-pqpk33b" data-type="NodeParagraph" updated="20250325090148" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20201104153359-3bz18z5"><a href="./../../读书笔记/node/各种系统安装node.html#20201104153359-3bz18z5">各种系统安装node</a></span></div></div><div id="20250325090045-vdl3vu7" data-node-id="20250325090045-vdl3vu7" data-type="NodeParagraph" updated="20250325090045" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20201104153359-xx5qj28"><a href="./../../读书笔记/node/worker.html#20201104153359-xx5qj28">worker</a></span></div></div><div id="20250325090043-jstvq9g" data-node-id="20250325090043-jstvq9g" data-type="NodeParagraph" updated="20250325090043" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20201104153359-eraeclx"><a href="./../../读书笔记/node/node热部署以及装饰器的应用.html#20201104153359-eraeclx">node热部署以及装饰器的应用</a></span></div></div><div id="20210816161947-x9fk5w5" data-node-id="20210816161947-x9fk5w5" data-type="NodeParagraph" updated="20250325090041" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20201104153359-c21on9u"><a href="./../../读书笔记/node/一次nodejs内存溢出bug修复.html#20201104153359-c21on9u">一次nodejs内存溢出bug修复</a></span></div></div><h3 id="20250325085650-bm33u0t" data-node-id="20250325085650-bm33u0t" data-type="NodeHeading" updated="20250325085930" data-subtype="h3" class="h3">可选步骤：清理安装包</h3>
+<div id="20250325085650-h5ciogy" data-node-id="20250325085650-h5ciogy" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">rm node-vx.x.x-linux-x64.tar.xz
+</div>
+        </div>
+<div id="20250325085915-vyvp5wn" data-node-id="20250325085915-vyvp5wn" data-type="NodeParagraph" updated="20250325085930" class="p"><div spellcheck="false">npm 配置国内镜像 <span data-type="code">npm config set registry https://registry.npmmirror.com</span>​</div></div><div id="20250325085915-vyvp5wn" data-node-id="20250325085915-vyvp5wn" data-type="NodeParagraph" updated="20250325085930" class="p"><div spellcheck="false">npm 配置国内镜像 <span data-type="code">npm config set registry https://registry.npmmirror.com</span>​</div></div><div id="20240813094743-df5uxq9" data-node-id="20240813094743-df5uxq9" data-type="NodeParagraph" updated="20250325085741" class="p"><div spellcheck="false"><a href="https://github.com/Schniz/fnm?tab=readme-ov-file#powershell">fnm</a>（推荐使用） ：全平台 / <span data-type="block-ref"   data-subtype="d"   data-id="20250324154456-kga64b6"><a href="./../../读书笔记/node/各种系统安装node.html#20250324154456-kga64b6">通过二进制安装 node</a></span></div></div><h2 id="20250324154456-kga64b6" data-node-id="20250324154456-kga64b6" data-type="NodeHeading" updated="20250325085703" data-subtype="h2" class="h2">通过二进制安装 node</h2><h3 id="20250325085650-xq54xeq" data-node-id="20250325085650-xq54xeq" data-type="NodeHeading" updated="20250325085703" data-subtype="h3" class="h3">1. <span data-type="strong">下载 Node.js 二进制包</span></h3>
+<div id="20250325085650-vaxfr4q" data-node-id="20250325085650-vaxfr4q" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">访问 <a href="https://nodejs.org/">Node.js 官网</a> 或 <a href="https://nodejs.org/en/download/">下载页面</a>，选择适合你系统的二进制包（通常是 <span data-type="code">linux-x64</span>​ 版本）。
+例如，下载最新 LTS 版本（替换 <span data-type="code">x.x.x</span>​ 为实际版本号）：</div></div>
+<div id="20250325085650-igobhni" data-node-id="20250325085650-igobhni" data-type="NodeCodeBlock" updated="20250325085703" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">bash</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">wget https://nodejs.org/dist/vx.x.x/node-vx.x.x-linux-x64.tar.xz
+</div>
+        </div>
+<div id="20250325085650-f68bmkt" data-node-id="20250325085650-f68bmkt" data-type="NodeThematicBreak" updated="20250325085650" class="hr"><div></div></div><div id="20250325085650-igobhni" data-node-id="20250325085650-igobhni" data-type="NodeCodeBlock" updated="20250325085703" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">bash</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">wget https://nodejs.org/dist/vx.x.x/node-vx.x.x-linux-x64.tar.xz
+</div>
+        </div><div id="20250325085650-vaxfr4q" data-node-id="20250325085650-vaxfr4q" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">访问 <a href="https://nodejs.org/">Node.js 官网</a> 或 <a href="https://nodejs.org/en/download/">下载页面</a>，选择适合你系统的二进制包（通常是 <span data-type="code">linux-x64</span>​ 版本）。
+例如，下载最新 LTS 版本（替换 <span data-type="code">x.x.x</span>​ 为实际版本号）：</div></div><div id="20250325085650-f68bmkt" data-node-id="20250325085650-f68bmkt" data-type="NodeThematicBreak" updated="20250325085650" class="hr"><div></div></div><h3 id="20250325085650-57jidjr" data-node-id="20250325085650-57jidjr" data-type="NodeHeading" updated="20250325085650" data-subtype="h3" class="h3">2. <span data-type="strong">解压文件</span></h3>
+<div id="20250325085650-8h60r2g" data-node-id="20250325085650-8h60r2g" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">使用 <span data-type="code">tar</span>​ 解压 <span data-type="code">.tar.xz</span>​ 文件：</div></div>
+<div id="20250325085650-yfroec2" data-node-id="20250325085650-yfroec2" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">tar -xJf node-vx.x.x-linux-x64.tar.xz
+</div>
+        </div>
+<div id="20250325085650-nmlwy5r" data-node-id="20250325085650-nmlwy5r" data-type="NodeThematicBreak" updated="20250325085650" class="hr"><div></div></div><div id="20250325085650-8h60r2g" data-node-id="20250325085650-8h60r2g" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">使用 <span data-type="code">tar</span>​ 解压 <span data-type="code">.tar.xz</span>​ 文件：</div></div><div id="20250325085650-yfroec2" data-node-id="20250325085650-yfroec2" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">tar -xJf node-vx.x.x-linux-x64.tar.xz
+</div>
+        </div><div id="20250325085650-nmlwy5r" data-node-id="20250325085650-nmlwy5r" data-type="NodeThematicBreak" updated="20250325085650" class="hr"><div></div></div><h3 id="20250325085650-qf6ywgw" data-node-id="20250325085650-qf6ywgw" data-type="NodeHeading" updated="20250325085650" data-subtype="h3" class="h3">3. <span data-type="strong">移动文件到系统目录（推荐）</span></h3>
+<div id="20250325085650-nejnqcb" data-node-id="20250325085650-nejnqcb" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">将解压后的文件夹移动到 <span data-type="code">/usr/local/lib/nodejs</span>​（或其他自定义路径）：</div></div>
+<div id="20250325085650-kfp9spi" data-node-id="20250325085650-kfp9spi" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo mkdir -p /usr/local/lib/nodejs  # 创建目录（可选）
+sudo mv node-vx.x.x-linux-x64 /usr/local/lib/nodejs/
+</div>
+        </div>
+<div id="20250325085650-ob2jhy2" data-node-id="20250325085650-ob2jhy2" data-type="NodeThematicBreak" updated="20250325085650" class="hr"><div></div></div><div id="20250325085650-nejnqcb" data-node-id="20250325085650-nejnqcb" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">将解压后的文件夹移动到 <span data-type="code">/usr/local/lib/nodejs</span>​（或其他自定义路径）：</div></div><div id="20250325085650-kfp9spi" data-node-id="20250325085650-kfp9spi" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo mkdir -p /usr/local/lib/nodejs  # 创建目录（可选）
+sudo mv node-vx.x.x-linux-x64 /usr/local/lib/nodejs/
+</div>
+        </div><div id="20250325085650-ob2jhy2" data-node-id="20250325085650-ob2jhy2" data-type="NodeThematicBreak" updated="20250325085650" class="hr"><div></div></div><h3 id="20250325085650-0et8twm" data-node-id="20250325085650-0et8twm" data-type="NodeHeading" updated="20250325085650" data-subtype="h3" class="h3">4. <span data-type="strong">配置环境变量</span></h3>
+<div id="20250325085650-ty5tylx" data-node-id="20250325085650-ty5tylx" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">将 Node.js 的 <span data-type="code">bin</span>​ 目录添加到 <span data-type="code">PATH</span>​ 中，使其全局可用。</div></div><div id="20250325085650-ty5tylx" data-node-id="20250325085650-ty5tylx" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">将 Node.js 的 <span data-type="code">bin</span>​ 目录添加到 <span data-type="code">PATH</span>​ 中，使其全局可用。</div></div><h4 id="20250325085650-v2445fs" data-node-id="20250325085650-v2445fs" data-type="NodeHeading" updated="20250325085650" data-subtype="h4" class="h4">方法一：直接添加到 <span data-type="code">PATH</span>​</h4>
+<div id="20250325085650-80lu00y" data-node-id="20250325085650-80lu00y" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">编辑 <span data-type="code">~/.bashrc</span>​ 或 <span data-type="code">~/.profile</span>​：</div></div>
+<div id="20250325085650-a4kan55" data-node-id="20250325085650-a4kan55" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">echo 'export PATH="/usr/local/lib/nodejs/node-vx.x.x-linux-x64/bin:$PATH"' >> ~/.bashrc
+</div>
+        </div>
+<div id="20250325085650-z9gwy2l" data-node-id="20250325085650-z9gwy2l" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">然后使配置生效：</div></div>
+<div id="20250325085650-ctlcu8y" data-node-id="20250325085650-ctlcu8y" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">source ~/.bashrc
+</div>
+        </div><div id="20250325085650-80lu00y" data-node-id="20250325085650-80lu00y" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">编辑 <span data-type="code">~/.bashrc</span>​ 或 <span data-type="code">~/.profile</span>​：</div></div><div id="20250325085650-a4kan55" data-node-id="20250325085650-a4kan55" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">echo 'export PATH="/usr/local/lib/nodejs/node-vx.x.x-linux-x64/bin:$PATH"' >> ~/.bashrc
+</div>
+        </div><div id="20250325085650-z9gwy2l" data-node-id="20250325085650-z9gwy2l" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">然后使配置生效：</div></div><div id="20250325085650-ctlcu8y" data-node-id="20250325085650-ctlcu8y" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">source ~/.bashrc
+</div>
+        </div><h4 id="20250325085650-ejnaamb" data-node-id="20250325085650-ejnaamb" data-type="NodeHeading" updated="20250325085650" data-subtype="h4" class="h4">方法二：创建符号链接（无需修改 PATH）</h4>
+<div id="20250325085650-4jyejkx" data-node-id="20250325085650-4jyejkx" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo ln -s /usr/local/lib/nodejs/node-vx.x.x-linux-x64/bin/node /usr/local/bin/node
+sudo ln -s /usr/local/lib/nodejs/node-vx.x.x-linux-x64/bin/npm /usr/local/bin/npm
+</div>
+        </div>
+<div id="20250325085650-nnd4b7s" data-node-id="20250325085650-nnd4b7s" data-type="NodeThematicBreak" updated="20250325085650" class="hr"><div></div></div><div id="20250325085650-4jyejkx" data-node-id="20250325085650-4jyejkx" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">sudo ln -s /usr/local/lib/nodejs/node-vx.x.x-linux-x64/bin/node /usr/local/bin/node
+sudo ln -s /usr/local/lib/nodejs/node-vx.x.x-linux-x64/bin/npm /usr/local/bin/npm
+</div>
+        </div><div id="20250325085650-nnd4b7s" data-node-id="20250325085650-nnd4b7s" data-type="NodeThematicBreak" updated="20250325085650" class="hr"><div></div></div><h3 id="20250325085650-cckwdiy" data-node-id="20250325085650-cckwdiy" data-type="NodeHeading" updated="20250325085650" data-subtype="h3" class="h3">5. <span data-type="strong">验证安装</span></h3>
+<div id="20250325085650-grd6i5m" data-node-id="20250325085650-grd6i5m" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">检查 Node.js 和 npm 版本：</div></div>
+<div id="20250325085650-htklvb5" data-node-id="20250325085650-htklvb5" data-type="NodeCodeBlock" updated="20250325085650" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language"></span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">node -v
+npm -v
+</div>
+        </div>
+<div id="20250325085650-b2fjj4h" data-node-id="20250325085650-b2fjj4h" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">如果正确显示版本号，则安装成功。</div></div>
+<div id="20250325085650-h7hnofe" data-node-id="20250325085650-h7hnofe" data-type="NodeThematicBreak" updated="20250325085650" class="hr"><div></div></div><div id="20250325085650-grd6i5m" data-node-id="20250325085650-grd6i5m" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">检查 Node.js 和 npm 版本：</div></div>  </div><div id="20210606160324-57c0iql" data-node-id="20210606160324-57c0iql" data-type="NodeParagraph" updated="20230924170522" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
@@ -494,7 +601,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v1.0.1/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);
