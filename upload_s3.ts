@@ -57,7 +57,7 @@ async function main() {
     await saveHashFile(hashes); // 保存更新后的哈希记录
   }
 }
-main()
+main();
 // 读取本地git仓库的内容并上传到S3存储桶（增量上传）
 async function uploadDirToS3(s3Dir: string, localDir: string) {
   const files = await fs.readdir(localDir);
@@ -97,12 +97,12 @@ async function retryUpload(s3Path: string, localPath: string, fileSize: number) 
       };
 
       await minioClient.fPutObject(BucketName, s3Path, localPath, uploadOptions).then((r) => {
-        console.log('上传成功:', s3Path, `${(fileSize / 1024).toFixed(0)}k`, r);
+        console.log('上传成功:', s3Path, `${(fileSize / 1024).toFixed(0)}k`);
       });
       break; // 上传成功，跳出循环
     } catch (error) {
       retryCount++;
-      console.log('[error]',error);
+      console.log('[error]', error);
       console.error(`上传失败，重试次数：${retryCount}`, localPath);
 
       // 阿里云OSS特定错误处理
@@ -113,7 +113,7 @@ async function retryUpload(s3Path: string, localPath: string, fileSize: number) 
       }
 
       // 等待一段时间后重试
-      await new Promise(resolve => setTimeout(resolve, 1000 * retryCount));
+      await new Promise((resolve) => setTimeout(resolve, 1000 * retryCount));
     }
   }
 }
