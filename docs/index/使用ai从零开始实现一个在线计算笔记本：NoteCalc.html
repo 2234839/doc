@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>使用ai从零开始实现一个在线计算笔记本：NoteCalc</title>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20250507170654-enuezoa" data-node-id="20250507170654-enuezoa" data-type="NodeDocument" updated="20250508192741" type="doc">
+
+<h1 id="20250507170654-enuezoa" data-node-id="20250507170654-enuezoa" data-type="NodeDocument" updated="20250508192741" type="doc" data-type="NodeHeading" class="h1">使用ai从零开始实现一个在线计算笔记本：NoteCalc</h1>
+<div id="20250507170654-tu8vbge" data-node-id="20250507170654-tu8vbge" data-type="NodeParagraph" updated="20250507171740" class="p"><div spellcheck="false">这个计算笔记本项目源于 <a href="https://github.com/bbodi/notecalc3">NoteCalc</a> 的启发，还有一些类似的产品，但基本都是国外开发的，不支持中文变量。我想创建一个中文友好的实时计算笔记工具。</div></div><div id="20250508192741-akof5a8" data-node-id="20250508192741-akof5a8" data-type="NodeBlockQueryEmbed" updated="20250508192741" data-type="NodeBlockquote" class="bq">  <div id="20250508192624-bzinzlg" data-node-id="20250508192624-bzinzlg" data-type="NodeParagraph" updated="20250508192902" class="p"><div spellcheck="false">借助 <span data-type="block-ref"   data-subtype="d"   data-id="20250413211142-d533spm"><a href="./../index/TsFullStack.html#20250413211142-d533spm">TsFullStack</a></span> 发布的 <a href="https://tsfullstack.heartstack.space/noteCalc">在线体验：NoteCalc</a> ，<a href="https://github.com/2234839/TsFullStack/tree/main/apps/admin-console/src/pages/noteCalc">github地址</a> 。</div></div>  </div><div id="20250507171033-4m48jl7" data-node-id="20250507171033-4m48jl7" data-type="NodeParagraph" updated="20250507171236" class="p"><div spellcheck="false">我本来是打算自己写的，因为感觉这个应该挺复杂，ai 可能把握不住，但我尝试了一下 v0 来帮我实现，在迭代了 37 版之后基本可用了，这着实惊艳到我了。</div></div><div id="20250507171345-l4zl527" data-node-id="20250507171345-l4zl527" data-type="NodeParagraph" updated="20250507171403" class="p"><div spellcheck="false">你可以在  <a href="https://v0.dev/chat/notecalc3-0B8uQmEirDI">https://v0.dev/chat/notecalc3-0B8uQmEirDI</a> 查看我的全程提示操作。</div></div><div id="20250507171407-eba8dtt" data-node-id="20250507171407-eba8dtt" data-type="NodeParagraph" updated="20250507171749" class="p"><div spellcheck="false"></div></div><div id="20250507171023-0iw2v0b" data-node-id="20250507171023-0iw2v0b" data-type="NodeParagraph" updated="20250507171023" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/image-20250507171023-akgnxe2.png"
+    data-src="./../assets/image-20250507171023-akgnxe2.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20250507171129-kbegs1b" data-node-id="20250507171129-kbegs1b" data-type="NodeParagraph" updated="20250507171217" class="p"><div spellcheck="false">利用 Mathjs 支持了基本的加减乘除/变量/高精度浮点数计算</div></div><h3 id="20250507171557-0vaujja" data-node-id="20250507171557-0vaujja" data-type="NodeHeading" updated="20250507171557" data-subtype="h3" class="h3">遇到的问题</h3><div id="20250507171557-o8s1d4t" data-node-id="20250507171557-o8s1d4t" data-type="NodeList" updated="20250507171557" data-subtype="o" class="list"><div id="20250507171557-4lmynyv" data-node-id="20250507171557-4lmynyv" data-type="NodeListItem" updated="20250507171557" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20250507171557-a4klmmw" data-node-id="20250507171557-a4klmmw" data-type="NodeParagraph" updated="20250507171620" class="p"><div spellcheck="false"><span data-type="strong">中文变量名支持</span>：期间和 v0 切磋了很多次他才能正确的支持中文变量</div></div>
+      </div></div><h2 id="20250508101856-hioa7h8" data-node-id="20250508101856-hioa7h8" data-type="NodeHeading" updated="20250508172441" data-subtype="h2" class="h2">后续计划</h2><div id="20250508101944-nlvb8np" data-node-id="20250508101944-nlvb8np" data-type="NodeList" updated="20250508172441" data-subtype="t" class="list"><div id="20250508101944-n76f9v1" data-node-id="20250508101944-n76f9v1" data-type="NodeListItem" updated="20250508101944" data-subtype="t" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconUncheck"></use></svg>
+        </div>
+        <div id="20250508101901-5qb9jaj" data-node-id="20250508101901-5qb9jaj" data-type="NodeParagraph" updated="20250508101944" class="p"><div spellcheck="false">基于 <span data-type="block-ref"   data-subtype="d"   data-id="20250413211142-d533spm"><a href="./../index/TsFullStack.html#20250413211142-d533spm">TsFullStack</a></span> 来实现用户计算笔记的云存储和分享功能</div></div>
+      </div><div id="20250508101948-tmg60km" data-node-id="20250508101948-tmg60km" data-type="NodeListItem" updated="20250508172441" data-subtype="t" class="li protyle-task--done " data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconCheck"></use></svg>
+        </div>
+        <div id="20250508101948-9v4wck2" data-node-id="20250508101948-9v4wck2" data-type="NodeParagraph" updated="20250508102000" class="p"><div spellcheck="false">支持 url 参数的分享功能</div></div>
+      </div><div id="20250508102000-8wu81y2" data-node-id="20250508102000-8wu81y2" data-type="NodeListItem" updated="20250508102006" data-subtype="t" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconUncheck"></use></svg>
+        </div>
+        <div id="20250508102000-vgf8475" data-node-id="20250508102000-vgf8475" data-type="NodeParagraph" updated="20250508102006" class="p"><div spellcheck="false">支持浏览器本地存储</div></div>
+      </div></div><div id="20250508101938-4h3e2pz" data-node-id="20250508101938-4h3e2pz" data-type="NodeParagraph" updated="20250508101938" class="p"><div spellcheck="false"></div></div><div id="20250507171633-f4j6r5u" data-node-id="20250507171633-f4j6r5u" data-type="NodeParagraph" updated="20250507171633" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
+crossorigin="anonymous"></script><footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>

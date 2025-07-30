@@ -5,48 +5,12 @@
   <link></link>
   <description></description>
   <atom:link href="https://shenzilong.cn/关于/rss/最近更新.rss.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>2025-03-26T01:04:31.207Z</lastBuildDate>
+  <lastBuildDate>2025-07-31T02:29:18.672Z</lastBuildDate>
   <item>
-    <title>思源开发手册</title>
-    <link>https://shenzilong.cn/record/思源笔记/思源开发手册.html</link>
+    <title>臨池不輟</title>
+    <link>https://shenzilong.cn/文集/feed/臨池不輟.html</link>
     <description></description>
-    <pubDate>2025-03-25T06:28:51.000Z</pubDate>
-  </item>
-<item>
-    <title>思源笔记</title>
-    <link>https://shenzilong.cn/record/思源笔记.html</link>
-    <description></description>
-    <pubDate>2025-03-25T06:28:05.000Z</pubDate>
-  </item>
-<item>
-    <title>node</title>
-    <link>https://shenzilong.cn/读书笔记/node.html</link>
-    <description></description>
-    <pubDate>2025-03-25T01:37:44.000Z</pubDate>
-  </item>
-<item>
-    <title>各种系统安装node</title>
-    <link>https://shenzilong.cn/读书笔记/node/各种系统安装node.html</link>
-    <description></description>
-    <pubDate>2025-03-25T00:59:30.000Z</pubDate>
-  </item>
-<item>
-    <title>worker</title>
-    <link>https://shenzilong.cn/读书笔记/node/worker.html</link>
-    <description></description>
-    <pubDate>2020-11-04T07:33:59.000Z</pubDate>
-  </item>
-<item>
-    <title>node热部署以及装饰器的应用</title>
-    <link>https://shenzilong.cn/读书笔记/node/node热部署以及装饰器的应用.html</link>
-    <description></description>
-    <pubDate>2020-11-04T07:33:59.000Z</pubDate>
-  </item>
-<item>
-    <title>一次nodejs内存溢出bug修复</title>
-    <link>https://shenzilong.cn/读书笔记/node/一次nodejs内存溢出bug修复.html</link>
-    <description></description>
-    <pubDate>2020-11-04T07:33:59.000Z</pubDate>
+    <pubDate>2025-07-31T02:14:03.000Z</pubDate>
   </item>
   </channel>
   </rss>

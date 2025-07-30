@@ -53,10 +53,10 @@
     
     <iframe src="./../../../__oceanpress/docTree.html"></iframe>
   </div>
-  <div style="min-height: 150px;" id="20231210171848-24ne2n1" data-node-id="20231210171848-24ne2n1" data-type="NodeDocument" updated="20231210171908" custom-dailynote-20231210="20231210">
+  <div style="min-height: 150px;" id="20231210171848-24ne2n1" data-node-id="20231210171848-24ne2n1" data-type="NodeDocument" updated="20250726095255" custom-dailynote-20231210="20231210" type="doc">
 
-<h1 id="20231210171848-24ne2n1" data-node-id="20231210171848-24ne2n1" data-type="NodeDocument" updated="20231210171908" custom-dailynote-20231210="20231210" data-type="NodeHeading" class="h1">2023-12-10</h1>
-<h2 id="20231210171916-v2h750o" data-node-id="20231210171916-v2h750o" data-type="NodeHeading" updated="20231210171934" data-subtype="h2" class="h2">通过ssh在远程服务器上执行命令</h2><div id="20231210171851-0yp7xez" data-node-id="20231210171851-0yp7xez" data-type="NodeParagraph" updated="20231210171851" class="p"><div spellcheck="false">要在远程服务器上执行命令而不让当前终端完全 SSH 连接到远程终端，可以使用 SSH 的 "ssh remotehost command" 语法。这种方式会在远程主机上执行指定的命令，然后返回结果。</div></div><div id="20231210171851-xogq88f" data-node-id="20231210171851-xogq88f" data-type="NodeParagraph" updated="20231210171851" class="p"><div spellcheck="false">以下是如何使用这种方式来执行远程命令的示例：</div></div><div id="20231210171851-1m7mxve" data-node-id="20231210171851-1m7mxve" data-type="NodeCodeBlock" updated="20231210171908" class="code-block" style="line-height: 22px;">
+<h1 id="20231210171848-24ne2n1" data-node-id="20231210171848-24ne2n1" data-type="NodeDocument" updated="20250726095255" custom-dailynote-20231210="20231210" type="doc" data-type="NodeHeading" class="h1">2023-12-10</h1>
+<h2 id="20231210171916-v2h750o" data-node-id="20231210171916-v2h750o" data-type="NodeHeading" updated="20250726095142" data-subtype="h2" class="h2">通过ssh在远程服务器上执行命令</h2><div id="20231210171851-0yp7xez" data-node-id="20231210171851-0yp7xez" data-type="NodeParagraph" updated="20231210171851" class="p"><div spellcheck="false">要在远程服务器上执行命令而不让当前终端完全 SSH 连接到远程终端，可以使用 SSH 的 "ssh remotehost command" 语法。这种方式会在远程主机上执行指定的命令，然后返回结果。</div></div><div id="20231210171851-xogq88f" data-node-id="20231210171851-xogq88f" data-type="NodeParagraph" updated="20231210171851" class="p"><div spellcheck="false">以下是如何使用这种方式来执行远程命令的示例：</div></div><div id="20231210171851-1m7mxve" data-node-id="20231210171851-1m7mxve" data-type="NodeCodeBlock" updated="20231210171908" class="code-block" style="line-height: 22px;">
           <div class="protyle-action">
             <span class="protyle-action--first protyle-action__language">bash</span>
             <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -85,7 +85,7 @@
           </div>
           <div class="hljs" spellcheck="false">ssh user@remotehost 'ls -l'
 </div>
-        </div><div id="20231210171851-qz5mw04" data-node-id="20231210171851-qz5mw04" data-type="NodeParagraph" updated="20231210171851" class="p"><div spellcheck="false">当你运行这个命令时，它会通过 SSH 连接到远程主机，执行指定的命令，然后将结果输出到当前终端。</div></div></div>
+        </div><div id="20231210171851-qz5mw04" data-node-id="20231210171851-qz5mw04" data-type="NodeParagraph" updated="20231210171851" class="p"><div spellcheck="false">当你运行这个命令时，它会通过 SSH 连接到远程主机，执行指定的命令，然后将结果输出到当前终端。</div></div><h2 id="20250726095142-r30y4ue" data-node-id="20250726095142-r30y4ue" data-type="NodeHeading" updated="20250726095255" data-subtype="h2" class="h2">注意事项</h2><div id="20250726095146-ihfvhmh" data-node-id="20250726095146-ihfvhmh" data-type="NodeParagraph" updated="20250726095255" class="p"><div spellcheck="false">~/.bashrc 内可能存在 <span data-type="code">[ -z "$PS1" ] &amp;&amp; return</span>​ 这样的代码，这会组织 ssh -t 执行 .bashrc 导致 pnpm fnm 在这种环境下失效，可以考虑直接删掉</div></div><div id="20250726095147-k90v5a7" data-node-id="20250726095147-k90v5a7" data-type="NodeParagraph" updated="20250726095147" class="p"><div spellcheck="false"></div></div></div>
   <div id="oceanpress-right-sidebar"></div>
 </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
@@ -132,7 +132,8 @@
       });
     });
   </script>
-  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
+crossorigin="anonymous"></script><footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
   <p style="margin: 0;">
     技术支持：
     <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |

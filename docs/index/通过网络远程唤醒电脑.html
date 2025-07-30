@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>通过网络远程唤醒电脑</title>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20250329095707-ozm41yv" data-node-id="20250329095707-ozm41yv" data-type="NodeDocument" updated="20250329104126" custom-liandi-articleId="1743216022676" type="doc">
+
+<h1 id="20250329095707-ozm41yv" data-node-id="20250329095707-ozm41yv" data-type="NodeDocument" updated="20250329104126" custom-liandi-articleId="1743216022676" type="doc" data-type="NodeHeading" class="h1">通过网络远程唤醒电脑</h1>
+<div id="20250329095834-9g8udyl" data-node-id="20250329095834-9g8udyl" data-type="NodeParagraph" updated="20250329095941" class="p"><div spellcheck="false">之前也尝试过一次，但是失败了，当时目标电脑ip是 192.168.1.* 发送魔术包的电脑是 192.168.2.*</div></div><div id="20250329095943-wm48g7t" data-node-id="20250329095943-wm48g7t" data-type="NodeParagraph" updated="20250329100347" class="p"><div spellcheck="false">我以为能够互相访问就能够相互唤醒，结果是不行的，必须还要在同一网段才行。</div></div><div id="20250329100020-xzttmnm" data-node-id="20250329100020-xzttmnm" data-type="NodeParagraph" updated="20250329100250" class="p"><div spellcheck="false">今天又打算尝试，于是修改 ap 为桥接模式，这样两台电脑就都是 192.168.1.* 网段了，然后使用下面的代码成功唤醒了目标设备。</div></div><div id="20250329100448-4mmlj5q" data-node-id="20250329100448-4mmlj5q" data-type="NodeParagraph" updated="20250329100520" class="p"><div spellcheck="false">注意：mac 地址需要是目标设备直连网线的网卡 mac 地址</div></div><div id="20250329104042-hpt0o19" data-node-id="20250329104042-hpt0o19" data-type="NodeParagraph" updated="20250329104126" class="p"><div spellcheck="false">手机上可以通过 termux 来执行 node 代码</div></div><h2 id="20250329095758-el04a3r" data-node-id="20250329095758-el04a3r" data-type="NodeHeading" updated="20250329100526" data-subtype="h2" class="h2">node ts 通过网络远程唤醒电脑代码</h2><div id="20250329095707-jm00qxz" data-node-id="20250329095707-jm00qxz" data-type="NodeCodeBlock" updated="20250329100526" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">ts</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">// wake-on-lan.ts
+import { createSocket, Socket } from 'node:dgram';
+
+/**
+ * 发送 Wake-on-LAN 魔术包
+ * @param macAddress 目标设备的 MAC 地址（格式如 "AA:BB:CC:DD:EE:FF" 或 "AA-BB-CC-DD-EE-FF"）
+ * @param targetIp 目标子网的广播地址或 IP（如 "192.168.1.255" 或路由器的公网 IP）
+ * @param port 目标端口（默认 9）
+ */
+async function sendMagicPacket(
+  macAddress: string,
+  targetIp: string = '255.255.255.255',
+  port: number = 9,
+): Promise<void> {
+  const normalizedMac = macAddress.replace(/[^0-9A-Fa-f]/g, '');
+  if (normalizedMac.length !== 12) {
+    throw new Error('Invalid MAC address');
+  }
+
+  const macBuffer = Buffer.from(normalizedMac, 'hex');
+  const magicPacket = Buffer.concat([
+    Buffer.from('FFFFFFFFFFFF', 'hex'),
+    ...Array(16).fill(macBuffer),
+  ]);
+
+  const socket: Socket = createSocket('udp4');
+
+  return new Promise((resolve, reject) => {
+    // 绑定 Socket 到本地随机端口（0 表示系统自动分配）
+    socket.bind(0, () => {
+      try {
+        // 关键步骤：绑定后再设置广播
+        socket.setBroadcast(true);
+      } catch (err) {
+        reject(new Error('Failed to set broadcast'));
+        socket.close();
+        return;
+      }
+
+      // 发送魔术包
+      socket.send(magicPacket, port, targetIp, (err) => {
+        socket.close();
+        err ? reject(err) : resolve();
+      });
+    });
+
+    socket.on('error', (err) => {
+      socket.close();
+      reject(err);
+    });
+  });
+}
+
+const MAC = 'C3-G5-E7-17-DF-2A'; // 替换为目标 MAC
+const TARGET_IP = '192.168.1.255'; // 目标子网广播地址
+const PORT = 9; // WoL 默认端口
+
+sendMagicPacket(MAC, TARGET_IP, PORT)
+  .then(() => console.log('Magic packet sent!'))
+  .catch((err) => console.error('Error:', err.message));
+</div>
+        </div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
+crossorigin="anonymous"></script><footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>

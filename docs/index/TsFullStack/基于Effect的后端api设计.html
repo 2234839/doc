@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>基于Effect的后端api设计</title>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20250424110043-j91p4aj" data-node-id="20250424110043-j91p4aj" data-type="NodeDocument" updated="20250424112308" type="doc">
+
+<h1 id="20250424110043-j91p4aj" data-node-id="20250424110043-j91p4aj" data-type="NodeDocument" updated="20250424112308" type="doc" data-type="NodeHeading" class="h1">基于Effect的后端api设计</h1>
+<div id="20250424110043-hg7kuab" data-node-id="20250424110043-hg7kuab" data-type="NodeParagraph" updated="20250424110210" class="p"><div spellcheck="false">最近在开发 <span data-type="block-ref"   data-subtype="d"   data-id="20250413211142-d533spm"><a href="./../../index/TsFullStack.html#20250413211142-d533spm">TsFullStack</a></span> ,其中的后端api深度集成了Effect。</div></div><h2 id="20250424111613-22bu81g" data-node-id="20250424111613-22bu81g" data-type="NodeHeading" updated="20250424112308" data-subtype="h2" class="h2"><span data-type="block-ref"   data-subtype="d"   data-id="20250326094349-86z2zw4"><a href="./../../index/effect-ts.html#20250326094349-86z2zw4">为什么是 effect-ts</a></span></h2><div id="20250424110717-u5mb5b1" data-node-id="20250424110717-u5mb5b1" data-type="NodeParagraph" updated="20250424111058" class="p"><div spellcheck="false">例如下面这个上传接口，他内部是依赖了 authService（用户信息），如果我们通过参数来传递 auth 的话，在嵌套调用的情况下会非常繁琐，尤其是后期新增一个依赖，那么就要全链路改动。</div></div><div id="20250424110844-dtd5gh0" data-node-id="20250424110844-dtd5gh0" data-type="NodeParagraph" updated="20250424110844" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../assets/image-20250424110844-0pwxrx2.png"
+    data-src="./../../assets/image-20250424110844-0pwxrx2.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20250424111102-dlxzphm" data-node-id="20250424111102-dlxzphm" data-type="NodeParagraph" updated="20250424111634" class="p"><div spellcheck="false">为了避免上面这个问题一般采用线程变量（在node中可以使用 <span data-type="block-ref"   data-subtype="s"   data-id="20250202170436-xsqbs5h"><a href="./../../index/对于依赖注入的思考-二.html#20250202170436-xsqbs5h">CLS</a></span>）或者 InversifyJS 这样的方案，又或者在 vue 中也有 provied inject 这样的方案。</div></div><div id="20250424111635-p0xdmv8" data-node-id="20250424111635-p0xdmv8" data-type="NodeParagraph" updated="20250424112007" class="p"><div spellcheck="false">但他们有一个最大的缺点就是在实际运行程序（或者通读代码）之前没法知道一段程序究竟依赖了什么，而Effect通过巧妙的ts type解决了这个问题，例如下面是 <span data-type="block-ref"   data-subtype="d"   data-id="20250413211142-d533spm"><a href="./../../index/TsFullStack.html#20250413211142-d533spm">TsFullStack</a></span> 中运行包含上面 upload 相关接口的程序，我手动注释掉了provide authService 的代码，可以看到 ts 就会提示缺少了 AuthService。</div></div><div id="20250424111854-v5xdfz3" data-node-id="20250424111854-v5xdfz3" data-type="NodeParagraph" updated="20250424111854" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../assets/image-20250424111854-88210lm.png"
+    data-src="./../../assets/image-20250424111854-88210lm.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20250424111501-8ljuldh" data-node-id="20250424111501-8ljuldh" data-type="NodeParagraph" updated="20250424112138" class="p"><div spellcheck="false">这就实现了在实际运行程序之前知道一段程序究竟依赖了什么</div></div><div id="20250424112245-74c4gfr" data-node-id="20250424112245-74c4gfr" data-type="NodeParagraph" updated="20250424112303" class="p"><div spellcheck="false">那么什么场景非常需要这个特性呢？</div></div><div id="20250424112306-pfepgws" data-node-id="20250424112306-pfepgws" data-type="NodeList" updated="20250424112308" data-subtype="o" class="list"><div id="20250424112308-sywqlk9" data-node-id="20250424112308-sywqlk9" data-type="NodeListItem" updated="20250424112308" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20250424112308-h1o0x7w" data-node-id="20250424112308-h1o0x7w" data-type="NodeParagraph" updated="20250424112318" class="p"><div spellcheck="false">编写严谨不易出错的程序</div></div>
+      </div><div id="20250424112319-c3x1noy" data-node-id="20250424112319-c3x1noy" data-type="NodeListItem" updated="20250424112319" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20250424112319-lcco11s" data-node-id="20250424112319-lcco11s" data-type="NodeParagraph" updated="20250424112427" class="p"><div spellcheck="false">编写单元测试，没有这个特性的话编写单元测试就需要开发者反复阅读代码确定一个片段依赖了什么。</div></div>
+      </div></div><div id="20250424112534-u94iuqz" data-node-id="20250424112534-u94iuqz" data-type="NodeParagraph" updated="20250424112535" class="p"><div spellcheck="false"></div></div><div id="20250424111248-m0638is" data-node-id="20250424111248-m0638is" data-type="NodeParagraph" updated="20250424111248" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
+crossorigin="anonymous"></script><footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>

@@ -53,29 +53,33 @@
     
     <iframe src="./../../__oceanpress/docTree.html"></iframe>
   </div>
-  <div style="min-height: 150px;" id="20201104153359-3bz18z5" data-node-id="20201104153359-3bz18z5" data-type="NodeDocument" updated="20250325085930" scroll="&#123;&quot;rootId&quot;:&quot;20201104153359-3bz18z5&quot;,&quot;startId&quot;:&quot;20231209155630-fmvirop&quot;,&quot;endId&quot;:&quot;20231207095234-5qtalax&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20231207095315-4a8ke1h&quot;,&quot;focusStart&quot;:148,&quot;focusEnd&quot;:148&#125;" type="doc">
+  <div style="min-height: 150px;" id="20201104153359-3bz18z5" data-node-id="20201104153359-3bz18z5" data-type="NodeDocument" updated="20250630094850" scroll="&#123;&quot;rootId&quot;:&quot;20201104153359-3bz18z5&quot;,&quot;startId&quot;:&quot;20231209155630-fmvirop&quot;,&quot;endId&quot;:&quot;20231207095234-5qtalax&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20231207095315-4a8ke1h&quot;,&quot;focusStart&quot;:148,&quot;focusEnd&quot;:148&#125;" type="doc">
 
-<h1 id="20201104153359-3bz18z5" data-node-id="20201104153359-3bz18z5" data-type="NodeDocument" updated="20250325085930" scroll="&#123;&quot;rootId&quot;:&quot;20201104153359-3bz18z5&quot;,&quot;startId&quot;:&quot;20231209155630-fmvirop&quot;,&quot;endId&quot;:&quot;20231207095234-5qtalax&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20231207095315-4a8ke1h&quot;,&quot;focusStart&quot;:148,&quot;focusEnd&quot;:148&#125;" type="doc" data-type="NodeHeading" class="h1">各种系统安装node</h1>
-<h2 id="20231209155630-fmvirop" data-node-id="20231209155630-fmvirop" data-type="NodeHeading" updated="20231209155739" data-subtype="h2" class="h2">官网下载 <a href="https://nodejs.org/en/download/">nodejs.org</a> (windows、ubuntu、macOS）</h2><h2 id="20210521142713-utzshpn" data-node-id="20210521142713-utzshpn" data-type="NodeHeading" updated="20250324154456" data-subtype="h2" class="h2">node 版本管理</h2><div id="20240813094743-df5uxq9" data-node-id="20240813094743-df5uxq9" data-type="NodeParagraph" updated="20250325085741" class="p"><div spellcheck="false"><a href="https://github.com/Schniz/fnm?tab=readme-ov-file#powershell">fnm</a>（推荐使用） ：全平台 / <span data-type="block-ref"   data-subtype="d"   data-id="20250324154456-kga64b6"><a href="./../../读书笔记/node/各种系统安装node.html#20250324154456-kga64b6">通过二进制安装 node</a></span></div></div><div id="20241010115900-391sj9d" data-node-id="20241010115900-391sj9d" data-type="NodeCodeBlock" updated="20241010115955" class="code-block" style="line-height: 22px;">
+<h1 id="20201104153359-3bz18z5" data-node-id="20201104153359-3bz18z5" data-type="NodeDocument" updated="20250630094850" scroll="&#123;&quot;rootId&quot;:&quot;20201104153359-3bz18z5&quot;,&quot;startId&quot;:&quot;20231209155630-fmvirop&quot;,&quot;endId&quot;:&quot;20231207095234-5qtalax&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20231207095315-4a8ke1h&quot;,&quot;focusStart&quot;:148,&quot;focusEnd&quot;:148&#125;" type="doc" data-type="NodeHeading" class="h1">各种系统安装node</h1>
+<h2 id="20231209155630-fmvirop" data-node-id="20231209155630-fmvirop" data-type="NodeHeading" updated="20231209155739" data-subtype="h2" class="h2">官网下载 <a href="https://nodejs.org/en/download/">nodejs.org</a> (windows、ubuntu、macOS）</h2><h2 id="20210521142713-utzshpn" data-node-id="20210521142713-utzshpn" data-type="NodeHeading" updated="20250630094850" data-subtype="h2" class="h2">node 版本管理</h2><div id="20240813094743-df5uxq9" data-node-id="20240813094743-df5uxq9" data-type="NodeParagraph" updated="20250325085741" class="p"><div spellcheck="false"><a href="https://github.com/Schniz/fnm?tab=readme-ov-file#powershell">fnm</a>（推荐使用） ：全平台 / <span data-type="block-ref"   data-subtype="d"   data-id="20250324154456-kga64b6"><a href="./../../读书笔记/node/各种系统安装node.html#20250324154456-kga64b6">通过二进制安装 node</a></span></div></div><div id="20241010115900-391sj9d" data-node-id="20241010115900-391sj9d" data-type="NodeCodeBlock" updated="20250630094722" class="code-block" style="line-height: 22px;">
           <div class="protyle-action">
             <span class="protyle-action--first protyle-action__language">bash</span>
             <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
           </div>
           <div class="hljs" spellcheck="false"># 第一次使用 fnm 时需要安装
 winget install Schniz.fnm
+## 或者windows 使用 scoop 安装
+scoop install fnm
 # configure fnm environment
 fnm env --use-on-cd | Out-String | Invoke-Expression
 
 ## 之后直接使用对应版本就行
-fnm use v22.9.0
-
-# verifies the right Node.js version is in the environment
-node -v # should print `v22.9.0`
-
-# verifies the right npm version is in the environment
-npm -v # should print `10.8.3`
+fnm use v24.0.1
+# 修改默认使用什么版本
+fnm default v24.0.1
+# 查看node版本是否生效
+node -v 
+# 启用 pnpm
+corepack enable pnpm
+# 查看pnpm 版本是否生效
+pnpm -v
 </div>
-        </div><h2 id="20250324154456-kga64b6" data-node-id="20250324154456-kga64b6" data-type="NodeHeading" updated="20250325085703" data-subtype="h2" class="h2">通过二进制安装 node</h2><h3 id="20250325085650-xq54xeq" data-node-id="20250325085650-xq54xeq" data-type="NodeHeading" updated="20250325085703" data-subtype="h3" class="h3">1. <span data-type="strong">下载 Node.js 二进制包</span></h3><div id="20250325085650-vaxfr4q" data-node-id="20250325085650-vaxfr4q" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">访问 <a href="https://nodejs.org/">Node.js 官网</a> 或 <a href="https://nodejs.org/en/download/">下载页面</a>，选择适合你系统的二进制包（通常是 <span data-type="code">linux-x64</span>​ 版本）。
+        </div><div id="20250630094849-2tke3t2" data-node-id="20250630094849-2tke3t2" data-type="NodeParagraph" updated="20250630094850" class="p"><div spellcheck="false">配置 power env    https://github.com/Schniz/fnm?tab=readme-ov-file#powershell</div></div><h2 id="20250324154456-kga64b6" data-node-id="20250324154456-kga64b6" data-type="NodeHeading" updated="20250325085703" data-subtype="h2" class="h2">通过二进制安装 node</h2><h3 id="20250325085650-xq54xeq" data-node-id="20250325085650-xq54xeq" data-type="NodeHeading" updated="20250325085703" data-subtype="h3" class="h3">1. <span data-type="strong">下载 Node.js 二进制包</span></h3><div id="20250325085650-vaxfr4q" data-node-id="20250325085650-vaxfr4q" data-type="NodeParagraph" updated="20250325085650" class="p"><div spellcheck="false">访问 <a href="https://nodejs.org/">Node.js 官网</a> 或 <a href="https://nodejs.org/en/download/">下载页面</a>，选择适合你系统的二进制包（通常是 <span data-type="code">linux-x64</span>​ 版本）。
 例如，下载最新 LTS 版本（替换 <span data-type="code">x.x.x</span>​ 为实际版本号）：</div></div><div id="20250325085650-igobhni" data-node-id="20250325085650-igobhni" data-type="NodeCodeBlock" updated="20250325085703" class="code-block" style="line-height: 22px;">
           <div class="protyle-action">
             <span class="protyle-action--first protyle-action__language">bash</span>
@@ -182,7 +186,8 @@ npm -v
       });
     });
   </script>
-  <footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
+crossorigin="anonymous"></script><footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
   <p style="margin: 0;">
     技术支持：
     <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |

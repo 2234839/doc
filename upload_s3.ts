@@ -5,17 +5,20 @@ import crypto from 'crypto';
 
 dotenv.config();
 
+// 阿里云OSS配置 - MinIO客户端兼容阿里云OSS
 const minioClient = new Minio.Client({
-  endPoint: process.env.ENDPOINT! || 's3.shenzilong.cn',
+  endPoint: process.env.ENDPOINT! || 'oss-cn-hangzhou.aliyuncs.com',
   port: 443,
   useSSL: true,
   accessKey: process.env.ACCESSKEY!,
   secretKey: process.env.SECRETKEY!,
+  region: 'oss-cn-hangzhou',
+  pathStyle: false, // 阿里云OSS使用虚拟主机样式访问
 });
-const BucketName = 'myjfs';
 
+const BucketName = 'store-llej';
 const localRepoPath = './docs';
-const remotePath = 'app/docs';
+const remotePath = 'apps/docs/docs';
 const hashFilePath = './file_hashes.json';
 
 // 初始化或读取哈希记录文件
@@ -74,7 +77,7 @@ async function uploadDirToS3(s3Dir: string, localDir: string) {
         await retryUpload(s3Path, localPath, fileStat.size);
         hashes[localPath] = fileHash; // 更新哈希记录
       } else {
-        console.log('跳过（哈希值相同）:', s3Path);
+        // console.log('跳过（哈希值相同）:', s3Path);
       }
     }
   }
@@ -87,17 +90,60 @@ async function retryUpload(s3Path: string, localPath: string, fileSize: number) 
 
   while (retryCount < maxRetries) {
     try {
-      await minioClient.fPutObject(BucketName, s3Path, localPath, {}).then((r) => {
+      // 阿里云OSS上传配置
+      const uploadOptions = {
+        'Content-Type': getContentType(localPath),
+        'Cache-Control': 'max-age=3600',
+      };
+
+      await minioClient.fPutObject(BucketName, s3Path, localPath, uploadOptions).then((r) => {
         console.log('上传成功:', s3Path, `${(fileSize / 1024).toFixed(0)}k`, r);
       });
       break; // 上传成功，跳出循环
     } catch (error) {
       retryCount++;
+      console.log('[error]',error);
       console.error(`上传失败，重试次数：${retryCount}`, localPath);
+
+      // 阿里云OSS特定错误处理
       if (retryCount >= maxRetries) {
         console.error(`上传失败，已达到最大重试次数：${maxRetries}`, localPath);
+        console.error('错误详情:', error);
         throw error;
       }
+
+      // 等待一段时间后重试
+      await new Promise(resolve => setTimeout(resolve, 1000 * retryCount));
     }
+  }
+}
+
+// 根据文件扩展名获取Content-Type
+function getContentType(filePath: string): string {
+  const ext = filePath.split('.').pop()?.toLowerCase();
+  switch (ext) {
+    case 'html':
+      return 'text/html; charset=utf-8';
+    case 'css':
+      return 'text/css; charset=utf-8';
+    case 'js':
+      return 'application/javascript; charset=utf-8';
+    case 'json':
+      return 'application/json; charset=utf-8';
+    case 'xml':
+      return 'application/xml; charset=utf-8';
+    case 'png':
+      return 'image/png';
+    case 'jpg':
+    case 'jpeg':
+      return 'image/jpeg';
+    case 'gif':
+      return 'image/gif';
+    case 'svg':
+      return 'image/svg+xml';
+    case 'pdf':
+      return 'application/pdf';
+    default:
+      return 'application/octet-stream';
   }
 }

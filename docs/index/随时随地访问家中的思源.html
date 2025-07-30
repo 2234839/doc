@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>随时随地访问家中的思源</title>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20250527104233-so7c9f2" data-node-id="20250527104233-so7c9f2" data-type="NodeDocument" updated="20250527105547" custom-liandi-articleId="1748314557479" type="doc">
+
+<h1 id="20250527104233-so7c9f2" data-node-id="20250527104233-so7c9f2" data-type="NodeDocument" updated="20250527105547" custom-liandi-articleId="1748314557479" type="doc" data-type="NodeHeading" class="h1">随时随地访问家中的思源</h1>
+<div id="20250527104233-ofnnpme" data-node-id="20250527104233-ofnnpme" data-type="NodeParagraph" updated="20250527104213" class="p"><div spellcheck="false">昨天在使用 vscode tunnel 时发现了这个神奇的技巧</div></div><div id="20250527104236-qe1t5j2" data-node-id="20250527104236-qe1t5j2" data-type="NodeParagraph" updated="20250527105541" class="p"><div spellcheck="false">只需要一个vscode加账号，家里的电脑开机，其它地方随时可访问
+甚至客户端都不用安装vscode他支持浏览器打开的
+大致就是家里的电脑安装vscode</div></div><div id="20250527105544-dwuzdxn" data-node-id="20250527105544-dwuzdxn" data-type="NodeParagraph" updated="20250527105544" class="p"><div spellcheck="false">vscode中点击账号图标登录账号开启远程隧道访问</div></div><div id="20250527105547-gbtk51w" data-node-id="20250527105547-gbtk51w" data-type="NodeParagraph" updated="20250527105547" class="p"><div spellcheck="false">复制链接浏览器中打开然后在开启6806端口映射</div></div><h3 id="20250527105042-apv5wu9" data-node-id="20250527105042-apv5wu9" data-type="NodeHeading" updated="20250527105006" data-subtype="h3" class="h3">🔧 准备工作</h3><div id="20250527105042-nnrcddn" data-node-id="20250527105042-nnrcddn" data-type="NodeList" updated="20250527105042" data-subtype="o" class="list"><div id="20250527105042-18hw8ja" data-node-id="20250527105042-18hw8ja" data-type="NodeListItem" updated="20250527105042" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20250527105042-8kvvhu9" data-node-id="20250527105042-8kvvhu9" data-type="NodeParagraph" updated="20250527105042" class="p"><div spellcheck="false">家中电脑保持开机状态</div></div>
+      </div><div id="20250527105042-u15b1ul" data-node-id="20250527105042-u15b1ul" data-type="NodeListItem" updated="20250527105042" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20250527105042-fj2yp1u" data-node-id="20250527105042-fj2yp1u" data-type="NodeParagraph" updated="20250527105042" class="p"><div spellcheck="false">安装最新版 VS Code（≥1.77 版本）</div></div>
+      </div><div id="20250527105042-mn7zymh" data-node-id="20250527105042-mn7zymh" data-type="NodeListItem" updated="20250527105042" data-subtype="o" class="li" data-marker="3.">
+        <div class="protyle-action">
+          3.
+        </div>
+        <div id="20250527105042-46irjxi" data-node-id="20250527105042-46irjxi" data-type="NodeParagraph" updated="20250527105042" class="p"><div spellcheck="false">拥有 Microsoft/GitHub 账号</div></div>
+      </div></div><h3 id="20250527105042-8q1fkj9" data-node-id="20250527105042-8q1fkj9" data-type="NodeHeading" updated="20250527105152" data-subtype="h3" class="h3">🚀 核心操作步骤</h3><div id="20250527105042-xsu5saa" data-node-id="20250527105042-xsu5saa" data-type="NodeList" updated="20250527105152" data-subtype="o" class="list"><div id="20250527105042-1kheqxo" data-node-id="20250527105042-1kheqxo" data-type="NodeListItem" updated="20250527105042" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20250527105042-w93xwer" data-node-id="20250527105042-w93xwer" data-type="NodeParagraph" updated="20250527105042" class="p"><div spellcheck="false">安装 Remote - Tunnels 扩展</div></div>
+      </div><div id="20250527105042-c67hckz" data-node-id="20250527105042-c67hckz" data-type="NodeListItem" updated="20250527105152" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20250527105042-dnl2iwf" data-node-id="20250527105042-dnl2iwf" data-type="NodeParagraph" updated="20250527105046" class="p"><div spellcheck="false">点击左下角「远程连接」图标</div></div><div id="20250527105152-7259ft8" data-node-id="20250527105152-7259ft8" data-type="NodeParagraph" updated="20250527105152" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/PixPin_2025-05-27_10-51-31-20250527105239-mn1ya68.png"
+    data-src="./../assets/PixPin_2025-05-27_10-51-31-20250527105239-mn1ya68.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div>
+      </div><div id="20250527105042-io4628p" data-node-id="20250527105042-io4628p" data-type="NodeListItem" updated="20250527105042" data-subtype="o" class="li" data-marker="3.">
+        <div class="protyle-action">
+          3.
+        </div>
+        <div id="20250527105042-806vbss" data-node-id="20250527105042-806vbss" data-type="NodeParagraph" updated="20250527105042" class="p"><div spellcheck="false">选择「Connect to Tunnel...」</div></div>
+      </div><div id="20250527105042-f4blek1" data-node-id="20250527105042-f4blek1" data-type="NodeListItem" updated="20250527105042" data-subtype="o" class="li" data-marker="4.">
+        <div class="protyle-action">
+          4.
+        </div>
+        <div id="20250527105042-eynn9tf" data-node-id="20250527105042-eynn9tf" data-type="NodeParagraph" updated="20250527105042" class="p"><div spellcheck="false">登录 Microsoft/GitHub 账号</div></div>
+      </div><div id="20250527105042-m4uh0kx" data-node-id="20250527105042-m4uh0kx" data-type="NodeListItem" updated="20250527105042" data-subtype="o" class="li" data-marker="5.">
+        <div class="protyle-action">
+          5.
+        </div>
+        <div id="20250527105042-b4cs8zh" data-node-id="20250527105042-b4cs8zh" data-type="NodeParagraph" updated="20250527105042" class="p"><div spellcheck="false">开启隧道时会生成两类链接：</div></div><div id="20250527105042-it16cui" data-node-id="20250527105042-it16cui" data-type="NodeList" updated="20250527105042" data-subtype="u" class="list"><div id="20250527105042-jzwydad" data-node-id="20250527105042-jzwydad" data-type="NodeListItem" updated="20250527105042" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250527105042-aisazzm" data-node-id="20250527105042-aisazzm" data-type="NodeParagraph" updated="20250527105042" class="p"><div spellcheck="false">Web 版：<a href="https://vscode.dev/tunnel/">https://vscode.dev/tunnel/</a><设备名>/<路径></div></div>
+      </div><div id="20250527105042-rj0fm8w" data-node-id="20250527105042-rj0fm8w" data-type="NodeListItem" updated="20250527105042" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250527105042-cknciva" data-node-id="20250527105042-cknciva" data-type="NodeParagraph" updated="20250527105042" class="p"><div spellcheck="false">桌面版：vscode://vscode-remote/tunnel/<设备名>/<路径></div></div>
+      </div></div>
+      </div></div><div id="20250527105021-lfa55dk" data-node-id="20250527105021-lfa55dk" data-type="NodeParagraph" updated="20250527105110" class="p"><div spellcheck="false"></div></div><h3 id="20250527105042-xwa9taa" data-node-id="20250527105042-xwa9taa" data-type="NodeHeading" updated="20250527105529" data-subtype="h3" class="h3">🔌 端口映射技巧（以6806为例）</h3><div id="20250527105305-021y0o4" data-node-id="20250527105305-021y0o4" data-type="NodeParagraph" updated="20250527105347" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="width: 480px;" style="">
+  <img
+    src="./../assets/image-20250527105434-rtx3n81.png"
+    data-src="./../assets/image-20250527105434-rtx3n81.png"
+    title=""
+    style="width: 480px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20250527105042-op3b29j" data-node-id="20250527105042-op3b29j" data-type="NodeList" updated="20250527105529" data-subtype="o" class="list"><div id="20250527105042-1vzdruj" data-node-id="20250527105042-1vzdruj" data-type="NodeListItem" updated="20250527105042" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20250527105042-rfxhg3y" data-node-id="20250527105042-rfxhg3y" data-type="NodeParagraph" updated="20250527105426" class="p"><div spellcheck="false">打开之前vscode提供的链接，或者使用vscode 客户端连接远程pc</div></div>
+      </div><div id="20250527105042-jktsnqp" data-node-id="20250527105042-jktsnqp" data-type="NodeListItem" updated="20250527105042" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20250527105042-122udk3" data-node-id="20250527105042-122udk3" data-type="NodeParagraph" updated="20250527105441" class="p"><div spellcheck="false">在下面的端口面板添加6806端口映射</div></div>
+      </div><div id="20250527105042-312mk8q" data-node-id="20250527105042-312mk8q" data-type="NodeListItem" updated="20250527105211" data-subtype="o" class="li" data-marker="3.">
+        <div class="protyle-action">
+          3.
+        </div>
+        <div id="20250527105042-a9t5ant" data-node-id="20250527105042-a9t5ant" data-type="NodeParagraph" updated="20250527105504" class="p"><div spellcheck="false">然后就可以得到一个链接可以在任意浏览器打开了</div></div>
+      </div><div id="20250527105505-4v5q2xr" data-node-id="20250527105505-4v5q2xr" data-type="NodeListItem" updated="20250527105529" data-subtype="o" class="li" data-marker="4.">
+        <div class="protyle-action">
+          4.
+        </div>
+        <div id="20250527105505-syiuufz" data-node-id="20250527105505-syiuufz" data-type="NodeParagraph" updated="20250527105529" class="p"><div spellcheck="false">安全方面有微软的账号机制保证</div></div>
+      </div></div><h3 id="20250527105042-v9cp9i7" data-node-id="20250527105042-v9cp9i7" data-type="NodeHeading" updated="20250527105449" data-subtype="h3" class="h3">🌐 访问方式</h3><div id="20250527105001-3bxikno" data-node-id="20250527105001-3bxikno" data-type="NodeParagraph" updated="20250527105449" class="p"><div spellcheck="false">✅ 浏览器直接访问（无需安装任何软件）</div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
+crossorigin="anonymous"></script><footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>

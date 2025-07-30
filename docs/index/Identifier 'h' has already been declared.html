@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>Identifier 'h' has already been declared</title>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20250401165003-2006op9" data-node-id="20250401165003-2006op9" data-type="NodeDocument" updated="20250402141859" type="doc">
+
+<h1 id="20250401165003-2006op9" data-node-id="20250401165003-2006op9" data-type="NodeDocument" updated="20250402141859" type="doc" data-type="NodeHeading" class="h1">Identifier 'h' has already been declared</h1>
+<div id="20250401165003-icwl70e" data-node-id="20250401165003-icwl70e" data-type="NodeParagraph" updated="20250401165026" class="p"><div spellcheck="false">遇到了报错：SyntaxError: Identifier 'h' has already been declared (at</div></div><div id="20250401165006-znqrxh3" data-node-id="20250401165006-znqrxh3" data-type="NodeParagraph" updated="20250401165117" class="p"><div spellcheck="false">在浏览器查看报错文件的源码发现该文件莫名其妙多了一行 <span data-type="code">import { h } from &quot;/node_modules/.vite/deps/vue.js?v=b64f908a&quot;;</span>​</div></div><div id="20250401165049-fgoezkt" data-node-id="20250401165049-fgoezkt" data-type="NodeCodeBlock" updated="20250401165119" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">js</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">import { inject } from "/node_modules/.vite/deps/vue.js?v=b64f908a";
+
+import { h } from "/node_modules/.vite/deps/vue.js?v=b64f908a";
+</div>
+        </div><div id="20250401165120-5pkq0sn" data-node-id="20250401165120-5pkq0sn" data-type="NodeParagraph" updated="20250401165259" class="p"><div spellcheck="false">他的原始文件是没有这行的，也就是说这玩意应该是 vite dev 模式添加的</div></div><div id="20250401165142-wyvrgif" data-node-id="20250401165142-wyvrgif" data-type="NodeParagraph" updated="20250401175715" class="p"><div spellcheck="false">我应该怎么排查 vite 是哪一步插入的这行代码</div></div><div id="20250401184416-qet7mhj" data-node-id="20250401184416-qet7mhj" data-type="NodeParagraph" updated="20250401184515" class="p"><div spellcheck="false">在某群主的指路下发现了 <a href="https://github.com/antfu-collective/vite-plugin-inspect">https://github.com/antfu-collective/vite-plugin-inspect</a></div></div><div id="20250401184518-yiwajzf" data-node-id="20250401184518-yiwajzf" data-type="NodeParagraph" updated="20250401184804" class="p"><div spellcheck="false">然后我这个项目dev下 vite-plugin-inspect 都无法运行，还好 build 模式能够查看，如下图发现是 unplugin-auto-import 插入的</div></div><div id="20250401175959-qm4i4qo" data-node-id="20250401175959-qm4i4qo" data-type="NodeParagraph" updated="20250401184414" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/image-20250401184414-y4b4961.png"
+    data-src="./../assets/image-20250401184414-y4b4961.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20250402141801-7guv4gq" data-node-id="20250402141801-7guv4gq" data-type="NodeParagraph" updated="20250402141859" class="p"><div spellcheck="false">最终的解决方案就是给 unplugin-auto-import 添加一个 <span data-type="code">exclude</span>​ 排除掉相关库</div></div><div id="20250402141851-zuq1k28" data-node-id="20250402141851-zuq1k28" data-type="NodeParagraph" updated="20250402141851" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
+crossorigin="anonymous"></script><footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>

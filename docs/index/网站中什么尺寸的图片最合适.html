@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .home-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>网站中什么尺寸的图片最合适</title>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div id="oceanpress-left-sidebar">
+    
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
+  </div>
+  <div style="min-height: 150px;" id="20250606162300-tawz4ma" data-node-id="20250606162300-tawz4ma" data-type="NodeDocument" updated="20250606165718" type="doc">
+
+<h1 id="20250606162300-tawz4ma" data-node-id="20250606162300-tawz4ma" data-type="NodeDocument" updated="20250606165718" type="doc" data-type="NodeHeading" class="h1">网站中什么尺寸的图片最合适</h1>
+<h2 id="20250606165718-kz5vkb2" data-node-id="20250606165718-kz5vkb2" data-type="NodeHeading" updated="20250606165718" data-subtype="h2" class="h2">固定比例优先</h2><div id="20250606165718-tmo0cvu" data-node-id="20250606165718-tmo0cvu" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false">当你的设计需要精确控制图片显示比例时（比如轮播图、产品展示图等），固定比例是最可靠的选择。</div></div><h2 id="20250606165718-laair5e" data-node-id="20250606165718-laair5e" data-type="NodeHeading" updated="20250606165718" data-subtype="h2" class="h2">固定比例的盒子 + 非固定尺寸的图片</h2><div id="20250606165718-txifwc7" data-node-id="20250606165718-txifwc7" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false">这个一般是用户上传图片然后展示的场景，常见于社交平台、电商商品展示等。以下是关键实现方案：</div></div><div id="20250606165718-yff222t" data-node-id="20250606165718-yff222t" data-type="NodeCodeBlock" updated="20250606165718" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">html</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"><div class="fixed-aspect-box">
+  <img src="user-uploaded-image.jpg" alt="用户上传图片">
+</div>
+</div>
+        </div><div id="20250606165718-9u8lqix" data-node-id="20250606165718-9u8lqix" data-type="NodeCodeBlock" updated="20250606165718" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">css</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">.fixed-aspect-box {
+  aspect-ratio: 16/9; /* 固定宽高比 */
+  overflow: hidden;
+}
+
+.fixed-aspect-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 关键属性：保持比例填充容器 */
+  object-position: center; /* 控制裁剪重心 */
+}
+</div>
+        </div><div id="20250606165718-56g5ykm" data-node-id="20250606165718-56g5ykm" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false"><span data-type="strong">实现要点</span>：</div></div><div id="20250606165718-6mw774x" data-node-id="20250606165718-6mw774x" data-type="NodeList" updated="20250606165718" data-subtype="o" class="list"><div id="20250606165718-ge36562" data-node-id="20250606165718-ge36562" data-type="NodeListItem" updated="20250606165718" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20250606165718-24ogl6w" data-node-id="20250606165718-24ogl6w" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false">容器使用<span data-type="code">aspect-ratio</span>​锁定比例</div></div>
+      </div><div id="20250606165718-2avxsml" data-node-id="20250606165718-2avxsml" data-type="NodeListItem" updated="20250606165718" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20250606165718-5uhrpyj" data-node-id="20250606165718-5uhrpyj" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false">图片使用<span data-type="code">object-fit: cover</span>​自适应填充</div></div>
+      </div><div id="20250606165718-lhrgaac" data-node-id="20250606165718-lhrgaac" data-type="NodeListItem" updated="20250606165718" data-subtype="o" class="li" data-marker="3.">
+        <div class="protyle-action">
+          3.
+        </div>
+        <div id="20250606165718-4javzir" data-node-id="20250606165718-4javzir" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false">通过<span data-type="code">object-position</span>​调整视觉焦点</div></div>
+      </div></div><div id="20250606165718-cmut34w" data-node-id="20250606165718-cmut34w" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="https://image.pollinations.ai/prompt/Web%20design%20showcasing%20images%20in%20fixed%20aspect%20ratio%20containers?width=600&height=400&nologo=true"
+    data-src="https://image.pollinations.ai/prompt/Web%20design%20showcasing%20images%20in%20fixed%20aspect%20ratio%20containers?width=600&height=400&nologo=true"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><h2 id="20250606165718-t2sfauq" data-node-id="20250606165718-t2sfauq" data-type="NodeHeading" updated="20250606165841" data-subtype="h2" class="h2">自由比例下的取舍</h2><div id="20250606165718-otjf6zx" data-node-id="20250606165718-otjf6zx" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="https://image.pollinations.ai/prompt/Infographic%20illustrating%20image%20aspect%20ratios%20comparison%20between%2016:9%20(landscape)%20and%209:16%20(portrait)%20with%20visual%20examples?width=600&height=400&nologo=true"
+    data-src="https://image.pollinations.ai/prompt/Infographic%20illustrating%20image%20aspect%20ratios%20comparison%20between%2016:9%20(landscape)%20and%209:16%20(portrait)%20with%20visual%20examples?width=600&height=400&nologo=true"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20250606165718-5ch656i" data-node-id="20250606165718-5ch656i" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false">我们思考一下显示比率的问题，当想要在 4：3 的盒子里面放下 4：8 的图片，而图片没有拉伸压缩变形的话，就必然需要裁剪</div></div><div id="20250606165718-mq9qy09" data-node-id="20250606165718-mq9qy09" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="https://image.pollinations.ai/prompt/Illustration%20showing%20a%204:3%20container%20with%20a%204:8%20image%20demonstrating%20cropping%20scenarios?width=600&height=400&nologo=true"
+    data-src="https://image.pollinations.ai/prompt/Illustration%20showing%20a%204:3%20container%20with%20a%204:8%20image%20demonstrating%20cropping%20scenarios?width=600&height=400&nologo=true"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20250606165718-dlx2sk6" data-node-id="20250606165718-dlx2sk6" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false">而当我们的元素宽度跟随浏览器窗口变化时相当于宽度动态变化的盒子，所以还没办法使用 "4:3" 这样的固定比例来解决问题</div></div><div id="20250606165718-dcrtwih" data-node-id="20250606165718-dcrtwih" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false">这时就需要取舍了，究竟是裁剪左右更好还是裁剪上下更好，这取决于你要展示的主体内容。</div></div><div id="20250606165718-xbt81rb" data-node-id="20250606165718-xbt81rb" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="https://image.pollinations.ai/prompt/Web%20design%20demonstration%20showing%20dynamic%20width%20container%20with%20image%20cropping%20options%20(left-right%20vs%20top-bottom)%20using%20a%20photograph%20as%20example%20with%20clear%20visual%20markers%20for%20safe%20areas?width=600&height=400&nologo=true&enhance=true&seed=41562"
+    data-src="https://image.pollinations.ai/prompt/Web%20design%20demonstration%20showing%20dynamic%20width%20container%20with%20image%20cropping%20options%20(left-right%20vs%20top-bottom)%20using%20a%20photograph%20as%20example%20with%20clear%20visual%20markers%20for%20safe%20areas?width=600&height=400&nologo=true&enhance=true&seed=41562"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20250606165718-jajzytu" data-node-id="20250606165718-jajzytu" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false">所以我的想法是，当上下不能裁剪时就需要<span data-type="strong">大宽高比</span>（宽幅图片），当左右不能裁剪时就需要<span data-type="strong">小宽高比</span>（竖幅图片）</div></div><div id="20250606165718-byjobel" data-node-id="20250606165718-byjobel" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false">这样只要不是特别极端的宽高比变化（超出了我们提供的图片的安全范围阈值），都能保证主体内容不被裁剪。</div></div><div id="20250606165718-8t9posl" data-node-id="20250606165718-8t9posl" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="https://image.pollinations.ai/prompt/Side-by-side%20comparison%20of%20landscape%20(16:9)%20and%20portrait%20(9:16)%20image%20displays%20in%20responsive%20containers%20showing%20how%20different%20aspect%20ratios%20affect%20content%20preservation?width=600&height=400&nologo=true&enhance=true&seed=78921"
+    data-src="https://image.pollinations.ai/prompt/Side-by-side%20comparison%20of%20landscape%20(16:9)%20and%20portrait%20(9:16)%20image%20displays%20in%20responsive%20containers%20showing%20how%20different%20aspect%20ratios%20affect%20content%20preservation?width=600&height=400&nologo=true&enhance=true&seed=78921"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><h3 id="20250606165718-f507yym" data-node-id="20250606165718-f507yym" data-type="NodeHeading" updated="20250606165841" data-subtype="h3" class="h3">实现方案</h3><div id="20250606165718-smg2xlh" data-node-id="20250606165718-smg2xlh" data-type="NodeBlockquote" updated="20250606165718" class="bq"><div id="20250606165718-db2z2zo" data-node-id="20250606165718-db2z2zo" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false"><span data-type="strong">核心法则</span>：图片宽高比决定了关键内容的保留方向</div></div><div id="20250606165718-f3ulm3c" data-node-id="20250606165718-f3ulm3c" data-type="NodeList" updated="20250606165718" data-subtype="u" class="list"><div id="20250606165718-6hngg4v" data-node-id="20250606165718-6hngg4v" data-type="NodeListItem" updated="20250606165718" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250606165718-r8luxos" data-node-id="20250606165718-r8luxos" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false"><span data-type="strong">展示上下完整内容</span> → 需要<span data-type="strong">大宽高比</span>（宽幅图片）</div></div>
+      </div><div id="20250606165718-man3u9s" data-node-id="20250606165718-man3u9s" data-type="NodeListItem" updated="20250606165718" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250606165718-8p65a4k" data-node-id="20250606165718-8p65a4k" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false"><span data-type="strong">展示左右完整内容</span> → 需要<span data-type="strong">小宽高比</span>（竖幅图片）</div></div>
+      </div></div></div><div id="20250606165718-8ijbvgv" data-node-id="20250606165718-8ijbvgv" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false"><span data-type="strong">实现要点</span>：</div></div><div id="20250606165718-wim6kx1" data-node-id="20250606165718-wim6kx1" data-type="NodeList" updated="20250606165718" data-subtype="o" class="list"><div id="20250606165718-r6sombw" data-node-id="20250606165718-r6sombw" data-type="NodeListItem" updated="20250606165718" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20250606165718-ov2iscw" data-node-id="20250606165718-ov2iscw" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false">容器宽度自适应，高度由内容决定</div></div>
+      </div><div id="20250606165718-ox8nhl4" data-node-id="20250606165718-ox8nhl4" data-type="NodeListItem" updated="20250606165718" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20250606165718-yxgv14d" data-node-id="20250606165718-yxgv14d" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false">图片使用<span data-type="code">object-fit: contain</span>​保证完整显示</div></div>
+      </div><div id="20250606165718-as7dmdw" data-node-id="20250606165718-as7dmdw" data-type="NodeListItem" updated="20250606165718" data-subtype="o" class="li" data-marker="3.">
+        <div class="protyle-action">
+          3.
+        </div>
+        <div id="20250606165718-pum13ju" data-node-id="20250606165718-pum13ju" data-type="NodeParagraph" updated="20250606165718" class="p"><div spellcheck="false">​<span data-type="code">object-position</span>​控制内容重心</div></div>
+      </div></div><div id="20250606165730-oc9sb4z" data-node-id="20250606165730-oc9sb4z" data-type="NodeParagraph" updated="20250606165752" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="https://image.pollinations.ai/prompt/Web%20design%20showing%20flexible%20aspect%20ratio%20image%20display?width=600&height=400&nologo=true"
+    data-src="https://image.pollinations.ai/prompt/Web%20design%20showing%20flexible%20aspect%20ratio%20image%20display?width=600&height=400&nologo=true"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20250606165800-acixd0e" data-node-id="20250606165800-acixd0e" data-type="NodeThematicBreak" updated="20250606165800" class="hr"><div></div></div><div id="20250606165801-3lylcbt" data-node-id="20250606165801-3lylcbt" data-type="NodeParagraph" updated="20250606165841" class="p"><div spellcheck="false">一点小小的思考，欢迎评论指导，如果对您有帮助的话，也请点个小小的赞🎉</div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
+crossorigin="anonymous"></script><footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
+  <p style="margin: 0;">
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>
