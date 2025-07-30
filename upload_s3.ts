@@ -21,8 +21,16 @@ const localRepoPath = './docs';
 const remotePath = 'apps/docs/docs';
 const hashFilePath = './file_hashes.json';
 
-// 初始化或读取哈希记录文件
-async function initHashFile(): Promise<Record<string, string>> {
+// 文件哈希和修改时间记录
+interface FileRecord {
+  hash: string;
+  mtime: number;
+}
+
+let fileRecords = {} as Record<string, FileRecord>;
+
+// 初始化或读取文件记录
+async function initFileRecords(): Promise<Record<string, FileRecord>> {
   try {
     const data = await fs.readFile(hashFilePath, 'utf-8');
     return JSON.parse(data);
@@ -41,20 +49,19 @@ async function calculateFileHash(filePath: string): Promise<string> {
   return crypto.createHash('sha256').update(fileBuffer).digest('hex');
 }
 
-// 保存哈希记录到文件
-async function saveHashFile(hashes: Record<string, string>) {
-  await fs.writeFile(hashFilePath, JSON.stringify(hashes, null, 2));
+// 保存文件记录到文件
+async function saveFileRecords(records: Record<string, FileRecord>) {
+  await fs.writeFile(hashFilePath, JSON.stringify(records, null, 2));
 }
 
-let hashes = {} as Record<string, string>;
 async function main() {
-  hashes = await initHashFile();
+  fileRecords = await initFileRecords();
   try {
     await uploadDirToS3(remotePath, localRepoPath);
   } catch (error) {
     console.error('Error uploading repository:', error);
   } finally {
-    await saveHashFile(hashes); // 保存更新后的哈希记录
+    await saveFileRecords(fileRecords); // 保存更新后的文件记录
   }
 }
 main();
@@ -70,14 +77,23 @@ async function uploadDirToS3(s3Dir: string, localDir: string) {
     if (fileStat.isDirectory()) {
       await uploadDirToS3(s3Path, localPath);
     } else {
-      const fileHash = await calculateFileHash(localPath);
-      const oldHash = hashes[localPath];
+      const currentMtime = fileStat.mtimeMs;
+      const oldRecord = fileRecords[localPath];
 
-      if (oldHash !== fileHash) {
-        await retryUpload(s3Path, localPath, fileStat.size);
-        hashes[localPath] = fileHash; // 更新哈希记录
+      // 如果文件不存在记录或修改时间不同，才需要进一步检查
+      if (!oldRecord || oldRecord.mtime !== currentMtime) {
+        const fileHash = await calculateFileHash(localPath);
+
+        // 如果哈希值也不同，才需要上传
+        if (!oldRecord || oldRecord.hash !== fileHash) {
+          await retryUpload(s3Path, localPath, fileStat.size);
+          fileRecords[localPath] = { hash: fileHash, mtime: currentMtime }; // 更新记录
+        } else {
+          // 只有修改时间不同但哈希值相同（可能是属性变化），更新记录但不上传
+          fileRecords[localPath] = { hash: fileHash, mtime: currentMtime };
+        }
       } else {
-        // console.log('跳过（哈希值相同）:', s3Path);
+        // console.log('跳过（修改时间相同）:', s3Path);
       }
     }
   }
@@ -96,9 +112,8 @@ async function retryUpload(s3Path: string, localPath: string, fileSize: number) 
         'Cache-Control': 'max-age=3600',
       };
 
-      await minioClient.fPutObject(BucketName, s3Path, localPath, uploadOptions).then((r) => {
-        console.log('上传成功:', s3Path, `${(fileSize / 1024).toFixed(0)}k`);
-      });
+      await minioClient.fPutObject(BucketName, s3Path, localPath, uploadOptions);
+      console.log('上传成功:', s3Path, `${(fileSize / 1024).toFixed(0)}k`);
       break; // 上传成功，跳出循环
     } catch (error) {
       retryCount++;
