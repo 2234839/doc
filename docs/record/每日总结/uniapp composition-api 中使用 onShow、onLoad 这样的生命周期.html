@@ -31,6 +31,22 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="description" content="uniapp composition-api 中使用 onShow、onLoad 这样的生命周期 分享/dcloud 我的思路是使用 mixin 得知 onShow 被触发后去回调 setup 中 onShow 设置的函数 setup 中的代码会是这样的 typescript setup(props, ctx) { o..." />
+  <meta name="keywords" content="onshow, onload, name, any, vue, export, vuelifecyclemixin, optionswarp" />
+  <meta name="author" content="崮生" />
+  <meta property="og:title" content="uniapp composition-api 中使用 onShow、onLoad 这样的生命周期" />
+  <meta property="og:description" content="uniapp composition-api 中使用 onShow、onLoad 这样的生命周期 分享/dcloud 我的思路是使用 mixin 得知 onShow 被触发后去回调 setup 中 onShow 设置的函数 setup 中的代码会是这样的 typescript setup(props, ctx) { o..." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="/record/每日总结/uniapp composition-api 中使用 onShow、onLoad 这样的生命周期.html" />
+  <meta property="og:site_name" content="OceanPress" />
+  <meta property="article:published_time" content="2020-11-27T15:16:51Z" />
+  <meta property="article:modified_time" content="2024-06-24T16:47:55Z" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="uniapp composition-api 中使用 onShow、onLoad 这样的生命周期" />
+  <meta name="twitter:description" content="uniapp composition-api 中使用 onShow、onLoad 这样的生命周期 分享/dcloud 我的思路是使用 mixin 得知 onShow 被触发后去回调 setup 中 onShow 设置的函数 setup 中的代码会是这样的 typescript setup(props, ctx) { o..." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="/record/每日总结/uniapp composition-api 中使用 onShow、onLoad 这样的生命周期.html" />
+
   <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
@@ -41,6 +57,63 @@
   </script>
   <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>uniapp composition-api 中使用 onShow、onLoad 这样的生命周期</title>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "uniapp composition-api 中使用 onShow、onLoad 这样的生命周期",
+  "description": "uniapp composition-api 中使用 onShow、onLoad 这样的生命周期 分享/dcloud 我的思路是使用 mixin 得知 onShow 被触发后去回调 setup 中 onShow 设置的函数 setup 中的代码会是这样的 typescript setup(props, ctx) { o...",
+  "keywords": "onshow, onload, name, any, vue, export, vuelifecyclemixin, optionswarp",
+  "datePublished": "2020-11-27T15:16:51Z",
+  "dateModified": "2024-06-24T16:47:55Z",
+  "author": {
+    "@type": "Person",
+    "name": "崮生",
+    "url": ""
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "OceanPress",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/assets/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/record/每日总结/uniapp composition-api 中使用 onShow、onLoad 这样的生命周期.html"
+  },
+  "wordCount": 1854,
+  "articleSection": "技术文档",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "record",
+      "item": "/record.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "每日总结",
+      "item": "/record/每日总结.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "uniapp composition-api 中使用 onShow、onLoad 这样的生命周期",
+      "item": "/record/每日总结/uniapp composition-api 中使用 onShow、onLoad 这样的生命周期.html"
+    }
+  ]
+}
+</script>
 </head>
 <body>
   <div class="header-container">

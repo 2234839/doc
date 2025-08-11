@@ -31,6 +31,22 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="description" content="js实现撤销功能 pubdate: 2019-05-09 21:47:58 tags: typescript，编程范式 ctrl+z 是非常厉害的功能 我最近在做的一个油猴脚本 网页文本编辑 需要实现撤销这类功能，我自己思考的几个方法都较为繁琐 于是找了一下，受到了 如何使用 C++ 实现撤销栈（Undo Stack）..." />
+  <meta name="keywords" content="命令, command, return, selectel, 撤销, backoutstack, commandstack, display" />
+  <meta name="author" content="崮生" />
+  <meta property="og:title" content="js实现撤销功能" />
+  <meta property="og:description" content="js实现撤销功能 pubdate: 2019-05-09 21:47:58 tags: typescript，编程范式 ctrl+z 是非常厉害的功能 我最近在做的一个油猴脚本 网页文本编辑 需要实现撤销这类功能，我自己思考的几个方法都较为繁琐 于是找了一下，受到了 如何使用 C++ 实现撤销栈（Undo Stack）..." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="/record/js实现撤销功能.html" />
+  <meta property="og:site_name" content="OceanPress" />
+  <meta property="article:published_time" content="2020-11-04T15:33:59Z" />
+  <meta property="article:modified_time" content="2021-06-24T16:59:41Z" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="js实现撤销功能" />
+  <meta name="twitter:description" content="js实现撤销功能 pubdate: 2019-05-09 21:47:58 tags: typescript，编程范式 ctrl+z 是非常厉害的功能 我最近在做的一个油猴脚本 网页文本编辑 需要实现撤销这类功能，我自己思考的几个方法都较为繁琐 于是找了一下，受到了 如何使用 C++ 实现撤销栈（Undo Stack）..." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="/record/js实现撤销功能.html" />
+
   <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
   function isNightTime() {
@@ -41,6 +57,57 @@
   </script>
   <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>js实现撤销功能</title>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "js实现撤销功能",
+  "description": "js实现撤销功能 pubdate: 2019-05-09 21:47:58 tags: typescript，编程范式 ctrl+z 是非常厉害的功能 我最近在做的一个油猴脚本 网页文本编辑 需要实现撤销这类功能，我自己思考的几个方法都较为繁琐 于是找了一下，受到了 如何使用 C++ 实现撤销栈（Undo Stack）...",
+  "keywords": "命令, command, return, selectel, 撤销, backoutstack, commandstack, display",
+  "datePublished": "2020-11-04T15:33:59Z",
+  "dateModified": "2021-06-24T16:59:41Z",
+  "author": {
+    "@type": "Person",
+    "name": "崮生",
+    "url": ""
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "OceanPress",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/assets/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/record/js实现撤销功能.html"
+  },
+  "wordCount": 2639,
+  "articleSection": "技术文档",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "record",
+      "item": "/record.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "js实现撤销功能",
+      "item": "/record/js实现撤销功能.html"
+    }
+  ]
+}
+</script>
 </head>
 <body>
   <div class="header-container">
