@@ -40,7 +40,7 @@
   document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
   <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
-  <title>臨池不輟</title>
+  <title>pm2</title>
 </head>
 <body>
   <div class="header-container">
@@ -51,12 +51,38 @@
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div id="oceanpress-left-sidebar">
     
-    <iframe src="./../../__oceanpress/docTree.html"></iframe>
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
   </div>
-  <div style="min-height: 150px;" id="20240113141121-roht5p7" data-node-id="20240113141121-roht5p7" data-type="NodeDocument" updated="20250806155113" bookmark="feed" custom-avs="20240116172536-ey5y089" type="doc">
+  <div style="min-height: 150px;" id="20250811143840-8u62rsk" data-node-id="20250811143840-8u62rsk" data-type="NodeDocument" updated="20250811143958" type="doc">
 
-<h1 id="20240113141121-roht5p7" data-node-id="20240113141121-roht5p7" data-type="NodeDocument" updated="20250806155113" bookmark="feed" custom-avs="20240116172536-ey5y089" type="doc" data-type="NodeHeading" class="h1">臨池不輟</h1>
+<h1 id="20250811143840-8u62rsk" data-node-id="20250811143840-8u62rsk" data-type="NodeDocument" updated="20250811143958" type="doc" data-type="NodeHeading" class="h1">pm2</h1>
+<h2 id="20250811143845-r06npcw" data-node-id="20250811143845-r06npcw" data-type="NodeHeading" updated="20250811143955" data-subtype="h2" class="h2">pm2 快速启动静态网站</h2><div id="20250811143840-d85xcp0" data-node-id="20250811143840-d85xcp0" data-type="NodeParagraph" updated="20250811143909" class="p"><div spellcheck="false">pm2 serve . 10010 --name test_website</div></div><h2 id="20250811143955-x1qbiv6" data-node-id="20250811143955-x1qbiv6" data-type="NodeHeading" updated="20250811143958" data-subtype="h2" class="h2">pm2 简易运行命令</h2><div id="20250811143955-de40n6h" data-node-id="20250811143955-de40n6h" data-type="NodeCodeBlock" updated="20250811143955" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">bash</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">pm2 start pnpm --name "studio" -- studio
+
+# 这种兼容性好像更好
+pm2 start "pnpm start_docViewer" --name "docViewer"
 </div>
+        </div><div id="20250811143955-fgai0iv" data-node-id="20250811143955-fgai0iv" data-type="NodeParagraph" updated="20250811143955" class="p"><div spellcheck="false">pm2 运行其他脚本的方式</div></div><div id="20250811143955-16gsa26" data-node-id="20250811143955-16gsa26" data-type="NodeCodeBlock" updated="20250811143955" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">js</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">module.exports = {
+  apps: [
+    {
+      name: 'pocketbase',
+      script: '/data/app/pocketbase/start.sh',
+      interpreter: 'none', // 明确禁用解释器
+    },
+  ],
+};
+
+</div>
+        </div></div>
   <div id="oceanpress-right-sidebar"></div>
 </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>

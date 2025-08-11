@@ -40,7 +40,7 @@
   document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
   </script>
   <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
-  <title>臨池不輟</title>
+  <title>国内访问 GitHub API 的简单解决方案</title>
 </head>
 <body>
   <div class="header-container">
@@ -51,12 +51,22 @@
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div id="oceanpress-left-sidebar">
     
-    <iframe src="./../../__oceanpress/docTree.html"></iframe>
+    <iframe src="./../__oceanpress/docTree.html"></iframe>
   </div>
-  <div style="min-height: 150px;" id="20240113141121-roht5p7" data-node-id="20240113141121-roht5p7" data-type="NodeDocument" updated="20250806155113" bookmark="feed" custom-avs="20240116172536-ey5y089" type="doc">
+  <div style="min-height: 150px;" id="20250811182000-rpev1x9" data-node-id="20250811182000-rpev1x9" data-type="NodeDocument" updated="20250811185046" type="doc">
 
-<h1 id="20240113141121-roht5p7" data-node-id="20240113141121-roht5p7" data-type="NodeDocument" updated="20250806155113" bookmark="feed" custom-avs="20240116172536-ey5y089" type="doc" data-type="NodeHeading" class="h1">臨池不輟</h1>
-</div>
+<h1 id="20250811182000-rpev1x9" data-node-id="20250811182000-rpev1x9" data-type="NodeDocument" updated="20250811185046" type="doc" data-type="NodeHeading" class="h1">国内访问 GitHub API 的简单解决方案</h1>
+<div id="20250811182003-w7shl2z" data-node-id="20250811182003-w7shl2z" data-type="NodeParagraph" updated="20250811182019" class="p"><div spellcheck="false">最近在搞 <span data-type="block-ref"   data-subtype="d"   data-id="20250413211142-d533spm"><a href="./../index/TsFullStack.html#20250413211142-d533spm">TsFullStack</a></span> 项目时，遇到个网络问题：国内服务器访问 GitHub API 经常抽风。</div></div><div id="20250811182003-pe19ihm" data-node-id="20250811182003-pe19ihm" data-type="NodeParagraph" updated="20250811182003" class="p"><div spellcheck="false">GitHub OAuth 认证在国内阿里云服务器上访问一直超时，没法正常处理。</div></div><h2 id="20250811182003-t3o8eh5" data-node-id="20250811182003-t3o8eh5" data-type="NodeHeading" updated="20250811185046" data-subtype="h2" class="h2">解决方案</h2><div id="20250811182003-8bgde2n" data-node-id="20250811182003-8bgde2n" data-type="NodeParagraph" updated="20250811182003" class="p"><div spellcheck="false">写了个简单的代理机制，通过 Cloudflare Workers 转发 GitHub API 请求</div></div><div id="20250811182215-gp5qtu5" data-node-id="20250811182215-gp5qtu5" data-type="NodeParagraph" updated="20250811182215" class="p"><div spellcheck="false">
+这样国内服务器能够访问 Cloudflare Workers（需要配置自己的域名，默认域名不行）
+然后 Cloudflare Workers 能够正常访问 github api</div></div><div id="20250811182144-1t0dslx" data-node-id="20250811182144-1t0dslx" data-type="NodeParagraph" updated="20250811182204" class="p"><div spellcheck="false"><a href="https://github.com/2234839/TsFullStack/tree/main/apps/api-proxy">Cloudflare Workers proxy 项目地址</a></div></div><div id="20250811182052-x9a7mu8" data-node-id="20250811182052-x9a7mu8" data-type="NodeParagraph" updated="20250811182052" class="p"><div spellcheck="false"></div></div><div id="20250811182224-uunvx6i" data-node-id="20250811182224-uunvx6i" data-type="NodeParagraph" updated="20250811182319" class="p"><div spellcheck="false">通过这种 serverless 方案能够减少一台服务器的需求</div></div><div id="20250811185021-93gsoce" data-node-id="20250811185021-93gsoce" data-type="NodeParagraph" updated="20250811185021" class="p"><div spellcheck="false"></div></div><div id="20250811185021-0q03ecg" data-node-id="20250811185021-0q03ecg" data-type="NodeParagraph" updated="20250811185046" class="p"><div spellcheck="false">有网友说这样容易死号，那看来只能用阿里云自己的海外 serverless 了</div></div><div id="20250811182345-0yx85a1" data-node-id="20250811182345-0yx85a1" data-type="NodeParagraph" updated="20250811185016" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="width: 985px;" style="">
+  <img
+    src="./../assets/image-20250811185016-1034tl0.png"
+    data-src="./../assets/image-20250811185016-1034tl0.png"
+    title=""
+    style="width: 985px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div></div>
   <div id="oceanpress-right-sidebar"></div>
 </div>
   <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
