@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  :root {
+    --oceanpress-header-bg: #f8f9fa;
+    --oceanpress-header-border: #e9ecef;
+    --oceanpress-header-text: #007bff;
+    --oceanpress-footer-bg: #f8f9fa;
+    --oceanpress-footer-text: #007bff;
+  }
+  
+  [data-theme-mode="dark"] {
+    --oceanpress-header-bg: #2d2d2d;
+    --oceanpress-header-border: #404040;
+    --oceanpress-header-text: #58a6ff;
+    --oceanpress-footer-bg: #2d2d2d;
+    --oceanpress-footer-text: #58a6ff;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--oceanpress-header-bg);
+    border-bottom: 1px solid var(--oceanpress-header-border);
+  }
+  .home-button {
+    text-decoration: none;
+    color: var(--oceanpress-header-text);
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+  
+  .theme-aware-footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--oceanpress-footer-bg);
+    text-align: center;
+  }
+  .theme-aware-footer p {
+    margin: 0;
+  }
+  .theme-aware-footer a {
+    color: var(--oceanpress-footer-text);
+    text-decoration: none;
+  }
+  .theme-aware-footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="description" content="如何实现模块化加载的前端和后端代码 https://www.zhihu.com/question/1939240613842228669 https://www.v2ex.com/t/1152245#reply0 首先我定义一下我这里的模块概念：一个文件夹下的代码（也就是前端的话可能涉及多个页面以及组件等，后端同理） ..." />
+  <meta name="keywords" content="模块, 前端, 后端, 直接, 端模块, 一个, 端模, https" />
+  <meta name="author" content="崮生" />
+  <meta property="og:title" content="如何实现模块化加载的前端和后端代码" />
+  <meta property="og:description" content="如何实现模块化加载的前端和后端代码 https://www.zhihu.com/question/1939240613842228669 https://www.v2ex.com/t/1152245#reply0 首先我定义一下我这里的模块概念：一个文件夹下的代码（也就是前端的话可能涉及多个页面以及组件等，后端同理） ..." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="/index/如何实现模块化加载的前端和后端代码.html" />
+  <meta property="og:site_name" content="OceanPress" />
+  <meta property="article:published_time" content="2025-08-14T08:03:13Z" />
+  <meta property="article:modified_time" content="2025-08-14T10:07:52Z" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="如何实现模块化加载的前端和后端代码" />
+  <meta name="twitter:description" content="如何实现模块化加载的前端和后端代码 https://www.zhihu.com/question/1939240613842228669 https://www.v2ex.com/t/1152245#reply0 首先我定义一下我这里的模块概念：一个文件夹下的代码（也就是前端的话可能涉及多个页面以及组件等，后端同理） ..." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="/index/如何实现模块化加载的前端和后端代码.html" />
+
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  // 更好的主题切换方案
+  (function() {
+    // 主题配置
+    const themes = {
+      light: {
+        name: 'daylight',
+        mode: 'light',
+        icon: '☀️'
+      },
+      dark: {
+        name: 'midnight',
+        mode: 'dark',
+        icon: '🌙'
+      },
+      auto: {
+        name: 'auto',
+        mode: 'auto',
+        icon: '🌗',
+        getTheme: function() {
+          const currentHour = new Date().getHours();
+          return currentHour >= 18 || currentHour < 6 ? 'dark' : 'light';
+        }
+      }
+    };
+
+    // 获取当前主题设置
+    function getCurrentTheme() {
+      // 优先级：localStorage > 系统偏好 > auto
+      const savedTheme = localStorage.getItem('oceanpress-theme');
+      if (savedTheme && themes[savedTheme]) {
+        return savedTheme;
+      }
+
+      // 检测系统偏好
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
+      }
+
+      return 'auto';
+    }
+
+    // 应用主题
+    function applyTheme(themeName) {
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 设置 CSS 变量
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 加载对应的 CSS
+      const themeStyle = document.getElementById('themeDefaultStyle');
+      if (themeStyle) {
+        themeStyle.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+      } else {
+        // 如果元素不存在，创建它
+        const link = document.createElement('link');
+        link.id = 'themeDefaultStyle';
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+        document.head.appendChild(link);
+      }
+
+      // 更新主题切换按钮
+      updateThemeToggle(themeName);
+
+      // 保存到 localStorage
+      localStorage.setItem('oceanpress-theme', themeName);
+
+      // 触发自定义事件
+      window.dispatchEvent(new CustomEvent('oceanpress-theme-changed', {
+        detail: { theme: themeName, actualTheme: actualTheme }
+      }));
+    }
+
+    // 创建主题切换按钮
+    function createThemeToggle() {
+      const toggle = document.createElement('div');
+      toggle.id = 'oceanpress-theme-toggle';
+      toggle.innerHTML = '<span class="theme-icon">🌗</span><span class="theme-text">自动</span>';
+      toggle.addEventListener('click', toggleTheme);
+      (document.querySelector('[data-type="NodeDocument"]')||document.body).appendChild(toggle);
+    }
+
+    // 更新主题切换按钮
+    function updateThemeToggle(themeName) {
+      const toggle = document.getElementById('oceanpress-theme-toggle');
+      if (!toggle) return;
+
+      const theme = themes[themeName] || themes.auto;
+      toggle.innerHTML = '<span class="theme-icon">' + theme.icon + '</span><span class="theme-text">' +
+        (themeName === 'auto' ? '自动' : (themeName === 'dark' ? '深色' : '浅色')) + '</span>';
+    }
+
+    // 切换主题
+    function toggleTheme() {
+      const currentTheme = getCurrentTheme();
+      const themeOrder = ['auto', 'light', 'dark'];
+      const currentIndex = themeOrder.indexOf(currentTheme);
+      const nextIndex = (currentIndex + 1) % themeOrder.length;
+      const nextTheme = themeOrder[nextIndex];
+
+      applyTheme(nextTheme);
+    }
+
+    // 监听系统主题变化
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const currentTheme = getCurrentTheme();
+        if (currentTheme === 'auto') {
+          applyTheme('auto');
+        }
+      });
+    }
+
+    // 监听自定义主题变化事件（用于侧边栏等组件）
+    window.addEventListener('oceanpress-theme-changed', function(e) {
+      // 这里可以添加其他组件需要响应主题变化的逻辑
+      console.log('Theme changed to:', e.detail);
+    });
+
+    // 初始化主题
+    function initTheme() {
+      const themeName = getCurrentTheme();
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 立即设置基础主题，避免闪烁
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 创建主题切换按钮
+      createThemeToggle();
+
+      // 应用完整主题
+      applyTheme(themeName);
+    }
+
+    // 页面加载完成后初始化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+      initTheme();
+    }
+  })();
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>如何实现模块化加载的前端和后端代码</title>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "如何实现模块化加载的前端和后端代码",
+  "description": "如何实现模块化加载的前端和后端代码 https://www.zhihu.com/question/1939240613842228669 https://www.v2ex.com/t/1152245#reply0 首先我定义一下我这里的模块概念：一个文件夹下的代码（也就是前端的话可能涉及多个页面以及组件等，后端同理） ...",
+  "keywords": "模块, 前端, 后端, 直接, 端模块, 一个, 端模, https",
+  "datePublished": "2025-08-14T08:03:13Z",
+  "dateModified": "2025-08-14T10:07:52Z",
+  "author": {
+    "@type": "Person",
+    "name": "崮生",
+    "url": ""
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "OceanPress",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/assets/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/index/如何实现模块化加载的前端和后端代码.html"
+  },
+  "wordCount": 1366,
+  "articleSection": "技术文档",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "index",
+      "item": "/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "如何实现模块化加载的前端和后端代码",
+      "item": "/index/如何实现模块化加载的前端和后端代码.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div id="oceanpress-left-sidebar">
+    
+    <div id="oceanpress-doctree"></div>
+           <script src="./../__oceanpress/docTree.js" async></script>
+  </div>
+  <div style="min-height: 150px;" id="20250814080313-wys8wfk" data-node-id="20250814080313-wys8wfk" data-type="NodeDocument" updated="20250814100752" type="doc">
+
+<h1 id="20250814080313-wys8wfk" data-node-id="20250814080313-wys8wfk" data-type="NodeDocument" updated="20250814100752" type="doc" data-type="NodeHeading" class="h1">如何实现模块化加载的前端和后端代码</h1>
+<div id="20250814082442-r0po4zz" data-node-id="20250814082442-r0po4zz" data-type="NodeBlockquote" updated="20250814082502" class="bq"><div id="20250814082442-584s5uh" data-node-id="20250814082442-584s5uh" data-type="NodeParagraph" updated="20250814082502" class="p"><div spellcheck="false"> https://www.zhihu.com/question/1939240613842228669
+ https://www.v2ex.com/t/1152245#reply0</div></div></div><div id="20250814080345-pnc5wq2" data-node-id="20250814080345-pnc5wq2" data-type="NodeParagraph" updated="20250814080448" class="p"><div spellcheck="false">首先我定义一下我这里的模块概念：一个文件夹下的代码（也就是前端的话可能涉及多个页面以及组件等，后端同理）</div></div><div id="20250814080313-7agodcu" data-node-id="20250814080313-7agodcu" data-type="NodeParagraph" updated="20250814080537" class="p"><div spellcheck="false">其实如果只是追求打包时动态加载不同的模块是很简单的，通过环境变量约束一下打包工具即可</div></div><div id="20250814080537-jeq15vw" data-node-id="20250814080537-jeq15vw" data-type="NodeParagraph" updated="20250814080719" class="p"><div spellcheck="false">但我还想要有强类型支持，以及直接剪切文件夹就能新增和移除模块。</div></div><h2 id="20250814080720-t2qpmsw" data-node-id="20250814080720-t2qpmsw" data-type="NodeHeading" updated="20250814082133" data-subtype="h2" class="h2">架构畅想</h2><div id="20250814080731-s91ftt3" data-node-id="20250814080731-s91ftt3" data-type="NodeList" updated="20250814082133" data-subtype="o" class="list"><div id="20250814080758-kjqu6ho" data-node-id="20250814080758-kjqu6ho" data-type="NodeListItem" updated="20250814080758" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20250814080758-reoqdu3" data-node-id="20250814080758-reoqdu3" data-type="NodeParagraph" updated="20250814080758" class="p"><div spellcheck="false">使用 MonoRepo 的形式进行项目管理</div></div>
+      </div><div id="20250814080801-fm3ynew" data-node-id="20250814080801-fm3ynew" data-type="NodeListItem" updated="20250814080801" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20250814080801-ukf09cl" data-node-id="20250814080801-ukf09cl" data-type="NodeParagraph" updated="20250814081008" class="p"><div spellcheck="false">每个顶级模块（包）都可能包含一个后端模块和一个前端模块（也就是可以是单纯的前端模块或后端模块）</div></div>
+      </div><div id="20250814080854-ubj1nzd" data-node-id="20250814080854-ubj1nzd" data-type="NodeListItem" updated="20250814080854" data-subtype="o" class="li" data-marker="3.">
+        <div class="protyle-action">
+          3.
+        </div>
+        <div id="20250814080854-jro7lo8" data-node-id="20250814080854-jro7lo8" data-type="NodeParagraph" updated="20250814081039" class="p"><div spellcheck="false">存在一个基座包，这是整个项目的核心，所有的其他包都会依赖这个</div></div>
+      </div><div id="20250814081022-1f93sfy" data-node-id="20250814081022-1f93sfy" data-type="NodeListItem" updated="20250814081022" data-subtype="o" class="li" data-marker="4.">
+        <div class="protyle-action">
+          4.
+        </div>
+        <div id="20250814081022-6z7x8za" data-node-id="20250814081022-6z7x8za" data-type="NodeParagraph" updated="20250814081141" class="p"><div spellcheck="false">非基座包的后端模块和前端模块都能直接引用到基座包中的后端依赖和前端依赖，而不需要特别专门的配置</div></div>
+      </div><div id="20250814081124-e944nok" data-node-id="20250814081124-e944nok" data-type="NodeListItem" updated="20250814081124" data-subtype="o" class="li" data-marker="5.">
+        <div class="protyle-action">
+          5.
+        </div>
+        <div id="20250814081124-fysmqux" data-node-id="20250814081124-fysmqux" data-type="NodeParagraph" updated="20250814081922" class="p"><div spellcheck="false">同一个包内的前端模块可以直接引用到后端模块的api（强类型）以及其他包的后端模块的api</div></div>
+      </div><div id="20250814081308-e9ovllq" data-node-id="20250814081308-e9ovllq" data-type="NodeListItem" updated="20250814081308" data-subtype="o" class="li" data-marker="6.">
+        <div class="protyle-action">
+          6.
+        </div>
+        <div id="20250814081308-8da5kjj" data-node-id="20250814081308-8da5kjj" data-type="NodeParagraph" updated="20250814081850" class="p"><div spellcheck="false">所有包的后端模块都能直接声明需要的context，然后编译时能够感知到基座包是否兜底的提供了所有context（即编译时能够报错某个 context 缺失）</div></div><div id="20250814081518-47q25oj" data-node-id="20250814081518-47q25oj" data-type="NodeList" updated="20250814081518" data-subtype="o" class="list"><div id="20250814081517-n1jdcp5" data-node-id="20250814081517-n1jdcp5" data-type="NodeListItem" updated="20250814081517" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20250814081517-dqiwr3z" data-node-id="20250814081517-dqiwr3z" data-type="NodeParagraph" updated="20250814081752" class="p"><div spellcheck="false">为什么基座包需要兜底：因为是从基座包启动的 http server，他是入口也是出口</div></div>
+      </div></div>
+      </div><div id="20250814082039-egmvh12" data-node-id="20250814082039-egmvh12" data-type="NodeListItem" updated="20250814082133" data-subtype="o" class="li" data-marker="7.">
+        <div class="protyle-action">
+          7.
+        </div>
+        <div id="20250814082039-j5917qf" data-node-id="20250814082039-j5917qf" data-type="NodeParagraph" updated="20250814082133" class="p"><div spellcheck="false">可以直接剪切文件夹就能新增包和移除包，如果包之间有依赖但对应的包被移除了则编译时应该报错</div></div>
+      </div></div><h2 id="20250814080952-7o3hwfn" data-node-id="20250814080952-7o3hwfn" data-type="NodeHeading" updated="20250814100752" data-subtype="h2" class="h2">如何实现？</h2><div id="20250814082147-aaws44t" data-node-id="20250814082147-aaws44t" data-type="NodeParagraph" updated="20250814082325" class="p"><div spellcheck="false">期待各位朋友的指点(❁´◡`❁)</div></div><div id="20250814082355-dv0909l" data-node-id="20250814082355-dv0909l" data-type="NodeParagraph" updated="20250814090643" class="p"><div spellcheck="false">感觉 https://turborepo.com/ 可能会对这种monorepo的构建有帮助</div></div><div id="20250814100522-ngdzlsy" data-node-id="20250814100522-ngdzlsy" data-type="NodeParagraph" updated="20250814100522" class="p"><div spellcheck="false"></div></div><div id="20250814100523-748pgyn" data-node-id="20250814100523-748pgyn" data-type="NodeParagraph" updated="20250814100523" class="p"><div spellcheck="false"></div></div><div id="20250814100523-7fzjqwv" data-node-id="20250814100523-7fzjqwv" data-type="NodeParagraph" updated="20250814100527" class="p"><div spellcheck="false">我不想改配置，所以我需要实现，copy 一个模块的文件夹进来（包含了对应模块的前端和后端代码）然后直接就能运行项目，前端路由这块我已经实现可以这样加载了，但是后端还没搞定，主要是我想要 ts 类型严谨，否则我直接 require 也能实现</div></div><div id="20250814100538-d875l6d" data-node-id="20250814100538-d875l6d" data-type="NodeParagraph" updated="20250814100538" class="p"><div spellcheck="false"></div></div><div id="20250814100538-cdoe7md" data-node-id="20250814100538-cdoe7md" data-type="NodeParagraph" updated="20250814100538" class="p"><div spellcheck="false"></div></div><div id="20250814100539-xmd989h" data-node-id="20250814100539-xmd989h" data-type="NodeParagraph" updated="20250814100539" class="p"><div spellcheck="false">我会有一个环境变量文件的，比如 用户 a.env 的是包含了模块 a 模块 b ，那么我的脚本打包的时候就只包含这两,也有脚本一键导出只包含这两模块的源码发给他（有很多用户就是想要源码，我提供源码也可以跟他要价更高一些）</div></div><div id="20250814100539-imgpyez" data-node-id="20250814100539-imgpyez" data-type="NodeParagraph" updated="20250814100539" class="p"><div spellcheck="false">不使用 git 分支管理不同用户（因为我在实现某个用户的功能的时候可能又改善了某些通用模块，那么我不停切换分支来修改合并代码太麻烦了）</div></div><div id="20250814100752-pjha0d6" data-node-id="20250814100752-pjha0d6" data-type="NodeParagraph" updated="20250814100752" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: document.documentElement.getAttribute('data-theme-mode') === 'dark' ? 1 : 0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
+crossorigin="anonymous"></script><footer class="theme-aware-footer">
+  <p>
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>

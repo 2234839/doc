@@ -1001,15 +1001,7 @@
 <lastmod>2025-03-15</lastmod>
   </url>
 <url>
-  <loc>https://shenzilong.cn/想法/项目/OceanPress_js/OceanPress云.html</loc>
-<lastmod>2025-03-17</lastmod>
-  </url>
-<url>
   <loc>https://shenzilong.cn/想法/项目/OceanPress_js/v1.0.42 OceanPress支持侧边文档树目录导航.html</loc>
-<lastmod>2025-03-28</lastmod>
-  </url>
-<url>
-  <loc>https://shenzilong.cn/想法/项目/OceanPress_js.html</loc>
 <lastmod>2025-03-28</lastmod>
   </url>
 <url>
@@ -1031,10 +1023,6 @@
 <url>
   <loc>https://shenzilong.cn/想法/项目/sy2video/思源笔记文本转语音.html</loc>
 <lastmod>2024-06-23</lastmod>
-  </url>
-<url>
-  <loc>https://shenzilong.cn/想法/项目/sy2video/媒体片段引用.html</loc>
-<lastmod>2024-06-30</lastmod>
   </url>
 <url>
   <loc>https://shenzilong.cn/想法/项目/sy2video.html</loc>
@@ -1247,10 +1235,6 @@
 <url>
   <loc>https://shenzilong.cn/关于/崮生_子虚/求职简历.html</loc>
 <lastmod>2025-05-15</lastmod>
-  </url>
-<url>
-  <loc>https://shenzilong.cn/关于/崮生_子虚.html</loc>
-<lastmod>2024-07-18</lastmod>
   </url>
 <url>
   <loc>https://shenzilong.cn/关于/赞助.html</loc>
@@ -1697,10 +1681,6 @@
 <lastmod>2024-06-05</lastmod>
   </url>
 <url>
-  <loc>https://shenzilong.cn/工具/distill_monitor.html</loc>
-<lastmod>2025-04-23</lastmod>
-  </url>
-<url>
   <loc>https://shenzilong.cn/工具.html</loc>
 <lastmod>2024-01-18</lastmod>
   </url>
@@ -2005,10 +1985,6 @@
 <lastmod>2025-05-24</lastmod>
   </url>
 <url>
-  <loc>https://shenzilong.cn/index/ai提示词.html</loc>
-<lastmod>2025-07-25</lastmod>
-  </url>
-<url>
   <loc>https://shenzilong.cn/index/随时随地访问家中的思源.html</loc>
 <lastmod>2025-05-27</lastmod>
   </url>
@@ -2229,20 +2205,72 @@
 <lastmod>2025-08-05</lastmod>
   </url>
 <url>
-  <loc>https://shenzilong.cn/index/Claude Code 配置使用自定义api.html</loc>
-<lastmod>2025-08-11</lastmod>
-  </url>
-<url>
   <loc>https://shenzilong.cn/index/pm2.html</loc>
-<lastmod>2025-08-11</lastmod>
-  </url>
-<url>
-  <loc>https://shenzilong.cn/index.html</loc>
 <lastmod>2025-08-11</lastmod>
   </url>
 <url>
   <loc>https://shenzilong.cn/index/国内访问 GitHub API 的简单解决方案.html</loc>
 <lastmod>2025-08-11</lastmod>
+  </url>
+<url>
+  <loc>https://shenzilong.cn/index/glm4.5+claude code和qwen以及v0的还原网页测试/首先我使用 glm-4.5v对网页进行提示词输出.html</loc>
+<lastmod>2025-08-13</lastmod>
+  </url>
+<url>
+  <loc>https://shenzilong.cn/index/glm4.5+claude code和qwen以及v0的还原网页测试.html</loc>
+<lastmod>2025-08-13</lastmod>
+  </url>
+<url>
+  <loc>https://shenzilong.cn/index/ai提示词.html</loc>
+<lastmod>2025-08-13</lastmod>
+  </url>
+<url>
+  <loc>https://shenzilong.cn/想法/项目/OceanPress_js/OceanPress云.html</loc>
+<lastmod>2025-03-09</lastmod>
+  </url>
+<url>
+  <loc>https://shenzilong.cn/index/如何实现模块化加载的前端和后端代码.html</loc>
+<lastmod>2025-08-14</lastmod>
+  </url>
+<url>
+  <loc>https://shenzilong.cn/index/如何为 claude code 添加用户级mcp工具.html</loc>
+<lastmod>2025-08-14</lastmod>
+  </url>
+<url>
+  <loc>https://shenzilong.cn/index/为claude code+glm 添加上眼睛.html</loc>
+<lastmod>2025-08-14</lastmod>
+  </url>
+<url>
+  <loc>https://shenzilong.cn/想法/项目/sy2video/媒体片段引用.html</loc>
+<lastmod>2024-06-28</lastmod>
+  </url>
+<url>
+  <loc>https://shenzilong.cn/index/邵东人建网站，为何不找身边的专家？—— 申子龙 为您提供本地化专业网站建设服务.html</loc>
+<lastmod>2025-08-16</lastmod>
+  </url>
+<url>
+  <loc>https://shenzilong.cn/index.html</loc>
+<lastmod>2025-08-16</lastmod>
+  </url>
+<url>
+  <loc>https://shenzilong.cn/关于/崮生_子虚.html</loc>
+<lastmod>2025-08-21</lastmod>
+  </url>
+<url>
+  <loc>https://shenzilong.cn/index/Claude Code 配置使用自定义api.html</loc>
+<lastmod>2025-08-21</lastmod>
+  </url>
+<url>
+  <loc>https://shenzilong.cn/工具/distill_monitor.html</loc>
+<lastmod>2025-08-21</lastmod>
+  </url>
+<url>
+  <loc>https://shenzilong.cn/想法/项目/OceanPress_js/OceanPress更新日志.html</loc>
+<lastmod>2025-08-22</lastmod>
+  </url>
+<url>
+  <loc>https://shenzilong.cn/想法/项目/OceanPress_js.html</loc>
+<lastmod>2025-08-22</lastmod>
   </url>
 
   </urlset>

@@ -3,17 +3,33 @@
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
 <style>
+  :root {
+    --oceanpress-header-bg: #f8f9fa;
+    --oceanpress-header-border: #e9ecef;
+    --oceanpress-header-text: #007bff;
+    --oceanpress-footer-bg: #f8f9fa;
+    --oceanpress-footer-text: #007bff;
+  }
+  
+  [data-theme-mode="dark"] {
+    --oceanpress-header-bg: #2d2d2d;
+    --oceanpress-header-border: #404040;
+    --oceanpress-header-text: #58a6ff;
+    --oceanpress-footer-bg: #2d2d2d;
+    --oceanpress-footer-text: #58a6ff;
+  }
+  
   .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #e9ecef;
+    background-color: var(--oceanpress-header-bg);
+    border-bottom: 1px solid var(--oceanpress-header-border);
   }
   .home-button {
     text-decoration: none;
-    color: #007bff;
+    color: var(--oceanpress-header-text);
     font-weight: bold;
     font-size: 16px;
   }
@@ -22,6 +38,23 @@
   }
   #search {
     width: 300px;
+  }
+  
+  .theme-aware-footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--oceanpress-footer-bg);
+    text-align: center;
+  }
+  .theme-aware-footer p {
+    margin: 0;
+  }
+  .theme-aware-footer a {
+    color: var(--oceanpress-footer-text);
+    text-decoration: none;
+  }
+  .theme-aware-footer a:hover {
+    text-decoration: underline;
   }
 </style>
 
@@ -47,15 +80,163 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="/record/每日总结/2020/6月.html" />
 
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
-  function isNightTime() {
-    const currentHour = new Date().getHours();
-    return currentHour >= 18 || currentHour < 6;
-  }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  // 更好的主题切换方案
+  (function() {
+    // 主题配置
+    const themes = {
+      light: {
+        name: 'daylight',
+        mode: 'light',
+        icon: '☀️'
+      },
+      dark: {
+        name: 'midnight',
+        mode: 'dark',
+        icon: '🌙'
+      },
+      auto: {
+        name: 'auto',
+        mode: 'auto',
+        icon: '🌗',
+        getTheme: function() {
+          const currentHour = new Date().getHours();
+          return currentHour >= 18 || currentHour < 6 ? 'dark' : 'light';
+        }
+      }
+    };
+
+    // 获取当前主题设置
+    function getCurrentTheme() {
+      // 优先级：localStorage > 系统偏好 > auto
+      const savedTheme = localStorage.getItem('oceanpress-theme');
+      if (savedTheme && themes[savedTheme]) {
+        return savedTheme;
+      }
+
+      // 检测系统偏好
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
+      }
+
+      return 'auto';
+    }
+
+    // 应用主题
+    function applyTheme(themeName) {
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 设置 CSS 变量
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 加载对应的 CSS
+      const themeStyle = document.getElementById('themeDefaultStyle');
+      if (themeStyle) {
+        themeStyle.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+      } else {
+        // 如果元素不存在，创建它
+        const link = document.createElement('link');
+        link.id = 'themeDefaultStyle';
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+        document.head.appendChild(link);
+      }
+
+      // 更新主题切换按钮
+      updateThemeToggle(themeName);
+
+      // 保存到 localStorage
+      localStorage.setItem('oceanpress-theme', themeName);
+
+      // 触发自定义事件
+      window.dispatchEvent(new CustomEvent('oceanpress-theme-changed', {
+        detail: { theme: themeName, actualTheme: actualTheme }
+      }));
+    }
+
+    // 创建主题切换按钮
+    function createThemeToggle() {
+      const toggle = document.createElement('div');
+      toggle.id = 'oceanpress-theme-toggle';
+      toggle.innerHTML = '<span class="theme-icon">🌗</span><span class="theme-text">自动</span>';
+      toggle.addEventListener('click', toggleTheme);
+      (document.querySelector('[data-type="NodeDocument"]')||document.body).appendChild(toggle);
+    }
+
+    // 更新主题切换按钮
+    function updateThemeToggle(themeName) {
+      const toggle = document.getElementById('oceanpress-theme-toggle');
+      if (!toggle) return;
+
+      const theme = themes[themeName] || themes.auto;
+      toggle.innerHTML = '<span class="theme-icon">' + theme.icon + '</span><span class="theme-text">' +
+        (themeName === 'auto' ? '自动' : (themeName === 'dark' ? '深色' : '浅色')) + '</span>';
+    }
+
+    // 切换主题
+    function toggleTheme() {
+      const currentTheme = getCurrentTheme();
+      const themeOrder = ['auto', 'light', 'dark'];
+      const currentIndex = themeOrder.indexOf(currentTheme);
+      const nextIndex = (currentIndex + 1) % themeOrder.length;
+      const nextTheme = themeOrder[nextIndex];
+
+      applyTheme(nextTheme);
+    }
+
+    // 监听系统主题变化
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const currentTheme = getCurrentTheme();
+        if (currentTheme === 'auto') {
+          applyTheme('auto');
+        }
+      });
+    }
+
+    // 监听自定义主题变化事件（用于侧边栏等组件）
+    window.addEventListener('oceanpress-theme-changed', function(e) {
+      // 这里可以添加其他组件需要响应主题变化的逻辑
+      console.log('Theme changed to:', e.detail);
+    });
+
+    // 初始化主题
+    function initTheme() {
+      const themeName = getCurrentTheme();
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 立即设置基础主题，避免闪烁
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 创建主题切换按钮
+      createThemeToggle();
+
+      // 应用完整主题
+      applyTheme(themeName);
+    }
+
+    // 页面加载完成后初始化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+      initTheme();
+    }
+  })();
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>6月</title>
   <script type="application/ld+json">
 {
@@ -83,7 +264,7 @@
     "@type": "WebPage",
     "@id": "/record/每日总结/2020/6月.html"
   },
-  "wordCount": 9757,
+  "wordCount": 9769,
   "articleSection": "技术文档",
   "inLanguage": "zh-CN"
 }
@@ -130,7 +311,8 @@
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div id="oceanpress-left-sidebar">
     
-    <iframe src="./../../../__oceanpress/docTree.html"></iframe>
+    <div id="oceanpress-doctree"></div>
+           <script src="./../../../__oceanpress/docTree.js" async></script>
   </div>
   <div style="min-height: 150px;" id="20201104153359-4v5piql" data-node-id="20201104153359-4v5piql" data-type="NodeDocument" updated="20201104153359" type="doc">
 
@@ -442,14 +624,14 @@ style.appendChild(document.createTextNode(css));
         </div><div id="20210521142713-rfm91ic" data-node-id="20210521142713-rfm91ic" data-type="NodeParagraph" class="p"><div spellcheck="false">这里的 <span data-type="code">count_cart_discounts.activityTotalAmount</span> 就有可能是一个长数值。结果出现了被截断显示不完整的 bug 通过后面隐藏的 <span data-type="code">&lt;cover-view style=&quot;color:transparent&quot;&gt;1&lt;/cover-view&gt;</span> 成功全部显示出来了</div></div><h2 id="20210521142713-z5c3a8q" data-node-id="20210521142713-z5c3a8q" data-type="NodeHeading" data-subtype="h2" class="h2"><a href="https://github.com/justjavac/deno_serverless_aliyun">deno 阿里云 runTime</a></h2><h2 id="20210521142713-6hv7qac" data-node-id="20210521142713-6hv7qac" data-type="NodeHeading" data-subtype="h2" class="h2">2020-6-24</h2><h3 id="20210521142713-8km8huh" data-node-id="20210521142713-8km8huh" data-type="NodeHeading" data-subtype="h3" class="h3">CSS div 部分透明渐变</h3><div id="20210521142713-dg1z8y6" data-node-id="20210521142713-dg1z8y6" data-type="NodeParagraph" class="p"><div spellcheck="false">主要是利用 mask 的 alpha 遮罩具体实现思路见 https://svelte.dev/repl/030dba75e2a44384b53c5fe6f235d3f8?version=3.23.2</div></div><div id="20210521142713-p9xu0mv" data-node-id="20210521142713-p9xu0mv" data-type="NodeParagraph" class="p"><div spellcheck="false">Chrome 系的目前好像并不支持，但手机上 iOS 和安卓基本能用。</div></div><div id="20210521142713-lsop6uq" data-node-id="20210521142713-lsop6uq" data-type="NodeParagraph" class="p"><div spellcheck="false">遮罩的要求则是 当 mask-mode 为 alpha 的时候他会根据遮罩层对应点的透明度来决定元素该位置的透明度，所以只要遮罩层的透明度是渐变的那么这个 div 自然也是透明渐变的效果了</div></div><h2 id="20210521142713-884z80s" data-node-id="20210521142713-884z80s" data-type="NodeHeading" data-subtype="h2" class="h2">2020-6-30</h2><h3 id="20210521142713-dh5dss7" data-node-id="20210521142713-dh5dss7" data-type="NodeHeading" data-subtype="h3" class="h3">一些图形库</h3><div id="20210521142713-5izzipi" data-node-id="20210521142713-5izzipi" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://wdd.js.org/jsplumb-chinese-tutorial/#/">jsplumb 主要用于图形连线</a></div></div><div id="20210521142713-dujxumw" data-node-id="20210521142713-dujxumw" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="https://g6.antv.vision/zh/examples/interaction/position">看起来比 jsplumb 要更全一些</a></div></div></div>
   <div id="oceanpress-right-sidebar"></div>
 </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
         appearance: {
-          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          mode: document.documentElement.getAttribute('data-theme-mode') === 'dark' ? 1 : 0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -463,7 +645,7 @@ style.appendChild(document.createTextNode(css));
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);
@@ -487,12 +669,12 @@ style.appendChild(document.createTextNode(css));
     });
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
-crossorigin="anonymous"></script><footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
-  <p style="margin: 0;">
+crossorigin="anonymous"></script><footer class="theme-aware-footer">
+  <p>
     技术支持：
-    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
-    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
-    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
   </p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>

@@ -3,17 +3,33 @@
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
 <style>
+  :root {
+    --oceanpress-header-bg: #f8f9fa;
+    --oceanpress-header-border: #e9ecef;
+    --oceanpress-header-text: #007bff;
+    --oceanpress-footer-bg: #f8f9fa;
+    --oceanpress-footer-text: #007bff;
+  }
+  
+  [data-theme-mode="dark"] {
+    --oceanpress-header-bg: #2d2d2d;
+    --oceanpress-header-border: #404040;
+    --oceanpress-header-text: #58a6ff;
+    --oceanpress-footer-bg: #2d2d2d;
+    --oceanpress-footer-text: #58a6ff;
+  }
+  
   .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #e9ecef;
+    background-color: var(--oceanpress-header-bg);
+    border-bottom: 1px solid var(--oceanpress-header-border);
   }
   .home-button {
     text-decoration: none;
-    color: #007bff;
+    color: var(--oceanpress-header-text);
     font-weight: bold;
     font-size: 16px;
   }
@@ -22,6 +38,23 @@
   }
   #search {
     width: 300px;
+  }
+  
+  .theme-aware-footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--oceanpress-footer-bg);
+    text-align: center;
+  }
+  .theme-aware-footer p {
+    margin: 0;
+  }
+  .theme-aware-footer a {
+    color: var(--oceanpress-footer-text);
+    text-decoration: none;
+  }
+  .theme-aware-footer a:hover {
+    text-decoration: underline;
   }
 </style>
 
@@ -47,15 +80,163 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="/other/我来迁移文档/春秋义战.html" />
 
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
-  function isNightTime() {
-    const currentHour = new Date().getHours();
-    return currentHour >= 18 || currentHour < 6;
-  }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  // 更好的主题切换方案
+  (function() {
+    // 主题配置
+    const themes = {
+      light: {
+        name: 'daylight',
+        mode: 'light',
+        icon: '☀️'
+      },
+      dark: {
+        name: 'midnight',
+        mode: 'dark',
+        icon: '🌙'
+      },
+      auto: {
+        name: 'auto',
+        mode: 'auto',
+        icon: '🌗',
+        getTheme: function() {
+          const currentHour = new Date().getHours();
+          return currentHour >= 18 || currentHour < 6 ? 'dark' : 'light';
+        }
+      }
+    };
+
+    // 获取当前主题设置
+    function getCurrentTheme() {
+      // 优先级：localStorage > 系统偏好 > auto
+      const savedTheme = localStorage.getItem('oceanpress-theme');
+      if (savedTheme && themes[savedTheme]) {
+        return savedTheme;
+      }
+
+      // 检测系统偏好
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
+      }
+
+      return 'auto';
+    }
+
+    // 应用主题
+    function applyTheme(themeName) {
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 设置 CSS 变量
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 加载对应的 CSS
+      const themeStyle = document.getElementById('themeDefaultStyle');
+      if (themeStyle) {
+        themeStyle.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+      } else {
+        // 如果元素不存在，创建它
+        const link = document.createElement('link');
+        link.id = 'themeDefaultStyle';
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+        document.head.appendChild(link);
+      }
+
+      // 更新主题切换按钮
+      updateThemeToggle(themeName);
+
+      // 保存到 localStorage
+      localStorage.setItem('oceanpress-theme', themeName);
+
+      // 触发自定义事件
+      window.dispatchEvent(new CustomEvent('oceanpress-theme-changed', {
+        detail: { theme: themeName, actualTheme: actualTheme }
+      }));
+    }
+
+    // 创建主题切换按钮
+    function createThemeToggle() {
+      const toggle = document.createElement('div');
+      toggle.id = 'oceanpress-theme-toggle';
+      toggle.innerHTML = '<span class="theme-icon">🌗</span><span class="theme-text">自动</span>';
+      toggle.addEventListener('click', toggleTheme);
+      (document.querySelector('[data-type="NodeDocument"]')||document.body).appendChild(toggle);
+    }
+
+    // 更新主题切换按钮
+    function updateThemeToggle(themeName) {
+      const toggle = document.getElementById('oceanpress-theme-toggle');
+      if (!toggle) return;
+
+      const theme = themes[themeName] || themes.auto;
+      toggle.innerHTML = '<span class="theme-icon">' + theme.icon + '</span><span class="theme-text">' +
+        (themeName === 'auto' ? '自动' : (themeName === 'dark' ? '深色' : '浅色')) + '</span>';
+    }
+
+    // 切换主题
+    function toggleTheme() {
+      const currentTheme = getCurrentTheme();
+      const themeOrder = ['auto', 'light', 'dark'];
+      const currentIndex = themeOrder.indexOf(currentTheme);
+      const nextIndex = (currentIndex + 1) % themeOrder.length;
+      const nextTheme = themeOrder[nextIndex];
+
+      applyTheme(nextTheme);
+    }
+
+    // 监听系统主题变化
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const currentTheme = getCurrentTheme();
+        if (currentTheme === 'auto') {
+          applyTheme('auto');
+        }
+      });
+    }
+
+    // 监听自定义主题变化事件（用于侧边栏等组件）
+    window.addEventListener('oceanpress-theme-changed', function(e) {
+      // 这里可以添加其他组件需要响应主题变化的逻辑
+      console.log('Theme changed to:', e.detail);
+    });
+
+    // 初始化主题
+    function initTheme() {
+      const themeName = getCurrentTheme();
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 立即设置基础主题，避免闪烁
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 创建主题切换按钮
+      createThemeToggle();
+
+      // 应用完整主题
+      applyTheme(themeName);
+    }
+
+    // 页面加载完成后初始化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+      initTheme();
+    }
+  })();
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>春秋义战</title>
   <script type="application/ld+json">
 {
@@ -83,7 +264,7 @@
     "@type": "WebPage",
     "@id": "/other/我来迁移文档/春秋义战.html"
   },
-  "wordCount": 506,
+  "wordCount": 518,
   "articleSection": "技术文档",
   "inLanguage": "zh-CN"
 }
@@ -124,7 +305,8 @@
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div id="oceanpress-left-sidebar">
     
-    <iframe src="./../../__oceanpress/docTree.html"></iframe>
+    <div id="oceanpress-doctree"></div>
+           <script src="./../../__oceanpress/docTree.js" async></script>
   </div>
   <div style="min-height: 150px;" id="20210523134052-dz43vdr" data-node-id="20210523134052-dz43vdr" data-type="NodeDocument" updated="20210523155054">
 
@@ -132,14 +314,14 @@
 <div id="20210523134102-rn9ct5q" data-node-id="20210523134102-rn9ct5q" data-type="NodeBlockquote" updated="20210523134102" class="bq"><div id="20210523134102-uu19ccf" data-node-id="20210523134102-uu19ccf" data-type="NodeParagraph" class="p"><div spellcheck="false"><a href="http://guyeshanren2011.com/search/%E4%B9%89%E6%88%98">为理想和价值观而发动战争，草根们搞搞后勤，看个热闹 </a>  姑射山人所说的义战水准</div></div></div><div id="20210523134140-p784naz" data-node-id="20210523134140-p784naz" data-type="NodeSuperBlock" updated="20210523155052" class="sb" data-sb-layout="col"><h2 id="20210523134102-kdhpqxa" data-node-id="20210523134102-kdhpqxa" data-type="NodeHeading" data-subtype="h2" class="h2"><a href="https://baike.baidu.com/item/%E5%B0%BD%E5%BF%83%E4%B8%8B/10461206?fromtitle=%E5%AD%9F%E5%AD%90%C2%B7%E5%B0%BD%E5%BF%83%E4%B8%8B&fromid=6001819">《孟子.尽心下》</a></h2><div id="20210523134102-wrvrmiy" data-node-id="20210523134102-wrvrmiy" data-type="NodeParagraph" updated="20210523155052" class="p" style="color: var(--b3-card-info-color);background-color: var(--b3-card-info-background);"><div spellcheck="false">“春秋无义战”是孟子在此文中提出的一个观点</div></div></div><div id="20210523134102-ps1zuwu" data-node-id="20210523134102-ps1zuwu" data-type="NodeParagraph" updated="20210523134102" class="p"><div spellcheck="false">孟子曰：“不仁哉梁惠王也！仁者以其所爱及其所不爱，不仁者以其所不爱及其所爱。”</div></div><div id="20210523134102-r8e5ae1" data-node-id="20210523134102-r8e5ae1" data-type="NodeParagraph" updated="20210523134102" class="p"><div spellcheck="false">公孙丑问曰：“何谓也？”</div></div><div id="20210523134102-tt4fds1" data-node-id="20210523134102-tt4fds1" data-type="NodeParagraph" updated="20210523134102" class="p"><div spellcheck="false">“梁惠王以土地之故，糜烂其民而战之，大败，将复之，恐不能胜，故驱其所爱子弟以殉之，是之谓以其所不爱及其所爱也。”</div></div><div id="20210523134102-riei9j2" data-node-id="20210523134102-riei9j2" data-type="NodeParagraph" updated="20210523134102" class="p"><div spellcheck="false">孟子曰：“<span data-type="strong" style="color: var(--b3-font-color11);">春秋无义战</span>。彼善于此，则有之矣。征者，上伐下也，敌国不相征也。”</div></div><div id="20210523134216-xbmyp1d" data-node-id="20210523134216-xbmyp1d" data-type="NodeSuperBlock" updated="20210523155054" class="sb" data-sb-layout="col"><div id="20210523134102-cjot3rv" data-node-id="20210523134102-cjot3rv" data-type="NodeParagraph" class="p"><div spellcheck="false">孟子曰：“尽信<span data-type="strong" style="background-color: var(--b3-font-background8);">《书》</span>，则不如无《书》。吾于《武成》，取二三策而已矣。仁人无敌于天下，以至仁伐至不仁，而何其血之流杵也？</div></div><div id="20210523134102-c6678ri" data-node-id="20210523134102-c6678ri" data-type="NodeParagraph" updated="20210523155054" class="p" style="color: var(--b3-card-info-color);background-color: var(--b3-card-info-background);"><div spellcheck="false">此《书》 指《尚书》？推及他处，倒也同理</div></div></div><div id="20210523134311-zito51z" data-node-id="20210523134311-zito51z" data-type="NodeSuperBlock" updated="20210523152201" class="sb" data-sb-layout="col"><div id="20210523134102-frrrdpm" data-node-id="20210523134102-frrrdpm" data-type="NodeParagraph" class="p"><div spellcheck="false">孟子曰：“有人曰，‘我善为陈，我善为战。’大罪也。国君好仁，天下无敌焉。南面而征，北狄怨；<span data-type="strong" style="background-color: var(--b3-font-background3);">东面而征，西夷怨，曰：‘奚为后我？’</span>武王之伐殷也，革车三百两，虎贲三千人。王曰：‘无畏！宁尔也，非敌百姓也。’若崩厥角稽首。征之为言正也，各欲正己也，焉用战？</div></div><div id="20210523134102-eyqe9f5" data-node-id="20210523134102-eyqe9f5" data-type="NodeParagraph" updated="20210523152201" class="p" style="color: var(--b3-card-info-color);background-color: var(--b3-card-info-background);"><div spellcheck="false">这个.... 仁君有如此魅力，难怪无敌  箪食壶浆，以迎王师</div></div></div><h2 id="20210523134102-ypy5blh" data-node-id="20210523134102-ypy5blh" data-type="NodeHeading" updated="20210523134102" data-subtype="h2" class="h2">其他资料</h2><div id="20210523134102-147uan2" data-node-id="20210523134102-147uan2" data-type="NodeParagraph" updated="20210523134102" class="p"><div spellcheck="false"><a href="https://www.zhihu.com/question/23332891">春秋时期为什么很多战争是以一种礼仪性质的，而且不灭国？</a></div></div></div>
   <div id="oceanpress-right-sidebar"></div>
 </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
         appearance: {
-          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          mode: document.documentElement.getAttribute('data-theme-mode') === 'dark' ? 1 : 0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -153,7 +335,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);
@@ -177,12 +359,12 @@
     });
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
-crossorigin="anonymous"></script><footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
-  <p style="margin: 0;">
+crossorigin="anonymous"></script><footer class="theme-aware-footer">
+  <p>
     技术支持：
-    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
-    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
-    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
   </p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>

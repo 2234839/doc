@@ -3,17 +3,33 @@
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
 <style>
+  :root {
+    --oceanpress-header-bg: #f8f9fa;
+    --oceanpress-header-border: #e9ecef;
+    --oceanpress-header-text: #007bff;
+    --oceanpress-footer-bg: #f8f9fa;
+    --oceanpress-footer-text: #007bff;
+  }
+  
+  [data-theme-mode="dark"] {
+    --oceanpress-header-bg: #2d2d2d;
+    --oceanpress-header-border: #404040;
+    --oceanpress-header-text: #58a6ff;
+    --oceanpress-footer-bg: #2d2d2d;
+    --oceanpress-footer-text: #58a6ff;
+  }
+  
   .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #e9ecef;
+    background-color: var(--oceanpress-header-bg);
+    border-bottom: 1px solid var(--oceanpress-header-border);
   }
   .home-button {
     text-decoration: none;
-    color: #007bff;
+    color: var(--oceanpress-header-text);
     font-weight: bold;
     font-size: 16px;
   }
@@ -22,6 +38,23 @@
   }
   #search {
     width: 300px;
+  }
+  
+  .theme-aware-footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--oceanpress-footer-bg);
+    text-align: center;
+  }
+  .theme-aware-footer p {
+    margin: 0;
+  }
+  .theme-aware-footer a {
+    color: var(--oceanpress-footer-text);
+    text-decoration: none;
+  }
+  .theme-aware-footer a:hover {
+    text-decoration: underline;
   }
 </style>
 
@@ -32,7 +65,7 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="description" content="Claude Code 配置使用自定义api claude --dangerously-skip-permissions 让 claude 不询问任何权限相关，直接执行 参考文档： https://docs.anthropic." />
-  <meta name="keywords" content="anthropic, claude, api, https, json, token, auth, settings" />
+  <meta name="keywords" content="anthropic, claude, api, https, json, token, com, auth" />
   <meta name="author" content="崮生" />
   <meta property="og:title" content="Claude Code 配置使用自定义api" />
   <meta property="og:description" content="Claude Code 配置使用自定义api claude --dangerously-skip-permissions 让 claude 不询问任何权限相关，直接执行 参考文档： https://docs.anthropic." />
@@ -40,22 +73,170 @@
   <meta property="og:url" content="/index/Claude Code 配置使用自定义api.html" />
   <meta property="og:site_name" content="OceanPress" />
   <meta property="article:published_time" content="2025-07-22T14:51:19Z" />
-  <meta property="article:modified_time" content="2025-08-11T10:16:32Z" />
+  <meta property="article:modified_time" content="2025-08-21T15:53:32Z" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Claude Code 配置使用自定义api" />
   <meta name="twitter:description" content="Claude Code 配置使用自定义api claude --dangerously-skip-permissions 让 claude 不询问任何权限相关，直接执行 参考文档： https://docs.anthropic." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="/index/Claude Code 配置使用自定义api.html" />
 
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
-  function isNightTime() {
-    const currentHour = new Date().getHours();
-    return currentHour >= 18 || currentHour < 6;
-  }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  // 更好的主题切换方案
+  (function() {
+    // 主题配置
+    const themes = {
+      light: {
+        name: 'daylight',
+        mode: 'light',
+        icon: '☀️'
+      },
+      dark: {
+        name: 'midnight',
+        mode: 'dark',
+        icon: '🌙'
+      },
+      auto: {
+        name: 'auto',
+        mode: 'auto',
+        icon: '🌗',
+        getTheme: function() {
+          const currentHour = new Date().getHours();
+          return currentHour >= 18 || currentHour < 6 ? 'dark' : 'light';
+        }
+      }
+    };
+
+    // 获取当前主题设置
+    function getCurrentTheme() {
+      // 优先级：localStorage > 系统偏好 > auto
+      const savedTheme = localStorage.getItem('oceanpress-theme');
+      if (savedTheme && themes[savedTheme]) {
+        return savedTheme;
+      }
+
+      // 检测系统偏好
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
+      }
+
+      return 'auto';
+    }
+
+    // 应用主题
+    function applyTheme(themeName) {
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 设置 CSS 变量
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 加载对应的 CSS
+      const themeStyle = document.getElementById('themeDefaultStyle');
+      if (themeStyle) {
+        themeStyle.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+      } else {
+        // 如果元素不存在，创建它
+        const link = document.createElement('link');
+        link.id = 'themeDefaultStyle';
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+        document.head.appendChild(link);
+      }
+
+      // 更新主题切换按钮
+      updateThemeToggle(themeName);
+
+      // 保存到 localStorage
+      localStorage.setItem('oceanpress-theme', themeName);
+
+      // 触发自定义事件
+      window.dispatchEvent(new CustomEvent('oceanpress-theme-changed', {
+        detail: { theme: themeName, actualTheme: actualTheme }
+      }));
+    }
+
+    // 创建主题切换按钮
+    function createThemeToggle() {
+      const toggle = document.createElement('div');
+      toggle.id = 'oceanpress-theme-toggle';
+      toggle.innerHTML = '<span class="theme-icon">🌗</span><span class="theme-text">自动</span>';
+      toggle.addEventListener('click', toggleTheme);
+      (document.querySelector('[data-type="NodeDocument"]')||document.body).appendChild(toggle);
+    }
+
+    // 更新主题切换按钮
+    function updateThemeToggle(themeName) {
+      const toggle = document.getElementById('oceanpress-theme-toggle');
+      if (!toggle) return;
+
+      const theme = themes[themeName] || themes.auto;
+      toggle.innerHTML = '<span class="theme-icon">' + theme.icon + '</span><span class="theme-text">' +
+        (themeName === 'auto' ? '自动' : (themeName === 'dark' ? '深色' : '浅色')) + '</span>';
+    }
+
+    // 切换主题
+    function toggleTheme() {
+      const currentTheme = getCurrentTheme();
+      const themeOrder = ['auto', 'light', 'dark'];
+      const currentIndex = themeOrder.indexOf(currentTheme);
+      const nextIndex = (currentIndex + 1) % themeOrder.length;
+      const nextTheme = themeOrder[nextIndex];
+
+      applyTheme(nextTheme);
+    }
+
+    // 监听系统主题变化
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const currentTheme = getCurrentTheme();
+        if (currentTheme === 'auto') {
+          applyTheme('auto');
+        }
+      });
+    }
+
+    // 监听自定义主题变化事件（用于侧边栏等组件）
+    window.addEventListener('oceanpress-theme-changed', function(e) {
+      // 这里可以添加其他组件需要响应主题变化的逻辑
+      console.log('Theme changed to:', e.detail);
+    });
+
+    // 初始化主题
+    function initTheme() {
+      const themeName = getCurrentTheme();
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 立即设置基础主题，避免闪烁
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 创建主题切换按钮
+      createThemeToggle();
+
+      // 应用完整主题
+      applyTheme(themeName);
+    }
+
+    // 页面加载完成后初始化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+      initTheme();
+    }
+  })();
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>Claude Code 配置使用自定义api</title>
   <script type="application/ld+json">
 {
@@ -63,9 +244,9 @@
   "@type": "Article",
   "headline": "Claude Code 配置使用自定义api",
   "description": "Claude Code 配置使用自定义api claude --dangerously-skip-permissions 让 claude 不询问任何权限相关，直接执行 参考文档： https://docs.anthropic.",
-  "keywords": "anthropic, claude, api, https, json, token, auth, settings",
+  "keywords": "anthropic, claude, api, https, json, token, com, auth",
   "datePublished": "2025-07-22T14:51:19Z",
-  "dateModified": "2025-08-11T10:16:32Z",
+  "dateModified": "2025-08-21T15:53:32Z",
   "author": {
     "@type": "Person",
     "name": "崮生",
@@ -83,7 +264,7 @@
     "@type": "WebPage",
     "@id": "/index/Claude Code 配置使用自定义api.html"
   },
-  "wordCount": 1097,
+  "wordCount": 1176,
   "articleSection": "技术文档",
   "inLanguage": "zh-CN"
 }
@@ -118,11 +299,12 @@
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div id="oceanpress-left-sidebar">
     
-    <iframe src="./../__oceanpress/docTree.html"></iframe>
+    <div id="oceanpress-doctree"></div>
+           <script src="./../__oceanpress/docTree.js" async></script>
   </div>
-  <div style="min-height: 150px;" id="20250722145119-8p7i3u7" data-node-id="20250722145119-8p7i3u7" data-type="NodeDocument" updated="20250811101632" type="doc">
+  <div style="min-height: 150px;" id="20250722145119-8p7i3u7" data-node-id="20250722145119-8p7i3u7" data-type="NodeDocument" updated="20250821155332" type="doc">
 
-<h1 id="20250722145119-8p7i3u7" data-node-id="20250722145119-8p7i3u7" data-type="NodeDocument" updated="20250811101632" type="doc" data-type="NodeHeading" class="h1">Claude Code 配置使用自定义api</h1>
+<h1 id="20250722145119-8p7i3u7" data-node-id="20250722145119-8p7i3u7" data-type="NodeDocument" updated="20250821155332" type="doc" data-type="NodeHeading" class="h1">Claude Code 配置使用自定义api</h1>
 <div id="20250811101615-oq97oks" data-node-id="20250811101615-oq97oks" data-type="NodeBlockquote" updated="20250811101632" class="bq"><div id="20250811101616-fszgrqr" data-node-id="20250811101616-fszgrqr" data-type="NodeParagraph" updated="20250811101632" class="p"><div spellcheck="false">claude --dangerously-skip-permissions 让 claude 不询问任何权限相关，直接执行</div></div></div><div id="20250722145218-oi41yn8" data-node-id="20250722145218-oi41yn8" data-type="NodeParagraph" updated="20250723131221" class="p"><div spellcheck="false">参考文档：<a href="https://docs.anthropic.com/en/docs/claude-code/settings">https://docs.anthropic.com/en/docs/claude-code/settings</a></div></div><div id="20250722145205-sukm2tj" data-node-id="20250722145205-sukm2tj" data-type="NodeParagraph" updated="20250722145347" class="p"><div spellcheck="false">以 Kimi K2 为例，先去kimi控制台获取一个sk</div></div><div id="20250722145136-127g7p5" data-node-id="20250722145136-127g7p5" data-type="NodeParagraph" updated="20250722145508" class="p"><div spellcheck="false">然后编辑用户目录下的 /.claude/settings.json （没有此文件就自己创建），例如： C:/Users/22348/.claude/settings.json ，linux 下也是一样的 ~/.claude/settings.json</div></div><div id="20250722145622-ekwg36z" data-node-id="20250722145622-ekwg36z" data-type="NodeParagraph" updated="20250722145626" class="p"><div spellcheck="false">内容填写如下</div></div><div id="20250722145136-8f6mi9w" data-node-id="20250722145136-8f6mi9w" data-type="NodeCodeBlock" updated="20250722145814" class="code-block" style="line-height: 22px;">
           <div class="protyle-action">
             <span class="protyle-action--first protyle-action__language">json</span>
@@ -143,7 +325,7 @@
           <div class="hljs" spellcheck="false">ANTHROPIC_BASE_URL=https://dashscope-intl.aliyuncs.com/api/v2/apps/claude-code-proxy
 ANTHROPIC_AUTH_TOKEN=your-dashscope-apikey
 </div>
-        </div><h2 id="20250730162920-o8toxp0" data-node-id="20250730162920-o8toxp0" data-type="NodeHeading" updated="20250730163028" data-subtype="h2" class="h2">使用智谱 GLM-4.5</h2><div id="20250730163005-ijunrjv" data-node-id="20250730163005-ijunrjv" data-type="NodeCodeBlock" updated="20250730163028" class="code-block" style="line-height: 22px;">
+        </div><h2 id="20250730162920-o8toxp0" data-node-id="20250730162920-o8toxp0" data-type="NodeHeading" updated="20250821155321" data-subtype="h2" class="h2">使用智谱 GLM-4.5</h2><div id="20250730163005-ijunrjv" data-node-id="20250730163005-ijunrjv" data-type="NodeCodeBlock" updated="20250730163028" class="code-block" style="line-height: 22px;">
           <div class="protyle-action">
             <span class="protyle-action--first protyle-action__language">log</span>
             <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -151,17 +333,17 @@ ANTHROPIC_AUTH_TOKEN=your-dashscope-apikey
           <div class="hljs" spellcheck="false">export ANTHROPIC_BASE_URL=https://open.bigmodel.cn/api/anthropic 
 export ANTHROPIC_AUTH_TOKEN="这里输入你注册的bigmodel API keys"
 </div>
-        </div></div>
+        </div><h2 id="20250821155321-c01caeu" data-node-id="20250821155321-c01caeu" data-type="NodeHeading" updated="20250821155332" data-subtype="h2" class="h2">使用 DeepSeek</h2><div id="20250821155328-yfrt3ql" data-node-id="20250821155328-yfrt3ql" data-type="NodeParagraph" updated="20250821155331" class="p"><div spellcheck="false"><a href="https://api-docs.deepseek.com/zh-cn/guides/anthropic_api">https://api-docs.deepseek.com/zh-cn/guides/anthropic_api</a></div></div><div id="20250821155332-x21h0ai" data-node-id="20250821155332-x21h0ai" data-type="NodeParagraph" updated="20250821155332" class="p"><div spellcheck="false"></div></div></div>
   <div id="oceanpress-right-sidebar"></div>
 </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
         appearance: {
-          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          mode: document.documentElement.getAttribute('data-theme-mode') === 'dark' ? 1 : 0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -175,7 +357,7 @@ export ANTHROPIC_AUTH_TOKEN="这里输入你注册的bigmodel API keys"
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);
@@ -199,12 +381,12 @@ export ANTHROPIC_AUTH_TOKEN="这里输入你注册的bigmodel API keys"
     });
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
-crossorigin="anonymous"></script><footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
-  <p style="margin: 0;">
+crossorigin="anonymous"></script><footer class="theme-aware-footer">
+  <p>
     技术支持：
-    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
-    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
-    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
   </p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>

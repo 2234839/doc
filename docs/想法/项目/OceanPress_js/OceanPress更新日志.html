@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  :root {
+    --oceanpress-header-bg: #f8f9fa;
+    --oceanpress-header-border: #e9ecef;
+    --oceanpress-header-text: #007bff;
+    --oceanpress-footer-bg: #f8f9fa;
+    --oceanpress-footer-text: #007bff;
+  }
+  
+  [data-theme-mode="dark"] {
+    --oceanpress-header-bg: #2d2d2d;
+    --oceanpress-header-border: #404040;
+    --oceanpress-header-text: #58a6ff;
+    --oceanpress-footer-bg: #2d2d2d;
+    --oceanpress-footer-text: #58a6ff;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--oceanpress-header-bg);
+    border-bottom: 1px solid var(--oceanpress-header-border);
+  }
+  .home-button {
+    text-decoration: none;
+    color: var(--oceanpress-header-text);
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+  
+  .theme-aware-footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--oceanpress-footer-bg);
+    text-align: center;
+  }
+  .theme-aware-footer p {
+    margin: 0;
+  }
+  .theme-aware-footer a {
+    color: var(--oceanpress-footer-text);
+    text-decoration: none;
+  }
+  .theme-aware-footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="description" content="OceanPress更新日志 v1.0.42 OceanPress支持侧边文档树目录导航 v0.0.10 支持预览功能，依赖于 hono 优秀的多平台运行能力，我将 OceanPress cli程序的 运行代理站点 功能移植到了 web ui界面， 现在 web ui 可以在编译之前点击相关文档预览编译之后的效果了。" />
+  <meta name="keywords" content="oceanpress, web, 支持, 文档, 运行, issues, 添加, 编译之" />
+  <meta name="author" content="崮生" />
+  <meta property="og:title" content="OceanPress更新日志" />
+  <meta property="og:description" content="OceanPress更新日志 v1.0.42 OceanPress支持侧边文档树目录导航 v0.0.10 支持预览功能，依赖于 hono 优秀的多平台运行能力，我将 OceanPress cli程序的 运行代理站点 功能移植到了 web ui界面， 现在 web ui 可以在编译之前点击相关文档预览编译之后的效果了。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="/想法/项目/OceanPress_js/OceanPress更新日志.html" />
+  <meta property="og:site_name" content="OceanPress" />
+  <meta property="article:published_time" content="2025-08-22T17:35:29Z" />
+  <meta property="article:modified_time" content="2025-08-22T17:36:12Z" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OceanPress更新日志" />
+  <meta name="twitter:description" content="OceanPress更新日志 v1.0.42 OceanPress支持侧边文档树目录导航 v0.0.10 支持预览功能，依赖于 hono 优秀的多平台运行能力，我将 OceanPress cli程序的 运行代理站点 功能移植到了 web ui界面， 现在 web ui 可以在编译之前点击相关文档预览编译之后的效果了。" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="/想法/项目/OceanPress_js/OceanPress更新日志.html" />
+
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  // 更好的主题切换方案
+  (function() {
+    // 主题配置
+    const themes = {
+      light: {
+        name: 'daylight',
+        mode: 'light',
+        icon: '☀️'
+      },
+      dark: {
+        name: 'midnight',
+        mode: 'dark',
+        icon: '🌙'
+      },
+      auto: {
+        name: 'auto',
+        mode: 'auto',
+        icon: '🌗',
+        getTheme: function() {
+          const currentHour = new Date().getHours();
+          return currentHour >= 18 || currentHour < 6 ? 'dark' : 'light';
+        }
+      }
+    };
+
+    // 获取当前主题设置
+    function getCurrentTheme() {
+      // 优先级：localStorage > 系统偏好 > auto
+      const savedTheme = localStorage.getItem('oceanpress-theme');
+      if (savedTheme && themes[savedTheme]) {
+        return savedTheme;
+      }
+
+      // 检测系统偏好
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
+      }
+
+      return 'auto';
+    }
+
+    // 应用主题
+    function applyTheme(themeName) {
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 设置 CSS 变量
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 加载对应的 CSS
+      const themeStyle = document.getElementById('themeDefaultStyle');
+      if (themeStyle) {
+        themeStyle.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+      } else {
+        // 如果元素不存在，创建它
+        const link = document.createElement('link');
+        link.id = 'themeDefaultStyle';
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+        document.head.appendChild(link);
+      }
+
+      // 更新主题切换按钮
+      updateThemeToggle(themeName);
+
+      // 保存到 localStorage
+      localStorage.setItem('oceanpress-theme', themeName);
+
+      // 触发自定义事件
+      window.dispatchEvent(new CustomEvent('oceanpress-theme-changed', {
+        detail: { theme: themeName, actualTheme: actualTheme }
+      }));
+    }
+
+    // 创建主题切换按钮
+    function createThemeToggle() {
+      const toggle = document.createElement('div');
+      toggle.id = 'oceanpress-theme-toggle';
+      toggle.innerHTML = '<span class="theme-icon">🌗</span><span class="theme-text">自动</span>';
+      toggle.addEventListener('click', toggleTheme);
+      (document.querySelector('[data-type="NodeDocument"]')||document.body).appendChild(toggle);
+    }
+
+    // 更新主题切换按钮
+    function updateThemeToggle(themeName) {
+      const toggle = document.getElementById('oceanpress-theme-toggle');
+      if (!toggle) return;
+
+      const theme = themes[themeName] || themes.auto;
+      toggle.innerHTML = '<span class="theme-icon">' + theme.icon + '</span><span class="theme-text">' +
+        (themeName === 'auto' ? '自动' : (themeName === 'dark' ? '深色' : '浅色')) + '</span>';
+    }
+
+    // 切换主题
+    function toggleTheme() {
+      const currentTheme = getCurrentTheme();
+      const themeOrder = ['auto', 'light', 'dark'];
+      const currentIndex = themeOrder.indexOf(currentTheme);
+      const nextIndex = (currentIndex + 1) % themeOrder.length;
+      const nextTheme = themeOrder[nextIndex];
+
+      applyTheme(nextTheme);
+    }
+
+    // 监听系统主题变化
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const currentTheme = getCurrentTheme();
+        if (currentTheme === 'auto') {
+          applyTheme('auto');
+        }
+      });
+    }
+
+    // 监听自定义主题变化事件（用于侧边栏等组件）
+    window.addEventListener('oceanpress-theme-changed', function(e) {
+      // 这里可以添加其他组件需要响应主题变化的逻辑
+      console.log('Theme changed to:', e.detail);
+    });
+
+    // 初始化主题
+    function initTheme() {
+      const themeName = getCurrentTheme();
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 立即设置基础主题，避免闪烁
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 创建主题切换按钮
+      createThemeToggle();
+
+      // 应用完整主题
+      applyTheme(themeName);
+    }
+
+    // 页面加载完成后初始化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+      initTheme();
+    }
+  })();
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>OceanPress更新日志</title>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "OceanPress更新日志",
+  "description": "OceanPress更新日志 v1.0.42 OceanPress支持侧边文档树目录导航 v0.0.10 支持预览功能，依赖于 hono 优秀的多平台运行能力，我将 OceanPress cli程序的 运行代理站点 功能移植到了 web ui界面， 现在 web ui 可以在编译之前点击相关文档预览编译之后的效果了。",
+  "keywords": "oceanpress, web, 支持, 文档, 运行, issues, 添加, 编译之",
+  "datePublished": "2025-08-22T17:35:29Z",
+  "dateModified": "2025-08-22T17:36:12Z",
+  "author": {
+    "@type": "Person",
+    "name": "崮生",
+    "url": ""
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "OceanPress",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/assets/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/想法/项目/OceanPress_js/OceanPress更新日志.html"
+  },
+  "wordCount": 1321,
+  "articleSection": "技术文档",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "想法",
+      "item": "/想法.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "项目",
+      "item": "/想法/项目.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "OceanPress_js",
+      "item": "/想法/项目/OceanPress_js.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "OceanPress更新日志",
+      "item": "/想法/项目/OceanPress_js/OceanPress更新日志.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div id="oceanpress-left-sidebar">
+    
+    <div id="oceanpress-doctree"></div>
+           <script src="./../../../__oceanpress/docTree.js" async></script>
+  </div>
+  <div style="min-height: 150px;" id="20250822173529-o1ssnht" data-node-id="20250822173529-o1ssnht" data-type="NodeDocument" updated="20250822173612" type="doc">
+
+<h1 id="20250822173529-o1ssnht" data-node-id="20250822173529-o1ssnht" data-type="NodeDocument" updated="20250822173612" type="doc" data-type="NodeHeading" class="h1">OceanPress更新日志</h1>
+<h3 id="20250328131028-v9p3hqw" data-node-id="20250328131028-v9p3hqw" data-type="NodeHeading" updated="20250328131032" data-subtype="h3" class="h3"><span data-type="block-ref"   data-subtype="d"   data-id="20250328131032-9kfjdb9"><a href="./../../../想法/项目/OceanPress_js/v1.0.42 OceanPress支持侧边文档树目录导航.html#20250328131032-9kfjdb9">v1.0.42 OceanPress支持侧边文档树目录导航</a></span></h3><h3 id="20240103171625-nhoptn4" data-node-id="20240103171625-nhoptn4" data-type="NodeHeading" updated="20250205131217" data-subtype="h3" class="h3">v0.0.10</h3><div id="20240103171639-k1bj85h" data-node-id="20240103171639-k1bj85h" data-type="NodeParagraph" updated="20240103172009" class="p" heading-fold="1"><div spellcheck="false">支持预览功能，依赖于 hono 优秀的多平台运行能力，我将 OceanPress cli程序的 <span data-type="block-ref"   data-subtype="d"   data-id="20231219173156-ws8a8r5"><a href="./../../../想法/项目/OceanPress_js.html#20231219173156-ws8a8r5">运行代理站点</a></span> 功能移植到了 web ui界面，</div></div><div id="20240103172009-wm877t9" data-node-id="20240103172009-wm877t9" data-type="NodeParagraph" updated="20240103172057" class="p" heading-fold="1"><div spellcheck="false">现在 web ui 可以在编译之前点击相关文档预览编译之后的效果了。</div></div><div id="20240103172335-ce5kf13" data-node-id="20240103172335-ce5kf13" data-type="NodeParagraph" class="p" heading-fold="1"><div spellcheck="false"></div></div><div id="20240103171732-53ak0lv" data-node-id="20240103171732-53ak0lv" data-type="NodeParagraph" updated="20250205131217" class="p" heading-fold="1"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 333px;" style="width: 323px;" style="width: 333px;">
+  <img
+    src="./../../../assets/image-20240103171732-oh4n4bp.png"
+    data-src="./../../../assets/image-20240103171732-oh4n4bp.png"
+    title="web ui 预览列表界面"
+    style="width: 323px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title">web ui 预览列表界面</span></span>​<span data-type="NodeImage" class="img" parent-style="width: 503px;" style="width: 493px;" style="width: 503px;">
+  <img
+    src="./../../../assets/firefox_yLDIf40WME-20240103172326-cxk838y.gif"
+    data-src="./../../../assets/firefox_yLDIf40WME-20240103172326-cxk838y.gif"
+    title="运行效果"
+    style="width: 493px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title">运行效果</span></span>​</div></div><div id="20240103172435-jfz5ekz" data-node-id="20240103172435-jfz5ekz" data-type="NodeParagraph" updated="20240103172510" class="p" heading-fold="1"><div spellcheck="false">下一步我将开始完善 OceanPress 思源插件，将web ui内置到插件之中。</div></div><div id="20240103172518-64all2v" data-node-id="20240103172518-64all2v" data-type="NodeParagraph" updated="20240103172528" class="p" heading-fold="1"><div spellcheck="false">诸位新年快乐🎉</div></div><h3 id="20240101173801-gie8lsy" data-node-id="20240101173801-gie8lsy" data-type="NodeHeading" updated="20240101173804" data-subtype="h3" class="h3">v0.0.9</h3><div id="20240101173805-6owrh3l" data-node-id="20240101173805-6owrh3l" data-type="NodeList" updated="20240101173852" data-subtype="u" class="list" heading-fold="1"><div id="20240101173835-n3jzsep" data-node-id="20240101173835-n3jzsep" data-type="NodeListItem" updated="20240101173852" data-subtype="u" class="li" heading-fold="1" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240101173835-vl3zqqd" data-node-id="20240101173835-vl3zqqd" data-type="NodeParagraph" updated="20240101173852" class="p" heading-fold="1"><div spellcheck="false">支持 meilisearch <a href="https://github.com/siyuan-note/oceanpress/issues/5">issues/5</a></div></div>
+      </div></div><h3 id="20231227184634-lhqpvyd" data-node-id="20231227184634-lhqpvyd" data-type="NodeHeading" updated="20231227184644" data-subtype="h3" class="h3">v0.0.8</h3><div id="20231220103410-vs3mbxv" data-node-id="20231220103410-vs3mbxv" data-type="NodeList" updated="20231227184105" data-subtype="u" class="list" heading-fold="1"><div id="20231227184025-i07lhjq" data-node-id="20231227184025-i07lhjq" data-type="NodeListItem" updated="20231227184105" data-subtype="u" class="li" heading-fold="1" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231227184025-8d7jq9r" data-node-id="20231227184025-8d7jq9r" data-type="NodeParagraph" updated="20231227184105" class="p" heading-fold="1"><div spellcheck="false"><a href="https://github.com/siyuan-note/oceanpress/issues/4">支持上传 s3  issues/4</a></div></div>
+      </div><div id="20231220103412-an60ls8" data-node-id="20231220103412-an60ls8" data-type="NodeListItem" data-subtype="u" class="li" heading-fold="1" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231220103412-wkad5h8" data-node-id="20231220103412-wkad5h8" data-type="NodeParagraph" updated="20231220103520" class="p" heading-fold="1"><div spellcheck="false">添加自动暗黑模式 18 以后 6点以前 <a href="https://github.com/siyuan-note/oceanpress/commit/055a20de">055a20de</a></div></div>
+      </div><div id="20231220103621-zudjb6t" data-node-id="20231220103621-zudjb6t" data-type="NodeListItem" updated="20231220103649" data-subtype="u" class="li" heading-fold="1" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231220103621-erp8oep" data-node-id="20231220103621-erp8oep" data-type="NodeParagraph" updated="20231220103649" class="p" heading-fold="1"><div spellcheck="false">修复代码块未高亮的问题 <a href="https://github.com/siyuan-note/oceanpress/commit/5afe5053">5afe5053</a></div></div>
+      </div><div id="20231220110821-jchfga4" data-node-id="20231220110821-jchfga4" data-type="NodeListItem" updated="20231220110837" data-subtype="u" class="li" heading-fold="1" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231220110821-7naf6oy" data-node-id="20231220110821-7naf6oy" data-type="NodeParagraph" updated="20231220110837" class="p" heading-fold="1"><div spellcheck="false">配置添加版本号，运行时将自动对比版本决定是否进行全量编译 <a href="https://github.com/siyuan-note/oceanpress/commit/972442d0">972442d0</a></div></div>
+      </div><div id="20231227155723-qbbbs5u" data-node-id="20231227155723-qbbbs5u" data-type="NodeListItem" updated="20231227155827" data-subtype="u" class="li" heading-fold="1" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231227155723-8sk0khu" data-node-id="20231227155723-8sk0khu" data-type="NodeParagraph" updated="20231227184044" class="p" heading-fold="1"><div spellcheck="false"><a href="https://github.com/siyuan-note/oceanpress/issues/3">实现 rss.xml 生成 issues/3</a></div></div><div id="20231227155755-a7ucqfi" data-node-id="20231227155755-a7ucqfi" data-type="NodeParagraph" updated="20231227155827" class="p" heading-fold="1"><div spellcheck="false">曾经实现了的功能，现在终于又回来了</div></div>
+      </div></div><h3 id="20231011161840-8ywkpwj" data-node-id="20231011161840-8ywkpwj" data-type="NodeHeading" updated="20231011161846" data-subtype="h3" class="h3">preview.10</h3><div id="20231009172535-rw5iu53" data-node-id="20231009172535-rw5iu53" data-type="NodeParagraph" updated="20231011161846" class="p" heading-fold="1"><div spellcheck="false"><span data-type="strong">💥重磅更新</span>：<span data-type="block-ref"   data-subtype="d"   data-id="20231010132148-zw7l2vj"><a href="./../../../想法/项目/OceanPress_js/OceanPress插件.html#20231010132148-zw7l2vj">为挂件生成快照</a></span></div></div><div id="20231008222108-w71y78t" data-node-id="20231008222108-w71y78t" data-type="NodeList" updated="20231011161846" data-subtype="u" class="list" heading-fold="1"><div id="20231008174734-4bjmix0" data-node-id="20231008174734-4bjmix0" data-type="NodeListItem" updated="20231010182128" data-subtype="u" class="li" heading-fold="1" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231008174734-lnlx20k" data-node-id="20231008174734-lnlx20k" data-type="NodeParagraph" updated="20231009124703" class="p" heading-fold="1"><div spellcheck="false">图片延迟加载功能 </div></div><div id="20231009124709-slzzugd" data-node-id="20231009124709-slzzugd" data-type="NodeList" updated="20231010182128" data-subtype="u" class="list" heading-fold="1"><div id="20231009124709-r7323sc" data-node-id="20231009124709-r7323sc" data-type="NodeListItem" updated="20231010182128" data-subtype="u" class="li" heading-fold="1" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231009124709-h7qsg9j" data-node-id="20231009124709-h7qsg9j" data-type="NodeParagraph" updated="20231010182128" class="p" heading-fold="1"><div spellcheck="false">img 标签添加属性 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#loading">loading=&quot;lazy&quot;</a></div></div>
+      </div></div>
+      </div><div id="20231008222109-om03mlb" data-node-id="20231008222109-om03mlb" data-type="NodeListItem" updated="20231008222158" data-subtype="u" class="li" heading-fold="1" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231008222109-wo363wc" data-node-id="20231008222109-wo363wc" data-type="NodeParagraph" updated="20231008222124" class="p" heading-fold="1"><div spellcheck="false">更完善的增量编译功能</div></div><div id="20231008222124-mecx9i4" data-node-id="20231008222124-mecx9i4" data-type="NodeList" updated="20231008222158" data-subtype="u" class="list" heading-fold="1"><div id="20231008222124-o7p8bfl" data-node-id="20231008222124-o7p8bfl" data-type="NodeListItem" data-subtype="u" class="li" heading-fold="1" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231008222124-k4lpdwe" data-node-id="20231008222124-k4lpdwe" data-type="NodeParagraph" updated="20231008222148" class="p" heading-fold="1"><div spellcheck="false">在文档 a 引用文档 b 的情况下</div></div>
+      </div><div id="20231008222149-zox14kf" data-node-id="20231008222149-zox14kf" data-type="NodeListItem" updated="20231008222158" data-subtype="u" class="li" heading-fold="1" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231008222149-4th0ita" data-node-id="20231008222149-4th0ita" data-type="NodeParagraph" updated="20231008222158" class="p" heading-fold="1"><div spellcheck="false">b发生变化也会触发a文档的编译</div></div>
+      </div></div>
+      </div><div id="20231009172734-ax8y58z" data-node-id="20231009172734-ax8y58z" data-type="NodeListItem" updated="20231009172736" data-subtype="u" class="li" heading-fold="1" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231009172736-ap229q8" data-node-id="20231009172736-ap229q8" data-type="NodeBlockQueryEmbed" updated="20231009172736" heading-fold="1" data-type="NodeBlockquote" class="bq">  <div id="20230916192455-lix3ui3" data-node-id="20230916192455-lix3ui3" data-type="NodeListItem" updated="20240118165651" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192455-hxfh670" data-node-id="20230916192455-hxfh670" data-type="NodeParagraph" updated="20240612180341" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background4);">对挂件生成快照，至少能看见预览效果(需要安装插件，只是能看...)</span></div></div>
+      </div>  </div>
+      </div></div><div id="20231010165218-zpa2656" data-node-id="20231010165218-zpa2656" data-type="NodeList" updated="20231011161846" data-subtype="u" class="list" heading-fold="1"><div id="20231010161623-ezt42c3" data-node-id="20231010161623-ezt42c3" data-type="NodeListItem" data-subtype="u" class="li" heading-fold="1" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231010161623-vxs1xia" data-node-id="20231010161623-vxs1xia" data-type="NodeParagraph" updated="20231010165212" class="p" heading-fold="1"><div spellcheck="false">渲染嵌入块中的标题块后面的非标题块</div></div>
+      </div><div id="20231010181515-gxcu1kp" data-node-id="20231010181515-gxcu1kp" data-type="NodeListItem" updated="20231010181518" data-subtype="u" class="li" heading-fold="1" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231010181515-1rahgwg" data-node-id="20231010181515-1rahgwg" data-type="NodeParagraph" updated="20231010181518" class="p" heading-fold="1"><div spellcheck="false">fix 任意元素上悬停都显示文档标题</div></div>
+      </div></div><h3 id="20240118165438-f03k98x" data-node-id="20240118165438-f03k98x" data-type="NodeHeading" updated="20240118165446" data-subtype="h3" class="h3">历史日志</h3><div id="20240118165446-9htqgn1" data-node-id="20240118165446-9htqgn1" data-type="NodeParagraph" updated="20240118165458" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20240118165400-y89pfvq"><a href="./../../../想法/项目/OceanPress_js/2023 年更新日志.html#20240118165400-y89pfvq">2023 年更新日志</a></span></div></div><div id="20240118165459-2amexnd" data-node-id="20240118165459-2amexnd" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: document.documentElement.getAttribute('data-theme-mode') === 'dark' ? 1 : 0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
+crossorigin="anonymous"></script><footer class="theme-aware-footer">
+  <p>
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>

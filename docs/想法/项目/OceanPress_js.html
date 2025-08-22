@@ -3,17 +3,33 @@
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
 <style>
+  :root {
+    --oceanpress-header-bg: #f8f9fa;
+    --oceanpress-header-border: #e9ecef;
+    --oceanpress-header-text: #007bff;
+    --oceanpress-footer-bg: #f8f9fa;
+    --oceanpress-footer-text: #007bff;
+  }
+  
+  [data-theme-mode="dark"] {
+    --oceanpress-header-bg: #2d2d2d;
+    --oceanpress-header-border: #404040;
+    --oceanpress-header-text: #58a6ff;
+    --oceanpress-footer-bg: #2d2d2d;
+    --oceanpress-footer-text: #58a6ff;
+  }
+  
   .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #e9ecef;
+    background-color: var(--oceanpress-header-bg);
+    border-bottom: 1px solid var(--oceanpress-header-border);
   }
   .home-button {
     text-decoration: none;
-    color: #007bff;
+    color: var(--oceanpress-header-text);
     font-weight: bold;
     font-size: 16px;
   }
@@ -22,6 +38,23 @@
   }
   #search {
     width: 300px;
+  }
+  
+  .theme-aware-footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--oceanpress-footer-bg);
+    text-align: center;
+  }
+  .theme-aware-footer p {
+    margin: 0;
+  }
+  .theme-aware-footer a {
+    color: var(--oceanpress-footer-text);
+    text-decoration: none;
+  }
+  .theme-aware-footer a:hover {
+    text-decoration: underline;
   }
 </style>
 
@@ -32,7 +65,7 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="description" content="&#x1f30a OceanPress_js 非常快速的从思源笔记本生成一个静态站点，直接访问 oceanpress.heartstack.space 即可使用 源码仓库： https://github.com/2234839/oceanPress_js 可以兼容 hexo ： hexo-oceanpress （这里内..." />
-  <meta name="keywords" content="文档, 能看, 标题, lazy, fix, 增量编译, 引用文档, 发生变化" />
+  <meta name="keywords" content="oceanpress, 生成, 配置, 插件, config, 支持, 站点, 文件" />
   <meta name="author" content="崮生" />
   <meta property="og:title" content="OceanPress_js" />
   <meta property="og:description" content="&#x1f30a OceanPress_js 非常快速的从思源笔记本生成一个静态站点，直接访问 oceanpress.heartstack.space 即可使用 源码仓库： https://github.com/2234839/oceanPress_js 可以兼容 hexo ： hexo-oceanpress （这里内..." />
@@ -43,7 +76,7 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="article:published_time" content="2023-09-05T17:05:31Z" />
-  <meta property="article:modified_time" content="2025-03-28T13:10:32Z" />
+  <meta property="article:modified_time" content="2025-08-22T17:37:35Z" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="OceanPress_js" />
   <meta name="twitter:description" content="&#x1f30a OceanPress_js 非常快速的从思源笔记本生成一个静态站点，直接访问 oceanpress.heartstack.space 即可使用 源码仓库： https://github.com/2234839/oceanPress_js 可以兼容 hexo ： hexo-oceanpress （这里内..." />
@@ -51,15 +84,163 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="/想法/项目/OceanPress_js.html" />
 
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
-  function isNightTime() {
-    const currentHour = new Date().getHours();
-    return currentHour >= 18 || currentHour < 6;
-  }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  // 更好的主题切换方案
+  (function() {
+    // 主题配置
+    const themes = {
+      light: {
+        name: 'daylight',
+        mode: 'light',
+        icon: '☀️'
+      },
+      dark: {
+        name: 'midnight',
+        mode: 'dark',
+        icon: '🌙'
+      },
+      auto: {
+        name: 'auto',
+        mode: 'auto',
+        icon: '🌗',
+        getTheme: function() {
+          const currentHour = new Date().getHours();
+          return currentHour >= 18 || currentHour < 6 ? 'dark' : 'light';
+        }
+      }
+    };
+
+    // 获取当前主题设置
+    function getCurrentTheme() {
+      // 优先级：localStorage > 系统偏好 > auto
+      const savedTheme = localStorage.getItem('oceanpress-theme');
+      if (savedTheme && themes[savedTheme]) {
+        return savedTheme;
+      }
+
+      // 检测系统偏好
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
+      }
+
+      return 'auto';
+    }
+
+    // 应用主题
+    function applyTheme(themeName) {
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 设置 CSS 变量
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 加载对应的 CSS
+      const themeStyle = document.getElementById('themeDefaultStyle');
+      if (themeStyle) {
+        themeStyle.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+      } else {
+        // 如果元素不存在，创建它
+        const link = document.createElement('link');
+        link.id = 'themeDefaultStyle';
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+        document.head.appendChild(link);
+      }
+
+      // 更新主题切换按钮
+      updateThemeToggle(themeName);
+
+      // 保存到 localStorage
+      localStorage.setItem('oceanpress-theme', themeName);
+
+      // 触发自定义事件
+      window.dispatchEvent(new CustomEvent('oceanpress-theme-changed', {
+        detail: { theme: themeName, actualTheme: actualTheme }
+      }));
+    }
+
+    // 创建主题切换按钮
+    function createThemeToggle() {
+      const toggle = document.createElement('div');
+      toggle.id = 'oceanpress-theme-toggle';
+      toggle.innerHTML = '<span class="theme-icon">🌗</span><span class="theme-text">自动</span>';
+      toggle.addEventListener('click', toggleTheme);
+      (document.querySelector('[data-type="NodeDocument"]')||document.body).appendChild(toggle);
+    }
+
+    // 更新主题切换按钮
+    function updateThemeToggle(themeName) {
+      const toggle = document.getElementById('oceanpress-theme-toggle');
+      if (!toggle) return;
+
+      const theme = themes[themeName] || themes.auto;
+      toggle.innerHTML = '<span class="theme-icon">' + theme.icon + '</span><span class="theme-text">' +
+        (themeName === 'auto' ? '自动' : (themeName === 'dark' ? '深色' : '浅色')) + '</span>';
+    }
+
+    // 切换主题
+    function toggleTheme() {
+      const currentTheme = getCurrentTheme();
+      const themeOrder = ['auto', 'light', 'dark'];
+      const currentIndex = themeOrder.indexOf(currentTheme);
+      const nextIndex = (currentIndex + 1) % themeOrder.length;
+      const nextTheme = themeOrder[nextIndex];
+
+      applyTheme(nextTheme);
+    }
+
+    // 监听系统主题变化
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const currentTheme = getCurrentTheme();
+        if (currentTheme === 'auto') {
+          applyTheme('auto');
+        }
+      });
+    }
+
+    // 监听自定义主题变化事件（用于侧边栏等组件）
+    window.addEventListener('oceanpress-theme-changed', function(e) {
+      // 这里可以添加其他组件需要响应主题变化的逻辑
+      console.log('Theme changed to:', e.detail);
+    });
+
+    // 初始化主题
+    function initTheme() {
+      const themeName = getCurrentTheme();
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 立即设置基础主题，避免闪烁
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 创建主题切换按钮
+      createThemeToggle();
+
+      // 应用完整主题
+      applyTheme(themeName);
+    }
+
+    // 页面加载完成后初始化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+      initTheme();
+    }
+  })();
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>OceanPress_js</title>
   <script type="application/ld+json">
 {
@@ -67,9 +248,9 @@
   "@type": "Article",
   "headline": "OceanPress_js",
   "description": "&#x1f30a OceanPress_js 非常快速的从思源笔记本生成一个静态站点，直接访问 oceanpress.heartstack.space 即可使用 源码仓库： https://github.com/2234839/oceanPress_js 可以兼容 hexo ： hexo-oceanpress （这里内...",
-  "keywords": "文档, 能看, 标题, lazy, fix, 增量编译, 引用文档, 发生变化",
+  "keywords": "oceanpress, 生成, 配置, 插件, config, 支持, 站点, 文件",
   "datePublished": "2023-09-05T17:05:31Z",
-  "dateModified": "2025-03-28T13:10:32Z",
+  "dateModified": "2025-08-22T17:37:35Z",
   "author": {
     "@type": "Person",
     "name": "崮生",
@@ -93,7 +274,7 @@
     "width": 1200,
     "height": 630
   },
-  "wordCount": 6552,
+  "wordCount": 5232,
   "articleSection": "技术文档",
   "inLanguage": "zh-CN"
 }
@@ -134,11 +315,12 @@
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div id="oceanpress-left-sidebar">
     
-    <iframe src="./../../__oceanpress/docTree.html"></iframe>
+    <div id="oceanpress-doctree"></div>
+           <script src="./../../__oceanpress/docTree.js" async></script>
   </div>
-  <div style="min-height: 150px;" id="20230905170531-6q68jov" data-node-id="20230905170531-6q68jov" data-type="NodeDocument" updated="20250328131032" alias="oceanpress" custom-av-key-20230929092613-qrmgshk-20230929092718-35sggqr="&#123;&quot;id&quot;:&quot;20230929092751-yn4wytl&quot;,&quot;keyID&quot;:&quot;20230929092718-35sggqr&quot;,&quot;blockID&quot;:&quot;20230905170531-6q68jov&quot;,&quot;type&quot;:&quot;url&quot;,&quot;url&quot;:&#123;&quot;content&quot;:&quot;https://oceanpress-js.heartstack.space&quot;&#125;&#125;" custom-avs="20230929092613-qrmgshk" icon="1f30a" scroll="&#123;&quot;rootId&quot;:&quot;20230905170531-6q68jov&quot;,&quot;startId&quot;:&quot;20231005181632-rf34ok9&quot;,&quot;endId&quot;:&quot;20230916192348-gq5h4as&quot;,&quot;scrollTop&quot;:719.2000122070312,&quot;focusId&quot;:&quot;20230916192539-33vz0nu&quot;,&quot;focusStart&quot;:7,&quot;focusEnd&quot;:15&#125;" title-img="background-image:url(&quot;assets/OceanPress-20240118125131-bmjh66x.png&quot;)" type="doc">
+  <div style="min-height: 150px;" id="20230905170531-6q68jov" data-node-id="20230905170531-6q68jov" data-type="NodeDocument" updated="20250822173735" alias="oceanpress" custom-av-key-20230929092613-qrmgshk-20230929092718-35sggqr="&#123;&quot;id&quot;:&quot;20230929092751-yn4wytl&quot;,&quot;keyID&quot;:&quot;20230929092718-35sggqr&quot;,&quot;blockID&quot;:&quot;20230905170531-6q68jov&quot;,&quot;type&quot;:&quot;url&quot;,&quot;url&quot;:&#123;&quot;content&quot;:&quot;https://oceanpress-js.heartstack.space&quot;&#125;&#125;" custom-avs="20230929092613-qrmgshk" icon="1f30a" scroll="&#123;&quot;rootId&quot;:&quot;20230905170531-6q68jov&quot;,&quot;startId&quot;:&quot;20231005181632-rf34ok9&quot;,&quot;endId&quot;:&quot;20230916192348-gq5h4as&quot;,&quot;scrollTop&quot;:719.2000122070312,&quot;focusId&quot;:&quot;20230916192539-33vz0nu&quot;,&quot;focusStart&quot;:7,&quot;focusEnd&quot;:15&#125;" title-img="background-image:url(&quot;assets/OceanPress-20240118125131-bmjh66x.png&quot;)" type="doc">
 <div class="protyle-background__img" style="margin-bottom: 30px;position: relative;height: 16vh;background-image:url(&quot;./../../assets/OceanPress-20240118125131-bmjh66x.png&quot;)"/><div style="position: absolute;bottom:-10px;left:15px;height: 80px;width: 80px;transition: var(--b3-transition);cursor: pointer;font-size: 68px;line-height: 80px;text-align: center;font-family: var(--b3-font-family-emoji);margin-right: 16px;"> &#x1f30a </div></div>
-<h1 id="20230905170531-6q68jov" data-node-id="20230905170531-6q68jov" data-type="NodeDocument" updated="20250328131032" alias="oceanpress" custom-av-key-20230929092613-qrmgshk-20230929092718-35sggqr="&#123;&quot;id&quot;:&quot;20230929092751-yn4wytl&quot;,&quot;keyID&quot;:&quot;20230929092718-35sggqr&quot;,&quot;blockID&quot;:&quot;20230905170531-6q68jov&quot;,&quot;type&quot;:&quot;url&quot;,&quot;url&quot;:&#123;&quot;content&quot;:&quot;https://oceanpress-js.heartstack.space&quot;&#125;&#125;" custom-avs="20230929092613-qrmgshk" icon="1f30a" scroll="&#123;&quot;rootId&quot;:&quot;20230905170531-6q68jov&quot;,&quot;startId&quot;:&quot;20231005181632-rf34ok9&quot;,&quot;endId&quot;:&quot;20230916192348-gq5h4as&quot;,&quot;scrollTop&quot;:719.2000122070312,&quot;focusId&quot;:&quot;20230916192539-33vz0nu&quot;,&quot;focusStart&quot;:7,&quot;focusEnd&quot;:15&#125;" title-img="background-image:url(&quot;assets/OceanPress-20240118125131-bmjh66x.png&quot;)" type="doc" data-type="NodeHeading" class="h1">OceanPress_js</h1>
+<h1 id="20230905170531-6q68jov" data-node-id="20230905170531-6q68jov" data-type="NodeDocument" updated="20250822173735" alias="oceanpress" custom-av-key-20230929092613-qrmgshk-20230929092718-35sggqr="&#123;&quot;id&quot;:&quot;20230929092751-yn4wytl&quot;,&quot;keyID&quot;:&quot;20230929092718-35sggqr&quot;,&quot;blockID&quot;:&quot;20230905170531-6q68jov&quot;,&quot;type&quot;:&quot;url&quot;,&quot;url&quot;:&#123;&quot;content&quot;:&quot;https://oceanpress-js.heartstack.space&quot;&#125;&#125;" custom-avs="20230929092613-qrmgshk" icon="1f30a" scroll="&#123;&quot;rootId&quot;:&quot;20230905170531-6q68jov&quot;,&quot;startId&quot;:&quot;20231005181632-rf34ok9&quot;,&quot;endId&quot;:&quot;20230916192348-gq5h4as&quot;,&quot;scrollTop&quot;:719.2000122070312,&quot;focusId&quot;:&quot;20230916192539-33vz0nu&quot;,&quot;focusStart&quot;:7,&quot;focusEnd&quot;:15&#125;" title-img="background-image:url(&quot;assets/OceanPress-20240118125131-bmjh66x.png&quot;)" type="doc" data-type="NodeHeading" class="h1">OceanPress_js</h1>
 <div id="20231005181632-rf34ok9" data-node-id="20231005181632-rf34ok9" data-type="NodeParagraph" updated="20240118125113" class="p"><div spellcheck="false">非常快速的从思源笔记本生成一个静态站点，直接访问 <a href="https://oceanpress.heartstack.space">oceanpress.heartstack.space</a> 即可使用</div></div><div id="20231209155114-qngofwr" data-node-id="20231209155114-qngofwr" data-type="NodeParagraph" updated="20231209155141" class="p"><div spellcheck="false">源码仓库： <a href="https://github.com/2234839/oceanPress_js">https://github.com/2234839/oceanPress_js</a></div></div><div id="20240118170524-y0i456d" data-node-id="20240118170524-y0i456d" data-type="NodeParagraph" updated="20240118170738" class="p"><div spellcheck="false">可以兼容 hexo ： <a href="https://2234839.github.io/hexo-oceanpress/2021/06/26/OceanPress/">hexo-oceanpress</a> （这里内容是基于旧版 <span data-type="block-ref"   data-subtype="d"   data-id="20201121142503-ivwtfzg"><a href="./../../想法/项目/OceanPress.html#20201121142503-ivwtfzg">OceanPress</a></span> 生成的，但新版也可以）</div></div><div id="20230913162146-877fp1v" data-node-id="20230913162146-877fp1v" data-type="NodeParagraph" updated="20240118125127" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 247px;" style="width: 237px;" style="width: 247px;">
   <img
     src="./../../assets/OceanPress-20240118125131-bmjh66x.png"
@@ -155,7 +337,7 @@
     style="width: 496px;"
     loading="lazy"
   />
-  <span class="protyle-action__title">s3配置示例图</span></span>​</div></div><h3 id="20231209155009-744jayb" data-node-id="20231209155009-744jayb" data-type="NodeHeading" updated="20250321191124" data-subtype="h3" class="h3">使用 cli 程序</h3><h4 id="20231219172957-2xfqfzx" data-node-id="20231219172957-2xfqfzx" data-type="NodeHeading" updated="20250321191124" data-subtype="h4" class="h4">安装与更新</h4><div id="20231209155525-8jsjqms" data-node-id="20231209155525-8jsjqms" data-type="NodeParagraph" updated="20231219173117" class="p"><div spellcheck="false">需要提前准备好 node 运行环境 ： <span data-type="block-ref"   data-subtype="d"   data-id="20201104153359-3bz18z5"><a href="./../../读书笔记/node/各种系统安装node.html#20201104153359-3bz18z5">各种系统安装node</a></span></div></div><div id="20231219173010-9x7d4u7" data-node-id="20231219173010-9x7d4u7" data-type="NodeCodeBlock" updated="20250321191124" class="code-block" style="line-height: 22px;">
+  <span class="protyle-action__title">s3配置示例图</span></span>​</div></div><h3 id="20231209155009-744jayb" data-node-id="20231209155009-744jayb" data-type="NodeHeading" updated="20250822171154" data-subtype="h3" class="h3">使用 cli 程序</h3><h4 id="20231219172957-2xfqfzx" data-node-id="20231219172957-2xfqfzx" data-type="NodeHeading" updated="20250822171154" data-subtype="h4" class="h4">安装与更新</h4><div id="20231209155525-8jsjqms" data-node-id="20231209155525-8jsjqms" data-type="NodeParagraph" updated="20231219173117" class="p"><div spellcheck="false">需要提前准备好 node 运行环境 ： <span data-type="block-ref"   data-subtype="d"   data-id="20201104153359-3bz18z5"><a href="./../../读书笔记/node/各种系统安装node.html#20201104153359-3bz18z5">各种系统安装node</a></span></div></div><div id="20231219173010-9x7d4u7" data-node-id="20231219173010-9x7d4u7" data-type="NodeCodeBlock" updated="20250822171053" class="code-block" style="line-height: 22px;">
           <div class="protyle-action">
             <span class="protyle-action--first protyle-action__language">md</span>
             <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -170,7 +352,7 @@ Options:
   -p, --port <number>    web服务绑定到的端口 (default: "80")
   --cache <boolean>      配置为 true 时开启缓存,默认为 false 不开启缓存 (default: "false")
 </div>
-        </div><h4 id="20231219172945-o829mwm" data-node-id="20231219172945-o829mwm" data-type="NodeHeading" updated="20250321191703" data-subtype="h4" class="h4">生成静态站点</h4><div id="20231209155035-6q42d7y" data-node-id="20231209155035-6q42d7y" data-type="NodeCodeBlock" updated="20250321191703" class="code-block" style="line-height: 22px;">
+        </div><div id="20250822171104-iwdtaw2" data-node-id="20250822171104-iwdtaw2" data-type="NodeParagraph" updated="20250822171154" class="p"><div spellcheck="false">配置文件可以在<span data-type="block-ref"   data-subtype="s"   data-id="20231005181632-rf34ok9"><a href="./../../想法/项目/OceanPress_js.html#20231005181632-rf34ok9">在线站点</a></span>进行可视化配置并导出到本地使用</div></div><h4 id="20231219172945-o829mwm" data-node-id="20231219172945-o829mwm" data-type="NodeHeading" updated="20250321191703" data-subtype="h4" class="h4">生成静态站点</h4><div id="20231209155035-6q42d7y" data-node-id="20231209155035-6q42d7y" data-type="NodeCodeBlock" updated="20250321191703" class="code-block" style="line-height: 22px;">
           <div class="protyle-action">
             <span class="protyle-action--first protyle-action__language">bash</span>
             <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
@@ -216,7 +398,7 @@ Listening on :{"address":"127.0.0.1","family":"IPv4","port":80}
     style="width: 815px;"
     loading="lazy"
   />
-  <span class="protyle-action__title">代理站点的效果图</span></span>​</div></div><div id="20231219173743-jaw5z2j" data-node-id="20231219173743-jaw5z2j" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><h2 id="20230916192322-itkpykj" data-node-id="20230916192322-itkpykj" data-type="NodeHeading" updated="20250309124208" data-subtype="h2" class="h2">11项关键特性</h2><div id="20231005233314-1j9zyrj" data-node-id="20231005233314-1j9zyrj" data-type="NodeBlockquote" updated="20240118170156" class="bq"><div id="20231005233315-fumgiq3" data-node-id="20231005233315-fumgiq3" data-type="NodeParagraph" updated="20240118164724" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">绿色表示完全可用</span>   <span data-type="text" style="background-color: var(--b3-font-background7);">黄色表示部分可用</span>   无色 <span data-type="code">==</span>​ 大饼</div></div></div><div id="20230916192348-gq5h4as" data-node-id="20230916192348-gq5h4as" data-type="NodeList" updated="20250309124208" data-subtype="u" class="list"><div id="20231010160650-oqnvtx0" data-node-id="20231010160650-oqnvtx0" data-type="NodeListItem" updated="20231010160708" data-subtype="u" class="li" data-marker="*">
+  <span class="protyle-action__title">代理站点的效果图</span></span>​</div></div><div id="20231219173743-jaw5z2j" data-node-id="20231219173743-jaw5z2j" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><h2 id="20230916192322-itkpykj" data-node-id="20230916192322-itkpykj" data-type="NodeHeading" updated="20250822173735" data-subtype="h2" class="h2">关键特性</h2><div id="20231005233314-1j9zyrj" data-node-id="20231005233314-1j9zyrj" data-type="NodeBlockquote" updated="20240118170156" class="bq"><div id="20231005233315-fumgiq3" data-node-id="20231005233315-fumgiq3" data-type="NodeParagraph" updated="20240118164724" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">绿色表示完全可用</span>   <span data-type="text" style="background-color: var(--b3-font-background7);">黄色表示部分可用</span>   无色 <span data-type="code">==</span>​ 大饼</div></div></div><div id="20230916192348-gq5h4as" data-node-id="20230916192348-gq5h4as" data-type="NodeList" updated="20250822173723" data-subtype="u" class="list"><div id="20231010160650-oqnvtx0" data-node-id="20231010160650-oqnvtx0" data-type="NodeListItem" updated="20231010160708" data-subtype="u" class="li" data-marker="*">
         <div class="protyle-action">
           <svg><use xlink:href="#iconDot"></use></svg>
         </div>
@@ -241,11 +423,11 @@ Listening on :{"address":"127.0.0.1","family":"IPv4","port":80}
         </div>
         <div id="20240118164749-m2oomav" data-node-id="20240118164749-m2oomav" data-type="NodeParagraph" updated="20240118165703" class="p"><div spellcheck="false">基于<span data-type="text" style="background-color: var(--b3-font-background4);"> </span><span data-type="text" style="background-color: var(--b3-font-background4);"><span data-type="text block-ref"   data-subtype="d"   data-id="20240106082524-8iwydhr"><a href="./../../想法/项目/OceanPress_js/OceanPress插件.html#20240106082524-8iwydhr">OceanPress插件</a></span></span>的思源内运行</div></div>
       </div></div>
-      </div><div id="20230916192430-ke851gv" data-node-id="20230916192430-ke851gv" data-type="NodeListItem" updated="20250309124208" data-subtype="u" class="li" data-marker="*">
+      </div><div id="20230916192430-ke851gv" data-node-id="20230916192430-ke851gv" data-type="NodeListItem" updated="20250309124201" data-subtype="u" class="li" data-marker="*">
         <div class="protyle-action">
           <svg><use xlink:href="#iconDot"></use></svg>
         </div>
-        <div id="20230916192430-m0edg4k" data-node-id="20230916192430-m0edg4k" data-type="NodeParagraph" updated="20240118165602" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background7);">支持挂件</span></div></div><div id="20230916192526-q83m6fo" data-node-id="20230916192526-q83m6fo" data-type="NodeList" updated="20250309124208" data-subtype="u" class="list"><div id="20240612180344-7ylpowd" data-node-id="20240612180344-7ylpowd" data-type="NodeListItem" updated="20240612180415" data-subtype="u" class="li" data-marker="*">
+        <div id="20230916192430-m0edg4k" data-node-id="20230916192430-m0edg4k" data-type="NodeParagraph" updated="20240118165602" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background7);">支持挂件</span></div></div><div id="20230916192526-q83m6fo" data-node-id="20230916192526-q83m6fo" data-type="NodeList" updated="20250309124201" data-subtype="u" class="list"><div id="20240612180344-7ylpowd" data-node-id="20240612180344-7ylpowd" data-type="NodeListItem" updated="20240612180415" data-subtype="u" class="li" data-marker="*">
         <div class="protyle-action">
           <svg><use xlink:href="#iconDot"></use></svg>
         </div>
@@ -255,17 +437,12 @@ Listening on :{"address":"127.0.0.1","family":"IPv4","port":80}
           <svg><use xlink:href="#iconDot"></use></svg>
         </div>
         <div id="20231009172122-3gxx7py" data-node-id="20231009172122-3gxx7py" data-type="NodeParagraph" updated="20250309124201" class="p"><div spellcheck="false">适配 OceanPress 的挂件支持，让一些挂件能够运行在静态网站上</div></div>
-      </div><div id="20240612180252-vwi7w8v" data-node-id="20240612180252-vwi7w8v" data-type="NodeListItem" updated="20250309124208" data-subtype="u" class="li" data-marker="*">
-        <div class="protyle-action">
-          <svg><use xlink:href="#iconDot"></use></svg>
-        </div>
-        <div id="20240612180252-f5zlvze" data-node-id="20240612180252-f5zlvze" data-type="NodeParagraph" updated="20250309124208" class="p"><div spellcheck="false">支持 ocr 文本</div></div>
       </div></div>
-      </div><div id="20240612180257-fxw3cch" data-node-id="20240612180257-fxw3cch" data-type="NodeListItem" updated="20240612180517" data-subtype="u" class="li" data-marker="*">
+      </div><div id="20240612180257-fxw3cch" data-node-id="20240612180257-fxw3cch" data-type="NodeListItem" updated="20250822173704" data-subtype="u" class="li" data-marker="*">
         <div class="protyle-action">
           <svg><use xlink:href="#iconDot"></use></svg>
         </div>
-        <div id="20240612180257-yai2z5b" data-node-id="20240612180257-yai2z5b" data-type="NodeParagraph" updated="20240612180310" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20240106082524-8iwydhr"><a href="./../../想法/项目/OceanPress_js/OceanPress插件.html#20240106082524-8iwydhr">OceanPress插件</a></span></div></div><div id="20240612180311-djvb6t5" data-node-id="20240612180311-djvb6t5" data-type="NodeList" updated="20240612180517" data-subtype="u" class="list"><div id="20230916192455-lix3ui3" data-node-id="20230916192455-lix3ui3" data-type="NodeListItem" updated="20240118165651" data-subtype="u" class="li" data-marker="*">
+        <div id="20240612180257-yai2z5b" data-node-id="20240612180257-yai2z5b" data-type="NodeParagraph" updated="20240612180310" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20240106082524-8iwydhr"><a href="./../../想法/项目/OceanPress_js/OceanPress插件.html#20240106082524-8iwydhr">OceanPress插件</a></span></div></div><div id="20240612180311-djvb6t5" data-node-id="20240612180311-djvb6t5" data-type="NodeList" updated="20250822173704" data-subtype="u" class="list"><div id="20230916192455-lix3ui3" data-node-id="20230916192455-lix3ui3" data-type="NodeListItem" updated="20240118165651" data-subtype="u" class="li" data-marker="*">
         <div class="protyle-action">
           <svg><use xlink:href="#iconDot"></use></svg>
         </div>
@@ -275,11 +452,11 @@ Listening on :{"address":"127.0.0.1","family":"IPv4","port":80}
           <svg><use xlink:href="#iconDot"></use></svg>
         </div>
         <div id="20240612180310-1ihinkk" data-node-id="20240612180310-1ihinkk" data-type="NodeParagraph" updated="20240612180433" class="p"><div spellcheck="false">支持挂件文本复制</div></div>
-      </div><div id="20240612180437-dhhgttd" data-node-id="20240612180437-dhhgttd" data-type="NodeListItem" updated="20240612180517" data-subtype="u" class="li" data-marker="*">
+      </div><div id="20240612180437-dhhgttd" data-node-id="20240612180437-dhhgttd" data-type="NodeListItem" updated="20250822173704" data-subtype="u" class="li" data-marker="*">
         <div class="protyle-action">
           <svg><use xlink:href="#iconDot"></use></svg>
         </div>
-        <div id="20240612180437-18jlr1n" data-node-id="20240612180437-18jlr1n" data-type="NodeParagraph" updated="20240612180517" class="p"><div spellcheck="false">对图片支持完美ocr： <span data-type="block-ref"   data-subtype="d"   data-id="20240612161400-q3nlr71"><a href="./../../想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件实现完美ocr v0.3.6.html#20240612161400-q3nlr71">OceanPress插件实现完美ocr v0.3.6</a></span></div></div>
+        <div id="20240612180437-18jlr1n" data-node-id="20240612180437-18jlr1n" data-type="NodeParagraph" updated="20250822173704" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">对图片支持完美ocr：</span> <span data-type="block-ref"   data-subtype="d"   data-id="20240612161400-q3nlr71"><a href="./../../想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件实现完美ocr v0.3.6.html#20240612161400-q3nlr71">OceanPress插件实现完美ocr v0.3.6</a></span></div></div>
       </div></div>
       </div><div id="20230916192502-jo2xktn" data-node-id="20230916192502-jo2xktn" data-type="NodeListItem" updated="20231227184151" data-subtype="u" class="li" data-marker="*">
         <div class="protyle-action">
@@ -301,11 +478,11 @@ Listening on :{"address":"127.0.0.1","family":"IPv4","port":80}
         </div>
         <div id="20230919202423-k6ksivk" data-node-id="20230919202423-k6ksivk" data-type="NodeParagraph" updated="20230919202516" class="p"><div spellcheck="false">生成chm单体文件，便于类似分发帮助文档这种需求</div></div>
       </div></div>
-      </div><div id="20240101170712-dzq25r9" data-node-id="20240101170712-dzq25r9" data-type="NodeListItem" updated="20240101173512" data-subtype="u" class="li" data-marker="*">
+      </div><div id="20240101170712-dzq25r9" data-node-id="20240101170712-dzq25r9" data-type="NodeListItem" updated="20250822173723" data-subtype="u" class="li" data-marker="*">
         <div class="protyle-action">
           <svg><use xlink:href="#iconDot"></use></svg>
         </div>
-        <div id="20240101170712-4sanu11" data-node-id="20240101170712-4sanu11" data-type="NodeParagraph" updated="20240101173512" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-warning-background); color: var(--b3-card-warning-color);">支持添加搜索引擎</span></div></div><div id="20240101170728-4ekg3wy" data-node-id="20240101170728-4ekg3wy" data-type="NodeList" updated="20240101173506" data-subtype="u" class="list"><div id="20240101170728-lpgg6g0" data-node-id="20240101170728-lpgg6g0" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div id="20240101170712-4sanu11" data-node-id="20240101170712-4sanu11" data-type="NodeParagraph" updated="20250822173723" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-warning-background); color: var(--b3-card-warning-color);">支持站内搜索</span></div></div><div id="20240101170728-4ekg3wy" data-node-id="20240101170728-4ekg3wy" data-type="NodeList" updated="20240101173506" data-subtype="u" class="list"><div id="20240101170728-lpgg6g0" data-node-id="20240101170728-lpgg6g0" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
         <div class="protyle-action">
           <svg><use xlink:href="#iconDot"></use></svg>
         </div>
@@ -477,195 +654,17 @@ Listening on :{"address":"127.0.0.1","family":"IPv4","port":80}
           <svg><use xlink:href="#iconDot"></use></svg>
         </div>
         <div id="20240202115914-c14r4n5" data-node-id="20240202115914-c14r4n5" data-type="NodeParagraph" updated="20240202115921" class="p"><div spellcheck="false">github 工作流代码</div></div><div id="20240202120037-q7pkm0j" data-node-id="20240202120037-q7pkm0j" data-type="NodeParagraph" updated="20240202120154" class="p"><div spellcheck="false">这将总和 <span data-type="block-ref"   data-subtype="d"   data-id="20201121142503-ivwtfzg"><a href="./../../想法/项目/OceanPress.html#20201121142503-ivwtfzg">OceanPress</a></span> 和 <span data-type="block-ref"   data-subtype="d"   data-id="20240110172815-llqsqzd"><a href="./../../想法/项目/SiYuan serverless.html#20240110172815-llqsqzd">SiYuan serverless</a></span> ,在一个工作流中，可以非常简单的将 sy 源文档部署为 github 静态站点</div></div>
-      </div></div><h2 id="20231227082910-mxi3md0" data-node-id="20231227082910-mxi3md0" data-type="NodeHeading" updated="20240606190408" data-subtype="h2" class="h2">开发相关-依赖治理</h2><div id="20231227082918-upc0wuu" data-node-id="20231227082918-upc0wuu" data-type="NodeCodeBlock" updated="20240606190408" data-subtype="graphviz" class="render-node" data-content="strict digraph &amp;quot;dependency-cruiser output&amp;quot;{
-    rankdir=&amp;quot;LR&amp;quot; splines=&amp;quot;true&amp;quot; overlap=&amp;quot;false&amp;quot; nodesep=&amp;quot;0.16&amp;quot; ranksep=&amp;quot;0.18&amp;quot; fontname=&amp;quot;Helvetica-bold&amp;quot; fontsize=&amp;quot;9&amp;quot; style=&amp;quot;rounded,bold,filled&amp;quot; fillcolor=&amp;quot;#ffffff&amp;quot; compound=&amp;quot;true&amp;quot;
-    node [shape=&amp;quot;box&amp;quot; style=&amp;quot;rounded, filled&amp;quot; height=&amp;quot;0.2&amp;quot; color=&amp;quot;black&amp;quot; fillcolor=&amp;quot;#ffffcc&amp;quot; fontcolor=&amp;quot;black&amp;quot; fontname=&amp;quot;Helvetica&amp;quot; fontsize=&amp;quot;9&amp;quot;]
-    edge [arrowhead=&amp;quot;normal&amp;quot; arrowsize=&amp;quot;0.6&amp;quot; penwidth=&amp;quot;2.0&amp;quot; color=&amp;quot;#00000033&amp;quot; fontname=&amp;quot;Helvetica&amp;quot; fontsize=&amp;quot;9&amp;quot;]
-
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; &amp;quot;src/cli.ts&amp;quot; [label=&amp;lt;cli.ts&amp;gt; tooltip=&amp;quot;cli.ts&amp;quot; URL=&amp;quot;src/cli.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] }
-    &amp;quot;src/cli.ts&amp;quot; -&amp;gt; &amp;quot;src/config/index.ts&amp;quot;
-    &amp;quot;src/cli.ts&amp;quot; -&amp;gt; &amp;quot;src/core/build.ts&amp;quot;
-    &amp;quot;src/cli.ts&amp;quot; -&amp;gt; &amp;quot;src/core/cache.ts&amp;quot;
-    &amp;quot;src/cli.ts&amp;quot; -&amp;gt; &amp;quot;src/server.ts&amp;quot;
-    &amp;quot;src/cli.ts&amp;quot; -&amp;gt; &amp;quot;src/core/render.api.dep.ts&amp;quot;
-    &amp;quot;src/cli.ts&amp;quot; -&amp;gt; &amp;quot;src/util/store.node.dep.ts&amp;quot;
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/components&amp;quot; {label=&amp;quot;components&amp;quot; subgraph &amp;quot;cluster_src/components/data_promise&amp;quot; {label=&amp;quot;data_promise&amp;quot; &amp;quot;src/components/data_promise/index.ts&amp;quot; [label=&amp;lt;index.ts&amp;gt; tooltip=&amp;quot;index.ts&amp;quot; URL=&amp;quot;src/components/data_promise/index.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } } }
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/components&amp;quot; {label=&amp;quot;components&amp;quot; subgraph &amp;quot;cluster_src/components/web-custom&amp;quot; {label=&amp;quot;web-custom&amp;quot; &amp;quot;src/components/web-custom/Test_c.vue&amp;quot; [label=&amp;lt;Test_c.vue&amp;gt; tooltip=&amp;quot;Test_c.vue&amp;quot; URL=&amp;quot;src/components/web-custom/Test_c.vue&amp;quot; fillcolor=&amp;quot;#41f083&amp;quot;] } } }
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/components&amp;quot; {label=&amp;quot;components&amp;quot; subgraph &amp;quot;cluster_src/components/web-custom&amp;quot; {label=&amp;quot;web-custom&amp;quot; &amp;quot;src/components/web-custom/flow.ts&amp;quot; [label=&amp;lt;flow.ts&amp;gt; tooltip=&amp;quot;flow.ts&amp;quot; URL=&amp;quot;src/components/web-custom/flow.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } } }
-    &amp;quot;src/components/web-custom/flow.ts&amp;quot; -&amp;gt; &amp;quot;src/components/web-custom/store.ts&amp;quot;
-    &amp;quot;src/components/web-custom/flow.ts&amp;quot; -&amp;gt; &amp;quot;src/components/web-custom/Test_c.vue&amp;quot;
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/components&amp;quot; {label=&amp;quot;components&amp;quot; subgraph &amp;quot;cluster_src/components/web-custom&amp;quot; {label=&amp;quot;web-custom&amp;quot; &amp;quot;src/components/web-custom/store.ts&amp;quot; [label=&amp;lt;store.ts&amp;gt; tooltip=&amp;quot;store.ts&amp;quot; URL=&amp;quot;src/components/web-custom/store.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } } }
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/config&amp;quot; {label=&amp;quot;config&amp;quot; &amp;quot;src/config/index.ts&amp;quot; [label=&amp;lt;index.ts&amp;gt; tooltip=&amp;quot;index.ts&amp;quot; URL=&amp;quot;src/config/index.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } }
-    &amp;quot;src/config/index.ts&amp;quot; -&amp;gt; &amp;quot;src/core/siyuan_type.ts&amp;quot;
-    &amp;quot;src/config/index.ts&amp;quot; -&amp;gt; &amp;quot;src/core/dependency.ts&amp;quot;
-    &amp;quot;src/config/index.ts&amp;quot; -&amp;gt; &amp;quot;src/util/deep_assign.ts&amp;quot;
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/core&amp;quot; {label=&amp;quot;core&amp;quot; &amp;quot;src/core/build.ts&amp;quot; [label=&amp;lt;build.ts&amp;gt; tooltip=&amp;quot;build.ts&amp;quot; URL=&amp;quot;src/core/build.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } }
-    &amp;quot;src/core/build.ts&amp;quot; -&amp;gt; &amp;quot;src/core/cache.ts&amp;quot;
-    &amp;quot;src/core/build.ts&amp;quot; -&amp;gt; &amp;quot;src/core/htmlTemplate.ts&amp;quot;
-    &amp;quot;src/core/build.ts&amp;quot; -&amp;gt; &amp;quot;src/core/render.ts&amp;quot;
-    &amp;quot;src/core/build.ts&amp;quot; -&amp;gt; &amp;quot;src/core/siyuan_api.ts&amp;quot;
-    &amp;quot;src/core/build.ts&amp;quot; -&amp;gt; &amp;quot;src/core/siyuan_type.ts&amp;quot;
-    &amp;quot;src/core/build.ts&amp;quot; -&amp;gt; &amp;quot;src/config/index.ts&amp;quot;
-    &amp;quot;src/core/build.ts&amp;quot; -&amp;gt; &amp;quot;src/util/deep_assign.ts&amp;quot;
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/core&amp;quot; {label=&amp;quot;core&amp;quot; &amp;quot;src/core/cache.ts&amp;quot; [label=&amp;lt;cache.ts&amp;gt; tooltip=&amp;quot;cache.ts&amp;quot; URL=&amp;quot;src/core/cache.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } }
-    &amp;quot;src/core/cache.ts&amp;quot; -&amp;gt; &amp;quot;src/core/node.ts&amp;quot;
-    &amp;quot;src/core/cache.ts&amp;quot; -&amp;gt; &amp;quot;src/core/siyuan_api.ts&amp;quot;
-    &amp;quot;src/core/cache.ts&amp;quot; -&amp;gt; &amp;quot;src/core/siyuan_type.ts&amp;quot;
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/core&amp;quot; {label=&amp;quot;core&amp;quot; &amp;quot;src/core/dependency.ts&amp;quot; [label=&amp;lt;dependency.ts&amp;gt; tooltip=&amp;quot;dependency.ts&amp;quot; URL=&amp;quot;src/core/dependency.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } }
-    &amp;quot;src/core/dependency.ts&amp;quot; -&amp;gt; &amp;quot;src/core/siyuan_type.ts&amp;quot;
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/core&amp;quot; {label=&amp;quot;core&amp;quot; &amp;quot;src/core/htmlTemplate.ts&amp;quot; [label=&amp;lt;htmlTemplate.ts&amp;gt; tooltip=&amp;quot;htmlTemplate.ts&amp;quot; URL=&amp;quot;src/core/htmlTemplate.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } }
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/core&amp;quot; {label=&amp;quot;core&amp;quot; &amp;quot;src/core/node.ts&amp;quot; [label=&amp;lt;node.ts&amp;gt; tooltip=&amp;quot;node.ts&amp;quot; URL=&amp;quot;src/core/node.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } }
-    &amp;quot;src/core/node.ts&amp;quot; -&amp;gt; &amp;quot;src/core/siyuan_type.ts&amp;quot;
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/core&amp;quot; {label=&amp;quot;core&amp;quot; &amp;quot;src/core/render.api.dep.ts&amp;quot; [label=&amp;lt;render.api.dep.ts&amp;gt; tooltip=&amp;quot;render.api.dep.ts&amp;quot; URL=&amp;quot;src/core/render.api.dep.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } }
-    &amp;quot;src/core/render.api.dep.ts&amp;quot; -&amp;gt; &amp;quot;src/core/cache.ts&amp;quot;
-    &amp;quot;src/core/render.api.dep.ts&amp;quot; -&amp;gt; &amp;quot;src/core/siyuan_type.ts&amp;quot;
-    &amp;quot;src/core/render.api.dep.ts&amp;quot; -&amp;gt; &amp;quot;src/core/dependency.ts&amp;quot;
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/core&amp;quot; {label=&amp;quot;core&amp;quot; &amp;quot;src/core/render.ts&amp;quot; [label=&amp;lt;render.ts&amp;gt; tooltip=&amp;quot;render.ts&amp;quot; URL=&amp;quot;src/core/render.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } }
-    &amp;quot;src/core/render.ts&amp;quot; -&amp;gt; &amp;quot;src/core/cache.ts&amp;quot;
-    &amp;quot;src/core/render.ts&amp;quot; -&amp;gt; &amp;quot;src/core/siyuan_api.ts&amp;quot;
-    &amp;quot;src/core/render.ts&amp;quot; -&amp;gt; &amp;quot;src/core/siyuan_type.ts&amp;quot;
-    &amp;quot;src/core/render.ts&amp;quot; -&amp;gt; &amp;quot;src/core/dependency.ts&amp;quot;
-    &amp;quot;src/core/render.ts&amp;quot; -&amp;gt; &amp;quot;src/util/escaping.ts&amp;quot;
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/core&amp;quot; {label=&amp;quot;core&amp;quot; &amp;quot;src/core/siyuan_api.ts&amp;quot; [label=&amp;lt;siyuan_api.ts&amp;gt; tooltip=&amp;quot;siyuan_api.ts&amp;quot; URL=&amp;quot;src/core/siyuan_api.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } }
-    &amp;quot;src/core/siyuan_api.ts&amp;quot; -&amp;gt; &amp;quot;src/components/data_promise/index.ts&amp;quot;
-    &amp;quot;src/core/siyuan_api.ts&amp;quot; -&amp;gt; &amp;quot;src/core/siyuan_type.ts&amp;quot;
-    &amp;quot;src/core/siyuan_api.ts&amp;quot; -&amp;gt; &amp;quot;src/config/index.ts&amp;quot;
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/core&amp;quot; {label=&amp;quot;core&amp;quot; &amp;quot;src/core/siyuan_type.ts&amp;quot; [label=&amp;lt;siyuan_type.ts&amp;gt; tooltip=&amp;quot;siyuan_type.ts&amp;quot; URL=&amp;quot;src/core/siyuan_type.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } }
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/pages&amp;quot; {label=&amp;quot;pages&amp;quot; &amp;quot;src/pages/App.vue&amp;quot; [label=&amp;lt;App.vue&amp;gt; tooltip=&amp;quot;App.vue&amp;quot; URL=&amp;quot;src/pages/App.vue&amp;quot; fillcolor=&amp;quot;#41f083&amp;quot;] } }
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/pages&amp;quot; {label=&amp;quot;pages&amp;quot; subgraph &amp;quot;cluster_src/pages/steps&amp;quot; {label=&amp;quot;steps&amp;quot; &amp;quot;src/pages/steps/steps.vue&amp;quot; [label=&amp;lt;steps.vue&amp;gt; tooltip=&amp;quot;steps.vue&amp;quot; URL=&amp;quot;src/pages/steps/steps.vue&amp;quot; fillcolor=&amp;quot;#41f083&amp;quot;] } } }
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/pages&amp;quot; {label=&amp;quot;pages&amp;quot; &amp;quot;src/pages/test.vue&amp;quot; [label=&amp;lt;test.vue&amp;gt; tooltip=&amp;quot;test.vue&amp;quot; URL=&amp;quot;src/pages/test.vue&amp;quot; fillcolor=&amp;quot;#41f083&amp;quot;] } }
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/publish&amp;quot; {label=&amp;quot;publish&amp;quot; &amp;quot;src/publish/github.ts&amp;quot; [label=&amp;lt;github.ts&amp;gt; tooltip=&amp;quot;no-orphans&amp;quot; URL=&amp;quot;src/publish/github.ts&amp;quot; fillcolor=&amp;quot;#ccffcc&amp;quot; fontcolor=&amp;quot;orange&amp;quot; color=&amp;quot;orange&amp;quot;] } }
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/publish&amp;quot; {label=&amp;quot;publish&amp;quot; &amp;quot;src/publish/interface.ts&amp;quot; [label=&amp;lt;interface.ts&amp;gt; tooltip=&amp;quot;interface.ts&amp;quot; URL=&amp;quot;src/publish/interface.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } }
-    &amp;quot;src/publish/interface.ts&amp;quot; -&amp;gt; &amp;quot;src/config/index.ts&amp;quot;
-    &amp;quot;src/publish/interface.ts&amp;quot; -&amp;gt; &amp;quot;src/core/build.ts&amp;quot;
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/publish&amp;quot; {label=&amp;quot;publish&amp;quot; &amp;quot;src/publish/s3.ts&amp;quot; [label=&amp;lt;s3.ts&amp;gt; tooltip=&amp;quot;s3.ts&amp;quot; URL=&amp;quot;src/publish/s3.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } }
-    &amp;quot;src/publish/s3.ts&amp;quot; -&amp;gt; &amp;quot;src/publish/interface.ts&amp;quot;
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; &amp;quot;src/server.ts&amp;quot; [label=&amp;lt;server.ts&amp;gt; tooltip=&amp;quot;server.ts&amp;quot; URL=&amp;quot;src/server.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] }
-    &amp;quot;src/server.ts&amp;quot; -&amp;gt; &amp;quot;src/config/index.ts&amp;quot;
-    &amp;quot;src/server.ts&amp;quot; -&amp;gt; &amp;quot;src/core/cache.ts&amp;quot;
-    &amp;quot;src/server.ts&amp;quot; -&amp;gt; &amp;quot;src/core/htmlTemplate.ts&amp;quot;
-    &amp;quot;src/server.ts&amp;quot; -&amp;gt; &amp;quot;src/core/render.ts&amp;quot;
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/util&amp;quot; {label=&amp;quot;util&amp;quot; &amp;quot;src/util/custom_error.ts&amp;quot; [label=&amp;lt;custom_error.ts&amp;gt; tooltip=&amp;quot;no-orphans&amp;quot; URL=&amp;quot;src/util/custom_error.ts&amp;quot; fillcolor=&amp;quot;#ccffcc&amp;quot; fontcolor=&amp;quot;orange&amp;quot; color=&amp;quot;orange&amp;quot;] } }
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/util&amp;quot; {label=&amp;quot;util&amp;quot; &amp;quot;src/util/deep_assign.ts&amp;quot; [label=&amp;lt;deep_assign.ts&amp;gt; tooltip=&amp;quot;deep_assign.ts&amp;quot; URL=&amp;quot;src/util/deep_assign.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } }
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/util&amp;quot; {label=&amp;quot;util&amp;quot; &amp;quot;src/util/escaping.ts&amp;quot; [label=&amp;lt;escaping.ts&amp;gt; tooltip=&amp;quot;escaping.ts&amp;quot; URL=&amp;quot;src/util/escaping.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } }
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/util&amp;quot; {label=&amp;quot;util&amp;quot; &amp;quot;src/util/setTime.ts&amp;quot; [label=&amp;lt;setTime.ts&amp;gt; tooltip=&amp;quot;no-orphans&amp;quot; URL=&amp;quot;src/util/setTime.ts&amp;quot; fillcolor=&amp;quot;#ccffcc&amp;quot; fontcolor=&amp;quot;orange&amp;quot; color=&amp;quot;orange&amp;quot;] } }
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/util&amp;quot; {label=&amp;quot;util&amp;quot; &amp;quot;src/util/store.bower.dep.ts&amp;quot; [label=&amp;lt;store.bower.dep.ts&amp;gt; tooltip=&amp;quot;store.bower.dep.ts&amp;quot; URL=&amp;quot;src/util/store.bower.dep.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } }
-    &amp;quot;src/util/store.bower.dep.ts&amp;quot; -&amp;gt; &amp;quot;src/core/dependency.ts&amp;quot;
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/util&amp;quot; {label=&amp;quot;util&amp;quot; &amp;quot;src/util/store.node.dep.ts&amp;quot; [label=&amp;lt;store.node.dep.ts&amp;gt; tooltip=&amp;quot;store.node.dep.ts&amp;quot; URL=&amp;quot;src/util/store.node.dep.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] } }
-    &amp;quot;src/util/store.node.dep.ts&amp;quot; -&amp;gt; &amp;quot;src/core/dependency.ts&amp;quot;
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; subgraph &amp;quot;cluster_src/util&amp;quot; {label=&amp;quot;util&amp;quot; &amp;quot;src/util/writeFile.ts&amp;quot; [label=&amp;lt;writeFile.ts&amp;gt; tooltip=&amp;quot;no-orphans&amp;quot; URL=&amp;quot;src/util/writeFile.ts&amp;quot; fillcolor=&amp;quot;#ccffcc&amp;quot; fontcolor=&amp;quot;orange&amp;quot; color=&amp;quot;orange&amp;quot;] } }
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; &amp;quot;src/vite-env.d.ts&amp;quot; [label=&amp;lt;vite-env.d.ts&amp;gt; tooltip=&amp;quot;vite-env.d.ts&amp;quot; URL=&amp;quot;src/vite-env.d.ts&amp;quot; fillcolor=&amp;quot;#ccffcc&amp;quot;] }
-    subgraph &amp;quot;cluster_src&amp;quot; {label=&amp;quot;src&amp;quot; &amp;quot;src/webpage.ts&amp;quot; [label=&amp;lt;webpage.ts&amp;gt; tooltip=&amp;quot;webpage.ts&amp;quot; URL=&amp;quot;src/webpage.ts&amp;quot; fillcolor=&amp;quot;#ddfeff&amp;quot;] }
-    &amp;quot;src/webpage.ts&amp;quot; -&amp;gt; &amp;quot;src/core/render.api.dep.ts&amp;quot;
-    &amp;quot;src/webpage.ts&amp;quot; -&amp;gt; &amp;quot;src/pages/App.vue&amp;quot;
-    &amp;quot;src/webpage.ts&amp;quot; -&amp;gt; &amp;quot;src/pages/steps/steps.vue&amp;quot;
-    &amp;quot;src/webpage.ts&amp;quot; -&amp;gt; &amp;quot;src/pages/test.vue&amp;quot;
-    &amp;quot;src/webpage.ts&amp;quot; -&amp;gt; &amp;quot;src/util/store.bower.dep.ts&amp;quot;
-}">
-          <div spin="1"></div>
-          <div class="protyle-attr" contenteditable="false"></div>
-        </div><h2 id="20230921214506-w5txrqb" data-node-id="20230921214506-w5txrqb" data-type="NodeHeading" updated="20250328131032" data-subtype="h2" class="h2">更新日志</h2><h3 id="20250328131028-v9p3hqw" data-node-id="20250328131028-v9p3hqw" data-type="NodeHeading" updated="20250328131032" data-subtype="h3" class="h3"><span data-type="block-ref"   data-subtype="d"   data-id="20250328131032-9kfjdb9"><a href="./../../想法/项目/OceanPress_js/v1.0.42 OceanPress支持侧边文档树目录导航.html#20250328131032-9kfjdb9">v1.0.42 OceanPress支持侧边文档树目录导航</a></span></h3><h3 id="20240103171625-nhoptn4" data-node-id="20240103171625-nhoptn4" data-type="NodeHeading" updated="20250205131217" data-subtype="h3" class="h3">v0.0.10</h3><div id="20240103171639-k1bj85h" data-node-id="20240103171639-k1bj85h" data-type="NodeParagraph" updated="20240103172009" class="p" heading-fold="1"><div spellcheck="false">支持预览功能，依赖于 hono 优秀的多平台运行能力，我将 OceanPress cli程序的 <span data-type="block-ref"   data-subtype="d"   data-id="20231219173156-ws8a8r5"><a href="./../../想法/项目/OceanPress_js.html#20231219173156-ws8a8r5">运行代理站点</a></span> 功能移植到了 web ui界面，</div></div><div id="20240103172009-wm877t9" data-node-id="20240103172009-wm877t9" data-type="NodeParagraph" updated="20240103172057" class="p" heading-fold="1"><div spellcheck="false">现在 web ui 可以在编译之前点击相关文档预览编译之后的效果了。</div></div><div id="20240103172335-ce5kf13" data-node-id="20240103172335-ce5kf13" data-type="NodeParagraph" class="p" heading-fold="1"><div spellcheck="false"></div></div><div id="20240103171732-53ak0lv" data-node-id="20240103171732-53ak0lv" data-type="NodeParagraph" updated="20250205131217" class="p" heading-fold="1"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 333px;" style="width: 323px;" style="width: 333px;">
-  <img
-    src="./../../assets/image-20240103171732-oh4n4bp.png"
-    data-src="./../../assets/image-20240103171732-oh4n4bp.png"
-    title="web ui 预览列表界面"
-    style="width: 323px;"
-    loading="lazy"
-  />
-  <span class="protyle-action__title">web ui 预览列表界面</span></span>​<span data-type="NodeImage" class="img" parent-style="width: 503px;" style="width: 493px;" style="width: 503px;">
-  <img
-    src="./../../assets/firefox_yLDIf40WME-20240103172326-cxk838y.gif"
-    data-src="./../../assets/firefox_yLDIf40WME-20240103172326-cxk838y.gif"
-    title="运行效果"
-    style="width: 493px;"
-    loading="lazy"
-  />
-  <span class="protyle-action__title">运行效果</span></span>​</div></div><div id="20240103172435-jfz5ekz" data-node-id="20240103172435-jfz5ekz" data-type="NodeParagraph" updated="20240103172510" class="p" heading-fold="1"><div spellcheck="false">下一步我将开始完善 OceanPress 思源插件，将web ui内置到插件之中。</div></div><div id="20240103172518-64all2v" data-node-id="20240103172518-64all2v" data-type="NodeParagraph" updated="20240103172528" class="p" heading-fold="1"><div spellcheck="false">诸位新年快乐🎉</div></div><h3 id="20240101173801-gie8lsy" data-node-id="20240101173801-gie8lsy" data-type="NodeHeading" updated="20240101173804" data-subtype="h3" class="h3">v0.0.9</h3><div id="20240101173805-6owrh3l" data-node-id="20240101173805-6owrh3l" data-type="NodeList" updated="20240101173852" data-subtype="u" class="list" heading-fold="1"><div id="20240101173835-n3jzsep" data-node-id="20240101173835-n3jzsep" data-type="NodeListItem" updated="20240101173852" data-subtype="u" class="li" heading-fold="1" data-marker="*">
-        <div class="protyle-action">
-          <svg><use xlink:href="#iconDot"></use></svg>
-        </div>
-        <div id="20240101173835-vl3zqqd" data-node-id="20240101173835-vl3zqqd" data-type="NodeParagraph" updated="20240101173852" class="p" heading-fold="1"><div spellcheck="false">支持 meilisearch <a href="https://github.com/siyuan-note/oceanpress/issues/5">issues/5</a></div></div>
-      </div></div><h3 id="20231227184634-lhqpvyd" data-node-id="20231227184634-lhqpvyd" data-type="NodeHeading" updated="20231227184644" data-subtype="h3" class="h3">v0.0.8</h3><div id="20231220103410-vs3mbxv" data-node-id="20231220103410-vs3mbxv" data-type="NodeList" updated="20231227184105" data-subtype="u" class="list" heading-fold="1"><div id="20231227184025-i07lhjq" data-node-id="20231227184025-i07lhjq" data-type="NodeListItem" updated="20231227184105" data-subtype="u" class="li" heading-fold="1" data-marker="*">
-        <div class="protyle-action">
-          <svg><use xlink:href="#iconDot"></use></svg>
-        </div>
-        <div id="20231227184025-8d7jq9r" data-node-id="20231227184025-8d7jq9r" data-type="NodeParagraph" updated="20231227184105" class="p" heading-fold="1"><div spellcheck="false"><a href="https://github.com/siyuan-note/oceanpress/issues/4">支持上传 s3  issues/4</a></div></div>
-      </div><div id="20231220103412-an60ls8" data-node-id="20231220103412-an60ls8" data-type="NodeListItem" data-subtype="u" class="li" heading-fold="1" data-marker="*">
-        <div class="protyle-action">
-          <svg><use xlink:href="#iconDot"></use></svg>
-        </div>
-        <div id="20231220103412-wkad5h8" data-node-id="20231220103412-wkad5h8" data-type="NodeParagraph" updated="20231220103520" class="p" heading-fold="1"><div spellcheck="false">添加自动暗黑模式 18 以后 6点以前 <a href="https://github.com/siyuan-note/oceanpress/commit/055a20de">055a20de</a></div></div>
-      </div><div id="20231220103621-zudjb6t" data-node-id="20231220103621-zudjb6t" data-type="NodeListItem" updated="20231220103649" data-subtype="u" class="li" heading-fold="1" data-marker="*">
-        <div class="protyle-action">
-          <svg><use xlink:href="#iconDot"></use></svg>
-        </div>
-        <div id="20231220103621-erp8oep" data-node-id="20231220103621-erp8oep" data-type="NodeParagraph" updated="20231220103649" class="p" heading-fold="1"><div spellcheck="false">修复代码块未高亮的问题 <a href="https://github.com/siyuan-note/oceanpress/commit/5afe5053">5afe5053</a></div></div>
-      </div><div id="20231220110821-jchfga4" data-node-id="20231220110821-jchfga4" data-type="NodeListItem" updated="20231220110837" data-subtype="u" class="li" heading-fold="1" data-marker="*">
-        <div class="protyle-action">
-          <svg><use xlink:href="#iconDot"></use></svg>
-        </div>
-        <div id="20231220110821-7naf6oy" data-node-id="20231220110821-7naf6oy" data-type="NodeParagraph" updated="20231220110837" class="p" heading-fold="1"><div spellcheck="false">配置添加版本号，运行时将自动对比版本决定是否进行全量编译 <a href="https://github.com/siyuan-note/oceanpress/commit/972442d0">972442d0</a></div></div>
-      </div><div id="20231227155723-qbbbs5u" data-node-id="20231227155723-qbbbs5u" data-type="NodeListItem" updated="20231227155827" data-subtype="u" class="li" heading-fold="1" data-marker="*">
-        <div class="protyle-action">
-          <svg><use xlink:href="#iconDot"></use></svg>
-        </div>
-        <div id="20231227155723-8sk0khu" data-node-id="20231227155723-8sk0khu" data-type="NodeParagraph" updated="20231227184044" class="p" heading-fold="1"><div spellcheck="false"><a href="https://github.com/siyuan-note/oceanpress/issues/3">实现 rss.xml 生成 issues/3</a></div></div><div id="20231227155755-a7ucqfi" data-node-id="20231227155755-a7ucqfi" data-type="NodeParagraph" updated="20231227155827" class="p" heading-fold="1"><div spellcheck="false">曾经实现了的功能，现在终于又回来了</div></div>
-      </div></div><h3 id="20231011161840-8ywkpwj" data-node-id="20231011161840-8ywkpwj" data-type="NodeHeading" updated="20231011161846" data-subtype="h3" class="h3">preview.10</h3><div id="20231009172535-rw5iu53" data-node-id="20231009172535-rw5iu53" data-type="NodeParagraph" updated="20231011161846" class="p" heading-fold="1"><div spellcheck="false"><span data-type="strong">💥重磅更新</span>：<span data-type="block-ref"   data-subtype="d"   data-id="20231010132148-zw7l2vj"><a href="./../../想法/项目/OceanPress_js/OceanPress插件.html#20231010132148-zw7l2vj">为挂件生成快照</a></span></div></div><div id="20231008222108-w71y78t" data-node-id="20231008222108-w71y78t" data-type="NodeList" updated="20231011161846" data-subtype="u" class="list" heading-fold="1"><div id="20231008174734-4bjmix0" data-node-id="20231008174734-4bjmix0" data-type="NodeListItem" updated="20231010182128" data-subtype="u" class="li" heading-fold="1" data-marker="*">
-        <div class="protyle-action">
-          <svg><use xlink:href="#iconDot"></use></svg>
-        </div>
-        <div id="20231008174734-lnlx20k" data-node-id="20231008174734-lnlx20k" data-type="NodeParagraph" updated="20231009124703" class="p" heading-fold="1"><div spellcheck="false">图片延迟加载功能 </div></div><div id="20231009124709-slzzugd" data-node-id="20231009124709-slzzugd" data-type="NodeList" updated="20231010182128" data-subtype="u" class="list" heading-fold="1"><div id="20231009124709-r7323sc" data-node-id="20231009124709-r7323sc" data-type="NodeListItem" updated="20231010182128" data-subtype="u" class="li" heading-fold="1" data-marker="*">
-        <div class="protyle-action">
-          <svg><use xlink:href="#iconDot"></use></svg>
-        </div>
-        <div id="20231009124709-h7qsg9j" data-node-id="20231009124709-h7qsg9j" data-type="NodeParagraph" updated="20231010182128" class="p" heading-fold="1"><div spellcheck="false">img 标签添加属性 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#loading">loading=&quot;lazy&quot;</a></div></div>
-      </div></div>
-      </div><div id="20231008222109-om03mlb" data-node-id="20231008222109-om03mlb" data-type="NodeListItem" updated="20231008222158" data-subtype="u" class="li" heading-fold="1" data-marker="*">
-        <div class="protyle-action">
-          <svg><use xlink:href="#iconDot"></use></svg>
-        </div>
-        <div id="20231008222109-wo363wc" data-node-id="20231008222109-wo363wc" data-type="NodeParagraph" updated="20231008222124" class="p" heading-fold="1"><div spellcheck="false">更完善的增量编译功能</div></div><div id="20231008222124-mecx9i4" data-node-id="20231008222124-mecx9i4" data-type="NodeList" updated="20231008222158" data-subtype="u" class="list" heading-fold="1"><div id="20231008222124-o7p8bfl" data-node-id="20231008222124-o7p8bfl" data-type="NodeListItem" data-subtype="u" class="li" heading-fold="1" data-marker="*">
-        <div class="protyle-action">
-          <svg><use xlink:href="#iconDot"></use></svg>
-        </div>
-        <div id="20231008222124-k4lpdwe" data-node-id="20231008222124-k4lpdwe" data-type="NodeParagraph" updated="20231008222148" class="p" heading-fold="1"><div spellcheck="false">在文档 a 引用文档 b 的情况下</div></div>
-      </div><div id="20231008222149-zox14kf" data-node-id="20231008222149-zox14kf" data-type="NodeListItem" updated="20231008222158" data-subtype="u" class="li" heading-fold="1" data-marker="*">
-        <div class="protyle-action">
-          <svg><use xlink:href="#iconDot"></use></svg>
-        </div>
-        <div id="20231008222149-4th0ita" data-node-id="20231008222149-4th0ita" data-type="NodeParagraph" updated="20231008222158" class="p" heading-fold="1"><div spellcheck="false">b发生变化也会触发a文档的编译</div></div>
-      </div></div>
-      </div><div id="20231009172734-ax8y58z" data-node-id="20231009172734-ax8y58z" data-type="NodeListItem" updated="20231009172736" data-subtype="u" class="li" heading-fold="1" data-marker="*">
-        <div class="protyle-action">
-          <svg><use xlink:href="#iconDot"></use></svg>
-        </div>
-        <div id="20231009172736-ap229q8" data-node-id="20231009172736-ap229q8" data-type="NodeBlockQueryEmbed" updated="20231009172736" heading-fold="1" data-type="NodeBlockquote" class="bq">  <div id="20230916192455-lix3ui3" data-node-id="20230916192455-lix3ui3" data-type="NodeListItem" updated="20240118165651" data-subtype="u" class="li" data-marker="*">
-        <div class="protyle-action">
-          <svg><use xlink:href="#iconDot"></use></svg>
-        </div>
-        <div id="20230916192455-hxfh670" data-node-id="20230916192455-hxfh670" data-type="NodeParagraph" updated="20240612180341" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background4);">对挂件生成快照，至少能看见预览效果(需要安装插件，只是能看...)</span></div></div>
-      </div>  </div>
-      </div></div><div id="20231010165218-zpa2656" data-node-id="20231010165218-zpa2656" data-type="NodeList" updated="20231011161846" data-subtype="u" class="list" heading-fold="1"><div id="20231010161623-ezt42c3" data-node-id="20231010161623-ezt42c3" data-type="NodeListItem" data-subtype="u" class="li" heading-fold="1" data-marker="*">
-        <div class="protyle-action">
-          <svg><use xlink:href="#iconDot"></use></svg>
-        </div>
-        <div id="20231010161623-vxs1xia" data-node-id="20231010161623-vxs1xia" data-type="NodeParagraph" updated="20231010165212" class="p" heading-fold="1"><div spellcheck="false">渲染嵌入块中的标题块后面的非标题块</div></div>
-      </div><div id="20231010181515-gxcu1kp" data-node-id="20231010181515-gxcu1kp" data-type="NodeListItem" updated="20231010181518" data-subtype="u" class="li" heading-fold="1" data-marker="*">
-        <div class="protyle-action">
-          <svg><use xlink:href="#iconDot"></use></svg>
-        </div>
-        <div id="20231010181515-1rahgwg" data-node-id="20231010181515-1rahgwg" data-type="NodeParagraph" updated="20231010181518" class="p" heading-fold="1"><div spellcheck="false">fix 任意元素上悬停都显示文档标题</div></div>
-      </div></div><h3 id="20240118165438-f03k98x" data-node-id="20240118165438-f03k98x" data-type="NodeHeading" updated="20240118165446" data-subtype="h3" class="h3">历史日志</h3><div id="20240118165446-9htqgn1" data-node-id="20240118165446-9htqgn1" data-type="NodeParagraph" updated="20240118165458" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20240118165400-y89pfvq"><a href="./../../想法/项目/OceanPress_js/2023 年更新日志.html#20240118165400-y89pfvq">2023 年更新日志</a></span></div></div><div id="20240118165459-2amexnd" data-node-id="20240118165459-2amexnd" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div>
+      </div></div><h2 id="20230921214506-w5txrqb" data-node-id="20230921214506-w5txrqb" data-type="NodeHeading" updated="20250822173609" data-subtype="h2" class="h2"><span data-type="block-ref"   data-subtype="d"   data-id="20250822173529-o1ssnht"><a href="./../../想法/项目/OceanPress_js/OceanPress更新日志.html#20250822173529-o1ssnht">OceanPress更新日志</a></span></h2><div id="20250822173609-nsf5bvx" data-node-id="20250822173609-nsf5bvx" data-type="NodeParagraph" updated="20250822173609" class="p"><div spellcheck="false"></div></div></div>
   <div id="oceanpress-right-sidebar"></div>
 </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
         appearance: {
-          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          mode: document.documentElement.getAttribute('data-theme-mode') === 'dark' ? 1 : 0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -679,7 +678,7 @@ Listening on :{"address":"127.0.0.1","family":"IPv4","port":80}
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);
@@ -703,12 +702,12 @@ Listening on :{"address":"127.0.0.1","family":"IPv4","port":80}
     });
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
-crossorigin="anonymous"></script><footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
-  <p style="margin: 0;">
+crossorigin="anonymous"></script><footer class="theme-aware-footer">
+  <p>
     技术支持：
-    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
-    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
-    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
   </p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>

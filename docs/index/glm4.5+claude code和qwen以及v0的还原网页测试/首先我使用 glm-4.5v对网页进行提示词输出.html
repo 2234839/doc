@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  :root {
+    --oceanpress-header-bg: #f8f9fa;
+    --oceanpress-header-border: #e9ecef;
+    --oceanpress-header-text: #007bff;
+    --oceanpress-footer-bg: #f8f9fa;
+    --oceanpress-footer-text: #007bff;
+  }
+  
+  [data-theme-mode="dark"] {
+    --oceanpress-header-bg: #2d2d2d;
+    --oceanpress-header-border: #404040;
+    --oceanpress-header-text: #58a6ff;
+    --oceanpress-footer-bg: #2d2d2d;
+    --oceanpress-footer-text: #58a6ff;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--oceanpress-header-bg);
+    border-bottom: 1px solid var(--oceanpress-header-border);
+  }
+  .home-button {
+    text-decoration: none;
+    color: var(--oceanpress-header-text);
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+  
+  .theme-aware-footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--oceanpress-footer-bg);
+    text-align: center;
+  }
+  .theme-aware-footer p {
+    margin: 0;
+  }
+  .theme-aware-footer a {
+    color: var(--oceanpress-footer-text);
+    text-decoration: none;
+  }
+  .theme-aware-footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="description" content="首先我使用 glm-4.5v对网页进行提示词输出 图片如下： ​ ​ 提示词如下： md 请详细分析这张网页截图，提供以下信息用于精确还原： 1. 布局结构： - 页面整体布局（header、main、footer等） - 各个区域的尺寸比例和位置关系 - 响应式设计特征 2." />
+  <meta name="keywords" content="模型, 输入, header, 卡片, main, sidebar, 按钮, 输入框" />
+  <meta name="author" content="崮生" />
+  <meta property="og:title" content="首先我使用 glm-4.5v对网页进行提示词输出" />
+  <meta property="og:description" content="首先我使用 glm-4.5v对网页进行提示词输出 图片如下： ​ ​ 提示词如下： md 请详细分析这张网页截图，提供以下信息用于精确还原： 1. 布局结构： - 页面整体布局（header、main、footer等） - 各个区域的尺寸比例和位置关系 - 响应式设计特征 2." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="/index/glm4.5+claude code和qwen以及v0的还原网页测试/首先我使用 glm-4.5v对网页进行提示词输出.html" />
+  <meta property="og:site_name" content="OceanPress" />
+  <meta property="article:published_time" content="2025-08-13T10:20:52Z" />
+  <meta property="article:modified_time" content="2025-08-13T10:22:38Z" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="首先我使用 glm-4.5v对网页进行提示词输出" />
+  <meta name="twitter:description" content="首先我使用 glm-4.5v对网页进行提示词输出 图片如下： ​ ​ 提示词如下： md 请详细分析这张网页截图，提供以下信息用于精确还原： 1. 布局结构： - 页面整体布局（header、main、footer等） - 各个区域的尺寸比例和位置关系 - 响应式设计特征 2." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="/index/glm4.5+claude code和qwen以及v0的还原网页测试/首先我使用 glm-4.5v对网页进行提示词输出.html" />
+
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  // 更好的主题切换方案
+  (function() {
+    // 主题配置
+    const themes = {
+      light: {
+        name: 'daylight',
+        mode: 'light',
+        icon: '☀️'
+      },
+      dark: {
+        name: 'midnight',
+        mode: 'dark',
+        icon: '🌙'
+      },
+      auto: {
+        name: 'auto',
+        mode: 'auto',
+        icon: '🌗',
+        getTheme: function() {
+          const currentHour = new Date().getHours();
+          return currentHour >= 18 || currentHour < 6 ? 'dark' : 'light';
+        }
+      }
+    };
+
+    // 获取当前主题设置
+    function getCurrentTheme() {
+      // 优先级：localStorage > 系统偏好 > auto
+      const savedTheme = localStorage.getItem('oceanpress-theme');
+      if (savedTheme && themes[savedTheme]) {
+        return savedTheme;
+      }
+
+      // 检测系统偏好
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
+      }
+
+      return 'auto';
+    }
+
+    // 应用主题
+    function applyTheme(themeName) {
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 设置 CSS 变量
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 加载对应的 CSS
+      const themeStyle = document.getElementById('themeDefaultStyle');
+      if (themeStyle) {
+        themeStyle.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+      } else {
+        // 如果元素不存在，创建它
+        const link = document.createElement('link');
+        link.id = 'themeDefaultStyle';
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+        document.head.appendChild(link);
+      }
+
+      // 更新主题切换按钮
+      updateThemeToggle(themeName);
+
+      // 保存到 localStorage
+      localStorage.setItem('oceanpress-theme', themeName);
+
+      // 触发自定义事件
+      window.dispatchEvent(new CustomEvent('oceanpress-theme-changed', {
+        detail: { theme: themeName, actualTheme: actualTheme }
+      }));
+    }
+
+    // 创建主题切换按钮
+    function createThemeToggle() {
+      const toggle = document.createElement('div');
+      toggle.id = 'oceanpress-theme-toggle';
+      toggle.innerHTML = '<span class="theme-icon">🌗</span><span class="theme-text">自动</span>';
+      toggle.addEventListener('click', toggleTheme);
+      (document.querySelector('[data-type="NodeDocument"]')||document.body).appendChild(toggle);
+    }
+
+    // 更新主题切换按钮
+    function updateThemeToggle(themeName) {
+      const toggle = document.getElementById('oceanpress-theme-toggle');
+      if (!toggle) return;
+
+      const theme = themes[themeName] || themes.auto;
+      toggle.innerHTML = '<span class="theme-icon">' + theme.icon + '</span><span class="theme-text">' +
+        (themeName === 'auto' ? '自动' : (themeName === 'dark' ? '深色' : '浅色')) + '</span>';
+    }
+
+    // 切换主题
+    function toggleTheme() {
+      const currentTheme = getCurrentTheme();
+      const themeOrder = ['auto', 'light', 'dark'];
+      const currentIndex = themeOrder.indexOf(currentTheme);
+      const nextIndex = (currentIndex + 1) % themeOrder.length;
+      const nextTheme = themeOrder[nextIndex];
+
+      applyTheme(nextTheme);
+    }
+
+    // 监听系统主题变化
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const currentTheme = getCurrentTheme();
+        if (currentTheme === 'auto') {
+          applyTheme('auto');
+        }
+      });
+    }
+
+    // 监听自定义主题变化事件（用于侧边栏等组件）
+    window.addEventListener('oceanpress-theme-changed', function(e) {
+      // 这里可以添加其他组件需要响应主题变化的逻辑
+      console.log('Theme changed to:', e.detail);
+    });
+
+    // 初始化主题
+    function initTheme() {
+      const themeName = getCurrentTheme();
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 立即设置基础主题，避免闪烁
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 创建主题切换按钮
+      createThemeToggle();
+
+      // 应用完整主题
+      applyTheme(themeName);
+    }
+
+    // 页面加载完成后初始化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+      initTheme();
+    }
+  })();
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>首先我使用 glm-4.5v对网页进行提示词输出</title>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "首先我使用 glm-4.5v对网页进行提示词输出",
+  "description": "首先我使用 glm-4.5v对网页进行提示词输出 图片如下： ​ ​ 提示词如下： md 请详细分析这张网页截图，提供以下信息用于精确还原： 1. 布局结构： - 页面整体布局（header、main、footer等） - 各个区域的尺寸比例和位置关系 - 响应式设计特征 2.",
+  "keywords": "模型, 输入, header, 卡片, main, sidebar, 按钮, 输入框",
+  "datePublished": "2025-08-13T10:20:52Z",
+  "dateModified": "2025-08-13T10:22:38Z",
+  "author": {
+    "@type": "Person",
+    "name": "崮生",
+    "url": ""
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "OceanPress",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/assets/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/index/glm4.5+claude code和qwen以及v0的还原网页测试/首先我使用 glm-4.5v对网页进行提示词输出.html"
+  },
+  "wordCount": 3619,
+  "articleSection": "技术文档",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "index",
+      "item": "/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "glm4.5+claude code和qwen以及v0的还原网页测试",
+      "item": "/index/glm4.5+claude code和qwen以及v0的还原网页测试.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "首先我使用 glm-4.5v对网页进行提示词输出",
+      "item": "/index/glm4.5+claude code和qwen以及v0的还原网页测试/首先我使用 glm-4.5v对网页进行提示词输出.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div id="oceanpress-left-sidebar">
+    
+    <div id="oceanpress-doctree"></div>
+           <script src="./../../__oceanpress/docTree.js" async></script>
+  </div>
+  <div style="min-height: 150px;" id="20250813102052-btjeszs" data-node-id="20250813102052-btjeszs" data-type="NodeDocument" updated="20250813102238" type="doc">
+
+<h1 id="20250813102052-btjeszs" data-node-id="20250813102052-btjeszs" data-type="NodeDocument" updated="20250813102238" type="doc" data-type="NodeHeading" class="h1">首先我使用 glm-4.5v对网页进行提示词输出</h1>
+<div id="20250813102133-1oum9ny" data-node-id="20250813102133-1oum9ny" data-type="NodeParagraph" updated="20250813102135" class="p"><div spellcheck="false">图片如下：</div></div><div id="20250813102115-mofijkh" data-node-id="20250813102115-mofijkh" data-type="NodeParagraph" updated="20250813102119" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="width: 1016px;" style="">
+  <img
+    src="./../../assets/image-20250813102119-rpesp99.png"
+    data-src="./../../assets/image-20250813102119-rpesp99.png"
+    title=""
+    style="width: 1016px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20250813102138-pcraym7" data-node-id="20250813102138-pcraym7" data-type="NodeParagraph" updated="20250813102142" class="p"><div spellcheck="false">提示词如下：</div></div><div id="20250813102143-a5wvpnx" data-node-id="20250813102143-a5wvpnx" data-type="NodeCodeBlock" updated="20250813102154" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">md</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">请详细分析这张网页截图，提供以下信息用于精确还原：
+
+  1. 布局结构：
+    - 页面整体布局（header、main、footer等）
+    - 各个区域的尺寸比例和位置关系
+    - 响应式设计特征
+  2. 视觉设计：
+    - 颜色方案（背景色、文字色、边框色等，提供具体的hex值）
+    - 字体信息（字体族、大小、粗细、行高）
+    - 间距和边距值
+    - 阴影、圆角等装饰效果
+  3. 内容元素：
+    - 所有文本内容（包括按钮文字、标题、段落等）
+    - 图片和图标的描述
+    - 表单元素类型和状态
+  4. 交互细节：
+    - 悬停效果
+    - 过渡动画
+    - 表单验证状态
+  5. 技术实现建议：
+    - 推荐的CSS框架
+    - 关键的CSS属性值
+    - JavaScript交互逻辑
+</div>
+        </div><div id="20250813102200-tjto5cc" data-node-id="20250813102200-tjto5cc" data-type="NodeParagraph" updated="20250813102206" class="p"><div spellcheck="false">输出结果如下：</div></div><div id="20250813102207-dblltbg" data-node-id="20250813102207-dblltbg" data-type="NodeCodeBlock" updated="20250813102220" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">md</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">### 1. 布局结构
+
+页面整体布局：采用「Header + Sidebar + Main Content」的三栏布局。
+
+Header：顶部固定导航栏，包含品牌Logo、主导航菜单（控制台、特惠专区、应用空间等）及右上角功能入口（财务、API Key等）。
+Sidebar：左侧垂直菜单栏，分为「模型体验」（文本/视觉/图像/视频/语音模型）和「应用体验」（智能体、实时音视频）两大模块。
+Main Content：中间主体区域，展示当前选中的「视觉模型」核心功能（输入框、功能卡片等）。
+尺寸比例与位置关系：
+
+Header高度约 50px，占满屏幕宽度；
+Sidebar宽度约 200px，固定在左侧，高度占满视口（减去Header）；
+Main Content占据剩余空间（calc(100vw - 200px) 宽度），水平居中布局，内部元素通过 Flex/Grid 对齐。
+响应式设计特征：
+
+小屏幕（如手机）：Sidebar 可能折叠为汉堡菜单，Main Content 占满全屏；
+中等屏幕（如平板）：Sidebar 可收起或保持固定，Main Content 自适应宽度；
+大屏幕：三栏布局稳定，各区域比例协调。
+2. 视觉设计
+颜色方案：
+
+背景：Header/Sidebar 背景色 #ffffff（白），Main Content 背景色 #f8fafc（浅蓝灰）；
+文字：Header 导航文字 #374151（深灰），Main 标题 #111827（黑）/#2563eb（蓝），辅助文字 #6b7280（浅灰）；
+边框：输入框边框 #d1d5db（浅灰），卡片边框 #e5e7eb（更浅灰）；
+强调色：按钮/激活态 #3b82f6（蓝），悬停态 #2563eb（深蓝）。
+字体信息：
+
+字体族：无衬线字体（如 Inter 或 PingFang SC），兼顾可读性与现代感；
+标题：「极速体验」「视觉模型」字体大小 24px，粗细 600（半 bold）；
+正文：导航文字 14px，输入框提示文字 16px，功能卡片标题 16px，说明文字 12px；
+行高：正文行高 1.5，标题行高 1.2。
+间距与边距：
+
+Header 内部 padding 0 20px；
+Sidebar 菜单项 padding 12px 20px，选中态 padding 12px 20px 且背景 #f3f4f6；
+Main Content 内部 padding 40px 20px，输入框 margin 20px auto，功能卡片 gap 20px；
+卡片内边距 16px，图片与文字间隙 8px。
+装饰效果：
+
+输入框：圆角 8px，聚焦时边框 #3b82f6（蓝）；
+功能卡片：圆角 12px， hover 时阴影 0 4px 6px #00000008；
+按钮：圆角 6px， hover 时背景 #1d4ed8（更深蓝）。
+3. 内容元素
+文本内容：
+
+Header：「BigModel」「控制台」「特惠专区」「应用空间」「体验中心」「开发文档」「财务」「API Key」；
+Sidebar：「模型体验」「文本模型」「视觉模型」（选中态）「图像模型」「视频模型」「语音模型」「应用体验」「智能体」「实时音视频」；
+Main：「极速体验 视觉模型 开启智能对话」「GLM-4V-Flash」「输入文本或图片，我可以完成视频制作」；
+功能卡片标题：「图片分类」「作业助手」「场景识别」「表格解析」；
+卡片说明：「详细描述图片内容并分类」「完成一篇英语作文」「旅游场景识别与建议」「数据看版查询产品销量」。
+图片与图标：
+
+Header：BigModel Logo（蓝色图标+文字）；
+Sidebar：模型/应用图标（如文本模型用文档图标，视觉模型用眼睛图标）；
+功能卡片：四张缩略图（图片分类含猫、花、向日葵；作业助手含饼图；场景识别含山脉风景；表格解析含数据图表）。
+表单元素：
+
+输入框：多行文本输入（placeholder 为「输入文本或图片，我可以完成视频制作」），右下角有发送按钮（纸飞机图标）；
+模型选择器：下拉/标签形式（显示「GLM-4V-Flash」，旁有信息图标）。
+4. 交互细节
+悬停效果：
+
+Header 导航项：hover 时下划线动画或背景微变；
+Sidebar 菜单项：未选中态 hover 背景变 #f9fafb，选中态 hover 无变化；
+功能卡片：hover 时阴影增强， cursor 变 pointer；
+发送按钮：hover 时背景变 #1d4ed8， icon 颜色变深。
+过渡动画：
+
+输入框聚焦：边框颜色从 #d1d5db 渐变到 #3b82f6（0.2s ease）；
+卡片 hover：阴影从 0 2px 4px #00000005 渐变到 0 4px 6px #00000010（0.15s ease）；
+按钮点击：背景从 #3b82f6 瞬间压暗到 #1e40af（0.1s ease）。
+表单验证状态：
+
+输入框为空时，发送按钮置灰（opacity 0.5）；
+输入内容后，按钮恢复可点击状态（opacity 1）。
+5. 技术实现建议
+推荐CSS框架：Tailwind CSS（快速构建响应式布局，内置颜色、间距、阴影等工具类）。
+
+关键CSS属性值：
+
+/* 布局 */
+.header { display: flex; align-items: center; height: 50px; }
+.sidebar { width: 200px; background: #fff; border-right: 1px solid #e5e7eb; }
+.main { flex: 1; background: #f8fafc; }
+
+/* 视觉 */
+.input-box { border: 1px solid #d1d5db; border-radius: 8px; transition: border-color 0.2s; }
+.input-box:focus { border-color: #3b82f6; }
+.card { border: 1px solid #e5e7eb; border-radius: 12px; transition: box-shadow 0.15s; }
+.card:hover { box-shadow: 0 4px 6px rgba(0,0,0,0.08); }
+
+/* 字体 */
+body { font-family: 'Inter', 'PingFang SC', sans-serif; }
+.title { font-size: 24px; font-weight: 600; color: #111827; }
+css
+
+复制代码
+JavaScript交互逻辑：
+
+监听输入框 input 事件，判断是否为空以控制发送按钮状态；
+点击功能卡片时，触发对应功能的模态框或请求（如「图片分类」打开上传界面）；
+Header 导航项点击时，切换 Sidebar 高亮状态或跳转页面；
+发送按钮点击时，收集输入内容并发送至后端 API（如调用 GLM-4V 模型）。
+</div>
+        </div><div id="20250813102223-27jjlu8" data-node-id="20250813102223-27jjlu8" data-type="NodeParagraph" updated="20250813102223" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: document.documentElement.getAttribute('data-theme-mode') === 'dark' ? 1 : 0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
+crossorigin="anonymous"></script><footer class="theme-aware-footer">
+  <p>
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>

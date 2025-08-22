@@ -3,17 +3,33 @@
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
 <style>
+  :root {
+    --oceanpress-header-bg: #f8f9fa;
+    --oceanpress-header-border: #e9ecef;
+    --oceanpress-header-text: #007bff;
+    --oceanpress-footer-bg: #f8f9fa;
+    --oceanpress-footer-text: #007bff;
+  }
+  
+  [data-theme-mode="dark"] {
+    --oceanpress-header-bg: #2d2d2d;
+    --oceanpress-header-border: #404040;
+    --oceanpress-header-text: #58a6ff;
+    --oceanpress-footer-bg: #2d2d2d;
+    --oceanpress-footer-text: #58a6ff;
+  }
+  
   .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #e9ecef;
+    background-color: var(--oceanpress-header-bg);
+    border-bottom: 1px solid var(--oceanpress-header-border);
   }
   .home-button {
     text-decoration: none;
-    color: #007bff;
+    color: var(--oceanpress-header-text);
     font-weight: bold;
     font-size: 16px;
   }
@@ -23,6 +39,23 @@
   #search {
     width: 300px;
   }
+  
+  .theme-aware-footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--oceanpress-footer-bg);
+    text-align: center;
+  }
+  .theme-aware-footer p {
+    margin: 0;
+  }
+  .theme-aware-footer a {
+    color: var(--oceanpress-footer-text);
+    text-decoration: none;
+  }
+  .theme-aware-footer a:hover {
+    text-decoration: underline;
+  }
 </style>
 
   <meta charset="utf-8" />
@@ -31,11 +64,11 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="description" content="最近更新.rss.xml 未找到此块，可能为跨笔记引用" />
-  <meta name="keywords" content="rss, xml, 最近更新, 未找到此, 可能为跨, 笔记引用, 最近更, 未找到" />
+    <meta name="description" content="最近更新.rss.xml 关键特性 绿色表示完全可用 黄色表示部分可用 无色 == ​ 大饼 兼容思源绝大部分效果 🎉 全平台随用随走 基于node.js 的全平台运行能力 基于浏览器网页的适配、随用随走 基于 OceanPress插件 的思源内运行 支持挂件 通过 OceanPress插件 来 对挂件生成快照，至少..." />
+  <meta name="keywords" content="oceanpress, 网站, 插件, 支持, claude, 企业, api, 生成" />
   <meta name="author" content="崮生" />
   <meta property="og:title" content="最近更新.rss.xml" />
-  <meta property="og:description" content="最近更新.rss.xml 未找到此块，可能为跨笔记引用" />
+  <meta property="og:description" content="最近更新.rss.xml 关键特性 绿色表示完全可用 黄色表示部分可用 无色 == ​ 大饼 兼容思源绝大部分效果 🎉 全平台随用随走 基于node.js 的全平台运行能力 基于浏览器网页的适配、随用随走 基于 OceanPress插件 的思源内运行 支持挂件 通过 OceanPress插件 来 对挂件生成快照，至少..." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="/关于/rss/最近更新.rss.xml.html" />
   <meta property="og:site_name" content="OceanPress" />
@@ -43,27 +76,175 @@
   <meta property="article:modified_time" content="2024-06-19T10:32:29Z" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="最近更新.rss.xml" />
-  <meta name="twitter:description" content="最近更新.rss.xml 未找到此块，可能为跨笔记引用" />
+  <meta name="twitter:description" content="最近更新.rss.xml 关键特性 绿色表示完全可用 黄色表示部分可用 无色 == ​ 大饼 兼容思源绝大部分效果 🎉 全平台随用随走 基于node.js 的全平台运行能力 基于浏览器网页的适配、随用随走 基于 OceanPress插件 的思源内运行 支持挂件 通过 OceanPress插件 来 对挂件生成快照，至少..." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="/关于/rss/最近更新.rss.xml.html" />
 
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
-  function isNightTime() {
-    const currentHour = new Date().getHours();
-    return currentHour >= 18 || currentHour < 6;
-  }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  // 更好的主题切换方案
+  (function() {
+    // 主题配置
+    const themes = {
+      light: {
+        name: 'daylight',
+        mode: 'light',
+        icon: '☀️'
+      },
+      dark: {
+        name: 'midnight',
+        mode: 'dark',
+        icon: '🌙'
+      },
+      auto: {
+        name: 'auto',
+        mode: 'auto',
+        icon: '🌗',
+        getTheme: function() {
+          const currentHour = new Date().getHours();
+          return currentHour >= 18 || currentHour < 6 ? 'dark' : 'light';
+        }
+      }
+    };
+
+    // 获取当前主题设置
+    function getCurrentTheme() {
+      // 优先级：localStorage > 系统偏好 > auto
+      const savedTheme = localStorage.getItem('oceanpress-theme');
+      if (savedTheme && themes[savedTheme]) {
+        return savedTheme;
+      }
+
+      // 检测系统偏好
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
+      }
+
+      return 'auto';
+    }
+
+    // 应用主题
+    function applyTheme(themeName) {
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 设置 CSS 变量
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 加载对应的 CSS
+      const themeStyle = document.getElementById('themeDefaultStyle');
+      if (themeStyle) {
+        themeStyle.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+      } else {
+        // 如果元素不存在，创建它
+        const link = document.createElement('link');
+        link.id = 'themeDefaultStyle';
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+        document.head.appendChild(link);
+      }
+
+      // 更新主题切换按钮
+      updateThemeToggle(themeName);
+
+      // 保存到 localStorage
+      localStorage.setItem('oceanpress-theme', themeName);
+
+      // 触发自定义事件
+      window.dispatchEvent(new CustomEvent('oceanpress-theme-changed', {
+        detail: { theme: themeName, actualTheme: actualTheme }
+      }));
+    }
+
+    // 创建主题切换按钮
+    function createThemeToggle() {
+      const toggle = document.createElement('div');
+      toggle.id = 'oceanpress-theme-toggle';
+      toggle.innerHTML = '<span class="theme-icon">🌗</span><span class="theme-text">自动</span>';
+      toggle.addEventListener('click', toggleTheme);
+      (document.querySelector('[data-type="NodeDocument"]')||document.body).appendChild(toggle);
+    }
+
+    // 更新主题切换按钮
+    function updateThemeToggle(themeName) {
+      const toggle = document.getElementById('oceanpress-theme-toggle');
+      if (!toggle) return;
+
+      const theme = themes[themeName] || themes.auto;
+      toggle.innerHTML = '<span class="theme-icon">' + theme.icon + '</span><span class="theme-text">' +
+        (themeName === 'auto' ? '自动' : (themeName === 'dark' ? '深色' : '浅色')) + '</span>';
+    }
+
+    // 切换主题
+    function toggleTheme() {
+      const currentTheme = getCurrentTheme();
+      const themeOrder = ['auto', 'light', 'dark'];
+      const currentIndex = themeOrder.indexOf(currentTheme);
+      const nextIndex = (currentIndex + 1) % themeOrder.length;
+      const nextTheme = themeOrder[nextIndex];
+
+      applyTheme(nextTheme);
+    }
+
+    // 监听系统主题变化
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const currentTheme = getCurrentTheme();
+        if (currentTheme === 'auto') {
+          applyTheme('auto');
+        }
+      });
+    }
+
+    // 监听自定义主题变化事件（用于侧边栏等组件）
+    window.addEventListener('oceanpress-theme-changed', function(e) {
+      // 这里可以添加其他组件需要响应主题变化的逻辑
+      console.log('Theme changed to:', e.detail);
+    });
+
+    // 初始化主题
+    function initTheme() {
+      const themeName = getCurrentTheme();
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 立即设置基础主题，避免闪烁
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 创建主题切换按钮
+      createThemeToggle();
+
+      // 应用完整主题
+      applyTheme(themeName);
+    }
+
+    // 页面加载完成后初始化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+      initTheme();
+    }
+  })();
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>最近更新.rss.xml</title>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "最近更新.rss.xml",
-  "description": "最近更新.rss.xml 未找到此块，可能为跨笔记引用",
-  "keywords": "rss, xml, 最近更新, 未找到此, 可能为跨, 笔记引用, 最近更, 未找到",
+  "description": "最近更新.rss.xml 关键特性 绿色表示完全可用 黄色表示部分可用 无色 == ​ 大饼 兼容思源绝大部分效果 🎉 全平台随用随走 基于node.js 的全平台运行能力 基于浏览器网页的适配、随用随走 基于 OceanPress插件 的思源内运行 支持挂件 通过 OceanPress插件 来 对挂件生成快照，至少...",
+  "keywords": "oceanpress, 网站, 插件, 支持, claude, 企业, api, 生成",
   "datePublished": "2021-06-06T15:48:42Z",
   "dateModified": "2024-06-19T10:32:29Z",
   "author": {
@@ -83,7 +264,7 @@
     "@type": "WebPage",
     "@id": "/关于/rss/最近更新.rss.xml.html"
   },
-  "wordCount": 56,
+  "wordCount": 12200,
   "articleSection": "技术文档",
   "inLanguage": "zh-CN"
 }
@@ -124,22 +305,791 @@
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div id="oceanpress-left-sidebar">
     
-    <iframe src="./../../__oceanpress/docTree.html"></iframe>
+    <div id="oceanpress-doctree"></div>
+           <script src="./../../__oceanpress/docTree.js" async></script>
   </div>
   <div style="min-height: 150px;" id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc">
 
 <h1 id="20210606154842-rgtj4rm" data-node-id="20210606154842-rgtj4rm" data-type="NodeDocument" updated="20240619103229" scroll="&#123;&quot;rootId&quot;:&quot;20210606154842-rgtj4rm&quot;,&quot;startId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;endId&quot;:&quot;20210606160324-57c0iql&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20210606154842-jah9dt8&quot;,&quot;focusStart&quot;:0,&quot;focusEnd&quot;:0&#125;" type="doc" data-type="NodeHeading" class="h1">最近更新.rss.xml</h1>
-<div id="20210606154842-jah9dt8" data-node-id="20210606154842-jah9dt8" data-type="NodeBlockQueryEmbed" updated="20240619103229" style="height: 9998px;" data-type="NodeBlockquote" class="bq">  <div class="ft__smaller ft__secondary b3-form__space--small">未找到此块，可能为跨笔记引用</div>  </div><div id="20210606160324-57c0iql" data-node-id="20210606160324-57c0iql" data-type="NodeParagraph" updated="20230924170522" class="p"><div spellcheck="false"></div></div></div>
+<div id="20210606154842-jah9dt8" data-node-id="20210606154842-jah9dt8" data-type="NodeBlockQueryEmbed" updated="20240619103229" style="height: 9998px;" data-type="NodeBlockquote" class="bq">  <h2 id="20230916192322-itkpykj" data-node-id="20230916192322-itkpykj" data-type="NodeHeading" updated="20250822173735" data-subtype="h2" class="h2">关键特性</h2>
+<div id="20231005233314-1j9zyrj" data-node-id="20231005233314-1j9zyrj" data-type="NodeBlockquote" updated="20240118170156" class="bq"><div id="20231005233315-fumgiq3" data-node-id="20231005233315-fumgiq3" data-type="NodeParagraph" updated="20240118164724" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">绿色表示完全可用</span>   <span data-type="text" style="background-color: var(--b3-font-background7);">黄色表示部分可用</span>   无色 <span data-type="code">==</span>​ 大饼</div></div></div>
+<div id="20230916192348-gq5h4as" data-node-id="20230916192348-gq5h4as" data-type="NodeList" updated="20250822173723" data-subtype="u" class="list"><div id="20231010160650-oqnvtx0" data-node-id="20231010160650-oqnvtx0" data-type="NodeListItem" updated="20231010160708" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231010160650-wfu8k07" data-node-id="20231010160650-wfu8k07" data-type="NodeParagraph" updated="20231010160708" class="p"><div spellcheck="false"><span data-type="strong" style="background-color: var(--b3-font-background4);"><span data-type="text" style="background-color: var(--b3-font-background4);">兼容思源绝大部分效果 🎉</span></span></div></div>
+      </div><div id="20230916192348-8azqoed" data-node-id="20230916192348-8azqoed" data-type="NodeListItem" updated="20240118165703" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192333-1b6t4yl" data-node-id="20230916192333-1b6t4yl" data-type="NodeParagraph" updated="20231010160745" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background4);">全平台随用随走</span></div></div><div id="20230916192359-6ftfvyg" data-node-id="20230916192359-6ftfvyg" data-type="NodeList" updated="20240118165703" data-subtype="u" class="list"><div id="20230916192358-7fhznll" data-node-id="20230916192358-7fhznll" data-type="NodeListItem" updated="20231227155924" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192358-dc4ve2h" data-node-id="20230916192358-dc4ve2h" data-type="NodeParagraph" updated="20231227155924" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">基于node.js 的全平台运行能力</span></div></div>
+      </div><div id="20230916192402-gb1dxy8" data-node-id="20230916192402-gb1dxy8" data-type="NodeListItem" updated="20230917202637" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192402-ohwt5b5" data-node-id="20230916192402-ohwt5b5" data-type="NodeParagraph" updated="20240118164818" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">基于浏览器网页的适配、随用随走</span></div></div>
+      </div><div id="20240118164749-7og7gpe" data-node-id="20240118164749-7og7gpe" data-type="NodeListItem" updated="20240118165703" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240118164749-m2oomav" data-node-id="20240118164749-m2oomav" data-type="NodeParagraph" updated="20240118165703" class="p"><div spellcheck="false">基于<span data-type="text" style="background-color: var(--b3-font-background4);"> </span><span data-type="text" style="background-color: var(--b3-font-background4);"><span data-type="text block-ref"   data-subtype="d"   data-id="20240106082524-8iwydhr"><a href="./../../想法/项目/OceanPress_js/OceanPress插件.html#20240106082524-8iwydhr">OceanPress插件</a></span></span>的思源内运行</div></div>
+      </div></div>
+      </div><div id="20230916192430-ke851gv" data-node-id="20230916192430-ke851gv" data-type="NodeListItem" updated="20250309124201" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192430-m0edg4k" data-node-id="20230916192430-m0edg4k" data-type="NodeParagraph" updated="20240118165602" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background7);">支持挂件</span></div></div><div id="20230916192526-q83m6fo" data-node-id="20230916192526-q83m6fo" data-type="NodeList" updated="20250309124201" data-subtype="u" class="list"><div id="20240612180344-7ylpowd" data-node-id="20240612180344-7ylpowd" data-type="NodeListItem" updated="20240612180415" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240612180344-d9hycxe" data-node-id="20240612180344-d9hycxe" data-type="NodeParagraph" updated="20240612180415" class="p"><div spellcheck="false">通过<span data-type="block-ref"   data-subtype="d"   data-id="20240106082524-8iwydhr"><a href="./../../想法/项目/OceanPress_js/OceanPress插件.html#20240106082524-8iwydhr">OceanPress插件</a></span> 来  <span data-type="block-ref"   data-subtype="d"   data-id="20230916192455-lix3ui3"><a href="./../../想法/项目/OceanPress_js.html#20230916192455-lix3ui3">对挂件生成快照，至少能看见预览效果(需要安装插件，只是能看...)</a></span></div></div>
+      </div><div id="20231009172122-swyxw7z" data-node-id="20231009172122-swyxw7z" data-type="NodeListItem" updated="20250309124201" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231009172122-3gxx7py" data-node-id="20231009172122-3gxx7py" data-type="NodeParagraph" updated="20250309124201" class="p"><div spellcheck="false">适配 OceanPress 的挂件支持，让一些挂件能够运行在静态网站上</div></div>
+      </div></div>
+      </div><div id="20240612180257-fxw3cch" data-node-id="20240612180257-fxw3cch" data-type="NodeListItem" updated="20250822173704" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240612180257-yai2z5b" data-node-id="20240612180257-yai2z5b" data-type="NodeParagraph" updated="20240612180310" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20240106082524-8iwydhr"><a href="./../../想法/项目/OceanPress_js/OceanPress插件.html#20240106082524-8iwydhr">OceanPress插件</a></span></div></div><div id="20240612180311-djvb6t5" data-node-id="20240612180311-djvb6t5" data-type="NodeList" updated="20250822173704" data-subtype="u" class="list"><div id="20230916192455-lix3ui3" data-node-id="20230916192455-lix3ui3" data-type="NodeListItem" updated="20240118165651" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192455-hxfh670" data-node-id="20230916192455-hxfh670" data-type="NodeParagraph" updated="20240612180341" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background4);">对挂件生成快照，至少能看见预览效果(需要安装插件，只是能看...)</span></div></div>
+      </div><div id="20240612180310-i6h1owi" data-node-id="20240612180310-i6h1owi" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240612180310-1ihinkk" data-node-id="20240612180310-1ihinkk" data-type="NodeParagraph" updated="20240612180433" class="p"><div spellcheck="false">支持挂件文本复制</div></div>
+      </div><div id="20240612180437-dhhgttd" data-node-id="20240612180437-dhhgttd" data-type="NodeListItem" updated="20250822173704" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240612180437-18jlr1n" data-node-id="20240612180437-18jlr1n" data-type="NodeParagraph" updated="20250822173704" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">对图片支持完美ocr：</span> <span data-type="block-ref"   data-subtype="d"   data-id="20240612161400-q3nlr71"><a href="./../../想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件实现完美ocr v0.3.6.html#20240612161400-q3nlr71">OceanPress插件实现完美ocr v0.3.6</a></span></div></div>
+      </div></div>
+      </div><div id="20230916192502-jo2xktn" data-node-id="20230916192502-jo2xktn" data-type="NodeListItem" updated="20231227184151" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192502-uzqv6oi" data-node-id="20230916192502-uzqv6oi" data-type="NodeParagraph" updated="20240118164937" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background4);">一键部署</span></div></div><div id="20230916192544-zi0lb44" data-node-id="20230916192544-zi0lb44" data-type="NodeList" updated="20231227184151" data-subtype="u" class="list"><div id="20230916192543-p4k2jig" data-node-id="20230916192543-p4k2jig" data-type="NodeListItem" updated="20231227184151" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192543-mg11d3x" data-node-id="20230916192543-mg11d3x" data-type="NodeParagraph" updated="20240118164915" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">网页上传到自定义接</span><span data-type="text" style="background-color: var(--b3-font-background4); color: var(--b3-card-success-color);">口</span><span data-type="text" style="background-color: var(--b3-font-background4);">（目前支持 s3)</span></div></div>
+      </div><div id="20230916192546-hzuubsg" data-node-id="20230916192546-hzuubsg" data-type="NodeListItem" updated="20230919202522" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192546-s0d3xep" data-node-id="20230916192546-s0d3xep" data-type="NodeParagraph" updated="20231227155846" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">基于 node.js 命令行自动编译、部署</span></div></div>
+      </div><div id="20230919202423-r11wt6v" data-node-id="20230919202423-r11wt6v" data-type="NodeListItem" updated="20230919202516" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230919202423-k6ksivk" data-node-id="20230919202423-k6ksivk" data-type="NodeParagraph" updated="20230919202516" class="p"><div spellcheck="false">生成chm单体文件，便于类似分发帮助文档这种需求</div></div>
+      </div></div>
+      </div><div id="20240101170712-dzq25r9" data-node-id="20240101170712-dzq25r9" data-type="NodeListItem" updated="20250822173723" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240101170712-4sanu11" data-node-id="20240101170712-4sanu11" data-type="NodeParagraph" updated="20250822173723" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-warning-background); color: var(--b3-card-warning-color);">支持站内搜索</span></div></div><div id="20240101170728-4ekg3wy" data-node-id="20240101170728-4ekg3wy" data-type="NodeList" updated="20240101173506" data-subtype="u" class="list"><div id="20240101170728-lpgg6g0" data-node-id="20240101170728-lpgg6g0" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240101170728-qh0s8x2" data-node-id="20240101170728-qh0s8x2" data-type="NodeParagraph" updated="20240101170809" class="p"><div spellcheck="false"><span data-type="block-ref text"   data-subtype="d"   data-id="20231005185546-0mj4dt8"><a href="./../../想法/项目/OceanPress_js/为OceanPress生成的网站添加搜索功能.html#20231005185546-0mj4dt8"><span data-type="text" style="background-color: var(--b3-font-background4);">为OceanPress生成的网站添加搜索功能</span></a></span></div></div>
+      </div><div id="20240101170749-583t5dh" data-node-id="20240101170749-583t5dh" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240101170749-7ub8tk8" data-node-id="20240101170749-7ub8tk8" data-type="NodeParagraph" updated="20240101173452" class="p"><div spellcheck="false"><span data-type="block-ref text"   data-subtype="d"   data-id="20240101170825-d2e78a0"><a href="./../../想法/项目/OceanPress_js/自建meilisearch搜索.html#20240101170825-d2e78a0"><span data-type="text" style="background-color: var(--b3-font-background4);">自建meilisearch搜索</span></a></span></div></div>
+      </div><div id="20240101173454-0tjrq5m" data-node-id="20240101173454-0tjrq5m" data-type="NodeListItem" updated="20240101173506" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240101173454-wvl0xf9" data-node-id="20240101173454-wvl0xf9" data-type="NodeParagraph" updated="20240101173506" class="p"><div spellcheck="false">离线搜索引擎</div></div>
+      </div></div>
+      </div><div id="20230916192505-au5523h" data-node-id="20230916192505-au5523h" data-type="NodeListItem" updated="20240118165512" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192505-88skhr5" data-node-id="20230916192505-88skhr5" data-type="NodeParagraph" updated="20240118165512" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-warning-background); color: var(--b3-card-warning-color);">SEO 友好，可以放心修改文章名称，移动块，不用担心分享的链接无法访问到内容(在笔记中删掉了那我没办法</span></div></div><div id="20231005185408-15b7y0o" data-node-id="20231005185408-15b7y0o" data-type="NodeList" updated="20240113132516" data-subtype="u" class="list"><div id="20231005185407-1a0qnt3" data-node-id="20231005185407-1a0qnt3" data-type="NodeListItem" updated="20240113132516" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231005185407-4ib0gkx" data-node-id="20231005185407-4ib0gkx" data-type="NodeParagraph" updated="20231005185421" class="p"><div spellcheck="false">通过 preload 来实现</div></div><div id="20230916192556-2lbjvg4" data-node-id="20230916192556-2lbjvg4" data-type="NodeList" updated="20240113132516" data-subtype="u" class="list"><div id="20230916192555-d0tonxe" data-node-id="20230916192555-d0tonxe" data-type="NodeListItem" updated="20231009124940" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192555-s8k2zbx" data-node-id="20230916192555-s8k2zbx" data-type="NodeParagraph" updated="20231005185254" class="p"><div spellcheck="false">基于块id的永久链接</div></div><div id="20231009124912-o9zz70z" data-node-id="20231009124912-o9zz70z" data-type="NodeList" updated="20231009124940" data-subtype="u" class="list"><div id="20231009124911-f8ul5ic" data-node-id="20231009124911-f8ul5ic" data-type="NodeListItem" updated="20231009124940" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231009124911-qx9kvu7" data-node-id="20231009124911-qx9kvu7" data-type="NodeParagraph" updated="20231009124940" class="p"><div spellcheck="false">仅支持文档块和标题块，否则体积过大</div></div>
+      </div></div>
+      </div><div id="20230916192557-cdkpj3f" data-node-id="20230916192557-cdkpj3f" data-type="NodeListItem" updated="20240113132516" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192557-4hrklpg" data-node-id="20230916192557-4hrklpg" data-type="NodeParagraph" updated="20240113132516" class="p"><div spellcheck="false">可读路径的302重写（不完全覆盖文档，在 head 中添加延时跳转，js弹窗提醒该文档已移动，浏览者可以选择不跳转继续阅读。）</div></div>
+      </div></div>
+      </div><div id="20230916192559-q0lcuvr" data-node-id="20230916192559-q0lcuvr" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192559-32gs48d" data-node-id="20230916192559-32gs48d" data-type="NodeParagraph" updated="20240118165017" class="p"><div spellcheck="false">上面方法无法定位的情况下通过文档名智能推荐</div></div>
+      </div><div id="20230930120531-u3cmt97" data-node-id="20230930120531-u3cmt97" data-type="NodeListItem" updated="20231005233300" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230930120531-235yuz2" data-node-id="20230930120531-235yuz2" data-type="NodeParagraph" updated="20231005233300" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">自动生成 sitemap.xml</span></div></div>
+      </div></div>
+      </div><div id="20230916192509-auhokiv" data-node-id="20230916192509-auhokiv" data-type="NodeListItem" updated="20240118165139" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192509-hzdur4h" data-node-id="20230916192509-hzdur4h" data-type="NodeParagraph" updated="20230917202649" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">更易于复制粘贴分享</span></div></div><div id="20230917202704-mkvwlhu" data-node-id="20230917202704-mkvwlhu" data-type="NodeList" updated="20240118165139" data-subtype="u" class="list"><div id="20230916192604-k3jjfwt" data-node-id="20230916192604-k3jjfwt" data-type="NodeListItem" updated="20231010160843" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192604-uebgnn2" data-node-id="20230916192604-uebgnn2" data-type="NodeParagraph" updated="20240118165114" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">许多网站的编辑器都是能够拉取图片的，但有一些的实现是网站后端进行
+拉取(避免前端跨域无法拉取)，所以部署到公网的文章可以直接选中片段粘贴图片，而内网的则不行</span></div></div>
+      </div><div id="20240118165130-p74wfxm" data-node-id="20240118165130-p74wfxm" data-type="NodeListItem" updated="20240118165139" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240118165130-cmlaagh" data-node-id="20240118165130-cmlaagh" data-type="NodeParagraph" updated="20240118165139" class="p"><div spellcheck="false">语义化的html结构</div></div>
+      </div></div>
+      </div><div id="20230916192512-bpkh8a3" data-node-id="20230916192512-bpkh8a3" data-type="NodeListItem" updated="20240118165755" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192512-0qzw306" data-node-id="20230916192512-0qzw306" data-type="NodeParagraph" updated="20230917202728" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-warning-background); color: var(--b3-card-warning-color);">小、快、省</span></div></div><div id="20230916192610-8l1nm84" data-node-id="20230916192610-8l1nm84" data-type="NodeList" updated="20240118165755" data-subtype="u" class="list"><div id="20230916192609-dmhfjy2" data-node-id="20230916192609-dmhfjy2" data-type="NodeListItem" updated="20230917202720" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192609-8jaanm1" data-node-id="20230916192609-8jaanm1" data-type="NodeParagraph" updated="20230917202720" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">通过对输出html结构优化，能够输出体积更小，解析更快的源文件</span></div></div>
+      </div><div id="20230916192630-lfan2jz" data-node-id="20230916192630-lfan2jz" data-type="NodeListItem" updated="20240118165755" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192630-yzhwr9d" data-node-id="20230916192630-yzhwr9d" data-type="NodeParagraph" updated="20240118165755" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">可选通过cdn加载公共资源文件更节省服务器流量，更快的js、css加载速度</span></div></div>
+      </div><div id="20230925164914-i30g9v6" data-node-id="20230925164914-i30g9v6" data-type="NodeListItem" updated="20231220104344" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230925164914-f6d4s7t" data-node-id="20230925164914-f6d4s7t" data-type="NodeParagraph" updated="20231220104344" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background4);">支持</span><span data-type="text" style="background-color: var(--b3-font-background4); color: var(--b3-card-success-color);">增量编译</span><span data-type="text" style="background-color: var(--b3-font-background4);">，编译速度很快</span></div></div>
+      </div><div id="20230916192633-b7s46d1" data-node-id="20230916192633-b7s46d1" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192633-lat014r" data-node-id="20230916192633-lat014r" data-type="NodeParagraph" class="p"><div spellcheck="false">可选的图片优化、压缩、生成预览</div></div>
+      </div></div>
+      </div><div id="20230916192515-8jf45fp" data-node-id="20230916192515-8jf45fp" data-type="NodeListItem" updated="20240118165826" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192515-c8i46eu" data-node-id="20230916192515-c8i46eu" data-type="NodeParagraph" updated="20240118165826" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">支持生成 RSS，</span><span data-type="text" style="background-color: var(--b3-font-background4); color: var(--b3-card-success-color);">例如:</span><span data-type="text" style="background-color: var(--b3-font-background4);"> </span><span data-type="block-ref text"   data-subtype="d"   data-id="20210608142805-pg1fgwh"><a href="./../../关于/rss/崮生精选.rss.xml.html#20210608142805-pg1fgwh"><span data-type="text" style="background-color: var(--b3-font-background4);">崮生精选.rss.xml</span></a></span></div></div><div id="20230916192638-4c8bqd6" data-node-id="20230916192638-4c8bqd6" data-type="NodeParagraph" updated="20240118165226" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">只需要在文档名后面加上.rss.xml 就会对文章内通过块引用和嵌入块查询到的块生成 rss.xml指向</span></div></div>
+      </div></div>
+<div id="20230906214859-jxwzlcz" data-node-id="20230906214859-jxwzlcz" data-type="NodeList" updated="20240118170156" data-subtype="u" class="list"><div id="20230906214900-tg32wgd" data-node-id="20230906214900-tg32wgd" data-type="NodeListItem" updated="20231005233521" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230906214900-crzndnk" data-node-id="20230906214900-crzndnk" data-type="NodeParagraph" updated="20231005233521" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">配置功能</span></div></div><div id="20230917202615-72l4a8k" data-node-id="20230917202615-72l4a8k" data-type="NodeList" updated="20231005233531" data-subtype="u" class="list"><div id="20230917202614-17nobwj" data-node-id="20230917202614-17nobwj" data-type="NodeListItem" updated="20231005233531" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230917202614-yi4fuxp" data-node-id="20230917202614-yi4fuxp" data-type="NodeParagraph" updated="20240118165951" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background4);">开放的 json 配置文件，便于自定义编译细节</span></div></div>
+      </div></div>
+      </div><div id="20240118170002-qx6zduz" data-node-id="20240118170002-qx6zduz" data-type="NodeListItem" updated="20240118170120" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240118170002-sfp9snl" data-node-id="20240118170002-sfp9snl" data-type="NodeParagraph" updated="20240118170011" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background4);">插件功能</span></div></div><div id="20240118170013-i5293g4" data-node-id="20240118170013-i5293g4" data-type="NodeList" updated="20240118170120" data-subtype="u" class="list"><div id="20240118170012-kzxnlm8" data-node-id="20240118170012-kzxnlm8" data-type="NodeListItem" updated="20240118170120" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240118170012-481ov0m" data-node-id="20240118170012-481ov0m" data-type="NodeParagraph" updated="20240118170120" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background4);">简洁的插件机制，可以轻松扩展想要的其他功能</span></div></div>
+      </div></div>
+      </div></div><div id="20230916192348-gq5h4as" data-node-id="20230916192348-gq5h4as" data-type="NodeList" updated="20250822173723" data-subtype="u" class="list"><div id="20231010160650-oqnvtx0" data-node-id="20231010160650-oqnvtx0" data-type="NodeListItem" updated="20231010160708" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231010160650-wfu8k07" data-node-id="20231010160650-wfu8k07" data-type="NodeParagraph" updated="20231010160708" class="p"><div spellcheck="false"><span data-type="strong" style="background-color: var(--b3-font-background4);"><span data-type="text" style="background-color: var(--b3-font-background4);">兼容思源绝大部分效果 🎉</span></span></div></div>
+      </div><div id="20230916192348-8azqoed" data-node-id="20230916192348-8azqoed" data-type="NodeListItem" updated="20240118165703" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192333-1b6t4yl" data-node-id="20230916192333-1b6t4yl" data-type="NodeParagraph" updated="20231010160745" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background4);">全平台随用随走</span></div></div><div id="20230916192359-6ftfvyg" data-node-id="20230916192359-6ftfvyg" data-type="NodeList" updated="20240118165703" data-subtype="u" class="list"><div id="20230916192358-7fhznll" data-node-id="20230916192358-7fhznll" data-type="NodeListItem" updated="20231227155924" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192358-dc4ve2h" data-node-id="20230916192358-dc4ve2h" data-type="NodeParagraph" updated="20231227155924" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">基于node.js 的全平台运行能力</span></div></div>
+      </div><div id="20230916192402-gb1dxy8" data-node-id="20230916192402-gb1dxy8" data-type="NodeListItem" updated="20230917202637" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192402-ohwt5b5" data-node-id="20230916192402-ohwt5b5" data-type="NodeParagraph" updated="20240118164818" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">基于浏览器网页的适配、随用随走</span></div></div>
+      </div><div id="20240118164749-7og7gpe" data-node-id="20240118164749-7og7gpe" data-type="NodeListItem" updated="20240118165703" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240118164749-m2oomav" data-node-id="20240118164749-m2oomav" data-type="NodeParagraph" updated="20240118165703" class="p"><div spellcheck="false">基于<span data-type="text" style="background-color: var(--b3-font-background4);"> </span><span data-type="text" style="background-color: var(--b3-font-background4);"><span data-type="text block-ref"   data-subtype="d"   data-id="20240106082524-8iwydhr"><a href="./../../想法/项目/OceanPress_js/OceanPress插件.html#20240106082524-8iwydhr">OceanPress插件</a></span></span>的思源内运行</div></div>
+      </div></div>
+      </div><div id="20230916192430-ke851gv" data-node-id="20230916192430-ke851gv" data-type="NodeListItem" updated="20250309124201" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192430-m0edg4k" data-node-id="20230916192430-m0edg4k" data-type="NodeParagraph" updated="20240118165602" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background7);">支持挂件</span></div></div><div id="20230916192526-q83m6fo" data-node-id="20230916192526-q83m6fo" data-type="NodeList" updated="20250309124201" data-subtype="u" class="list"><div id="20240612180344-7ylpowd" data-node-id="20240612180344-7ylpowd" data-type="NodeListItem" updated="20240612180415" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240612180344-d9hycxe" data-node-id="20240612180344-d9hycxe" data-type="NodeParagraph" updated="20240612180415" class="p"><div spellcheck="false">通过<span data-type="block-ref"   data-subtype="d"   data-id="20240106082524-8iwydhr"><a href="./../../想法/项目/OceanPress_js/OceanPress插件.html#20240106082524-8iwydhr">OceanPress插件</a></span> 来  <span data-type="block-ref"   data-subtype="d"   data-id="20230916192455-lix3ui3"><a href="./../../想法/项目/OceanPress_js.html#20230916192455-lix3ui3">对挂件生成快照，至少能看见预览效果(需要安装插件，只是能看...)</a></span></div></div>
+      </div><div id="20231009172122-swyxw7z" data-node-id="20231009172122-swyxw7z" data-type="NodeListItem" updated="20250309124201" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231009172122-3gxx7py" data-node-id="20231009172122-3gxx7py" data-type="NodeParagraph" updated="20250309124201" class="p"><div spellcheck="false">适配 OceanPress 的挂件支持，让一些挂件能够运行在静态网站上</div></div>
+      </div></div>
+      </div><div id="20240612180257-fxw3cch" data-node-id="20240612180257-fxw3cch" data-type="NodeListItem" updated="20250822173704" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240612180257-yai2z5b" data-node-id="20240612180257-yai2z5b" data-type="NodeParagraph" updated="20240612180310" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20240106082524-8iwydhr"><a href="./../../想法/项目/OceanPress_js/OceanPress插件.html#20240106082524-8iwydhr">OceanPress插件</a></span></div></div><div id="20240612180311-djvb6t5" data-node-id="20240612180311-djvb6t5" data-type="NodeList" updated="20250822173704" data-subtype="u" class="list"><div id="20230916192455-lix3ui3" data-node-id="20230916192455-lix3ui3" data-type="NodeListItem" updated="20240118165651" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192455-hxfh670" data-node-id="20230916192455-hxfh670" data-type="NodeParagraph" updated="20240612180341" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background4);">对挂件生成快照，至少能看见预览效果(需要安装插件，只是能看...)</span></div></div>
+      </div><div id="20240612180310-i6h1owi" data-node-id="20240612180310-i6h1owi" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240612180310-1ihinkk" data-node-id="20240612180310-1ihinkk" data-type="NodeParagraph" updated="20240612180433" class="p"><div spellcheck="false">支持挂件文本复制</div></div>
+      </div><div id="20240612180437-dhhgttd" data-node-id="20240612180437-dhhgttd" data-type="NodeListItem" updated="20250822173704" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240612180437-18jlr1n" data-node-id="20240612180437-18jlr1n" data-type="NodeParagraph" updated="20250822173704" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">对图片支持完美ocr：</span> <span data-type="block-ref"   data-subtype="d"   data-id="20240612161400-q3nlr71"><a href="./../../想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件实现完美ocr v0.3.6.html#20240612161400-q3nlr71">OceanPress插件实现完美ocr v0.3.6</a></span></div></div>
+      </div></div>
+      </div><div id="20230916192502-jo2xktn" data-node-id="20230916192502-jo2xktn" data-type="NodeListItem" updated="20231227184151" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192502-uzqv6oi" data-node-id="20230916192502-uzqv6oi" data-type="NodeParagraph" updated="20240118164937" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background4);">一键部署</span></div></div><div id="20230916192544-zi0lb44" data-node-id="20230916192544-zi0lb44" data-type="NodeList" updated="20231227184151" data-subtype="u" class="list"><div id="20230916192543-p4k2jig" data-node-id="20230916192543-p4k2jig" data-type="NodeListItem" updated="20231227184151" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192543-mg11d3x" data-node-id="20230916192543-mg11d3x" data-type="NodeParagraph" updated="20240118164915" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">网页上传到自定义接</span><span data-type="text" style="background-color: var(--b3-font-background4); color: var(--b3-card-success-color);">口</span><span data-type="text" style="background-color: var(--b3-font-background4);">（目前支持 s3)</span></div></div>
+      </div><div id="20230916192546-hzuubsg" data-node-id="20230916192546-hzuubsg" data-type="NodeListItem" updated="20230919202522" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192546-s0d3xep" data-node-id="20230916192546-s0d3xep" data-type="NodeParagraph" updated="20231227155846" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">基于 node.js 命令行自动编译、部署</span></div></div>
+      </div><div id="20230919202423-r11wt6v" data-node-id="20230919202423-r11wt6v" data-type="NodeListItem" updated="20230919202516" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230919202423-k6ksivk" data-node-id="20230919202423-k6ksivk" data-type="NodeParagraph" updated="20230919202516" class="p"><div spellcheck="false">生成chm单体文件，便于类似分发帮助文档这种需求</div></div>
+      </div></div>
+      </div><div id="20240101170712-dzq25r9" data-node-id="20240101170712-dzq25r9" data-type="NodeListItem" updated="20250822173723" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240101170712-4sanu11" data-node-id="20240101170712-4sanu11" data-type="NodeParagraph" updated="20250822173723" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-warning-background); color: var(--b3-card-warning-color);">支持站内搜索</span></div></div><div id="20240101170728-4ekg3wy" data-node-id="20240101170728-4ekg3wy" data-type="NodeList" updated="20240101173506" data-subtype="u" class="list"><div id="20240101170728-lpgg6g0" data-node-id="20240101170728-lpgg6g0" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240101170728-qh0s8x2" data-node-id="20240101170728-qh0s8x2" data-type="NodeParagraph" updated="20240101170809" class="p"><div spellcheck="false"><span data-type="block-ref text"   data-subtype="d"   data-id="20231005185546-0mj4dt8"><a href="./../../想法/项目/OceanPress_js/为OceanPress生成的网站添加搜索功能.html#20231005185546-0mj4dt8"><span data-type="text" style="background-color: var(--b3-font-background4);">为OceanPress生成的网站添加搜索功能</span></a></span></div></div>
+      </div><div id="20240101170749-583t5dh" data-node-id="20240101170749-583t5dh" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240101170749-7ub8tk8" data-node-id="20240101170749-7ub8tk8" data-type="NodeParagraph" updated="20240101173452" class="p"><div spellcheck="false"><span data-type="block-ref text"   data-subtype="d"   data-id="20240101170825-d2e78a0"><a href="./../../想法/项目/OceanPress_js/自建meilisearch搜索.html#20240101170825-d2e78a0"><span data-type="text" style="background-color: var(--b3-font-background4);">自建meilisearch搜索</span></a></span></div></div>
+      </div><div id="20240101173454-0tjrq5m" data-node-id="20240101173454-0tjrq5m" data-type="NodeListItem" updated="20240101173506" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240101173454-wvl0xf9" data-node-id="20240101173454-wvl0xf9" data-type="NodeParagraph" updated="20240101173506" class="p"><div spellcheck="false">离线搜索引擎</div></div>
+      </div></div>
+      </div><div id="20230916192505-au5523h" data-node-id="20230916192505-au5523h" data-type="NodeListItem" updated="20240118165512" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192505-88skhr5" data-node-id="20230916192505-88skhr5" data-type="NodeParagraph" updated="20240118165512" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-warning-background); color: var(--b3-card-warning-color);">SEO 友好，可以放心修改文章名称，移动块，不用担心分享的链接无法访问到内容(在笔记中删掉了那我没办法</span></div></div><div id="20231005185408-15b7y0o" data-node-id="20231005185408-15b7y0o" data-type="NodeList" updated="20240113132516" data-subtype="u" class="list"><div id="20231005185407-1a0qnt3" data-node-id="20231005185407-1a0qnt3" data-type="NodeListItem" updated="20240113132516" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231005185407-4ib0gkx" data-node-id="20231005185407-4ib0gkx" data-type="NodeParagraph" updated="20231005185421" class="p"><div spellcheck="false">通过 preload 来实现</div></div><div id="20230916192556-2lbjvg4" data-node-id="20230916192556-2lbjvg4" data-type="NodeList" updated="20240113132516" data-subtype="u" class="list"><div id="20230916192555-d0tonxe" data-node-id="20230916192555-d0tonxe" data-type="NodeListItem" updated="20231009124940" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192555-s8k2zbx" data-node-id="20230916192555-s8k2zbx" data-type="NodeParagraph" updated="20231005185254" class="p"><div spellcheck="false">基于块id的永久链接</div></div><div id="20231009124912-o9zz70z" data-node-id="20231009124912-o9zz70z" data-type="NodeList" updated="20231009124940" data-subtype="u" class="list"><div id="20231009124911-f8ul5ic" data-node-id="20231009124911-f8ul5ic" data-type="NodeListItem" updated="20231009124940" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20231009124911-qx9kvu7" data-node-id="20231009124911-qx9kvu7" data-type="NodeParagraph" updated="20231009124940" class="p"><div spellcheck="false">仅支持文档块和标题块，否则体积过大</div></div>
+      </div></div>
+      </div><div id="20230916192557-cdkpj3f" data-node-id="20230916192557-cdkpj3f" data-type="NodeListItem" updated="20240113132516" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192557-4hrklpg" data-node-id="20230916192557-4hrklpg" data-type="NodeParagraph" updated="20240113132516" class="p"><div spellcheck="false">可读路径的302重写（不完全覆盖文档，在 head 中添加延时跳转，js弹窗提醒该文档已移动，浏览者可以选择不跳转继续阅读。）</div></div>
+      </div></div>
+      </div><div id="20230916192559-q0lcuvr" data-node-id="20230916192559-q0lcuvr" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192559-32gs48d" data-node-id="20230916192559-32gs48d" data-type="NodeParagraph" updated="20240118165017" class="p"><div spellcheck="false">上面方法无法定位的情况下通过文档名智能推荐</div></div>
+      </div><div id="20230930120531-u3cmt97" data-node-id="20230930120531-u3cmt97" data-type="NodeListItem" updated="20231005233300" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230930120531-235yuz2" data-node-id="20230930120531-235yuz2" data-type="NodeParagraph" updated="20231005233300" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">自动生成 sitemap.xml</span></div></div>
+      </div></div>
+      </div><div id="20230916192509-auhokiv" data-node-id="20230916192509-auhokiv" data-type="NodeListItem" updated="20240118165139" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192509-hzdur4h" data-node-id="20230916192509-hzdur4h" data-type="NodeParagraph" updated="20230917202649" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">更易于复制粘贴分享</span></div></div><div id="20230917202704-mkvwlhu" data-node-id="20230917202704-mkvwlhu" data-type="NodeList" updated="20240118165139" data-subtype="u" class="list"><div id="20230916192604-k3jjfwt" data-node-id="20230916192604-k3jjfwt" data-type="NodeListItem" updated="20231010160843" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192604-uebgnn2" data-node-id="20230916192604-uebgnn2" data-type="NodeParagraph" updated="20240118165114" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">许多网站的编辑器都是能够拉取图片的，但有一些的实现是网站后端进行
+拉取(避免前端跨域无法拉取)，所以部署到公网的文章可以直接选中片段粘贴图片，而内网的则不行</span></div></div>
+      </div><div id="20240118165130-p74wfxm" data-node-id="20240118165130-p74wfxm" data-type="NodeListItem" updated="20240118165139" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240118165130-cmlaagh" data-node-id="20240118165130-cmlaagh" data-type="NodeParagraph" updated="20240118165139" class="p"><div spellcheck="false">语义化的html结构</div></div>
+      </div></div>
+      </div><div id="20230916192512-bpkh8a3" data-node-id="20230916192512-bpkh8a3" data-type="NodeListItem" updated="20240118165755" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192512-0qzw306" data-node-id="20230916192512-0qzw306" data-type="NodeParagraph" updated="20230917202728" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-warning-background); color: var(--b3-card-warning-color);">小、快、省</span></div></div><div id="20230916192610-8l1nm84" data-node-id="20230916192610-8l1nm84" data-type="NodeList" updated="20240118165755" data-subtype="u" class="list"><div id="20230916192609-dmhfjy2" data-node-id="20230916192609-dmhfjy2" data-type="NodeListItem" updated="20230917202720" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192609-8jaanm1" data-node-id="20230916192609-8jaanm1" data-type="NodeParagraph" updated="20230917202720" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">通过对输出html结构优化，能够输出体积更小，解析更快的源文件</span></div></div>
+      </div><div id="20230916192630-lfan2jz" data-node-id="20230916192630-lfan2jz" data-type="NodeListItem" updated="20240118165755" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192630-yzhwr9d" data-node-id="20230916192630-yzhwr9d" data-type="NodeParagraph" updated="20240118165755" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">可选通过cdn加载公共资源文件更节省服务器流量，更快的js、css加载速度</span></div></div>
+      </div><div id="20230925164914-i30g9v6" data-node-id="20230925164914-i30g9v6" data-type="NodeListItem" updated="20231220104344" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230925164914-f6d4s7t" data-node-id="20230925164914-f6d4s7t" data-type="NodeParagraph" updated="20231220104344" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background4);">支持</span><span data-type="text" style="background-color: var(--b3-font-background4); color: var(--b3-card-success-color);">增量编译</span><span data-type="text" style="background-color: var(--b3-font-background4);">，编译速度很快</span></div></div>
+      </div><div id="20230916192633-b7s46d1" data-node-id="20230916192633-b7s46d1" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192633-lat014r" data-node-id="20230916192633-lat014r" data-type="NodeParagraph" class="p"><div spellcheck="false">可选的图片优化、压缩、生成预览</div></div>
+      </div></div>
+      </div><div id="20230916192515-8jf45fp" data-node-id="20230916192515-8jf45fp" data-type="NodeListItem" updated="20240118165826" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192515-c8i46eu" data-node-id="20230916192515-c8i46eu" data-type="NodeParagraph" updated="20240118165826" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">支持生成 RSS，</span><span data-type="text" style="background-color: var(--b3-font-background4); color: var(--b3-card-success-color);">例如:</span><span data-type="text" style="background-color: var(--b3-font-background4);"> </span><span data-type="block-ref text"   data-subtype="d"   data-id="20210608142805-pg1fgwh"><a href="./../../关于/rss/崮生精选.rss.xml.html#20210608142805-pg1fgwh"><span data-type="text" style="background-color: var(--b3-font-background4);">崮生精选.rss.xml</span></a></span></div></div><div id="20230916192638-4c8bqd6" data-node-id="20230916192638-4c8bqd6" data-type="NodeParagraph" updated="20240118165226" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">只需要在文档名后面加上.rss.xml 就会对文章内通过块引用和嵌入块查询到的块生成 rss.xml指向</span></div></div>
+      </div></div><div id="20240101170712-dzq25r9" data-node-id="20240101170712-dzq25r9" data-type="NodeListItem" updated="20250822173723" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240101170712-4sanu11" data-node-id="20240101170712-4sanu11" data-type="NodeParagraph" updated="20250822173723" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-warning-background); color: var(--b3-card-warning-color);">支持站内搜索</span></div></div><div id="20240101170728-4ekg3wy" data-node-id="20240101170728-4ekg3wy" data-type="NodeList" updated="20240101173506" data-subtype="u" class="list"><div id="20240101170728-lpgg6g0" data-node-id="20240101170728-lpgg6g0" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240101170728-qh0s8x2" data-node-id="20240101170728-qh0s8x2" data-type="NodeParagraph" updated="20240101170809" class="p"><div spellcheck="false"><span data-type="block-ref text"   data-subtype="d"   data-id="20231005185546-0mj4dt8"><a href="./../../想法/项目/OceanPress_js/为OceanPress生成的网站添加搜索功能.html#20231005185546-0mj4dt8"><span data-type="text" style="background-color: var(--b3-font-background4);">为OceanPress生成的网站添加搜索功能</span></a></span></div></div>
+      </div><div id="20240101170749-583t5dh" data-node-id="20240101170749-583t5dh" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240101170749-7ub8tk8" data-node-id="20240101170749-7ub8tk8" data-type="NodeParagraph" updated="20240101173452" class="p"><div spellcheck="false"><span data-type="block-ref text"   data-subtype="d"   data-id="20240101170825-d2e78a0"><a href="./../../想法/项目/OceanPress_js/自建meilisearch搜索.html#20240101170825-d2e78a0"><span data-type="text" style="background-color: var(--b3-font-background4);">自建meilisearch搜索</span></a></span></div></div>
+      </div><div id="20240101173454-0tjrq5m" data-node-id="20240101173454-0tjrq5m" data-type="NodeListItem" updated="20240101173506" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240101173454-wvl0xf9" data-node-id="20240101173454-wvl0xf9" data-type="NodeParagraph" updated="20240101173506" class="p"><div spellcheck="false">离线搜索引擎</div></div>
+      </div></div>
+      </div><div id="20240101170712-4sanu11" data-node-id="20240101170712-4sanu11" data-type="NodeParagraph" updated="20250822173723" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-warning-background); color: var(--b3-card-warning-color);">支持站内搜索</span></div></div><div id="20240612180257-fxw3cch" data-node-id="20240612180257-fxw3cch" data-type="NodeListItem" updated="20250822173704" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240612180257-yai2z5b" data-node-id="20240612180257-yai2z5b" data-type="NodeParagraph" updated="20240612180310" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20240106082524-8iwydhr"><a href="./../../想法/项目/OceanPress_js/OceanPress插件.html#20240106082524-8iwydhr">OceanPress插件</a></span></div></div><div id="20240612180311-djvb6t5" data-node-id="20240612180311-djvb6t5" data-type="NodeList" updated="20250822173704" data-subtype="u" class="list"><div id="20230916192455-lix3ui3" data-node-id="20230916192455-lix3ui3" data-type="NodeListItem" updated="20240118165651" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192455-hxfh670" data-node-id="20230916192455-hxfh670" data-type="NodeParagraph" updated="20240612180341" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background4);">对挂件生成快照，至少能看见预览效果(需要安装插件，只是能看...)</span></div></div>
+      </div><div id="20240612180310-i6h1owi" data-node-id="20240612180310-i6h1owi" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240612180310-1ihinkk" data-node-id="20240612180310-1ihinkk" data-type="NodeParagraph" updated="20240612180433" class="p"><div spellcheck="false">支持挂件文本复制</div></div>
+      </div><div id="20240612180437-dhhgttd" data-node-id="20240612180437-dhhgttd" data-type="NodeListItem" updated="20250822173704" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240612180437-18jlr1n" data-node-id="20240612180437-18jlr1n" data-type="NodeParagraph" updated="20250822173704" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">对图片支持完美ocr：</span> <span data-type="block-ref"   data-subtype="d"   data-id="20240612161400-q3nlr71"><a href="./../../想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件实现完美ocr v0.3.6.html#20240612161400-q3nlr71">OceanPress插件实现完美ocr v0.3.6</a></span></div></div>
+      </div></div>
+      </div><div id="20240612180311-djvb6t5" data-node-id="20240612180311-djvb6t5" data-type="NodeList" updated="20250822173704" data-subtype="u" class="list"><div id="20230916192455-lix3ui3" data-node-id="20230916192455-lix3ui3" data-type="NodeListItem" updated="20240118165651" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20230916192455-hxfh670" data-node-id="20230916192455-hxfh670" data-type="NodeParagraph" updated="20240612180341" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-font-background4);">对挂件生成快照，至少能看见预览效果(需要安装插件，只是能看...)</span></div></div>
+      </div><div id="20240612180310-i6h1owi" data-node-id="20240612180310-i6h1owi" data-type="NodeListItem" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240612180310-1ihinkk" data-node-id="20240612180310-1ihinkk" data-type="NodeParagraph" updated="20240612180433" class="p"><div spellcheck="false">支持挂件文本复制</div></div>
+      </div><div id="20240612180437-dhhgttd" data-node-id="20240612180437-dhhgttd" data-type="NodeListItem" updated="20250822173704" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240612180437-18jlr1n" data-node-id="20240612180437-18jlr1n" data-type="NodeParagraph" updated="20250822173704" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">对图片支持完美ocr：</span> <span data-type="block-ref"   data-subtype="d"   data-id="20240612161400-q3nlr71"><a href="./../../想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件实现完美ocr v0.3.6.html#20240612161400-q3nlr71">OceanPress插件实现完美ocr v0.3.6</a></span></div></div>
+      </div></div><div id="20240612180437-dhhgttd" data-node-id="20240612180437-dhhgttd" data-type="NodeListItem" updated="20250822173704" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20240612180437-18jlr1n" data-node-id="20240612180437-18jlr1n" data-type="NodeParagraph" updated="20250822173704" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">对图片支持完美ocr：</span> <span data-type="block-ref"   data-subtype="d"   data-id="20240612161400-q3nlr71"><a href="./../../想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件实现完美ocr v0.3.6.html#20240612161400-q3nlr71">OceanPress插件实现完美ocr v0.3.6</a></span></div></div>
+      </div><div id="20240612180437-18jlr1n" data-node-id="20240612180437-18jlr1n" data-type="NodeParagraph" updated="20250822173704" class="p"><div spellcheck="false"><span data-type="text" style="background-color: var(--b3-card-success-background); color: var(--b3-card-success-color);">对图片支持完美ocr：</span> <span data-type="block-ref"   data-subtype="d"   data-id="20240612161400-q3nlr71"><a href="./../../想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件实现完美ocr v0.3.6.html#20240612161400-q3nlr71">OceanPress插件实现完美ocr v0.3.6</a></span></div></div><div id="20250822173609-nsf5bvx" data-node-id="20250822173609-nsf5bvx" data-type="NodeParagraph" updated="20250822173609" class="p"><div spellcheck="false"></div></div><h2 id="20230921214506-w5txrqb" data-node-id="20230921214506-w5txrqb" data-type="NodeHeading" updated="20250822173609" data-subtype="h2" class="h2"><span data-type="block-ref"   data-subtype="d"   data-id="20250822173529-o1ssnht"><a href="./../../想法/项目/OceanPress_js/OceanPress更新日志.html#20250822173529-o1ssnht">OceanPress更新日志</a></span></h2>
+<div id="20250822173609-nsf5bvx" data-node-id="20250822173609-nsf5bvx" data-type="NodeParagraph" updated="20250822173609" class="p"><div spellcheck="false"></div></div><h3 id="20231209155009-744jayb" data-node-id="20231209155009-744jayb" data-type="NodeHeading" updated="20250822171154" data-subtype="h3" class="h3">使用 cli 程序</h3><h4 id="20231219172957-2xfqfzx" data-node-id="20231219172957-2xfqfzx" data-type="NodeHeading" updated="20250822171154" data-subtype="h4" class="h4">安装与更新</h4>
+<div id="20231209155525-8jsjqms" data-node-id="20231209155525-8jsjqms" data-type="NodeParagraph" updated="20231219173117" class="p"><div spellcheck="false">需要提前准备好 node 运行环境 ： <span data-type="block-ref"   data-subtype="d"   data-id="20201104153359-3bz18z5"><a href="./../../读书笔记/node/各种系统安装node.html#20201104153359-3bz18z5">各种系统安装node</a></span></div></div>
+<div id="20231219173010-9x7d4u7" data-node-id="20231219173010-9x7d4u7" data-type="NodeCodeBlock" updated="20250822171053" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">md</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">pnpm i -g oceanpress
+# 查看命令提示,例如：
+oceanpress --help
+-----
+Options:
+  -c, --config <string>  指定配置文件的位置
+  -h, --host <string>    web服务绑定到的地址 (default: "127.0.0.1")
+  -p, --port <number>    web服务绑定到的端口 (default: "80")
+  --cache <boolean>      配置为 true 时开启缓存,默认为 false 不开启缓存 (default: "false")
+</div>
+        </div>
+<div id="20250822171104-iwdtaw2" data-node-id="20250822171104-iwdtaw2" data-type="NodeParagraph" updated="20250822171154" class="p"><div spellcheck="false">配置文件可以在<span data-type="block-ref"   data-subtype="s"   data-id="20231005181632-rf34ok9"><a href="./../../想法/项目/OceanPress_js.html#20231005181632-rf34ok9">在线站点</a></span>进行可视化配置并导出到本地使用</div></div><div id="20250822171104-iwdtaw2" data-node-id="20250822171104-iwdtaw2" data-type="NodeParagraph" updated="20250822171154" class="p"><div spellcheck="false">配置文件可以在<span data-type="block-ref"   data-subtype="s"   data-id="20231005181632-rf34ok9"><a href="./../../想法/项目/OceanPress_js.html#20231005181632-rf34ok9">在线站点</a></span>进行可视化配置并导出到本地使用</div></div><div id="20231219173010-9x7d4u7" data-node-id="20231219173010-9x7d4u7" data-type="NodeCodeBlock" updated="20250822171053" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">md</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">pnpm i -g oceanpress
+# 查看命令提示,例如：
+oceanpress --help
+-----
+Options:
+  -c, --config <string>  指定配置文件的位置
+  -h, --host <string>    web服务绑定到的地址 (default: "127.0.0.1")
+  -p, --port <number>    web服务绑定到的端口 (default: "80")
+  --cache <boolean>      配置为 true 时开启缓存,默认为 false 不开启缓存 (default: "false")
+</div>
+        </div><h2 id="20240605183155-nkjaxzg" data-node-id="20240605183155-nkjaxzg" data-type="NodeHeading" updated="20250821162539" data-subtype="h2" class="h2">distill Web Monitor 去除任务数量限制</h2>
+<div id="20250821162526-ubylnsc" data-node-id="20250821162526-ubylnsc" data-type="NodeBlockquote" updated="20250821162539" class="bq"><div id="20250821162527-siuwzqy" data-node-id="20250821162527-siuwzqy" data-type="NodeParagraph" updated="20250821162539" class="p"><div spellcheck="false">能够付费的话还是付费的好，主要我没法付费。</div></div></div>
+<div id="20240605192141-5y4uqjl" data-node-id="20240605192141-5y4uqjl" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false">编写此文章时 3.6.12 版本可用。</div></div>
+<div id="20240605191557-v5jk9lt" data-node-id="20240605191557-v5jk9lt" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false">第一步：修改源码（<span data-type="strong">这一步可以跳过</span>）</div></div>
+<div id="20240605184227-qubjwkn" data-node-id="20240605184227-qubjwkn" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false">先正常登录使得能够打开插件，然后根据下面的方式找到 distill 的 xpi</div></div>
+<div id="20240605183918-fwrvlr9" data-node-id="20240605183918-fwrvlr9" data-type="NodeBlockQueryEmbed" updated="20240605192804" data-type="NodeBlockquote" class="bq">  <div id="20240605171444-cm0de4u" data-node-id="20240605171444-cm0de4u" data-type="NodeParagraph" updated="20240605171647" class="p"><div spellcheck="false">地址栏输入 about:support 查看支持，在这个页面打开配置文件夹可以查看数据存放地址，扩展所在地址</div></div>  </div>
+<div id="20240605183842-668pbk2" data-node-id="20240605183842-668pbk2" data-type="NodeBlockQueryEmbed" updated="20240605192804" data-type="NodeBlockquote" class="bq">  <div id="20240605171649-eyl7uj5" data-node-id="20240605171649-eyl7uj5" data-type="NodeParagraph" updated="20240605171740" class="p"><div spellcheck="false">对于使用id命名的扩展xpi可以在扩展管理界面查看最后更新时间去确定是哪一个，可以直接修改xpi包来调整扩展。</div></div>  </div>
+<div id="20240605184210-gxv8egj" data-node-id="20240605184210-gxv8egj" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false">再将 ui/assets/label.d933b3ec.js 中的 checkSieveConstraint的limit变量由原来的25修改为999</div></div>
+<div id="20240605184050-j8ncthp" data-node-id="20240605184050-j8ncthp" data-type="NodeParagraph" updated="20240605184214" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 525px;" style="width: 515px;" style="width: 525px;">
+  <img
+    src="./../../assets/image-20240605184050-klbjwba.png"
+    data-src="./../../assets/image-20240605184050-klbjwba.png"
+    title=""
+    style="width: 515px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div>
+<div id="20240605191729-hlofj4f" data-node-id="20240605191729-hlofj4f" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false"></div></div>
+<div id="20240605184416-yf591tk" data-node-id="20240605184416-yf591tk" data-type="NodeParagraph" updated="20250821162514" class="p"><div spellcheck="false">第二步：然后在firefox的配置项中，在 extensions.webextensions.restrictedDomains 中添加 <span data-type="code">,api.distill.io</span>​ 禁止扩展访问该域名
+或者在系统 host 文件中配置 <span data-type="code">127.0.0.1 api.distill.io</span>​</div></div>
+<div id="20240605191646-65hmiwc" data-node-id="20240605191646-65hmiwc" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../assets/image-20240605191646-p5dfkpc.png"
+    data-src="./../../assets/image-20240605191646-p5dfkpc.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div>
+<div id="20240605191726-aqll9me" data-node-id="20240605191726-aqll9me" data-type="NodeParagraph" updated="20240605192804" class="p"><div spellcheck="false">原理是这个扩展完全可以不依赖它自身的在线服务运行，他会通过服务来判断是否超出来25条然后将超出的移动到回收站。禁止访问该域名就放弃了云同步，他就无法执行上述操作了。</div></div>
+<div id="20240605202137-lxugx5a" data-node-id="20240605202137-lxugx5a" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><div id="20250821162526-ubylnsc" data-node-id="20250821162526-ubylnsc" data-type="NodeBlockquote" updated="20250821162539" class="bq"><div id="20250821162527-siuwzqy" data-node-id="20250821162527-siuwzqy" data-type="NodeParagraph" updated="20250821162539" class="p"><div spellcheck="false">能够付费的话还是付费的好，主要我没法付费。</div></div></div><div id="20250821162527-siuwzqy" data-node-id="20250821162527-siuwzqy" data-type="NodeParagraph" updated="20250821162539" class="p"><div spellcheck="false">能够付费的话还是付费的好，主要我没法付费。</div></div><div id="20240605184416-yf591tk" data-node-id="20240605184416-yf591tk" data-type="NodeParagraph" updated="20250821162514" class="p"><div spellcheck="false">第二步：然后在firefox的配置项中，在 extensions.webextensions.restrictedDomains 中添加 <span data-type="code">,api.distill.io</span>​ 禁止扩展访问该域名
+或者在系统 host 文件中配置 <span data-type="code">127.0.0.1 api.distill.io</span>​</div></div><h2 id="20250821155321-c01caeu" data-node-id="20250821155321-c01caeu" data-type="NodeHeading" updated="20250821155332" data-subtype="h2" class="h2">使用 DeepSeek</h2>
+<div id="20250821155328-yfrt3ql" data-node-id="20250821155328-yfrt3ql" data-type="NodeParagraph" updated="20250821155331" class="p"><div spellcheck="false"><a href="https://api-docs.deepseek.com/zh-cn/guides/anthropic_api">https://api-docs.deepseek.com/zh-cn/guides/anthropic_api</a></div></div>
+<div id="20250821155332-x21h0ai" data-node-id="20250821155332-x21h0ai" data-type="NodeParagraph" updated="20250821155332" class="p"><div spellcheck="false"></div></div><div id="20250821155332-x21h0ai" data-node-id="20250821155332-x21h0ai" data-type="NodeParagraph" updated="20250821155332" class="p"><div spellcheck="false"></div></div><div id="20250821155328-yfrt3ql" data-node-id="20250821155328-yfrt3ql" data-type="NodeParagraph" updated="20250821155331" class="p"><div spellcheck="false"><a href="https://api-docs.deepseek.com/zh-cn/guides/anthropic_api">https://api-docs.deepseek.com/zh-cn/guides/anthropic_api</a></div></div><h2 id="20250730162920-o8toxp0" data-node-id="20250730162920-o8toxp0" data-type="NodeHeading" updated="20250821155321" data-subtype="h2" class="h2">使用智谱 GLM-4.5</h2>
+<div id="20250730163005-ijunrjv" data-node-id="20250730163005-ijunrjv" data-type="NodeCodeBlock" updated="20250730163028" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">log</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">export ANTHROPIC_BASE_URL=https://open.bigmodel.cn/api/anthropic 
+export ANTHROPIC_AUTH_TOKEN="这里输入你注册的bigmodel API keys"
+</div>
+        </div><h2 id="20250821085623-e2awii3" data-node-id="20250821085623-e2awii3" data-type="NodeHeading" updated="20250821085647" data-subtype="h2" class="h2">一些证书</h2>
+<div id="20250821085633-lupxk91" data-node-id="20250821085633-lupxk91" data-type="NodeParagraph" updated="20250821085647" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="width: 595px;" style="">
+  <img
+    src="./../../assets/151677-28FceTUjhFuyxSsAVter-A-20250821085634-3zwdbsa.png"
+    data-src="./../../assets/151677-28FceTUjhFuyxSsAVter-A-20250821085634-3zwdbsa.png"
+    title=""
+    style="width: 595px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div>
+<div id="20250821085623-ucmb2xm" data-node-id="20250821085623-ucmb2xm" data-type="NodeParagraph" updated="20250821085623" class="p"><div spellcheck="false"></div></div><div id="20250821085633-lupxk91" data-node-id="20250821085633-lupxk91" data-type="NodeParagraph" updated="20250821085647" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="width: 595px;" style="">
+  <img
+    src="./../../assets/151677-28FceTUjhFuyxSsAVter-A-20250821085634-3zwdbsa.png"
+    data-src="./../../assets/151677-28FceTUjhFuyxSsAVter-A-20250821085634-3zwdbsa.png"
+    title=""
+    style="width: 595px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20250821085623-ucmb2xm" data-node-id="20250821085623-ucmb2xm" data-type="NodeParagraph" updated="20250821085623" class="p"><div spellcheck="false"></div></div><h2 id="20231228164110-r0lx0qk" data-node-id="20231228164110-r0lx0qk" data-type="NodeHeading" updated="20250816093630" data-subtype="h2" class="h2">推广</h2>
+<div id="20250816093630-cmxfv78" data-node-id="20250816093630-cmxfv78" data-type="NodeParagraph" updated="20250816093630" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250816093350-c4hlojl"><a href="./../../index/邵东人建网站，为何不找身边的专家？—— 申子龙 为您提供本地化专业网站建设服务.html#20250816093350-c4hlojl">邵东人建网站，为何不找身边的专家？—— 申子龙 为您提供本地化专业网站建设服务</a></span></div></div>
+<div id="20231228164018-egs0ek5" data-node-id="20231228164018-egs0ek5" data-type="NodeBlockQueryEmbed" updated="20231228164018" data-type="NodeBlockquote" class="bq">  <div id="20231215143631-v8j1bfp" data-node-id="20231215143631-v8j1bfp" data-type="NodeParagraph" updated="20250206142913" class="p"><div spellcheck="false">此处推荐 chat gpt key 购买网站 - <a href="https://cloud.siliconflow.cn/i/bLzJBmFE">siliconflow 硅基流动</a> ， <a href="https://console.closeai-asia.com/r/18680">https://console.closeai-asia.com/</a></div></div>  </div>
+<div id="20250807083730-z4zmqif" data-node-id="20250807083730-z4zmqif" data-type="NodeParagraph" updated="20250807083833" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="width: 306px;" style="">
+  <img
+    src="./../../assets/BigmodelPoster-20250807083730-9tkkdzv.png"
+    data-src="./../../assets/BigmodelPoster-20250807083730-9tkkdzv.png"
+    title=""
+    style="width: 306px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span><a href="https://www.bigmodel.cn/invite?icode=k6av4cVftzYBssEFbzWGA2czbXFgPRGIalpycrEwJ28%3D">  智谱 GLM 大模型体验使用</a></div></div>
+<div id="20240113141034-r55z6y5" data-node-id="20240113141034-r55z6y5" data-type="NodeParagraph" updated="20250807083729" class="p"><div spellcheck="false">我关注的一些优秀的博客： <span data-type="block-ref"   data-subtype="d"   data-id="20231215121826-vrlq40n"><a href="./../../文集/feed.html#20231215121826-vrlq40n">feed</a></span></div></div><div id="20250816093630-cmxfv78" data-node-id="20250816093630-cmxfv78" data-type="NodeParagraph" updated="20250816093630" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250816093350-c4hlojl"><a href="./../../index/邵东人建网站，为何不找身边的专家？—— 申子龙 为您提供本地化专业网站建设服务.html#20250816093350-c4hlojl">邵东人建网站，为何不找身边的专家？—— 申子龙 为您提供本地化专业网站建设服务</a></span></div></div><h2 id="20250816093353-2km135x" data-node-id="20250816093353-2km135x" data-type="NodeHeading" updated="20250816093519" data-subtype="h2" class="h2">立即联系，开启您的网络之旅</h2>
+<div id="20250816093353-wpnzmha" data-node-id="20250816093353-wpnzmha" data-type="NodeParagraph" updated="20250816093519" class="p"><div spellcheck="false">无论您是需要建设全新网站，还是对现有网站进行改版升级，都能为您提供专业、高效、贴心的服务。作为邵东本地人，我们期待与您携手，共同打造属于邵东企业的网络名片。</div></div>
+<div id="20250816093353-yem9o52" data-node-id="20250816093353-yem9o52" data-type="NodeParagraph" updated="20250816093514" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="s"   data-id="20201228124011-yky6n68"><a href="./../../关于/崮生_子虚/子虚的联系方式.html#20201228124011-yky6n68">联系方式&lt;点击查看&gt;</a></span> ，让我们面对面交流，为您的企业量身定制最适合的网络解决方案！</div></div>
+<div id="20250816093441-cp5dcjm" data-node-id="20250816093441-cp5dcjm" data-type="NodeParagraph" updated="20250816093441" class="p"><div spellcheck="false"></div></div><div id="20250816093353-wpnzmha" data-node-id="20250816093353-wpnzmha" data-type="NodeParagraph" updated="20250816093519" class="p"><div spellcheck="false">无论您是需要建设全新网站，还是对现有网站进行改版升级，都能为您提供专业、高效、贴心的服务。作为邵东本地人，我们期待与您携手，共同打造属于邵东企业的网络名片。</div></div><div id="20250816093353-yem9o52" data-node-id="20250816093353-yem9o52" data-type="NodeParagraph" updated="20250816093514" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="s"   data-id="20201228124011-yky6n68"><a href="./../../关于/崮生_子虚/子虚的联系方式.html#20201228124011-yky6n68">联系方式&lt;点击查看&gt;</a></span> ，让我们面对面交流，为您的企业量身定制最适合的网络解决方案！</div></div><div id="20250816093441-cp5dcjm" data-node-id="20250816093441-cp5dcjm" data-type="NodeParagraph" updated="20250816093441" class="p"><div spellcheck="false"></div></div><h2 id="20250816093353-sy1rpzb" data-node-id="20250816093353-sy1rpzb" data-type="NodeHeading" updated="20250816093424" data-subtype="h2" class="h2">本地优势，服务更贴心</h2>
+<div id="20250816093353-2rszyjw" data-node-id="20250816093353-2rszyjw" data-type="NodeParagraph" updated="20250816093424" class="p"><div spellcheck="false">您获得的不仅是一个网站，更是一位懂邵东的数字合作伙伴。我们能够面对面沟通，深入了解您的业务模式、目标客户和发展愿景，将邵东特色融入您的网站设计中，让您的网站更具本土亲和力。</div></div><div id="20250816093353-2rszyjw" data-node-id="20250816093353-2rszyjw" data-type="NodeParagraph" updated="20250816093424" class="p"><div spellcheck="false">您获得的不仅是一个网站，更是一位懂邵东的数字合作伙伴。我们能够面对面沟通，深入了解您的业务模式、目标客户和发展愿景，将邵东特色融入您的网站设计中，让您的网站更具本土亲和力。</div></div><div id="20250816093353-rsm1515" data-node-id="20250816093353-rsm1515" data-type="NodeParagraph" updated="20250816093419" class="p"><div spellcheck="false">作为邵东本土的网站开发专家，我们深知邵东企业与机构在网络时代的独特需求。我们就在邵东，与您同处一方热土，更懂您的业务与客户。</div></div><h2 id="20250816093353-hkb8g3l" data-node-id="20250816093353-hkb8g3l" data-type="NodeHeading" updated="20250816093353" data-subtype="h2" class="h2">全面服务，满足多元需求</h2>
+<div id="20250816093353-1eaqlf2" data-node-id="20250816093353-1eaqlf2" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">我们提供一站式网站建设解决方案：</div></div>
+<div id="20250816093353-1n62r8e" data-node-id="20250816093353-1n62r8e" data-type="NodeList" updated="20250816093353" data-subtype="u" class="list"><div id="20250816093353-43j4r3y" data-node-id="20250816093353-43j4r3y" data-type="NodeListItem" updated="20250816093353" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250816093353-geiobq3" data-node-id="20250816093353-geiobq3" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">企业品牌官网建设，展现企业形象与实力</div></div>
+      </div><div id="20250816093353-xonbvo1" data-node-id="20250816093353-xonbvo1" data-type="NodeListItem" updated="20250816093353" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250816093353-jheydcs" data-node-id="20250816093353-jheydcs" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">营销型网站开发，助力产品推广与销售转化</div></div>
+      </div><div id="20250816093353-nnlwa18" data-node-id="20250816093353-nnlwa18" data-type="NodeListItem" updated="20250816093353" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250816093353-eqry5wk" data-node-id="20250816093353-eqry5wk" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">B2C网上商城系统，拓展线上销售渠道</div></div>
+      </div><div id="20250816093353-ubu6hw1" data-node-id="20250816093353-ubu6hw1" data-type="NodeListItem" updated="20250816093353" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250816093353-5cpqqu1" data-node-id="20250816093353-5cpqqu1" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">行业门户网站开发，打造行业信息平台</div></div>
+      </div><div id="20250816093353-zpw26bv" data-node-id="20250816093353-zpw26bv" data-type="NodeListItem" updated="20250816093353" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250816093353-nkd91x1" data-node-id="20250816093353-nkd91x1" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">微信小程序与APP开发，覆盖移动端用户</div></div>
+      </div><div id="20250816093353-gyde378" data-node-id="20250816093353-gyde378" data-type="NodeListItem" updated="20250816093353" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250816093353-c9l53iv" data-node-id="20250816093353-c9l53iv" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">网站推广与网络营销，提升网站曝光度</div></div>
+      </div></div><div id="20250816093353-1eaqlf2" data-node-id="20250816093353-1eaqlf2" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">我们提供一站式网站建设解决方案：</div></div><div id="20250816093353-1n62r8e" data-node-id="20250816093353-1n62r8e" data-type="NodeList" updated="20250816093353" data-subtype="u" class="list"><div id="20250816093353-43j4r3y" data-node-id="20250816093353-43j4r3y" data-type="NodeListItem" updated="20250816093353" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250816093353-geiobq3" data-node-id="20250816093353-geiobq3" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">企业品牌官网建设，展现企业形象与实力</div></div>
+      </div><div id="20250816093353-xonbvo1" data-node-id="20250816093353-xonbvo1" data-type="NodeListItem" updated="20250816093353" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250816093353-jheydcs" data-node-id="20250816093353-jheydcs" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">营销型网站开发，助力产品推广与销售转化</div></div>
+      </div><div id="20250816093353-nnlwa18" data-node-id="20250816093353-nnlwa18" data-type="NodeListItem" updated="20250816093353" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250816093353-eqry5wk" data-node-id="20250816093353-eqry5wk" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">B2C网上商城系统，拓展线上销售渠道</div></div>
+      </div><div id="20250816093353-ubu6hw1" data-node-id="20250816093353-ubu6hw1" data-type="NodeListItem" updated="20250816093353" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250816093353-5cpqqu1" data-node-id="20250816093353-5cpqqu1" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">行业门户网站开发，打造行业信息平台</div></div>
+      </div><div id="20250816093353-zpw26bv" data-node-id="20250816093353-zpw26bv" data-type="NodeListItem" updated="20250816093353" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250816093353-nkd91x1" data-node-id="20250816093353-nkd91x1" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">微信小程序与APP开发，覆盖移动端用户</div></div>
+      </div><div id="20250816093353-gyde378" data-node-id="20250816093353-gyde378" data-type="NodeListItem" updated="20250816093353" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250816093353-c9l53iv" data-node-id="20250816093353-c9l53iv" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">网站推广与网络营销，提升网站曝光度</div></div>
+      </div></div><div id="20250816093353-43j4r3y" data-node-id="20250816093353-43j4r3y" data-type="NodeListItem" updated="20250816093353" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250816093353-geiobq3" data-node-id="20250816093353-geiobq3" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">企业品牌官网建设，展现企业形象与实力</div></div>
+      </div><div id="20250816093353-geiobq3" data-node-id="20250816093353-geiobq3" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">企业品牌官网建设，展现企业形象与实力</div></div><div id="20250816093353-xonbvo1" data-node-id="20250816093353-xonbvo1" data-type="NodeListItem" updated="20250816093353" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250816093353-jheydcs" data-node-id="20250816093353-jheydcs" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">营销型网站开发，助力产品推广与销售转化</div></div>
+      </div><div id="20250816093353-jheydcs" data-node-id="20250816093353-jheydcs" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">营销型网站开发，助力产品推广与销售转化</div></div><div id="20250816093353-nnlwa18" data-node-id="20250816093353-nnlwa18" data-type="NodeListItem" updated="20250816093353" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250816093353-eqry5wk" data-node-id="20250816093353-eqry5wk" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">B2C网上商城系统，拓展线上销售渠道</div></div>
+      </div><div id="20250816093353-eqry5wk" data-node-id="20250816093353-eqry5wk" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">B2C网上商城系统，拓展线上销售渠道</div></div><div id="20250816093353-ubu6hw1" data-node-id="20250816093353-ubu6hw1" data-type="NodeListItem" updated="20250816093353" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250816093353-5cpqqu1" data-node-id="20250816093353-5cpqqu1" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">行业门户网站开发，打造行业信息平台</div></div>
+      </div><div id="20250816093353-5cpqqu1" data-node-id="20250816093353-5cpqqu1" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">行业门户网站开发，打造行业信息平台</div></div><div id="20250816093353-zpw26bv" data-node-id="20250816093353-zpw26bv" data-type="NodeListItem" updated="20250816093353" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250816093353-nkd91x1" data-node-id="20250816093353-nkd91x1" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">微信小程序与APP开发，覆盖移动端用户</div></div>
+      </div><div id="20250816093353-nkd91x1" data-node-id="20250816093353-nkd91x1" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">微信小程序与APP开发，覆盖移动端用户</div></div><div id="20250816093353-gyde378" data-node-id="20250816093353-gyde378" data-type="NodeListItem" updated="20250816093353" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250816093353-c9l53iv" data-node-id="20250816093353-c9l53iv" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">网站推广与网络营销，提升网站曝光度</div></div>
+      </div><div id="20250816093353-c9l53iv" data-node-id="20250816093353-c9l53iv" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">网站推广与网络营销，提升网站曝光度</div></div><h2 id="20250816093353-qlbc49l" data-node-id="20250816093353-qlbc49l" data-type="NodeHeading" updated="20250816093353" data-subtype="h2" class="h2">专业团队，品质保障</h2>
+<div id="20250816093353-bgeelju" data-node-id="20250816093353-bgeelju" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">shenzilong.cn 拥有经验丰富的开发团队，掌握前沿技术，能够为政府机构、企事业单位、中小企业等各类客户提供专业服务。我们不仅注重网站的美观性，更关注用户体验、功能实用性和后期维护便利性。</div></div><div id="20250816093353-bgeelju" data-node-id="20250816093353-bgeelju" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">shenzilong.cn 拥有经验丰富的开发团队，掌握前沿技术，能够为政府机构、企事业单位、中小企业等各类客户提供专业服务。我们不仅注重网站的美观性，更关注用户体验、功能实用性和后期维护便利性。</div></div><h2 id="20250816093353-k3m17c2" data-node-id="20250816093353-k3m17c2" data-type="NodeHeading" updated="20250816093353" data-subtype="h2" class="h2">成功案例，见证实力</h2>
+<div id="20250816093353-733sgid" data-node-id="20250816093353-733sgid" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">我们已为邵东多家企业打造了优质网站，涵盖制造业、服务业、零售业等多个领域。这些网站不仅提升了企业形象，更带来了实际业务增长，成为企业数字化转型的重要一步。</div></div><div id="20250816093353-733sgid" data-node-id="20250816093353-733sgid" data-type="NodeParagraph" updated="20250816093353" class="p"><div spellcheck="false">我们已为邵东多家企业打造了优质网站，涵盖制造业、服务业、零售业等多个领域。这些网站不仅提升了企业形象，更带来了实际业务增长，成为企业数字化转型的重要一步。</div></div><h2 id="20231214134136-9zq5juf" data-node-id="20231214134136-9zq5juf" data-type="NodeHeading" updated="20250816093351" data-subtype="h2" class="h2">最近实践</h2>
+<div id="20250816093346-3pllr8e" data-node-id="20250816093346-3pllr8e" data-type="NodeParagraph" updated="20250816093351" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250816093350-c4hlojl"><a href="./../../index/邵东人建网站，为何不找身边的专家？—— 申子龙 为您提供本地化专业网站建设服务.html#20250816093350-c4hlojl">邵东人建网站，为何不找身边的专家？—— 申子龙 为您提供本地化专业网站建设服务</a></span></div></div>
+<div id="20250814155749-7xc6x0r" data-node-id="20250814155749-7xc6x0r" data-type="NodeParagraph" updated="20250814155805" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250814155805-fdxoye3"><a href="./../../index/为claude code+glm 添加上眼睛.html#20250814155805-fdxoye3">为claude code+glm 添加上眼睛</a></span></div></div>
+<div id="20250814153928-my6mzew" data-node-id="20250814153928-my6mzew" data-type="NodeParagraph" updated="20250814153947" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250814153947-efg1qd2"><a href="./../../index/如何为 claude code 添加用户级mcp工具.html#20250814153947-efg1qd2">如何为 claude code 添加用户级mcp工具</a></span></div></div>
+<div id="20250814080253-54l7i8t" data-node-id="20250814080253-54l7i8t" data-type="NodeParagraph" updated="20250814080314" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250814080313-wys8wfk"><a href="./../../index/如何实现模块化加载的前端和后端代码.html#20250814080313-wys8wfk">如何实现模块化加载的前端和后端代码</a></span></div></div>
+<div id="20250813102012-ft9alwr" data-node-id="20250813102012-ft9alwr" data-type="NodeParagraph" updated="20250813102052" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="s"   data-id="20250813102052-b9wjt9x"><a href="./../../index/glm4.5+claude code和qwen以及v0的还原网页测试.html#20250813102052-b9wjt9x">glm4.5+claude code和qwen的还原网页测试</a></span></div></div>
+<div id="20250811181955-dfcr15l" data-node-id="20250811181955-dfcr15l" data-type="NodeParagraph" updated="20250811182000" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250811182000-rpev1x9"><a href="./../../index/国内访问 GitHub API 的简单解决方案.html#20250811182000-rpev1x9">国内访问 GitHub API 的简单解决方案</a></span></div></div>
+<div id="20250811143836-qb3tstc" data-node-id="20250811143836-qb3tstc" data-type="NodeParagraph" updated="20250811143840" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250811143840-8u62rsk"><a href="./../../index/pm2.html#20250811143840-8u62rsk">pm2</a></span></div></div>
+<div id="20250806172109-l5knvm3" data-node-id="20250806172109-l5knvm3" data-type="NodeParagraph" updated="20250806172110" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250805144437-8tef5gs"><a href="./../../index/amd 8700g 使用gpu运行ollama.html#20250805144437-8tef5gs">amd 8700g 使用gpu运行ollama</a></span></div></div>
+<div id="20250806163720-cjqkrik" data-node-id="20250806163720-cjqkrik" data-type="NodeParagraph" updated="20250806163746" class="p"><div spellcheck="false">​<span data-type="tag">好文推荐</span>​ <a href="https://vue-bits.dev/">https://vue-bits.dev/</a>  非常绚酷的 vue 动画库</div></div>
+<div id="20250727081518-kea6zgd" data-node-id="20250727081518-kea6zgd" data-type="NodeParagraph" updated="20250727081527" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250727081527-9l14251"><a href="./../../index/ossfs挂载磁盘.html#20250727081527-9l14251">ossfs挂载磁盘</a></span></div></div>
+<div id="20250726085456-12gwjie" data-node-id="20250726085456-12gwjie" data-type="NodeParagraph" updated="20250726085524" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="s"   data-id="20250726085524-dnaymcz"><a href="./../../index/微信如何直接打开网站链接.html#20250726085524-dnaymcz">微信如何直接打开网站链接</a></span></div></div>
+<div id="20250724085122-r0geot0" data-node-id="20250724085122-r0geot0" data-type="NodeParagraph" updated="20250724085138" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250724085137-20uwnvo"><a href="./../../index/网站后端如何设计文件系统的鉴权.html#20250724085137-20uwnvo">网站后端如何设计文件系统的鉴权</a></span></div></div>
+<div id="20250722145106-39f4lov" data-node-id="20250722145106-39f4lov" data-type="NodeParagraph" updated="20250722145120" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250722145119-8p7i3u7"><a href="./../../index/Claude Code 配置使用自定义api.html#20250722145119-8p7i3u7">Claude Code 配置使用自定义api</a></span></div></div>
+<div id="20250630163822-bklf4a2" data-node-id="20250630163822-bklf4a2" data-type="NodeParagraph" updated="20250630163846" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250630163846-e72bdtc"><a href="./../../index/如何设计.html#20250630163846-e72bdtc">如何设计</a></span></div></div>
+<div id="20250623112340-s17egfy" data-node-id="20250623112340-s17egfy" data-type="NodeParagraph" updated="20250623112355" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250623112355-0jx3wu1"><a href="./../../index/prisma sqlite并发错误.html#20250623112355-0jx3wu1">prisma sqlite并发错误</a></span></div></div>
+<div id="20250610085738-on202e7" data-node-id="20250610085738-on202e7" data-type="NodeParagraph" updated="20250620113627" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250620113627-k89mkw1"><a href="./../../index/Effect实现接口并发控制.html#20250620113627-k89mkw1">Effect实现接口并发控制</a></span></div></div>
+<div id="20250606162241-4bilf6e" data-node-id="20250606162241-4bilf6e" data-type="NodeParagraph" updated="20250606162300" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250606162300-tawz4ma"><a href="./../../index/网站中什么尺寸的图片最合适.html#20250606162300-tawz4ma">网站中什么尺寸的图片最合适</a></span></div></div>
+<div id="20250605085745-opqnape" data-node-id="20250605085745-opqnape" data-type="NodeParagraph" updated="20250605085750" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250605085551-m90g40p"><a href="./../../index/位图图片转svg.html#20250605085551-m90g40p">位图图片转svg</a></span></div></div>
+<div id="20250529083817-qp9kol9" data-node-id="20250529083817-qp9kol9" data-type="NodeParagraph" updated="20250529083829" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250529083931-6gjv4tt"><a href="./../../index/AiEnglish ：在阅读中渐进式学习英语.html#20250529083931-6gjv4tt">AiEnglish ：在阅读中渐进式学习英语</a></span></div></div>
+<div id="20250527104128-1pwfgne" data-node-id="20250527104128-1pwfgne" data-type="NodeParagraph" updated="20250527104146" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250527104233-so7c9f2"><a href="./../../index/随时随地访问家中的思源.html#20250527104233-so7c9f2">随时随地访问家中的思源</a></span></div></div>
+<div id="20250508192442-8vpt6f6" data-node-id="20250508192442-8vpt6f6" data-type="NodeParagraph" updated="20250508192447" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250508192447-1q0xnj8"><a href="./../../index/开发在线Playground的实践.html#20250508192447-1q0xnj8">开发在线Playground的实践</a></span></div></div>
+<div id="20250508192545-t6rqnwj" data-node-id="20250508192545-t6rqnwj" data-type="NodeParagraph" updated="20250508192550" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250508192550-xtk8sij"><a href="./../../index/NoteCalc.html#20250508192550-xtk8sij">NoteCalc</a></span></div></div>
+<div id="20250507170631-wkhvr0l" data-node-id="20250507170631-wkhvr0l" data-type="NodeParagraph" updated="20250507170654" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250507170654-enuezoa"><a href="./../../index/使用ai从零开始实现一个在线计算笔记本：NoteCalc.html#20250507170654-enuezoa">使用ai从零开始实现一个在线计算笔记本：NoteCalc</a></span></div></div>
+<div id="20250508195712-nf0b8vq" data-node-id="20250508195712-nf0b8vq" data-type="NodeParagraph" updated="20250508195716" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250508195715-fwl85it"><a href="./../../index/ai提示词.html#20250508195715-fwl85it">ai提示词</a></span></div></div>
+<div id="20250506095705-jwasmvq" data-node-id="20250506095705-jwasmvq" data-type="NodeParagraph" updated="20250506095719" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250506095719-tiy36tk"><a href="./../../index/deepseek叮.html#20250506095719-tiy36tk">deepseek叮</a></span></div></div>
+<div id="20250427210142-6j5yice" data-node-id="20250427210142-6j5yice" data-type="NodeParagraph" updated="20250427210147" class="p"><div spellcheck="false">​<span data-type="tag">好文推荐</span>​ 浏览器插件开发最佳实践 <a href="https://wxt.dev/guide/installation.html">https://wxt.dev/guide/installation.html</a></div></div>
+<div id="20250427062251-nln6w1d" data-node-id="20250427062251-nln6w1d" data-type="NodeParagraph" updated="20250427062301" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250427062301-dtaov2k"><a href="./../../index/给脚本猫开发了新的首页.html#20250427062301-dtaov2k">给脚本猫开发了新的首页</a></span></div></div>
+<div id="20250424113828-1l6a53m" data-node-id="20250424113828-1l6a53m" data-type="NodeParagraph" updated="20250424113850" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250424113849-m7bcro5"><a href="./../../index/如何分享OceanPress的内容到其他平台.html#20250424113849-m7bcro5">如何分享OceanPress的内容到其他平台</a></span></div></div>
+<div id="20250423112438-41pdes4" data-node-id="20250423112438-41pdes4" data-type="NodeParagraph" updated="20250423160736" class="p"><div spellcheck="false">​<span data-type="tag">好文推荐</span>​ <a href="https://keelii.com/2020/05/11/frontend-dev-bottleneck-and-future">前端开发的瓶颈与未来之路</a></div></div>
+<div id="20250420152057-2z5w6dw" data-node-id="20250420152057-2z5w6dw" data-type="NodeParagraph" updated="20250420152105" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250420152104-3zsfekn"><a href="./../../index/ai生成视频.html#20250420152104-3zsfekn">ai生成视频</a></span></div></div>
+<div id="20250413211116-5xkjnta" data-node-id="20250413211116-5xkjnta" data-type="NodeParagraph" updated="20250413211142" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250413211142-d533spm"><a href="./../../index/TsFullStack.html#20250413211142-d533spm">TsFullStack</a></span></div></div>
+<div id="20250401164956-olxz0en" data-node-id="20250401164956-olxz0en" data-type="NodeParagraph" updated="20250401165004" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250401165003-2006op9"><a href="./../../index/Identifier 'h' has already been declared.html#20250401165003-2006op9">Identifier &#39;h&#39; has already been declared</a></span></div></div>
+<div id="20250331104110-89ubrxr" data-node-id="20250331104110-89ubrxr" data-type="NodeParagraph" updated="20250331104122" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250331104122-ibalthg"><a href="./../../index/为什响应式设计需要移动端优先.html#20250331104122-ibalthg">为什响应式设计需要移动端优先</a></span></div></div>
+<div id="20250329095655-uoppc96" data-node-id="20250329095655-uoppc96" data-type="NodeParagraph" updated="20250329095707" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250329095707-ozm41yv"><a href="./../../index/通过网络远程唤醒电脑.html#20250329095707-ozm41yv">通过网络远程唤醒电脑</a></span></div></div>
+<div id="20250327103106-gbt3kag" data-node-id="20250327103106-gbt3kag" data-type="NodeParagraph" updated="20250327103117" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250327103117-2j6h672"><a href="./../../index/vue-components-example.html#20250327103117-2j6h672">vue-components-example</a></span></div></div>
+<div id="20250322113848-r78fcqf" data-node-id="20250322113848-r78fcqf" data-type="NodeParagraph" updated="20250322113857" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250322113857-vh93nri"><a href="./../../index/effect-ts.html#20250322113857-vh93nri">effect-ts</a></span></div></div>
+<div id="20250319215926-xsl8vsd" data-node-id="20250319215926-xsl8vsd" data-type="NodeParagraph" updated="20250319215933" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250319215933-nshgiqr"><a href="./../../index/leaferjs.html#20250319215933-nshgiqr">leaferjs</a></span></div></div>
+<div id="20250319134238-ngeqptn" data-node-id="20250319134238-ngeqptn" data-type="NodeParagraph" updated="20250319134255" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250319134255-h8w7hwq"><a href="./../../index/linux tar命令压缩解压缩.html#20250319134255-h8w7hwq">linux tar命令压缩解压缩</a></span></div></div>
+<div id="20250316152711-8d5p5u3" data-node-id="20250316152711-8d5p5u3" data-type="NodeParagraph" updated="20250316152731" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250316152730-ut0dzer"><a href="./../../index/思源公益知识库.html#20250316152730-ut0dzer">思源公益知识库</a></span></div></div>
+<div id="20250314212154-8uvf8sn" data-node-id="20250314212154-8uvf8sn" data-type="NodeParagraph" updated="20250314212231" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250314212231-3bp2eh7"><a href="./../../index/OceanPress 部署思源笔记到自托管 server.html#20250314212231-3bp2eh7">OceanPress 部署思源笔记到自托管 server</a></span></div></div>
+<div id="20250312225152-ajj46s8" data-node-id="20250312225152-ajj46s8" data-type="NodeParagraph" updated="20250312225200" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250312225200-5mtfqiq"><a href="./../../index/怎么发布npm包.html#20250312225200-5mtfqiq">怎么发布npm包</a></span></div></div>
+<div id="20250304134605-dleyjk1" data-node-id="20250304134605-dleyjk1" data-type="NodeParagraph" updated="20250304134614" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250304134614-qnhu20w"><a href="./../../index/windows 语音输入.html#20250304134614-qnhu20w">windows 语音输入</a></span></div></div>
+<div id="20250226145105-cnao4rj" data-node-id="20250226145105-cnao4rj" data-type="NodeParagraph" updated="20250226150152" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250226150151-nw265i8"><a href="./../../index/[Vue warn]: Failed to resolve component: feDropShadow 的pr解决之路.html#20250226150151-nw265i8">[Vue warn]: Failed to resolve component: feDropShadow 的pr解决之路</a></span></div></div>
+<div id="20250226134920-6tq7xzg" data-node-id="20250226134920-6tq7xzg" data-type="NodeParagraph" updated="20250226134941" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250226134940-i75khvz"><a href="./../../index/如何评价CSS框架TailwindCSS？.html#20250226134940-i75khvz">如何评价CSS框架TailwindCSS？</a></span></div></div>
+<div id="20250225214514-a6adbp1" data-node-id="20250225214514-a6adbp1" data-type="NodeParagraph" updated="20250225214521" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250225214521-7bhsxel"><a href="./../../index/超级棒的remote app.html#20250225214521-7bhsxel">超级棒的remote app</a></span></div></div>
+<div id="20250216144950-vzgoq6z" data-node-id="20250216144950-vzgoq6z" data-type="NodeParagraph" updated="20250216144955" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250216144955-o08said"><a href="./../../index/电子爱好.html#20250216144955-o08said">电子爱好</a></span></div></div>
+<div id="20250212204206-5gb4ybb" data-node-id="20250212204206-5gb4ybb" data-type="NodeParagraph" updated="20250212204220" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250212204219-tpp9jkv"><a href="./../../index/ai agent学习.html#20250212204219-tpp9jkv">ai agent学习</a></span></div></div>
+<div id="20250207102242-jcn2znl" data-node-id="20250207102242-jcn2znl" data-type="NodeParagraph" updated="20250207102303" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250207102303-34utbcn"><a href="./../../index/vscode continue插件支持从思源中搜索文档使用.html#20250207102303-34utbcn">vscode continue插件支持从思源中搜索文档使用</a></span></div></div>
+<div id="20250203190104-89x90ks" data-node-id="20250203190104-89x90ks" data-type="NodeParagraph" updated="20250203190113" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250203190113-bu077qy"><a href="./../../index/ai测试.html#20250203190113-bu077qy">ai测试</a></span></div></div>
+<div id="20250120093111-67tqec9" data-node-id="20250120093111-67tqec9" data-type="NodeParagraph" updated="20250202145631" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250202145716-wvgw7m7"><a href="./../../index/对于依赖注入的思考-二.html#20250202145716-wvgw7m7">对于依赖注入的思考-二</a></span></div></div>
+<div id="20250101095953-g826rwo" data-node-id="20250101095953-g826rwo" data-type="NodeParagraph" updated="20250101095956" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250101095839-ec2nkqw"><a href="./../../index/对于依赖注入的思考.html#20250101095839-ec2nkqw">对于依赖注入的思考</a></span></div></div>
+<div id="20241228103007-fs2y8vl" data-node-id="20241228103007-fs2y8vl" data-type="NodeParagraph" updated="20241228103034" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20241228103033-h9y9bt3"><a href="./../../index/自动翻译文档-expr插件和aichat插件的组合技.html#20241228103033-h9y9bt3">自动翻译文档-expr插件和aichat插件的组合技</a></span></div></div>
+<div id="20241227155556-drtao0c" data-node-id="20241227155556-drtao0c" data-type="NodeParagraph" updated="20241227155607" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20241227155607-14cuxd5"><a href="./../../index/aiChat-plugin-siyuan.html#20241227155607-14cuxd5">aiChat-plugin-siyuan</a></span></div></div>
+<div id="20241022155619-j3k1ai2" data-node-id="20241022155619-j3k1ai2" data-type="NodeParagraph" updated="20241022155634" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20241022155634-9i70eo4"><a href="./../../index/我的软件资源清单.html#20241022155634-9i70eo4">我的软件资源清单</a></span></div></div>
+<div id="20240831155455-urwiuan" data-node-id="20240831155455-urwiuan" data-type="NodeParagraph" updated="20240831155502" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20240831144820-s0ruk7h"><a href="./../../record/如何实现一个小体积的js docker镜像.html#20240831144820-s0ruk7h">如何实现一个小体积的js docker镜像</a></span></div></div>
+<div id="20240613220138-gof5tz9" data-node-id="20240613220138-gof5tz9" data-type="NodeParagraph" updated="20240613220144" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20240612161400-q3nlr71"><a href="./../../想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件实现完美ocr v0.3.6.html#20240612161400-q3nlr71">OceanPress插件实现完美ocr v0.3.6</a></span></div></div>
+<div id="20231214134145-ofocg0i" data-node-id="20231214134145-ofocg0i" data-type="NodeParagraph" updated="20240517225616" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20231214112450-ndy3t2e"><a href="./../../想法/siyuan_feed插件.html#20231214112450-ndy3t2e">siyuan_feed插件</a></span></div></div>
+<div id="20231214134205-ec6yvih" data-node-id="20231214134205-ec6yvih" data-type="NodeParagraph" updated="20240517225616" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20230905170531-6q68jov"><a href="./../../想法/项目/OceanPress_js.html#20230905170531-6q68jov">OceanPress_js</a></span></div></div><div id="20250816093346-3pllr8e" data-node-id="20250816093346-3pllr8e" data-type="NodeParagraph" updated="20250816093351" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20250816093350-c4hlojl"><a href="./../../index/邵东人建网站，为何不找身边的专家？—— 申子龙 为您提供本地化专业网站建设服务.html#20250816093350-c4hlojl">邵东人建网站，为何不找身边的专家？—— 申子龙 为您提供本地化专业网站建设服务</a></span></div></div><h2 id="20250814155942-ih8vjsy" data-node-id="20250814155942-ih8vjsy" data-type="NodeHeading" updated="20250814165351" data-subtype="h2" class="h2">快速使用</h2>
+<div id="20250814160138-o0s81mr" data-node-id="20250814160138-o0s81mr" data-type="NodeParagraph" updated="20250814160519" class="p"><div spellcheck="false">我使用 claude code 创建了一个 <span data-type="code">崮生mcp工具箱</span>​ 项目，项目地址：<a href="https://github.com/2234839/mcpserver">https://github.com/2234839/mcpserver</a></div></div>
+<div id="20250814160412-c9cn4rr" data-node-id="20250814160412-c9cn4rr" data-type="NodeParagraph" updated="20250814160855" class="p"><div spellcheck="false">下载项目并执行 pnpm i , pnpm build 并配置环境变量中的 <span data-type="code">GLM_API_KEY</span>​</div></div>
+<div id="20250814160531-vojd0j2" data-node-id="20250814160531-vojd0j2" data-type="NodeParagraph" updated="20250814160756" class="p"><div spellcheck="false">参考： <span data-type="block-ref"   data-subtype="d"   data-id="20250814153947-efg1qd2"><a href="./../../index/如何为 claude code 添加用户级mcp工具.html#20250814153947-efg1qd2">如何为 claude code 添加用户级mcp工具</a></span> 配置 ~/.claude.json</div></div>
+<div id="20250814160754-akq2uny" data-node-id="20250814160754-akq2uny" data-type="NodeParagraph" updated="20250814160758" class="p"><div spellcheck="false">在 ~/.claude/CLAUDE.md 中添加提示词规范</div></div>
+<div id="20250814160754-5t9wu8v" data-node-id="20250814160754-5t9wu8v" data-type="NodeCodeBlock" updated="20250814160754" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">json</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">## 图片处理规范
+禁止使用你的 read 工具进行读取图片，因为你的读取图片工具失效了。所以请使用mcp server 提供的 read_image 工具 读取
+</div>
+        </div>
+<div id="20250814160753-d8ltbnt" data-node-id="20250814160753-d8ltbnt" data-type="NodeParagraph" updated="20250814160753" class="p"><div spellcheck="false"></div></div>
+<div id="20250814160557-w4fopve" data-node-id="20250814160557-w4fopve" data-type="NodeParagraph" updated="20250814160636" class="p"><div spellcheck="false">重新打开一个 claude code 运行 /mcp 就可以看到了</div></div>
+<div id="20250814160647-qgtkgl8" data-node-id="20250814160647-qgtkgl8" data-type="NodeBlockQueryEmbed" updated="20250814160647" data-type="NodeBlockquote" class="bq">  <div id="20250814154328-laaq5jl" data-node-id="20250814154328-laaq5jl" data-type="NodeParagraph" updated="20250814163128" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../assets/image-20250814160410-x1wgnkn.png"
+    data-src="./../../assets/image-20250814160410-x1wgnkn.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div>  </div>
+<div id="20250814160648-o73jnh4" data-node-id="20250814160648-o73jnh4" data-type="NodeParagraph" updated="20250814160831" class="p"><div spellcheck="false">这时你就可以让 claude code 去愉快的读取本地图片了☆<span data-type="em">: .｡. o(≧▽≦)o .｡.:</span>☆</div></div>
+<div id="20250814161054-alz6lo7" data-node-id="20250814161054-alz6lo7" data-type="NodeParagraph" updated="20250814163138" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="width: 725px;" style="">
+  <img
+    src="./../../assets/image-20250814161055-gj61abg.png"
+    data-src="./../../assets/image-20250814161055-gj61abg.png"
+    title=""
+    style="width: 725px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div>
+<div id="20250814165351-cj69met" data-node-id="20250814165351-cj69met" data-type="NodeParagraph" updated="20250814165351" class="p"><div spellcheck="false"></div></div><div id="20250814165351-cj69met" data-node-id="20250814165351-cj69met" data-type="NodeParagraph" updated="20250814165351" class="p"><div spellcheck="false"></div></div><div id="20250814161054-alz6lo7" data-node-id="20250814161054-alz6lo7" data-type="NodeParagraph" updated="20250814163138" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="width: 725px;" style="">
+  <img
+    src="./../../assets/image-20250814161055-gj61abg.png"
+    data-src="./../../assets/image-20250814161055-gj61abg.png"
+    title=""
+    style="width: 725px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><h2 id="20250814154156-nf0gt11" data-node-id="20250814154156-nf0gt11" data-type="NodeHeading" updated="20250814163128" data-subtype="h2" class="h2">重新启动 claude code</h2>
+<div id="20250814154300-o4zf1nd" data-node-id="20250814154300-o4zf1nd" data-type="NodeParagraph" updated="20250814154355" class="p"><div spellcheck="false">运行 /mcp ,发现了对应的server 处于 ✔ connected 状态即可</div></div>
+<div id="20250814154328-laaq5jl" data-node-id="20250814154328-laaq5jl" data-type="NodeParagraph" updated="20250814163128" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../assets/image-20250814160410-x1wgnkn.png"
+    data-src="./../../assets/image-20250814160410-x1wgnkn.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20250814154328-laaq5jl" data-node-id="20250814154328-laaq5jl" data-type="NodeParagraph" updated="20250814163128" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../../assets/image-20250814160410-x1wgnkn.png"
+    data-src="./../../assets/image-20250814160410-x1wgnkn.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20250814160412-c9cn4rr" data-node-id="20250814160412-c9cn4rr" data-type="NodeParagraph" updated="20250814160855" class="p"><div spellcheck="false">下载项目并执行 pnpm i , pnpm build 并配置环境变量中的 <span data-type="code">GLM_API_KEY</span>​</div></div><div id="20250814160648-o73jnh4" data-node-id="20250814160648-o73jnh4" data-type="NodeParagraph" updated="20250814160831" class="p"><div spellcheck="false">这时你就可以让 claude code 去愉快的读取本地图片了☆<span data-type="em">: .｡. o(≧▽≦)o .｡.:</span>☆</div></div><div id="20250814160754-akq2uny" data-node-id="20250814160754-akq2uny" data-type="NodeParagraph" updated="20250814160758" class="p"><div spellcheck="false">在 ~/.claude/CLAUDE.md 中添加提示词规范</div></div><div id="20250814160531-vojd0j2" data-node-id="20250814160531-vojd0j2" data-type="NodeParagraph" updated="20250814160756" class="p"><div spellcheck="false">参考： <span data-type="block-ref"   data-subtype="d"   data-id="20250814153947-efg1qd2"><a href="./../../index/如何为 claude code 添加用户级mcp工具.html#20250814153947-efg1qd2">如何为 claude code 添加用户级mcp工具</a></span> 配置 ~/.claude.json</div></div>  </div><div id="20210606160324-57c0iql" data-node-id="20210606160324-57c0iql" data-type="NodeParagraph" updated="20230924170522" class="p"><div spellcheck="false"></div></div></div>
   <div id="oceanpress-right-sidebar"></div>
 </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
         appearance: {
-          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          mode: document.documentElement.getAttribute('data-theme-mode') === 'dark' ? 1 : 0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -153,7 +1103,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);
@@ -177,12 +1127,12 @@
     });
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
-crossorigin="anonymous"></script><footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
-  <p style="margin: 0;">
+crossorigin="anonymous"></script><footer class="theme-aware-footer">
+  <p>
     技术支持：
-    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
-    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
-    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
   </p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>

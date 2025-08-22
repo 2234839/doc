@@ -3,17 +3,33 @@
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
 <style>
+  :root {
+    --oceanpress-header-bg: #f8f9fa;
+    --oceanpress-header-border: #e9ecef;
+    --oceanpress-header-text: #007bff;
+    --oceanpress-footer-bg: #f8f9fa;
+    --oceanpress-footer-text: #007bff;
+  }
+  
+  [data-theme-mode="dark"] {
+    --oceanpress-header-bg: #2d2d2d;
+    --oceanpress-header-border: #404040;
+    --oceanpress-header-text: #58a6ff;
+    --oceanpress-footer-bg: #2d2d2d;
+    --oceanpress-footer-text: #58a6ff;
+  }
+  
   .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #e9ecef;
+    background-color: var(--oceanpress-header-bg);
+    border-bottom: 1px solid var(--oceanpress-header-border);
   }
   .home-button {
     text-decoration: none;
-    color: #007bff;
+    color: var(--oceanpress-header-text);
     font-weight: bold;
     font-size: 16px;
   }
@@ -22,6 +38,23 @@
   }
   #search {
     width: 300px;
+  }
+  
+  .theme-aware-footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--oceanpress-footer-bg);
+    text-align: center;
+  }
+  .theme-aware-footer p {
+    margin: 0;
+  }
+  .theme-aware-footer a {
+    color: var(--oceanpress-footer-text);
+    text-decoration: none;
+  }
+  .theme-aware-footer a:hover {
+    text-decoration: underline;
   }
 </style>
 
@@ -47,15 +80,163 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="/读书笔记/黄帝内经/素问-生气通天论.html" />
 
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
-  function isNightTime() {
-    const currentHour = new Date().getHours();
-    return currentHour >= 18 || currentHour < 6;
-  }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  // 更好的主题切换方案
+  (function() {
+    // 主题配置
+    const themes = {
+      light: {
+        name: 'daylight',
+        mode: 'light',
+        icon: '☀️'
+      },
+      dark: {
+        name: 'midnight',
+        mode: 'dark',
+        icon: '🌙'
+      },
+      auto: {
+        name: 'auto',
+        mode: 'auto',
+        icon: '🌗',
+        getTheme: function() {
+          const currentHour = new Date().getHours();
+          return currentHour >= 18 || currentHour < 6 ? 'dark' : 'light';
+        }
+      }
+    };
+
+    // 获取当前主题设置
+    function getCurrentTheme() {
+      // 优先级：localStorage > 系统偏好 > auto
+      const savedTheme = localStorage.getItem('oceanpress-theme');
+      if (savedTheme && themes[savedTheme]) {
+        return savedTheme;
+      }
+
+      // 检测系统偏好
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
+      }
+
+      return 'auto';
+    }
+
+    // 应用主题
+    function applyTheme(themeName) {
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 设置 CSS 变量
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 加载对应的 CSS
+      const themeStyle = document.getElementById('themeDefaultStyle');
+      if (themeStyle) {
+        themeStyle.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+      } else {
+        // 如果元素不存在，创建它
+        const link = document.createElement('link');
+        link.id = 'themeDefaultStyle';
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+        document.head.appendChild(link);
+      }
+
+      // 更新主题切换按钮
+      updateThemeToggle(themeName);
+
+      // 保存到 localStorage
+      localStorage.setItem('oceanpress-theme', themeName);
+
+      // 触发自定义事件
+      window.dispatchEvent(new CustomEvent('oceanpress-theme-changed', {
+        detail: { theme: themeName, actualTheme: actualTheme }
+      }));
+    }
+
+    // 创建主题切换按钮
+    function createThemeToggle() {
+      const toggle = document.createElement('div');
+      toggle.id = 'oceanpress-theme-toggle';
+      toggle.innerHTML = '<span class="theme-icon">🌗</span><span class="theme-text">自动</span>';
+      toggle.addEventListener('click', toggleTheme);
+      (document.querySelector('[data-type="NodeDocument"]')||document.body).appendChild(toggle);
+    }
+
+    // 更新主题切换按钮
+    function updateThemeToggle(themeName) {
+      const toggle = document.getElementById('oceanpress-theme-toggle');
+      if (!toggle) return;
+
+      const theme = themes[themeName] || themes.auto;
+      toggle.innerHTML = '<span class="theme-icon">' + theme.icon + '</span><span class="theme-text">' +
+        (themeName === 'auto' ? '自动' : (themeName === 'dark' ? '深色' : '浅色')) + '</span>';
+    }
+
+    // 切换主题
+    function toggleTheme() {
+      const currentTheme = getCurrentTheme();
+      const themeOrder = ['auto', 'light', 'dark'];
+      const currentIndex = themeOrder.indexOf(currentTheme);
+      const nextIndex = (currentIndex + 1) % themeOrder.length;
+      const nextTheme = themeOrder[nextIndex];
+
+      applyTheme(nextTheme);
+    }
+
+    // 监听系统主题变化
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const currentTheme = getCurrentTheme();
+        if (currentTheme === 'auto') {
+          applyTheme('auto');
+        }
+      });
+    }
+
+    // 监听自定义主题变化事件（用于侧边栏等组件）
+    window.addEventListener('oceanpress-theme-changed', function(e) {
+      // 这里可以添加其他组件需要响应主题变化的逻辑
+      console.log('Theme changed to:', e.detail);
+    });
+
+    // 初始化主题
+    function initTheme() {
+      const themeName = getCurrentTheme();
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 立即设置基础主题，避免闪烁
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 创建主题切换按钮
+      createThemeToggle();
+
+      // 应用完整主题
+      applyTheme(themeName);
+    }
+
+    // 页面加载完成后初始化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+      initTheme();
+    }
+  })();
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>素问-生气通天论</title>
   <script type="application/ld+json">
 {
@@ -83,7 +264,7 @@
     "@type": "WebPage",
     "@id": "/读书笔记/黄帝内经/素问-生气通天论.html"
   },
-  "wordCount": 1130,
+  "wordCount": 1142,
   "articleSection": "技术文档",
   "inLanguage": "zh-CN"
 }
@@ -124,7 +305,8 @@
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div id="oceanpress-left-sidebar">
     
-    <iframe src="./../../__oceanpress/docTree.html"></iframe>
+    <div id="oceanpress-doctree"></div>
+           <script src="./../../__oceanpress/docTree.js" async></script>
   </div>
   <div style="min-height: 150px;" id="20210322195752-aedfvoo" data-node-id="20210322195752-aedfvoo" data-type="NodeDocument" updated="20210322195752" type="doc">
 
@@ -132,14 +314,14 @@
 <div id="20210322200637-0km8800" data-node-id="20210322200637-0km8800" data-type="NodeParagraph" class="p"><div spellcheck="false">黄帝曰：夫自古通天者，生之本，本于阴阳。</div></div><div id="20210322200637-35ylmmd" data-node-id="20210322200637-35ylmmd" data-type="NodeParagraph" class="p"><div spellcheck="false">天地之间，六合之内，其气九州、九窍、五脏十二节，皆通乎天气。</div></div><div id="20210322200637-pk5mwkz" data-node-id="20210322200637-pk5mwkz" data-type="NodeParagraph" class="p"><div spellcheck="false">其生五，其气三，数犯此者，则邪气伤人，此寿命之本也。</div></div><div id="20210322200637-coqd2jl" data-node-id="20210322200637-coqd2jl" data-type="NodeParagraph" class="p"><div spellcheck="false">苍天之气，清静则志意治，顺之则阳气固，虽有贼邪，弗能害也，此因时之序。</div></div><div id="20210322200637-dyjdxca" data-node-id="20210322200637-dyjdxca" data-type="NodeParagraph" class="p"><div spellcheck="false">故圣人抟精神，服天气而通神明。失之则内闭九窍，外壅肌肉，卫气散解，此谓自伤，气之削也。</div></div><div id="20210322200637-ptf3zb7" data-node-id="20210322200637-ptf3zb7" data-type="NodeParagraph" class="p"><div spellcheck="false">阳气者，若天与日，失其所，则折寿而不彰。故天运当以日光明。是故阳因而上，卫外者也。</div></div><div id="20210322200637-z1l5ruw" data-node-id="20210322200637-z1l5ruw" data-type="NodeParagraph" class="p"><div spellcheck="false">因于寒，欲如运枢，起居如惊，神气乃浮。</div></div><div id="20210322200637-fft8e98" data-node-id="20210322200637-fft8e98" data-type="NodeParagraph" class="p"><div spellcheck="false">因于暑，汗，烦则喘喝，静则多言，体若燔炭，汗出而散。</div></div><div id="20210322200637-19mwgzx" data-node-id="20210322200637-19mwgzx" data-type="NodeParagraph" class="p"><div spellcheck="false">因于湿，首如裹，湿热不攘，大筋緛短，小筋驰长。緛短为拘，驰长为痿。</div></div><div id="20210322200637-glx85s3" data-node-id="20210322200637-glx85s3" data-type="NodeParagraph" class="p"><div spellcheck="false">因于气，为肿，四维相代，阳气乃竭。</div></div><div id="20210322200637-7egal5y" data-node-id="20210322200637-7egal5y" data-type="NodeParagraph" class="p"><div spellcheck="false">阳气者，烦劳则张，精绝，辟积于夏，使人煎厥；目盲不可以视，耳闭不可以听，溃溃乎若坏都，汨汨乎不可止。</div></div><div id="20210322200637-bo8eyav" data-node-id="20210322200637-bo8eyav" data-type="NodeParagraph" class="p"><div spellcheck="false">阳气者，大怒则形气绝而血菀于上，使人薄厥。</div></div><div id="20210322200637-urpf9rv" data-node-id="20210322200637-urpf9rv" data-type="NodeParagraph" class="p"><div spellcheck="false">有伤于筋，纵，其若不容。</div></div><div id="20210322200637-u73d3zu" data-node-id="20210322200637-u73d3zu" data-type="NodeParagraph" class="p"><div spellcheck="false">汗出偏沮，使人偏枯。</div></div><div id="20210322200637-t1ajit3" data-node-id="20210322200637-t1ajit3" data-type="NodeParagraph" class="p"><div spellcheck="false">汗出见湿，乃生痤疿。</div></div><div id="20210322200637-96nxplg" data-node-id="20210322200637-96nxplg" data-type="NodeParagraph" class="p"><div spellcheck="false">高梁之变，足生大丁，受如持虚。</div></div><div id="20210322200637-x3kgidd" data-node-id="20210322200637-x3kgidd" data-type="NodeParagraph" class="p"><div spellcheck="false">劳汗当风，寒薄为皶，郁乃痤。</div></div><div id="20210322200637-x8mb1dz" data-node-id="20210322200637-x8mb1dz" data-type="NodeParagraph" class="p"><div spellcheck="false">阳气者，精则养神，柔则养筋。</div></div><div id="20210322200637-et152xt" data-node-id="20210322200637-et152xt" data-type="NodeParagraph" class="p"><div spellcheck="false">开阖不得，寒气从之，乃生大偻。</div></div><div id="20210322200637-xb7782z" data-node-id="20210322200637-xb7782z" data-type="NodeParagraph" class="p"><div spellcheck="false">陷脉为瘘，留连肉腠，俞气化薄，传为善畏，及为惊骇。</div></div><div id="20210322200637-qqwsmyo" data-node-id="20210322200637-qqwsmyo" data-type="NodeParagraph" class="p"><div spellcheck="false">营气不从，逆于肉理，乃生痈肿。</div></div><div id="20210322200637-0g6ldqj" data-node-id="20210322200637-0g6ldqj" data-type="NodeParagraph" class="p"><div spellcheck="false">魄汗未尽，形弱而气烁，穴俞以闭，发为风疟。</div></div><div id="20210322200637-qwl4byh" data-node-id="20210322200637-qwl4byh" data-type="NodeParagraph" class="p"><div spellcheck="false">故风者，百病之始也，清静则肉腠闭拒，虽有大风苛毒，弗之能害，此因时之序也。</div></div><div id="20210322200637-z24hzgr" data-node-id="20210322200637-z24hzgr" data-type="NodeParagraph" class="p"><div spellcheck="false">故病久则传化，上下不并，良医弗为。</div></div><div id="20210322200637-pt9z1uf" data-node-id="20210322200637-pt9z1uf" data-type="NodeParagraph" class="p"><div spellcheck="false">故阳畜积病死，而阳气当隔。隔者当泻，不亟正治，粗乃败之。</div></div><div id="20210322200637-zcadul5" data-node-id="20210322200637-zcadul5" data-type="NodeParagraph" class="p"><div spellcheck="false">故阳气者，一日而主外。平旦人气生，日中而阳气隆，日西而阳气已虚，气门乃闭。</div></div><div id="20210322200637-ce5tai7" data-node-id="20210322200637-ce5tai7" data-type="NodeParagraph" class="p"><div spellcheck="false">是故暮而收拒，无扰筋骨，无见雾露，反此三时，形乃困薄。</div></div><div id="20210322200637-zybh68f" data-node-id="20210322200637-zybh68f" data-type="NodeParagraph" class="p"><div spellcheck="false">岐伯曰：阴者，藏精而起亟也，阳者，卫外而为固也。</div></div><div id="20210322200637-y4uq6hq" data-node-id="20210322200637-y4uq6hq" data-type="NodeParagraph" class="p"><div spellcheck="false">阴不胜其阳，则脉流薄疾，并乃狂。阳不胜其阴，则五脏气争，九窍不通。</div></div><div id="20210322200637-61h210j" data-node-id="20210322200637-61h210j" data-type="NodeParagraph" class="p"><div spellcheck="false">是以圣人陈阴阳，筋脉和同，骨髓坚固，气血皆从。如是则内外调和，邪不能害，耳目聪明，气立如故。</div></div><div id="20210322200637-4urzaci" data-node-id="20210322200637-4urzaci" data-type="NodeParagraph" class="p"><div spellcheck="false">风客淫气，精乃亡，邪伤肝也。</div></div><div id="20210322200637-qfrrw8l" data-node-id="20210322200637-qfrrw8l" data-type="NodeParagraph" class="p"><div spellcheck="false">因而饱食，筋脉横解，肠澼为痔。</div></div><div id="20210322200637-nqr4sgb" data-node-id="20210322200637-nqr4sgb" data-type="NodeParagraph" class="p"><div spellcheck="false">因而大饮，则气逆。</div></div><div id="20210322200637-mbgunuc" data-node-id="20210322200637-mbgunuc" data-type="NodeParagraph" class="p"><div spellcheck="false">因而强力，肾气乃伤，高骨乃坏。</div></div><div id="20210322200637-mv3o5ha" data-node-id="20210322200637-mv3o5ha" data-type="NodeParagraph" class="p"><div spellcheck="false">凡阴阳之要，阳密乃固，两者不和，若春无秋，若冬无夏。因而和之，是谓圣度。</div></div><div id="20210322200637-dcim5yb" data-node-id="20210322200637-dcim5yb" data-type="NodeParagraph" class="p"><div spellcheck="false">故阳强不能密，阴气乃绝。</div></div><div id="20210322200637-cs1ws8f" data-node-id="20210322200637-cs1ws8f" data-type="NodeParagraph" class="p"><div spellcheck="false">阴平阳秘，精神乃治；阴阳离决，精气乃绝。</div></div><div id="20210322200637-ddmp65h" data-node-id="20210322200637-ddmp65h" data-type="NodeParagraph" class="p"><div spellcheck="false">因于露风，乃生寒热。</div></div><div id="20210322200637-qegmopf" data-node-id="20210322200637-qegmopf" data-type="NodeParagraph" class="p"><div spellcheck="false">是以春伤于风，邪气留连，乃为洞泄。</div></div><div id="20210322200637-lo44lhb" data-node-id="20210322200637-lo44lhb" data-type="NodeParagraph" class="p"><div spellcheck="false">夏伤于暑，秋为痎疟。</div></div><div id="20210322200637-58xsvri" data-node-id="20210322200637-58xsvri" data-type="NodeParagraph" class="p"><div spellcheck="false">秋伤于湿，上逆而咳，发为痿厥。</div></div><div id="20210322200637-phriiql" data-node-id="20210322200637-phriiql" data-type="NodeParagraph" class="p"><div spellcheck="false">冬伤于寒，春必温病。</div></div><div id="20210322200637-jokybvn" data-node-id="20210322200637-jokybvn" data-type="NodeParagraph" class="p"><div spellcheck="false">四时之气，更伤五脏。</div></div><div id="20210322200637-j79fnz7" data-node-id="20210322200637-j79fnz7" data-type="NodeParagraph" class="p"><div spellcheck="false">阴之所生，本在五味；阴之五宫，伤在五味。</div></div><div id="20210322200637-vamp86q" data-node-id="20210322200637-vamp86q" data-type="NodeParagraph" class="p"><div spellcheck="false">是故味过于酸，肝气以津，脾气乃绝。</div></div><div id="20210322200637-jj2013f" data-node-id="20210322200637-jj2013f" data-type="NodeParagraph" class="p"><div spellcheck="false">味过于咸，大骨气劳，短肌，心气抑。</div></div><div id="20210322200637-wxowcck" data-node-id="20210322200637-wxowcck" data-type="NodeParagraph" class="p"><div spellcheck="false">味过于甘，心气喘满，色黑，肾气不衡。</div></div><div id="20210322200637-jy4qmaf" data-node-id="20210322200637-jy4qmaf" data-type="NodeParagraph" class="p"><div spellcheck="false">味过于苦，脾气不濡，胃气乃厚。</div></div><div id="20210322200637-2skhqzb" data-node-id="20210322200637-2skhqzb" data-type="NodeParagraph" class="p"><div spellcheck="false">味过于辛，筋脉沮弛，精神乃央。</div></div><div id="20210322200637-f51bd9c" data-node-id="20210322200637-f51bd9c" data-type="NodeParagraph" class="p"><div spellcheck="false">是故谨和五味，骨正筋柔，气血以流，腠理以密，如是则骨气以精。谨道如法，长有天命。</div></div><div id="20210322200637-y6hpmko" data-node-id="20210322200637-y6hpmko" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div></div>
   <div id="oceanpress-right-sidebar"></div>
 </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
         appearance: {
-          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          mode: document.documentElement.getAttribute('data-theme-mode') === 'dark' ? 1 : 0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -153,7 +335,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);
@@ -177,12 +359,12 @@
     });
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
-crossorigin="anonymous"></script><footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
-  <p style="margin: 0;">
+crossorigin="anonymous"></script><footer class="theme-aware-footer">
+  <p>
     技术支持：
-    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
-    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
-    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
   </p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>

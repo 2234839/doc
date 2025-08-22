@@ -3,17 +3,33 @@
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
 <style>
+  :root {
+    --oceanpress-header-bg: #f8f9fa;
+    --oceanpress-header-border: #e9ecef;
+    --oceanpress-header-text: #007bff;
+    --oceanpress-footer-bg: #f8f9fa;
+    --oceanpress-footer-text: #007bff;
+  }
+  
+  [data-theme-mode="dark"] {
+    --oceanpress-header-bg: #2d2d2d;
+    --oceanpress-header-border: #404040;
+    --oceanpress-header-text: #58a6ff;
+    --oceanpress-footer-bg: #2d2d2d;
+    --oceanpress-footer-text: #58a6ff;
+  }
+  
   .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #e9ecef;
+    background-color: var(--oceanpress-header-bg);
+    border-bottom: 1px solid var(--oceanpress-header-border);
   }
   .home-button {
     text-decoration: none;
-    color: #007bff;
+    color: var(--oceanpress-header-text);
     font-weight: bold;
     font-size: 16px;
   }
@@ -23,6 +39,23 @@
   #search {
     width: 300px;
   }
+  
+  .theme-aware-footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--oceanpress-footer-bg);
+    text-align: center;
+  }
+  .theme-aware-footer p {
+    margin: 0;
+  }
+  .theme-aware-footer a {
+    color: var(--oceanpress-footer-text);
+    text-decoration: none;
+  }
+  .theme-aware-footer a:hover {
+    text-decoration: underline;
+  }
 </style>
 
   <meta charset="utf-8" />
@@ -31,41 +64,189 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="description" content="崮生_子虚 致良知 心口一致 知行合一 code 相关 我的 github 主页 我的开源项目 git repo star 列表＆备注 文集 观蒲 无梦 无名（1） 雇佣崮生 子虚目前处于无业状态，在寻求一份远程工作。（ 求职简历 ） 1. 中长期工作协议 每日为您工作固定时长 2." />
+    <meta name="description" content="崮生_子虚 致良知 心口一致 知行合一 code 相关 我的 github 主页 我的开源项目 git repo star 列表＆备注 文集 观蒲 无梦 无名（1） 一些证书 ​ ​ 雇佣崮生 子虚目前处于无业状态，在寻求一份远程工作。（ 求职简历 ） 1. 中长期工作协议 每日为您工作固定时长 2." />
   <meta name="keywords" content="崮生, 子虚, 爱发, 联系, 爱发电, 工作, 时长, 小时" />
   <meta name="author" content="崮生" />
   <meta property="og:title" content="崮生_子虚" />
-  <meta property="og:description" content="崮生_子虚 致良知 心口一致 知行合一 code 相关 我的 github 主页 我的开源项目 git repo star 列表＆备注 文集 观蒲 无梦 无名（1） 雇佣崮生 子虚目前处于无业状态，在寻求一份远程工作。（ 求职简历 ） 1. 中长期工作协议 每日为您工作固定时长 2." />
+  <meta property="og:description" content="崮生_子虚 致良知 心口一致 知行合一 code 相关 我的 github 主页 我的开源项目 git repo star 列表＆备注 文集 观蒲 无梦 无名（1） 一些证书 ​ ​ 雇佣崮生 子虚目前处于无业状态，在寻求一份远程工作。（ 求职简历 ） 1. 中长期工作协议 每日为您工作固定时长 2." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="/关于/崮生_子虚.html" />
   <meta property="og:site_name" content="OceanPress" />
   <meta property="article:published_time" content="2020-11-04T15:33:59Z" />
-  <meta property="article:modified_time" content="2024-07-18T07:40:54Z" />
+  <meta property="article:modified_time" content="2025-08-21T08:56:47Z" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="崮生_子虚" />
-  <meta name="twitter:description" content="崮生_子虚 致良知 心口一致 知行合一 code 相关 我的 github 主页 我的开源项目 git repo star 列表＆备注 文集 观蒲 无梦 无名（1） 雇佣崮生 子虚目前处于无业状态，在寻求一份远程工作。（ 求职简历 ） 1. 中长期工作协议 每日为您工作固定时长 2." />
+  <meta name="twitter:description" content="崮生_子虚 致良知 心口一致 知行合一 code 相关 我的 github 主页 我的开源项目 git repo star 列表＆备注 文集 观蒲 无梦 无名（1） 一些证书 ​ ​ 雇佣崮生 子虚目前处于无业状态，在寻求一份远程工作。（ 求职简历 ） 1. 中长期工作协议 每日为您工作固定时长 2." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="/关于/崮生_子虚.html" />
 
-  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
   <script>
-  function isNightTime() {
-    const currentHour = new Date().getHours();
-    return currentHour >= 18 || currentHour < 6;
-  }
-  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  // 更好的主题切换方案
+  (function() {
+    // 主题配置
+    const themes = {
+      light: {
+        name: 'daylight',
+        mode: 'light',
+        icon: '☀️'
+      },
+      dark: {
+        name: 'midnight',
+        mode: 'dark',
+        icon: '🌙'
+      },
+      auto: {
+        name: 'auto',
+        mode: 'auto',
+        icon: '🌗',
+        getTheme: function() {
+          const currentHour = new Date().getHours();
+          return currentHour >= 18 || currentHour < 6 ? 'dark' : 'light';
+        }
+      }
+    };
+
+    // 获取当前主题设置
+    function getCurrentTheme() {
+      // 优先级：localStorage > 系统偏好 > auto
+      const savedTheme = localStorage.getItem('oceanpress-theme');
+      if (savedTheme && themes[savedTheme]) {
+        return savedTheme;
+      }
+
+      // 检测系统偏好
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
+      }
+
+      return 'auto';
+    }
+
+    // 应用主题
+    function applyTheme(themeName) {
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 设置 CSS 变量
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 加载对应的 CSS
+      const themeStyle = document.getElementById('themeDefaultStyle');
+      if (themeStyle) {
+        themeStyle.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+      } else {
+        // 如果元素不存在，创建它
+        const link = document.createElement('link');
+        link.id = 'themeDefaultStyle';
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+        document.head.appendChild(link);
+      }
+
+      // 更新主题切换按钮
+      updateThemeToggle(themeName);
+
+      // 保存到 localStorage
+      localStorage.setItem('oceanpress-theme', themeName);
+
+      // 触发自定义事件
+      window.dispatchEvent(new CustomEvent('oceanpress-theme-changed', {
+        detail: { theme: themeName, actualTheme: actualTheme }
+      }));
+    }
+
+    // 创建主题切换按钮
+    function createThemeToggle() {
+      const toggle = document.createElement('div');
+      toggle.id = 'oceanpress-theme-toggle';
+      toggle.innerHTML = '<span class="theme-icon">🌗</span><span class="theme-text">自动</span>';
+      toggle.addEventListener('click', toggleTheme);
+      (document.querySelector('[data-type="NodeDocument"]')||document.body).appendChild(toggle);
+    }
+
+    // 更新主题切换按钮
+    function updateThemeToggle(themeName) {
+      const toggle = document.getElementById('oceanpress-theme-toggle');
+      if (!toggle) return;
+
+      const theme = themes[themeName] || themes.auto;
+      toggle.innerHTML = '<span class="theme-icon">' + theme.icon + '</span><span class="theme-text">' +
+        (themeName === 'auto' ? '自动' : (themeName === 'dark' ? '深色' : '浅色')) + '</span>';
+    }
+
+    // 切换主题
+    function toggleTheme() {
+      const currentTheme = getCurrentTheme();
+      const themeOrder = ['auto', 'light', 'dark'];
+      const currentIndex = themeOrder.indexOf(currentTheme);
+      const nextIndex = (currentIndex + 1) % themeOrder.length;
+      const nextTheme = themeOrder[nextIndex];
+
+      applyTheme(nextTheme);
+    }
+
+    // 监听系统主题变化
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const currentTheme = getCurrentTheme();
+        if (currentTheme === 'auto') {
+          applyTheme('auto');
+        }
+      });
+    }
+
+    // 监听自定义主题变化事件（用于侧边栏等组件）
+    window.addEventListener('oceanpress-theme-changed', function(e) {
+      // 这里可以添加其他组件需要响应主题变化的逻辑
+      console.log('Theme changed to:', e.detail);
+    });
+
+    // 初始化主题
+    function initTheme() {
+      const themeName = getCurrentTheme();
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 立即设置基础主题，避免闪烁
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 创建主题切换按钮
+      createThemeToggle();
+
+      // 应用完整主题
+      applyTheme(themeName);
+    }
+
+    // 页面加载完成后初始化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+      initTheme();
+    }
+  })();
   </script>
-  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/oceanpress.css"/>
   <title>崮生_子虚</title>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "崮生_子虚",
-  "description": "崮生_子虚 致良知 心口一致 知行合一 code 相关 我的 github 主页 我的开源项目 git repo star 列表＆备注 文集 观蒲 无梦 无名（1） 雇佣崮生 子虚目前处于无业状态，在寻求一份远程工作。（ 求职简历 ） 1. 中长期工作协议 每日为您工作固定时长 2.",
+  "description": "崮生_子虚 致良知 心口一致 知行合一 code 相关 我的 github 主页 我的开源项目 git repo star 列表＆备注 文集 观蒲 无梦 无名（1） 一些证书 ​ ​ 雇佣崮生 子虚目前处于无业状态，在寻求一份远程工作。（ 求职简历 ） 1. 中长期工作协议 每日为您工作固定时长 2.",
   "keywords": "崮生, 子虚, 爱发, 联系, 爱发电, 工作, 时长, 小时",
   "datePublished": "2020-11-04T15:33:59Z",
-  "dateModified": "2024-07-18T07:40:54Z",
+  "dateModified": "2025-08-21T08:56:47Z",
   "author": {
     "@type": "Person",
     "name": "崮生",
@@ -83,7 +264,7 @@
     "@type": "WebPage",
     "@id": "/关于/崮生_子虚.html"
   },
-  "wordCount": 1063,
+  "wordCount": 1087,
   "articleSection": "技术文档",
   "inLanguage": "zh-CN"
 }
@@ -118,11 +299,12 @@
   <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
   <div id="oceanpress-left-sidebar">
     
-    <iframe src="./../__oceanpress/docTree.html"></iframe>
+    <div id="oceanpress-doctree"></div>
+           <script src="./../__oceanpress/docTree.js" async></script>
   </div>
-  <div style="min-height: 150px;" id="20201104153359-jpxsqye" data-node-id="20201104153359-jpxsqye" data-type="NodeDocument" updated="20240718074054" alias="llej" scroll="&#123;&quot;rootId&quot;:&quot;20201104153359-jpxsqye&quot;,&quot;startId&quot;:&quot;20201228124011-7u6mxer&quot;,&quot;endId&quot;:&quot;20210201210213-emskbr7&quot;,&quot;scrollTop&quot;:398,&quot;focusId&quot;:&quot;20210611164100-sw7lg32&quot;,&quot;focusStart&quot;:16,&quot;focusEnd&quot;:16&#125;" type="doc">
+  <div style="min-height: 150px;" id="20201104153359-jpxsqye" data-node-id="20201104153359-jpxsqye" data-type="NodeDocument" updated="20250821085647" alias="llej" scroll="&#123;&quot;rootId&quot;:&quot;20201104153359-jpxsqye&quot;,&quot;startId&quot;:&quot;20201228124011-7u6mxer&quot;,&quot;endId&quot;:&quot;20210201210213-emskbr7&quot;,&quot;scrollTop&quot;:398,&quot;focusId&quot;:&quot;20210611164100-sw7lg32&quot;,&quot;focusStart&quot;:16,&quot;focusEnd&quot;:16&#125;" type="doc">
 
-<h1 id="20201104153359-jpxsqye" data-node-id="20201104153359-jpxsqye" data-type="NodeDocument" updated="20240718074054" alias="llej" scroll="&#123;&quot;rootId&quot;:&quot;20201104153359-jpxsqye&quot;,&quot;startId&quot;:&quot;20201228124011-7u6mxer&quot;,&quot;endId&quot;:&quot;20210201210213-emskbr7&quot;,&quot;scrollTop&quot;:398,&quot;focusId&quot;:&quot;20210611164100-sw7lg32&quot;,&quot;focusStart&quot;:16,&quot;focusEnd&quot;:16&#125;" type="doc" data-type="NodeHeading" class="h1">崮生_子虚</h1>
+<h1 id="20201104153359-jpxsqye" data-node-id="20201104153359-jpxsqye" data-type="NodeDocument" updated="20250821085647" alias="llej" scroll="&#123;&quot;rootId&quot;:&quot;20201104153359-jpxsqye&quot;,&quot;startId&quot;:&quot;20201228124011-7u6mxer&quot;,&quot;endId&quot;:&quot;20210201210213-emskbr7&quot;,&quot;scrollTop&quot;:398,&quot;focusId&quot;:&quot;20210611164100-sw7lg32&quot;,&quot;focusStart&quot;:16,&quot;focusEnd&quot;:16&#125;" type="doc" data-type="NodeHeading" class="h1">崮生_子虚</h1>
 <div id="20201228124011-7u6mxer" data-node-id="20201228124011-7u6mxer" data-type="NodeBlockquote" updated="20231215182538" class="bq"><div id="20201228124011-jqlx9b1" data-node-id="20201228124011-jqlx9b1" data-type="NodeParagraph" updated="20231215182538" class="p"><div spellcheck="false">致良知 心口一致 知行合一</div></div></div><div id="20210607120755-hz19h7z" data-node-id="20210607120755-hz19h7z" data-type="NodeSuperBlock" updated="20210607120731" class="sb" data-sb-layout="col"><div id="20210607120743-yyty2zt" data-node-id="20210607120743-yyty2zt" data-type="NodeSuperBlock" updated="20210607120731" class="sb" data-sb-layout="row"><h3 id="20210607115036-uqim7ig" data-node-id="20210607115036-uqim7ig" data-type="NodeHeading" updated="20210607120731" data-subtype="h3" class="h3">code 相关</h3><div id="20210607115044-ubsj6fm" data-node-id="20210607115044-ubsj6fm" data-type="NodeList" updated="20210620093045" data-subtype="u" class="list"><div id="20210607120813-mztt1vd" data-node-id="20210607120813-mztt1vd" data-type="NodeListItem" updated="20210607120900" data-subtype="u" class="li" data-marker="*">
         <div class="protyle-action">
           <svg><use xlink:href="#iconDot"></use></svg>
@@ -153,7 +335,15 @@
           <svg><use xlink:href="#iconDot"></use></svg>
         </div>
         <div id="20210607120632-j1gjs3a" data-node-id="20210607120632-j1gjs3a" data-type="NodeParagraph" updated="20210607120632" class="p"><div spellcheck="false"><span data-type="block-ref"   data-subtype="d"   data-id="20201105171416-s549npq"><a href="./../文集/诗/无名（1）.html#20201105171416-s549npq">无名（1）</a></span></div></div>
-      </div></div></div></div><div id="20240718074054-k0j789d" data-node-id="20240718074054-k0j789d" data-type="NodeParagraph" class="p"><div spellcheck="false"></div></div><h2 id="20231008143826-83nfp6a" data-node-id="20231008143826-83nfp6a" data-type="NodeHeading" updated="20231008143832" data-subtype="h2" class="h2"><span data-type="block-ref"   data-subtype="d"   data-id="20231008140539-0ypp5e0"><a href="./../关于/崮生_子虚/雇佣崮生.html#20231008140539-0ypp5e0">雇佣崮生</a></span></h2><div id="20231008143358-eifl1oh" data-node-id="20231008143358-eifl1oh" data-type="NodeBlockQueryEmbed" updated="20240111172440" breadcrumb="true" custom-heading-mode="0" data-type="NodeBlockquote" class="bq">  <div style="min-height: 150px;" id="20231008140539-0ypp5e0" data-node-id="20231008140539-0ypp5e0" data-type="NodeDocument" updated="20241227142204" scroll="&#123;&quot;rootId&quot;:&quot;20231008140539-0ypp5e0&quot;,&quot;startId&quot;:&quot;20231008140601-dm40bpt&quot;,&quot;endId&quot;:&quot;20231008141031-9c0s9s6&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20231008220852-nbxuy7j&quot;,&quot;focusStart&quot;:7,&quot;focusEnd&quot;:7&#125;" type="doc">
+      </div></div></div></div><div id="20240718074054-k0j789d" data-node-id="20240718074054-k0j789d" data-type="NodeParagraph" updated="20240718074054" class="p"><div spellcheck="false"></div></div><h2 id="20250821085623-e2awii3" data-node-id="20250821085623-e2awii3" data-type="NodeHeading" updated="20250821085647" data-subtype="h2" class="h2">一些证书</h2><div id="20250821085633-lupxk91" data-node-id="20250821085633-lupxk91" data-type="NodeParagraph" updated="20250821085647" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="width: 595px;" style="">
+  <img
+    src="./../assets/151677-28FceTUjhFuyxSsAVter-A-20250821085634-3zwdbsa.png"
+    data-src="./../assets/151677-28FceTUjhFuyxSsAVter-A-20250821085634-3zwdbsa.png"
+    title=""
+    style="width: 595px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20250821085623-ucmb2xm" data-node-id="20250821085623-ucmb2xm" data-type="NodeParagraph" updated="20250821085623" class="p"><div spellcheck="false"></div></div><h2 id="20231008143826-83nfp6a" data-node-id="20231008143826-83nfp6a" data-type="NodeHeading" updated="20231008143832" data-subtype="h2" class="h2"><span data-type="block-ref"   data-subtype="d"   data-id="20231008140539-0ypp5e0"><a href="./../关于/崮生_子虚/雇佣崮生.html#20231008140539-0ypp5e0">雇佣崮生</a></span></h2><div id="20231008143358-eifl1oh" data-node-id="20231008143358-eifl1oh" data-type="NodeBlockQueryEmbed" updated="20240111172440" breadcrumb="true" custom-heading-mode="0" data-type="NodeBlockquote" class="bq">  <div style="min-height: 150px;" id="20231008140539-0ypp5e0" data-node-id="20231008140539-0ypp5e0" data-type="NodeDocument" updated="20241227142204" scroll="&#123;&quot;rootId&quot;:&quot;20231008140539-0ypp5e0&quot;,&quot;startId&quot;:&quot;20231008140601-dm40bpt&quot;,&quot;endId&quot;:&quot;20231008141031-9c0s9s6&quot;,&quot;scrollTop&quot;:0,&quot;focusId&quot;:&quot;20231008220852-nbxuy7j&quot;,&quot;focusStart&quot;:7,&quot;focusEnd&quot;:7&#125;" type="doc">
 
 
 <div id="20231008140601-dm40bpt" data-node-id="20231008140601-dm40bpt" data-type="NodeParagraph" updated="20231222143129" class="p"><div spellcheck="false">子虚目前处于无业状态，在寻求一份远程工作。（<span data-type="block-ref"   data-subtype="d"   data-id="20231127182409-5xk96xo"><a href="./../关于/崮生_子虚/求职简历.html#20231127182409-5xk96xo">求职简历</a></span>）</div></div><div id="20231008141102-oj81jce" data-node-id="20231008141102-oj81jce" data-type="NodeList" updated="20241227142204" data-subtype="o" class="list"><div id="20231008141106-t6xyf69" data-node-id="20231008141106-t6xyf69" data-type="NodeListItem" updated="20231215171313" data-subtype="o" class="li" data-marker="1.">
@@ -200,14 +390,14 @@
         </div><div id="20241227171455-c7olahv" data-node-id="20241227171455-c7olahv" data-type="NodeThematicBreak" updated="20241227171455" class="hr"><div></div></div><h2 id="20210106101438-w5idnkw" data-node-id="20210106101438-w5idnkw" data-type="NodeHeading" updated="20241227171510" data-subtype="h2" class="h2">总之非常感谢。✨</h2><div id="20230922211454-67q69hl" data-node-id="20230922211454-67q69hl" data-type="NodeParagraph" updated="20241227171510" class="p"><div spellcheck="false">人生就是这样</div></div><div id="20230922211511-k93rnou" data-node-id="20230922211511-k93rnou" data-type="NodeParagraph" updated="20241227171510" class="p"><div spellcheck="false">不快</div></div><div id="20230922211514-5cyo35l" data-node-id="20230922211514-5cyo35l" data-type="NodeParagraph" updated="20241227171510" class="p"><div spellcheck="false">也不慢</div></div><div id="20230922211516-dtaceji" data-node-id="20230922211516-dtaceji" data-type="NodeParagraph" updated="20241227171510" class="p"><div spellcheck="false">想要突破</div></div><div id="20230922211526-je81xlb" data-node-id="20230922211526-je81xlb" data-type="NodeParagraph" updated="20241227171510" class="p"><div spellcheck="false">又不敢</div></div><div id="20230922211537-hij4dve" data-node-id="20230922211537-hij4dve" data-type="NodeParagraph" updated="20241227171510" class="p"><div spellcheck="false">不做</div></div><div id="20230922211548-dje2g44" data-node-id="20230922211548-dje2g44" data-type="NodeParagraph" updated="20241227171510" class="p"><div spellcheck="false">就不会失败</div></div><div id="20230922211554-dfs3t40" data-node-id="20230922211554-dfs3t40" data-type="NodeParagraph" updated="20241227171510" class="p"><div spellcheck="false">但也不会成功</div></div><div id="20210201210213-emskbr7" data-node-id="20210201210213-emskbr7" data-type="NodeParagraph" updated="20240111175937" class="p"><div spellcheck="false"></div></div></div>  </div></div>
   <div id="oceanpress-right-sidebar"></div>
 </div>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
-  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
   <script>
     window.siyuan = {
       config: {
         appearance: {
-          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          mode: document.documentElement.getAttribute('data-theme-mode') === 'dark' ? 1 : 0,//主题 明亮=0 暗黑=1
           codeBlockThemeDark: "base16/dracula",
           codeBlockThemeLight: "github",
         },
@@ -221,7 +411,7 @@
       },
       languages: { copy: "复制" },
     };
-    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.6/apps/frontend/public/notebook/stage/protyle";
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle";
     const previewElement = document.getElementById("preview");
 
     Protyle.highlightRender(previewElement, cdn);
@@ -245,12 +435,12 @@
     });
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
-crossorigin="anonymous"></script><footer style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; text-align: center;">
-  <p style="margin: 0;">
+crossorigin="anonymous"></script><footer class="theme-aware-footer">
+  <p>
     技术支持：
-    <a target="_blank" href="https://github.com/2234839/oceanPress_js" style="color: #007bff; text-decoration: none;">OceanPress</a> |
-    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts" style="color: #007bff; text-decoration: none;">崮生（子虚）</a> |
-    <a target="_blank" href="//beian.miit.gov.cn" style="color: #007bff; text-decoration: none;">湘ICP备18021783号-1</a>
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
   </p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>

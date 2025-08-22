@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  :root {
+    --oceanpress-header-bg: #f8f9fa;
+    --oceanpress-header-border: #e9ecef;
+    --oceanpress-header-text: #007bff;
+    --oceanpress-footer-bg: #f8f9fa;
+    --oceanpress-footer-text: #007bff;
+  }
+  
+  [data-theme-mode="dark"] {
+    --oceanpress-header-bg: #2d2d2d;
+    --oceanpress-header-border: #404040;
+    --oceanpress-header-text: #58a6ff;
+    --oceanpress-footer-bg: #2d2d2d;
+    --oceanpress-footer-text: #58a6ff;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--oceanpress-header-bg);
+    border-bottom: 1px solid var(--oceanpress-header-border);
+  }
+  .home-button {
+    text-decoration: none;
+    color: var(--oceanpress-header-text);
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+  
+  .theme-aware-footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--oceanpress-footer-bg);
+    text-align: center;
+  }
+  .theme-aware-footer p {
+    margin: 0;
+  }
+  .theme-aware-footer a {
+    color: var(--oceanpress-footer-text);
+    text-decoration: none;
+  }
+  .theme-aware-footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="description" content="为claude code+glm 添加上眼睛 使用claude code + glm 的一大缺陷就是他无法读取图片文件 但是 glm4.5v 视觉模型有不错的效果 我在实践中创建了一个 mcp server 让他能够调用 glm4." />
+  <meta name="keywords" content="claude, 读取, 图片, glm, mcp, 工具, 读取图片, 使用" />
+  <meta name="author" content="崮生" />
+  <meta property="og:title" content="为claude code+glm 添加上眼睛" />
+  <meta property="og:description" content="为claude code+glm 添加上眼睛 使用claude code + glm 的一大缺陷就是他无法读取图片文件 但是 glm4.5v 视觉模型有不错的效果 我在实践中创建了一个 mcp server 让他能够调用 glm4." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="/index/为claude code+glm 添加上眼睛.html" />
+  <meta property="og:site_name" content="OceanPress" />
+  <meta property="article:published_time" content="2025-08-14T15:58:05Z" />
+  <meta property="article:modified_time" content="2025-08-14T16:53:51Z" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="为claude code+glm 添加上眼睛" />
+  <meta name="twitter:description" content="为claude code+glm 添加上眼睛 使用claude code + glm 的一大缺陷就是他无法读取图片文件 但是 glm4.5v 视觉模型有不错的效果 我在实践中创建了一个 mcp server 让他能够调用 glm4." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="/index/为claude code+glm 添加上眼睛.html" />
+
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  // 更好的主题切换方案
+  (function() {
+    // 主题配置
+    const themes = {
+      light: {
+        name: 'daylight',
+        mode: 'light',
+        icon: '☀️'
+      },
+      dark: {
+        name: 'midnight',
+        mode: 'dark',
+        icon: '🌙'
+      },
+      auto: {
+        name: 'auto',
+        mode: 'auto',
+        icon: '🌗',
+        getTheme: function() {
+          const currentHour = new Date().getHours();
+          return currentHour >= 18 || currentHour < 6 ? 'dark' : 'light';
+        }
+      }
+    };
+
+    // 获取当前主题设置
+    function getCurrentTheme() {
+      // 优先级：localStorage > 系统偏好 > auto
+      const savedTheme = localStorage.getItem('oceanpress-theme');
+      if (savedTheme && themes[savedTheme]) {
+        return savedTheme;
+      }
+
+      // 检测系统偏好
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
+      }
+
+      return 'auto';
+    }
+
+    // 应用主题
+    function applyTheme(themeName) {
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 设置 CSS 变量
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 加载对应的 CSS
+      const themeStyle = document.getElementById('themeDefaultStyle');
+      if (themeStyle) {
+        themeStyle.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+      } else {
+        // 如果元素不存在，创建它
+        const link = document.createElement('link');
+        link.id = 'themeDefaultStyle';
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+        document.head.appendChild(link);
+      }
+
+      // 更新主题切换按钮
+      updateThemeToggle(themeName);
+
+      // 保存到 localStorage
+      localStorage.setItem('oceanpress-theme', themeName);
+
+      // 触发自定义事件
+      window.dispatchEvent(new CustomEvent('oceanpress-theme-changed', {
+        detail: { theme: themeName, actualTheme: actualTheme }
+      }));
+    }
+
+    // 创建主题切换按钮
+    function createThemeToggle() {
+      const toggle = document.createElement('div');
+      toggle.id = 'oceanpress-theme-toggle';
+      toggle.innerHTML = '<span class="theme-icon">🌗</span><span class="theme-text">自动</span>';
+      toggle.addEventListener('click', toggleTheme);
+      (document.querySelector('[data-type="NodeDocument"]')||document.body).appendChild(toggle);
+    }
+
+    // 更新主题切换按钮
+    function updateThemeToggle(themeName) {
+      const toggle = document.getElementById('oceanpress-theme-toggle');
+      if (!toggle) return;
+
+      const theme = themes[themeName] || themes.auto;
+      toggle.innerHTML = '<span class="theme-icon">' + theme.icon + '</span><span class="theme-text">' +
+        (themeName === 'auto' ? '自动' : (themeName === 'dark' ? '深色' : '浅色')) + '</span>';
+    }
+
+    // 切换主题
+    function toggleTheme() {
+      const currentTheme = getCurrentTheme();
+      const themeOrder = ['auto', 'light', 'dark'];
+      const currentIndex = themeOrder.indexOf(currentTheme);
+      const nextIndex = (currentIndex + 1) % themeOrder.length;
+      const nextTheme = themeOrder[nextIndex];
+
+      applyTheme(nextTheme);
+    }
+
+    // 监听系统主题变化
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const currentTheme = getCurrentTheme();
+        if (currentTheme === 'auto') {
+          applyTheme('auto');
+        }
+      });
+    }
+
+    // 监听自定义主题变化事件（用于侧边栏等组件）
+    window.addEventListener('oceanpress-theme-changed', function(e) {
+      // 这里可以添加其他组件需要响应主题变化的逻辑
+      console.log('Theme changed to:', e.detail);
+    });
+
+    // 初始化主题
+    function initTheme() {
+      const themeName = getCurrentTheme();
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 立即设置基础主题，避免闪烁
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 创建主题切换按钮
+      createThemeToggle();
+
+      // 应用完整主题
+      applyTheme(themeName);
+    }
+
+    // 页面加载完成后初始化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+      initTheme();
+    }
+  })();
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>为claude code+glm 添加上眼睛</title>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "为claude code+glm 添加上眼睛",
+  "description": "为claude code+glm 添加上眼睛 使用claude code + glm 的一大缺陷就是他无法读取图片文件 但是 glm4.5v 视觉模型有不错的效果 我在实践中创建了一个 mcp server 让他能够调用 glm4.",
+  "keywords": "claude, 读取, 图片, glm, mcp, 工具, 读取图片, 使用",
+  "datePublished": "2025-08-14T15:58:05Z",
+  "dateModified": "2025-08-14T16:53:51Z",
+  "author": {
+    "@type": "Person",
+    "name": "崮生",
+    "url": ""
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "OceanPress",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/assets/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/index/为claude code+glm 添加上眼睛.html"
+  },
+  "wordCount": 624,
+  "articleSection": "技术文档",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "index",
+      "item": "/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "为claude code+glm 添加上眼睛",
+      "item": "/index/为claude code+glm 添加上眼睛.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div id="oceanpress-left-sidebar">
+    
+    <div id="oceanpress-doctree"></div>
+           <script src="./../__oceanpress/docTree.js" async></script>
+  </div>
+  <div style="min-height: 150px;" id="20250814155805-fdxoye3" data-node-id="20250814155805-fdxoye3" data-type="NodeDocument" updated="20250814165351" type="doc">
+
+<h1 id="20250814155805-fdxoye3" data-node-id="20250814155805-fdxoye3" data-type="NodeDocument" updated="20250814165351" type="doc" data-type="NodeHeading" class="h1">为claude code+glm 添加上眼睛</h1>
+<div id="20250814155805-k3n6kni" data-node-id="20250814155805-k3n6kni" data-type="NodeParagraph" updated="20250814155830" class="p"><div spellcheck="false">使用claude code + glm 的一大缺陷就是他无法读取图片文件</div></div><div id="20250814155833-i4c5vpg" data-node-id="20250814155833-i4c5vpg" data-type="NodeParagraph" updated="20250814155857" class="p"><div spellcheck="false">但是 glm4.5v 视觉模型有不错的效果</div></div><div id="20250814155858-rfqlwim" data-node-id="20250814155858-rfqlwim" data-type="NodeParagraph" updated="20250814160053" class="p"><div spellcheck="false">我在实践中创建了一个 mcp server 让他能够调用 glm4.5v 读取图片</div></div><h2 id="20250814155942-ih8vjsy" data-node-id="20250814155942-ih8vjsy" data-type="NodeHeading" updated="20250814165351" data-subtype="h2" class="h2">快速使用</h2><div id="20250814160138-o0s81mr" data-node-id="20250814160138-o0s81mr" data-type="NodeParagraph" updated="20250814160519" class="p"><div spellcheck="false">我使用 claude code 创建了一个 <span data-type="code">崮生mcp工具箱</span>​ 项目，项目地址：<a href="https://github.com/2234839/mcpserver">https://github.com/2234839/mcpserver</a></div></div><div id="20250814160412-c9cn4rr" data-node-id="20250814160412-c9cn4rr" data-type="NodeParagraph" updated="20250814160855" class="p"><div spellcheck="false">下载项目并执行 pnpm i , pnpm build 并配置环境变量中的 <span data-type="code">GLM_API_KEY</span>​</div></div><div id="20250814160531-vojd0j2" data-node-id="20250814160531-vojd0j2" data-type="NodeParagraph" updated="20250814160756" class="p"><div spellcheck="false">参考： <span data-type="block-ref"   data-subtype="d"   data-id="20250814153947-efg1qd2"><a href="./../index/如何为 claude code 添加用户级mcp工具.html#20250814153947-efg1qd2">如何为 claude code 添加用户级mcp工具</a></span> 配置 ~/.claude.json</div></div><div id="20250814160754-akq2uny" data-node-id="20250814160754-akq2uny" data-type="NodeParagraph" updated="20250814160758" class="p"><div spellcheck="false">在 ~/.claude/CLAUDE.md 中添加提示词规范</div></div><div id="20250814160754-5t9wu8v" data-node-id="20250814160754-5t9wu8v" data-type="NodeCodeBlock" updated="20250814160754" class="code-block" style="line-height: 22px;">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">json</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">## 图片处理规范
+禁止使用你的 read 工具进行读取图片，因为你的读取图片工具失效了。所以请使用mcp server 提供的 read_image 工具 读取
+</div>
+        </div><div id="20250814160753-d8ltbnt" data-node-id="20250814160753-d8ltbnt" data-type="NodeParagraph" updated="20250814160753" class="p"><div spellcheck="false"></div></div><div id="20250814160557-w4fopve" data-node-id="20250814160557-w4fopve" data-type="NodeParagraph" updated="20250814160636" class="p"><div spellcheck="false">重新打开一个 claude code 运行 /mcp 就可以看到了</div></div><div id="20250814160647-qgtkgl8" data-node-id="20250814160647-qgtkgl8" data-type="NodeBlockQueryEmbed" updated="20250814160647" data-type="NodeBlockquote" class="bq">  <div id="20250814154328-laaq5jl" data-node-id="20250814154328-laaq5jl" data-type="NodeParagraph" updated="20250814163128" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
+  <img
+    src="./../assets/image-20250814160410-x1wgnkn.png"
+    data-src="./../assets/image-20250814160410-x1wgnkn.png"
+    title=""
+    style=""
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div>  </div><div id="20250814160648-o73jnh4" data-node-id="20250814160648-o73jnh4" data-type="NodeParagraph" updated="20250814160831" class="p"><div spellcheck="false">这时你就可以让 claude code 去愉快的读取本地图片了☆<span data-type="em">: .｡. o(≧▽≦)o .｡.:</span>☆</div></div><div id="20250814161054-alz6lo7" data-node-id="20250814161054-alz6lo7" data-type="NodeParagraph" updated="20250814163138" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="width: 725px;" style="">
+  <img
+    src="./../assets/image-20250814161055-gj61abg.png"
+    data-src="./../assets/image-20250814161055-gj61abg.png"
+    title=""
+    style="width: 725px;"
+    loading="lazy"
+  />
+  <span class="protyle-action__title"></span></span>​</div></div><div id="20250814165351-cj69met" data-node-id="20250814165351-cj69met" data-type="NodeParagraph" updated="20250814165351" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: document.documentElement.getAttribute('data-theme-mode') === 'dark' ? 1 : 0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
+crossorigin="anonymous"></script><footer class="theme-aware-footer">
+  <p>
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>
