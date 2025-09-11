@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  :root {
+    --oceanpress-header-bg: #f8f9fa;
+    --oceanpress-header-border: #e9ecef;
+    --oceanpress-header-text: #007bff;
+    --oceanpress-footer-bg: #f8f9fa;
+    --oceanpress-footer-text: #007bff;
+  }
+  
+  [data-theme-mode="dark"] {
+    --oceanpress-header-bg: #2d2d2d;
+    --oceanpress-header-border: #404040;
+    --oceanpress-header-text: #58a6ff;
+    --oceanpress-footer-bg: #2d2d2d;
+    --oceanpress-footer-text: #58a6ff;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--oceanpress-header-bg);
+    border-bottom: 1px solid var(--oceanpress-header-border);
+  }
+  .home-button {
+    text-decoration: none;
+    color: var(--oceanpress-header-text);
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+  
+  .theme-aware-footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--oceanpress-footer-bg);
+    text-align: center;
+  }
+  .theme-aware-footer p {
+    margin: 0;
+  }
+  .theme-aware-footer a {
+    color: var(--oceanpress-footer-text);
+    text-decoration: none;
+  }
+  .theme-aware-footer a:hover {
+    text-decoration: underline;
+  }
+  
+  .comments-section {
+    max-width: 800px;
+    margin: 40px auto 30px;
+    padding: 0 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .comments-section {
+      max-width: 100%;
+      margin: 30px auto 20px;
+      padding: 0 15px;
+    }
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="description" content="前端多实例数据同步 起因 写扩展的时候遇到个头疼的问题：一个扩展有好几个独立的 JavaScript 环境在同时运行。 比如： background script 在后台跑 好几个 content script 注入到不同网页里 用户点出来的 popup 窗口 设置页面 options page 这些环境都是隔离的，但..." />
+  <meta name="keywords" content="popup, data, background, script, content, typescript, const, newdata" />
+  <meta name="author" content="崮生" />
+  <meta property="og:title" content="前端多实例数据同步" />
+  <meta property="og:description" content="前端多实例数据同步 起因 写扩展的时候遇到个头疼的问题：一个扩展有好几个独立的 JavaScript 环境在同时运行。 比如： background script 在后台跑 好几个 content script 注入到不同网页里 用户点出来的 popup 窗口 设置页面 options page 这些环境都是隔离的，但..." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="/index/前端多实例数据同步.html" />
+  <meta property="og:site_name" content="OceanPress" />
+  <meta property="article:published_time" content="2025-08-26T09:38:53Z" />
+  <meta property="article:modified_time" content="2025-08-26T09:45:22Z" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="前端多实例数据同步" />
+  <meta name="twitter:description" content="前端多实例数据同步 起因 写扩展的时候遇到个头疼的问题：一个扩展有好几个独立的 JavaScript 环境在同时运行。 比如： background script 在后台跑 好几个 content script 注入到不同网页里 用户点出来的 popup 窗口 设置页面 options page 这些环境都是隔离的，但..." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="/index/前端多实例数据同步.html" />
+
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  // 更好的主题切换方案
+  (function() {
+    // 主题配置
+    const themes = {
+      light: {
+        name: 'daylight',
+        mode: 'light',
+        icon: '☀️'
+      },
+      dark: {
+        name: 'midnight',
+        mode: 'dark',
+        icon: '🌙'
+      },
+      auto: {
+        name: 'auto',
+        mode: 'auto',
+        icon: '🌗',
+        getTheme: function() {
+          const currentHour = new Date().getHours();
+          return currentHour >= 18 || currentHour < 6 ? 'dark' : 'light';
+        }
+      }
+    };
+
+    // 获取当前主题设置
+    function getCurrentTheme() {
+      // 优先级：localStorage > 系统偏好 > auto
+      const savedTheme = localStorage.getItem('oceanpress-theme');
+      if (savedTheme && themes[savedTheme]) {
+        return savedTheme;
+      }
+
+      // 检测系统偏好
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
+      }
+
+      return 'auto';
+    }
+
+    // 应用主题
+    function applyTheme(themeName) {
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 设置 CSS 变量
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 加载对应的 CSS
+      const themeStyle = document.getElementById('themeDefaultStyle');
+      if (themeStyle) {
+        themeStyle.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+      } else {
+        // 如果元素不存在，创建它
+        const link = document.createElement('link');
+        link.id = 'themeDefaultStyle';
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+        document.head.appendChild(link);
+      }
+
+      // 更新主题切换按钮
+      updateThemeToggle(themeName);
+
+      // 保存到 localStorage
+      localStorage.setItem('oceanpress-theme', themeName);
+
+      // 触发自定义事件
+      window.dispatchEvent(new CustomEvent('oceanpress-theme-changed', {
+        detail: { theme: themeName, actualTheme: actualTheme }
+      }));
+    }
+
+    // 创建主题切换按钮
+    function createThemeToggle() {
+      const toggle = document.createElement('div');
+      toggle.id = 'oceanpress-theme-toggle';
+      toggle.innerHTML = '<span class="theme-icon">🌗</span><span class="theme-text">自动</span>';
+      toggle.addEventListener('click', toggleTheme);
+      (document.querySelector('[data-type="NodeDocument"]')||document.body).appendChild(toggle);
+    }
+
+    // 更新主题切换按钮
+    function updateThemeToggle(themeName) {
+      const toggle = document.getElementById('oceanpress-theme-toggle');
+      if (!toggle) return;
+
+      const theme = themes[themeName] || themes.auto;
+      toggle.innerHTML = '<span class="theme-icon">' + theme.icon + '</span><span class="theme-text">' +
+        (themeName === 'auto' ? '自动' : (themeName === 'dark' ? '深色' : '浅色')) + '</span>';
+    }
+
+    // 切换主题
+    function toggleTheme() {
+      const currentTheme = getCurrentTheme();
+      const themeOrder = ['auto', 'light', 'dark'];
+      const currentIndex = themeOrder.indexOf(currentTheme);
+      const nextIndex = (currentIndex + 1) % themeOrder.length;
+      const nextTheme = themeOrder[nextIndex];
+
+      applyTheme(nextTheme);
+    }
+
+    // 监听系统主题变化
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const currentTheme = getCurrentTheme();
+        if (currentTheme === 'auto') {
+          applyTheme('auto');
+        }
+      });
+    }
+
+    // 监听自定义主题变化事件（用于侧边栏等组件）
+    window.addEventListener('oceanpress-theme-changed', function(e) {
+      // 这里可以添加其他组件需要响应主题变化的逻辑
+      console.log('Theme changed to:', e.detail);
+    });
+
+    // 初始化主题
+    function initTheme() {
+      const themeName = getCurrentTheme();
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 立即设置基础主题，避免闪烁
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 创建主题切换按钮
+      createThemeToggle();
+
+      // 应用完整主题
+      applyTheme(themeName);
+    }
+
+    // 页面加载完成后初始化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+      initTheme();
+    }
+  })();
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>前端多实例数据同步</title>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "前端多实例数据同步",
+  "description": "前端多实例数据同步 起因 写扩展的时候遇到个头疼的问题：一个扩展有好几个独立的 JavaScript 环境在同时运行。 比如： background script 在后台跑 好几个 content script 注入到不同网页里 用户点出来的 popup 窗口 设置页面 options page 这些环境都是隔离的，但...",
+  "keywords": "popup, data, background, script, content, typescript, const, newdata",
+  "datePublished": "2025-08-26T09:38:53Z",
+  "dateModified": "2025-08-26T09:45:22Z",
+  "author": {
+    "@type": "Person",
+    "name": "崮生",
+    "url": ""
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "OceanPress",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/assets/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/index/前端多实例数据同步.html"
+  },
+  "wordCount": 2468,
+  "articleSection": "技术文档",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "index",
+      "item": "/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "前端多实例数据同步",
+      "item": "/index/前端多实例数据同步.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div id="oceanpress-left-sidebar">
+    
+    <div id="oceanpress-doctree"></div>
+           <script src="./../__oceanpress/docTree.js" async></script>
+  </div>
+  <div style="min-height: 150px;" id="20250826093853-fj3g5gd" data-node-id="20250826093853-fj3g5gd" data-type="NodeDocument" updated="20250826094522" custom-liandi-articleId="1756172639240" type="doc">
+
+<h1 id="20250826093853-fj3g5gd" data-node-id="20250826093853-fj3g5gd" data-type="NodeDocument" updated="20250826094522" custom-liandi-articleId="1756172639240" type="doc" data-type="NodeHeading" class="h1">前端多实例数据同步</h1>
+<h2 id="20250826094302-y2jj3s9" data-node-id="20250826094302-y2jj3s9" data-type="NodeHeading" updated="20250826094448" data-subtype="h2" class="h2">起因</h2><div id="20250826094302-j2gip5s" data-node-id="20250826094302-j2gip5s" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">写扩展的时候遇到个头疼的问题：一个扩展有好几个独立的 JavaScript 环境在同时运行。</div></div><div id="20250826094302-2aq1j36" data-node-id="20250826094302-2aq1j36" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">比如：</div></div><div id="20250826094302-on7p9tc" data-node-id="20250826094302-on7p9tc" data-type="NodeList" updated="20250826094302" data-subtype="u" class="list"><div id="20250826094302-lkzpe2z" data-node-id="20250826094302-lkzpe2z" data-type="NodeListItem" updated="20250826094302" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250826094302-cb1czar" data-node-id="20250826094302-cb1czar" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">background script 在后台跑</div></div>
+      </div><div id="20250826094302-4wkvv4h" data-node-id="20250826094302-4wkvv4h" data-type="NodeListItem" updated="20250826094302" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250826094302-p7o4ynu" data-node-id="20250826094302-p7o4ynu" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">好几个 content script 注入到不同网页里</div></div>
+      </div><div id="20250826094302-u0x4qwd" data-node-id="20250826094302-u0x4qwd" data-type="NodeListItem" updated="20250826094302" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250826094302-i7zler8" data-node-id="20250826094302-i7zler8" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">用户点出来的 popup 窗口</div></div>
+      </div><div id="20250826094302-870r64i" data-node-id="20250826094302-870r64i" data-type="NodeListItem" updated="20250826094302" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250826094302-g8oz37p" data-node-id="20250826094302-g8oz37p" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">设置页面 options page</div></div>
+      </div></div><div id="20250826094302-f4n4tyk" data-node-id="20250826094302-f4n4tyk" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">这些环境都是隔离的，但数据需要共享。用户在 popup 改了个设置，所有 content script 要立刻知道；background 在处理的任务，其他实例也要能感知到。</div></div><div id="20250826094302-nrmwrjw" data-node-id="20250826094302-nrmwrjw" data-type="NodeParagraph" updated="20250826094448" class="p"><div spellcheck="false"><a href="https://github.com/2234839/TsFullStack/blob/7e9e6e23c70be09624a46e6665577d04e330d27d/apps/InfoFlow/storage/storageAdapter.ts">github 代码实例</a></div></div><h2 id="20250826094302-239hecz" data-node-id="20250826094302-239hecz" data-type="NodeHeading" updated="20250826094302" data-subtype="h2" class="h2">传统的做法</h2><h3 id="20250826094302-99o87nd" data-node-id="20250826094302-99o87nd" data-type="NodeHeading" updated="20250826094302" data-subtype="h3" class="h3">1. 用扩展存储</h3><div id="20250826094302-ogdwpdo" data-node-id="20250826094302-ogdwpdo" data-type="NodeCodeBlock" updated="20250826094302" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">javascript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">// background 里存数据
+chrome.storage.local.set({ data: { count: 1 } });
+
+// content script 监听变化
+chrome.storage.onChanged.addListener((changes) => {
+  console.log('数据变了', changes.data);
+});
+</div>
+        </div><h3 id="20250826094302-d1fpor3" data-node-id="20250826094302-d1fpor3" data-type="NodeHeading" updated="20250826094302" data-subtype="h3" class="h3">2. 用消息传递</h3><div id="20250826094302-sqds2eu" data-node-id="20250826094302-sqds2eu" data-type="NodeCodeBlock" updated="20250826094302" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">javascript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">// popup 发消息
+chrome.runtime.sendMessage({ type: 'UPDATE_DATA', data: { count: 1 } });
+
+// background 收到后转发给所有人
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  // 转发给所有 content scripts
+});
+</div>
+        </div><div id="20250826094302-9l7dg62" data-node-id="20250826094302-9l7dg62" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">但这些办法都不太好用：</div></div><div id="20250826094302-hcif0ow" data-node-id="20250826094302-hcif0ow" data-type="NodeList" updated="20250826094302" data-subtype="u" class="list"><div id="20250826094302-p7camtx" data-node-id="20250826094302-p7camtx" data-type="NodeListItem" updated="20250826094302" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250826094302-qqn04aq" data-node-id="20250826094302-qqn04aq" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">消息传递要自己管理路由，很容易漏掉某些实例</div></div>
+      </div><div id="20250826094302-3ddicys" data-node-id="20250826094302-3ddicys" data-type="NodeListItem" updated="20250826094302" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250826094302-uk7qmw8" data-node-id="20250826094302-uk7qmw8" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">没有版本控制，几个实例同时写数据会冲突</div></div>
+      </div><div id="20250826094302-ufi1rcq" data-node-id="20250826094302-ufi1rcq" data-type="NodeListItem" updated="20250826094302" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250826094302-4gdaihx" data-node-id="20250826094302-4gdaihx" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">改个嵌套对象不会自动触发同步</div></div>
+      </div><div id="20250826094302-f6ctdvo" data-node-id="20250826094302-f6ctdvo" data-type="NodeListItem" updated="20250826094302" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250826094302-1kvyj5l" data-node-id="20250826094302-1kvyj5l" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">最坑的是回响问题：实例A写入→收到自己写入的事件→再次写入→死循环</div></div>
+      </div></div><h2 id="20250826094302-jx3rl7a" data-node-id="20250826094302-jx3rl7a" data-type="NodeHeading" updated="20250826094302" data-subtype="h2" class="h2">我的解决思路</h2><div id="20250826094302-40c4nb5" data-node-id="20250826094302-40c4nb5" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">核心是三个东西：<span data-type="strong">版本控制 + 响应式代理 + 适配器模式</span>。</div></div><h3 id="20250826094302-x8afc19" data-node-id="20250826094302-x8afc19" data-type="NodeHeading" updated="20250826094302" data-subtype="h3" class="h3">版本控制解决冲突</h3><div id="20250826094302-a36nlxa" data-node-id="20250826094302-a36nlxa" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">给每个数据加上版本号和写入者标识：</div></div><div id="20250826094302-6e87xun" data-node-id="20250826094302-6e87xun" data-type="NodeCodeBlock" updated="20250826094302" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">typescript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">interface VersionedStorage<T> {
+  value: T;
+  version: number;
+  writerId: string;
+}
+</div>
+        </div><div id="20250826094302-a2e4ctf" data-node-id="20250826094302-a2e4ctf" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">多个实例同时写的时候，版本号大的胜出，版本号小的丢弃。如果版本号一样，就用 writerId 来决定。</div></div><h3 id="20250826094302-ysilki6" data-node-id="20250826094302-ysilki6" data-type="NodeHeading" updated="20250826094302" data-subtype="h3" class="h3">响应式代理实现深度监听</h3><div id="20250826094302-urqug8j" data-node-id="20250826094302-urqug8j" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">用 Vue 的 <span data-type="code">customRef</span>​ + <span data-type="code">Proxy</span>​ 做到深度响应式：</div></div><div id="20250826094302-pmfle98" data-node-id="20250826094302-pmfle98" data-type="NodeCodeBlock" updated="20250826094302" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">typescript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">const data = reactiveStorage({ items: [] });
+data.items.push('新item'); // 自动同步，不用手动调用存储接口
+</div>
+        </div><h3 id="20250826094302-v27p3y3" data-node-id="20250826094302-v27p3y3" data-type="NodeHeading" updated="20250826094302" data-subtype="h3" class="h3">回响问题的解决</h3><div id="20250826094302-9cvd8z8" data-node-id="20250826094302-9cvd8z8" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">回响问题特别烦人：</div></div><div id="20250826094302-tzha2ld" data-node-id="20250826094302-tzha2ld" data-type="NodeList" updated="20250826094302" data-subtype="o" class="list"><div id="20250826094302-72p87v2" data-node-id="20250826094302-72p87v2" data-type="NodeListItem" updated="20250826094302" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20250826094302-y0nend5" data-node-id="20250826094302-y0nend5" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">popup 修改数据 → 写入存储</div></div>
+      </div><div id="20250826094302-49vs75c" data-node-id="20250826094302-49vs75c" data-type="NodeListItem" updated="20250826094302" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20250826094302-7a0xb97" data-node-id="20250826094302-7a0xb97" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">所有实例（包括 popup 自己）收到变化事件</div></div>
+      </div><div id="20250826094302-14hj60a" data-node-id="20250826094302-14hj60a" data-type="NodeListItem" updated="20250826094302" data-subtype="o" class="li" data-marker="3.">
+        <div class="protyle-action">
+          3.
+        </div>
+        <div id="20250826094302-em66jsn" data-node-id="20250826094302-em66jsn" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">popup 处理事件 → 再次写入存储</div></div>
+      </div><div id="20250826094302-4egirgu" data-node-id="20250826094302-4egirgu" data-type="NodeListItem" updated="20250826094302" data-subtype="o" class="li" data-marker="4.">
+        <div class="protyle-action">
+          4.
+        </div>
+        <div id="20250826094302-f1c7w3u" data-node-id="20250826094302-f1c7w3u" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">又触发事件 → 死循环</div></div>
+      </div></div><div id="20250826094302-ht3bcdi" data-node-id="20250826094302-ht3bcdi" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">解决办法是每个实例都有个唯一标识，通过版本号过滤自己的变更：</div></div><div id="20250826094302-jcr1cye" data-node-id="20250826094302-jcr1cye" data-type="NodeCodeBlock" updated="20250826094302" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">typescript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">class ExtensionStorageSync {
+  private instanceId = Math.random().toString(36).substring(2, 11);
+  private currentVersion = 0;
+
+  handleStorageChange(changes, areaName) {
+    const newData = changes.data?.newValue;
+    if (!newData) return;
+
+    // 关键：只处理其他实例的变更
+    if (newData.version > this.currentVersion) {
+      this.currentVersion = newData.version;
+      this.updateLocalData(newData.value);
+    }
+    // 如果是自己写入的，version <= currentVersion，直接忽略
+    // 这样就不会回响了
+  }
+
+  writeData(value) {
+    const newVersion = this.currentVersion + 1;
+    const versionedValue = {
+      value,
+      version: newVersion,
+      writerId: this.instanceId
+    };
+
+    // 先更新本地版本号（这步很重要！）
+    this.currentVersion = newVersion;
+    // 再写入存储
+    chrome.storage.local.set({ data: versionedValue });
+  }
+}
+</div>
+        </div><div id="20250826094302-yjuzhyv" data-node-id="20250826094302-yjuzhyv" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">这样即使收到自己写入的事件，也会因为版本号一样被忽略。</div></div><h3 id="20250826094302-b7w55z9" data-node-id="20250826094302-b7w55z9" data-type="NodeHeading" updated="20250826094302" data-subtype="h3" class="h3">适配器模式支持多种存储</h3><div id="20250826094302-ceu4a3b" data-node-id="20250826094302-ceu4a3b" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">任何存储源只要实现三个方法就行：</div></div><div id="20250826094302-c6nn6ls" data-node-id="20250826094302-c6nn6ls" data-type="NodeCodeBlock" updated="20250826094302" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">typescript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">interface StorageAdapter<T> {
+  getValue(): Promise<VersionedStorage<T>>;
+  setValue(value: VersionedStorage<T>): void;
+  watch(callback: Function): () => void;
+}
+</div>
+        </div><div id="20250826094302-n2l4j16" data-node-id="20250826094302-n2l4j16" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">然后通用逻辑就可以在所有存储源上工作。</div></div><h2 id="20250826094302-uqdrdlh" data-node-id="20250826094302-uqdrdlh" data-type="NodeHeading" updated="20250826094302" data-subtype="h2" class="h2">实际用起来</h2><h3 id="20250826094302-euxdxji" data-node-id="20250826094302-euxdxji" data-type="NodeHeading" updated="20250826094302" data-subtype="h3" class="h3">API 统一</h3><div id="20250826094302-66xua8k" data-node-id="20250826094302-66xua8k" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">不管用什么存储，用法都一样：</div></div><div id="20250826094302-u1mln68" data-node-id="20250826094302-u1mln68" data-type="NodeCodeBlock" updated="20250826094302" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">typescript</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">// background script
+const globalState = useReactiveStorage(wxtAdapter, {
+  enabled: true,
+  tasks: [],
+  settings: { theme: 'dark' }
+});
+
+// content script
+const state = useReactiveStorage(wxtAdapter, { fallback: defaultState });
+// 自动和 background 同步
+
+// popup
+const state = useReactiveStorage(wxtAdapter, { fallback: defaultState });
+// 用户改设置，所有实例立即更新
+</div>
+        </div><h2 id="20250826094302-720eol1" data-node-id="20250826094302-720eol1" data-type="NodeHeading" updated="20250826094302" data-subtype="h2" class="h2">可以支持不同存储方式</h2><div id="20250826094302-d28jumi" data-node-id="20250826094302-d28jumi" data-type="NodeList" updated="20250826094302" data-subtype="u" class="list"><div id="20250826094302-3n7r8nc" data-node-id="20250826094302-3n7r8nc" data-type="NodeListItem" updated="20250826094302" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250826094302-p6mm41w" data-node-id="20250826094302-p6mm41w" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false"><span data-type="strong">小数据</span> - localStorage</div></div>
+      </div><div id="20250826094302-suif0oy" data-node-id="20250826094302-suif0oy" data-type="NodeListItem" updated="20250826094302" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250826094302-vf77m9c" data-node-id="20250826094302-vf77m9c" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false"><span data-type="strong">扩展数据</span> - WXT 存储，跨扩展上下文同步</div></div>
+      </div><div id="20250826094302-ku4i12z" data-node-id="20250826094302-ku4i12z" data-type="NodeListItem" updated="20250826094302" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250826094302-nvozt9h" data-node-id="20250826094302-nvozt9h" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false"><span data-type="strong">云端数据</span> - 自行实现适配器支持用户数据存在在服务器</div></div>
+      </div></div><h3 id="20250826094302-l2hm0jf" data-node-id="20250826094302-l2hm0jf" data-type="NodeHeading" updated="20250826094302" data-subtype="h3" class="h3">核心思路</h3><div id="20250826094302-oabm8uh" data-node-id="20250826094302-oabm8uh" data-type="NodeParagraph" updated="20250826094302" class="p"><div spellcheck="false">像用普通 vue ref 变量一样，不用管同步细节。这个方案不只适用于扩展，稍微改改就能用在其他需要多实例数据同步的场景，比如 Web Workers、多窗口应用，甚至是简单的分布式应用。</div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: document.documentElement.getAttribute('data-theme-mode') === 'dark' ? 1 : 0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
+crossorigin="anonymous"></script><div class="comments-section">
+  <script src="https://giscus.app/client.js"
+        data-repo="2234839/doc"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyMjA1NzA5Mzg="
+        data-category="Announcements"
+        data-category-id="DIC_kwDODSWlOs4CvVZ5"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+  </script>
+</div>
+<footer class="theme-aware-footer">
+  <p>
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>

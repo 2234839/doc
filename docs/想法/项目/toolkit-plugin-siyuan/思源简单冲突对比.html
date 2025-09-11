@@ -56,6 +56,20 @@
   .theme-aware-footer a:hover {
     text-decoration: underline;
   }
+  
+  .comments-section {
+    max-width: 800px;
+    margin: 40px auto 30px;
+    padding: 0 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .comments-section {
+      max-width: 100%;
+      margin: 30px auto 20px;
+      padding: 0 15px;
+    }
+  }
 </style>
 
   <meta charset="utf-8" />
@@ -65,7 +79,7 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="description" content="思源简单冲突对比 安装 toolkit 插件 0.0.12 ​ 并启用之后 先并排放两个文档窗口 ​ ​ 然后打开命令面板执行 conflicted Comparison ​ 命令 ​ ​ 现在你可以将鼠标放在两个窗口中间的resize分割线上滚动滚轮从而同时滚动两个窗口 其中 update 字段不一致的块会被标记红色..." />
-  <meta name="keywords" content="两个, 窗口, 命令, 滚动, resize, update, 思源简单, 冲突对比" />
+  <meta name="keywords" content="窗口, toolkit, conflicted, comparison, resize, update, 思源简单, 冲突对比" />
   <meta name="author" content="崮生" />
   <meta property="og:title" content="思源简单冲突对比" />
   <meta property="og:description" content="思源简单冲突对比 安装 toolkit 插件 0.0.12 ​ 并启用之后 先并排放两个文档窗口 ​ ​ 然后打开命令面板执行 conflicted Comparison ​ 命令 ​ ​ 现在你可以将鼠标放在两个窗口中间的resize分割线上滚动滚轮从而同时滚动两个窗口 其中 update 字段不一致的块会被标记红色..." />
@@ -73,7 +87,7 @@
   <meta property="og:url" content="/想法/项目/toolkit-plugin-siyuan/思源简单冲突对比.html" />
   <meta property="og:site_name" content="OceanPress" />
   <meta property="article:published_time" content="2024-08-15T09:49:54Z" />
-  <meta property="article:modified_time" content="2024-08-15T10:05:45Z" />
+  <meta property="article:modified_time" content="2024-08-15T10:03:50Z" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="思源简单冲突对比" />
   <meta name="twitter:description" content="思源简单冲突对比 安装 toolkit 插件 0.0.12 ​ 并启用之后 先并排放两个文档窗口 ​ ​ 然后打开命令面板执行 conflicted Comparison ​ 命令 ​ ​ 现在你可以将鼠标放在两个窗口中间的resize分割线上滚动滚轮从而同时滚动两个窗口 其中 update 字段不一致的块会被标记红色..." />
@@ -244,9 +258,9 @@
   "@type": "Article",
   "headline": "思源简单冲突对比",
   "description": "思源简单冲突对比 安装 toolkit 插件 0.0.12 ​ 并启用之后 先并排放两个文档窗口 ​ ​ 然后打开命令面板执行 conflicted Comparison ​ 命令 ​ ​ 现在你可以将鼠标放在两个窗口中间的resize分割线上滚动滚轮从而同时滚动两个窗口 其中 update 字段不一致的块会被标记红色...",
-  "keywords": "两个, 窗口, 命令, 滚动, resize, update, 思源简单, 冲突对比",
+  "keywords": "窗口, toolkit, conflicted, comparison, resize, update, 思源简单, 冲突对比",
   "datePublished": "2024-08-15T09:49:54Z",
-  "dateModified": "2024-08-15T10:05:45Z",
+  "dateModified": "2024-08-15T10:03:50Z",
   "author": {
     "@type": "Person",
     "name": "崮生",
@@ -264,7 +278,7 @@
     "@type": "WebPage",
     "@id": "/想法/项目/toolkit-plugin-siyuan/思源简单冲突对比.html"
   },
-  "wordCount": 210,
+  "wordCount": 167,
   "articleSection": "技术文档",
   "inLanguage": "zh-CN"
 }
@@ -314,29 +328,29 @@
     <div id="oceanpress-doctree"></div>
            <script src="./../../../__oceanpress/docTree.js" async></script>
   </div>
-  <div style="min-height: 150px;" id="20240815094954-25sj3sn" data-node-id="20240815094954-25sj3sn" data-type="NodeDocument" updated="20240815100545" custom-liandi-articleId="1723687589114" type="doc">
+  <div style="min-height: 150px;" id="20240815094954-25sj3sn" data-node-id="20240815094954-25sj3sn" data-type="NodeDocument" updated="20240815100350" custom-liandi-articleId="1723687589114" type="doc">
 
-<h1 id="20240815094954-25sj3sn" data-node-id="20240815094954-25sj3sn" data-type="NodeDocument" updated="20240815100545" custom-liandi-articleId="1723687589114" type="doc" data-type="NodeHeading" class="h1">思源简单冲突对比</h1>
+<h1 id="20240815094954-25sj3sn" data-node-id="20240815094954-25sj3sn" data-type="NodeDocument" updated="20240815100350" custom-liandi-articleId="1723687589114" type="doc" data-type="NodeHeading" class="h1">思源简单冲突对比</h1>
 <div id="20240815095003-j74ovbg" data-node-id="20240815095003-j74ovbg" data-type="NodeParagraph" updated="20240815100541" class="p"><div spellcheck="false">安装 toolkit 插件 <span data-type="code">0.0.12</span>​ 并启用之后</div></div><div id="20240815095208-hz4lvsx" data-node-id="20240815095208-hz4lvsx" data-type="NodeParagraph" updated="20240815095235" class="p"><div spellcheck="false">先并排放两个文档窗口</div></div><div id="20240815100157-80hw88d" data-node-id="20240815100157-80hw88d" data-type="NodeParagraph" updated="20240815100157" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
   <img
-    src="./../../../assets/image-20240815100157-4wixzzf.png"
-    data-src="./../../../assets/image-20240815100157-4wixzzf.png"
+    src="./../../../assets/image-20240815100157-4wixzzf.webp"
+    data-src="./../../../assets/image-20240815100157-4wixzzf.webp"
     title=""
     style=""
     loading="lazy"
   />
   <span class="protyle-action__title"></span></span>​</div></div><div id="20240815100200-d05mo0a" data-node-id="20240815100200-d05mo0a" data-type="NodeParagraph" updated="20240815100225" class="p"><div spellcheck="false">然后打开命令面板执行 <span data-type="code">conflicted Comparison</span>​ 命令</div></div><div id="20240815095201-vcacdd8" data-node-id="20240815095201-vcacdd8" data-type="NodeParagraph" updated="20240815095201" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
   <img
-    src="./../../../assets/image-20240815095201-ex5gbfl.png"
-    data-src="./../../../assets/image-20240815095201-ex5gbfl.png"
+    src="./../../../assets/image-20240815095201-ex5gbfl.webp"
+    data-src="./../../../assets/image-20240815095201-ex5gbfl.webp"
     title=""
     style=""
     loading="lazy"
   />
   <span class="protyle-action__title"></span></span>​</div></div><div id="20240815095123-a7yhcgd" data-node-id="20240815095123-a7yhcgd" data-type="NodeParagraph" updated="20240815100354" class="p"><div spellcheck="false">现在你可以将鼠标放在两个窗口中间的resize分割线上滚动滚轮从而同时滚动两个窗口</div></div><div id="20240815100354-1znwvnh" data-node-id="20240815100354-1znwvnh" data-type="NodeParagraph" updated="20240815100420" class="p"><div spellcheck="false">其中 update 字段不一致的块会被标记红色外框。</div></div><div id="20240815100350-thl5ixk" data-node-id="20240815100350-thl5ixk" data-type="NodeParagraph" updated="20240815100350" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" style="">
   <img
-    src="./../../../assets/image-20240815100350-bhc9y1y.png"
-    data-src="./../../../assets/image-20240815100350-bhc9y1y.png"
+    src="./../../../assets/image-20240815100350-bhc9y1y.webp"
+    data-src="./../../../assets/image-20240815100350-bhc9y1y.webp"
     title=""
     style=""
     loading="lazy"
@@ -389,7 +403,25 @@
     });
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
-crossorigin="anonymous"></script><footer class="theme-aware-footer">
+crossorigin="anonymous"></script><div class="comments-section">
+  <script src="https://giscus.app/client.js"
+        data-repo="2234839/doc"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyMjA1NzA5Mzg="
+        data-category="Announcements"
+        data-category-id="DIC_kwDODSWlOs4CvVZ5"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+  </script>
+</div>
+<footer class="theme-aware-footer">
   <p>
     技术支持：
     <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |

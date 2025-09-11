@@ -12,6 +12,12 @@
     "sort": 0,
     "children": [
       {
+        "id": "20250905151250-61qkldk",
+        "hpath": "/index/test",
+        "title": "test",
+        "sort": -1
+      },
+      {
         "id": "20250805144437-8tef5gs",
         "hpath": "/index/amd 8700g 使用gpu运行ollama",
         "title": "amd 8700g 使用gpu运行ollama",
@@ -159,33 +165,6 @@
         ]
       },
       {
-        "id": "20240109173237-d7cuxlg",
-        "hpath": "/index/test",
-        "title": "test",
-        "sort": 16,
-        "children": [
-          {
-            "id": "20241228093344-9p38sqj",
-            "hpath": "/index/test/ExprTest",
-            "title": "ExprTest",
-            "children": [
-              {
-                "id": "20250306213356-ekvz9w9",
-                "hpath": "/index/test/ExprTest/需要翻译的文档",
-                "title": "需要翻译的文档",
-                "children": [
-                  {
-                    "id": "20250306214437-r31jvst",
-                    "hpath": "/index/test/ExprTest/需要翻译的文档/未命名",
-                    "title": "未命名"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
         "id": "20250427062301-dtaov2k",
         "hpath": "/index/给脚本猫开发了新的首页",
         "title": "给脚本猫开发了新的首页"
@@ -199,6 +178,11 @@
         "id": "20250508192447-1q0xnj8",
         "hpath": "/index/开发在线Playground的实践",
         "title": "开发在线Playground的实践"
+      },
+      {
+        "id": "20250826093853-fj3g5gd",
+        "hpath": "/index/前端多实例数据同步",
+        "title": "前端多实例数据同步"
       },
       {
         "id": "20250424113849-m7bcro5",
@@ -226,6 +210,11 @@
         "title": "邵东人建网站，为何不找身边的专家？—— 申子龙 为您提供本地化专业网站建设服务"
       },
       {
+        "id": "20250904100538-n994jaz",
+        "hpath": "/index/使用公网代理家庭服务器搭建网站的成本思考",
+        "title": "使用公网代理家庭服务器搭建网站的成本思考"
+      },
+      {
         "id": "20250507170654-enuezoa",
         "hpath": "/index/使用ai从零开始实现一个在线计算笔记本：NoteCalc",
         "title": "使用ai从零开始实现一个在线计算笔记本：NoteCalc"
@@ -234,6 +223,11 @@
         "id": "20250316152730-ut0dzer",
         "hpath": "/index/思源公益知识库",
         "title": "思源公益知识库"
+      },
+      {
+        "id": "20250829090802-cng7acm",
+        "hpath": "/index/思源sql查询提示prompt",
+        "title": "思源sql查询提示prompt"
       },
       {
         "id": "20250527104233-so7c9f2",
@@ -271,6 +265,16 @@
         "title": "为claude code+glm 添加上眼睛"
       },
       {
+        "id": "20250906175737-75l8kl2",
+        "hpath": "/index/我的塑料盒子机箱",
+        "title": "我的塑料盒子机箱"
+      },
+      {
+        "id": "20250828171248-ar0phcr",
+        "hpath": "/index/无缝滚动动画技术方案",
+        "title": "无缝滚动动画技术方案"
+      },
+      {
         "id": "20250312225200-5mtfqiq",
         "hpath": "/index/怎么发布npm包",
         "title": "怎么发布npm包"
@@ -291,9 +295,19 @@
         "title": "AiEnglish ：在阅读中渐进式学习英语"
       },
       {
+        "id": "20250831105813-fd4az3k",
+        "hpath": "/index/amd 8700g 运行 stable-diffusion",
+        "title": "amd 8700g 运行 stable-diffusion"
+      },
+      {
         "id": "20250722145119-8p7i3u7",
         "hpath": "/index/Claude Code 配置使用自定义api",
         "title": "Claude Code 配置使用自定义api"
+      },
+      {
+        "id": "20250903082252-61erk4c",
+        "hpath": "/index/claude code最佳实践",
+        "title": "claude code最佳实践"
       },
       {
         "id": "20250506095719-tiy36tk",
@@ -327,6 +341,11 @@
         "id": "20250401165003-2006op9",
         "hpath": "/index/Identifier 'h' has already been declared",
         "title": "Identifier 'h' has already been declared"
+      },
+      {
+        "id": "20250907101308-4f6vg6g",
+        "hpath": "/index/in nek／Kenneth Lee",
+        "title": "in nek／Kenneth Lee"
       },
       {
         "id": "20250319215933-nshgiqr",
@@ -371,10 +390,21 @@
         "title": "prisma sqlite并发错误"
       },
       {
+        "id": "20250901143927-d0tq8fn",
+        "hpath": "/index/Puppeteer远程调试",
+        "title": "Puppeteer远程调试"
+      },
+      {
         "id": "20250413211142-d533spm",
         "hpath": "/index/TsFullStack",
         "title": "TsFullStack",
         "children": [
+          {
+            "id": "20250909163042-pedjb9o",
+            "hpath": "/index/TsFullStack/InfoFlow Privacy Policies",
+            "title": "InfoFlow Privacy Policies",
+            "sort": -1
+          },
           {
             "id": "20250725185420-jtzbtbq",
             "hpath": "/index/TsFullStack/比prisma studio更好性能的类studio数据管理",
@@ -394,6 +424,11 @@
             "id": "20250418190906-eg8nscc",
             "hpath": "/index/TsFullStack/设计思考",
             "title": "设计思考"
+          },
+          {
+            "id": "20250826101353-4bib6r3",
+            "hpath": "/index/TsFullStack/InfoFlow：自动获取关注信息的浏览器扩展",
+            "title": "InfoFlow：自动获取关注信息的浏览器扩展"
           }
         ]
       },
@@ -479,11 +514,6 @@
             "title": "查典式学习法"
           },
           {
-            "id": "20240812180040-f36fih0",
-            "hpath": "/想法/项目/思源标签排序功能",
-            "title": "思源标签排序功能"
-          },
-          {
             "id": "20210102035720-poopll6",
             "hpath": "/想法/项目/振动报时",
             "title": "振动报时"
@@ -529,6 +559,12 @@
                     "sort": 1,
                     "children": [
                       {
+                        "id": "20250905164121-tp760us",
+                        "hpath": "/想法/项目/OceanPress_js/OceanPress插件/更新日志/思源OceanPress插件 ocr 功能新增免费公益服务器",
+                        "title": "思源OceanPress插件 ocr 功能新增免费公益服务器",
+                        "sort": -1
+                      },
+                      {
                         "id": "20240613191653-ozw9kcv",
                         "hpath": "/想法/项目/OceanPress_js/OceanPress插件/更新日志/OceanPress插件支持手机端ocr文本识别 v0.3.7",
                         "title": "OceanPress插件支持手机端ocr文本识别 v0.3.7",
@@ -570,6 +606,11 @@
                 "hpath": "/想法/项目/OceanPress_js/为OceanPress生成的网站添加搜索功能",
                 "title": "为OceanPress生成的网站添加搜索功能",
                 "sort": 4
+              },
+              {
+                "id": "20250912085352-q162fn4",
+                "hpath": "/想法/项目/OceanPress_js/使用giscus为OceanPress生成的网站添加评论区",
+                "title": "使用giscus为OceanPress生成的网站添加评论区"
               },
               {
                 "id": "20250822173529-o1ssnht",
@@ -638,6 +679,11 @@
                 "hpath": "/想法/项目/toolkit-plugin-siyuan/思源简单冲突对比",
                 "title": "思源简单冲突对比",
                 "sort": 0
+              },
+              {
+                "id": "20240812180040-f36fih0",
+                "hpath": "/想法/项目/toolkit-plugin-siyuan/思源标签排序功能",
+                "title": "思源标签排序功能"
               }
             ]
           },
@@ -1404,6 +1450,12 @@
     "sort": 6,
     "children": [
       {
+        "id": "20250904094900-zu67ipm",
+        "hpath": "/工具/excalidraw",
+        "title": "excalidraw",
+        "sort": -1
+      },
+      {
         "id": "20230922210347-ajsgtu5",
         "hpath": "/工具/firefox",
         "title": "firefox",
@@ -1433,6 +1485,11 @@
             "id": "20250222153112-6tgkzn0",
             "hpath": "/工具/开发最佳实践/rslib",
             "title": "rslib"
+          },
+          {
+            "id": "20250911161400-rkkbqjv",
+            "hpath": "/工具/开发最佳实践/windowTabs",
+            "title": "windowTabs"
           }
         ]
       },

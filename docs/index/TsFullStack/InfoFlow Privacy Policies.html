@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  :root {
+    --oceanpress-header-bg: #f8f9fa;
+    --oceanpress-header-border: #e9ecef;
+    --oceanpress-header-text: #007bff;
+    --oceanpress-footer-bg: #f8f9fa;
+    --oceanpress-footer-text: #007bff;
+  }
+  
+  [data-theme-mode="dark"] {
+    --oceanpress-header-bg: #2d2d2d;
+    --oceanpress-header-border: #404040;
+    --oceanpress-header-text: #58a6ff;
+    --oceanpress-footer-bg: #2d2d2d;
+    --oceanpress-footer-text: #58a6ff;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--oceanpress-header-bg);
+    border-bottom: 1px solid var(--oceanpress-header-border);
+  }
+  .home-button {
+    text-decoration: none;
+    color: var(--oceanpress-header-text);
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+  
+  .theme-aware-footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--oceanpress-footer-bg);
+    text-align: center;
+  }
+  .theme-aware-footer p {
+    margin: 0;
+  }
+  .theme-aware-footer a {
+    color: var(--oceanpress-footer-text);
+    text-decoration: none;
+  }
+  .theme-aware-footer a:hover {
+    text-decoration: underline;
+  }
+  
+  .comments-section {
+    max-width: 800px;
+    margin: 40px auto 30px;
+    padding: 0 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .comments-section {
+      max-width: 100%;
+      margin: 30px auto 20px;
+      padding: 0 15px;
+    }
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="description" content="InfoFlow Privacy Policies 1. 引言 InfoFlow（以下简称&quot;我们&quot;或&quot;本扩展&quot;）非常重视您的隐私保护和个人信息安全。本隐私政策旨在说明我们如何收集、使用、存储和保护您在使用本浏览器扩展服务时的个人信息。请您在使用本扩展前，仔细阅读并充分理解本政策。 2. 信息收集 2." />
+  <meta name="keywords" content="云端服务, 人信息, 监听规则, 信息, 个人信息, infoflow, 收集的信, 的监听规" />
+  <meta name="author" content="崮生" />
+  <meta property="og:title" content="InfoFlow Privacy Policies" />
+  <meta property="og:description" content="InfoFlow Privacy Policies 1. 引言 InfoFlow（以下简称&quot;我们&quot;或&quot;本扩展&quot;）非常重视您的隐私保护和个人信息安全。本隐私政策旨在说明我们如何收集、使用、存储和保护您在使用本浏览器扩展服务时的个人信息。请您在使用本扩展前，仔细阅读并充分理解本政策。 2. 信息收集 2." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="/index/TsFullStack/InfoFlow Privacy Policies.html" />
+  <meta property="og:site_name" content="OceanPress" />
+  <meta property="article:published_time" content="2025-09-09T16:30:42Z" />
+  <meta property="article:modified_time" content="2025-09-09T16:34:41Z" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="InfoFlow Privacy Policies" />
+  <meta name="twitter:description" content="InfoFlow Privacy Policies 1. 引言 InfoFlow（以下简称&quot;我们&quot;或&quot;本扩展&quot;）非常重视您的隐私保护和个人信息安全。本隐私政策旨在说明我们如何收集、使用、存储和保护您在使用本浏览器扩展服务时的个人信息。请您在使用本扩展前，仔细阅读并充分理解本政策。 2. 信息收集 2." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="/index/TsFullStack/InfoFlow Privacy Policies.html" />
+
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  // 更好的主题切换方案
+  (function() {
+    // 主题配置
+    const themes = {
+      light: {
+        name: 'daylight',
+        mode: 'light',
+        icon: '☀️'
+      },
+      dark: {
+        name: 'midnight',
+        mode: 'dark',
+        icon: '🌙'
+      },
+      auto: {
+        name: 'auto',
+        mode: 'auto',
+        icon: '🌗',
+        getTheme: function() {
+          const currentHour = new Date().getHours();
+          return currentHour >= 18 || currentHour < 6 ? 'dark' : 'light';
+        }
+      }
+    };
+
+    // 获取当前主题设置
+    function getCurrentTheme() {
+      // 优先级：localStorage > 系统偏好 > auto
+      const savedTheme = localStorage.getItem('oceanpress-theme');
+      if (savedTheme && themes[savedTheme]) {
+        return savedTheme;
+      }
+
+      // 检测系统偏好
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
+      }
+
+      return 'auto';
+    }
+
+    // 应用主题
+    function applyTheme(themeName) {
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 设置 CSS 变量
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 加载对应的 CSS
+      const themeStyle = document.getElementById('themeDefaultStyle');
+      if (themeStyle) {
+        themeStyle.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+      } else {
+        // 如果元素不存在，创建它
+        const link = document.createElement('link');
+        link.id = 'themeDefaultStyle';
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+        document.head.appendChild(link);
+      }
+
+      // 更新主题切换按钮
+      updateThemeToggle(themeName);
+
+      // 保存到 localStorage
+      localStorage.setItem('oceanpress-theme', themeName);
+
+      // 触发自定义事件
+      window.dispatchEvent(new CustomEvent('oceanpress-theme-changed', {
+        detail: { theme: themeName, actualTheme: actualTheme }
+      }));
+    }
+
+    // 创建主题切换按钮
+    function createThemeToggle() {
+      const toggle = document.createElement('div');
+      toggle.id = 'oceanpress-theme-toggle';
+      toggle.innerHTML = '<span class="theme-icon">🌗</span><span class="theme-text">自动</span>';
+      toggle.addEventListener('click', toggleTheme);
+      (document.querySelector('[data-type="NodeDocument"]')||document.body).appendChild(toggle);
+    }
+
+    // 更新主题切换按钮
+    function updateThemeToggle(themeName) {
+      const toggle = document.getElementById('oceanpress-theme-toggle');
+      if (!toggle) return;
+
+      const theme = themes[themeName] || themes.auto;
+      toggle.innerHTML = '<span class="theme-icon">' + theme.icon + '</span><span class="theme-text">' +
+        (themeName === 'auto' ? '自动' : (themeName === 'dark' ? '深色' : '浅色')) + '</span>';
+    }
+
+    // 切换主题
+    function toggleTheme() {
+      const currentTheme = getCurrentTheme();
+      const themeOrder = ['auto', 'light', 'dark'];
+      const currentIndex = themeOrder.indexOf(currentTheme);
+      const nextIndex = (currentIndex + 1) % themeOrder.length;
+      const nextTheme = themeOrder[nextIndex];
+
+      applyTheme(nextTheme);
+    }
+
+    // 监听系统主题变化
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const currentTheme = getCurrentTheme();
+        if (currentTheme === 'auto') {
+          applyTheme('auto');
+        }
+      });
+    }
+
+    // 监听自定义主题变化事件（用于侧边栏等组件）
+    window.addEventListener('oceanpress-theme-changed', function(e) {
+      // 这里可以添加其他组件需要响应主题变化的逻辑
+      console.log('Theme changed to:', e.detail);
+    });
+
+    // 初始化主题
+    function initTheme() {
+      const themeName = getCurrentTheme();
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 立即设置基础主题，避免闪烁
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 创建主题切换按钮
+      createThemeToggle();
+
+      // 应用完整主题
+      applyTheme(themeName);
+    }
+
+    // 页面加载完成后初始化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+      initTheme();
+    }
+  })();
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>InfoFlow Privacy Policies</title>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "InfoFlow Privacy Policies",
+  "description": "InfoFlow Privacy Policies 1. 引言 InfoFlow（以下简称\"我们\"或\"本扩展\"）非常重视您的隐私保护和个人信息安全。本隐私政策旨在说明我们如何收集、使用、存储和保护您在使用本浏览器扩展服务时的个人信息。请您在使用本扩展前，仔细阅读并充分理解本政策。 2. 信息收集 2.",
+  "keywords": "云端服务, 人信息, 监听规则, 信息, 个人信息, infoflow, 收集的信, 的监听规",
+  "datePublished": "2025-09-09T16:30:42Z",
+  "dateModified": "2025-09-09T16:34:41Z",
+  "author": {
+    "@type": "Person",
+    "name": "崮生",
+    "url": ""
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "OceanPress",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/assets/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/index/TsFullStack/InfoFlow Privacy Policies.html"
+  },
+  "wordCount": 1308,
+  "articleSection": "技术文档",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "index",
+      "item": "/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "TsFullStack",
+      "item": "/index/TsFullStack.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "InfoFlow Privacy Policies",
+      "item": "/index/TsFullStack/InfoFlow Privacy Policies.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div id="oceanpress-left-sidebar">
+    
+    <div id="oceanpress-doctree"></div>
+           <script src="./../../__oceanpress/docTree.js" async></script>
+  </div>
+  <div style="min-height: 150px;" id="20250909163042-pedjb9o" data-node-id="20250909163042-pedjb9o" data-type="NodeDocument" updated="20250909163441" type="doc">
+
+<h1 id="20250909163042-pedjb9o" data-node-id="20250909163042-pedjb9o" data-type="NodeDocument" updated="20250909163441" type="doc" data-type="NodeHeading" class="h1">InfoFlow Privacy Policies</h1>
+<h2 id="20250909163127-4055kzh" data-node-id="20250909163127-4055kzh" data-type="NodeHeading" updated="20250909163147" data-subtype="h2" class="h2">1. 引言</h2><div id="20250909163127-dvaqc8d" data-node-id="20250909163127-dvaqc8d" data-type="NodeParagraph" updated="20250909163147" class="p"><div spellcheck="false">InfoFlow（以下简称"我们"或"本扩展"）非常重视您的隐私保护和个人信息安全。本隐私政策旨在说明我们如何收集、使用、存储和保护您在使用本浏览器扩展服务时的个人信息。请您在使用本扩展前，仔细阅读并充分理解本政策。</div></div><h2 id="20250909163127-gvdniqc" data-node-id="20250909163127-gvdniqc" data-type="NodeHeading" updated="20250909163127" data-subtype="h2" class="h2">2. 信息收集</h2><h3 id="20250909163127-i0w3hty" data-node-id="20250909163127-i0w3hty" data-type="NodeHeading" updated="20250909163127" data-subtype="h3" class="h3">2.1 收集的信息类型</h3><div id="20250909163127-hq33mu7" data-node-id="20250909163127-hq33mu7" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">本扩展主要收集以下信息：</div></div><div id="20250909163127-s5gohz6" data-node-id="20250909163127-s5gohz6" data-type="NodeList" updated="20250909163127" data-subtype="u" class="list"><div id="20250909163127-wnxid5u" data-node-id="20250909163127-wnxid5u" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-zoer414" data-node-id="20250909163127-zoer414" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">您选择监听的网页URL和元素信息</div></div>
+      </div><div id="20250909163127-bq2kuqr" data-node-id="20250909163127-bq2kuqr" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-aps89ay" data-node-id="20250909163127-aps89ay" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">您定义的监听规则和设置</div></div>
+      </div><div id="20250909163127-u8i161p" data-node-id="20250909163127-u8i161p" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-aatecn8" data-node-id="20250909163127-aatecn8" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">网页中被监听元素的内容变化数据</div></div>
+      </div><div id="20250909163127-g939gct" data-node-id="20250909163127-g939gct" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-zzsk22e" data-node-id="20250909163127-zzsk22e" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">当您使用云端服务时，可能会收集您的账户信息（如电子邮件地址）</div></div>
+      </div></div><h3 id="20250909163127-8nirsij" data-node-id="20250909163127-8nirsij" data-type="NodeHeading" updated="20250909163127" data-subtype="h3" class="h3">2.2 收集方式</h3><div id="20250909163127-snmvbo4" data-node-id="20250909163127-snmvbo4" data-type="NodeList" updated="20250909163127" data-subtype="u" class="list"><div id="20250909163127-2y0yqmt" data-node-id="20250909163127-2y0yqmt" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-51nvkgx" data-node-id="20250909163127-51nvkgx" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">通过您在扩展界面手动输入的监听规则和设置</div></div>
+      </div><div id="20250909163127-hrcnofv" data-node-id="20250909163127-hrcnofv" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-dkp4ebg" data-node-id="20250909163127-dkp4ebg" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">通过扩展自动获取您指定网页的特定元素内容</div></div>
+      </div><div id="20250909163127-xy8veho" data-node-id="20250909163127-xy8veho" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-r9wnbqj" data-node-id="20250909163127-r9wnbqj" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">当您启用云端服务时，通过您提供的账户信息</div></div>
+      </div></div><h3 id="20250909163127-tyvgroy" data-node-id="20250909163127-tyvgroy" data-type="NodeHeading" updated="20250909163127" data-subtype="h3" class="h3">2.3 收集目的</h3><div id="20250909163127-lv78gri" data-node-id="20250909163127-lv78gri" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">收集上述信息的主要目的是：</div></div><div id="20250909163127-t3gjs9b" data-node-id="20250909163127-t3gjs9b" data-type="NodeList" updated="20250909163127" data-subtype="u" class="list"><div id="20250909163127-9g32qho" data-node-id="20250909163127-9g32qho" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-za4hgm0" data-node-id="20250909163127-za4hgm0" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">提供网页内容变化监听和AI整合提示的核心功能</div></div>
+      </div><div id="20250909163127-edzozzs" data-node-id="20250909163127-edzozzs" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-ku9wsvw" data-node-id="20250909163127-ku9wsvw" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">根据您的自定义规则提供个性化服务</div></div>
+      </div><div id="20250909163127-x3wog52" data-node-id="20250909163127-x3wog52" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-iokcbyp" data-node-id="20250909163127-iokcbyp" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">在您启用云端服务时，实现数据同步和跨设备使用</div></div>
+      </div></div><h2 id="20250909163127-qj5m5tp" data-node-id="20250909163127-qj5m5tp" data-type="NodeHeading" updated="20250909163127" data-subtype="h2" class="h2">3. 信息使用</h2><h3 id="20250909163127-i4a01c6" data-node-id="20250909163127-i4a01c6" data-type="NodeHeading" updated="20250909163127" data-subtype="h3" class="h3">3.1 信息使用方式</h3><div id="20250909163127-wdt591u" data-node-id="20250909163127-wdt591u" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">我们使用收集的信息来：</div></div><div id="20250909163127-c3at17r" data-node-id="20250909163127-c3at17r" data-type="NodeList" updated="20250909163127" data-subtype="u" class="list"><div id="20250909163127-hj88m6o" data-node-id="20250909163127-hj88m6o" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-n0vhb7f" data-node-id="20250909163127-n0vhb7f" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">执行您设定的监听任务，检测网页元素变化</div></div>
+      </div><div id="20250909163127-3bvq6fx" data-node-id="20250909163127-3bvq6fx" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-jhyhqhe" data-node-id="20250909163127-jhyhqhe" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">通过AI技术整合变化内容，生成相关提示</div></div>
+      </div><div id="20250909163127-n72tg2h" data-node-id="20250909163127-n72tg2h" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-nyh63d8" data-node-id="20250909163127-nyh63d8" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">保存您的监听规则和历史记录，以便您随时查看</div></div>
+      </div><div id="20250909163127-n64i0p1" data-node-id="20250909163127-n64i0p1" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-tt8zvxb" data-node-id="20250909163127-tt8zvxb" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">在您启用云端服务时，实现数据同步和备份</div></div>
+      </div></div><h3 id="20250909163127-mmdq2yf" data-node-id="20250909163127-mmdq2yf" data-type="NodeHeading" updated="20250909163127" data-subtype="h3" class="h3">3.2 AI处理说明</h3><div id="20250909163127-5hf13ru" data-node-id="20250909163127-5hf13ru" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">当本扩展通过AI技术整合信息时：</div></div><div id="20250909163127-5tvejmi" data-node-id="20250909163127-5tvejmi" data-type="NodeList" updated="20250909163127" data-subtype="u" class="list"><div id="20250909163127-65nc3p8" data-node-id="20250909163127-65nc3p8" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-209aw4r" data-node-id="20250909163127-209aw4r" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">处理过程主要在您的设备本地完成</div></div>
+      </div><div id="20250909163127-sej7nq3" data-node-id="20250909163127-sej7nq3" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-qn3i7d6" data-node-id="20250909163127-qn3i7d6" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">AI仅用于分析您指定的网页内容变化，不会访问其他无关数据</div></div>
+      </div><div id="20250909163127-pzb7y18" data-node-id="20250909163127-pzb7y18" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-67loaj2" data-node-id="20250909163127-67loaj2" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">AI生成的提示内容仅用于向您展示，不会被用于其他目的</div></div>
+      </div></div><h2 id="20250909163127-fr6bgog" data-node-id="20250909163127-fr6bgog" data-type="NodeHeading" updated="20250909163127" data-subtype="h2" class="h2">4. 信息存储</h2><h3 id="20250909163127-tkwt9k9" data-node-id="20250909163127-tkwt9k9" data-type="NodeHeading" updated="20250909163127" data-subtype="h3" class="h3">4.1 本地存储</h3><div id="20250909163127-pe9jkbm" data-node-id="20250909163127-pe9jkbm" data-type="NodeList" updated="20250909163127" data-subtype="u" class="list"><div id="20250909163127-t072ih0" data-node-id="20250909163127-t072ih0" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-qu2wb7h" data-node-id="20250909163127-qu2wb7h" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">默认情况下，所有收集的信息和数据都存储在您的本地设备上</div></div>
+      </div><div id="20250909163127-ahwako5" data-node-id="20250909163127-ahwako5" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-ypwv941" data-node-id="20250909163127-ypwv941" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">本地存储包括您的监听规则、设置和历史记录</div></div>
+      </div><div id="20250909163127-9kr7119" data-node-id="20250909163127-9kr7119" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-61pbi4h" data-node-id="20250909163127-61pbi4h" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">您可以随时通过扩展界面清除本地存储的数据</div></div>
+      </div></div><h3 id="20250909163127-z5e3wtp" data-node-id="20250909163127-z5e3wtp" data-type="NodeHeading" updated="20250909163127" data-subtype="h3" class="h3">4.2 云端服务（可选）</h3><div id="20250909163127-m8ze1vv" data-node-id="20250909163127-m8ze1vv" data-type="NodeList" updated="20250909163127" data-subtype="u" class="list"><div id="20250909163127-rlec88y" data-node-id="20250909163127-rlec88y" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-p1njjf5" data-node-id="20250909163127-p1njjf5" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">只有当您明确启用云端服务时，部分数据才会被上传到我们的服务器</div></div>
+      </div><div id="20250909163127-km7c5cr" data-node-id="20250909163127-km7c5cr" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-1ccgxm6" data-node-id="20250909163127-1ccgxm6" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">云端存储的数据可能包括您的监听规则、设置和历史记录</div></div>
+      </div><div id="20250909163127-biqdv71" data-node-id="20250909163127-biqdv71" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-so0unus" data-node-id="20250909163127-so0unus" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">您可以随时关闭云端服务，关闭后我们将停止上传新数据，并可根据您的要求删除已存储的云端数据</div></div>
+      </div></div><h2 id="20250909163127-1dplsxv" data-node-id="20250909163127-1dplsxv" data-type="NodeHeading" updated="20250909163127" data-subtype="h2" class="h2">5. 信息共享</h2><div id="20250909163127-s370erw" data-node-id="20250909163127-s370erw" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">我们承诺：</div></div><div id="20250909163127-elcswil" data-node-id="20250909163127-elcswil" data-type="NodeList" updated="20250909163127" data-subtype="u" class="list"><div id="20250909163127-6dc0o6h" data-node-id="20250909163127-6dc0o6h" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-hgyz7nn" data-node-id="20250909163127-hgyz7nn" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">不会出售、出租或以其他方式共享您的个人信息给第三方</div></div>
+      </div><div id="20250909163127-f90gvyj" data-node-id="20250909163127-f90gvyj" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-y1sktsd" data-node-id="20250909163127-y1sktsd" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">不会将您的数据用于广告投放或商业营销</div></div>
+      </div><div id="20250909163127-2eb406i" data-node-id="20250909163127-2eb406i" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-7vaqsnn" data-node-id="20250909163127-7vaqsnn" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">仅在以下情况下可能会共享信息：</div></div><div id="20250909163127-bi20tlx" data-node-id="20250909163127-bi20tlx" data-type="NodeList" updated="20250909163127" data-subtype="u" class="list"><div id="20250909163127-8rol43w" data-node-id="20250909163127-8rol43w" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-spssykx" data-node-id="20250909163127-spssykx" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">获得您的明确授权</div></div>
+      </div><div id="20250909163127-nozh19g" data-node-id="20250909163127-nozh19g" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-my28eia" data-node-id="20250909163127-my28eia" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">法律法规要求</div></div>
+      </div><div id="20250909163127-asph31v" data-node-id="20250909163127-asph31v" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-gje48nd" data-node-id="20250909163127-gje48nd" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">保护我们的合法权益</div></div>
+      </div></div>
+      </div></div><h2 id="20250909163127-6mpfrrf" data-node-id="20250909163127-6mpfrrf" data-type="NodeHeading" updated="20250909163127" data-subtype="h2" class="h2">6. 用户权利</h2><div id="20250909163127-98hep1q" data-node-id="20250909163127-98hep1q" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">您拥有以下权利：</div></div><div id="20250909163127-2rx4re2" data-node-id="20250909163127-2rx4re2" data-type="NodeList" updated="20250909163127" data-subtype="u" class="list"><div id="20250909163127-cpuwd4d" data-node-id="20250909163127-cpuwd4d" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-fg8jizx" data-node-id="20250909163127-fg8jizx" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">访问：查看我们持有的关于您的个人信息</div></div>
+      </div><div id="20250909163127-wy59anh" data-node-id="20250909163127-wy59anh" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-skv10sz" data-node-id="20250909163127-skv10sz" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">更正：更新或修改您的个人信息</div></div>
+      </div><div id="20250909163127-f8q8hwh" data-node-id="20250909163127-f8q8hwh" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-fi2809x" data-node-id="20250909163127-fi2809x" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">删除：要求删除您的个人信息（云端数据）</div></div>
+      </div><div id="20250909163127-v1ukt9g" data-node-id="20250909163127-v1ukt9g" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-gvs4dr7" data-node-id="20250909163127-gvs4dr7" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">撤回同意：撤回对收集和使用您个人信息的同意</div></div>
+      </div><div id="20250909163127-vm2k476" data-node-id="20250909163127-vm2k476" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-p6lcipz" data-node-id="20250909163127-p6lcipz" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">数据导出：获取您的个人信息的副本</div></div>
+      </div><div id="20250909163127-oys5fxr" data-node-id="20250909163127-oys5fxr" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-3kxuimd" data-node-id="20250909163127-3kxuimd" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">退出云端服务：随时停止使用云端服务并要求删除相关数据
+如需行使上述权利，请联系我们（详见第10节）。</div></div>
+      </div></div><h2 id="20250909163127-es9bca8" data-node-id="20250909163127-es9bca8" data-type="NodeHeading" updated="20250909163127" data-subtype="h2" class="h2">7. 数据安全</h2><div id="20250909163127-tm8m9er" data-node-id="20250909163127-tm8m9er" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">我们采取以下措施保护您的个人信息：</div></div><div id="20250909163127-p0h6gaf" data-node-id="20250909163127-p0h6gaf" data-type="NodeList" updated="20250909163127" data-subtype="u" class="list"><div id="20250909163127-n98q96t" data-node-id="20250909163127-n98q96t" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-4d8n93u" data-node-id="20250909163127-4d8n93u" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">使用加密技术保护数据传输和存储</div></div>
+      </div><div id="20250909163127-sr1bzuw" data-node-id="20250909163127-sr1bzuw" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-bnh6d0z" data-node-id="20250909163127-bnh6d0z" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">限制员工对用户数据的访问权限</div></div>
+      </div><div id="20250909163127-xw6xpcb" data-node-id="20250909163127-xw6xpcb" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-63mr85e" data-node-id="20250909163127-63mr85e" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">定期审查和更新我们的安全措施</div></div>
+      </div><div id="20250909163127-o442j3a" data-node-id="20250909163127-o442j3a" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-m2c5g7w" data-node-id="20250909163127-m2c5g7w" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">要求任何处理用户数据的第三方采取适当的安全措施</div></div>
+      </div></div><h2 id="20250909163127-m3kwuz5" data-node-id="20250909163127-m3kwuz5" data-type="NodeHeading" updated="20250909163127" data-subtype="h2" class="h2">8. 隐私政策的更新</h2><div id="20250909163127-2lsrx4a" data-node-id="20250909163127-2lsrx4a" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">我们可能会不时更新本隐私政策。当我们做出实质性变更时，我们会：</div></div><div id="20250909163127-016amas" data-node-id="20250909163127-016amas" data-type="NodeList" updated="20250909163127" data-subtype="u" class="list"><div id="20250909163127-6otnwck" data-node-id="20250909163127-6otnwck" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-1b6rmex" data-node-id="20250909163127-1b6rmex" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">在扩展内发布更新通知</div></div>
+      </div><div id="20250909163127-1g3c2nc" data-node-id="20250909163127-1g3c2nc" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-8pv6io1" data-node-id="20250909163127-8pv6io1" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">要求您重新确认接受更新后的政策</div></div>
+      </div><div id="20250909163127-sfo5me9" data-node-id="20250909163127-sfo5me9" data-type="NodeListItem" updated="20250909163127" data-subtype="u" class="li" data-marker="*">
+        <div class="protyle-action">
+          <svg><use xlink:href="#iconDot"></use></svg>
+        </div>
+        <div id="20250909163127-4qita5e" data-node-id="20250909163127-4qita5e" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">在我们的官方网站上公布更新后的政策</div></div>
+      </div></div><div id="20250909163127-i3vxmea" data-node-id="20250909163127-i3vxmea" data-type="NodeThematicBreak" updated="20250909163127" class="hr"><div></div></div><div id="20250909163127-w851c9b" data-node-id="20250909163127-w851c9b" data-type="NodeParagraph" updated="20250909163127" class="p"><div spellcheck="false">通过使用nfoFlow扩展，您表示您已阅读、理解并同意本隐私政策中所述的做法。</div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: document.documentElement.getAttribute('data-theme-mode') === 'dark' ? 1 : 0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
+crossorigin="anonymous"></script><div class="comments-section">
+  <script src="https://giscus.app/client.js"
+        data-repo="2234839/doc"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyMjA1NzA5Mzg="
+        data-category="Announcements"
+        data-category-id="DIC_kwDODSWlOs4CvVZ5"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+  </script>
+</div>
+<footer class="theme-aware-footer">
+  <p>
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>

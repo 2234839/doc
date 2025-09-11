@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<style>
+  :root {
+    --oceanpress-header-bg: #f8f9fa;
+    --oceanpress-header-border: #e9ecef;
+    --oceanpress-header-text: #007bff;
+    --oceanpress-footer-bg: #f8f9fa;
+    --oceanpress-footer-text: #007bff;
+  }
+  
+  [data-theme-mode="dark"] {
+    --oceanpress-header-bg: #2d2d2d;
+    --oceanpress-header-border: #404040;
+    --oceanpress-header-text: #58a6ff;
+    --oceanpress-footer-bg: #2d2d2d;
+    --oceanpress-footer-text: #58a6ff;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--oceanpress-header-bg);
+    border-bottom: 1px solid var(--oceanpress-header-border);
+  }
+  .home-button {
+    text-decoration: none;
+    color: var(--oceanpress-header-text);
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .home-button:hover {
+    text-decoration: underline;
+  }
+  #search {
+    width: 300px;
+  }
+  
+  .theme-aware-footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--oceanpress-footer-bg);
+    text-align: center;
+  }
+  .theme-aware-footer p {
+    margin: 0;
+  }
+  .theme-aware-footer a {
+    color: var(--oceanpress-footer-text);
+    text-decoration: none;
+  }
+  .theme-aware-footer a:hover {
+    text-decoration: underline;
+  }
+  
+  .comments-section {
+    max-width: 800px;
+    margin: 40px auto 30px;
+    padding: 0 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .comments-section {
+      max-width: 100%;
+      margin: 30px auto 20px;
+      padding: 0 15px;
+    }
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="description" content="无缝滚动动画技术方案 问题描述 在实现横向无缝滚动时，遇到了一个关键问题：当容器宽度超过100%时，传统的CSS百分比动画无法准确计算滚动距离，导致动画重置时机不正确。 技术方案 核心思路 1. 无缝循环 ：使用两组镜像元素 2." />
+  <meta name="keywords" content="css, useelementsize, vue, const, firstgroupref, scroll, item, name" />
+  <meta name="author" content="崮生" />
+  <meta property="og:title" content="无缝滚动动画技术方案" />
+  <meta property="og:description" content="无缝滚动动画技术方案 问题描述 在实现横向无缝滚动时，遇到了一个关键问题：当容器宽度超过100%时，传统的CSS百分比动画无法准确计算滚动距离，导致动画重置时机不正确。 技术方案 核心思路 1. 无缝循环 ：使用两组镜像元素 2." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="/index/无缝滚动动画技术方案.html" />
+  <meta property="og:site_name" content="OceanPress" />
+  <meta property="article:published_time" content="2025-08-28T17:12:48Z" />
+  <meta property="article:modified_time" content="2025-08-28T17:46:24Z" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="无缝滚动动画技术方案" />
+  <meta name="twitter:description" content="无缝滚动动画技术方案 问题描述 在实现横向无缝滚动时，遇到了一个关键问题：当容器宽度超过100%时，传统的CSS百分比动画无法准确计算滚动距离，导致动画重置时机不正确。 技术方案 核心思路 1. 无缝循环 ：使用两组镜像元素 2." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="/index/无缝滚动动画技术方案.html" />
+
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  // 更好的主题切换方案
+  (function() {
+    // 主题配置
+    const themes = {
+      light: {
+        name: 'daylight',
+        mode: 'light',
+        icon: '☀️'
+      },
+      dark: {
+        name: 'midnight',
+        mode: 'dark',
+        icon: '🌙'
+      },
+      auto: {
+        name: 'auto',
+        mode: 'auto',
+        icon: '🌗',
+        getTheme: function() {
+          const currentHour = new Date().getHours();
+          return currentHour >= 18 || currentHour < 6 ? 'dark' : 'light';
+        }
+      }
+    };
+
+    // 获取当前主题设置
+    function getCurrentTheme() {
+      // 优先级：localStorage > 系统偏好 > auto
+      const savedTheme = localStorage.getItem('oceanpress-theme');
+      if (savedTheme && themes[savedTheme]) {
+        return savedTheme;
+      }
+
+      // 检测系统偏好
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
+      }
+
+      return 'auto';
+    }
+
+    // 应用主题
+    function applyTheme(themeName) {
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 设置 CSS 变量
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 加载对应的 CSS
+      const themeStyle = document.getElementById('themeDefaultStyle');
+      if (themeStyle) {
+        themeStyle.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+      } else {
+        // 如果元素不存在，创建它
+        const link = document.createElement('link');
+        link.id = 'themeDefaultStyle';
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/themes/' + themeConfig.name + '/theme.css?2.10.5';
+        document.head.appendChild(link);
+      }
+
+      // 更新主题切换按钮
+      updateThemeToggle(themeName);
+
+      // 保存到 localStorage
+      localStorage.setItem('oceanpress-theme', themeName);
+
+      // 触发自定义事件
+      window.dispatchEvent(new CustomEvent('oceanpress-theme-changed', {
+        detail: { theme: themeName, actualTheme: actualTheme }
+      }));
+    }
+
+    // 创建主题切换按钮
+    function createThemeToggle() {
+      const toggle = document.createElement('div');
+      toggle.id = 'oceanpress-theme-toggle';
+      toggle.innerHTML = '<span class="theme-icon">🌗</span><span class="theme-text">自动</span>';
+      toggle.addEventListener('click', toggleTheme);
+      (document.querySelector('[data-type="NodeDocument"]')||document.body).appendChild(toggle);
+    }
+
+    // 更新主题切换按钮
+    function updateThemeToggle(themeName) {
+      const toggle = document.getElementById('oceanpress-theme-toggle');
+      if (!toggle) return;
+
+      const theme = themes[themeName] || themes.auto;
+      toggle.innerHTML = '<span class="theme-icon">' + theme.icon + '</span><span class="theme-text">' +
+        (themeName === 'auto' ? '自动' : (themeName === 'dark' ? '深色' : '浅色')) + '</span>';
+    }
+
+    // 切换主题
+    function toggleTheme() {
+      const currentTheme = getCurrentTheme();
+      const themeOrder = ['auto', 'light', 'dark'];
+      const currentIndex = themeOrder.indexOf(currentTheme);
+      const nextIndex = (currentIndex + 1) % themeOrder.length;
+      const nextTheme = themeOrder[nextIndex];
+
+      applyTheme(nextTheme);
+    }
+
+    // 监听系统主题变化
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const currentTheme = getCurrentTheme();
+        if (currentTheme === 'auto') {
+          applyTheme('auto');
+        }
+      });
+    }
+
+    // 监听自定义主题变化事件（用于侧边栏等组件）
+    window.addEventListener('oceanpress-theme-changed', function(e) {
+      // 这里可以添加其他组件需要响应主题变化的逻辑
+      console.log('Theme changed to:', e.detail);
+    });
+
+    // 初始化主题
+    function initTheme() {
+      const themeName = getCurrentTheme();
+      const theme = themes[themeName] || themes.auto;
+      const actualTheme = themeName === 'auto' ? theme.getTheme() : themeName;
+      const themeConfig = themes[actualTheme];
+
+      // 立即设置基础主题，避免闪烁
+      document.documentElement.setAttribute('data-theme-mode', themeConfig.mode);
+      document.documentElement.setAttribute('data-light-theme', 'daylight');
+      document.documentElement.setAttribute('data-dark-theme', 'midnight');
+
+      // 创建主题切换按钮
+      createThemeToggle();
+
+      // 应用完整主题
+      applyTheme(themeName);
+    }
+
+    // 页面加载完成后初始化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+      initTheme();
+    }
+  })();
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>无缝滚动动画技术方案</title>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "无缝滚动动画技术方案",
+  "description": "无缝滚动动画技术方案 问题描述 在实现横向无缝滚动时，遇到了一个关键问题：当容器宽度超过100%时，传统的CSS百分比动画无法准确计算滚动距离，导致动画重置时机不正确。 技术方案 核心思路 1. 无缝循环 ：使用两组镜像元素 2.",
+  "keywords": "css, useelementsize, vue, const, firstgroupref, scroll, item, name",
+  "datePublished": "2025-08-28T17:12:48Z",
+  "dateModified": "2025-08-28T17:46:24Z",
+  "author": {
+    "@type": "Person",
+    "name": "崮生",
+    "url": ""
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "OceanPress",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/assets/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/index/无缝滚动动画技术方案.html"
+  },
+  "wordCount": 834,
+  "articleSection": "技术文档",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "index",
+      "item": "/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "无缝滚动动画技术方案",
+      "item": "/index/无缝滚动动画技术方案.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <div class="header-container">
+  <a href="/" class="home-button">首页</a>
+  <div id="search"></div>
+</div>
+
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div id="oceanpress-left-sidebar">
+    
+    <div id="oceanpress-doctree"></div>
+           <script src="./../__oceanpress/docTree.js" async></script>
+  </div>
+  <div style="min-height: 150px;" id="20250828171248-ar0phcr" data-node-id="20250828171248-ar0phcr" data-type="NodeDocument" updated="20250828174624" type="doc">
+
+<h1 id="20250828171248-ar0phcr" data-node-id="20250828171248-ar0phcr" data-type="NodeDocument" updated="20250828174624" type="doc" data-type="NodeHeading" class="h1">无缝滚动动画技术方案</h1>
+<h2 id="20250828174440-7o6vclx" data-node-id="20250828174440-7o6vclx" data-type="NodeHeading" updated="20250828174514" data-subtype="h2" class="h2">问题描述</h2><div id="20250828174440-h9iv7a4" data-node-id="20250828174440-h9iv7a4" data-type="NodeParagraph" updated="20250828174514" class="p"><div spellcheck="false">在实现横向无缝滚动时，遇到了一个关键问题：当容器宽度超过100%时，传统的CSS百分比动画无法准确计算滚动距离，导致动画重置时机不正确。</div></div><h2 id="20250828174440-0azlala" data-node-id="20250828174440-0azlala" data-type="NodeHeading" updated="20250828174624" data-subtype="h2" class="h2">技术方案</h2><h3 id="20250828174440-k77yeyf" data-node-id="20250828174440-k77yeyf" data-type="NodeHeading" updated="20250828174624" data-subtype="h3" class="h3">核心思路</h3><div id="20250828174440-flwtvcm" data-node-id="20250828174440-flwtvcm" data-type="NodeList" updated="20250828174624" data-subtype="o" class="list"><div id="20250828174523-cq201d4" data-node-id="20250828174523-cq201d4" data-type="NodeListItem" updated="20250828174523" data-subtype="o" class="li" data-marker="1.">
+        <div class="protyle-action">
+          1.
+        </div>
+        <div id="20250828174523-sl2wkts" data-node-id="20250828174523-sl2wkts" data-type="NodeParagraph" updated="20250828174612" class="p"><div spellcheck="false"><span data-type="strong">无缝循环</span>：使用两组镜像元素</div></div>
+      </div><div id="20250828174440-eo3q3zw" data-node-id="20250828174440-eo3q3zw" data-type="NodeListItem" updated="20250828174624" data-subtype="o" class="li" data-marker="2.">
+        <div class="protyle-action">
+          2.
+        </div>
+        <div id="20250828174440-uoevycf" data-node-id="20250828174440-uoevycf" data-type="NodeParagraph" updated="20250828174624" class="p"><div spellcheck="false"><span data-type="strong">实时宽度计算：</span>使用 <span data-type="code">useElementSize</span>​ 实时获取第一组元素的实际宽度（两组元素的宽度应该一致）</div></div>
+      </div><div id="20250828174440-mm5m3wf" data-node-id="20250828174440-mm5m3wf" data-type="NodeListItem" updated="20250828174440" data-subtype="o" class="li" data-marker="3.">
+        <div class="protyle-action">
+          3.
+        </div>
+        <div id="20250828174440-kigw1uq" data-node-id="20250828174440-kigw1uq" data-type="NodeParagraph" updated="20250828174440" class="p"><div spellcheck="false"><span data-type="strong">精确滚动距离</span>：将元素实际宽度作为CSS变量传递给动画</div></div>
+      </div></div><h3 id="20250828174440-myja9rf" data-node-id="20250828174440-myja9rf" data-type="NodeHeading" updated="20250828174440" data-subtype="h3" class="h3">技术实现</h3><h4 id="20250828174440-5m5a3zo" data-node-id="20250828174440-5m5a3zo" data-type="NodeHeading" updated="20250828174440" data-subtype="h4" class="h4">1. 模板结构</h4><div id="20250828174440-86dgaho" data-node-id="20250828174440-86dgaho" data-type="NodeCodeBlock" updated="20250828174440" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">vue</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"><template>
+  <section class="scroll-container">
+    <div class="overflow-hidden">
+      <div class="scroll-content" :style="scrollStyle">
+        <!-- 第一组元素 -->
+        <div class="scroll-group" ref="firstGroupRef">
+          <div v-for="item in items" :key="`first-${item.id}`" class="scroll-item">
+            {{ item.name }}
+          </div>
+        </div>
+        <!-- 第二组元素（用于无缝循环） -->
+        <div class="scroll-group">
+          <div v-for="item in items" :key="`second-${item.id}`" class="scroll-item">
+            {{ item.name }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+</div>
+        </div><h4 id="20250828174440-smhv2dh" data-node-id="20250828174440-smhv2dh" data-type="NodeHeading" updated="20250828174440" data-subtype="h4" class="h4">2. 脚本逻辑</h4><div id="20250828174440-00e78ps" data-node-id="20250828174440-00e78ps" data-type="NodeCodeBlock" updated="20250828174440" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">vue</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false"><script setup>
+import { useElementSize, useTemplateRef } from 'vue'
+import { useAsyncState } from '@vueuse/core'
+
+// 获取第一组元素的引用和尺寸
+const firstGroupRef = useTemplateRef('firstGroupRef')
+const { width: firstGroupWidth } = useElementSize(firstGroupRef)
+
+// 动态样式计算
+const scrollStyle = computed(() => ({
+  animationDuration: `${scrollDuration.value}s`,
+  '--scroll-distance': `-${firstGroupWidth.value}px`
+}))
+</script>
+</div>
+        </div><h4 id="20250828174440-65m7cpz" data-node-id="20250828174440-65m7cpz" data-type="NodeHeading" updated="20250828174456" data-subtype="h4" class="h4">3. CSS动画</h4><div id="20250828174440-uftnrk2" data-node-id="20250828174440-uftnrk2" data-type="NodeCodeBlock" updated="20250828174440" class="code-block">
+          <div class="protyle-action">
+            <span class="protyle-action--first protyle-action__language">css</span>
+            <span class="fn__flex-1"></span><span class="protyle-icon protyle-icon--only protyle-action__copy"><svg><use xlink:href="#iconCopy"></use></svg></span>
+          </div>
+          <div class="hljs" spellcheck="false">@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(var(--scroll-distance));
+  }
+}
+
+.scroll-content {
+  animation: scrollLeft linear infinite;
+}
+</div>
+        </div><div id="20250828174440-veql87c" data-node-id="20250828174440-veql87c" data-type="NodeParagraph" updated="20250828174456" class="p"><div spellcheck="false"></div></div></div>
+  <div id="oceanpress-right-sidebar"></div>
+</div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: document.documentElement.getAttribute('data-theme-mode') === 'dark' ? 1 : 0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@1.0.12/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181140659254262"
+crossorigin="anonymous"></script><div class="comments-section">
+  <script src="https://giscus.app/client.js"
+        data-repo="2234839/doc"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyMjA1NzA5Mzg="
+        data-category="Announcements"
+        data-category-id="DIC_kwDODSWlOs4CvVZ5"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+  </script>
+</div>
+<footer class="theme-aware-footer">
+  <p>
+    技术支持：
+    <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+    <a target="_blank" href="https://heartstack.space/user/%E5%AD%90%E8%99%9A/posts">崮生（子虚）</a> |
+    <a target="_blank" href="//beian.miit.gov.cn">湘ICP备18021783号-1</a>
+  </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: "UBOM0V691R",
+    apiKey: "0c572ae8b8611d29477570967f44c3cf",
+    indexName: "shenzilong",
+    insights: true, 
+    container: '#search',
+    debug: false
+  });
+</script>
+
+</body>
+</html>
